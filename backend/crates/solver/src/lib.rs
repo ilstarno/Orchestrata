@@ -2,14 +2,15 @@
 //! The search is exhaustive; it is intended for small correctness fixtures.
 
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
 pub struct Variable {
     pub name: String,
     pub domain: Vec<i64>,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
 #[serde(tag = "kind", rename_all = "snake_case")]
 pub enum Constraint {
     AllDifferent { variables: Vec<usize>, hard_weight: i64 },
@@ -17,13 +18,13 @@ pub enum Constraint {
     PreferValue { variable: usize, value: i64, soft_weight: i64 },
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
 pub struct Problem {
     pub variables: Vec<Variable>,
     pub constraints: Vec<Constraint>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
 pub struct Score {
     pub hard: i64,
     pub soft: i64,
@@ -35,7 +36,7 @@ impl Score {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
 pub struct Solution {
     pub values: Vec<i64>,
     pub score: Score,
