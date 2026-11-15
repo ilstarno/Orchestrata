@@ -10,3 +10,4 @@ serde.workspace = true
 utoipa = "5"
 orchestrata-domain = { path = "../domain" }
 orchestrata-solver = { path = "../solver" }
+orchestrata-application = { path = "../application" }
