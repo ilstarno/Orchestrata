@@ -3,6 +3,7 @@ members = [
     "crates/core",
     "crates/domain",
     "crates/solver",
+    "crates/ffi",
     "crates/hygiene",
     "crates/application",
     "crates/api",
