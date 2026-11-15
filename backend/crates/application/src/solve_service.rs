@@ -1,5 +1,5 @@
 use orchestrata_hygiene::inspect;
-use orchestrata_solver::{Problem, Solution, solve, validate};
+use orchestrata_solver::{Error, Problem, Solution, solve, solve_heuristic, validate};
 
 use crate::solve_error::SolveError;
 
@@ -11,7 +11,13 @@ impl SolveService {
     pub fn execute(problem: &Problem) -> Result<Option<Solution>, SolveError> {
         inspect(problem).map_err(|_| SolveError::InvalidInput)?;
         validate(problem).map_err(|_| SolveError::InvalidInput)?;
-        solve(problem, MAX_EVALUATIONS).map_err(|_| SolveError::InvalidInput)
+        match solve(problem, MAX_EVALUATIONS) {
+            Ok(solution) => Ok(solution),
+            Err(Error::TooManyAssignments) => {
+                solve_heuristic(problem, MAX_EVALUATIONS).map_err(|_| SolveError::ExecutionFailed)
+            }
+            Err(_) => Err(SolveError::ExecutionFailed),
+        }
     }
 
     pub async fn execute_async(problem: Problem) -> Result<Option<Solution>, SolveError> {
