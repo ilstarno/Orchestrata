@@ -6,6 +6,4 @@ Keep the brain aligned with the implementation. Update an existing page when beh
 
 Code must be type-safe, readable, and testable. Preserve the separation between the Rust solver, HTTP transport, persistence, and the React frontend. Do not bypass independent solution validation. Never commit credentials or customer data.
 
-Commit messages and pull-request descriptions must describe the technical change without references to assistants, generation tools, or authorship automation.
-
 Before submitting a change, run relevant formatters, linters, tests, and builds. If a check cannot run, state that explicitly.
