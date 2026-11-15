@@ -1,6 +1,3 @@
-//! A generic finite-domain assignment solver with a reference scorer.
-//! The search is exhaustive; it is intended for small correctness fixtures.
-
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
@@ -49,6 +46,7 @@ pub enum Error {
     InvalidVariable(usize),
     InvalidWeight,
     TooManyAssignments,
+    ScoreOverflow,
 }
 
 pub fn validate(problem: &Problem) -> Result<(), Error> {
@@ -56,14 +54,37 @@ pub fn validate(problem: &Problem) -> Result<(), Error> {
         if variable.domain.is_empty() { return Err(Error::EmptyDomain(index)); }
     }
     for constraint in &problem.constraints {
-        let (indices, weight): (Vec<usize>, i64) = match constraint {
-            Constraint::AllDifferent { variables, hard_weight } => (variables.clone(), *hard_weight),
-            Constraint::NotEqualOffset { left, right, hard_weight, .. } => (vec![*left, *right], *hard_weight),
-            Constraint::PreferValue { variable, soft_weight, .. } => (vec![*variable], *soft_weight),
+        let (weight, indices): (i64, &[usize]) = match constraint {
+            Constraint::AllDifferent { variables, hard_weight } => (*hard_weight, variables),
+            Constraint::NotEqualOffset { left, right, hard_weight, .. } => {
+                if *hard_weight <= 0 {
+                    return Err(Error::InvalidWeight);
+                }
+                if *left >= problem.variables.len() {
+                    return Err(Error::InvalidVariable(*left));
+                }
+                if *right >= problem.variables.len() {
+                    return Err(Error::InvalidVariable(*right));
+                }
+                continue;
+            }
+            Constraint::PreferValue { variable, soft_weight, .. } => {
+                if *soft_weight <= 0 {
+                    return Err(Error::InvalidWeight);
+                }
+                if *variable >= problem.variables.len() {
+                    return Err(Error::InvalidVariable(*variable));
+                }
+                continue;
+            }
         };
-        if weight <= 0 { return Err(Error::InvalidWeight); }
-        for index in indices {
-            if index >= problem.variables.len() { return Err(Error::InvalidVariable(index)); }
+        if weight <= 0 {
+            return Err(Error::InvalidWeight);
+        }
+        for &index in indices {
+            if index >= problem.variables.len() {
+                return Err(Error::InvalidVariable(index));
+            }
         }
     }
     Ok(())
@@ -84,7 +105,7 @@ pub fn score(problem: &Problem, values: &[i64]) -> Result<Score, Error> {
                 for i in 0..variables.len() {
                     for j in i + 1..variables.len() {
                         if values[variables[i]] == values[variables[j]] {
-                            result.hard = result.hard.saturating_sub(*hard_weight);
+                            result.hard = result.hard.checked_sub(*hard_weight).ok_or(Error::ScoreOverflow)?;
                         }
                     }
                 }
@@ -96,7 +117,7 @@ pub fn score(problem: &Problem, values: &[i64]) -> Result<Score, Error> {
             }
             Constraint::PreferValue { variable, value, soft_weight } => {
                 if values[*variable] != *value {
-                    result.soft = result.soft.saturating_sub(*soft_weight);
+                    result.soft = result.soft.checked_sub(*soft_weight).ok_or(Error::ScoreOverflow)?;
                 }
             }
         }
@@ -108,7 +129,7 @@ pub fn solve(problem: &Problem, max_evaluations: u64) -> Result<Option<Solution>
     validate(problem)?;
     let mut combinations = 1u64;
     for variable in &problem.variables {
-        combinations = combinations.checked_mul(variable.domain.len() as u64)
+        combinations = combinations.checked_mul(u64::try_from(variable.domain.len()).map_err(|_| Error::TooManyAssignments)?)
             .ok_or(Error::TooManyAssignments)?;
     }
     if combinations > max_evaluations { return Err(Error::TooManyAssignments); }
