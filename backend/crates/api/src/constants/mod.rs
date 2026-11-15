@@ -1,0 +1,1 @@
+pub const SOLVER_MAX_EVALUATIONS: u64 = 100_000;
