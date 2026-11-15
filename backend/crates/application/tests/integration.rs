@@ -40,3 +40,22 @@ async fn asynchronous_and_standalone_execution_agree() {
 
     assert_eq!(direct, asynchronous);
 }
+
+#[test]
+fn service_handles_large_search_spaces() {
+    let problem = Problem {
+        variables: (0..30).map(|index| Variable {
+            name: format!("task_{index}"),
+            domain: vec![0, 1],
+        }).collect(),
+        constraints: (0..30).map(|index| Constraint::PreferValue {
+            variable: index,
+            value: 1,
+            soft_weight: 1,
+        }).collect(),
+    };
+
+    let solution = SolveService::execute(&problem).unwrap().unwrap();
+    assert_eq!(solution.values, vec![1; 30]);
+    assert_eq!(score(&problem, &solution.values).unwrap(), solution.score);
+}
