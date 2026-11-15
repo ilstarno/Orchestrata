@@ -1,5 +1,13 @@
+#[path = "compiled_problem.rs"]
+pub mod compiled_problem;
+#[path = "constraint_contribution.rs"]
+mod constraint_contribution;
 #[path = "enums/module.rs"]
 pub mod enums;
+#[path = "incremental_scorer.rs"]
+pub mod incremental_scorer;
+#[path = "move_trial.rs"]
+pub mod move_trial;
 #[path = "problem.rs"]
 pub mod problem;
 #[path = "reference_solver.rs"]
@@ -20,3 +28,5 @@ pub mod solution_validation_error;
 pub mod validation;
 #[path = "variable.rs"]
 pub mod variable;
+#[path = "wide_score.rs"]
+mod wide_score;

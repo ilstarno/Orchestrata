@@ -1,7 +1,10 @@
 #[path = "module.rs"]
 mod module;
 
+pub use module::compiled_problem::CompiledProblem;
 pub use module::enums::{constraint::Constraint, error::Error};
+pub use module::incremental_scorer::IncrementalScorer;
+pub use module::move_trial::MoveTrial;
 pub use module::problem::Problem;
 pub use module::reference_solver::solve;
 pub use module::score::Score;
