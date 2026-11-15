@@ -172,12 +172,6 @@
   visibility: visible;
 }
 
-.eligibility-error {
-  margin: 0 24px 16px;
-  color: var(--text);
-  font-size: 13px;
-}
-
 .reset-button {
   margin-top: 0;
 }

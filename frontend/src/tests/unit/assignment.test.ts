@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { assignmentExample, changeEligibility, describeMissingEligibility, exampleDefinition, exampleEligibility, serializeEligibility } from '../../shared/examples/assignment'
+import { assignmentExample, changeEligibility, exampleDefinition, exampleEligibility, serializeEligibility } from '../../shared/examples/assignment'
 
 describe('assignment example', () => {
   it('has distinct variable names', () => {
@@ -39,13 +39,9 @@ describe('guided technician eligibility', () => {
     expect(definition.constraints).toEqual(assignmentExample.constraints)
   })
 
-  it('names jobs with no eligible technician before submission', () => {
+  it('serializes an empty selection so the server can validate it', () => {
     const withoutAlex = changeEligibility(exampleEligibility, 0, 8, false)
     const uncovered = changeEligibility(withoutAlex, 0, 3, false)
-    expect(describeMissingEligibility(uncovered)).toEqual(['Lift repair'])
-  })
-
-  it('leaves overlapping selections to the server rather than declaring them invalid', () => {
-    expect(describeMissingEligibility([[8], [8], [8]])).toEqual([])
+    expect(JSON.parse(serializeEligibility(uncovered)).variables[0].domain).toEqual([])
   })
 })

@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { solveProblem } from '../../shared/api/solve'
+import { serializeEligibility } from '../../shared/examples/assignment'
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -49,6 +50,14 @@ describe('solve API client', () => {
   it('does not present a hard-invalid result as an assignment', async () => {
     mockResponse('{"solution":{"values":[1,1],"score":{"hard":-1,"soft":0},"evaluated":4}}')
     await expect(solveProblem('{}')).rejects.toMatchObject({ kind: 'unexpected-response' })
+  })
+
+  it('sends an empty eligibility selection and reports the service rejection', async () => {
+    const definition = serializeEligibility([[], [8, 2], [3, 2]])
+    const fetchMock = mockResponse('Invalid problem', 422)
+
+    await expect(solveProblem(definition)).rejects.toMatchObject({ kind: 'invalid-input' })
+    expect(fetchMock).toHaveBeenCalledWith('/api/v1/solve', expect.objectContaining({ body: definition }))
   })
 
   it('rejects malformed JSON before sending a request', async () => {

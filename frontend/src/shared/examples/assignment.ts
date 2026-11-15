@@ -42,10 +42,6 @@ export function changeEligibility(
   })
 }
 
-export function describeMissingEligibility(eligibility: Eligibility): string[] {
-  return exampleJobs.filter((_, index) => !eligibility[index]?.length)
-}
-
 export function serializeEligibility(eligibility: Eligibility): string {
   return JSON.stringify({
     ...assignmentExample,

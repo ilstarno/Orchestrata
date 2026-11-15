@@ -40,6 +40,17 @@ describe('assignment workspace', () => {
     expect(page).toContain('Preventive maintenance</dt><dd>Noor')
   })
 
+  it('shows the guided form a server rejection without guessing why it was rejected', () => {
+    const page = renderToStaticMarkup(
+      <PlanResult pending={false} error={new SolveError('invalid-input')} example={true} edited={true} />,
+    )
+
+    expect(page).toContain('This message is from the last run.')
+    expect(page).toContain('Review who can take each job, or reset to the example.')
+    expect(page).not.toContain('Check the JSON')
+    expect(page).not.toContain('No assignment fits all the rules')
+  })
+
   it('distinguishes an unchecked run from a proven infeasible plan', () => {
     const limited = renderToStaticMarkup(
       <PlanResult pending={false} error={new SolveError('search-limit')} example={false} edited={false} />,

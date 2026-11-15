@@ -3,7 +3,7 @@ import { type SolveResult, SolveError } from '../../shared/api/solve'
 import { exampleJobs, exampleTechnicians } from '../../shared/examples/assignment'
 
 const failureCopy = {
-  'invalid-input': ['Check the setup', 'The job definition isn’t valid. Check the JSON or try the example again.'],
+  'invalid-input': ['Check the setup', 'The service couldn’t use this setup. Check the JSON or try the example again.'],
   'search-limit': ['Too many combinations', 'This run was too large to check. Reduce the options per job or try a smaller group of jobs. This does not mean the jobs can’t be assigned.'],
   'ambiguous-request': ['The setup couldn’t be checked', 'The service could not accept this setup or it exceeded the search limit. Check the definition and try a smaller problem.'],
   busy: ['The service is busy', 'Give it a moment, then run the plan again.'],
@@ -38,7 +38,7 @@ export function PlanResult({ pending, result, error, example, edited }: PlanResu
       <div className="sr-only" role="status">{getStatus(pending, result, error)}</div>
       <div className="result-content" aria-busy={pending}>
         {pending && <EmptyPlan title="Finding a plan" text="Checking which assignments fit the rules." />}
-        {!pending && error && <Failure error={error} />}
+        {!pending && error && <Failure error={error} example={example} edited={edited} />}
         {!pending && result && (
           <div className="plan">
             {edited && <p className="rule-note">This result is from the last run. Run the edited setup to refresh it.</p>}
@@ -49,7 +49,7 @@ export function PlanResult({ pending, result, error, example, edited }: PlanResu
           <EmptyPlan title="No plan yet" text="Run the example to see who should take each job." />
         )}
       </div>
-      <div className="panel-footer muted">Up to 100,000 possible assignments per run</div>
+      <div className="panel-footer muted">Running a plan does not change anyone’s schedule</div>
     </section>
   )
 }
@@ -64,9 +64,20 @@ function EmptyPlan({ title, text }: { title: string; text: string }) {
   )
 }
 
-function Failure({ error }: { error: Error }) {
-  const [title, text] = failureCopy[error instanceof SolveError ? error.kind : 'execution']
-  return <div className="plan plan-error" role="alert"><h3>{title}</h3><p>{text}</p></div>
+function Failure({ error, example, edited }: { error: Error; example: boolean; edited: boolean }) {
+  const kind = error instanceof SolveError ? error.kind : 'execution'
+  const [title, text] = failureCopy[kind]
+  const detail = kind === 'invalid-input' && example
+    ? 'The service couldn’t use this setup. Review who can take each job, or reset to the example.'
+    : text
+
+  return (
+    <div className="plan plan-error" role="alert">
+      {edited && <p className="rule-note">This message is from the last run.</p>}
+      <h3>{title}</h3>
+      <p>{detail}</p>
+    </div>
+  )
 }
 
 function Result({ result, example }: { result: SolveResult; example: boolean }) {

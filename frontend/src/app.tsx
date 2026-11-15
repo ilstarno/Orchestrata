@@ -7,7 +7,6 @@ import { PlanResult } from './features/assignment/plan-result'
 import { solveProblem } from './shared/api/solve'
 import {
   changeEligibility,
-  describeMissingEligibility,
   exampleDefinition,
   exampleEligibility,
   serializeEligibility,
@@ -29,7 +28,6 @@ export function App() {
   const useExampleLabels = customDefinition === null
   const definition = customDefinition ?? serializeEligibility(eligibility)
   const originalExample = useExampleLabels && definition === exampleDefinition
-  const missingEligibility = useExampleLabels ? describeMissingEligibility(eligibility) : []
 
   function resetExample() {
     setEligibility(exampleEligibility)
@@ -90,18 +88,13 @@ export function App() {
               </TextField>
             </details>
 
-            {missingEligibility.length > 0 && (
-              <p className="eligibility-error" role="status">
-                Choose at least one technician for: {missingEligibility.join(', ')}.
-              </p>
-            )}
             <div className="panel-footer setup-footer">
               {originalExample
                 ? <span>No setup needed</span>
                 : <Button className="text-button reset-button" onPress={resetExample}>Reset to example</Button>}
               <Button
                 className="primary-button"
-                isDisabled={solve.isPending || missingEligibility.length > 0}
+                isDisabled={solve.isPending}
                 onPress={() => solve.mutate({ definition, useExampleLabels })}
               >
                 {solve.isPending ? 'Checking assignments' : originalExample ? 'Run example' : 'Run edited setup'}
