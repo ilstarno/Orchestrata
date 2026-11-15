@@ -2,6 +2,7 @@
 mod module;
 
 pub use module::enums::{constraint::Constraint, error::Error};
+pub use module::heuristic_solver::solve_heuristic;
 pub use module::problem::Problem;
 pub use module::reference_solver::solve;
 pub use module::score::Score;
