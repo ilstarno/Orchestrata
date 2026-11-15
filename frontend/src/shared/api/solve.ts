@@ -18,8 +18,24 @@ export type SolveFailure =
   | 'execution'
   | 'unexpected-response'
 
+const ERROR_CODE_HEADER = 'x-orchestrata-error-code'
+
+const indexedFailures = {
+  invalid_request_body: 'invalid-input',
+  invalid_problem: 'invalid-input',
+  search_limit_exceeded: 'search-limit',
+  solve_execution_failed: 'execution',
+  solver_busy: 'busy',
+  not_found: 'unexpected-response',
+  method_not_allowed: 'unexpected-response',
+  request_rejected: 'unexpected-response',
+  internal_error: 'execution',
+} as const satisfies Record<string, SolveFailure>
+
+export type SolveErrorCode = keyof typeof indexedFailures
+
 export class SolveError extends Error {
-  constructor(readonly kind: SolveFailure) {
+  constructor(readonly kind: SolveFailure, readonly code?: SolveErrorCode) {
     super(kind)
     this.name = 'SolveError'
   }
@@ -65,14 +81,36 @@ function parseResult(raw: string): SolveResult {
   return { kind: 'solved', assignment: solution }
 }
 
-function classifyFailure(status: number, detail: string): SolveFailure {
+function isSolveErrorCode(value: string): value is SolveErrorCode {
+  return Object.hasOwn(indexedFailures, value)
+}
+
+async function readBody(response: Response): Promise<string> {
+  try {
+    return await response.text()
+  } catch {
+    throw new SolveError('offline')
+  }
+}
+
+async function classifyLegacyFailure(response: Response): Promise<SolveFailure> {
+  const { status } = response
   if (status === 429 || status === 503) return 'busy'
   if (status >= 500) return 'execution'
   if (status === 400 || status === 413 || status === 415) return 'invalid-input'
   if (status !== 422) return 'unexpected-response'
+  const detail = (await readBody(response)).trim()
   if (detail === 'Search space exceeds the evaluation limit') return 'search-limit'
-  if (detail === 'Invalid problem or search space too large') return 'ambiguous-request'
-  return 'invalid-input'
+  if (detail === 'Invalid problem') return 'invalid-input'
+  return 'ambiguous-request'
+}
+
+async function decodeFailure(response: Response): Promise<SolveError> {
+  const code = response.headers.get(ERROR_CODE_HEADER)
+  if (code === null) return new SolveError(await classifyLegacyFailure(response))
+  if (isSolveErrorCode(code)) return new SolveError(indexedFailures[code], code)
+
+  return new SolveError('unexpected-response')
 }
 
 export async function solveProblem(body: string): Promise<SolveResult> {
@@ -83,18 +121,16 @@ export async function solveProblem(body: string): Promise<SolveResult> {
   }
 
   let response: Response
-  let raw: string
   try {
     response = await fetch('/api/v1/solve', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body,
     })
-    raw = await response.text()
   } catch {
     throw new SolveError('offline')
   }
 
-  if (!response.ok) throw new SolveError(classifyFailure(response.status, raw.trim()))
-  return parseResult(raw)
+  if (!response.ok) throw await decodeFailure(response)
+  return parseResult(await readBody(response))
 }

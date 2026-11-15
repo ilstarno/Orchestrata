@@ -6,8 +6,8 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
-function mockResponse(body: string, status = 200) {
-  const fetchMock = vi.fn().mockResolvedValue(new Response(body, { status }))
+function mockResponse(body: string, status = 200, headers?: HeadersInit) {
+  const fetchMock = vi.fn().mockResolvedValue(new Response(body, { status, headers }))
   vi.stubGlobal('fetch', fetchMock)
   return fetchMock
 }
@@ -40,11 +40,44 @@ describe('solve API client', () => {
     [422, 'Search space exceeds the evaluation limit', 'search-limit'],
     [422, 'Invalid problem', 'invalid-input'],
     [422, 'Invalid problem or search space too large', 'ambiguous-request'],
+    [422, 'unknown proxy response', 'ambiguous-request'],
     [500, 'Solver execution failed', 'execution'],
     [503, 'Service unavailable', 'busy'],
-  ])('classifies HTTP %i with diagnostic %s', async (status, body, kind) => {
+  ])('classifies legacy HTTP %i with diagnostic %s', async (status, body, kind) => {
     mockResponse(body, status)
     await expect(solveProblem('{}')).rejects.toMatchObject({ kind })
+  })
+
+  it.each([
+    [400, 'invalid_request_body', 'invalid-input'],
+    [422, 'invalid_problem', 'invalid-input'],
+    [422, 'search_limit_exceeded', 'search-limit'],
+    [500, 'solve_execution_failed', 'execution'],
+    [503, 'solver_busy', 'busy'],
+    [404, 'not_found', 'unexpected-response'],
+    [405, 'method_not_allowed', 'unexpected-response'],
+    [429, 'request_rejected', 'unexpected-response'],
+    [500, 'internal_error', 'execution'],
+  ])('uses the stable code for indexed HTTP %i: %s', async (status, code, kind) => {
+    mockResponse('Invalid problem or search space too large', status, { 'X-Orchestrata-Error-Code': code })
+    await expect(solveProblem('{}')).rejects.toMatchObject({ kind, code })
+  })
+
+  it('does not guess from the body when a newer indexed code is unknown', async () => {
+    mockResponse('Search space exceeds the evaluation limit', 422, { 'x-orchestrata-error-code': 'future_code' })
+    await expect(solveProblem('{}')).rejects.toMatchObject({ kind: 'unexpected-response' })
+  })
+
+  it('does not read diagnostic bodies to decode indexed failures', async () => {
+    const response = new Response('', {
+      status: 422,
+      headers: { 'x-orchestrata-error-code': 'search_limit_exceeded' },
+    })
+    const read = vi.spyOn(response, 'text').mockRejectedValue(new Error('response text was unavailable'))
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(response))
+
+    await expect(solveProblem('{}')).rejects.toMatchObject({ kind: 'search-limit', code: 'search_limit_exceeded' })
+    expect(read).not.toHaveBeenCalled()
   })
 
   it('does not present a hard-invalid result as an assignment', async () => {
