@@ -9,5 +9,5 @@ tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
 serde.workspace = true
 utoipa = "5"
 orchestrata-domain = { path = "../domain" }
-orchestrata-solver = { path = "../solver" }
+orchestrata-solver = { path = "../solver", features = ["openapi"] }
 orchestrata-application = { path = "../application" }
