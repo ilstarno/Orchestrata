@@ -1,36 +1,16 @@
 import { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
+import { solveProblem } from './shared/api/solve'
+import { assignmentExample } from './shared/examples/assignment'
+import { useTheme } from './shared/theme/use-theme'
 import { Button, Label, TextArea, TextField } from 'react-aria-components'
 import { ArrowRight, Braces, Moon, Sun } from 'lucide-react'
 import './styles.css'
 
-const example = {
-  variables: [
-    { name: 'resource_a', domain: [0, 1] },
-    { name: 'resource_b', domain: [0, 1] },
-  ],
-  constraints: [
-    { kind: 'all_different', variables: [0, 1], hard_weight: 1 },
-    { kind: 'prefer_value', variable: 0, value: 1, soft_weight: 3 },
-  ],
-}
-
-type Theme = 'dark' | 'light'
-
 export function App() {
-  const [theme, setTheme] = useState<Theme>('dark')
-  const [definition, setDefinition] = useState(JSON.stringify(example, null, 2))
-  const solve = useMutation({
-    mutationFn: async (body: string): Promise<unknown> => {
-      const response = await fetch('/api/v1/solve', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
-      })
-      if (!response.ok) throw new Error(await response.text())
-      return response.json() as Promise<unknown>
-    },
-  })
+  const { theme, toggleTheme } = useTheme()
+  const [definition, setDefinition] = useState(JSON.stringify(assignmentExample, null, 2))
+  const solve = useMutation({ mutationFn: solveProblem })
 
   return (
     <div className="shell" data-theme={theme}>
@@ -44,7 +24,7 @@ export function App() {
           <Button
             className="theme-button"
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            onPress={() => setTheme(current => current === 'dark' ? 'light' : 'dark')}
+            onPress={toggleTheme}
           >
             {theme === 'dark' ? <Sun size={19} aria-hidden /> : <Moon size={19} aria-hidden />}
           </Button>
