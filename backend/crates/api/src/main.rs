@@ -1,8 +1,8 @@
 mod api;
 mod constants;
-mod domain;
+pub mod domain;
 mod dto;
-mod engine;
+pub mod engine;
 mod enums;
 mod services;
 
