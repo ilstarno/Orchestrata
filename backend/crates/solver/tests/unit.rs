@@ -110,3 +110,50 @@ fn offset_comparison_handles_integer_extremes() {
 
     assert_eq!(score(&problem, &[i64::MAX, i64::MIN]), Ok(Score { hard: 0, soft: 0 }));
 }
+
+#[test]
+fn empty_problem_has_one_empty_assignment() {
+    let problem = Problem { variables: vec![], constraints: vec![] };
+    let result = solve(&problem, 1).unwrap().unwrap();
+
+    assert!(result.values.is_empty());
+    assert_eq!(result.evaluated, 1);
+    assert_eq!(result.score, Score { hard: 0, soft: 0 });
+}
+
+#[test]
+fn zero_budget_rejects_even_an_empty_problem() {
+    let problem = Problem { variables: vec![], constraints: vec![] };
+    assert_eq!(solve(&problem, 0), Err(Error::TooManyAssignments));
+}
+
+#[test]
+fn offset_penalty_overflow_is_reported() {
+    let problem = Problem {
+        variables: vec![
+            Variable { name: "left".into(), domain: vec![0] },
+            Variable { name: "right".into(), domain: vec![0] },
+        ],
+        constraints: vec![
+            Constraint::NotEqualOffset { left: 0, right: 1, offset: 0, hard_weight: i64::MAX },
+            Constraint::NotEqualOffset { left: 0, right: 1, offset: 0, hard_weight: 1 },
+        ],
+    };
+
+    assert_eq!(score(&problem, &[0, 0]), Err(Error::ScoreOverflow));
+}
+
+#[test]
+fn reference_search_evaluates_every_combination() {
+    let problem = Problem {
+        variables: vec![
+            Variable { name: "a".into(), domain: vec![0, 1, 2] },
+            Variable { name: "b".into(), domain: vec![0, 1] },
+            Variable { name: "c".into(), domain: vec![0, 1] },
+        ],
+        constraints: vec![],
+    };
+    let result = solve(&problem, 12).unwrap().unwrap();
+    assert_eq!(result.evaluated, 12);
+    assert_eq!(result.values, vec![0, 0, 0]);
+}
