@@ -6,7 +6,7 @@ edition.workspace = true
 [dependencies]
 orchestrata-hygiene = { path = "../hygiene" }
 orchestrata-solver = { path = "../solver" }
-tokio = { version = "1", features = ["rt", "sync"] }
+tokio = { version = "1", features = ["rt", "sync", "time"] }
 
 [dev-dependencies]
-tokio = { version = "1", features = ["macros", "rt"] }
+tokio = { version = "1", features = ["macros", "rt", "test-util"] }
