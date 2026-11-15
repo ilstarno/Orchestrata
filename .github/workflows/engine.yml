@@ -1,0 +1,40 @@
+name: Engine
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --workspace --all-targets --all-features -- -D warnings
+      - run: cargo test --workspace --all-features
+
+  go-sdk:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sdk/go
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: sdk/go/go.mod
+      - run: cargo build -p orchestrata-ffi --release
+        working-directory: backend
+      - run: gofmt -l orchestrata/*.go | tee /tmp/gofmt.txt && test ! -s /tmp/gofmt.txt
+      - run: go test -race ./...
+        env:
+          CGO_ENABLED: "1"
+          CGO_LDFLAGS: -L${{ github.workspace }}/backend/target/release
+          LD_LIBRARY_PATH: ${{ github.workspace }}/backend/target/release
