@@ -15,3 +15,5 @@
 !deploy/containers/
 !deploy/containers/nginx.conf.template
 !deploy/containers/start-web.sh
+!recipes/
+!recipes/**
