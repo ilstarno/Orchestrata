@@ -42,7 +42,6 @@ Requires a Rust toolchain with support for the 2024 edition.
 ```sh
 cd backend
 cargo test --workspace --all-targets
-cargo run -p orchestrata-cli -- --help
 ```
 
 To build the native library:
