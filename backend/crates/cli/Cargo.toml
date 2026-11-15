@@ -1,0 +1,9 @@
+[package]
+name = "orchestrata-cli"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+orchestrata-application = { path = "../application" }
+orchestrata-solver = { path = "../solver" }
+serde_json = "1"
