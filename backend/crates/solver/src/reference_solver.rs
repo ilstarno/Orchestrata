@@ -1,4 +1,4 @@
-use crate::{Error, Problem, Score, Solution, score, validate};
+use crate::{Error, Problem, Solution, score, validate};
 
 pub fn solve(problem: &Problem, max_evaluations: u64) -> Result<Option<Solution>, Error> {
     validate(problem)?;
@@ -43,7 +43,7 @@ pub fn solve(problem: &Problem, max_evaluations: u64) -> Result<Option<Solution>
             positions[next] = 0;
         }
 
-        if next == 0 && positions[0] == 0 {
+        if positions.is_empty() || (next == 0 && positions[0] == 0) {
             break;
         }
     }
