@@ -1,3 +1,6 @@
+mod access_log;
+#[cfg(test)]
+mod access_log_tests;
 #[path = "controllers/module.rs"]
 pub mod controllers;
 pub mod error;
@@ -6,7 +9,7 @@ pub mod openapi;
 mod solve_admission;
 
 use axum::{
-    Json, Router,
+    Json, Router, middleware,
     routing::{get, post},
 };
 use utoipa::OpenApi;
@@ -26,5 +29,6 @@ pub fn router() -> Router {
             "/api/v1/openapi.json",
             get(|| async { Json(ApiDoc::openapi()) }),
         )
+        .layer(middleware::from_fn(access_log::observe_request))
         .with_state(admission)
 }
