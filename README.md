@@ -1,46 +1,28 @@
 # Orchestrata
 
-**Plan work when resources, deadlines, and rules compete.**
+**Constraint optimization for problems with competing rules and objectives.**
 
-Orchestrata is a planning and optimization system for decisions that are difficult to make by hand: which technician should take each job, which vehicle should handle each delivery, or how production work should be assigned to machines.
+Orchestrata is a general-purpose planning and optimization platform. It is intended to let applications define decisions, allowed values, mandatory rules, and preferences, then search for a solution and verify its score. The solver is not tied to a particular industry or planning workflow.
 
-These decisions have constraints. A technician needs the right skills and must be available. A vehicle cannot exceed its capacity. A job may have a deadline or require another job to finish first. Several valid schedules may exist, but some involve more travel, overtime, or late work than others.
+Examples include assigning work to resources, scheduling shifts, sequencing production, routing deliveries, allocating capacity, and arranging tasks with dependencies. These are examples of problems the platform aims to support, not features all available today.
 
-Orchestrata is being built to evaluate those trade-offs and find a workable allocation.
+## How a problem is defined
 
-## Example: scheduling field-service jobs
+A problem supplies variables and their possible values, constraints that must hold, and objectives that distinguish better solutions. For example, a resource-allocation problem might assign tasks to machines, forbid assignments that exceed capacity, and prefer lower operating cost. A scheduling problem might use different variables and rules but run through the same solver interface.
 
-A service company has 40 jobs to complete tomorrow and 8 technicians. Each job has a location, duration, time window, and required skills. Each technician has working hours, qualifications, and a starting location.
+The intended processing path is **model → validate → compile constraints → solve → independently verify → return results**. Domain-specific systems can supply inputs and consume results without changing the solver core.
 
-The intended workflow is:
+## Current functionality
 
-1. **Import** jobs, technicians, and availability from existing systems.
-2. **Define rules** such as required skills, working hours, and appointment windows. Mark rules as mandatory or preferences.
-3. **Run optimization** to assign jobs and order visits while reducing travel and unassigned work.
-4. **Check the result** against mandatory constraints and report any jobs that could not be scheduled.
-5. **Review and export** the proposed schedule. Changes to external systems require authorization.
+The Rust reference solver supports integer-valued variables, all-different constraints, offset inequalities, and value preferences. It uses exhaustive search for small problems, with hard and soft scores. The HTTP endpoint limits searches to 100,000 combinations. This establishes correctness tests, not production-scale optimization.
 
-The same approach applies to shift planning, delivery allocation, and production scheduling. Each use case supplies its own resources, decisions, constraints, and objectives; it should not require a separate hardcoded scheduling engine.
+## Interfaces
 
-## How it works
-
-A planning problem consists of:
-
-| Element | Field-service example |
-| --- | --- |
-| Resources | Technicians and vehicles |
-| Work | Service appointments |
-| Hard constraints | Skills, availability, capacity, appointment windows |
-| Objectives | Reduce travel, overtime, and missed appointments |
-| Output | Assignments, visit order, scores, and constraint validation |
-
-The planned execution path is **input → typed problem model → constraint validation → optimization → independent solution validation → review/export**.
-
-Orchestrata is not a replacement for a CRM, ERP, or dispatch system. It is intended to optimize decisions using data from those systems and return results they can consume.
+The React web application provides an editable JSON problem runner. The Rust backend exposes a versioned HTTP API. **MCP is planned** as an additional backend protocol interface for validating problems, submitting jobs, and retrieving solutions; it will use the same application services as HTTP. No MCP server is implemented yet.
 
 ## Implementation
 
-The backend uses Rust 2024, with the solver kept separate from HTTP and database code. The web application uses React, TypeScript, Vite, and TanStack libraries. Frontend and backend are independently buildable and communicate through a versioned HTTP API.
+The backend uses the latest stable Rust toolchain with the Rust 2024 edition, with the solver kept separate from HTTP and database code. The web application uses current stable React, TypeScript, Vite, and TanStack libraries, with compatible versions locked for reproducible builds. Frontend and backend are independently buildable and communicate through a versioned HTTP API.
 
 PostgreSQL is the planned operational database. MariaDB, Microsoft SQL Server, and Snowflake are planned integrations for reading and exchanging business data; they are not presented as interchangeable transactional databases.
 
