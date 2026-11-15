@@ -6,6 +6,8 @@ mod constraint_contribution;
 pub mod enums;
 #[path = "incremental_scorer.rs"]
 pub mod incremental_scorer;
+#[path = "local_search.rs"]
+pub mod local_search;
 #[path = "move_trial.rs"]
 pub mod move_trial;
 #[path = "problem.rs"]
@@ -16,8 +18,12 @@ pub mod reference_solver;
 pub mod score;
 #[path = "scoring.rs"]
 pub mod scoring;
+#[path = "search_outcome.rs"]
+pub mod search_outcome;
 #[path = "search_scoring.rs"]
 pub(super) mod search_scoring;
+#[path = "search_stop.rs"]
+pub mod search_stop;
 #[path = "solution.rs"]
 pub mod solution;
 #[path = "solution_validation.rs"]

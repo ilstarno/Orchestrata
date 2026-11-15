@@ -37,6 +37,10 @@ impl<'state, 'compiled> MoveTrial<'state, 'compiled> {
         self.scorer.score()
     }
 
+    pub(super) fn wide_score(&self) -> WideScore {
+        self.scorer.total
+    }
+
     pub fn is_feasible(&self) -> bool {
         self.scorer.is_feasible()
     }

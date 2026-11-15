@@ -1,6 +1,6 @@
 use crate::{Error, Score};
 
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub(super) struct WideScore {
     pub hard: i128,
     pub soft: i128,
