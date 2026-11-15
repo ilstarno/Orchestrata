@@ -1,3 +1,10 @@
+#[path = "enums/module.rs"]
+pub mod enums;
+mod reference_solver;
+
+pub use enums::{constraint::Constraint, error::Error};
+pub use reference_solver::solve;
+
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;
 
@@ -5,14 +12,6 @@ use utoipa::ToSchema;
 pub struct Variable {
     pub name: String,
     pub domain: Vec<i64>,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
-#[serde(tag = "kind", rename_all = "snake_case")]
-pub enum Constraint {
-    AllDifferent { variables: Vec<usize>, hard_weight: i64 },
-    NotEqualOffset { left: usize, right: usize, offset: i64, hard_weight: i64 },
-    PreferValue { variable: usize, value: i64, soft_weight: i64 },
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, ToSchema)]
@@ -38,15 +37,6 @@ pub struct Solution {
     pub values: Vec<i64>,
     pub score: Score,
     pub evaluated: u64,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum Error {
-    EmptyDomain(usize),
-    InvalidVariable(usize),
-    InvalidWeight,
-    TooManyAssignments,
-    ScoreOverflow,
 }
 
 pub fn validate(problem: &Problem) -> Result<(), Error> {
@@ -112,7 +102,7 @@ pub fn score(problem: &Problem, values: &[i64]) -> Result<Score, Error> {
             }
             Constraint::NotEqualOffset { left, right, offset, hard_weight } => {
                 if i128::from(values[*left]) - i128::from(values[*right]) == i128::from(*offset) {
-                    result.hard = result.hard.saturating_sub(*hard_weight);
+                    result.hard = result.hard.checked_sub(*hard_weight).ok_or(Error::ScoreOverflow)?;
                 }
             }
             Constraint::PreferValue { variable, value, soft_weight } => {
@@ -125,38 +115,3 @@ pub fn score(problem: &Problem, values: &[i64]) -> Result<Score, Error> {
     Ok(result)
 }
 
-pub fn solve(problem: &Problem, max_evaluations: u64) -> Result<Option<Solution>, Error> {
-    validate(problem)?;
-    let mut combinations = 1u64;
-    for variable in &problem.variables {
-        combinations = combinations.checked_mul(u64::try_from(variable.domain.len()).map_err(|_| Error::TooManyAssignments)?)
-            .ok_or(Error::TooManyAssignments)?;
-    }
-    if combinations > max_evaluations { return Err(Error::TooManyAssignments); }
-    let mut values = vec![0; problem.variables.len()];
-    let mut best: Option<Solution> = None;
-    let mut evaluated = 0u64;
-    fn visit(
-        index: usize, problem: &Problem, values: &mut [i64],
-        best: &mut Option<Solution>, evaluated: &mut u64,
-    ) -> Result<(), Error> {
-        if index == values.len() {
-            *evaluated += 1;
-            let current = score(problem, values)?;
-            if best.as_ref().is_none_or(|old| current.better_than(old.score)) {
-                *best = Some(Solution {
-                    values: values.to_vec(), score: current, evaluated: *evaluated,
-                });
-            }
-            return Ok(());
-        }
-        for &value in &problem.variables[index].domain {
-            values[index] = value;
-            visit(index + 1, problem, values, best, evaluated)?;
-        }
-        Ok(())
-    }
-    visit(0, problem, &mut values, &mut best, &mut evaluated)?;
-    if let Some(solution) = &mut best { solution.evaluated = evaluated; }
-    Ok(best)
-}
