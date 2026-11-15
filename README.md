@@ -53,9 +53,9 @@ docs/       Technical decisions
 
 ## Current status
 
-**Early development.** The repository currently establishes the application foundation. It does not yet demonstrate the field-service example, a complete constraint solver, database integrations, or production scheduling.
+**Early development.** The repository contains a Rust reference solver and a React interface for submitting small finite-domain problems. It does not yet demonstrate the field-service example, scalable optimization, database integrations, or production scheduling.
 
-The first functional milestone is deliberately small: accept a typed scheduling problem, reject invalid constraints, generate assignments, verify the result independently, and display it in the web application. Performance and optimization quality will be measured against reproducible test cases rather than assumed.
+The current solver accepts integer-domain variables and three constraint types: all-different, unequal offset, and preferred value. It evaluates hard and soft penalties and exhaustively searches at most 100,000 combinations through the API. N-Queens and assignment tests exercise the same evaluator. This is a correctness baseline, not a scalable optimization algorithm. The next milestone adds a typed constraint compiler, move operators, local search, and independent validation.
 
 ## Development
 
@@ -66,7 +66,7 @@ cd backend
 cargo run -p orchestrata-api
 ```
 
-Frontend (once the frontend scaffold is committed; requires Node.js 22 and npm):
+Frontend (requires Node.js 22 and npm):
 
 ```sh
 cd frontend
