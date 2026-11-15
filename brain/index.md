@@ -1,18 +1,15 @@
 # Orchestrata brain
 
-This directory records the durable technical knowledge needed to maintain Orchestrata. The README explains the product; this directory explains the implementation, its boundaries, and why decisions were made.
+Durable engineering knowledge for Orchestrata. The README explains what the platform is for; these pages document implementation boundaries, invariants, and decisions.
 
-## Start here
+## Knowledge
 
 - [Product and vocabulary](knowledge/product/index.md)
 - [Solver](knowledge/solver/index.md)
 - [Backend](knowledge/backend/index.md)
 - [Frontend](knowledge/frontend/index.md)
 - [Data and connectors](knowledge/data/index.md)
+- [MCP integration](knowledge/mcp/index.md)
 - [Architecture decisions](decisions/index.md)
 
-## Maintenance
-
-Read the relevant page before changing a subsystem. Update the existing page when an invariant, data flow, or operational limitation changes. Add a new page only for a new topic. Record hard-to-reverse decisions in `decisions/`.
-
-Keep verified behavior separate from planned work. Do not record ephemeral debugging notes or duplicate the README.
+Read the relevant subsystem page before making changes. Keep verified behavior separate from planned functionality. Update a page when its documented contracts or behavior change; record durable architectural choices as numbered decisions.
