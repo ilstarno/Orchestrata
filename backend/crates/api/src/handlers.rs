@@ -1,7 +1,12 @@
-use axum::{Json, http::StatusCode};
-use orchestrata_solver::{Problem, solve};
+use axum::Json;
+use orchestrata_solver::Problem;
 
-use crate::{health_response::HealthResponse, solve_response::SolveResponse};
+use crate::{
+    api_error::ApiError,
+    health_response::HealthResponse,
+    solve_response::SolveResponse,
+    solve_service::SolveService,
+};
 
 #[utoipa::path(
     get,
@@ -18,16 +23,13 @@ pub async fn health() -> Json<HealthResponse> {
     request_body = Problem,
     responses(
         (status = 200, body = SolveResponse),
-        (status = 422, description = "Invalid problem or search space too large")
+        (status = 422, description = "Invalid problem or search space too large"),
+        (status = 500, description = "Solver execution failed")
     )
 )]
 pub async fn solve_problem(
     Json(problem): Json<Problem>,
-) -> Result<Json<SolveResponse>, (StatusCode, &'static str)> {
-    let solution = tokio::task::spawn_blocking(move || solve(&problem, 100_000))
-        .await
-        .map_err(|_| (StatusCode::INTERNAL_SERVER_ERROR, "Solver worker failed"))?
-        .map_err(|_| (StatusCode::UNPROCESSABLE_ENTITY, "Invalid problem or search space too large"))?;
-
+) -> Result<Json<SolveResponse>, ApiError> {
+    let solution = SolveService::execute(problem).await?;
     Ok(Json(SolveResponse { solution }))
 }
