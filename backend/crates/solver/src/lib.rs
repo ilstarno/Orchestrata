@@ -10,3 +10,4 @@ pub use module::scoring::score;
 pub use module::solution::Solution;
 pub use module::validation::validate;
 pub use module::variable::Variable;
+pub use module::tabu_solver::solve_tabu;
