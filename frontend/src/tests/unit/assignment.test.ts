@@ -10,7 +10,7 @@ describe('assignment example', () => {
   it('only references existing variables', () => {
     const rule = assignmentExample.constraints.find(constraint => constraint.kind === 'all_different')
     expect(rule).toBeDefined()
-    if (!rule || !('variables' in rule)) throw new Error('missing constraint')
+    if (!rule?.variables) throw new Error('missing constraint variables')
     for (const index of rule.variables) {
       expect(index).toBeGreaterThanOrEqual(0)
       expect(index).toBeLessThan(assignmentExample.variables.length)

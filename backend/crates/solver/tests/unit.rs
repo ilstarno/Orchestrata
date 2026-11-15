@@ -1,25 +1,37 @@
 use orchestrata_solver::*;
 
-
 fn queens(n: usize) -> Problem {
-    let variables = (0..n).map(|i| Variable {
-        name: format!("queen_{i}"), domain: (0..n as i64).collect(),
-    }).collect();
+    let variables = (0..n)
+        .map(|i| Variable {
+            name: format!("queen_{i}"),
+            domain: (0..n as i64).collect(),
+        })
+        .collect();
     let mut constraints = vec![Constraint::AllDifferent {
-        variables: (0..n).collect(), hard_weight: 1,
+        variables: (0..n).collect(),
+        hard_weight: 1,
     }];
     for i in 0..n {
         for j in i + 1..n {
             let delta = j as i64 - i as i64;
             constraints.push(Constraint::NotEqualOffset {
-                left: i, right: j, offset: delta, hard_weight: 1,
+                left: i,
+                right: j,
+                offset: delta,
+                hard_weight: 1,
             });
             constraints.push(Constraint::NotEqualOffset {
-                left: i, right: j, offset: -delta, hard_weight: 1,
+                left: i,
+                right: j,
+                offset: -delta,
+                hard_weight: 1,
             });
         }
     }
-    Problem { variables, constraints }
+    Problem {
+        variables,
+        constraints,
+    }
 }
 
 #[test]
@@ -33,20 +45,32 @@ fn four_queens_has_a_feasible_solution() {
 
 #[test]
 fn impossible_three_queens_is_reported_infeasible() {
-    let solution = solve(&queens(3), 27).unwrap().unwrap();
-    assert!(solution.score.hard < 0);
+    assert_eq!(solve(&queens(3), 27), Ok(None));
 }
 
 #[test]
 fn assignment_prefers_soft_objective_after_feasibility() {
     let problem = Problem {
         variables: vec![
-            Variable { name: "a".into(), domain: vec![0, 1] },
-            Variable { name: "b".into(), domain: vec![0, 1] },
+            Variable {
+                name: "a".into(),
+                domain: vec![0, 1],
+            },
+            Variable {
+                name: "b".into(),
+                domain: vec![0, 1],
+            },
         ],
         constraints: vec![
-            Constraint::AllDifferent { variables: vec![0, 1], hard_weight: 1 },
-            Constraint::PreferValue { variable: 0, value: 1, soft_weight: 3 },
+            Constraint::AllDifferent {
+                variables: vec![0, 1],
+                hard_weight: 1,
+            },
+            Constraint::PreferValue {
+                variable: 0,
+                value: 1,
+                soft_weight: 3,
+            },
         ],
     };
     let solution = solve(&problem, 4).unwrap().unwrap();
@@ -57,9 +81,14 @@ fn assignment_prefers_soft_objective_after_feasibility() {
 #[test]
 fn invalid_reference_is_rejected() {
     let problem = Problem {
-        variables: vec![Variable { name: "a".into(), domain: vec![1] }],
+        variables: vec![Variable {
+            name: "a".into(),
+            domain: vec![1],
+        }],
         constraints: vec![Constraint::PreferValue {
-            variable: 5, value: 1, soft_weight: 1,
+            variable: 5,
+            value: 1,
+            soft_weight: 1,
         }],
     };
     assert_eq!(validate(&problem), Err(Error::InvalidVariable(5)));
@@ -68,10 +97,21 @@ fn invalid_reference_is_rejected() {
 #[test]
 fn score_overflow_is_reported_instead_of_saturating() {
     let problem = Problem {
-        variables: vec![Variable { name: "resource".into(), domain: vec![0] }],
+        variables: vec![Variable {
+            name: "resource".into(),
+            domain: vec![0],
+        }],
         constraints: vec![
-            Constraint::PreferValue { variable: 0, value: 1, soft_weight: i64::MAX },
-            Constraint::PreferValue { variable: 0, value: 2, soft_weight: 1 },
+            Constraint::PreferValue {
+                variable: 0,
+                value: 1,
+                soft_weight: i64::MAX,
+            },
+            Constraint::PreferValue {
+                variable: 0,
+                value: 2,
+                soft_weight: 2,
+            },
         ],
     };
 
@@ -82,7 +122,10 @@ fn score_overflow_is_reported_instead_of_saturating() {
 #[test]
 fn invalid_weights_are_rejected() {
     let problem = Problem {
-        variables: vec![Variable { name: "resource".into(), domain: vec![0] }],
+        variables: vec![Variable {
+            name: "resource".into(),
+            domain: vec![0],
+        }],
         constraints: vec![Constraint::PreferValue {
             variable: 0,
             value: 1,
@@ -97,8 +140,14 @@ fn invalid_weights_are_rejected() {
 fn offset_comparison_handles_integer_extremes() {
     let problem = Problem {
         variables: vec![
-            Variable { name: "first".into(), domain: vec![i64::MAX] },
-            Variable { name: "second".into(), domain: vec![i64::MIN] },
+            Variable {
+                name: "first".into(),
+                domain: vec![i64::MAX],
+            },
+            Variable {
+                name: "second".into(),
+                domain: vec![i64::MIN],
+            },
         ],
         constraints: vec![Constraint::NotEqualOffset {
             left: 0,
@@ -108,12 +157,18 @@ fn offset_comparison_handles_integer_extremes() {
         }],
     };
 
-    assert_eq!(score(&problem, &[i64::MAX, i64::MIN]), Ok(Score { hard: 0, soft: 0 }));
+    assert_eq!(
+        score(&problem, &[i64::MAX, i64::MIN]),
+        Ok(Score { hard: 0, soft: 0 })
+    );
 }
 
 #[test]
 fn empty_problem_has_one_empty_assignment() {
-    let problem = Problem { variables: vec![], constraints: vec![] };
+    let problem = Problem {
+        variables: vec![],
+        constraints: vec![],
+    };
     let result = solve(&problem, 1).unwrap().unwrap();
 
     assert!(result.values.is_empty());
@@ -123,7 +178,10 @@ fn empty_problem_has_one_empty_assignment() {
 
 #[test]
 fn zero_budget_rejects_even_an_empty_problem() {
-    let problem = Problem { variables: vec![], constraints: vec![] };
+    let problem = Problem {
+        variables: vec![],
+        constraints: vec![],
+    };
     assert_eq!(solve(&problem, 0), Err(Error::TooManyAssignments));
 }
 
@@ -131,12 +189,28 @@ fn zero_budget_rejects_even_an_empty_problem() {
 fn offset_penalty_overflow_is_reported() {
     let problem = Problem {
         variables: vec![
-            Variable { name: "left".into(), domain: vec![0] },
-            Variable { name: "right".into(), domain: vec![0] },
+            Variable {
+                name: "left".into(),
+                domain: vec![0],
+            },
+            Variable {
+                name: "right".into(),
+                domain: vec![0],
+            },
         ],
         constraints: vec![
-            Constraint::NotEqualOffset { left: 0, right: 1, offset: 0, hard_weight: i64::MAX },
-            Constraint::NotEqualOffset { left: 0, right: 1, offset: 0, hard_weight: 1 },
+            Constraint::NotEqualOffset {
+                left: 0,
+                right: 1,
+                offset: 0,
+                hard_weight: i64::MAX,
+            },
+            Constraint::NotEqualOffset {
+                left: 0,
+                right: 1,
+                offset: 0,
+                hard_weight: 2,
+            },
         ],
     };
 
@@ -147,9 +221,18 @@ fn offset_penalty_overflow_is_reported() {
 fn reference_search_evaluates_every_combination() {
     let problem = Problem {
         variables: vec![
-            Variable { name: "a".into(), domain: vec![0, 1, 2] },
-            Variable { name: "b".into(), domain: vec![0, 1] },
-            Variable { name: "c".into(), domain: vec![0, 1] },
+            Variable {
+                name: "a".into(),
+                domain: vec![0, 1, 2],
+            },
+            Variable {
+                name: "b".into(),
+                domain: vec![0, 1],
+            },
+            Variable {
+                name: "c".into(),
+                domain: vec![0, 1],
+            },
         ],
         constraints: vec![],
     };

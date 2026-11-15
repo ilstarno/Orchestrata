@@ -10,7 +10,13 @@ use crate::{
 #[openapi(
     paths(health_controller::health, solve_controller::solve_problem),
     components(schemas(
-        HealthResponse, SolveResponse, Problem, Variable, Constraint, Solution, Score
+        HealthResponse,
+        SolveResponse,
+        Problem,
+        Variable,
+        Constraint,
+        Solution,
+        Score
     ))
 )]
 pub struct ApiDoc;
