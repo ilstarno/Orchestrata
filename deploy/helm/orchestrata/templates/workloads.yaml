@@ -1,0 +1,90 @@
+{{- range $component := list "api" "web" }}
+{{- $context := dict "root" $ "component" $component }}
+{{- $config := index $.Values $component }}
+{{- $isApi := eq $component "api" }}
+{{- $port := ternary 3000 8080 $isApi }}
+{{- $uid := ternary 65532 101 $isApi }}
+{{- $health := ternary "/api/v1/health" "/healthz" $isApi }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "orchestrata.name" $context }}
+  labels: {{- include "orchestrata.selector" $context | nindent 4 }}
+spec:
+  replicas: {{ $config.replicas }}
+  selector:
+    matchLabels: {{- include "orchestrata.selector" $context | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "orchestrata.selector" $context | nindent 8 }}
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: {{ $uid }}
+        runAsGroup: {{ $uid }}
+        {{- if not $isApi }}
+        fsGroup: 101
+        {{- end }}
+        seccompProfile:
+          type: RuntimeDefault
+      {{- with $.Values.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ $component }}
+          image: {{ required (printf "%s.image is required" $component) $config.image | quote }}
+          imagePullPolicy: {{ $config.imagePullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ $port }}
+          env:
+            {{- if $isApi }}
+            - name: ORCHESTRATA_HTTP_BIND
+              value: "0.0.0.0:3000"
+            {{- else }}
+            - name: ORCHESTRATA_API_UPSTREAM
+              value: {{ printf "%s:3000" (include "orchestrata.name" (dict "root" $ "component" "api")) | quote }}
+            {{- end }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          startupProbe:
+            httpGet: {path: {{ $health }}, port: http}
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet: {path: {{ $health }}, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: {{ $health }}, port: http}
+            periodSeconds: 10
+          resources: {{- toYaml $config.resources | nindent 12 }}
+          {{- if not $isApi }}
+          volumeMounts:
+            - name: temporary
+              mountPath: /tmp
+          {{- end }}
+      {{- if not $isApi }}
+      volumes:
+        - name: temporary
+          emptyDir:
+            sizeLimit: 64Mi
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "orchestrata.name" $context }}
+  labels: {{- include "orchestrata.selector" $context | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector: {{- include "orchestrata.selector" $context | nindent 4 }}
+  ports:
+    - name: http
+      port: {{ $port }}
+      targetPort: http
+{{- end }}
