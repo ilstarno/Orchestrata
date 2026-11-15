@@ -1,8 +1,10 @@
-use axum::Json;
-use orchestrata_application::solve_service::SolveService;
+use axum::{Json, extract::State};
 use orchestrata_solver::Problem;
 
-use crate::{api::error::ApiError, dto::solve_response::SolveResponse};
+use crate::{
+    api::{error::ApiError, solve_admission::SolveAdmission},
+    dto::solve_response::SolveResponse,
+};
 
 #[utoipa::path(
     post,
@@ -11,10 +13,14 @@ use crate::{api::error::ApiError, dto::solve_response::SolveResponse};
     responses(
         (status = 200, description = "Optimal solution; solution field is null if proven infeasible", body = SolveResponse),
         (status = 422, description = "Invalid problem or search space too large"),
-        (status = 500, description = "Solver execution failed")
+        (status = 500, description = "Solver execution failed"),
+        (status = 503, description = "All solve execution slots are occupied; retry later")
     )
 )]
-pub async fn solve_problem(Json(problem): Json<Problem>) -> Result<Json<SolveResponse>, ApiError> {
-    let solution = SolveService::execute_async(problem).await?;
+pub async fn solve_problem(
+    State(admission): State<SolveAdmission>,
+    Json(problem): Json<Problem>,
+) -> Result<Json<SolveResponse>, ApiError> {
+    let solution = admission.solve(problem).await?;
     Ok(Json(SolveResponse { solution }))
 }
