@@ -34,7 +34,7 @@ async fn access_events_correlate_requests_without_recording_client_data() {
         .json()
         .with_writer(Arc::clone(&logs))
         .finish();
-    let _subscriber = tracing::subscriber::set_default(subscriber);
+    tracing::subscriber::set_global_default(subscriber).unwrap();
     let app = Bootloader::build();
     let cases = [
         (
@@ -93,8 +93,13 @@ async fn access_events_correlate_requests_without_recording_client_data() {
         let output = logs.0.lock().unwrap();
         let text = std::str::from_utf8(&output).unwrap();
         assert!(!text.contains("PRIVATE_"), "request data leaked into log");
-        assert_eq!(text.lines().count(), request_ids.len());
-        let log: Value = serde_json::from_str(text.lines().last().unwrap()).unwrap();
+        let observed: Vec<Value> = text
+            .lines()
+            .map(|line| serde_json::from_str::<Value>(line).unwrap())
+            .filter(|event| event["fields"]["request_id"] == id)
+            .collect();
+        assert_eq!(observed.len(), 1);
+        let log = &observed[0];
         assert_eq!(log["level"], level);
         let fields = &log["fields"];
         assert_eq!(fields["event"], "http_access");

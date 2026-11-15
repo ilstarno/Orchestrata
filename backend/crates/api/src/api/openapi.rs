@@ -3,19 +3,27 @@ use utoipa::OpenApi;
 
 use crate::{
     api::{
-        controllers::{health_controller, solve_controller},
+        controllers::{error_catalog_controller, health_controller, solve_controller},
         error_code::SolveErrorCode,
     },
-    dto::{health_response::HealthResponse, solve_response::SolveResponse},
+    dto::{
+        error_catalog_entry::ErrorCatalogEntry, health_response::HealthResponse,
+        solve_response::SolveResponse,
+    },
 };
 
 #[derive(OpenApi)]
 #[openapi(
-    paths(health_controller::health, solve_controller::solve_problem),
+    paths(
+        error_catalog_controller::error_catalog,
+        health_controller::health,
+        solve_controller::solve_problem
+    ),
     components(schemas(
         HealthResponse,
         SolveResponse,
         SolveErrorCode,
+        ErrorCatalogEntry,
         Problem,
         Variable,
         Constraint,
