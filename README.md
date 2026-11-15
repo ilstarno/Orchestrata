@@ -1,72 +1,60 @@
 # Orchestrata
 
-**Plan work when resources, deadlines, and rules compete.**
+**Planning and optimization for problems with competing constraints.**
 
-Orchestrata is a planning and optimization system for decisions that are difficult to make by hand: which technician should take each job, which vehicle should handle each delivery, or how production work should be assigned to machines.
+Orchestrata is an optimization engine under development. It models decisions as variables, evaluates hard and soft constraints, and searches for better assignments. The engine is independent of the web application and is intended to be reusable from other programs through a native interface.
 
-These decisions have constraints. A technician needs the right skills and must be available. A vehicle cannot exceed its capacity. A job may have a deadline or require another job to finish first. Several valid schedules may exist, but some involve more travel, overtime, or late work than others.
+Typical planning problems include workforce allocation, timetabling, field service, routing, and resource scheduling. These are development targets, not claims of current support.
 
-Orchestrata is being built to evaluate those trade-offs and find a workable allocation.
+## Current capabilities
 
-## Example: scheduling field-service jobs
+The reference engine supports finite integer domains and three constraint types:
 
-A service company has 40 jobs to complete tomorrow and 8 technicians. Each job has a location, duration, time window, and required skills. Each technician has working hours, qualifications, and a starting location.
+- All-different assignments
+- Unequal values with an offset
+- Preferred values with a weighted penalty
 
-The intended workflow is:
+It provides exhaustive reference search, bounded local search, and a deterministic tabu-search implementation. Scores are lexicographic: hard penalties take precedence over soft penalties. The engine is still an early implementation and has not been benchmarked against established optimization solvers.
 
-1. **Import** jobs, technicians, and availability from existing systems.
-2. **Define rules** such as required skills, working hours, and appointment windows. Mark rules as mandatory or preferences.
-3. **Run optimization** to assign jobs and order visits while reducing travel and unassigned work.
-4. **Check the result** against mandatory constraints and report any jobs that could not be scheduled.
-5. **Review and export** the proposed schedule. Changes to external systems require authorization.
+The native interface currently exposes a smaller subset of the engine's constraints. The Go SDK wraps that interface; it is not yet a complete representation of the engine.
 
-The same approach applies to shift planning, delivery allocation, and production scheduling. Each use case supplies its own resources, decisions, constraints, and objectives; it should not require a separate hardcoded scheduling engine.
+## Repository
 
-## How it works
-
-A planning problem consists of:
-
-| Element | Field-service example |
+| Directory | Purpose |
 | --- | --- |
-| Resources | Technicians and vehicles |
-| Work | Service appointments |
-| Hard constraints | Skills, availability, capacity, appointment windows |
-| Objectives | Reduce travel, overtime, and missed appointments |
-| Output | Assignments, visit order, scores, and constraint validation |
+| `backend/crates/solver/` | Standalone optimization engine |
+| `backend/crates/ffi/` | C-compatible native library and public header |
+| `backend/crates/core/` | Shared typed primitives |
+| `backend/crates/hygiene/` | Input validation foundation |
+| `backend/crates/application/` | Application-facing orchestration |
+| `backend/crates/api/` | HTTP adapter |
+| `backend/crates/cli/` | Command-line adapter |
+| `sdk/go/` | Go native SDK |
+| `frontend/` | Development interface |
+| `docs/` | Architecture and project documentation |
 
-The planned execution path is **input → typed problem model → constraint validation → optimization → independent solution validation → review/export**.
+The dependency direction is from adapters to the engine. The engine does not depend on the HTTP service, UI, or Go SDK.
 
-Orchestrata is not a replacement for a CRM, ERP, or dispatch system. It is intended to optimize decisions using data from those systems and return results they can consume.
+## Run locally
 
-## Implementation
-
-The backend uses Rust 2024, with the solver kept separate from HTTP and database code. The web application uses React, TypeScript, Vite, and TanStack libraries. Frontend and backend are independently buildable and communicate through a versioned HTTP API.
-
-PostgreSQL is the planned operational database. MariaDB, Microsoft SQL Server, and Snowflake are planned integrations for reading and exchanging business data; they are not presented as interchangeable transactional databases.
-
-```text
-backend/    Rust domain, solver, and API work
-frontend/   React application
-docs/       Technical decisions
-.github/    Continuous integration
-```
-
-## Current status
-
-**Early development.** The repository contains a Rust reference solver and a React interface for submitting small finite-domain problems. It does not yet demonstrate the field-service example, scalable optimization, database integrations, or production scheduling.
-
-The current solver accepts integer-domain variables and three constraint types: all-different, unequal offset, and preferred value. It evaluates hard and soft penalties and exhaustively searches at most 100,000 combinations through the API. N-Queens and assignment tests exercise the same evaluator. This is a correctness baseline, not a scalable optimization algorithm. The next milestone adds a typed constraint compiler, move operators, local search, and independent validation.
-
-## Development
-
-Backend (requires a recent stable Rust toolchain):
+Requires a Rust toolchain with support for the 2024 edition.
 
 ```sh
 cd backend
-cargo run -p orchestrata-api
+cargo test --workspace --all-targets
+cargo run -p orchestrata-cli -- --help
 ```
 
-Frontend (requires Node.js 22 and npm):
+To build the native library:
+
+```sh
+cd backend
+cargo build -p orchestrata-ffi --release
+```
+
+The public C header is at `backend/crates/ffi/include/orchestrata.h`. The Go SDK build instructions are in [sdk/go/README.md](sdk/go/README.md).
+
+To run the development interface, use Node.js 22:
 
 ```sh
 cd frontend
@@ -74,8 +62,22 @@ npm install
 npm run dev
 ```
 
-The development API is configured for `127.0.0.1:3000`, with `/api` proxied from the frontend during local development.
+## Engineering expectations
 
----
+- Typed boundaries and explicit ownership
+- Independent validation of solver results
+- Reproducible tests and measurable benchmarks
+- No hidden score overflow or silent constraint relaxation
+- Tests kept separate from production source
+- Each enum in its own file; module entry points contain no business logic
+- No claims of optimality without proof
 
-Proprietary software. No license is granted for reuse or redistribution.
+The current search algorithms are baselines. Incremental scoring, compiled constraints, richer planning variables, and broader problem-class coverage remain in development.
+
+## Contributing
+
+Please open an issue describing the problem and expected behavior before substantial changes. Keep changes focused and include tests. Code ownership is defined in [CODEOWNERS](.github/CODEOWNERS).
+
+## License
+
+No open-source license has been published for this repository yet. Until a license is added, the repository's contents are not licensed for redistribution or modification by others.
