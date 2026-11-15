@@ -1,3 +1,4 @@
+#[path = "enums/module.rs"]
 pub mod enums;
 pub mod problem;
 pub mod reference_solver;
