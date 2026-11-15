@@ -4,8 +4,8 @@ use orchestrata_solver::Problem;
 use crate::{
     api::error::ApiError,
     dto::solve_response::SolveResponse,
-    services::solve_service::SolveService,
 };
+use orchestrata_application::solve_service::SolveService;
 
 #[utoipa::path(
     post,
@@ -20,6 +20,6 @@ use crate::{
 pub async fn solve_problem(
     Json(problem): Json<Problem>,
 ) -> Result<Json<SolveResponse>, ApiError> {
-    let solution = SolveService::execute(problem).await?;
+    let solution = SolveService::execute_async(problem).await?;
     Ok(Json(SolveResponse { solution }))
 }
