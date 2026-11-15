@@ -1,6 +1,7 @@
 #[path = "controllers/module.rs"]
 pub mod controllers;
 pub mod error;
+mod error_code;
 pub mod openapi;
 mod solve_admission;
 
