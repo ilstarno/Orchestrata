@@ -1,0 +1,9 @@
+[package]
+name = "orchestrata-core"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+serde.workspace = true
+uuid = { version = "1", features = ["v7", "serde"] }
+thiserror = "2"

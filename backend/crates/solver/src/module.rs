@@ -1,0 +1,16 @@
+#[path = "enums/module.rs"]
+pub mod enums;
+#[path = "problem.rs"]
+pub mod problem;
+#[path = "reference_solver.rs"]
+pub mod reference_solver;
+#[path = "score.rs"]
+pub mod score;
+#[path = "scoring.rs"]
+pub mod scoring;
+#[path = "solution.rs"]
+pub mod solution;
+#[path = "validation.rs"]
+pub mod validation;
+#[path = "variable.rs"]
+pub mod variable;

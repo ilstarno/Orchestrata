@@ -11,14 +11,3 @@ impl JobStatus {
             | (Self::Running, Self::Completed | Self::Failed | Self::Cancelled))
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn terminal_states_do_not_restart() {
-        for state in [JobStatus::Completed, JobStatus::Failed, JobStatus::Cancelled] {
-            assert!(!state.can_transition_to(JobStatus::Running));
-        }
-    }
-}

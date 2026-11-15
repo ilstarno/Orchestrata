@@ -1,0 +1,12 @@
+[package]
+name = "orchestrata-application"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+orchestrata-hygiene = { path = "../hygiene" }
+orchestrata-solver = { path = "../solver" }
+tokio = { version = "1", features = ["rt", "sync"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt"] }
