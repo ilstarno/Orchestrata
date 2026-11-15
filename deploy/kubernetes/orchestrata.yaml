@@ -1,0 +1,174 @@
+---
+# Source: orchestrata/templates/workloads.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: orchestrata-api
+  labels:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "api"
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "api"
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
+---
+# Source: orchestrata/templates/workloads.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: orchestrata-web
+  labels:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "web"
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "web"
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+# Source: orchestrata/templates/workloads.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestrata-api
+  labels:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "api"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: orchestrata
+      app.kubernetes.io/instance: "orchestrata"
+      app.kubernetes.io/component: "api"
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: orchestrata
+        app.kubernetes.io/instance: "orchestrata"
+        app.kubernetes.io/component: "api"
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: api
+          image: "orchestrata-api:dev"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: ORCHESTRATA_HTTP_BIND
+              value: "0.0.0.0:3000"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          startupProbe:
+            httpGet: {path: /api/v1/health, port: http}
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet: {path: /api/v1/health, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /api/v1/health, port: http}
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: "1"
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+---
+# Source: orchestrata/templates/workloads.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestrata-web
+  labels:
+    app.kubernetes.io/name: orchestrata
+    app.kubernetes.io/instance: "orchestrata"
+    app.kubernetes.io/component: "web"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: orchestrata
+      app.kubernetes.io/instance: "orchestrata"
+      app.kubernetes.io/component: "web"
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: orchestrata
+        app.kubernetes.io/instance: "orchestrata"
+        app.kubernetes.io/component: "web"
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+        runAsGroup: 101
+        fsGroup: 101
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: web
+          image: "orchestrata-web:dev"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: ORCHESTRATA_API_UPSTREAM
+              value: "orchestrata-api:3000"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          startupProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 250m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 32Mi
+          volumeMounts:
+            - name: temporary
+              mountPath: /tmp
+      volumes:
+        - name: temporary
+          emptyDir:
+            sizeLimit: 64Mi

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: orchestrata
+description: Internal deployment of the Orchestrata API and web interface
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+kubeVersion: ">=1.25.0-0"
