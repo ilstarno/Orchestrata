@@ -5,4 +5,8 @@ edition.workspace = true
 
 [dependencies]
 serde.workspace = true
-utoipa = "5"
+utoipa = { version = "5", optional = true }
+
+[features]
+default = []
+openapi = ["dep:utoipa"]
