@@ -8,4 +8,5 @@ axum = "0.8"
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
 serde.workspace = true
 utoipa = "5"
+orchestrata-domain = { path = "../domain" }
 orchestrata-solver = { path = "../solver" }
