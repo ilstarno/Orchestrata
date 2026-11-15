@@ -1,16 +1,16 @@
 # Frontend
 
-The frontend is a separate React and TypeScript application under `frontend/`, built with Vite.
+The frontend is a separately buildable React and TypeScript application under `frontend/`, using Vite and TanStack Router and Query. Other TanStack packages may be added where they solve concrete UI requirements.
 
-TanStack Router handles routing and TanStack Query handles the solve request. The current page edits a JSON problem and displays the server response.
+Use current stable React and compatible stable TanStack versions. Pin resolved dependencies through a committed lockfile; update intentionally and verify builds rather than using floating runtime versions.
 
-The Vite development proxy sends `/api` requests to `127.0.0.1:3000`.
+The current interface edits a JSON problem and displays the solver response. The Vite proxy forwards `/api` to `127.0.0.1:3000`.
 
-## Planned UI
+## Planned
 
-A structured problem editor, constraint diagnostics, run history, and result visualization are future work. The current JSON editor is a development tool, not a finished planning interface.
+A typed problem editor, constraint diagnostics, job history, and result visualization. The frontend is not an MCP server; MCP belongs at the backend protocol boundary.
 
 ## Gotchas
 
-- Frontend types are not yet generated from OpenAPI. Keep API changes coordinated until code generation is established.
-- Do not treat client-side validation as authoritative.
+- Generate frontend API types from an OpenAPI contract before expanding endpoints.
+- Browser validation does not replace backend validation.
