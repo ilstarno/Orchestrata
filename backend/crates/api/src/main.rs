@@ -1,9 +1,15 @@
+mod api_error;
 mod handlers;
 mod health_response;
 mod openapi;
 mod solve_response;
+mod solve_service;
+mod solve_service_error;
 
-use axum::{Json, Router, routing::{get, post}};
+use axum::{
+    Json, Router,
+    routing::{get, post},
+};
 use utoipa::OpenApi;
 
 use crate::openapi::ApiDoc;
