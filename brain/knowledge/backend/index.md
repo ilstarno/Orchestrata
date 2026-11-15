@@ -1,23 +1,22 @@
 # Backend
 
-The Rust 2024 workspace is under `backend/`.
+The backend is a Rust workspace under `backend/`. Use the latest **stable** Rust toolchain supported by CI; Rust 2024 is the language edition, not a pinned compiler release.
 
-- `crates/domain`: job lifecycle state and domain invariants.
-- `crates/solver`: problem types, validation, scoring, and reference search.
+- `crates/domain`: lifecycle types and invariants.
+- `crates/solver`: finite-domain model, scoring, and reference search.
 - `crates/api`: Axum HTTP transport.
 
 ## HTTP
 
-- `GET /api/v1/health`: health response.
-- `POST /api/v1/solve`: accepts a solver `Problem` and returns an optional solution.
+- `GET /api/v1/health`
+- `POST /api/v1/solve`
 
 The development server binds to `127.0.0.1:3000`.
 
+## MCP
+
+MCP is a planned protocol adapter for discovering solver capabilities, validating problem definitions, submitting solve jobs, and reading results. See [MCP integration](../mcp/index.md). MCP and HTTP must share application services; neither protocol owns optimization rules.
+
 ## Boundaries
 
-Keep HTTP-specific types out of the solver. Reject invalid inputs before solving. Treat request limits, cancellation, authentication, tenant isolation, and durable execution as unfinished production concerns.
-
-## Gotchas
-
-- A successful HTTP response does not imply the returned solution has a zero hard penalty.
-- The solve endpoint currently performs CPU-bound exhaustive work inside an async handler; isolate bounded blocking execution before accepting concurrent production traffic.
+Keep the solver independent of transports, persistence, and domain-specific integrations. The current solve endpoint performs bounded exhaustive CPU work inside an async handler. Move execution to a bounded worker pool before production use. Authentication, tenant isolation, durable jobs, and cancellation are not implemented.
