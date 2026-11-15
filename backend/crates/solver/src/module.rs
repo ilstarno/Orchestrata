@@ -1,5 +1,7 @@
 #[path = "enums/module.rs"]
 pub mod enums;
+#[path = "heuristic_solver.rs"]
+pub mod heuristic_solver;
 #[path = "problem.rs"]
 pub mod problem;
 #[path = "reference_solver.rs"]
