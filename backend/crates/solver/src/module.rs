@@ -16,3 +16,5 @@ pub mod solution;
 pub mod validation;
 #[path = "variable.rs"]
 pub mod variable;
+#[path = "tabu_solver.rs"]
+pub mod tabu_solver;
