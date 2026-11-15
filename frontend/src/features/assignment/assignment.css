@@ -116,3 +116,68 @@
 @media (max-width: 380px) {
   .setup-footer { align-items: flex-start; flex-direction: column; }
 }
+
+.eligibility-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 8px 0 0;
+  border: 0;
+}
+
+.eligibility-group legend {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.eligibility-option {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.eligibility-option[data-focus-visible] {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.eligibility-check {
+  display: grid;
+  width: 17px;
+  height: 17px;
+  place-items: center;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+}
+
+.eligibility-check svg {
+  visibility: hidden;
+}
+
+.eligibility-option[data-selected] .eligibility-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.eligibility-option[data-selected] svg {
+  visibility: visible;
+}
+
+.eligibility-error {
+  margin: 0 24px 16px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.reset-button {
+  margin-top: 0;
+}

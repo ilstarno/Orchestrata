@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { assignmentExample } from '../../shared/examples/assignment'
+import { assignmentExample, changeEligibility, describeMissingEligibility, exampleDefinition, exampleEligibility, serializeEligibility } from '../../shared/examples/assignment'
 
 describe('assignment example', () => {
   it('has distinct variable names', () => {
@@ -15,5 +15,37 @@ describe('assignment example', () => {
       expect(index).toBeGreaterThanOrEqual(0)
       expect(index).toBeLessThan(assignmentExample.variables.length)
     }
+  })
+})
+
+describe('guided technician eligibility', () => {
+  it('keeps the original setup unchanged until a selection is edited', () => {
+    expect(serializeEligibility(exampleEligibility)).toBe(exampleDefinition)
+  })
+
+  it('changes only the requested job and preserves stable option order', () => {
+    const eligible = changeEligibility(exampleEligibility, 0, 2, true)
+    const withoutAlex = changeEligibility(eligible, 0, 8, false)
+    const restoredAlex = changeEligibility(withoutAlex, 0, 8, true)
+    expect(exampleEligibility[0]).toEqual([8, 3])
+    expect(restoredAlex).toEqual([[8, 3, 2], [8, 2], [3, 2]])
+    expect(changeEligibility(restoredAlex, 0, 2, true)).toEqual(restoredAlex)
+  })
+
+  it('retains overlap and preference constraints when serializing eligibility', () => {
+    const edited = changeEligibility(exampleEligibility, 0, 8, false)
+    const definition = JSON.parse(serializeEligibility(edited))
+    expect(definition.variables[0]).toEqual({ name: 'lift_repair', domain: [3] })
+    expect(definition.constraints).toEqual(assignmentExample.constraints)
+  })
+
+  it('names jobs with no eligible technician before submission', () => {
+    const withoutAlex = changeEligibility(exampleEligibility, 0, 8, false)
+    const uncovered = changeEligibility(withoutAlex, 0, 3, false)
+    expect(describeMissingEligibility(uncovered)).toEqual(['Lift repair'])
+  })
+
+  it('leaves overlapping selections to the server rather than declaring them invalid', () => {
+    expect(describeMissingEligibility([[8], [8], [8]])).toEqual([])
   })
 })

@@ -5,16 +5,36 @@ import { ArrowRight, Braces, Moon, Sun } from 'lucide-react'
 import { ExampleOverview } from './features/assignment/example-overview'
 import { PlanResult } from './features/assignment/plan-result'
 import { solveProblem } from './shared/api/solve'
-import { exampleDefinition } from './shared/examples/assignment'
+import {
+  changeEligibility,
+  describeMissingEligibility,
+  exampleDefinition,
+  exampleEligibility,
+  serializeEligibility,
+} from './shared/examples/assignment'
 import { useTheme } from './shared/theme/use-theme'
 import './styles.css'
 import './features/assignment/assignment.css'
 
+interface RunInput {
+  definition: string
+  useExampleLabels: boolean
+}
+
 export function App() {
   const { theme, toggleTheme } = useTheme()
-  const [definition, setDefinition] = useState(exampleDefinition)
-  const solve = useMutation({ mutationFn: solveProblem })
-  const showingExample = definition === exampleDefinition
+  const [eligibility, setEligibility] = useState(exampleEligibility)
+  const [customDefinition, setCustomDefinition] = useState<string | null>(null)
+  const solve = useMutation({ mutationFn: (input: RunInput) => solveProblem(input.definition) })
+  const useExampleLabels = customDefinition === null
+  const definition = customDefinition ?? serializeEligibility(eligibility)
+  const originalExample = useExampleLabels && definition === exampleDefinition
+  const missingEligibility = useExampleLabels ? describeMissingEligibility(eligibility) : []
+
+  function resetExample() {
+    setEligibility(exampleEligibility)
+    setCustomDefinition(null)
+  }
 
   return (
     <div className="shell" data-theme={theme}>
@@ -49,33 +69,42 @@ export function App() {
             <div className="panel-header">
               <div>
                 <span className="panel-kicker">1. Set up</span>
-                <h2 id="setup-heading">{showingExample ? 'Example: A morning service callout' : 'Your edited setup'}</h2>
+                <h2 id="setup-heading">{useExampleLabels ? 'Example: A morning service callout' : 'Your JSON setup'}</h2>
               </div>
             </div>
 
-            {showingExample
-              ? <ExampleOverview />
-              : <p className="custom-setup">This run will use your edited definition instead of the service example.</p>}
+            {useExampleLabels ? (
+              <ExampleOverview
+                eligibility={eligibility}
+                onChange={(job, technician, eligible) => {
+                  setEligibility(current => changeEligibility(current, job, technician, eligible))
+                }}
+              />
+            ) : <p className="custom-setup">This run will use your JSON instead of the example.</p>}
 
             <details className="advanced-panel setup-advanced">
               <summary><Braces size={16} aria-hidden /> Edit problem as JSON</summary>
-              <TextField className="editor-field" value={definition} onChange={setDefinition}>
+              <TextField className="editor-field" value={definition} onChange={setCustomDefinition}>
                 <Label className="sr-only">Problem JSON</Label>
                 <TextArea className="code-editor" spellCheck={false} />
               </TextField>
-              <Button
-                className="text-button"
-                isDisabled={showingExample}
-                onPress={() => setDefinition(exampleDefinition)}
-              >
-                Reset to example
-              </Button>
             </details>
 
+            {missingEligibility.length > 0 && (
+              <p className="eligibility-error" role="status">
+                Choose at least one technician for: {missingEligibility.join(', ')}.
+              </p>
+            )}
             <div className="panel-footer setup-footer">
-              <span>{showingExample ? 'No setup needed' : 'Runs your edited definition'}</span>
-              <Button className="primary-button" isDisabled={solve.isPending} onPress={() => solve.mutate(definition)}>
-                {solve.isPending ? 'Checking assignments' : showingExample ? 'Run example' : 'Run edited setup'}
+              {originalExample
+                ? <span>No setup needed</span>
+                : <Button className="text-button reset-button" onPress={resetExample}>Reset to example</Button>}
+              <Button
+                className="primary-button"
+                isDisabled={solve.isPending || missingEligibility.length > 0}
+                onPress={() => solve.mutate({ definition, useExampleLabels })}
+              >
+                {solve.isPending ? 'Checking assignments' : originalExample ? 'Run example' : 'Run edited setup'}
                 <ArrowRight size={16} aria-hidden />
               </Button>
             </div>
@@ -85,8 +114,9 @@ export function App() {
             pending={solve.isPending}
             result={solve.data}
             error={solve.error}
-            example={solve.variables === exampleDefinition}
-            edited={solve.variables !== undefined && solve.variables !== definition}
+            example={solve.variables?.useExampleLabels ?? false}
+            edited={solve.variables !== undefined
+              && (solve.variables.definition !== definition || solve.variables.useExampleLabels !== useExampleLabels)}
           />
         </div>
         <footer className="page-footer">
