@@ -2,5 +2,6 @@
 pub enum CancelOutcome {
     Cancelled,
     AlreadyCancelled,
+    NotPending,
     NotFound,
 }

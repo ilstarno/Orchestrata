@@ -1,13 +1,18 @@
 mod cancel_outcome;
+mod complete_outcome;
 mod job_event;
 mod job_event_kind;
+mod job_lease;
+mod lease_operations;
 mod sqlite_store;
 mod store_error;
 mod submit_outcome;
 
 pub use cancel_outcome::CancelOutcome;
+pub use complete_outcome::CompleteOutcome;
 pub use job_event::JobEvent;
 pub use job_event_kind::JobEventKind;
+pub use job_lease::JobLease;
 pub use sqlite_store::SqliteStore;
 pub use store_error::StoreError;
 pub use submit_outcome::SubmitOutcome;

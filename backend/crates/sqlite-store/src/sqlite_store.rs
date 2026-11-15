@@ -9,11 +9,19 @@ use crate::{CancelOutcome, JobEvent, JobEventKind, StoreError, SubmitOutcome};
 const MAX_IDEMPOTENCY_KEY_BYTES: usize = 128;
 const MAX_INPUT_REF_BYTES: usize = 1024;
 const MAX_OUTBOX_BATCH: u32 = 1000;
-const SCHEMA_VERSION: i64 = 1;
-const JOB_SCHEMA: &str = include_str!("../migrations/001_jobs.sql");
+const SCHEMA_VERSION: i64 = 2;
+const JOB_SCHEMA: &[&str] = &[
+    include_str!("../migrations/001_jobs.sql"),
+    include_str!("../migrations/001_job_outbox.sql"),
+];
+const JOB_LEASE_SCHEMA: &[&str] = &[
+    include_str!("../migrations/002_jobs_prepare.sql"),
+    include_str!("../migrations/002_job_outbox.sql"),
+    include_str!("../migrations/002_jobs_finalize.sql"),
+];
 
 pub struct SqliteStore {
-    connection: Connection,
+    pub(super) connection: Connection,
 }
 
 impl SqliteStore {
@@ -24,12 +32,13 @@ impl SqliteStore {
         let transaction = connection.transaction_with_behavior(TransactionBehavior::Immediate)?;
         let version = transaction.pragma_query_value(None, "user_version", |row| row.get(0))?;
         match version {
-            0 => {
-                transaction.execute_batch(JOB_SCHEMA)?;
-                transaction.pragma_update(None, "user_version", SCHEMA_VERSION)?;
-            }
-            SCHEMA_VERSION => {}
+            0 => apply_schema(&transaction, JOB_SCHEMA)?,
+            1 | SCHEMA_VERSION => {}
             version => return Err(StoreError::UnsupportedSchema(version)),
+        }
+        if version < SCHEMA_VERSION {
+            apply_schema(&transaction, JOB_LEASE_SCHEMA)?;
+            transaction.pragma_update(None, "user_version", SCHEMA_VERSION)?;
         }
         transaction.commit()?;
         Ok(Self { connection })
@@ -99,15 +108,18 @@ impl SqliteStore {
             enqueue(&transaction, &tenant, &job, JobEventKind::Cancelled)?;
             CancelOutcome::Cancelled
         } else {
-            let exists = transaction.query_row(
-                "SELECT EXISTS(SELECT 1 FROM jobs WHERE tenant_id = ?1 AND job_id = ?2)",
-                params![tenant, job],
-                |r| r.get::<_, bool>(0),
-            )?;
-            if exists {
-                CancelOutcome::AlreadyCancelled
-            } else {
-                CancelOutcome::NotFound
+            let status = transaction
+                .query_row(
+                    "SELECT status FROM jobs WHERE tenant_id = ?1 AND job_id = ?2",
+                    params![tenant, job],
+                    |r| r.get::<_, String>(0),
+                )
+                .optional()?;
+            match status.as_deref() {
+                Some("cancelled") => CancelOutcome::AlreadyCancelled,
+                Some("running" | "completed") => CancelOutcome::NotPending,
+                None => CancelOutcome::NotFound,
+                Some(_) => return Err(StoreError::InvalidRecord),
             }
         };
         transaction.commit()?;
@@ -153,7 +165,14 @@ impl SqliteStore {
     }
 }
 
-fn valid_text(value: &str, max_bytes: usize) -> bool {
+fn apply_schema(transaction: &Transaction<'_>, statements: &[&str]) -> Result<(), StoreError> {
+    for sql in statements {
+        transaction.execute_batch(sql)?;
+    }
+    Ok(())
+}
+
+pub(super) fn valid_text(value: &str, max_bytes: usize) -> bool {
     value.len() <= max_bytes && !value.trim().is_empty() && !value.chars().any(char::is_control)
 }
 
@@ -165,11 +184,11 @@ fn parse_v7(value: &str) -> Result<Uuid, StoreError> {
     Ok(id)
 }
 
-fn parse_job(value: &str) -> Result<JobId, StoreError> {
+pub(super) fn parse_job(value: &str) -> Result<JobId, StoreError> {
     JobId::parse(parse_v7(value)?).map_err(|_| StoreError::InvalidRecord)
 }
 
-fn enqueue(
+pub(super) fn enqueue(
     transaction: &Transaction<'_>,
     tenant: &str,
     job: &str,

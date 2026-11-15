@@ -2,6 +2,7 @@
 pub enum JobEventKind {
     Submitted,
     Cancelled,
+    Completed,
 }
 
 impl JobEventKind {
@@ -9,6 +10,7 @@ impl JobEventKind {
         match self {
             Self::Submitted => "job_submitted",
             Self::Cancelled => "job_cancelled",
+            Self::Completed => "job_completed",
         }
     }
 
@@ -16,6 +18,7 @@ impl JobEventKind {
         match value {
             "job_submitted" => Some(Self::Submitted),
             "job_cancelled" => Some(Self::Cancelled),
+            "job_completed" => Some(Self::Completed),
             _ => None,
         }
     }
