@@ -1,11 +1,10 @@
 use axum::{http::StatusCode, response::{IntoResponse, Response}};
+use orchestrata_application::solve_error::SolveError;
 
-use crate::enums::solve_service_error::SolveServiceError;
+pub struct ApiError(pub SolveError);
 
-pub struct ApiError(pub SolveServiceError);
-
-impl From<SolveServiceError> for ApiError {
-    fn from(error: SolveServiceError) -> Self {
+impl From<SolveError> for ApiError {
+    fn from(error: SolveError) -> Self {
         Self(error)
     }
 }
@@ -13,11 +12,11 @@ impl From<SolveServiceError> for ApiError {
 impl IntoResponse for ApiError {
     fn into_response(self) -> Response {
         let (status, message) = match self.0 {
-            SolveServiceError::InvalidProblem => (
+            SolveError::InvalidInput => (
                 StatusCode::UNPROCESSABLE_ENTITY,
                 "Invalid problem or search space too large",
             ),
-            SolveServiceError::ExecutionFailed => (
+            SolveError::ExecutionFailed => (
                 StatusCode::INTERNAL_SERVER_ERROR,
                 "Solver execution failed",
             ),
