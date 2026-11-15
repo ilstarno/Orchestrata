@@ -64,3 +64,49 @@ fn invalid_reference_is_rejected() {
     };
     assert_eq!(validate(&problem), Err(Error::InvalidVariable(5)));
 }
+
+#[test]
+fn score_overflow_is_reported_instead_of_saturating() {
+    let problem = Problem {
+        variables: vec![Variable { name: "resource".into(), domain: vec![0] }],
+        constraints: vec![
+            Constraint::PreferValue { variable: 0, value: 1, soft_weight: i64::MAX },
+            Constraint::PreferValue { variable: 0, value: 2, soft_weight: 1 },
+        ],
+    };
+
+    assert_eq!(score(&problem, &[0]), Err(Error::ScoreOverflow));
+    assert_eq!(solve(&problem, 1), Err(Error::ScoreOverflow));
+}
+
+#[test]
+fn invalid_weights_are_rejected() {
+    let problem = Problem {
+        variables: vec![Variable { name: "resource".into(), domain: vec![0] }],
+        constraints: vec![Constraint::PreferValue {
+            variable: 0,
+            value: 1,
+            soft_weight: 0,
+        }],
+    };
+
+    assert_eq!(validate(&problem), Err(Error::InvalidWeight));
+}
+
+#[test]
+fn offset_comparison_handles_integer_extremes() {
+    let problem = Problem {
+        variables: vec![
+            Variable { name: "first".into(), domain: vec![i64::MAX] },
+            Variable { name: "second".into(), domain: vec![i64::MIN] },
+        ],
+        constraints: vec![Constraint::NotEqualOffset {
+            left: 0,
+            right: 1,
+            offset: 0,
+            hard_weight: 1,
+        }],
+    };
+
+    assert_eq!(score(&problem, &[i64::MAX, i64::MIN]), Ok(Score { hard: 0, soft: 0 }));
+}
