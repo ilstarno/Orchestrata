@@ -1,3 +1,9 @@
+#[path = "assignment_change.rs"]
+pub mod assignment_change;
+#[path = "assignment_change_reason.rs"]
+pub mod assignment_change_reason;
+#[path = "compare_solutions.rs"]
+pub mod compare_solutions;
 #[path = "compiled_problem.rs"]
 pub mod compiled_problem;
 #[path = "constraint_contribution.rs"]
@@ -26,6 +32,10 @@ pub(super) mod search_scoring;
 pub mod search_stop;
 #[path = "solution.rs"]
 pub mod solution;
+#[path = "solution_comparison.rs"]
+pub mod solution_comparison;
+#[path = "solution_comparison_error.rs"]
+pub mod solution_comparison_error;
 #[path = "solution_validation.rs"]
 pub mod solution_validation;
 #[path = "solution_validation_error.rs"]
