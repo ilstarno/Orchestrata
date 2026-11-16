@@ -59,6 +59,9 @@
     <loc>https://ilstarno.github.io/Orchestrata/integrations/</loc>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/for-agents/</loc>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>

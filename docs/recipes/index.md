@@ -10,12 +10,12 @@ A recipe describes a small planning scenario and the fields it uses. The runnabl
 
 ## Run a catalog fixture
 
-With a checkout of the [recipe import under review](https://github.com/ilstarno/orchestrata-recipes/pull/1) and a built `orchestrata-cli` on your path, run from the recipe repository root:
+With a checkout of the [recipe catalog](https://github.com/ilstarno/orchestrata-recipes/tree/main) and a built `orchestrata-cli` on your path, run this from the catalog repository root:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-The checked-in result has values `[1, 2, 0]`, with zero hard and soft penalties. Read the accompanying `inputs.json` to see the business inputs and `expected.json` to compare the result. The XML describes the scenario; the CLI receives the normalized JSON model. The standalone recipe import branch is source material, not a versioned catalog release.
+The checked-in result has values `[1, 2, 0]`, with zero hard and soft penalties. Read the accompanying `inputs.json` to see the business inputs and `expected.json` to compare the result. The XML describes the scenario; the CLI receives the normalized JSON model. The catalog repository contains source examples, not a versioned catalog package.
 
 Use the [assignment guide](../evaluate/) to run a smaller example without the catalog. Use a catalog example as a starting point: choose a decision, write down the allowed options, and model only rules you can verify. Do not send real customer or employee data into a local preview. Synthetic fleet workloads can generate repeatable stop inputs; the dataset generator does not route vehicles or estimate travel time.

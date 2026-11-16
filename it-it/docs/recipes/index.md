@@ -10,12 +10,12 @@ Un modello di pianificazione descrive un piccolo scenario e i campi che usa. Gli
 
 ## Esegui un esempio del catalogo
 
-Scarica il ramo della [importazione dei modelli in revisione](https://github.com/ilstarno/orchestrata-recipes/pull/1) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del repository dei modelli:
+Scarica il [catalogo dei modelli](https://github.com/ilstarno/orchestrata-recipes/tree/main) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del catalogo:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-Il risultato salvato è `[1, 2, 0]`, senza penalità per regole obbligatorie o preferenze. Leggi `inputs.json` per i dati in ingresso e `expected.json` per confrontare il risultato. L’XML descrive lo scenario; la CLI riceve il modello JSON normalizzato. Il ramo di importazione contiene i sorgenti, non una versione pubblicata del catalogo.
+Il risultato salvato è `[1, 2, 0]`, senza penalità per regole obbligatorie o preferenze. Leggi `inputs.json` per i dati in ingresso e `expected.json` per confrontare il risultato. L’XML descrive lo scenario; la CLI riceve il modello JSON normalizzato. Il repository del catalogo contiene esempi sorgente, non un pacchetto con un numero di versione.
 
 Usa la [guida all’assegnazione](../evaluate/) per provare un esempio più piccolo senza il catalogo. Per i tuoi esempi scegli una decisione, elenca le opzioni ammesse e modella soltanto le regole che puoi controllare. Non usare dati reali di clienti o dipendenti nelle prove locali. I dati sintetici per flotte producono elenchi di fermate ripetibili; il generatore non calcola percorsi né tempi di viaggio.

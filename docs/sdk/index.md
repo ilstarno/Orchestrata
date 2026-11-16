@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the [standalone engine source under review](https://github.com/ilstarno/orchestrata-engine/pull/1), not downloadable SDK releases or published language packages. Build the library and binding from matching source. The examples use synthetic data and print `[1]` (C#, Python, and Go examples) or the corresponding complete JSON result.
+The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the [standalone engine source on main](https://github.com/ilstarno/orchestrata-engine/tree/main), not downloadable SDK releases or published language packages. Build the library and binding from matching source. This reference was checked against [engine revision 8a18e00](https://github.com/ilstarno/orchestrata-engine/tree/8a18e001fe45d8fac036f62b890a6b5838af87f5). The examples use synthetic data and print `[1]` (C#, Python, and Go examples) or the corresponding complete JSON result.
 
 ## Build and locate the library
 
@@ -30,9 +30,9 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 | Python | Python 3.10 or newer; uses the standard-library native loader. | `solve` accepts a mapping and returns a decoded `dict` or `None`; preserves integers but does not statically type individual fields. `solve_json` is the bytes interface. |
 | Node.js | A Node release with Node-API BigInt support, a C toolchain, and `node-gyp`. | Type declarations enforce `string \| Buffer` input and a `bigint` limit. Result is raw JSON text, not a typed solution object. |
 | PHP | PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment. | Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model. |
-| Go | Go 1.20 or newer and cgo with the platform C toolchain. | `Solve` decodes to a typed `*Solution` with `[]int64` values, signed `Score` fields and a `uint64` evaluation count. Both entry points still take UTF-8 problem bytes. |
+| Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
 
-Type-safe native argument handling is not the same as typed planning models. The current response convenience methods are described above. Where the wrapper returns raw JSON, use your language’s lossless decoder and validate the fields you consume; do not advertise typed models the library does not ship.
+Type-safe native argument handling is not the same as typed planning models. The current response convenience methods are described above. Go has typed inputs for the three baseline constraints. Where a wrapper returns raw JSON, use your language’s lossless decoder and validate the fields you consume; do not advertise typed models the library does not ship.
 
 ## Problem and result format
 
@@ -185,8 +185,15 @@ import (
 )
 
 func main() {
-    problem := []byte(`{"variables":[{"name":"job","domain":[0,1]}],"constraints":[{"kind":"prefer_value","variable":0,"value":1,"soft_weight":1}]}`)
-    solution, err := orchestrata.Solve(problem, 2)
+    problem := orchestrata.Problem{
+        Variables: []orchestrata.Variable{
+            {Name: "job", Domain: []int64{0, 1}},
+        },
+        Constraints: []orchestrata.Constraint{
+            orchestrata.PreferValue{Variable: 0, Value: 1, SoftWeight: 1},
+        },
+    }
+    solution, err := orchestrata.SolveProblem(problem, 2)
     if err != nil {
         log.Fatal(err)
     }
@@ -205,7 +212,33 @@ CGO_ENABLED=1 CGO_CFLAGS="-I$ORCHESTRATA_INCLUDE" \
   CGO_LDFLAGS="-L$ORCHESTRATA_LIB_DIR" go run .
 ```
 
-Use `SolveJSON(problem, limit)` for the full response bytes; `Solve` returns the inner `*Solution`. Test native errors using `errors.As` with `*orchestrata.SolveError`, whose `Status` is a typed numeric value. A loader, ABI or decoding failure is not a native search result.
+`SolveProblem` accepts `AllDifferent`, `NotEqualOffset`, and `PreferValue`. Variable indices are `uint32`; domains, offsets, preference values, and weights are `int64`. Weights must be positive. Use `Solve(problemJSON, limit)` when you need the inner `*Solution` from a JSON request, including either additional constraint below. Use `SolveJSON(problemJSON, limit)` when you want the complete JSON response instead. Test native errors using `errors.As` with `*orchestrata.SolveError`, whose `Status` is a typed numeric value. A loader, ABI or decoding failure is not a native search result.
+
+## Two additional constraints in engine JSON
+
+The baseline Go structs do not wrap these two constraint kinds. Send their UTF-8 JSON through the raw request interface. This applies to the engine library built from the revision above; it does not imply that a separate HTTP endpoint accepts the same kinds. Do not add these names to a typed Go request or silently remove a rule to make the request fit.
+
+| `kind` | Required fields | Meaning |
+| --- | --- | --- |
+| `count_value` | `variables`: zero-based indices; `value`: signed 64-bit integer; `min` and `max`: inclusive nonnegative counts; `weight`: positive signed 64-bit integer; `tier`: `"hard"` or `"soft"`. | Counts how many referenced variables choose `value`. Each count below `min` or above `max` contributes one deduction of `weight` to the selected score. |
+| `resource_capacity` | `items`: array of `{"variable": index, "load": quantity}`; `limits`: array of `{"resource": id, "capacity": quantity}`. Loads and capacities are nonnegative unsigned 64-bit integers; resource IDs are signed 64-bit integers. | Sums the load of the items assigned to each resource and checks its inclusive capacity. Provide a limit for each resource in the listed item domains and use the same unit throughout a constraint. This is total assignment load, not a time-varying capacity or a route. |
+
+For example, the raw request below requires exactly one item on resource `1` and caps the two resource loads:
+
+```json
+{
+  "variables": [
+    {"name": "item_a", "domain": [0, 1]},
+    {"name": "item_b", "domain": [0, 1]}
+  ],
+  "constraints": [
+    {"kind": "count_value", "variables": [0, 1], "value": 1, "min": 1, "max": 1, "weight": 1, "tier": "hard"},
+    {"kind": "resource_capacity", "items": [{"variable": 0, "load": 5}, {"variable": 1, "load": 3}], "limits": [{"resource": 0, "capacity": 3}, {"resource": 1, "capacity": 5}]}
+  ]
+}
+```
+
+With a budget of `4`, the only feasible result is `[1, 0]`, with both scores zero. This request is usable from Go with `Solve([]byte(problemJSON), 4)`, and from the other bindings via their JSON methods.
 
 ## Error and buffer reference
 

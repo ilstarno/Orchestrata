@@ -10,12 +10,12 @@ Een planningssjabloon beschrijft een kleine planningssituatie en de velden die d
 
 ## Voer een catalogusvoorbeeld uit
 
-Gebruik een checkout van de [import van de sjablonen ter beoordeling](https://github.com/ilstarno/orchestrata-recipes/pull/1) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de sjabloonrepository:
+Open een checkout van de [sjablooncatalogus](https://github.com/ilstarno/orchestrata-recipes/tree/main) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de catalogus:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-De opgeslagen uitkomst is `[1, 2, 0]`, zonder strafpunten voor harde regels of voorkeuren. Lees `inputs.json` voor de invoergegevens en vergelijk de uitkomst met `expected.json`. De XML beschrijft de situatie; de CLI krijgt het genormaliseerde JSON-model. De aparte importbranch bevat bronbestanden en is geen uitgebrachte catalogusversie.
+De opgeslagen uitkomst is `[1, 2, 0]`, zonder strafpunten voor harde regels of voorkeuren. Lees `inputs.json` voor de invoergegevens en vergelijk de uitkomst met `expected.json`. De XML beschrijft de situatie; de CLI krijgt het genormaliseerde JSON-model. De catalogusrepository bevat bronvoorbeelden, geen versiegebonden cataloguspakket.
 
 Gebruik de [toewijzingshandleiding](../evaluate/) voor een kleiner voorbeeld zonder catalogus. Kies voor uw eigen model één beslissing, noteer de toegestane opties en modelleer alleen regels die u kunt controleren. Gebruik geen echte klant- of personeelsgegevens in een lokale preview. Synthetische wagenparkgegevens leveren reproduceerbare stops op; de generator berekent geen routes of reistijden.

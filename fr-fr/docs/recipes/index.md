@@ -10,12 +10,12 @@ Un modèle de planification décrit une situation simple et les champs qu’elle
 
 ## Exécuter un exemple du catalogue
 
-Récupérez la branche du [projet d’import des modèles](https://github.com/ilstarno/orchestrata-recipes/pull/1) et vérifiez que l’exécutable compilé `orchestrata-cli` est dans votre chemin de recherche. À la racine du dépôt des modèles, exécutez :
+Récupérez le [catalogue des modèles](https://github.com/ilstarno/orchestrata-recipes/tree/main) et vérifiez que l’exécutable compilé `orchestrata-cli` est dans votre chemin de recherche. À la racine du dépôt du catalogue, exécutez :
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-Le résultat enregistré est `[1, 2, 0]`, sans pénalité pour les règles obligatoires ni pour les préférences. Lisez `inputs.json` pour voir les données d’entrée et `expected.json` pour vérifier le résultat. Le XML décrit la situation ; la CLI reçoit le modèle JSON normalisé. La branche d’import séparée contient les sources, pas une version publiée du catalogue.
+Le résultat enregistré est `[1, 2, 0]`, sans pénalité pour les règles obligatoires ni pour les préférences. Lisez `inputs.json` pour voir les données d’entrée et `expected.json` pour vérifier le résultat. Le XML décrit la situation ; la CLI reçoit le modèle JSON normalisé. Le dépôt du catalogue contient des exemples sources, pas un paquet versionné.
 
 Suivez le [guide d’affectation](../evaluate/) pour exécuter un exemple plus simple sans le catalogue. Pour créer le vôtre, choisissez une décision, notez les options autorisées et ne modélisez que les règles vérifiables. N’utilisez pas de données réelles de clients ou de salariés dans un aperçu local. Les jeux de données synthétiques produisent des listes d’arrêts reproductibles ; le générateur ne calcule ni tournées ni temps de trajet.

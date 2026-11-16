@@ -10,12 +10,12 @@ Szablon planowania opisuje mały scenariusz i używane w nim pola. Przykłady do
 
 ## Uruchom przykład z katalogu
 
-Pobierz gałąź [importu szablonów do przeglądu](https://github.com/ilstarno/orchestrata-recipes/pull/1) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium szablonów wykonaj:
+Pobierz [katalog szablonów](https://github.com/ilstarno/orchestrata-recipes/tree/main) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium wykonaj:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-Zapisany wynik to `[1, 2, 0]`, bez punktów karnych za zasady i preferencje. Dane wejściowe są w pliku `inputs.json`, a wynik do porównania w `expected.json`. XML opisuje scenariusz; CLI przyjmuje znormalizowany model JSON. Osobna gałąź importu zawiera pliki źródłowe, a nie opublikowane wydanie katalogu.
+Zapisany wynik to `[1, 2, 0]`, bez punktów karnych za zasady i preferencje. Dane wejściowe są w pliku `inputs.json`, a wynik do porównania w `expected.json`. XML opisuje scenariusz; CLI przyjmuje znormalizowany model JSON. Repozytorium katalogu zawiera przykłady źródłowe, a nie pakiet z numerem wersji.
 
 Skorzystaj z [instrukcji przydziału](../evaluate/), aby uruchomić mniejszy przykład bez katalogu. Wybierz jedną decyzję do zamodelowania, spisz dozwolone opcje i uwzględnij tylko zasady, które możesz sprawdzić. Nie używaj prawdziwych danych klientów ani pracowników w wersji do lokalnych prób. Dane syntetyczne floty pozwalają odtworzyć listę przystanków; generator nie wyznacza tras ani czasu przejazdu.

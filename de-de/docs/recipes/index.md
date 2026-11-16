@@ -10,12 +10,12 @@ Eine Planungsvorlage beschreibt eine kleine Planungsaufgabe und die benötigten 
 
 ## Ein Beispiel aus dem Katalog ausführen
 
-Checken Sie den [Vorlagenimport zur Prüfung](https://github.com/ilstarno/orchestrata-recipes/pull/1) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Vorlagen-Repositorys aus:
+Checken Sie den [Vorlagenkatalog](https://github.com/ilstarno/orchestrata-recipes/tree/main) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Katalogs aus:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-Das hinterlegte Ergebnis lautet `[1, 2, 0]`, ohne Strafpunkte für harte Regeln oder Präferenzen. Die fachlichen Eingaben stehen in `inputs.json`, das Vergleichsergebnis in `expected.json`. Die XML-Datei beschreibt das Szenario; die CLI erhält das normalisierte JSON-Modell. Der Import-Branch enthält Quellmaterial, keine versionierte Katalogfreigabe.
+Das hinterlegte Ergebnis lautet `[1, 2, 0]`, ohne Strafpunkte für harte Regeln oder Präferenzen. Die fachlichen Eingaben stehen in `inputs.json`, das Vergleichsergebnis in `expected.json`. Die XML-Datei beschreibt das Szenario; die CLI erhält das normalisierte JSON-Modell. Das Katalog-Repository enthält Quellbeispiele, kein versioniertes Katalogpaket.
 
 Für ein kleineres Beispiel ohne Katalog nutzen Sie die [Zuordnungsanleitung](../evaluate/). Wählen Sie für Ihr eigenes Beispiel eine Entscheidung, notieren Sie ihre erlaubten Optionen und modellieren Sie nur Regeln, die Sie prüfen können. Verwenden Sie keine echten Kunden- oder Beschäftigtendaten in der lokalen Vorschau. Synthetische Fuhrparkdaten liefern reproduzierbare Stopps; der Generator berechnet weder Routen noch Fahrzeiten.

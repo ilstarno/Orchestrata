@@ -27,7 +27,7 @@ Limitez cette version à l’interface de bouclage. Un contrôle d’état réus
 
 ## Évaluer le moteur autonome et les SDK
 
-La [proposition d’intégration du moteur autonome](https://github.com/ilstarno/orchestrata-engine/pull/1) contient le moteur Rust, la bibliothèque native et les liaisons pour C#, Java, Python, Node.js, PHP et Go. Cette branche n’est ni une version empaquetée des SDK, ni une version identifiée par un tag. Depuis la copie locale du dépôt du moteur, avec Rust stable, exécutez :
+Le [dépôt du moteur autonome](https://github.com/ilstarno/orchestrata-engine/tree/main) contient le moteur Rust, la bibliothèque native et les liaisons pour C#, Java, Python, Node.js, PHP et Go. Compilez le SDK à partir des sources correspondantes. Depuis la copie locale du dépôt du moteur, avec Rust stable, exécutez :
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

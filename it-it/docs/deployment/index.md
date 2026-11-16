@@ -27,7 +27,7 @@ Limitare questa build all’interfaccia di loopback. Una verifica di disponibili
 
 ## Valutare il motore autonomo e gli SDK
 
-La [importazione del motore autonomo in revisione](https://github.com/ilstarno/orchestrata-engine/pull/1) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Il ramo non è un rilascio SDK né come pacchetto né come tag. Dalla copia locale del motore, con Rust stabile, eseguire:
+Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine/tree/main) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

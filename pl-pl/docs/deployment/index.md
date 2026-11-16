@@ -27,7 +27,7 @@ Ogranicz tę wersję do interfejsu pętli zwrotnej. Pozytywny wynik sprawdzenia 
 
 ## Ocena samodzielnego silnika i zestawów SDK
 
-[Robocza propozycja importu samodzielnego silnika](https://github.com/ilstarno/orchestrata-engine/pull/1) zawiera silnik w Rust, bibliotekę natywną i powiązania dla C#, Javy, Pythona, Node.js, PHP i Go. Gałąź nie jest wydaniem SDK w postaci pakietu ani wydaniem oznaczonym tagiem. W lokalnej kopii repozytorium silnika, przy użyciu stabilnego Rusta, uruchom:
+[Repozytorium samodzielnego silnika](https://github.com/ilstarno/orchestrata-engine/tree/main) zawiera silnik w Rust, bibliotekę natywną i powiązania dla C#, Javy, Pythona, Node.js, PHP i Go. Skompiluj SDK z pasujących źródeł. W lokalnej kopii repozytorium silnika, przy użyciu stabilnego Rusta, uruchom:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

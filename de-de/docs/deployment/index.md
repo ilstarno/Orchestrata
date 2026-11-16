@@ -27,7 +27,7 @@ Beschränken Sie diesen Build auf die Loopback-Schnittstelle. Eine erfolgreiche 
 
 ## Eigenständige Engine und SDKs evaluieren
 
-Der [Übernahme der eigenständigen Engine zur Prüfung](https://github.com/ilstarno/orchestrata-engine/pull/1) enthält die Rust-Engine, die native Bibliothek und Anbindungen für C#, Java, Python, Node.js, PHP und Go. Der Branch ist weder als SDK-Paket veröffentlicht noch als SDK-Release markiert. Führen Sie im Checkout der Engine mit stabilem Rust Folgendes aus:
+Das [Repository der eigenständigen Engine](https://github.com/ilstarno/orchestrata-engine/tree/main) enthält die Rust-Engine, die native Bibliothek und Anbindungen für C#, Java, Python, Node.js, PHP und Go. Bauen Sie das SDK aus dem passenden Quellstand. Führen Sie im Checkout der Engine mit stabilem Rust Folgendes aus:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
