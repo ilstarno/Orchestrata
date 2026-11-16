@@ -1,0 +1,904 @@
+{
+  "traffic": [
+    {
+      "airport": "New York JFK",
+      "code": "JFK",
+      "year": 2025,
+      "passengers": 62629455,
+      "rounded": false,
+      "scope": "Commercial passengers",
+      "publisher": "Port Authority of New York and New Jersey",
+      "href": "https://www.panynj.gov/content/dam/airports/statistics/statistics-general-info/annual-atr/ATR_2025.pdf"
+    },
+    {
+      "airport": "Paris Charles de Gaulle",
+      "code": "CDG",
+      "year": 2025,
+      "passengers": 72029407,
+      "rounded": false,
+      "scope": "Reported airport passenger traffic",
+      "publisher": "Groupe ADP",
+      "href": "https://presse.groupeadp.fr/2025-traffic/?lang=en"
+    },
+    {
+      "airport": "Munich Airport",
+      "code": "MUC",
+      "year": 2025,
+      "passengers": 43405600,
+      "rounded": false,
+      "scope": "Total commercial and non-commercial passenger volume",
+      "publisher": "Munich Airport",
+      "href": "https://report2025.munich-airport.com/impact-report/sustainable-development/sustainability-indicators/"
+    },
+    {
+      "airport": "Frankfurt Airport",
+      "code": "FRA",
+      "year": 2025,
+      "passengers": 63200000,
+      "rounded": true,
+      "scope": "Reported airport passenger traffic, rounded",
+      "publisher": "Fraport",
+      "href": "https://www.fraport.com/en/newsroom/press-releases/2026/traffic-figures/fraport-traffic-figures-2025.html"
+    },
+    {
+      "airport": "Tirana International Airport",
+      "code": "TIA",
+      "year": 2025,
+      "passengers": 11640044,
+      "rounded": false,
+      "scope": "Scheduled, scheduled charter and ad hoc passengers",
+      "publisher": "Tirana International Airport",
+      "href": "https://www.tirana-airport.com/media/documents/1769690922697b572a2d637.pdf"
+    },
+    {
+      "airport": "Rome Fiumicino",
+      "code": "FCO",
+      "year": 2025,
+      "passengers": 51300000,
+      "rounded": true,
+      "scope": "Total including direct transit, rounded",
+      "publisher": "ENAC",
+      "href": "https://www.enac.gov.it/app/uploads/2026/01/Executive-Summary-v.eng_.pdf"
+    },
+    {
+      "airport": "London Heathrow",
+      "code": "LHR",
+      "year": 2025,
+      "passengers": 84500000,
+      "rounded": true,
+      "scope": "Reported airport passenger traffic, rounded",
+      "publisher": "Heathrow Airport Limited",
+      "href": "https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/investor/reports-and-presentations/annual-accounts/airport-ltd/HAL_ARA_2025.pdf"
+    }
+  ],
+  "metrics": {
+    "baseline": {
+      "gatesAssigned": 6,
+      "gatesHeld": 3,
+      "remotePassengers": 0,
+      "tasksStaffed": 22,
+      "tasksTotal": 36,
+      "turnsReady": 5,
+      "flightCount": 9
+    },
+    "proposed": {
+      "gatesAssigned": 8,
+      "gatesHeld": 1,
+      "remotePassengers": 315,
+      "tasksStaffed": 30,
+      "tasksTotal": 36,
+      "turnsReady": 6,
+      "flightCount": 9
+    }
+  },
+  "scenes": [
+    {
+      "id": "gates",
+      "baseline": [
+        {
+          "flight": "OP-01",
+          "gate": "G02",
+          "start": 0,
+          "end": 45,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-02",
+          "gate": null,
+          "start": 5,
+          "end": 50,
+          "status": "held"
+        },
+        {
+          "flight": "OP-03",
+          "gate": "G01",
+          "start": 10,
+          "end": 50,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-04",
+          "gate": "G03",
+          "start": 20,
+          "end": 60,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-05",
+          "gate": "G02",
+          "start": 50,
+          "end": 95,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-06",
+          "gate": null,
+          "start": 55,
+          "end": 100,
+          "status": "held"
+        },
+        {
+          "flight": "OP-07",
+          "gate": "G03",
+          "start": 65,
+          "end": 110,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-08",
+          "gate": "G01",
+          "start": 75,
+          "end": 115,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-09",
+          "gate": null,
+          "start": 82,
+          "end": 120,
+          "status": "held"
+        }
+      ],
+      "proposed": [
+        {
+          "flight": "OP-01",
+          "gate": "R01",
+          "start": 0,
+          "end": 45,
+          "status": "remote"
+        },
+        {
+          "flight": "OP-02",
+          "gate": "G02",
+          "start": 5,
+          "end": 50,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-03",
+          "gate": "G01",
+          "start": 10,
+          "end": 50,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-04",
+          "gate": "G03",
+          "start": 20,
+          "end": 60,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-05",
+          "gate": null,
+          "start": 50,
+          "end": 95,
+          "status": "held"
+        },
+        {
+          "flight": "OP-06",
+          "gate": "G02",
+          "start": 55,
+          "end": 100,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-07",
+          "gate": "R01",
+          "start": 65,
+          "end": 110,
+          "status": "remote"
+        },
+        {
+          "flight": "OP-08",
+          "gate": "G01",
+          "start": 75,
+          "end": 115,
+          "status": "contact"
+        },
+        {
+          "flight": "OP-09",
+          "gate": "G03",
+          "start": 82,
+          "end": 120,
+          "status": "contact"
+        }
+      ]
+    },
+    {
+      "id": "turnaround",
+      "baseline": [
+        {
+          "flight": "OP-01",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "G02",
+          "start": 2,
+          "end": 9,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 9,
+          "end": 19,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G02",
+          "start": 8,
+          "end": 16,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 19,
+          "end": 27,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-02",
+          "task": "unload",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-02",
+          "task": "cabin",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-02",
+          "task": "service",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-02",
+          "task": "load",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-03",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "G01",
+          "start": 12,
+          "end": 19,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 27,
+          "end": 37,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G01",
+          "start": 18,
+          "end": 26,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 37,
+          "end": 45,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "unload",
+          "crew": "RAMP-B",
+          "gate": "G03",
+          "start": 22,
+          "end": 29,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "cabin",
+          "crew": null,
+          "gate": "G03",
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "no_qualified_crew_in_window"
+        },
+        {
+          "flight": "OP-04",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "G03",
+          "start": 28,
+          "end": 36,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "load",
+          "crew": null,
+          "gate": "G03",
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "prerequisite_unstaffed"
+        },
+        {
+          "flight": "OP-05",
+          "task": "unload",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 52,
+          "end": 59,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-05",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 59,
+          "end": 69,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-05",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G02",
+          "start": 58,
+          "end": 66,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-05",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 69,
+          "end": 77,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-06",
+          "task": "unload",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-06",
+          "task": "cabin",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-06",
+          "task": "service",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-06",
+          "task": "load",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-07",
+          "task": "unload",
+          "crew": "RAMP-B",
+          "gate": "G03",
+          "start": 67,
+          "end": 74,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "cabin",
+          "crew": "CABIN-A",
+          "gate": "G03",
+          "start": 74,
+          "end": 84,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "G03",
+          "start": 73,
+          "end": 81,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "load",
+          "crew": "RAMP-B",
+          "gate": "G03",
+          "start": 92,
+          "end": 100,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "unload",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 77,
+          "end": 84,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 84,
+          "end": 94,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G01",
+          "start": 83,
+          "end": 91,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 94,
+          "end": 102,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-09",
+          "task": "unload",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-09",
+          "task": "cabin",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-09",
+          "task": "service",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-09",
+          "task": "load",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        }
+      ],
+      "proposed": [
+        {
+          "flight": "OP-01",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "R01",
+          "start": 2,
+          "end": 9,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "cabin",
+          "crew": "CABIN-A",
+          "gate": "R01",
+          "start": 9,
+          "end": 19,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "R01",
+          "start": 8,
+          "end": 16,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-01",
+          "task": "load",
+          "crew": "RAMP-B",
+          "gate": "R01",
+          "start": 19,
+          "end": 27,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-02",
+          "task": "unload",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 7,
+          "end": 14,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-02",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 14,
+          "end": 24,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-02",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G02",
+          "start": 13,
+          "end": 21,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-02",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 24,
+          "end": 32,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "G01",
+          "start": 13,
+          "end": 20,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "cabin",
+          "crew": "CABIN-A",
+          "gate": "G01",
+          "start": 23,
+          "end": 33,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "G01",
+          "start": 20,
+          "end": 28,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-03",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 33,
+          "end": 41,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "G03",
+          "start": 24,
+          "end": 31,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G03",
+          "start": 45,
+          "end": 55,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G03",
+          "start": 28,
+          "end": 36,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-04",
+          "task": "load",
+          "crew": null,
+          "gate": "G03",
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "no_qualified_crew_in_window"
+        },
+        {
+          "flight": "OP-05",
+          "task": "unload",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-05",
+          "task": "cabin",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-05",
+          "task": "service",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-05",
+          "task": "load",
+          "crew": null,
+          "gate": null,
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "gate_unassigned"
+        },
+        {
+          "flight": "OP-06",
+          "task": "unload",
+          "crew": "RAMP-A",
+          "gate": "G02",
+          "start": 57,
+          "end": 64,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-06",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 64,
+          "end": 74,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-06",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G02",
+          "start": 63,
+          "end": 71,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-06",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G02",
+          "start": 74,
+          "end": 82,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "unload",
+          "crew": "RAMP-B",
+          "gate": "R01",
+          "start": 67,
+          "end": 74,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "cabin",
+          "crew": "CABIN-A",
+          "gate": "R01",
+          "start": 74,
+          "end": 84,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "R01",
+          "start": 73,
+          "end": 81,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-07",
+          "task": "load",
+          "crew": "RAMP-A",
+          "gate": "R01",
+          "start": 84,
+          "end": 92,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "unload",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 82,
+          "end": 89,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "cabin",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 89,
+          "end": 99,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "service",
+          "crew": "SERVICE-A",
+          "gate": "G01",
+          "start": 83,
+          "end": 91,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-08",
+          "task": "load",
+          "crew": "MULTI-A",
+          "gate": "G01",
+          "start": 99,
+          "end": 107,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-09",
+          "task": "unload",
+          "crew": "RAMP-B",
+          "gate": "G03",
+          "start": 92,
+          "end": 99,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-09",
+          "task": "cabin",
+          "crew": "CABIN-A",
+          "gate": "G03",
+          "start": 99,
+          "end": 109,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-09",
+          "task": "service",
+          "crew": "SERVICE-B",
+          "gate": "G03",
+          "start": 90,
+          "end": 98,
+          "status": "staffed"
+        },
+        {
+          "flight": "OP-09",
+          "task": "load",
+          "crew": null,
+          "gate": "G03",
+          "start": null,
+          "end": null,
+          "status": "held",
+          "reason": "no_qualified_crew_in_window"
+        }
+      ]
+    }
+  ]
+}

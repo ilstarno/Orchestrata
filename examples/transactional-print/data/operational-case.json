@@ -1,0 +1,2921 @@
+{
+  "id": "transactional-print-control-and-reconciliation",
+  "scope": {
+    "caseType": "modeled_shift",
+    "sendMail": false,
+    "runsProductionEquipment": false,
+    "sourceSnapshotReference": "PRINT-SHIFT-01",
+    "measurementUnit": "serial_stage_minutes",
+    "personalDataIncluded": false,
+    "barcodesPhysical": false,
+    "assumeSameFaultEvents": true
+  },
+  "processPolicy": {
+    "setupSheets": 2,
+    "batchSetupMinutes": 1,
+    "pressSheetsPerMinute": 16,
+    "insertPiecesPerMinute": 12,
+    "qualityPiecesPerMinute": 15
+  },
+  "inputRecords": [
+    {
+      "pieceId": "PRINT-001",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-002",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-003",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-004",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-005",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-006",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-007",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-008",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-009",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-010",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "unsupported",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-011",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-012",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-013",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": false,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-014",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-015",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-016",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-017",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-018",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "unsupported",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-019",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-020",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-021",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-022",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-023",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-024",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "unsupported",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-025",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-026",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-027",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-028",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-029",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-030",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-031",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-032",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-033",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-034",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-035",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-036",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-037",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-038",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-039",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-040",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-041",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-042",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-043",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": false,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-044",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-045",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-046",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-047",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-048",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-049",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-050",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-051",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-052",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-053",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": false,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-054",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-055",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-056",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-057",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-058",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-059",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-060",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-061",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-062",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-063",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-064",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-065",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-066",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-067",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-068",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-069",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": true
+    },
+    {
+      "pieceId": "PRINT-070",
+      "documentType": "invoices",
+      "paperProfile": "white-duplex",
+      "documentSheets": 2,
+      "envelopeProfile": "standard-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-071",
+      "documentType": "statements",
+      "paperProfile": "white-duplex",
+      "documentSheets": 4,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    },
+    {
+      "pieceId": "PRINT-072",
+      "documentType": "notices",
+      "paperProfile": "secure-simplex",
+      "documentSheets": 3,
+      "envelopeProfile": "window-envelope",
+      "templateRevision": "v3",
+      "dataComplete": true,
+      "markedSheetFault": false
+    }
+  ],
+  "dispatchEvidence": {
+    "facilityCode": "PLANT-DEMO",
+    "dispatchControl": {
+      "collectionCode": "PICKUP-SAMPLE-01",
+      "pickupDeadlineMinute": 180,
+      "accountability": {
+        "shiftCode": "SHIFT-DAY-A",
+        "physicalLane": {
+          "laneCode": "INSERT-A",
+          "envelopeProfile": "window-envelope",
+          "releasePacket": {
+            "batchId": "B-001",
+            "record": {
+              "pieceId": "PRINT-003",
+              "documentType": "notices",
+              "componentInspection": {
+                "expectedGoodSheets": 3,
+                "identityCheck": {
+                  "sourceIdType": "internal_sample_piece",
+                  "logicalPieceKey": "PRINT-003",
+                  "repairCheck": {
+                    "reprintMode": "replace_faulty_component",
+                    "replacementSheets": 1,
+                    "barcodeRescan": {
+                      "matchedPiece": true,
+                      "releaseLedger": {
+                        "manifestStatus": "matched",
+                        "approvedDispatchCount": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "comparison": {
+    "baseline": {
+      "stageMinutes": {
+        "intake": 7,
+        "compose": 7,
+        "batch": 69,
+        "print": 24,
+        "insert": 10,
+        "quality": 36,
+        "dispatch": 9
+      },
+      "turnaroundMinutes": 162,
+      "received": 72,
+      "accepted": 66,
+      "exceptions": 6,
+      "replacementSheets": 24,
+      "misfedPieces": 7,
+      "fullPieceReprints": 7,
+      "setupWasteSheets": 132,
+      "wasteSheets": 156,
+      "goodSheets": 200,
+      "totalProducedSheets": 356,
+      "changeovers": 65,
+      "batches": [
+        {
+          "batchId": "B-001",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-002",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-003",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-004",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-005",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-006",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-007",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-008",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-009",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-010",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-011",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-012",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-013",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-014",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-015",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-016",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-017",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-018",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-019",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-020",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-021",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-022",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-023",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-024",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-025",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-026",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-027",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-028",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-029",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-030",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-031",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-032",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-033",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-034",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-035",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-036",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-037",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-038",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-039",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-040",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-041",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-042",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-043",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-044",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-045",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-046",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-047",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-048",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-049",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-050",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-051",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-052",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-053",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-054",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-055",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-056",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-057",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-058",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-059",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-060",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-061",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-062",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-063",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-064",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-065",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-066",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 1,
+          "setupSheets": 2
+        }
+      ],
+      "holds": [
+        {
+          "pieceId": "PRINT-010",
+          "documentType": "invoices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-013",
+          "documentType": "invoices",
+          "reason": "incomplete_record"
+        },
+        {
+          "pieceId": "PRINT-018",
+          "documentType": "notices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-024",
+          "documentType": "notices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-043",
+          "documentType": "invoices",
+          "reason": "incomplete_record"
+        },
+        {
+          "pieceId": "PRINT-053",
+          "documentType": "statements",
+          "reason": "incomplete_record"
+        }
+      ],
+      "pieceDecisions": [
+        {
+          "pieceId": "PRINT-001",
+          "documentType": "invoices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-002",
+          "documentType": "statements",
+          "batchId": "B-002",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-003",
+          "documentType": "notices",
+          "batchId": "B-003",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 3,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-004",
+          "documentType": "invoices",
+          "batchId": "B-004",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-005",
+          "documentType": "statements",
+          "batchId": "B-005",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-006",
+          "documentType": "notices",
+          "batchId": "B-006",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-007",
+          "documentType": "invoices",
+          "batchId": "B-007",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-008",
+          "documentType": "statements",
+          "batchId": "B-008",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-009",
+          "documentType": "notices",
+          "batchId": "B-009",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-011",
+          "documentType": "statements",
+          "batchId": "B-010",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-012",
+          "documentType": "notices",
+          "batchId": "B-011",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 3,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-014",
+          "documentType": "statements",
+          "batchId": "B-012",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-015",
+          "documentType": "notices",
+          "batchId": "B-013",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-016",
+          "documentType": "invoices",
+          "batchId": "B-014",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-017",
+          "documentType": "statements",
+          "batchId": "B-015",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-019",
+          "documentType": "invoices",
+          "batchId": "B-016",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-020",
+          "documentType": "statements",
+          "batchId": "B-017",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-021",
+          "documentType": "notices",
+          "batchId": "B-018",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 3,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-022",
+          "documentType": "invoices",
+          "batchId": "B-019",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-023",
+          "documentType": "statements",
+          "batchId": "B-020",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-025",
+          "documentType": "invoices",
+          "batchId": "B-021",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-026",
+          "documentType": "statements",
+          "batchId": "B-022",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-027",
+          "documentType": "notices",
+          "batchId": "B-023",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-028",
+          "documentType": "invoices",
+          "batchId": "B-024",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-029",
+          "documentType": "statements",
+          "batchId": "B-025",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-030",
+          "documentType": "notices",
+          "batchId": "B-026",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-031",
+          "documentType": "invoices",
+          "batchId": "B-027",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-032",
+          "documentType": "statements",
+          "batchId": "B-028",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 4,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-033",
+          "documentType": "notices",
+          "batchId": "B-029",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-034",
+          "documentType": "invoices",
+          "batchId": "B-030",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-035",
+          "documentType": "statements",
+          "batchId": "B-031",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-036",
+          "documentType": "notices",
+          "batchId": "B-032",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-037",
+          "documentType": "invoices",
+          "batchId": "B-033",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-038",
+          "documentType": "statements",
+          "batchId": "B-034",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-039",
+          "documentType": "notices",
+          "batchId": "B-035",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-040",
+          "documentType": "invoices",
+          "batchId": "B-036",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-041",
+          "documentType": "statements",
+          "batchId": "B-037",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-042",
+          "documentType": "notices",
+          "batchId": "B-038",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-044",
+          "documentType": "statements",
+          "batchId": "B-039",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-045",
+          "documentType": "notices",
+          "batchId": "B-040",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-046",
+          "documentType": "invoices",
+          "batchId": "B-041",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-047",
+          "documentType": "statements",
+          "batchId": "B-042",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 4,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-048",
+          "documentType": "notices",
+          "batchId": "B-043",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-049",
+          "documentType": "invoices",
+          "batchId": "B-044",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-050",
+          "documentType": "statements",
+          "batchId": "B-045",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-051",
+          "documentType": "notices",
+          "batchId": "B-046",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-052",
+          "documentType": "invoices",
+          "batchId": "B-047",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-054",
+          "documentType": "notices",
+          "batchId": "B-048",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-055",
+          "documentType": "invoices",
+          "batchId": "B-049",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-056",
+          "documentType": "statements",
+          "batchId": "B-050",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-057",
+          "documentType": "notices",
+          "batchId": "B-051",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-058",
+          "documentType": "invoices",
+          "batchId": "B-052",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-059",
+          "documentType": "statements",
+          "batchId": "B-053",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-060",
+          "documentType": "notices",
+          "batchId": "B-054",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-061",
+          "documentType": "invoices",
+          "batchId": "B-055",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-062",
+          "documentType": "statements",
+          "batchId": "B-056",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 4,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-063",
+          "documentType": "notices",
+          "batchId": "B-057",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-064",
+          "documentType": "invoices",
+          "batchId": "B-058",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-065",
+          "documentType": "statements",
+          "batchId": "B-059",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-066",
+          "documentType": "notices",
+          "batchId": "B-060",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-067",
+          "documentType": "invoices",
+          "batchId": "B-061",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-068",
+          "documentType": "statements",
+          "batchId": "B-062",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-069",
+          "documentType": "notices",
+          "batchId": "B-063",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 3,
+          "firstFailureDetectedAt": "quality",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-070",
+          "documentType": "invoices",
+          "batchId": "B-064",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-071",
+          "documentType": "statements",
+          "batchId": "B-065",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-072",
+          "documentType": "notices",
+          "batchId": "B-066",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        }
+      ]
+    },
+    "proposed": {
+      "stageMinutes": {
+        "intake": 7,
+        "compose": 7,
+        "batch": 6,
+        "print": 16,
+        "insert": 24,
+        "quality": 8,
+        "dispatch": 9
+      },
+      "turnaroundMinutes": 77,
+      "received": 72,
+      "accepted": 66,
+      "exceptions": 6,
+      "replacementSheets": 7,
+      "misfedPieces": 7,
+      "fullPieceReprints": 0,
+      "setupWasteSheets": 6,
+      "wasteSheets": 13,
+      "goodSheets": 200,
+      "totalProducedSheets": 213,
+      "changeovers": 2,
+      "batches": [
+        {
+          "batchId": "B-001",
+          "paperProfile": "secure-simplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 22,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-002",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "standard-envelope",
+          "pieces": 21,
+          "setupSheets": 2
+        },
+        {
+          "batchId": "B-003",
+          "paperProfile": "white-duplex",
+          "envelopeProfile": "window-envelope",
+          "pieces": 23,
+          "setupSheets": 2
+        }
+      ],
+      "holds": [
+        {
+          "pieceId": "PRINT-010",
+          "documentType": "invoices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-013",
+          "documentType": "invoices",
+          "reason": "incomplete_record"
+        },
+        {
+          "pieceId": "PRINT-018",
+          "documentType": "notices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-024",
+          "documentType": "notices",
+          "reason": "template_revision"
+        },
+        {
+          "pieceId": "PRINT-043",
+          "documentType": "invoices",
+          "reason": "incomplete_record"
+        },
+        {
+          "pieceId": "PRINT-053",
+          "documentType": "statements",
+          "reason": "incomplete_record"
+        }
+      ],
+      "pieceDecisions": [
+        {
+          "pieceId": "PRINT-003",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-006",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-009",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-012",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-015",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-021",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-027",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-030",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-033",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-036",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-039",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-042",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-045",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-048",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-051",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-054",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-057",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-060",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-063",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-066",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-069",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-072",
+          "documentType": "notices",
+          "batchId": "B-001",
+          "expectedGoodSheets": 3,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-001",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-004",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-007",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-016",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-019",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-022",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-025",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-028",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-031",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-034",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-037",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-040",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-046",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-049",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-052",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-055",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-058",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-061",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-064",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-067",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-070",
+          "documentType": "invoices",
+          "batchId": "B-002",
+          "expectedGoodSheets": 2,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-002",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-005",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-008",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-011",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-014",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-017",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-020",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-023",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-026",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-029",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-032",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-035",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-038",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-041",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-044",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-047",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-050",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-056",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-059",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-062",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 1,
+          "firstFailureDetectedAt": "insert",
+          "reprintMatch": "passed",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-065",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-068",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        },
+        {
+          "pieceId": "PRINT-071",
+          "documentType": "statements",
+          "batchId": "B-003",
+          "expectedGoodSheets": 4,
+          "replacementSheets": 0,
+          "firstFailureDetectedAt": null,
+          "reprintMatch": "not_required",
+          "dispatchCount": 1,
+          "manifestStatus": "matched"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "steps": [
+      {
+        "id": "intake",
+        "baselineMinutes": 7,
+        "proposedMinutes": 7
+      },
+      {
+        "id": "compose",
+        "baselineMinutes": 7,
+        "proposedMinutes": 7
+      },
+      {
+        "id": "batch",
+        "baselineMinutes": 69,
+        "proposedMinutes": 6
+      },
+      {
+        "id": "print",
+        "baselineMinutes": 24,
+        "proposedMinutes": 16
+      },
+      {
+        "id": "insert",
+        "baselineMinutes": 10,
+        "proposedMinutes": 24
+      },
+      {
+        "id": "quality",
+        "baselineMinutes": 36,
+        "proposedMinutes": 8
+      },
+      {
+        "id": "dispatch",
+        "baselineMinutes": 9,
+        "proposedMinutes": 9
+      }
+    ],
+    "metrics": [
+      {
+        "id": "turnaround",
+        "unit": "minutes",
+        "baseline": 162,
+        "proposed": 77
+      },
+      {
+        "id": "waste",
+        "unit": "sheets",
+        "baseline": 156,
+        "proposed": 13
+      },
+      {
+        "id": "reprints",
+        "unit": "sheets",
+        "baseline": 24,
+        "proposed": 7
+      },
+      {
+        "id": "exceptions",
+        "unit": "pieces",
+        "baseline": 6,
+        "proposed": 6
+      }
+    ],
+    "cases": [
+      {
+        "id": "invoices",
+        "pieces": 24,
+        "accepted": 21,
+        "held": 3
+      },
+      {
+        "id": "statements",
+        "pieces": 24,
+        "accepted": 23,
+        "held": 1
+      },
+      {
+        "id": "notices",
+        "pieces": 24,
+        "accepted": 22,
+        "held": 2
+      }
+    ]
+  }
+}

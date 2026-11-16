@@ -1,0 +1,40 @@
+.hospital-atlas { margin-block:clamp(1.7rem,4vw,3rem); }
+.hospital-atlas h2 { margin-block-end:.4rem; }
+.hospital-atlas-boundary { max-width:65ch; margin:0 0 .8rem; color:var(--muted); }
+.hospital-atlas-control { display:none; min-inline-size:0; border:0; margin:0 0 .65rem; padding:0; }
+.hospital-atlas-control legend { padding:0; margin-block-end:.32rem; color:var(--muted); font-size:.85rem; }
+.hospital-atlas-control > div { display:flex; flex-wrap:wrap; gap:.35rem; }
+.hospital-atlas-control label { display:inline-flex; gap:.38rem; align-items:center; min-block-size:44px; padding:.3rem .6rem; border:1px solid var(--rule); background:var(--paper); cursor:pointer; overflow-wrap:anywhere; }
+.hospital-atlas-control input { margin:0; accent-color:var(--accent); }
+.hospital-atlas-control label:has(input:checked) { background:var(--dataset-head); border-color:var(--accent); }
+.hospital-atlas-control label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.hospital-atlas-panels article { margin-block:.45rem; }
+.hospital-atlas-panels figure { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:center; gap:1rem; margin:0; padding:clamp(.65rem,2vw,1.15rem); border:1px solid var(--rule); background:var(--dataset-surface); }
+.hospital-atlas-panels h3 { margin:0 0 .35rem; }
+.hospital-atlas-panels p { margin:.3rem 0; overflow-wrap:anywhere; }
+.hospital-atlas-attribution { font-size:.82rem; }
+.hospital-atlas-stage img { display:block; inline-size:100%; block-size:auto; max-block-size:17rem; object-fit:contain; }
+.hospital-atlas-stage .hospital-atlas-plan { display:none; }
+@supports selector(:has(*)) {
+  .hospital-atlas-control { display:block; }
+  .hospital-atlas-panels article { display:none; }
+  .hospital-atlas:has(input[value="new-york"]:checked) [data-hospital-city="new-york"],
+  .hospital-atlas:has(input[value="rome"]:checked) [data-hospital-city="rome"],
+  .hospital-atlas:has(input[value="tirana"]:checked) [data-hospital-city="tirana"],
+  .hospital-atlas:has(input[value="london"]:checked) [data-hospital-city="london"],
+  .hospital-atlas:has(input[value="paris"]:checked) [data-hospital-city="paris"],
+  .hospital-atlas:has(input[value="munich"]:checked) [data-hospital-city="munich"] { display:block; }
+  .hospital-atlas:has(input[value="above"]:checked) .hospital-atlas-exterior { display:none; }
+  .hospital-atlas:has(input[value="above"]:checked) .hospital-atlas-plan { display:block; }
+}
+@media (max-width:44rem) {
+  .hospital-atlas-panels figure { grid-template-columns:minmax(0,1fr); }
+}
+.hospital-atlas-source-list summary { min-block-size:2.25rem; padding-block:.35rem; cursor:pointer; }
+.hospital-atlas-source-list ul { display:flex; flex-wrap:wrap; column-gap:1.1rem; margin-block:0 .5rem; padding-inline-start:1.1rem; }
+@media (prefers-reduced-motion:no-preference) {
+  @supports selector(:has(*)) {
+    .hospital-atlas-panels article { animation:hospital-atlas-enter .15s ease-out both; }
+  }
+}
+@keyframes hospital-atlas-enter { from { opacity:.72; } to { opacity:1; } }

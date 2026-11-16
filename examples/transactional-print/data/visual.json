@@ -1,0 +1,85 @@
+{
+  "steps": [
+    {
+      "id": "intake",
+      "baselineMinutes": 7,
+      "proposedMinutes": 7
+    },
+    {
+      "id": "compose",
+      "baselineMinutes": 7,
+      "proposedMinutes": 7
+    },
+    {
+      "id": "batch",
+      "baselineMinutes": 69,
+      "proposedMinutes": 6
+    },
+    {
+      "id": "print",
+      "baselineMinutes": 24,
+      "proposedMinutes": 16
+    },
+    {
+      "id": "insert",
+      "baselineMinutes": 10,
+      "proposedMinutes": 24
+    },
+    {
+      "id": "quality",
+      "baselineMinutes": 36,
+      "proposedMinutes": 8
+    },
+    {
+      "id": "dispatch",
+      "baselineMinutes": 9,
+      "proposedMinutes": 9
+    }
+  ],
+  "metrics": [
+    {
+      "id": "turnaround",
+      "unit": "minutes",
+      "baseline": 162,
+      "proposed": 77
+    },
+    {
+      "id": "waste",
+      "unit": "sheets",
+      "baseline": 156,
+      "proposed": 13
+    },
+    {
+      "id": "reprints",
+      "unit": "sheets",
+      "baseline": 24,
+      "proposed": 7
+    },
+    {
+      "id": "exceptions",
+      "unit": "pieces",
+      "baseline": 6,
+      "proposed": 6
+    }
+  ],
+  "cases": [
+    {
+      "id": "invoices",
+      "pieces": 24,
+      "accepted": 21,
+      "held": 3
+    },
+    {
+      "id": "statements",
+      "pieces": 24,
+      "accepted": 23,
+      "held": 1
+    },
+    {
+      "id": "notices",
+      "pieces": 24,
+      "accepted": 22,
+      "held": 2
+    }
+  ]
+}

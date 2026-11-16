@@ -1,0 +1,58 @@
+.airport-ops { display:grid; gap:1.35rem; margin-block:1rem 2.3rem; }
+.airport-ops :is(h2,h3,p,figure) { margin:0; }
+.airport-ops-scene,.airport-ops-traffic { display:grid; gap:.6rem; min-inline-size:0; }
+.airport-ops-note { color:var(--muted); font-size:.88rem; }
+.airport-ops-options { display:none; margin:0; padding:0; border:0; min-inline-size:0; }
+.airport-ops-options legend { margin:0 0 .4rem; color:var(--muted); font-size:.9rem; }
+.airport-ops-options > div { display:flex; flex-wrap:wrap; gap:.4rem; }
+.airport-ops-options label { display:inline-flex; align-items:center; gap:.45rem; min-block-size:44px; padding:.35rem .6rem; border:1px solid var(--rule); cursor:pointer; }
+.airport-ops-options label:has(input:checked) { background:var(--dataset-head); border-color:var(--accent); }
+.airport-ops-options label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.airport-ops-options input { margin:0; accent-color:var(--accent); }
+.airport-ops-outputs { display:grid; gap:.65rem; }
+.airport-ops-output { display:grid; gap:.75rem; padding:.75rem; border:1px solid var(--rule); }
+.airport-ops-output figure { min-inline-size:0; }
+.airport-ops-output svg { display:block; inline-size:100%; block-size:auto; background:var(--dataset-surface); border:1px solid var(--rule); }
+.airport-ops-output figcaption { margin-top:.3rem; color:var(--muted); font-size:.86rem; }
+.airport-ops-legend { display:flex; flex-wrap:wrap; gap:.35rem .75rem; padding:0; margin:.45rem 0 0; list-style:none; }
+.airport-ops-legend li { display:flex; align-items:center; gap:.35rem; color:var(--muted); font-size:.85rem; }
+.airport-ops-legend b { color:var(--ink); }
+.airport-ops-traffic ul { list-style:none; margin:0; padding:0; display:grid; gap:.4rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr)); }
+.airport-ops-traffic li { display:flex; flex-direction:column; gap:.3rem; padding:.55rem; border-block-start:2px solid var(--rule); }
+.airport-ops-traffic .airport-ops-passengers { font-variant-numeric:tabular-nums; color:var(--accent); font-weight:700; font-size:1.25rem; }
+.airport-ops-traffic a { width:fit-content; min-block-size:44px; display:inline-flex; align-items:center; }
+.airport-ops-table { overflow:auto; max-width:100%; }
+.airport-ops-table table { font-variant-numeric:tabular-nums; }
+.airport-ops-table td,.airport-ops-table th { white-space:nowrap; }
+.airport-ops-floor { fill:var(--dataset-head); stroke:var(--rule); stroke-width:1.15; }
+.airport-ops-grid { fill:none; stroke:var(--rule); opacity:.5; }
+.airport-ops-terminal { fill:var(--dataset-edge); stroke:var(--rule); }
+.airport-ops-stand { fill:var(--paper); stroke:var(--accent); stroke-width:1.5; }
+.airport-ops-stand[data-conflict="true"] { stroke:var(--status-review); stroke-dasharray:5 2; stroke-width:3; }
+.airport-ops-stand[data-unused="true"] { opacity:.55; stroke:var(--rule); }
+.airport-ops-airframe { fill:var(--paper); stroke:var(--ink); stroke-width:1.45; stroke-linejoin:round; }
+.airport-ops-plane-shadow { fill:var(--ink); opacity:.11; }
+.airport-ops-equipment { fill:var(--dataset-surface); stroke:var(--rule); stroke-width:1.4; }
+.airport-ops-equipment[data-active="true"] { fill:var(--dataset-head); stroke:var(--accent); }
+.airport-ops-path { fill:none; stroke:var(--accent); stroke-dasharray:5 5; }
+.airport-ops-text { fill:var(--ink); font-family:inherit; font-size:13px; font-weight:700; text-anchor:middle; }
+.airport-ops-index { fill:var(--paper); stroke:var(--accent); }
+@supports selector(:has(*)) {
+  .airport-ops-options { display:block; }
+  .airport-ops-scene:has(.airport-ops-options input[value="baseline"]:checked) .airport-ops-output[data-variant="proposed"],
+  .airport-ops-scene:has(.airport-ops-options input[value="proposed"]:checked) .airport-ops-output[data-variant="baseline"] { display:none; }
+}
+@media(min-width:54rem) {
+  .airport-ops-output { grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); align-items:start; }
+  .airport-ops-output > h4 { grid-column:1/-1; }
+}
+.airport-ops-mini { font-size:10px; }
+.airport-ops-output h4 { margin:0 0 .35rem; }
+.airport-ops-metrics { display:flex; flex-wrap:wrap; gap:.55rem .95rem; margin:0; }
+.airport-ops-metrics dt { color:var(--muted); font-size:.85rem; }
+.airport-ops-metrics dd { margin:0; font-size:1.18rem; font-weight:700; color:var(--accent); }
+@media(min-width:54rem) { .airport-ops-output > header { grid-column:1/-1; } }
+@media(prefers-reduced-motion:no-preference) {
+  .airport-ops-output .airport-ops-path { animation:airport-ops-trace .8s linear both; }
+  @keyframes airport-ops-trace { from { stroke-dashoffset:25; opacity:.35; } to { stroke-dashoffset:0; opacity:1; } }
+}

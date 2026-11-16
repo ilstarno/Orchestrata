@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "scope": "Illustrative operational workflows; no actual hospital, patient, care, routing, safety approval or performance is represented.",
+  "scenarios": [
+    {
+      "id": "new-york",
+      "title": "Appointment backlog administration",
+      "workflow": "Schedule pre-reviewed administrative work, without ranking people or booking appointments.",
+      "decisions": [
+        {
+          "workId": "NEW-YORK-01",
+          "activity": "Check completeness of already reviewed requests",
+          "status": "scheduled",
+          "resourceId": "NEW-YORK-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 25
+        },
+        {
+          "workId": "NEW-YORK-02",
+          "activity": "Match administrative workload to offered session inventory",
+          "status": "scheduled",
+          "resourceId": "NEW-YORK-R1",
+          "assetId": "NEW-YORK-A1",
+          "startMinute": 44,
+          "endMinute": 64
+        },
+        {
+          "workId": "NEW-YORK-03",
+          "activity": "Prepare an exception list for the booking supervisor",
+          "status": "scheduled",
+          "resourceId": "NEW-YORK-R2",
+          "assetId": "NEW-YORK-A1",
+          "startMinute": 64,
+          "endMinute": 79
+        },
+        {
+          "workId": "NEW-YORK-04",
+          "activity": "Reserve callback administration batch",
+          "status": "scheduled",
+          "resourceId": "NEW-YORK-R1",
+          "assetId": "NEW-YORK-A1",
+          "startMinute": 79,
+          "endMinute": 109
+        },
+        {
+          "workId": "NEW-YORK-05",
+          "activity": "Prepare a contact batch with no authorization record",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "NEW-YORK-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 5,
+        "scheduled": 4,
+        "held": 1
+      }
+    },
+    {
+      "id": "rome",
+      "title": "Diagnostic session support",
+      "workflow": "Reserve room setup, capacity reconciliation and handoff work, not tests or appointments.",
+      "decisions": [
+        {
+          "workId": "ROME-01",
+          "activity": "Reconcile accepted session inventory with room availability",
+          "status": "scheduled",
+          "resourceId": "ROME-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 20
+        },
+        {
+          "workId": "ROME-02",
+          "activity": "Reserve equipment set-up and room readiness time",
+          "status": "scheduled",
+          "resourceId": "ROME-R1",
+          "assetId": "ROME-A1",
+          "startMinute": 44,
+          "endMinute": 74
+        },
+        {
+          "workId": "ROME-03",
+          "activity": "Send the availability draft to the session coordinator",
+          "status": "scheduled",
+          "resourceId": "ROME-R2",
+          "assetId": "ROME-A1",
+          "startMinute": 74,
+          "endMinute": 89
+        },
+        {
+          "workId": "ROME-04",
+          "activity": "Fit an additional setup batch before the room locks",
+          "status": "held",
+          "holdCode": "no_resource_window",
+          "holdReason": "No eligible operator and asset have a free slot in the supplied window.",
+          "candidateResourceIds": [
+            "ROME-R1"
+          ]
+        },
+        {
+          "workId": "ROME-05",
+          "activity": "Reserve a room without facilities clearance",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "ROME-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 5,
+        "scheduled": 3,
+        "held": 2
+      }
+    },
+    {
+      "id": "tirana",
+      "title": "Internal supplies transport",
+      "workflow": "Coordinate sealed supply carts and receiving teams; no patient movement or building-route instructions.",
+      "decisions": [
+        {
+          "workId": "TIRANA-01",
+          "activity": "Check sealed-cart destination and receiving window",
+          "status": "scheduled",
+          "resourceId": "TIRANA-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 15
+        },
+        {
+          "workId": "TIRANA-02",
+          "activity": "Reserve staff and cart for scheduled material transfer",
+          "status": "scheduled",
+          "resourceId": "TIRANA-R1",
+          "assetId": "TIRANA-A1",
+          "startMinute": 44,
+          "endMinute": 74
+        },
+        {
+          "workId": "TIRANA-03",
+          "activity": "Hand off the shipment to an available receiving desk",
+          "status": "scheduled",
+          "resourceId": "TIRANA-R2",
+          "assetId": "TIRANA-A1",
+          "startMinute": 74,
+          "endMinute": 89
+        },
+        {
+          "workId": "TIRANA-04",
+          "activity": "Collect a spare cart before the receiving desk closes",
+          "status": "held",
+          "holdCode": "no_resource_window",
+          "holdReason": "No eligible operator and asset have a free slot in the supplied window.",
+          "candidateResourceIds": [
+            "TIRANA-R1"
+          ]
+        },
+        {
+          "workId": "TIRANA-05",
+          "activity": "Dispatch a cart without receiving confirmation",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "TIRANA-R1"
+          ]
+        },
+        {
+          "workId": "TIRANA-06",
+          "activity": "Record delivery receipt after unconfirmed dispatch",
+          "status": "held",
+          "holdCode": "prerequisite_held",
+          "holdReason": "The preceding activity was not scheduled.",
+          "candidateResourceIds": [
+            "TIRANA-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 6,
+        "scheduled": 3,
+        "held": 3
+      }
+    },
+    {
+      "id": "london",
+      "title": "Room cleaning and bed-turn logistics",
+      "workflow": "Schedule room access, facilities work and documented handoff; no return-to-care clearance.",
+      "decisions": [
+        {
+          "workId": "LONDON-01",
+          "activity": "Confirm the sample room is released to facilities",
+          "status": "scheduled",
+          "resourceId": "LONDON-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 20
+        },
+        {
+          "workId": "LONDON-02",
+          "activity": "Reserve a cleaning-team work window",
+          "status": "scheduled",
+          "resourceId": "LONDON-R1",
+          "assetId": "LONDON-A1",
+          "startMinute": 44,
+          "endMinute": 74
+        },
+        {
+          "workId": "LONDON-03",
+          "activity": "Present readiness documentation to the room coordinator",
+          "status": "scheduled",
+          "resourceId": "LONDON-R2",
+          "assetId": "LONDON-A1",
+          "startMinute": 74,
+          "endMinute": 89
+        },
+        {
+          "workId": "LONDON-04",
+          "activity": "Add a second work request to the same facilities window",
+          "status": "held",
+          "holdCode": "no_resource_window",
+          "holdReason": "No eligible operator and asset have a free slot in the supplied window.",
+          "candidateResourceIds": [
+            "LONDON-R1"
+          ]
+        },
+        {
+          "workId": "LONDON-05",
+          "activity": "Queue preparation work without room-access approval",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "LONDON-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 5,
+        "scheduled": 3,
+        "held": 2
+      }
+    },
+    {
+      "id": "paris",
+      "title": "Instrument set turnaround logistics",
+      "workflow": "Schedule transport and readiness paperwork for sealed sets; instrument processing and clinical release are not modeled.",
+      "decisions": [
+        {
+          "workId": "PARIS-01",
+          "activity": "Reconcile sample handling labels against the receiving list",
+          "status": "scheduled",
+          "resourceId": "PARIS-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 20
+        },
+        {
+          "workId": "PARIS-02",
+          "activity": "Reserve sealed-set transport and desk handoff",
+          "status": "scheduled",
+          "resourceId": "PARIS-R1",
+          "assetId": "PARIS-A1",
+          "startMinute": 44,
+          "endMinute": 74
+        },
+        {
+          "workId": "PARIS-03",
+          "activity": "Queue ready-state paperwork for an authorized reviewer",
+          "status": "scheduled",
+          "resourceId": "PARIS-R2",
+          "assetId": "PARIS-A1",
+          "startMinute": 74,
+          "endMinute": 89
+        },
+        {
+          "workId": "PARIS-04",
+          "activity": "Arrange a second set transfer within the same dock window",
+          "status": "held",
+          "holdCode": "no_resource_window",
+          "holdReason": "No eligible operator and asset have a free slot in the supplied window.",
+          "candidateResourceIds": [
+            "PARIS-R1"
+          ]
+        },
+        {
+          "workId": "PARIS-05",
+          "activity": "Propose movement of a set missing the traceability reference",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "PARIS-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 5,
+        "scheduled": 3,
+        "held": 2
+      }
+    },
+    {
+      "id": "munich",
+      "title": "Facilities shift and service handoff",
+      "workflow": "Move open service work from the outgoing shift to named receiving capacity.",
+      "decisions": [
+        {
+          "workId": "MUNICH-01",
+          "activity": "Collect outstanding facilities service requests",
+          "status": "scheduled",
+          "resourceId": "MUNICH-R1",
+          "assetId": null,
+          "startMinute": 0,
+          "endMinute": 25
+        },
+        {
+          "workId": "MUNICH-02",
+          "activity": "Prepare a shift handoff and reserve receiving capacity",
+          "status": "scheduled",
+          "resourceId": "MUNICH-R1",
+          "assetId": "MUNICH-A1",
+          "startMinute": 44,
+          "endMinute": 69
+        },
+        {
+          "workId": "MUNICH-03",
+          "activity": "Assign administrative follow-up to the incoming duty shift",
+          "status": "scheduled",
+          "resourceId": "MUNICH-R2",
+          "assetId": "MUNICH-A1",
+          "startMinute": 69,
+          "endMinute": 89
+        },
+        {
+          "workId": "MUNICH-04",
+          "activity": "Reserve field follow-up preparation before duty shift ends",
+          "status": "scheduled",
+          "resourceId": "MUNICH-R1",
+          "assetId": null,
+          "startMinute": 25,
+          "endMinute": 40
+        },
+        {
+          "workId": "MUNICH-05",
+          "activity": "Book controlled access without a recorded permission",
+          "status": "held",
+          "holdCode": "required_evidence_missing",
+          "holdReason": "Required administrative evidence is missing; manual review.",
+          "candidateResourceIds": [
+            "MUNICH-R1"
+          ]
+        }
+      ],
+      "summary": {
+        "requested": 5,
+        "scheduled": 4,
+        "held": 1
+      }
+    }
+  ]
+}

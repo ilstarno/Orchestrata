@@ -1,0 +1,45 @@
+.print-flow { display:grid; gap:1rem; min-width:0; margin-block:1rem 2rem; }
+.print-flow h2,.print-flow h3,.print-flow p,.print-flow figure { margin:0; }
+.print-flow-intro { display:grid; gap:.35rem; max-width:64ch; }
+.print-flow-filter { display:none; margin:0; padding:0; border:0; min-inline-size:0; }
+.print-flow-filter legend { margin:0 0 .35rem; color:var(--muted); font-size:.9rem; }
+.print-flow-options { display:flex; flex-wrap:wrap; gap:.45rem; }
+.print-flow-options label { display:inline-flex; gap:.45rem; align-items:center; padding:.35rem .55rem; min-height:44px; cursor:pointer; border:1px solid var(--rule); border-radius:.2rem; }
+.print-flow-options label:has(input:checked) { background:var(--dataset-head); border-color:var(--accent); }
+.print-flow-options label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.print-flow-options input { accent-color:var(--accent); margin:0; }
+.print-flow-diagram { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem; margin:.4rem 0 0; padding:0; list-style:none; }
+.print-flow-diagram li { display:grid; grid-template-columns:auto 1fr; align-items:center; gap:.35rem .5rem; min-width:0; padding:.55rem; min-height:4rem; background:var(--dataset-surface); border-block-start:2px solid var(--rule); }
+.print-flow-diagram li span { min-width:0; font-size:.88rem; overflow-wrap:anywhere; }
+.print-flow-diagram svg { color:var(--accent); grid-row:span 2; }
+.print-flow-diagram small { display:block; font-weight:650; color:var(--muted); line-height:1; font-variant-numeric:tabular-nums; }
+.print-flow-outcomes { display:grid; gap:.7rem; }
+.print-flow-outcome { display:grid; gap:.65rem; padding:clamp(.65rem,2vw,1rem); border:1px solid var(--rule); }
+.print-flow-caption { display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem .65rem; }
+.print-flow-caption span,.print-flow-note,.print-flow-chart > small { color:var(--muted); font-size:.84rem; }
+.print-flow-charts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem .95rem; }
+.print-flow-chart { display:grid; gap:.35rem; min-width:0; padding:.6rem 0; border-block-start:1px solid var(--rule); }
+.print-flow-chart figcaption strong { font-size:.92rem; }
+.print-flow-barline { display:grid; gap:.18rem; min-width:0; }
+.print-flow-barline > span { display:flex; justify-content:space-between; align-items:flex-end; gap:.3rem .55rem; font-size:.85rem; }
+.print-flow-barline b { text-align:end; font-variant-numeric:tabular-nums; }
+.print-flow-bar { display:block; width:100%; height:.45rem; appearance:none; border:0; border-radius:0; color:var(--accent); background:var(--dataset-head); }
+.print-flow-bar::-webkit-meter-bar { background:var(--dataset-head); }
+.print-flow-baseline::-webkit-meter-optimum-value { background:var(--muted); }
+.print-flow-improved::-webkit-meter-optimum-value { background:var(--accent); }
+.print-flow-baseline::-moz-meter-bar { background:var(--muted); }
+.print-flow-improved::-moz-meter-bar { background:var(--accent); }
+@supports selector(:has(*)) {
+ .print-flow-filter { display:block; }
+ .print-flow:has(.print-flow-filter input[value="invoices"]:checked) .print-flow-outcome:not([data-scenario="invoices"]),
+ .print-flow:has(.print-flow-filter input[value="statements"]:checked) .print-flow-outcome:not([data-scenario="statements"]),
+ .print-flow:has(.print-flow-filter input[value="notices"]:checked) .print-flow-outcome:not([data-scenario="notices"]) { display:none; }
+}
+@media(max-width:44rem) { .print-flow-diagram { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:32rem) { .print-flow-charts { grid-template-columns:1fr; } }
+
+.print-flow-details { border-block:1px solid var(--rule); }
+.print-flow-details summary { padding:.65rem 0; min-height:44px; cursor:pointer; font-weight:650; }
+.print-flow-outcome dl { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin:0; }
+.print-flow-outcome dt { color:var(--muted); font-size:.85rem; }
+.print-flow-outcome dd { margin:0; font-size:1.08rem; font-weight:700; font-variant-numeric:tabular-nums; }

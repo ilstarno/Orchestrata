@@ -1,0 +1,13 @@
+{
+  "storefront": [
+    {"sku":"SKU-001","variantId":"CAT-101","sellableUnits":18},
+    {"sku":"SKU-002","variantId":"CAT-102","sellableUnits":7},
+    {"sku":"SKU-003","variantId":"CAT-103","sellableUnits":0}
+  ],
+  "warehouse": [
+    {"sku":"SKU-001","locationId":"WH-AMBIENT-01","physicalUnits":24},
+    {"sku":"SKU-001","locationId":"WH-AMBIENT-08","physicalUnits":6},
+    {"sku":"SKU-002","locationId":"WH-AMBIENT-02","physicalUnits":9},
+    {"sku":"SKU-004","locationId":"WH-AMBIENT-04","physicalUnits":5}
+  ]
+}

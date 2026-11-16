@@ -1,0 +1,775 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "new-york",
+      "title": "Appointment backlog administration",
+      "function": "Booking desk",
+      "workflow": "Schedule pre-reviewed administrative work, without ranking people or booking appointments.",
+      "publicWorkflowReference": {
+        "title": "NHS England: National elective access policy",
+        "url": "https://www.england.nhs.uk/long-read/national-elective-access-policy/",
+        "scope": "Illustrates administrative booking capacity and wait-list review; no local rule is imported."
+      },
+      "resources": [
+        {
+          "resourceId": "NEW-YORK-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            125
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "NEW-YORK-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "NEW-YORK-A1",
+        "assetType": "booking workstation",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "NEW-YORK-01",
+          "name": "Check completeness of already reviewed requests",
+          "durationMinutes": 25,
+          "window": [
+            0,
+            40
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "NEW-YORK-02",
+          "name": "Match administrative workload to offered session inventory",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            70
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "NEW-YORK-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "NEW-YORK-03",
+          "name": "Prepare an exception list for the booking supervisor",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            95
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "NEW-YORK-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "NEW-YORK-04",
+          "name": "Reserve callback administration batch",
+          "durationMinutes": 30,
+          "window": [
+            0,
+            120
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "NEW-YORK-05",
+          "name": "Prepare a contact batch with no authorization record",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            140
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "rome",
+      "title": "Diagnostic session support",
+      "function": "Diagnostic logistics",
+      "workflow": "Reserve room setup, capacity reconciliation and handoff work, not tests or appointments.",
+      "publicWorkflowReference": {
+        "title": "NHS England: National elective access policy",
+        "url": "https://www.england.nhs.uk/long-read/national-elective-access-policy/",
+        "scope": "Illustrates administrative booking capacity and wait-list review; no local rule is imported."
+      },
+      "resources": [
+        {
+          "resourceId": "ROME-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            105
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "ROME-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "ROME-A1",
+        "assetType": "room setup station",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "ROME-01",
+          "name": "Reconcile accepted session inventory with room availability",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            40
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "ROME-02",
+          "name": "Reserve equipment set-up and room readiness time",
+          "durationMinutes": 30,
+          "window": [
+            0,
+            80
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "ROME-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "ROME-03",
+          "name": "Send the availability draft to the session coordinator",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            110
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "ROME-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "ROME-04",
+          "name": "Fit an additional setup batch before the room locks",
+          "durationMinutes": 40,
+          "window": [
+            0,
+            90
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "ROME-05",
+          "name": "Reserve a room without facilities clearance",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            145
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "tirana",
+      "title": "Internal supplies transport",
+      "function": "Hospital porter dispatch",
+      "workflow": "Coordinate sealed supply carts and receiving teams; no patient movement or building-route instructions.",
+      "publicWorkflowReference": null,
+      "resources": [
+        {
+          "resourceId": "TIRANA-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            105
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "TIRANA-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "TIRANA-A1",
+        "assetType": "supply cart",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "TIRANA-01",
+          "name": "Check sealed-cart destination and receiving window",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            40
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "TIRANA-02",
+          "name": "Reserve staff and cart for scheduled material transfer",
+          "durationMinutes": 30,
+          "window": [
+            0,
+            80
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "TIRANA-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "TIRANA-03",
+          "name": "Hand off the shipment to an available receiving desk",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            110
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "TIRANA-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "TIRANA-04",
+          "name": "Collect a spare cart before the receiving desk closes",
+          "durationMinutes": 40,
+          "window": [
+            0,
+            95
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "TIRANA-05",
+          "name": "Dispatch a cart without receiving confirmation",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            150
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        },
+        {
+          "workId": "TIRANA-06",
+          "name": "Record delivery receipt after unconfirmed dispatch",
+          "durationMinutes": 10,
+          "window": [
+            0,
+            160
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "TIRANA-05"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 6
+        }
+      ]
+    },
+    {
+      "id": "london",
+      "title": "Room cleaning and bed-turn logistics",
+      "function": "Facilities coordination",
+      "workflow": "Schedule room access, facilities work and documented handoff; no return-to-care clearance.",
+      "publicWorkflowReference": {
+        "title": "NHS England: National standards of healthcare cleanliness 2025",
+        "url": "https://www.england.nhs.uk/long-read/national-standards-of-healthcare-cleanliness-2025/",
+        "scope": "Illustrates cleaning responsibility and coordination; does not certify any sample room."
+      },
+      "resources": [
+        {
+          "resourceId": "LONDON-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            105
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "LONDON-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "LONDON-A1",
+        "assetType": "room service work area",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "LONDON-01",
+          "name": "Confirm the sample room is released to facilities",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            40
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "LONDON-02",
+          "name": "Reserve a cleaning-team work window",
+          "durationMinutes": 30,
+          "window": [
+            0,
+            85
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "LONDON-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "LONDON-03",
+          "name": "Present readiness documentation to the room coordinator",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            110
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "LONDON-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "LONDON-04",
+          "name": "Add a second work request to the same facilities window",
+          "durationMinutes": 45,
+          "window": [
+            0,
+            100
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "LONDON-05",
+          "name": "Queue preparation work without room-access approval",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            150
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "paris",
+      "title": "Instrument set turnaround logistics",
+      "function": "Sterile-services coordination",
+      "workflow": "Schedule transport and readiness paperwork for sealed sets; instrument processing and clinical release are not modeled.",
+      "publicWorkflowReference": {
+        "title": "NHS England: Health Technical Memorandum 01-01",
+        "url": "https://www.england.nhs.uk/publication/decontamination-of-surgical-instruments-htm-01-01/",
+        "scope": "Illustrates the importance of traceability and handoff controls; not a process instruction."
+      },
+      "resources": [
+        {
+          "resourceId": "PARIS-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            105
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "PARIS-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "PARIS-A1",
+        "assetType": "instrument logistics station",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "PARIS-01",
+          "name": "Reconcile sample handling labels against the receiving list",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            45
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "PARIS-02",
+          "name": "Reserve sealed-set transport and desk handoff",
+          "durationMinutes": 30,
+          "window": [
+            0,
+            85
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "PARIS-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "PARIS-03",
+          "name": "Queue ready-state paperwork for an authorized reviewer",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            110
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "PARIS-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "PARIS-04",
+          "name": "Arrange a second set transfer within the same dock window",
+          "durationMinutes": 45,
+          "window": [
+            0,
+            95
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "PARIS-05",
+          "name": "Propose movement of a set missing the traceability reference",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            145
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        }
+      ]
+    },
+    {
+      "id": "munich",
+      "title": "Facilities shift and service handoff",
+      "function": "Facilities duty desk",
+      "workflow": "Move open service work from the outgoing shift to named receiving capacity.",
+      "publicWorkflowReference": null,
+      "resources": [
+        {
+          "resourceId": "MUNICH-R1",
+          "role": "Duty coordinator",
+          "window": [
+            0,
+            105
+          ],
+          "capabilities": [
+            "coordination",
+            "handling"
+          ]
+        },
+        {
+          "resourceId": "MUNICH-R2",
+          "role": "Receiving coordinator",
+          "window": [
+            55,
+            165
+          ],
+          "capabilities": [
+            "coordination",
+            "handoff"
+          ]
+        }
+      ],
+      "sharedAsset": {
+        "assetId": "MUNICH-A1",
+        "assetType": "handoff workstation",
+        "window": [
+          0,
+          125
+        ],
+        "unavailable": [
+          [
+            39,
+            44
+          ]
+        ]
+      },
+      "work": [
+        {
+          "workId": "MUNICH-01",
+          "name": "Collect outstanding facilities service requests",
+          "durationMinutes": 25,
+          "window": [
+            0,
+            45
+          ],
+          "requiredCapability": "coordination",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 1
+        },
+        {
+          "workId": "MUNICH-02",
+          "name": "Prepare a shift handoff and reserve receiving capacity",
+          "durationMinutes": 25,
+          "window": [
+            0,
+            85
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "MUNICH-01"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 2
+        },
+        {
+          "workId": "MUNICH-03",
+          "name": "Assign administrative follow-up to the incoming duty shift",
+          "durationMinutes": 20,
+          "window": [
+            0,
+            115
+          ],
+          "requiredCapability": "handoff",
+          "requiresAsset": true,
+          "prerequisiteIds": [
+            "MUNICH-02"
+          ],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 3
+        },
+        {
+          "workId": "MUNICH-04",
+          "name": "Reserve field follow-up preparation before duty shift ends",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            85
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": false,
+          "prerequisiteIds": [],
+          "entryEvidence": "asserted_in_sample",
+          "administrativeOrder": 4
+        },
+        {
+          "workId": "MUNICH-05",
+          "name": "Book controlled access without a recorded permission",
+          "durationMinutes": 15,
+          "window": [
+            0,
+            145
+          ],
+          "requiredCapability": "handling",
+          "requiresAsset": true,
+          "prerequisiteIds": [],
+          "entryEvidence": "missing",
+          "administrativeOrder": 5
+        }
+      ]
+    }
+  ]
+}
