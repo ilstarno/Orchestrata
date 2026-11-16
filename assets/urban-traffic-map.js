@@ -79,11 +79,11 @@
           }
           const visibleUpdates = data.updates.filter(entry => entry.appliesTo.includes(variant))
           for (const edge of visibleUpdates) {
-            L.polyline(edge.points, { color: '#fff', weight: 14, interactive: false }).addTo(layers)
-            L.polyline(edge.points, { ...updateStyle[edge.kind], interactive: false }).addTo(layers)
+            L.polyline(edge.points, { color: '#fff', weight: 14, interactive: false, smoothFactor: 0 }).addTo(layers)
+            L.polyline(edge.points, { ...updateStyle[edge.kind], interactive: false, smoothFactor: 0 }).addTo(layers)
           }
-          L.polyline(points, { color: '#fff', weight: 6, interactive: false }).addTo(layers)
-          L.polyline(points, { color: '#126256', weight: 4, interactive: false }).addTo(layers)
+          L.polyline(points, { color: '#fff', weight: 6, interactive: false, smoothFactor: 0 }).addTo(layers)
+          L.polyline(points, { color: '#126256', weight: 4, interactive: false, smoothFactor: 0 }).addTo(layers)
           for (const [label, endpoint] of data.endpoints) {
             const text = document.createElement('span')
             text.textContent = labels[label]

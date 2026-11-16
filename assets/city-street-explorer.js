@@ -129,10 +129,9 @@
           for (const group of shown) {
             const hue = color(group.box)
             const dashArray = group.mode === 'walking' ? '2 8' : group.mode === 'bicycle' ? '8 7' : undefined
-            L.polyline(group.latlngs, { color: '#fff', dashArray, opacity: .96, weight: 8, interactive: false }).addTo(layers)
-            L.polyline(group.latlngs, { color: hue, dashArray, weight: 5, interactive: false }).addTo(layers)
+            L.polyline(group.latlngs, { color: '#fff', dashArray, opacity: .96, weight: 8, interactive: false, smoothFactor: 0 }).addTo(layers)
+            L.polyline(group.latlngs, { color: hue, dashArray, weight: 5, interactive: false, smoothFactor: 0 }).addTo(layers)
             for (const location of group.latlngs) bounds.extend(location)
-            if (!selected.length) continue
             const list = node('ol')
             const block = node('div', null, 'street-explorer__route')
             block.style.setProperty('--courier-hue', hue)
@@ -145,6 +144,7 @@
               const icon = L.divIcon({ html: symbol, className: 'street-explorer__icon', iconSize: [38, 28], iconAnchor: [19, 14] })
               const marker = L.marker(latlng, { icon, keyboard: false })
                 .bindTooltip(node('span', group.key + ' · ' + description)).addTo(layers)
+              if (!selected.length) continue
               const row = node('li')
               const focusStop = node('button', description)
               focusStop.type = 'button'
@@ -155,13 +155,12 @@
               row.append(focusStop)
               list.append(row)
             }
-            lists.append(block)
+            if (selected.length) lists.append(block)
           }
           map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16, animate: false })
           itineraries.hidden = !selected.length
           state.textContent = selected.length ? labels.selected + ': ' + selected.map(group => group.key).join(', ') : labels.none
         }
-        groups[0].box.checked = true
         refresh()
         fieldset.addEventListener('change', refresh)
         fieldset.hidden = false

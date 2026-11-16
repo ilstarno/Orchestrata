@@ -49,6 +49,8 @@
         (vertices += coords.length) > 750_000 || !coords.every(point)) throw Error('Invalid route')
       lines.set(index, coords.map(latLng))
     }
+    if (summary.mappedCourierCount !== undefined && summary.mappedCourierCount !== lines.size)
+      throw Error('Inconsistent mapped route count')
     return { nodes: nodes.map(latLng), couriers, stops, lines }
   }
 
@@ -86,6 +88,44 @@
     return { matching, held, assigned, unmapped }
   }
 
+  function visibleRoutes(lines, status, courier, query) {
+    if (status === 'held' || query) return []
+    return [...lines].filter(([index]) => courier === null || courier === index)
+  }
+
+  function extendView(bounds, data, result, routes) {
+    for (const index of result.matching) {
+      const node = data.stops[index][0]
+      if (node !== null) bounds.extend(data.nodes[node])
+    }
+    for (const [, coordinates] of routes)
+      for (const coordinate of coordinates) bounds.extend(coordinate)
+    return bounds
+  }
+
+  function drawStops(ctx, project, size, data, result, colors, radius) {
+    const positions = new Map()
+    const held = []
+    for (const index of result.matching) {
+      const [node, courier] = data.stops[index]
+      if (node === null) continue
+      let p = positions.get(node)
+      if (!p) { p = project(data.nodes[node]); positions.set(node, p) }
+      if (p.x < -6 || p.y < -6 || p.x > size.x + 6 || p.y > size.y + 6) continue
+      if (courier === null) held.push(p)
+      else {
+        ctx.fillStyle = colors[courier]
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, radius, 0, 2 * Math.PI)
+        ctx.fill()
+      }
+    }
+    // Stay visible even when an assigned visit shares the same street node.
+    ctx.strokeStyle = heldColor
+    ctx.lineWidth = radius > 2 ? 2 : 1
+    for (const p of held) ctx.strokeRect(p.x - radius, p.y - radius, 2 * radius, 2 * radius)
+  }
+
   function initialize(panel) {
     if (panel.dataset.loaded) return
     const q = selector => panel.querySelector(selector)
@@ -116,6 +156,7 @@
         for (const [index, coords] of data.lines) {
           const mode = data.couriers[index].mode
           lines.set(index, L.polyline(coords, { color: colors[index], opacity: .54, weight: 2, interactive: false,
+            smoothFactor: 0,
             dashArray: mode === 'walking' ? '2 6' : mode === 'bicycle' ? '6 5' : undefined }))
         }
         const canvas = document.createElement('canvas')
@@ -131,7 +172,7 @@
           courier.append(option)
         }
 
-        let frame = 0, timer = 0, result, selected = null, query = ''
+        let frame = 0, timer = 0, result, routes = [], selected = null, query = ''
         const draw = () => {
           frame = 0
           if (!result) return
@@ -141,42 +182,24 @@
           ctx.setTransform(scale, 0, 0, scale, 0, 0)
           ctx.clearRect(0, 0, size.x, size.y)
           const radius = query ? 5 : selected !== null ? 3 : map.getZoom() >= 15 ? 2 : 1.35
-          for (const index of result.matching) {
-            const row = data.stops[index]
-            if (row[0] === null) continue
-            const p = map.latLngToContainerPoint(data.nodes[row[0]])
-            if (p.x < -6 || p.y < -6 || p.x > size.x + 6 || p.y > size.y + 6) continue
-            if (row[1] === null) {
-              ctx.strokeStyle = heldColor
-              ctx.lineWidth = radius > 2 ? 2 : 1
-              ctx.strokeRect(p.x - radius, p.y - radius, 2 * radius, 2 * radius)
-            } else {
-              ctx.fillStyle = colors[row[1]]
-              ctx.beginPath()
-              ctx.arc(p.x, p.y, radius, 0, 2 * Math.PI)
-              ctx.fill()
-            }
-          }
+          drawStops(ctx, coordinate => map.latLngToContainerPoint(coordinate), size, data, result, colors, radius)
         }
         const queueDraw = () => { if (!frame) frame = requestAnimationFrame(draw) }
         const fitCurrent = () => {
-          const b = L.latLngBounds([])
-          for (const index of result.matching) {
-            const node = data.stops[index][0]
-            if (node !== null) b.extend(data.nodes[node])
-          }
+          const b = extendView(L.latLngBounds([]), data, result, routes)
           if (b.isValid()) map.fitBounds(b, { padding: [24, 24], maxZoom: query ? 17 : 14, animate: false })
         }
         const refresh = (refit = false) => {
           selected = courier.value === '' ? null : Number(courier.value)
           query = search.value.trim().toUpperCase()
           result = selectStops(data, filter.value, selected, query)
+          routes = visibleRoutes(data.lines, filter.value, selected, query)
           layers.clearLayers()
-          if (filter.value !== 'held' && !query)
-            for (const [index, line] of lines) if (selected === null || selected === index) {
-              line.setStyle({ opacity: selected === null ? .54 : .9, weight: selected === null ? 2 : 4 })
-              layers.addLayer(line)
-            }
+          for (const [index] of routes) {
+            const line = lines.get(index)
+            line.setStyle({ opacity: selected === null ? .54 : .9, weight: selected === null ? 2 : 4 })
+            layers.addLayer(line)
+          }
           const f = value => number.format(value)
           summary.textContent = labels.total + ': ' + f(data.stops.length) + ' · ' + labels.visible + ': ' +
             f(result.matching.length - result.unmapped) + ' · ' + labels.assigned + ': ' + f(result.assigned) + ' · ' +

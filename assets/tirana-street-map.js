@@ -25,7 +25,7 @@
   const number = new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: 1 })
   const toLatLng = ([lon, lat]) => [lat, lon]
   const dash = mode => mode === 'walking' ? '2 9' : mode === 'bicycle' ? '9 7' : undefined
-  const region = (mode, pane) => ({ pane, dashArray: dash(mode), lineCap: 'round', lineJoin: 'round', interactive: false })
+  const region = (mode, pane) => ({ pane, dashArray: dash(mode), lineCap: 'round', lineJoin: 'round', interactive: false, smoothFactor: 0 })
   const clock = new Intl.NumberFormat(document.documentElement.lang, { minimumIntegerDigits: 2, useGrouping: false })
   const timeLabel = seconds => clock.format(Math.floor(seconds / 3600)) + ':' + clock.format(Math.floor(seconds / 60) % 60)
   const nonnegative = number => Number.isSafeInteger(number) && number >= 0
@@ -151,7 +151,7 @@
       }
     }
 
-    function addStop(item, group) {
+    function addStop(item, group, showItinerary = true) {
       const info = item.properties
       const color = routeColor(group.id)
       const hub = dispatch.get(group.id)?.hub
@@ -171,6 +171,7 @@
       const label = document.createElement('span')
       label.textContent = group.id + ' · ' + stopDescription(info) + (depot ? ' · ' + kindLabels.depot + ' ' + depot.id : '')
       marker.bindTooltip(label, { direction: 'top', offset: [0, -8] }).addTo(points)
+      if (!showItinerary) return
       const row = document.createElement('li')
       const control = document.createElement('button')
       control.type = 'button'
@@ -216,7 +217,10 @@
         status.textContent = active.id + ' · ' + modeLabel[active.mode] + ' · '
           + panel.dataset.distance + ' ' + number.format(info.distanceMeters / 1000) + ' km · '
           + panel.dataset.travel + ' ' + number.format(info.durationSeconds / 60) + ' min'
-      } else status.textContent = panel.dataset.selectHint
+      } else {
+        for (const group of groups) for (const item of group.stops) addStop(item, group, false)
+        status.textContent = panel.dataset.selectHint
+      }
       itinerary.hidden = !active
       panel.dispatchEvent(new CustomEvent('tirana:courier-selected', { bubbles: true, detail: { courierId: active?.id ?? null } }))
     }

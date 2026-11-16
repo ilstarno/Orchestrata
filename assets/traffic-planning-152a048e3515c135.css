@@ -1,0 +1,53 @@
+.traffic-demo,.traffic-recipes { display:grid; gap:.75rem; margin-block:1rem 2rem; min-inline-size:0; }
+.traffic-demo :is(h2,h3,h4,p),.traffic-recipes :is(h2,h3) { margin:0; }
+.traffic-switch { display:none; border:0; padding:0; margin:0; gap:.45rem; flex-wrap:wrap; }
+.traffic-switch label { display:inline-flex; gap:.45rem; align-items:center; padding:.3rem .65rem; min-block-size:44px; border:1px solid var(--rule); cursor:pointer; }
+.traffic-switch label:has(input:checked) { background:var(--dataset-head); border-color:var(--accent); }
+.traffic-switch label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.traffic-switch input { accent-color:var(--accent); }
+.traffic-board { background:var(--dataset-surface); padding:clamp(.65rem,2vw,1.2rem); min-inline-size:0; border:1px solid var(--rule); }
+.traffic-totals { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.35rem .65rem; margin:.6rem 0; }
+.traffic-totals div { border-block-start:2px solid var(--accent); padding:.5rem .4rem; background:var(--paper); }
+.traffic-totals div:last-child { border-block-start-color:var(--status-review); }
+.traffic-totals dt { color:var(--muted); font-size:.81rem; }
+.traffic-totals dd { margin:0; font-size:clamp(.85rem,2vw,1.15rem); font-weight:720; overflow-wrap:anywhere; }
+.traffic-layers { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.36fr); gap:.9rem; }
+.traffic-layers > section { min-inline-size:0; }
+.traffic-layers h4 { display:flex; align-items:center; gap:.35rem; margin-block:.3rem; }
+.traffic-layers h4 svg,.traffic-recipes svg { color:var(--accent); }
+.traffic-layers p { font-size:.86rem; color:var(--muted); }
+.traffic-dns { display:grid; gap:.45rem; margin:.7rem 0 0; }
+.traffic-dns > div,.traffic-regions > li { border:1px solid var(--rule); background:var(--paper); padding:.45rem .55rem; }
+.traffic-dns dt { font-weight:700; }
+.traffic-dns dd { margin:.1rem 0 0; font-size:.83rem; }
+.traffic-dns ul,.traffic-regions { list-style:none; padding:0; margin:0; }
+.traffic-dns ul li { display:grid; grid-template-columns:minmax(4rem,1fr) minmax(1rem,1.2fr) auto; gap:.3rem; align-items:center; font-variant-numeric:tabular-nums; }
+.traffic-board meter { appearance:none; display:block; inline-size:100%; block-size:.45rem; }
+.traffic-board meter::-webkit-meter-bar { background:var(--dataset-head); border:0; border-radius:0; }
+.traffic-board meter::-webkit-meter-optimum-value { background:var(--accent); }
+.traffic-board meter::-moz-meter-bar { background:var(--accent); }
+.traffic-regions { display:grid; gap:.4rem; margin-block-start:.7rem; }
+.traffic-regions li > header { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.2rem .7rem; }
+.traffic-regions header span { font-size:.8rem; font-weight:630; color:var(--muted); }
+.traffic-regions header span[data-health="down"] { color:var(--status-blocked); }
+.traffic-regions header span[data-health="stale"] { color:var(--status-review); }
+.traffic-regions meter { margin-block:.4rem; }
+.traffic-regions summary { cursor:pointer; padding-block:.65rem; min-block-size:44px; }
+.traffic-regions .table-region { margin:0; }
+.traffic-regions :is(td,th) { white-space:nowrap; }
+.traffic-recipes ul { display:grid; list-style:none; padding:0; margin:0; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
+.traffic-recipes li { display:grid; grid-template-columns:auto 1fr; column-gap:.4rem; align-items:start; padding:.6rem 0; border-block-start:1px solid var(--rule); }
+.traffic-recipes li > svg { margin-top:.17rem; }
+.traffic-recipes h3 { font-size:1rem; }
+.traffic-recipes a { grid-column:2; display:inline-flex; align-items:center; gap:.35rem; min-block-size:44px; }
+.traffic-providers { display:flex; flex-wrap:wrap; column-gap:1.1rem; margin:.5rem 0; list-style:none; padding:0; }
+.traffic-providers a { display:inline-flex; align-items:center; min-block-size:44px; }
+@supports selector(:has(*)) {
+  .traffic-switch { display:flex; }
+  .traffic-demo:has(input[value="normal"]:checked) .traffic-board:not([data-traffic-scenario="normal"]),
+  .traffic-demo:has(input[value="peak"]:checked) .traffic-board:not([data-traffic-scenario="peak"]),
+  .traffic-demo:has(input[value="region-unavailable"]:checked) .traffic-board:not([data-traffic-scenario="region-unavailable"]) { display:none; }
+}
+@media(max-width:46rem) { .traffic-layers,.traffic-recipes ul { grid-template-columns:minmax(0,1fr); } }
+
+.traffic-advisory { color:var(--muted); font-size:.82rem; }

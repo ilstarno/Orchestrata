@@ -1,0 +1,1193 @@
+{
+  "caseId": "regional-traffic-planning",
+  "scope": {
+    "planOnly": true,
+    "networkCallsMade": false,
+    "dnsWritesEnabled": false,
+    "loadBalancerWritesEnabled": false,
+    "actualTrafficInferred": false,
+    "destinationIdsAreLabels": true,
+    "perUserGeoInference": false
+  },
+  "policies": {
+    "dnsPolicy": {
+      "target": "new_dns_lookups",
+      "recordTtlSeconds": 60,
+      "healthMaxAgeSeconds": 30,
+      "lookupWeightBudget": 100,
+      "requiredHealthyFailureDomains": 2,
+      "preferFirstEligibleTier": true,
+      "unassignedRequiresReview": true,
+      "markets": [
+        {
+          "marketId": "americas",
+          "hardAllowlist": [
+            "us-east",
+            "eu-west"
+          ],
+          "signedOffTiers": [
+            {
+              "tierIndex": 0,
+              "destinations": [
+                {
+                  "regionId": "us-east",
+                  "configuredWeight": 1
+                }
+              ]
+            },
+            {
+              "tierIndex": 1,
+              "destinations": [
+                {
+                  "regionId": "eu-west",
+                  "configuredWeight": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "marketId": "eu-resident",
+          "hardAllowlist": [
+            "eu-west"
+          ],
+          "signedOffTiers": [
+            {
+              "tierIndex": 0,
+              "destinations": [
+                {
+                  "regionId": "eu-west",
+                  "configuredWeight": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "marketId": "eu-flex",
+          "hardAllowlist": [
+            "eu-west",
+            "us-east"
+          ],
+          "signedOffTiers": [
+            {
+              "tierIndex": 0,
+              "destinations": [
+                {
+                  "regionId": "eu-west",
+                  "configuredWeight": 1
+                }
+              ]
+            },
+            {
+              "tierIndex": 1,
+              "destinations": [
+                {
+                  "regionId": "us-east",
+                  "configuredWeight": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "marketId": "asia-pacific",
+          "hardAllowlist": [
+            "ap-south",
+            "us-east"
+          ],
+          "signedOffTiers": [
+            {
+              "tierIndex": 0,
+              "destinations": [
+                {
+                  "regionId": "ap-south",
+                  "configuredWeight": 1
+                }
+              ]
+            },
+            {
+              "tierIndex": 1,
+              "destinations": [
+                {
+                  "regionId": "us-east",
+                  "configuredWeight": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "marketId": "global",
+          "hardAllowlist": [
+            "us-east",
+            "eu-west",
+            "ap-south"
+          ],
+          "signedOffTiers": [
+            {
+              "tierIndex": 0,
+              "destinations": [
+                {
+                  "regionId": "us-east",
+                  "configuredWeight": 50
+                },
+                {
+                  "regionId": "eu-west",
+                  "configuredWeight": 35
+                },
+                {
+                  "regionId": "ap-south",
+                  "configuredWeight": 15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "backendPolicy": {
+      "units": "requests_per_second",
+      "trafficSourceIndependentFromDns": true,
+      "hardReserveRequired": true,
+      "allocateOnlyWithinDemandRegion": true,
+      "preferFullFeasibleCoverage": true,
+      "ratioBasis": "usable_after_reserve",
+      "roundingRule": "largest_fraction_then_backend_id",
+      "residualMustBeVisible": true,
+      "acceptUnknownHealth": false
+    }
+  },
+  "scenarioInputs": [
+    {
+      "scenarioId": "normal",
+      "plannedAtUtc": "2026-11-16T12:00:00Z",
+      "regions": [
+        {
+          "regionId": "us-east",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T11:59:56Z"
+          },
+          "offeredDemandRps": 225,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "US-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 180,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "US-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "US-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 70,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "eu-west",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T11:59:56Z"
+          },
+          "offeredDemandRps": 180,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "EU-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "EU-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 120,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "EU-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 105,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "ap-south",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T11:59:56Z"
+          },
+          "offeredDemandRps": 105,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "AP-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 110,
+              "requiredReserveRps": 25,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "AP-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 100,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            },
+            {
+              "backendId": "AP-C",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 55,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T11:59:52Z"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenarioId": "peak",
+      "plannedAtUtc": "2026-11-16T12:05:00Z",
+      "regions": [
+        {
+          "regionId": "us-east",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T12:04:56Z"
+          },
+          "offeredDemandRps": 420,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "US-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 180,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "US-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "US-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 70,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "eu-west",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T12:04:56Z"
+          },
+          "offeredDemandRps": 315,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "EU-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "EU-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 120,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "EU-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 105,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:29Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "ap-south",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T12:04:56Z"
+          },
+          "offeredDemandRps": 240,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "AP-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 110,
+              "requiredReserveRps": 25,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "AP-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 100,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:04:52Z"
+              }
+            },
+            {
+              "backendId": "AP-C",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 55,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": null,
+                "observedAtUtc": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenarioId": "region-unavailable",
+      "plannedAtUtc": "2026-11-16T12:10:00Z",
+      "regions": [
+        {
+          "regionId": "us-east",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T12:09:56Z"
+          },
+          "offeredDemandRps": 390,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "US-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 180,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            },
+            {
+              "backendId": "US-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            },
+            {
+              "backendId": "US-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 70,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "eu-west",
+          "edgeObservation": {
+            "reportedState": "down",
+            "observedAtUtc": "2026-11-16T12:09:58Z"
+          },
+          "offeredDemandRps": 130,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "EU-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 160,
+              "requiredReserveRps": 30,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            },
+            {
+              "backendId": "EU-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 120,
+              "requiredReserveRps": 20,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            },
+            {
+              "backendId": "EU-C",
+              "failureDomain": "az-c",
+              "ratedCapacityRps": 105,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            }
+          ]
+        },
+        {
+          "regionId": "ap-south",
+          "edgeObservation": {
+            "reportedState": "healthy",
+            "observedAtUtc": "2026-11-16T12:09:56Z"
+          },
+          "offeredDemandRps": 130,
+          "demandSource": "independent_regional_scenario",
+          "backendInventory": [
+            {
+              "backendId": "AP-A",
+              "failureDomain": "az-a",
+              "ratedCapacityRps": 110,
+              "requiredReserveRps": 25,
+              "healthObservation": {
+                "reportedState": "healthy",
+                "observedAtUtc": "2026-11-16T12:09:52Z"
+              }
+            },
+            {
+              "backendId": "AP-B",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 100,
+              "requiredReserveRps": 15,
+              "healthObservation": {
+                "reportedState": "draining",
+                "observedAtUtc": "2026-11-16T12:09:54Z"
+              }
+            },
+            {
+              "backendId": "AP-C",
+              "failureDomain": "az-b",
+              "ratedCapacityRps": 55,
+              "requiredReserveRps": 10,
+              "healthObservation": {
+                "reportedState": "down",
+                "observedAtUtc": "2026-11-16T12:09:57Z"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scenarioOutput": [
+    {
+      "id": "normal",
+      "dns": [
+        {
+          "market": "americas",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "eu-resident",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "eu-west",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "eu-flex",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "eu-west",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "asia-pacific",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "ap-south",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "global",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 50
+            },
+            {
+              "region": "eu-west",
+              "weightPercent": 35
+            },
+            {
+              "region": "ap-south",
+              "weightPercent": 15
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        }
+      ],
+      "regions": [
+        {
+          "region": "us-east",
+          "status": "healthy",
+          "demand": 225,
+          "allocated": 225,
+          "unserved": 0,
+          "backends": [
+            {
+              "id": "US-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 180,
+              "reserve": 30,
+              "usable": 150,
+              "allocated": 96
+            },
+            {
+              "id": "US-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 160,
+              "reserve": 20,
+              "usable": 140,
+              "allocated": 90
+            },
+            {
+              "id": "US-C",
+              "status": "healthy",
+              "failureDomain": "az-c",
+              "capacity": 70,
+              "reserve": 10,
+              "usable": 60,
+              "allocated": 39
+            }
+          ],
+          "healthyDomains": 3,
+          "usableCapacity": 350,
+          "reason": "covered"
+        },
+        {
+          "region": "eu-west",
+          "status": "healthy",
+          "demand": 180,
+          "allocated": 180,
+          "unserved": 0,
+          "backends": [
+            {
+              "id": "EU-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 160,
+              "reserve": 30,
+              "usable": 130,
+              "allocated": 73
+            },
+            {
+              "id": "EU-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 120,
+              "reserve": 20,
+              "usable": 100,
+              "allocated": 56
+            },
+            {
+              "id": "EU-C",
+              "status": "healthy",
+              "failureDomain": "az-c",
+              "capacity": 105,
+              "reserve": 15,
+              "usable": 90,
+              "allocated": 51
+            }
+          ],
+          "healthyDomains": 3,
+          "usableCapacity": 320,
+          "reason": "covered"
+        },
+        {
+          "region": "ap-south",
+          "status": "healthy",
+          "demand": 105,
+          "allocated": 105,
+          "unserved": 0,
+          "backends": [
+            {
+              "id": "AP-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 110,
+              "reserve": 25,
+              "usable": 85,
+              "allocated": 42
+            },
+            {
+              "id": "AP-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 100,
+              "reserve": 15,
+              "usable": 85,
+              "allocated": 41
+            },
+            {
+              "id": "AP-C",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 55,
+              "reserve": 10,
+              "usable": 45,
+              "allocated": 22
+            }
+          ],
+          "healthyDomains": 2,
+          "usableCapacity": 215,
+          "reason": "covered"
+        }
+      ],
+      "metrics": {
+        "dnsMarkets": 5,
+        "dnsHeld": 0,
+        "offered": 510,
+        "allocated": 510,
+        "unserved": 0
+      }
+    },
+    {
+      "id": "peak",
+      "dns": [
+        {
+          "market": "americas",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "eu-resident",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "eu-west",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "eu-flex",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "eu-west",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "asia-pacific",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "ap-south",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "global",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 50
+            },
+            {
+              "region": "eu-west",
+              "weightPercent": 35
+            },
+            {
+              "region": "ap-south",
+              "weightPercent": 15
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        }
+      ],
+      "regions": [
+        {
+          "region": "us-east",
+          "status": "healthy",
+          "demand": 420,
+          "allocated": 350,
+          "unserved": 70,
+          "backends": [
+            {
+              "id": "US-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 180,
+              "reserve": 30,
+              "usable": 150,
+              "allocated": 150
+            },
+            {
+              "id": "US-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 160,
+              "reserve": 20,
+              "usable": 140,
+              "allocated": 140
+            },
+            {
+              "id": "US-C",
+              "status": "healthy",
+              "failureDomain": "az-c",
+              "capacity": 70,
+              "reserve": 10,
+              "usable": 60,
+              "allocated": 60
+            }
+          ],
+          "healthyDomains": 3,
+          "usableCapacity": 350,
+          "reason": "capacity-limit"
+        },
+        {
+          "region": "eu-west",
+          "status": "healthy",
+          "demand": 315,
+          "allocated": 230,
+          "unserved": 85,
+          "backends": [
+            {
+              "id": "EU-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 160,
+              "reserve": 30,
+              "usable": 130,
+              "allocated": 130
+            },
+            {
+              "id": "EU-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 120,
+              "reserve": 20,
+              "usable": 100,
+              "allocated": 100
+            },
+            {
+              "id": "EU-C",
+              "status": "stale",
+              "failureDomain": "az-c",
+              "capacity": 105,
+              "reserve": 15,
+              "usable": 0,
+              "allocated": 0
+            }
+          ],
+          "healthyDomains": 2,
+          "usableCapacity": 230,
+          "reason": "capacity-limit"
+        },
+        {
+          "region": "ap-south",
+          "status": "healthy",
+          "demand": 240,
+          "allocated": 170,
+          "unserved": 70,
+          "backends": [
+            {
+              "id": "AP-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 110,
+              "reserve": 25,
+              "usable": 85,
+              "allocated": 85
+            },
+            {
+              "id": "AP-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 100,
+              "reserve": 15,
+              "usable": 85,
+              "allocated": 85
+            },
+            {
+              "id": "AP-C",
+              "status": "unknown",
+              "failureDomain": "az-b",
+              "capacity": 55,
+              "reserve": 10,
+              "usable": 0,
+              "allocated": 0
+            }
+          ],
+          "healthyDomains": 2,
+          "usableCapacity": 170,
+          "reason": "capacity-limit"
+        }
+      ],
+      "metrics": {
+        "dnsMarkets": 5,
+        "dnsHeld": 0,
+        "offered": 975,
+        "allocated": 750,
+        "unserved": 225
+      }
+    },
+    {
+      "id": "region-unavailable",
+      "dns": [
+        {
+          "market": "americas",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        },
+        {
+          "market": "eu-resident",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [],
+          "unassignedWeight": 100,
+          "reason": "no-eligible-region"
+        },
+        {
+          "market": "eu-flex",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "fallback"
+        },
+        {
+          "market": "asia-pacific",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "fallback"
+        },
+        {
+          "market": "global",
+          "lookupWeight": 100,
+          "ttlSeconds": 60,
+          "routes": [
+            {
+              "region": "us-east",
+              "weightPercent": 100
+            }
+          ],
+          "unassignedWeight": 0,
+          "reason": "preferred"
+        }
+      ],
+      "regions": [
+        {
+          "region": "us-east",
+          "status": "healthy",
+          "demand": 390,
+          "allocated": 350,
+          "unserved": 40,
+          "backends": [
+            {
+              "id": "US-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 180,
+              "reserve": 30,
+              "usable": 150,
+              "allocated": 150
+            },
+            {
+              "id": "US-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 160,
+              "reserve": 20,
+              "usable": 140,
+              "allocated": 140
+            },
+            {
+              "id": "US-C",
+              "status": "healthy",
+              "failureDomain": "az-c",
+              "capacity": 70,
+              "reserve": 10,
+              "usable": 60,
+              "allocated": 60
+            }
+          ],
+          "healthyDomains": 3,
+          "usableCapacity": 350,
+          "reason": "capacity-limit"
+        },
+        {
+          "region": "eu-west",
+          "status": "down",
+          "demand": 130,
+          "allocated": 0,
+          "unserved": 130,
+          "backends": [
+            {
+              "id": "EU-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 160,
+              "reserve": 30,
+              "usable": 0,
+              "allocated": 0
+            },
+            {
+              "id": "EU-B",
+              "status": "healthy",
+              "failureDomain": "az-b",
+              "capacity": 120,
+              "reserve": 20,
+              "usable": 0,
+              "allocated": 0
+            },
+            {
+              "id": "EU-C",
+              "status": "healthy",
+              "failureDomain": "az-c",
+              "capacity": 105,
+              "reserve": 15,
+              "usable": 0,
+              "allocated": 0
+            }
+          ],
+          "healthyDomains": 0,
+          "usableCapacity": 0,
+          "reason": "region-unavailable"
+        },
+        {
+          "region": "ap-south",
+          "status": "healthy",
+          "demand": 130,
+          "allocated": 85,
+          "unserved": 45,
+          "backends": [
+            {
+              "id": "AP-A",
+              "status": "healthy",
+              "failureDomain": "az-a",
+              "capacity": 110,
+              "reserve": 25,
+              "usable": 85,
+              "allocated": 85
+            },
+            {
+              "id": "AP-B",
+              "status": "draining",
+              "failureDomain": "az-b",
+              "capacity": 100,
+              "reserve": 15,
+              "usable": 0,
+              "allocated": 0
+            },
+            {
+              "id": "AP-C",
+              "status": "down",
+              "failureDomain": "az-b",
+              "capacity": 55,
+              "reserve": 10,
+              "usable": 0,
+              "allocated": 0
+            }
+          ],
+          "healthyDomains": 1,
+          "usableCapacity": 85,
+          "reason": "capacity-limit"
+        }
+      ],
+      "metrics": {
+        "dnsMarkets": 5,
+        "dnsHeld": 1,
+        "offered": 650,
+        "allocated": 435,
+        "unserved": 215
+      }
+    }
+  ],
+  "decisionAudit": {
+    "scenarioId": "region-unavailable",
+    "reviewLayer": "dns_new_lookup_policy",
+    "marketEvaluation": {
+      "marketId": "eu-resident",
+      "localityEvidence": {
+        "hardAllowlist": [
+          "eu-west"
+        ],
+        "crossRegionFallbackAllowed": false,
+        "priorityTier": {
+          "tierIndex": 0,
+          "candidate": {
+            "regionId": "eu-west",
+            "signalAudit": {
+              "recordedSignal": {
+                "reportedState": "down",
+                "observedAtUtc": "2026-11-16T12:09:58Z"
+              },
+              "freshnessEvaluation": {
+                "maximumAgeSeconds": 30,
+                "computedStatus": "down",
+                "eligibilityGate": {
+                  "freshHealthyEdgeRequired": true,
+                  "minimumDistinctHealthyDomains": 2,
+                  "healthyDomainsCounted": 0,
+                  "outcome": {
+                    "admitted": false,
+                    "unassignedPolicyWeight": 100,
+                    "reviewDisposition": {
+                      "publishAllowed": false,
+                      "action": "send_to_operator_review"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
