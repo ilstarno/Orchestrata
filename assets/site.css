@@ -28,6 +28,7 @@
   color-scheme: light;
   font-synthesis: none;
   --paper: #ffffff;
+  --hero-ground: #f3f3ea;
   --site-measure: 72rem;
   --site-gutter: clamp(1rem, 3vw, 2rem);
   --ink: #1e2329;
@@ -302,6 +303,7 @@ pre {
 :root[data-theme="dark"] {
   color-scheme: dark;
   --paper: #111816; --ink: #e5eeeb; --muted: #b7c7c1; --rule: #465851;
+  --hero-ground: #171f1c;
   --accent: #89dfcf; --on-accent: #082723; --status-review: #f1cc83; --status-blocked: #ffa7a7;
   --dataset-surface: #1a2521; --dataset-head: #23352f; --dataset-edge: #52665d;
   --change-bg: #372d1e;
@@ -311,6 +313,7 @@ pre {
   :root:not([data-theme]) {
     color-scheme: dark;
     --paper: #111816; --ink: #e5eeeb; --muted: #b7c7c1; --rule: #465851;
+    --hero-ground: #171f1c;
     --accent: #89dfcf; --on-accent: #082723; --status-review: #f1cc83; --status-blocked: #ffa7a7;
     --dataset-surface: #1a2521; --dataset-head: #23352f; --dataset-edge: #52665d;
     --change-bg: #372d1e;
@@ -620,4 +623,19 @@ main :is(p, li) { text-wrap: pretty; }
 @keyframes site-enter {
   from { opacity: .75; transform: translateY(.35rem); }
   to { opacity: 1; transform: none; }
+}
+
+/* Reading surfaces share a column and rhythm; the tools stay secondary to the content. */
+:is(.paper, .blog-body).markdown { line-height: 1.65; }
+:is(.paper, .blog-body).markdown h2 { margin-block-start: 2.05rem; }
+:is(.paper, .blog-body).markdown :is(h2, h3) { text-wrap: pretty; }
+.site-footer .footer-groups h2 { font-size: 1rem; letter-spacing: 0; }
+.content-actions { background: none; border: 0; border-block: 1px solid var(--rule); padding-inline: 0; }
+.content-rail { border-inline-start: 1px solid var(--rule); }
+.content-rail-title img { display: none; }
+:is(.markdown, .ledger) th { line-height: 1.35; }
+.markdown table { font-size: .98rem; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .text-link svg { transition: translate 150ms ease; }
+  .text-link:hover svg { translate: 3px 0; }
 }
