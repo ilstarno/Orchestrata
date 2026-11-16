@@ -12,7 +12,7 @@
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  MAYA.PATEL@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  MAYA.PATEL@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -59,7 +59,7 @@
         "contact": {
           "id": "CT-001",
           "account": "AC-0",
-          "email": "maya.patel@ashcombe-freight.example",
+          "email": "maya.patel@ashcombe-freight.internal",
           "owner": "REP-08"
         }
       }
@@ -74,7 +74,7 @@
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  JORDAN.BROOKS@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  JORDAN.BROOKS@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -116,7 +116,7 @@
           {
             "id": "CT-EX-002",
             "account": "AC-1",
-            "email": "jordan.brooks@farnwick-instruments.example",
+            "email": "jordan.brooks@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]
@@ -128,7 +128,7 @@
         "contact": {
           "id": "CT-EX-002",
           "account": "AC-1",
-          "email": "jordan.brooks@farnwick-instruments.example",
+          "email": "jordan.brooks@farnwick-instruments.internal",
           "owner": "REP-18"
         }
       }
@@ -143,7 +143,7 @@
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  ELENA.TORRES@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  ELENA.TORRES@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -200,7 +200,7 @@
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  MARCUS.LEE@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  MARCUS.LEE@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -242,7 +242,7 @@
           {
             "id": "CT-EX-004",
             "account": "AC-OTHER",
-            "email": "marcus.lee@valdessa-packaging.example",
+            "email": "marcus.lee@valdessa-packaging.internal",
             "owner": "REP-18"
           }
         ]
@@ -264,7 +264,7 @@
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  LENA.WEBER@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  LENA.WEBER@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -311,7 +311,7 @@
         "contact": {
           "id": "CT-005",
           "account": "AC-5",
-          "email": "lena.weber@montelune-supply.example",
+          "email": "lena.weber@montelune-supply.internal",
           "owner": "REP-08"
         }
       }
@@ -326,7 +326,7 @@
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  JONAS.BECK@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  JONAS.BECK@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -368,7 +368,7 @@
           {
             "id": "CT-EX-006",
             "account": "AC-0",
-            "email": "jonas.beck@ashcombe-freight.example",
+            "email": "jonas.beck@ashcombe-freight.internal",
             "owner": "REP-18"
           }
         ]
@@ -380,7 +380,7 @@
         "contact": {
           "id": "CT-EX-006",
           "account": "AC-0",
-          "email": "jonas.beck@ashcombe-freight.example",
+          "email": "jonas.beck@ashcombe-freight.internal",
           "owner": "REP-18"
         }
       }
@@ -395,7 +395,7 @@
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  MIRIAM.KLEIN@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  MIRIAM.KLEIN@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -452,7 +452,7 @@
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  FELIX.ROTH@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  FELIX.ROTH@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -494,13 +494,13 @@
           {
             "id": "CT-EX-008",
             "account": "AC-2",
-            "email": "felix.roth@bramholt-materials.example",
+            "email": "felix.roth@bramholt-materials.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-008",
             "account": "AC-2",
-            "email": "felix.roth@bramholt-materials.example",
+            "email": "felix.roth@bramholt-materials.internal",
             "owner": "REP-18"
           }
         ]
@@ -522,7 +522,7 @@
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  NOOR.VINK@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  NOOR.VINK@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -569,7 +569,7 @@
         "contact": {
           "id": "CT-009",
           "account": "AC-4",
-          "email": "noor.vink@sarnowick-parts.example",
+          "email": "noor.vink@sarnowick-parts.internal",
           "owner": "REP-08"
         }
       }
@@ -584,7 +584,7 @@
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  DAAN.BOS@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  DAAN.BOS@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -626,7 +626,7 @@
           {
             "id": "CT-EX-010",
             "account": "AC-5",
-            "email": "daan.bos@montelune-supply.example",
+            "email": "daan.bos@montelune-supply.internal",
             "owner": "REP-18"
           }
         ]
@@ -638,7 +638,7 @@
         "contact": {
           "id": "CT-EX-010",
           "account": "AC-5",
-          "email": "daan.bos@montelune-supply.example",
+          "email": "daan.bos@montelune-supply.internal",
           "owner": "REP-18"
         }
       }
@@ -653,7 +653,7 @@
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  EVA.POST@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  EVA.POST@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -710,7 +710,7 @@
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  SEM.DEKKER@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  SEM.DEKKER@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -752,7 +752,7 @@
           {
             "id": "CT-EX-012",
             "account": "AC-OTHER",
-            "email": "sem.dekker@farnwick-instruments.example",
+            "email": "sem.dekker@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]
@@ -774,7 +774,7 @@
           "account": "AC-3",
           "territory": "IT",
           "language": "it",
-          "email": "  GIULIA.CONTI@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  GIULIA.CONTI@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -821,7 +821,7 @@
         "contact": {
           "id": "CT-013",
           "account": "AC-3",
-          "email": "giulia.conti@valdessa-packaging.example",
+          "email": "giulia.conti@valdessa-packaging.internal",
           "owner": "REP-08"
         }
       }
@@ -836,7 +836,7 @@
           "account": "AC-4",
           "territory": "IT",
           "language": "it",
-          "email": "  MARCO.RICCI@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  MARCO.RICCI@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -878,7 +878,7 @@
           {
             "id": "CT-EX-014",
             "account": "AC-4",
-            "email": "marco.ricci@sarnowick-parts.example",
+            "email": "marco.ricci@sarnowick-parts.internal",
             "owner": "REP-18"
           }
         ]
@@ -890,7 +890,7 @@
         "contact": {
           "id": "CT-EX-014",
           "account": "AC-4",
-          "email": "marco.ricci@sarnowick-parts.example",
+          "email": "marco.ricci@sarnowick-parts.internal",
           "owner": "REP-18"
         }
       }
@@ -905,7 +905,7 @@
           "account": "AC-5",
           "territory": "IT",
           "language": "it",
-          "email": "  ELENA.COSTA@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  ELENA.COSTA@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -962,7 +962,7 @@
           "account": "AC-0",
           "territory": "IT",
           "language": "it",
-          "email": "  LUCA.VILLA@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  LUCA.VILLA@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1004,13 +1004,13 @@
           {
             "id": "CT-EX-016",
             "account": "AC-0",
-            "email": "luca.villa@ashcombe-freight.example",
+            "email": "luca.villa@ashcombe-freight.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-016",
             "account": "AC-0",
-            "email": "luca.villa@ashcombe-freight.example",
+            "email": "luca.villa@ashcombe-freight.internal",
             "owner": "REP-18"
           }
         ]
@@ -1032,7 +1032,7 @@
           "account": "AC-2",
           "territory": "PL",
           "language": "pl",
-          "email": "  MAJA.KOWALSKA@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  MAJA.KOWALSKA@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1079,7 +1079,7 @@
         "contact": {
           "id": "CT-017",
           "account": "AC-2",
-          "email": "maja.kowalska@bramholt-materials.example",
+          "email": "maja.kowalska@bramholt-materials.internal",
           "owner": "REP-08"
         }
       }
@@ -1094,7 +1094,7 @@
           "account": "AC-3",
           "territory": "PL",
           "language": "pl",
-          "email": "  ADAM.NOWAK@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  ADAM.NOWAK@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1136,7 +1136,7 @@
           {
             "id": "CT-EX-018",
             "account": "AC-3",
-            "email": "adam.nowak@valdessa-packaging.example",
+            "email": "adam.nowak@valdessa-packaging.internal",
             "owner": "REP-18"
           }
         ]
@@ -1148,7 +1148,7 @@
         "contact": {
           "id": "CT-EX-018",
           "account": "AC-3",
-          "email": "adam.nowak@valdessa-packaging.example",
+          "email": "adam.nowak@valdessa-packaging.internal",
           "owner": "REP-18"
         }
       }
@@ -1163,7 +1163,7 @@
           "account": "AC-4",
           "territory": "PL",
           "language": "pl",
-          "email": "  ANNA.MAZUR@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  ANNA.MAZUR@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1220,7 +1220,7 @@
           "account": "AC-5",
           "territory": "PL",
           "language": "pl",
-          "email": "  OSKAR.WRONA@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  OSKAR.WRONA@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1262,7 +1262,7 @@
           {
             "id": "CT-EX-020",
             "account": "AC-OTHER",
-            "email": "oskar.wrona@montelune-supply.example",
+            "email": "oskar.wrona@montelune-supply.internal",
             "owner": "REP-18"
           }
         ]
@@ -1284,7 +1284,7 @@
           "account": "AC-1",
           "territory": "FR",
           "language": "fr",
-          "email": "  CAMILLE.MOREAU@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  CAMILLE.MOREAU@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1331,7 +1331,7 @@
         "contact": {
           "id": "CT-021",
           "account": "AC-1",
-          "email": "camille.moreau@farnwick-instruments.example",
+          "email": "camille.moreau@farnwick-instruments.internal",
           "owner": "REP-08"
         }
       }
@@ -1346,7 +1346,7 @@
           "account": "AC-2",
           "territory": "FR",
           "language": "fr",
-          "email": "  HUGO.PETIT@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  HUGO.PETIT@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1388,7 +1388,7 @@
           {
             "id": "CT-EX-022",
             "account": "AC-2",
-            "email": "hugo.petit@bramholt-materials.example",
+            "email": "hugo.petit@bramholt-materials.internal",
             "owner": "REP-18"
           }
         ]
@@ -1400,7 +1400,7 @@
         "contact": {
           "id": "CT-EX-022",
           "account": "AC-2",
-          "email": "hugo.petit@bramholt-materials.example",
+          "email": "hugo.petit@bramholt-materials.internal",
           "owner": "REP-18"
         }
       }
@@ -1415,7 +1415,7 @@
           "account": "AC-3",
           "territory": "FR",
           "language": "fr",
-          "email": "  NINA.LEROY@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  NINA.LEROY@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1472,7 +1472,7 @@
           "account": "AC-4",
           "territory": "FR",
           "language": "fr",
-          "email": "  LOUIS.ROBIN@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  LOUIS.ROBIN@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1514,13 +1514,13 @@
           {
             "id": "CT-EX-024",
             "account": "AC-4",
-            "email": "louis.robin@sarnowick-parts.example",
+            "email": "louis.robin@sarnowick-parts.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-024",
             "account": "AC-4",
-            "email": "louis.robin@sarnowick-parts.example",
+            "email": "louis.robin@sarnowick-parts.internal",
             "owner": "REP-18"
           }
         ]
@@ -1542,7 +1542,7 @@
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  AMIRA.SHAH@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  AMIRA.SHAH@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1589,7 +1589,7 @@
         "contact": {
           "id": "CT-025",
           "account": "AC-0",
-          "email": "amira.shah@ashcombe-freight.example",
+          "email": "amira.shah@ashcombe-freight.internal",
           "owner": "REP-08"
         }
       }
@@ -1604,7 +1604,7 @@
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  NORA.BENNETT@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  NORA.BENNETT@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1646,7 +1646,7 @@
           {
             "id": "CT-EX-026",
             "account": "AC-1",
-            "email": "nora.bennett@farnwick-instruments.example",
+            "email": "nora.bennett@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]
@@ -1658,7 +1658,7 @@
         "contact": {
           "id": "CT-EX-026",
           "account": "AC-1",
-          "email": "nora.bennett@farnwick-instruments.example",
+          "email": "nora.bennett@farnwick-instruments.internal",
           "owner": "REP-18"
         }
       }
@@ -1673,7 +1673,7 @@
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  THEO.HARRIS@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  THEO.HARRIS@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1730,7 +1730,7 @@
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  GABRIEL.RIVERA@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  GABRIEL.RIVERA@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1772,7 +1772,7 @@
           {
             "id": "CT-EX-028",
             "account": "AC-OTHER",
-            "email": "gabriel.rivera@valdessa-packaging.example",
+            "email": "gabriel.rivera@valdessa-packaging.internal",
             "owner": "REP-18"
           }
         ]
@@ -1794,7 +1794,7 @@
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  ANNA.VOGEL@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  ANNA.VOGEL@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1841,7 +1841,7 @@
         "contact": {
           "id": "CT-029",
           "account": "AC-5",
-          "email": "anna.vogel@montelune-supply.example",
+          "email": "anna.vogel@montelune-supply.internal",
           "owner": "REP-08"
         }
       }
@@ -1856,7 +1856,7 @@
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  TIM.BAUER@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  TIM.BAUER@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1898,7 +1898,7 @@
           {
             "id": "CT-EX-030",
             "account": "AC-0",
-            "email": "tim.bauer@ashcombe-freight.example",
+            "email": "tim.bauer@ashcombe-freight.internal",
             "owner": "REP-18"
           }
         ]
@@ -1910,7 +1910,7 @@
         "contact": {
           "id": "CT-EX-030",
           "account": "AC-0",
-          "email": "tim.bauer@ashcombe-freight.example",
+          "email": "tim.bauer@ashcombe-freight.internal",
           "owner": "REP-18"
         }
       }
@@ -1925,7 +1925,7 @@
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  CLARA.WINTER@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  CLARA.WINTER@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1982,7 +1982,7 @@
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  PAUL.KERN@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  PAUL.KERN@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2024,13 +2024,13 @@
           {
             "id": "CT-EX-032",
             "account": "AC-2",
-            "email": "paul.kern@bramholt-materials.example",
+            "email": "paul.kern@bramholt-materials.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-032",
             "account": "AC-2",
-            "email": "paul.kern@bramholt-materials.example",
+            "email": "paul.kern@bramholt-materials.internal",
             "owner": "REP-18"
           }
         ]
@@ -2052,7 +2052,7 @@
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  SANNE.BAKKER@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  SANNE.BAKKER@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2099,7 +2099,7 @@
         "contact": {
           "id": "CT-033",
           "account": "AC-4",
-          "email": "sanne.bakker@sarnowick-parts.example",
+          "email": "sanne.bakker@sarnowick-parts.internal",
           "owner": "REP-08"
         }
       }
@@ -2114,7 +2114,7 @@
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  MILAN.VISSER@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  MILAN.VISSER@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2156,7 +2156,7 @@
           {
             "id": "CT-EX-034",
             "account": "AC-5",
-            "email": "milan.visser@montelune-supply.example",
+            "email": "milan.visser@montelune-supply.internal",
             "owner": "REP-18"
           }
         ]
@@ -2168,7 +2168,7 @@
         "contact": {
           "id": "CT-EX-034",
           "account": "AC-5",
-          "email": "milan.visser@montelune-supply.example",
+          "email": "milan.visser@montelune-supply.internal",
           "owner": "REP-18"
         }
       }
@@ -2183,7 +2183,7 @@
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  LOTTE.MEIJER@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  LOTTE.MEIJER@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2240,7 +2240,7 @@
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  NIEK.SMIT@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  NIEK.SMIT@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2282,7 +2282,7 @@
           {
             "id": "CT-EX-036",
             "account": "AC-OTHER",
-            "email": "niek.smit@farnwick-instruments.example",
+            "email": "niek.smit@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]
@@ -2304,7 +2304,7 @@
           "account": "AC-3",
           "territory": "IT",
           "language": "it",
-          "email": "  SARA.BRUNO@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  SARA.BRUNO@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2351,7 +2351,7 @@
         "contact": {
           "id": "CT-037",
           "account": "AC-3",
-          "email": "sara.bruno@valdessa-packaging.example",
+          "email": "sara.bruno@valdessa-packaging.internal",
           "owner": "REP-08"
         }
       }
@@ -2366,7 +2366,7 @@
           "account": "AC-4",
           "territory": "IT",
           "language": "it",
-          "email": "  PAOLO.GALLI@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  PAOLO.GALLI@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2408,7 +2408,7 @@
           {
             "id": "CT-EX-038",
             "account": "AC-4",
-            "email": "paolo.galli@sarnowick-parts.example",
+            "email": "paolo.galli@sarnowick-parts.internal",
             "owner": "REP-18"
           }
         ]
@@ -2420,7 +2420,7 @@
         "contact": {
           "id": "CT-EX-038",
           "account": "AC-4",
-          "email": "paolo.galli@sarnowick-parts.example",
+          "email": "paolo.galli@sarnowick-parts.internal",
           "owner": "REP-18"
         }
       }
@@ -2435,7 +2435,7 @@
           "account": "AC-5",
           "territory": "IT",
           "language": "it",
-          "email": "  ANNA.FERRI@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  ANNA.FERRI@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2492,7 +2492,7 @@
           "account": "AC-0",
           "territory": "IT",
           "language": "it",
-          "email": "  MATTEO.PINI@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  MATTEO.PINI@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2534,13 +2534,13 @@
           {
             "id": "CT-EX-040",
             "account": "AC-0",
-            "email": "matteo.pini@ashcombe-freight.example",
+            "email": "matteo.pini@ashcombe-freight.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-040",
             "account": "AC-0",
-            "email": "matteo.pini@ashcombe-freight.example",
+            "email": "matteo.pini@ashcombe-freight.internal",
             "owner": "REP-18"
           }
         ]
@@ -2562,7 +2562,7 @@
           "account": "AC-2",
           "territory": "PL",
           "language": "pl",
-          "email": "  JULIA.KACZMAREK@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  JULIA.KACZMAREK@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2609,7 +2609,7 @@
         "contact": {
           "id": "CT-041",
           "account": "AC-2",
-          "email": "julia.kaczmarek@bramholt-materials.example",
+          "email": "julia.kaczmarek@bramholt-materials.internal",
           "owner": "REP-08"
         }
       }
@@ -2624,7 +2624,7 @@
           "account": "AC-3",
           "territory": "PL",
           "language": "pl",
-          "email": "  FILIP.BARAN@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  FILIP.BARAN@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2666,7 +2666,7 @@
           {
             "id": "CT-EX-042",
             "account": "AC-3",
-            "email": "filip.baran@valdessa-packaging.example",
+            "email": "filip.baran@valdessa-packaging.internal",
             "owner": "REP-18"
           }
         ]
@@ -2678,7 +2678,7 @@
         "contact": {
           "id": "CT-EX-042",
           "account": "AC-3",
-          "email": "filip.baran@valdessa-packaging.example",
+          "email": "filip.baran@valdessa-packaging.internal",
           "owner": "REP-18"
         }
       }
@@ -2693,7 +2693,7 @@
           "account": "AC-4",
           "territory": "PL",
           "language": "pl",
-          "email": "  IGA.DUDEK@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  IGA.DUDEK@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2750,7 +2750,7 @@
           "account": "AC-5",
           "territory": "PL",
           "language": "pl",
-          "email": "  KAMIL.LIS@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  KAMIL.LIS@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2792,7 +2792,7 @@
           {
             "id": "CT-EX-044",
             "account": "AC-OTHER",
-            "email": "kamil.lis@montelune-supply.example",
+            "email": "kamil.lis@montelune-supply.internal",
             "owner": "REP-18"
           }
         ]
@@ -2814,7 +2814,7 @@
           "account": "AC-1",
           "territory": "FR",
           "language": "fr",
-          "email": "  MANON.GIRARD@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  MANON.GIRARD@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2861,7 +2861,7 @@
         "contact": {
           "id": "CT-045",
           "account": "AC-1",
-          "email": "manon.girard@farnwick-instruments.example",
+          "email": "manon.girard@farnwick-instruments.internal",
           "owner": "REP-08"
         }
       }
@@ -2876,7 +2876,7 @@
           "account": "AC-2",
           "territory": "FR",
           "language": "fr",
-          "email": "  JULES.ROUX@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  JULES.ROUX@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2918,7 +2918,7 @@
           {
             "id": "CT-EX-046",
             "account": "AC-2",
-            "email": "jules.roux@bramholt-materials.example",
+            "email": "jules.roux@bramholt-materials.internal",
             "owner": "REP-18"
           }
         ]
@@ -2930,7 +2930,7 @@
         "contact": {
           "id": "CT-EX-046",
           "account": "AC-2",
-          "email": "jules.roux@bramholt-materials.example",
+          "email": "jules.roux@bramholt-materials.internal",
           "owner": "REP-18"
         }
       }
@@ -2945,7 +2945,7 @@
           "account": "AC-3",
           "territory": "FR",
           "language": "fr",
-          "email": "  SARAH.DUBOIS@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  SARAH.DUBOIS@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3002,7 +3002,7 @@
           "account": "AC-4",
           "territory": "FR",
           "language": "fr",
-          "email": "  ARTHUR.PERRIN@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  ARTHUR.PERRIN@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3044,13 +3044,13 @@
           {
             "id": "CT-EX-048",
             "account": "AC-4",
-            "email": "arthur.perrin@sarnowick-parts.example",
+            "email": "arthur.perrin@sarnowick-parts.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-048",
             "account": "AC-4",
-            "email": "arthur.perrin@sarnowick-parts.example",
+            "email": "arthur.perrin@sarnowick-parts.internal",
             "owner": "REP-18"
           }
         ]
@@ -3072,7 +3072,7 @@
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  AVA.WILSON@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  AVA.WILSON@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3119,7 +3119,7 @@
         "contact": {
           "id": "CT-049",
           "account": "AC-0",
-          "email": "ava.wilson@ashcombe-freight.example",
+          "email": "ava.wilson@ashcombe-freight.internal",
           "owner": "REP-08"
         }
       }
@@ -3134,7 +3134,7 @@
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  MATEO.REED@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  MATEO.REED@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3176,7 +3176,7 @@
           {
             "id": "CT-EX-050",
             "account": "AC-1",
-            "email": "mateo.reed@farnwick-instruments.example",
+            "email": "mateo.reed@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]
@@ -3188,7 +3188,7 @@
         "contact": {
           "id": "CT-EX-050",
           "account": "AC-1",
-          "email": "mateo.reed@farnwick-instruments.example",
+          "email": "mateo.reed@farnwick-instruments.internal",
           "owner": "REP-18"
         }
       }
@@ -3203,7 +3203,7 @@
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  NINA.KIM@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  NINA.KIM@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3260,7 +3260,7 @@
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  ELI.PARKER@VALDESSA-PACKAGING.EXAMPLE ",
+          "email": "  ELI.PARKER@VALDESSA-PACKAGING.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3302,7 +3302,7 @@
           {
             "id": "CT-EX-052",
             "account": "AC-OTHER",
-            "email": "eli.parker@valdessa-packaging.example",
+            "email": "eli.parker@valdessa-packaging.internal",
             "owner": "REP-18"
           }
         ]
@@ -3324,7 +3324,7 @@
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  LEA.FRANK@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  LEA.FRANK@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3371,7 +3371,7 @@
         "contact": {
           "id": "CT-053",
           "account": "AC-5",
-          "email": "lea.frank@montelune-supply.example",
+          "email": "lea.frank@montelune-supply.internal",
           "owner": "REP-08"
         }
       }
@@ -3386,7 +3386,7 @@
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  NILS.WOLF@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  NILS.WOLF@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3428,7 +3428,7 @@
           {
             "id": "CT-EX-054",
             "account": "AC-0",
-            "email": "nils.wolf@ashcombe-freight.example",
+            "email": "nils.wolf@ashcombe-freight.internal",
             "owner": "REP-18"
           }
         ]
@@ -3440,7 +3440,7 @@
         "contact": {
           "id": "CT-EX-054",
           "account": "AC-0",
-          "email": "nils.wolf@ashcombe-freight.example",
+          "email": "nils.wolf@ashcombe-freight.internal",
           "owner": "REP-18"
         }
       }
@@ -3455,7 +3455,7 @@
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  EMMA.KOCH@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  EMMA.KOCH@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3512,7 +3512,7 @@
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  MAX.STEIN@BRAMHOLT-MATERIALS.EXAMPLE ",
+          "email": "  MAX.STEIN@BRAMHOLT-MATERIALS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3554,13 +3554,13 @@
           {
             "id": "CT-EX-056",
             "account": "AC-2",
-            "email": "max.stein@bramholt-materials.example",
+            "email": "max.stein@bramholt-materials.internal",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-056",
             "account": "AC-2",
-            "email": "max.stein@bramholt-materials.example",
+            "email": "max.stein@bramholt-materials.internal",
             "owner": "REP-18"
           }
         ]
@@ -3582,7 +3582,7 @@
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  FLEUR.VOS@SARNOWICK-PARTS.EXAMPLE ",
+          "email": "  FLEUR.VOS@SARNOWICK-PARTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3629,7 +3629,7 @@
         "contact": {
           "id": "CT-057",
           "account": "AC-4",
-          "email": "fleur.vos@sarnowick-parts.example",
+          "email": "fleur.vos@sarnowick-parts.internal",
           "owner": "REP-08"
         }
       }
@@ -3644,7 +3644,7 @@
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  BRAM.KOK@MONTELUNE-SUPPLY.EXAMPLE ",
+          "email": "  BRAM.KOK@MONTELUNE-SUPPLY.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3686,7 +3686,7 @@
           {
             "id": "CT-EX-058",
             "account": "AC-5",
-            "email": "bram.kok@montelune-supply.example",
+            "email": "bram.kok@montelune-supply.internal",
             "owner": "REP-18"
           }
         ]
@@ -3698,7 +3698,7 @@
         "contact": {
           "id": "CT-EX-058",
           "account": "AC-5",
-          "email": "bram.kok@montelune-supply.example",
+          "email": "bram.kok@montelune-supply.internal",
           "owner": "REP-18"
         }
       }
@@ -3713,7 +3713,7 @@
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  NINA.PRONK@ASHCOMBE-FREIGHT.EXAMPLE ",
+          "email": "  NINA.PRONK@ASHCOMBE-FREIGHT.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3770,7 +3770,7 @@
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  JENS.MAAS@FARNWICK-INSTRUMENTS.EXAMPLE ",
+          "email": "  JENS.MAAS@FARNWICK-INSTRUMENTS.INTERNAL ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3812,7 +3812,7 @@
           {
             "id": "CT-EX-060",
             "account": "AC-OTHER",
-            "email": "jens.maas@farnwick-instruments.example",
+            "email": "jens.maas@farnwick-instruments.internal",
             "owner": "REP-18"
           }
         ]

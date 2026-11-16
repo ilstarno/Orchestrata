@@ -153,7 +153,7 @@ PHP
 <p>The budget cannot exceed <code>PHP_INT_MAX</code> on the host. A native failure throws <code>Orchestrata\SolveException</code> with a public integer <code>$status</code>. Path, unavailable FFI and local argument errors do not imply a solver outcome. Do not enable FFI broadly to make a deployment pass a local smoke check.</p>
 <h2 id="section-go-1-20-with-cgo">Go · 1.20+ with cgo</h2>
 <p>In a new Go module, use a local module replacement pointing at this checkout’s <code>sdks/go</code> directory. Use the module name shown below. From your new project directory:</p>
-<pre><code class="language-sh">go mod init example.com/orchestrata-quickstart
+<pre><code class="language-sh">go mod init orchestrata-quickstart
 go mod edit -require=github.com/ilstarno/Orchestrata/sdks/go@v0.0.0
 go mod edit -replace=github.com/ilstarno/Orchestrata/sdks/go=/absolute/path/to/engine/sdks/go
 </code></pre>

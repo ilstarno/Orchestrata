@@ -182,7 +182,7 @@ The budget cannot exceed `PHP_INT_MAX` on the host. A native failure throws `Orc
 In a new Go module, use a local module replacement pointing at this checkout’s `sdks/go` directory. Use the module name shown below. From your new project directory:
 
 ```sh
-go mod init example.com/orchestrata-quickstart
+go mod init orchestrata-quickstart
 go mod edit -require=github.com/ilstarno/Orchestrata/sdks/go@v0.0.0
 go mod edit -replace=github.com/ilstarno/Orchestrata/sdks/go=/absolute/path/to/engine/sdks/go
 ```
