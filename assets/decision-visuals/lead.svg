@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="case-sketch-art" width="400" height="220" viewBox="0 0 400 220" stroke-linecap="round" stroke-linejoin="round"><style>:root{--sketch-line:#505861;--sketch-seam:#d5d9de;--accent:#075b53;--dataset-head:#edf2f0;--paper:#fff;background:#f7f9f8;color:var(--accent)}@media(prefers-color-scheme:dark){:root{--sketch-line:#aab7bc;--sketch-seam:#34484b;--accent:#7ed1bd;--dataset-head:#25383b;--paper:#1e2a30;background:#182126}}.case-sketch-art :is(.sketch-ink, .sketch-fill, .sketch-face, .sketch-side, .sketch-detail, .sketch-wire, .sketch-accent) {
+  stroke: var(--sketch-line); stroke-width: 1.35;
+}
+.case-sketch-art .sketch-ink { fill: none; }
+.case-sketch-art .sketch-fill { fill: var(--dataset-head); }
+.case-sketch-art .sketch-face { fill: var(--paper); }
+.case-sketch-art .sketch-side { fill: var(--sketch-seam); }
+.case-sketch-art .sketch-detail { fill: none; opacity: .7; stroke-width: .82; }
+.case-sketch-art .sketch-accent,
+.case-sketch-art .sketch-wire { fill: none; stroke: var(--accent); stroke-width: 1.45; }
+.case-sketch-art .sketch-box--accent :is(.sketch-fill,.sketch-face) {
+  stroke: var(--accent); fill: var(--dataset-head);
+}
+.case-sketch-art .sketch-wire { stroke-dasharray: 5 6; }
+</style><path d="m27 169 73 28 221 0 48-30m-312 8 57 15 173 1m-220-141 107-14 139 1" class="sketch-detail"></path><path d="M107 113q21 2 69 1m56 1 51-1" class="sketch-wire sketch-signal"></path><g transform="translate(44 68)"><path d="M0 0 24-13 73-13 63 0 63 85 1 85z" class="sketch-side"></path><path d="M0 0h63v85H1z" class="sketch-face"></path><path d="M10 12h39M10 22h47M10 33h29m-28 15h13v13H11zm19 1h22m-22 10h15m-35 13h42" class="sketch-ink"></path></g><g class="sketch-drift"><g transform="translate(170 105)" class="sketch-box sketch-box--accent"><path d="M0 0 21 -10.5 57 -9.5 36 1z" class="sketch-fill"></path><path d="M36 1 57 -9.5 56 20.5 36 32z" class="sketch-side"></path><path d="M0 0 36 1 36 32 1 31z" class="sketch-face"></path><path d="M5 7h26m-26 5h26M41 7l12 -6.5" class="sketch-detail"></path></g></g><g transform="translate(282 70)"><path d="m0 0 20-12 61 1-10 12v78H0z" class="sketch-side"></path><path d="M0 0 71 1l-1 78H0z" class="sketch-face"></path><path d="M13 35c0-12 26-12 26 0zm13-16a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm-14 27h44m-44 10h38m-38 11h28" class="sketch-ink"></path><path d="m44 25 5 5 9-12" class="sketch-accent"></path></g></svg>

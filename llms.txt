@@ -4,6 +4,7 @@
 
 ## Markdown guides
 
+- [Connect an AI agent](https://ilstarno.github.io/Orchestrata/for-agents/setup-reference.md): Local setup, client commands, and a read-only lead preview.
 - [Airline crew assignment](https://ilstarno.github.io/Orchestrata/solutions/airline-crew-assignment/index.md): Match eligible crews to overlapping flight duties. See the eligible choices, verified result, and downloadable inputs.
 - [Hospital operations staffing](https://ilstarno.github.io/Orchestrata/solutions/hospital-nonclinical-shift-coverage/index.md): Cover simultaneous nonclinical shifts with available staff. See the eligible choices, verified result, and downloadable inputs.
 - [Healthcare supply delivery](https://ilstarno.github.io/Orchestrata/solutions/healthcare-supply-delivery/index.md): Allocate available vehicles to overlapping supply deliveries. See the eligible choices, verified result, and downloadable inputs.

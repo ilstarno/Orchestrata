@@ -1,0 +1,32 @@
+.agent-setup { max-width:65rem; margin-block:1.5rem 4rem; }
+.agent-setup :is(h2,h3,p,figure) { margin:0; }
+.agent-setup [id] { scroll-margin-block-start:7rem; }
+.agent-jump { display:flex; flex-wrap:wrap; gap:.45rem; margin-block:0 1.8rem; }
+.agent-jump a,.agent-reference a { display:inline-flex; align-items:center; gap:.55rem; min-height:44px; }
+.agent-jump a { padding:.4rem .8rem; border:1px solid var(--rule); border-radius:.3rem; text-decoration:none; font-weight:650; }
+.agent-jump a:hover { border-color:var(--accent); text-decoration:underline; }
+.agent-setup svg { flex:none; }
+.agent-steps { margin:0; padding:0; list-style:none; }
+.agent-steps > li { display:grid; gap:1rem; padding-block:1.3rem; border-block-start:1px solid var(--rule); }
+.agent-step-copy { display:flex; gap:.75rem; align-items:baseline; }
+.agent-step-copy p { margin-block-start:.3rem; }
+.agent-step-index { font-size:.85rem; color:var(--accent); font-variant-numeric:tabular-nums; font-weight:750; }
+.agent-screen img { display:block; width:100%; max-width:100%; height:auto; border:1px solid var(--rule); border-radius:.35rem; background:#111b23; }
+.agent-screen figcaption { margin:.4rem 0 0; font-size:.875rem; }
+.agent-other { margin-block:2.4rem 1.8rem; }
+.agent-other > p { margin-block:.35rem .9rem; }
+.agent-client-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap:.65rem; }
+.agent-client-grid article { padding:.85rem; border:1px solid var(--rule); border-radius:.35rem; }
+.agent-client-grid header { display:flex; align-items:flex-start; gap:.5rem; margin-block-end:.75rem; }
+.agent-client-grid header p { font-size:.875rem; }
+.agent-client-grid ol { margin:0; padding:0; list-style:none; }
+.agent-client-grid li:not(.agent-path-arrow) { display:grid; justify-items:start; gap:.25rem; }
+.agent-client-grid code { max-width:100%; overflow-wrap:anywhere; }
+.agent-path-arrow { color:var(--accent); display:flex; padding-block:.45rem; }
+.agent-reference { padding-block:1rem; border-block-start:1px solid var(--rule); }
+.agent-reference h2,.agent-reference nav { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; }
+.agent-reference nav { column-gap:1rem; }
+.agent-reference p { font-size:.9rem; }
+@media(min-width:52rem){
+  .agent-steps > li { grid-template-columns:minmax(15rem,1fr) minmax(0,2.4fr); align-items:start; }
+}
