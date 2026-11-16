@@ -1,5 +1,6 @@
 #[path = "module.rs"]
 mod module;
+pub mod routing;
 
 pub use module::assignment_change::AssignmentChange;
 pub use module::assignment_change_reason::AssignmentChangeReason;
