@@ -1,0 +1,189 @@
+.buyer-solutions-hero {
+  padding-block:clamp(1.25rem,3vw,2.1rem) clamp(.85rem,2vw,1.6rem);
+}
+.buyer-solutions-hero .intro { max-inline-size:69ch; }
+#planning-examples, .scenario-picker [data-scenario-preview] { scroll-margin-block-start:5rem; }
+.buyer-solutions-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem 1.25rem; margin-block-start:1.2rem; }
+.buyer-solutions-actions a, .buyer-decision-copy > a { display:inline-flex; align-items:center; min-block-size:44px; gap:.25rem; flex-wrap:wrap; }
+.buyer-decisions { margin-block:.8rem 2rem; }
+.scenario-picker > ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.2rem,3vw,2.4rem); align-items:start; list-style:none; margin:0; padding:0; }
+.buyer-decisions li { min-inline-size:0; border-block-end:1px solid var(--rule); padding-block-end:.8rem; }
+.buyer-decision-visual { position:relative; background:var(--dataset-surface); border-block:1px solid var(--rule); }
+.buyer-decision-map { max-inline-size:none; margin:0; border:0; }
+.buyer-decision-visual img { display:block; inline-size:100%; block-size:auto; aspect-ratio:20 / 11; object-fit:contain; }
+.buyer-decision-map img { background:#e9eee7; }
+.buyer-decision-map figcaption { position:absolute; inset-block-end:.22rem; inset-inline-end:.3rem; font-size:.74rem; line-height:1.2; background:var(--paper); }
+.buyer-decision-map figcaption a { display:inline-flex; align-items:center; min-block-size:24px; padding-inline:.35rem; }
+.buyer-decision-copy { padding-block:.8rem .1rem; }
+.buyer-decisions h3 { font-size:clamp(1.13rem,2vw,1.35rem); margin:.18rem 0 0; }
+.buyer-decision-team { color:var(--accent); font-size:.84rem; font-weight:660; margin:0; }
+.buyer-decision-details { margin-block:.15rem .35rem; }
+.buyer-decision-details summary { cursor:pointer; min-block-size:44px; display:list-item; align-content:center; color:var(--muted); font-size:.89rem; }
+.buyer-decision-details p { margin:.1rem 0 .5rem; max-inline-size:66ch; }
+.buyer-decision-measure, .buyer-decision-boundary { color:var(--muted); font-size:.89rem; }
+.buyer-evaluate { border-inline-start:2px solid var(--accent); padding-inline-start:.9rem; }
+.buyer-more { max-inline-size:none; }
+@media (max-width: 43rem) {
+  .scenario-picker > ul { grid-template-columns:minmax(0,1fr); }
+}
+
+.reading-section.operations-directory { max-inline-size:none; }
+.operations-directory-links {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));
+  gap:.55rem .85rem; list-style:none; margin:.75rem 0 0; padding:0;
+}
+.operations-directory-links li { min-inline-size:0; }
+.operations-directory-links a {
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem; min-block-size:52px; block-size:100%;
+  padding:.55rem .7rem; border:1px solid var(--rule); background:var(--dataset-surface);
+  text-decoration:none; font-weight:650; line-height:1.4; overflow-wrap:anywhere;
+}
+.operations-directory-links a:hover { border-color:var(--accent); text-decoration:underline; }
+.operations-directory-links svg { flex:none; inline-size:1rem; }
+.buyer-more-links { display:flex; flex-wrap:wrap; list-style:none; margin:.55rem 0 1.75rem; padding:0; gap:0 1.2rem; }
+.buyer-more-links a { display:inline-flex; flex-wrap:wrap; align-items:center; min-block-size:44px; }
+.buyer-more [data-case-finder] h2 { margin-block-end:.7rem; }
+
+.scenario-picker-ready {
+  display:grid;
+  grid-template-columns:minmax(12rem, .85fr) minmax(0, 2.3fr);
+  align-items:start;
+  gap:clamp(1rem, 2.5vw, 2rem);
+}
+.scenario-choices {
+  min-inline-size:0;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.scenario-choices legend {
+  margin:0 0 .55rem;
+  color:var(--muted);
+  font-size:.88rem;
+  font-weight:650;
+}
+.scenario-choice {
+  display:block;
+  position:relative;
+  margin-block-end:.42rem;
+  cursor:pointer;
+  touch-action:manipulation;
+}
+.scenario-choice input, .scenario-picker [data-scenario-status] {
+  position:absolute;
+  inline-size:1px;
+  block-size:1px;
+  clip-path:inset(50%);
+  overflow:hidden;
+  white-space:nowrap;
+}
+.scenario-choice > span {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:.55rem;
+  min-block-size:48px;
+  padding:.55rem .65rem;
+  border:1px solid var(--rule);
+  background:var(--paper);
+  font-size:.9rem;
+  line-height:1.25;
+  text-wrap:balance;
+  transition:border-color 160ms ease, background-color 160ms ease;
+}
+.scenario-choice > span > :last-child { visibility:hidden; }
+.scenario-choice:hover > span, .scenario-choice input:checked + span { border-color:var(--accent); }
+.scenario-choice input:checked + span { background:var(--dataset-surface); color:var(--accent); font-weight:700; }
+.scenario-choice input:checked + span > :last-child { visibility:visible; }
+.scenario-choice input:focus-visible + span { outline:2px solid var(--accent); outline-offset:3px; }
+.scenario-picker-ready > ul { display:block; }
+.scenario-picker-ready [data-scenario-preview]:not([hidden]) {
+  border:1px solid var(--rule);
+  border-block-start:3px solid var(--accent);
+  background:var(--paper);
+  animation:scenario-reveal 320ms cubic-bezier(.18,.72,.26,1) both;
+}
+.scenario-picker-ready :is(.buyer-decision-copy, .buyer-decision-details) {
+  padding-inline:clamp(.85rem,2vw,1.25rem);
+}
+.scenario-picker-ready .buyer-decision-visual { border-block-start:0; }
+.scenario-picker-ready .buyer-decision-measure {
+  border-inline-start:2px solid var(--accent);
+  padding-inline-start:.65rem;
+  margin-block-start:.75rem;
+}
+@keyframes scenario-reveal {
+  from { opacity:.55; transform:translateY(.65rem); }
+  to { opacity:1; transform:none; }
+}
+@media (max-width: 47rem) {
+  .scenario-picker-ready { grid-template-columns:minmax(0, 1fr); }
+  .scenario-choices:not([hidden]) { display:grid; grid-template-columns:repeat(2,minmax(0, 1fr)); gap:.5rem; }
+  .scenario-choice { margin:0; }
+  .scenario-choice > span { block-size:100%; grid-template-columns:auto minmax(0,1fr); }
+  .scenario-choice > span > :last-child { display:none; }
+}
+@media (max-width: 22rem) {
+  .scenario-choice > span { padding:.5rem .35rem; }
+  .scenario-choice > span > :first-child { display:none; }
+  .scenario-choice > span { grid-template-columns:minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scenario-choice > span { transition:none; }
+  .scenario-picker-ready [data-scenario-preview]:not([hidden]) { animation:none; }
+}
+
+.scenario-picker-ready [data-scenario-preview]:not([hidden]) {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);
+  grid-template-areas:"scenario-result scenario-art" "scenario-details scenario-art";
+  grid-template-rows:auto 1fr;
+  min-block-size:19.5rem;
+  padding-block-end:0;
+}
+.scenario-picker-ready .buyer-decision-visual {
+  grid-area:scenario-art;
+  display:grid;
+  align-items:center;
+  min-inline-size:0;
+  border-block:0;
+  border-inline-start:1px solid var(--rule);
+}
+.scenario-picker-ready .buyer-decision-copy { grid-area:scenario-result; padding-block-start:1.15rem; }
+.scenario-picker-ready .buyer-decision-details { grid-area:scenario-details; padding-block-end:.65rem; }
+.scenario-picker-ready .buyer-decision-details > summary { min-block-size:44px; }
+@media (max-width:61rem) {
+  .scenario-picker-ready [data-scenario-preview]:not([hidden]) {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"scenario-result" "scenario-art" "scenario-details";
+    grid-template-rows:auto auto auto;
+    min-block-size:0;
+  }
+  .scenario-picker-ready .buyer-decision-visual { border-inline-start:0; border-block:1px solid var(--rule); }
+  .scenario-picker-ready .buyer-decision-visual img { max-block-size:16rem; }
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  .scenario-picker-ready [data-scenario-preview]:not([hidden]) .buyer-decision-visual img {
+    animation:scenario-art-enter 460ms 45ms cubic-bezier(.18,.72,.26,1) both;
+  }
+  .scenario-picker-ready [data-scenario-preview]:not([hidden]) .buyer-decision-measure {
+    animation:scenario-measure-enter 400ms 105ms cubic-bezier(.18,.72,.26,1) both;
+  }
+  @keyframes scenario-art-enter {
+    from { opacity:.32; transform:translateY(.7rem) scale(.965); }
+    to { opacity:1; transform:none; }
+  }
+  @keyframes scenario-measure-enter {
+    from { opacity:.45; transform:translateX(.65rem); }
+    to { opacity:1; transform:none; }
+  }
+}
+
+.buyer-decision-finance {
+  display: grid;
+  min-block-size: 108px;
+  place-items: center;
+  color: var(--accent);
+}
+.buyer-decision-finance svg { inline-size: 3.25rem; block-size: 3.25rem; }
