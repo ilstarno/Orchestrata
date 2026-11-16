@@ -146,3 +146,21 @@ pre {
 .concept img { display: block; max-width: 100%; width: 100%; height: auto; border: 1px solid var(--rule); }
 .concept figcaption { margin-block-start: .45rem; font-size: .9rem; color: var(--muted); }
 @media (max-width: 52rem) { .workspace { grid-template-columns: minmax(0, 1fr); } }
+
+.language-switcher { position: relative; font-size: .9rem; }
+.language-switcher summary { cursor: pointer; padding-block: .55rem; }
+.language-switcher ul { margin: 0; padding: .35rem .6rem; list-style: none; background: #fff; border: 1px solid var(--rule); }
+.language-switcher a { display: flex; align-items: center; min-height: 44px; }
+.language-note { font-size: .85em; }
+@media (min-width: 39rem) {
+  .language-switcher ul { position: absolute; inset-inline-end: 0; min-inline-size: 10rem; z-index: 1; }
+}
+
+.example-catalog { max-inline-size: 50rem; }
+.example-catalog section { margin-block: 2rem; scroll-margin-top: 1rem; }
+.example-catalog ul { list-style: none; padding-inline-start: 0; }
+.example-catalog li { padding-block: .75rem; border-block-start: 1px solid var(--rule); }
+.example-catalog h3 { font-size: 1.05rem; margin: 0; }
+.example-catalog p { margin: .15rem 0 0; }
+.example-catalog .fixture-links { font-size: .9rem; }
+.fixture-links a { display: inline-block; padding-block: .4rem; }

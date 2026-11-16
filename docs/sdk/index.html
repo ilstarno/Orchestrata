@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/Orchestrata/assets/mark.svg"/><title>Native SDK reference for six languages | Orchestrata</title><meta name="description" content="Build the native library and call Orchestrata from C#, Go, Java, Node.js, PHP, or Python. See ABI rules, source requirements, and runnable examples."/><meta name="theme-color" content="#ffffff"/><meta name="robots" content="index, follow"/><link rel="icon" href="/Orchestrata/assets/mark.svg" type="image/svg+xml"/><link rel="canonical" href="https://ilstarno.github.io/Orchestrata/docs/sdk/"/><meta property="og:locale" content="en_US"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Orchestrata"/><meta property="og:title" content="Native SDK reference for six languages | Orchestrata"/><meta property="og:description" content="Build the native library and call Orchestrata from C#, Go, Java, Node.js, PHP, or Python. See ABI rules, source requirements, and runnable examples."/><meta property="og:url" content="https://ilstarno.github.io/Orchestrata/docs/sdk/"/><meta property="og:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="Orchestrata"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Native SDK reference for six languages | Orchestrata"/><meta name="twitter:description" content="Build the native library and call Orchestrata from C#, Go, Java, Node.js, PHP, or Python. See ABI rules, source requirements, and runnable examples."/><meta name="twitter:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><link rel="stylesheet" href="/Orchestrata/assets/site.css"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Native SDK reference for six languages | Orchestrata","description":"Build the native library and call Orchestrata from C#, Go, Java, Node.js, PHP, or Python. See ABI rules, source requirements, and runnable examples.","url":"https://ilstarno.github.io/Orchestrata/docs/sdk/","inLanguage":"en-US"}</script></head><body><a class="skip" data-rac="" href="#main" tabindex="0" data-react-aria-pressable="true">Skip to content</a><header class="site-header"><div class="width header-content"><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="28" height="28" alt=""/>Orchestrata</a><nav aria-label="Main navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/integrations/" hrefLang="en-US">Integrations</a><a href="/Orchestrata/docs/" hrefLang="en-US" aria-current="location">Docs</a><a href="/Orchestrata/examples/assignment/" hrefLang="en-US">Worked example</a><a class="react-aria-Link" data-rac="" href="https://github.com/ilstarno/Orchestrata" tabindex="0" data-react-aria-pressable="true">GitHub</a><a class="react-aria-Link" data-rac="" href="#contact" tabindex="0" data-react-aria-pressable="true">Contact</a></nav></div></header><main class="width" id="main" tabindex="-1"><section class="page-hero"><h1>Native SDK reference</h1><p class="intro">Build the native library and call Orchestrata from C#, Go, Java, Node.js, PHP, or Python. See ABI rules, source requirements, and runnable examples.</p></section><div class="docs-grid"><article class="paper markdown"><p>The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">standalone engine source under review</a>, not downloadable SDK releases or published language packages. Build the library and binding from matching source. The examples use synthetic data and print <code>[1]</code> (C#, Python, and Go examples) or the corresponding complete JSON result.</p>
+<h2>Build and locate the library</h2>
+<p>From the standalone engine repository root, use stable Rust and the target platform’s linker:</p>
+<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+</code></pre>
+<p>The usual output path starts at <code>backend/target/release/</code>. The dynamic library is named <code>liborchestrata_ffi.so</code> on Linux, <code>liborchestrata_ffi.dylib</code> on macOS, or <code>orchestrata_ffi.dll</code> on Windows. A custom Cargo target directory changes the path. Use the library matching the operating system and architecture of the host process. These filenames are build conventions, not evidence of released binaries or cross-platform qualification. The commands below use a Linux shell and the source checkout:</p>
+<pre><code class="language-sh">export ORCHESTRATA_LIB_DIR=&quot;$PWD/backend/target/release&quot;
+export ORCHESTRATA_LIBRARY=&quot;$ORCHESTRATA_LIB_DIR/liborchestrata_ffi.so&quot;
+export LD_LIBRARY_PATH=&quot;$ORCHESTRATA_LIB_DIR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}&quot;
+export ORCHESTRATA_INCLUDE=&quot;$PWD/backend/crates/ffi/include&quot;
+</code></pre>
+<p>C#, Java, Python and PHP take a library path. Go and Node.js link to the library and need the loader to find it at runtime. Do not assume a library from an unrelated checkout or installation is compatible. These bindings require ABI version 1.</p>
+<h2>Choose a binding</h2>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Language</th><th>Source requirements</th><th>What the call actually types</th></tr></thead><tbody><tr><td>C#</td><td>.NET 8; reference <code>sdks/csharp/Orchestrata.csproj</code>.</td><td>The overloads accept UTF-8 bytes or a string and a <code>ulong</code> limit; return a raw JSON string. No checked-in problem or solution model.</td></tr><tr><td>Java</td><td>A 64-bit JDK 22 or newer, with native access enabled.</td><td>Accepts a UTF-8 <code>byte[]</code> or a string and a <code>long</code> limit. Returns raw JSON text. No checked-in problem or solution model.</td></tr><tr><td>Python</td><td>Python 3.10 or newer; uses the standard-library native loader.</td><td><code>solve</code> accepts a mapping and returns a decoded <code>dict</code> or <code>None</code>; preserves integers but does not statically type individual fields. <code>solve_json</code> is the bytes interface.</td></tr><tr><td>Node.js</td><td>A Node release with Node-API BigInt support, a C toolchain, and <code>node-gyp</code>.</td><td>Type declarations enforce <code>string | Buffer</code> input and a <code>bigint</code> limit. Result is raw JSON text, not a typed solution object.</td></tr><tr><td>PHP</td><td>PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment.</td><td>Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model.</td></tr><tr><td>Go</td><td>Go 1.20 or newer and cgo with the platform C toolchain.</td><td><code>Solve</code> decodes to a typed <code>*Solution</code> with <code>[]int64</code> values, signed <code>Score</code> fields and a <code>uint64</code> evaluation count. Both entry points still take UTF-8 problem bytes.</td></tr></tbody></table></div>
+<p>Type-safe native argument handling is not the same as typed planning models. The current response convenience methods are described above. Where the wrapper returns raw JSON, use your language’s lossless decoder and validate the fields you consume; do not advertise typed models the library does not ship.</p>
+<h2>Problem and result format</h2>
+<p>Every SDK example uses the same problem:</p>
+<pre><code class="language-json">{&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}
+</code></pre>
+<p>Set the maximum number of evaluations to <code>2</code>. Both candidates fit the budget. The solver selects <code>1</code>, satisfying the preference, and returns:</p>
+<pre><code class="language-json">{&quot;solution&quot;:{&quot;values&quot;:[1],&quot;score&quot;:{&quot;hard&quot;:0,&quot;soft&quot;:0},&quot;evaluated&quot;:2}}
+</code></pre>
+<ul>
+<li>Each variable requires a nonempty integer domain. Values follow input variable order. Constraint indices are zero-based and refer to positions, not names. Include <code>constraints: []</code> if you have none. Use unique, nonblank names and distinct domain values if you intend to submit the same problem to the local HTTP API, which applies additional input checks.</li>
+<li><code>all_different</code> uses <code>variables</code> and positive <code>hard_weight</code> to penalize equal pairs. <code>not_equal_offset</code> uses <code>left</code>, <code>right</code>, <code>offset</code> and positive <code>hard_weight</code> to forbid the indicated left-minus-right difference. <code>prefer_value</code> uses <code>variable</code>, <code>value</code> and positive <code>soft_weight</code>. The model has no date, currency, time or speed units.</li>
+<li>A success contains a verified optimal assignment, or <code>{&quot;solution&quot;:null}</code> when the exact search proved no feasible assignment. Python’s decoded method returns <code>None</code>, and Go’s typed method returns <code>nil, nil</code> for that no-plan case. An exceeded budget is an error, not null and not a partial result. This native contract is separate from that of a running HTTP build.</li>
+<li>Domain values, offsets, weights and scores use signed 64-bit integers. An evaluation count is unsigned 64-bit. The budget is a count of candidate combinations, not a duration. It is passed to the SDK method, not inside the JSON.</li>
+<li>For full-range values, do not round through a floating-point JSON decoder. In C# use <code>GetInt64()</code> for values/scores and <code>GetUInt64()</code> for evaluation counts. In Java choose a JSON codec that preserves exact integer values, including unsigned counts. In Node.js transmit UTF-8 bytes or JSON text and keep the result as text or use a lossless decoder; <code>BigInt</code> passed in an object does not make ordinary <code>JSON.stringify</code> lossless. In PHP, keep JSON text or choose integer-safe decoding appropriate to your PHP integer width.</li>
+</ul>
+<h2>C# · .NET 8</h2>
+<p>Create a .NET 8 console project, add a project reference to <code>sdks/csharp/Orchestrata.csproj</code>, and use this as <code>Program.cs</code>. Run it with the full library path as the first argument, for example <code>dotnet run --project /path/to/demo -- &quot;$ORCHESTRATA_LIBRARY&quot;</code>.</p>
+<pre><code class="language-csharp">using System;
+using System.Text.Json;
+using Orchestrata;
+
+using var solver = new Solver(args[0]);
+const string problem = &quot;&quot;&quot;
+    {&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}
+    &quot;&quot;&quot;;
+using var response = JsonDocument.Parse(solver.SolveJson(problem, 2UL));
+var solution = response.RootElement.GetProperty(&quot;solution&quot;);
+if (solution.ValueKind == JsonValueKind.Null)
+    Console.WriteLine(&quot;No feasible assignment&quot;);
+else
+    Console.WriteLine(solution.GetProperty(&quot;values&quot;).GetRawText());
+</code></pre>
+<p>Dispose the solver when you are done. A nonzero solver status is a <code>SolveException</code> whose <code>Status</code> is numeric. A library load, incompatible version, or call after disposal is a separate failure.</p>
+<h2>Java · JDK 22+</h2>
+<p>Save this as <code>Demo.java</code>. It uses the host library path supplied as an argument. Keep the <code>Solver</code> in a try-with-resources block.</p>
+<pre><code class="language-java">import java.nio.file.Path;
+import io.orchestrata.Solver;
+
+public class Demo {
+    public static void main(String[] args) {
+        try (var solver = new Solver(Path.of(args[0]))) {
+            String problem = &quot;&quot;&quot;
+                {&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}
+                &quot;&quot;&quot;;
+            System.out.println(solver.solveJson(problem, 2L));
+        }
+    }
+}
+</code></pre>
+<p>From the engine checkout root (use the actual path to your <code>Demo.java</code>):</p>
+<pre><code class="language-sh">classes=&quot;$(mktemp -d)&quot;
+javac -d &quot;$classes&quot; $(find sdks/java/src/main/java -name &#x27;*.java&#x27;) Demo.java
+java --enable-native-access=ALL-UNNAMED -cp &quot;$classes&quot; Demo &quot;$ORCHESTRATA_LIBRARY&quot;
+</code></pre>
+<p>The classpath example enables native access for unnamed modules. A modular application should enable it for the module making the native call. A <code>SolveException</code> supplies <code>status()</code>. The limit is a Java <code>long</code> passed as an unsigned 64-bit bit pattern; ordinary examples should use a small nonnegative limit. Do not assume a negative Java value means a negative native budget.</p>
+<h2>Python · 3.10+</h2>
+<p>Run from the engine repository root. The binding is imported directly from this checkout:</p>
+<pre><code class="language-sh">PYTHONPATH=&quot;$PWD/sdks/python&quot; python3 - &lt;&lt;&#x27;PY&#x27;
+import os
+from orchestrata import Solver
+
+solver = Solver(os.environ[&quot;ORCHESTRATA_LIBRARY&quot;])
+solution = solver.solve({
+    &quot;variables&quot;: [{&quot;name&quot;: &quot;job&quot;, &quot;domain&quot;: [0, 1]}],
+    &quot;constraints&quot;: [
+        {&quot;kind&quot;: &quot;prefer_value&quot;, &quot;variable&quot;: 0, &quot;value&quot;: 1, &quot;soft_weight&quot;: 1}
+    ],
+}, 2)
+print(solution[&quot;values&quot;] if solution is not None else &quot;No feasible assignment&quot;)
+PY
+</code></pre>
+<p>The alternative <code>solve_json(problem_bytes, max_evaluations)</code> returns the complete response as UTF-8 bytes. The evaluation limit must be an integer in <code>0..2^64-1</code>; the wrapper rejects other types and values before calling the solver. Catch <code>SolveError</code> and inspect its <code>status</code> for a native failure. Local argument and library errors are separate.</p>
+<h2>Node.js · Node-API native addon</h2>
+<p>Build the addon in the engine repository, then import its checked-out entry point. The example prints JSON instead of parsing it into floating-point numbers.</p>
+<pre><code class="language-sh">(cd sdks/node &amp;&amp; npm run build)
+node - &lt;&lt;&#x27;JS&#x27;
+const { solveJson } = require(&quot;./sdks/node&quot;);
+const problem = &#x27;{&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}&#x27;;
+console.log(solveJson(problem, 2n));
+JS
+</code></pre>
+<p>The limit is a <code>bigint</code> in <code>0n..(2n ** 64n - 1n)</code>, not a JavaScript <code>number</code>. The wrapper accepts a string or <code>Buffer</code>. It throws for invalid argument types or range. A native failure throws an error with a numeric <code>status</code> property; a module load failure is different. The Windows build recipe also expects an import library. Build and loader success on Linux does not establish availability of Windows or macOS packages.</p>
+<h2>PHP · 8.1+ with FFI</h2>
+<p>Use the Composer path package or load the two source classes in a local script. From the engine repository root:</p>
+<pre><code class="language-sh">php -d ffi.enable=1 &lt;&lt;&#x27;PHP&#x27;
+&lt;?php
+require &#x27;sdks/php/SolveException.php&#x27;;
+require &#x27;sdks/php/Solver.php&#x27;;
+
+$solver = new Orchestrata\Solver(getenv(&#x27;ORCHESTRATA_LIBRARY&#x27;));
+$problem = &#x27;{&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}&#x27;;
+echo $solver-&gt;solveJson($problem, 2), PHP_EOL;
+PHP
+</code></pre>
+<p>The budget cannot exceed <code>PHP_INT_MAX</code> on the host. A native failure throws <code>Orchestrata\SolveException</code> with a public integer <code>$status</code>. Path, unavailable FFI and local argument errors do not imply a solver outcome. Do not enable FFI broadly to make a deployment pass a local smoke check.</p>
+<h2>Go · 1.20+ with cgo</h2>
+<p>In a new Go module, use a local module replacement pointing at this checkout’s <code>sdks/go</code> directory. The import path below is the module name used by this source revision. From your demo directory:</p>
+<pre><code class="language-sh">go mod init example.com/orchestrata-demo
+go mod edit -require=github.com/ilstarno/Orchestrata/sdks/go@v0.0.0
+go mod edit -replace=github.com/ilstarno/Orchestrata/sdks/go=/absolute/path/to/engine/sdks/go
+</code></pre>
+<p>Save this as <code>main.go</code>:</p>
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+
+    orchestrata &quot;github.com/ilstarno/Orchestrata/sdks/go&quot;
+)
+
+func main() {
+    problem := []byte(`{&quot;variables&quot;:[{&quot;name&quot;:&quot;job&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:1}]}`)
+    solution, err := orchestrata.Solve(problem, 2)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if solution == nil {
+        fmt.Println(&quot;No feasible assignment&quot;)
+        return
+    }
+    fmt.Println(solution.Values)
+}
+</code></pre>
+<p>Run with the header include path and the native library available to the linker and loader:</p>
+<pre><code class="language-sh">CGO_ENABLED=1 CGO_CFLAGS=&quot;-I$ORCHESTRATA_INCLUDE&quot; \
+  CGO_LDFLAGS=&quot;-L$ORCHESTRATA_LIB_DIR&quot; go run .
+</code></pre>
+<p>Use <code>SolveJSON(problem, limit)</code> for the full response bytes; <code>Solve</code> returns the inner <code>*Solution</code>. Test native errors using <code>errors.As</code> with <code>*orchestrata.SolveError</code>, whose <code>Status</code> is a typed numeric value. A loader, ABI or decoding failure is not a native search result.</p>
+<h2>Error and buffer reference</h2>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Status</th><th>Meaning</th><th>What to do</th></tr></thead><tbody><tr><td><code>0</code></td><td>The output document was returned. A null solution means proved infeasibility.</td><td>Distinguish a solution object from a null before accessing fields.</td></tr><tr><td><code>1</code></td><td>Invalid UTF-8 JSON or invalid problem.</td><td>Check JSON fields and types, nonempty domains, valid indices and positive weights.</td></tr><tr><td><code>2</code></td><td>The combinations exceed the caller’s evaluation cap.</td><td>Reduce the example legitimately or choose a different budget. No result or proof is returned.</td></tr><tr><td><code>3</code></td><td>Execution failure, such as an unrepresentable winning score.</td><td>Review weights and score bounds. Keep a reproducible synthetic input when reporting the failure.</td></tr><tr><td><code>4</code></td><td>Invalid native argument, such as an empty or oversized request.</td><td>Confirm argument types and UTF-8 byte count.</td></tr></tbody></table></div>
+<p>The native entry point reads the exact supplied length and does not retain the input. Requests may not exceed 1,048,576 bytes (1 MiB). A native response allocation is at most 2,097,152 bytes (2 MiB), including the terminating NUL. The SDK wrappers copy a successful result into language-owned storage and release the native buffer before returning it. If calling the C ABI yourself, release each successful output exactly once with <code>orchestrata_free_json_v1</code>; do not modify the buffer or free it with the host allocator. Native calls are synchronous. No network connection, queue, partial progress, or timeout setting is provided by these methods.</p>
+<p>If a library cannot be loaded, verify its absolute path, process architecture, and loader path before debugging the JSON. If it loads but reports an ABI mismatch, use a matching source build. If the documented source smoke tests pass only on one runtime and platform, report that scope; it is not evidence of packaged or general platform support.</p><p><a href="/Orchestrata/docs/sdk/index.md" download="sdk.md">Download this guide as Markdown</a></p></article><aside class="aside"><h2>Read more</h2><nav aria-label="Documentation sections"><ul class="doc-links"><li><a href="/Orchestrata/docs/evaluate/" hrefLang="en-US">Evaluate the planning engine</a></li><li><a href="/Orchestrata/docs/api/" hrefLang="en-US">CLI and API reference</a></li><li><a href="/Orchestrata/docs/recipes/" hrefLang="en-US">Planning examples and recipes</a></li><li><a href="/Orchestrata/docs/deployment/" hrefLang="en-US">Run and deploy</a></li><li><a href="/Orchestrata/docs/solve-api/" hrefLang="en-US">Solve API reference</a></li><li><a href="/Orchestrata/docs/recipes-api/" hrefLang="en-US">Recipe API reference</a></li><li><a href="/Orchestrata/docs/sdk/" hrefLang="en-US">Native SDK reference</a></li><li><a href="/Orchestrata/docs/backend-setup/" hrefLang="en-US">Set up and troubleshoot the local backend</a></li></ul></nav></aside></div></main><footer class="site-footer"><div class="width"><section class="contact" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Tell us what you need to plan</h2><p>Describe the jobs, people or equipment involved, the rules that cannot change, and how you plan the work today. Use a fictional or anonymized example. Do not send customer records.</p><div class="contact-links"><a class="text-link" data-rac="" href="mailto:indrit.zeqiri@gmail.com" tabindex="0" data-react-aria-pressable="true">Email Orchestrata</a><a class="react-aria-Link" data-rac="" href="https://www.linkedin.com/in/indrit-z-3b6b8ba6" tabindex="0" data-react-aria-pressable="true">LinkedIn</a></div></section></div><div class="width footer-content"><div><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="28" height="28" alt=""/>Orchestrata</a><p>Workforce, field service, and delivery planning.</p></div><nav aria-label="Footer navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/docs/" hrefLang="en-US">Documentation</a><a class="react-aria-Link" data-rac="" href="https://github.com/ilstarno/Orchestrata" tabindex="0" data-react-aria-pressable="true">Source on GitHub</a><a class="react-aria-Link" data-rac="" href="/Orchestrata/sitemap.xml" tabindex="0" data-react-aria-pressable="true">Sitemap</a></nav></div></footer></body></html>
