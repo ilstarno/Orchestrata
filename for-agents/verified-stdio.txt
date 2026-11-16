@@ -1,0 +1,17 @@
+Orchestrata MCP · local, synthetic examples only
+Build revision: c841b36ad4d8fd1f246a5cefe96a05a72d8784fe
+initialize → 2025-11-25
+tools/list → describe_recipe
+tools/list → get_recipe_example
+tools/list → list_lead_examples
+tools/list → list_recipes
+tools/list → preview_lead_example
+list_lead_examples → 60 synthetic IDs (L-001 to L-060)
+preview_lead_example → {
+  "assigned_representative_id": "REP-08",
+  "contact_id": "CT-001",
+  "lead_id": "L-001",
+  "outcome": "created",
+  "reason": "new"
+}
+PASS · no real leads or records were created
