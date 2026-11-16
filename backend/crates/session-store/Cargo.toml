@@ -1,0 +1,28 @@
+[package]
+name = "orchestrata-session-store"
+version = "0.1.0"
+edition.workspace = true
+autotests = false
+
+[features]
+postgres-container-tests = ["dep:testcontainers-modules"]
+
+[dependencies]
+sea-orm = { version = "2.0.4", default-features = false, features = ["macros", "runtime-tokio-rustls", "sqlx-postgres", "with-uuid"] }
+thiserror = "2"
+uuid = "1"
+testcontainers-modules = { version = "0.15", default-features = false, features = ["postgres"], optional = true }
+
+[dev-dependencies]
+sea-orm = { version = "2.0.4", default-features = false, features = ["mock"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+uuid = { version = "1", features = ["v4"] }
+
+[[test]]
+name = "session_store"
+path = "../../../backend_tests/session-store/store.rs"
+
+[[test]]
+name = "postgres_container"
+path = "../../../backend_tests/session-store/postgres_container.rs"
+required-features = ["postgres-container-tests"]
