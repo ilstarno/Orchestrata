@@ -1,0 +1,10 @@
+# Orchestrata
+
+> Planning and optimization examples and local documentation.
+
+## Markdown guides
+
+- [Evaluate the planning engine](https://ilstarno.github.io/Orchestrata/docs/evaluate/index.md): Use a small planning problem to evaluate hard constraints, priorities, feasibility, and search budgets in Orchestrata.
+- [CLI and API reference](https://ilstarno.github.io/Orchestrata/docs/api/index.md): Run a planning problem locally, understand the HTTP request and result, and handle validation and exact-search limits.
+- [Planning examples and recipes](https://ilstarno.github.io/Orchestrata/docs/recipes/index.md): Start with a reproducible assignment problem and see how example inputs can inform your own finite planning model.
+- [Run and deploy](https://ilstarno.github.io/Orchestrata/docs/deployment/index.md): Understand the difference between the static product site and the separately running planning API, including deployment limitations.

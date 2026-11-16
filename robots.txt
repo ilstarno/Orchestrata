@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /Orchestrata/
+Sitemap: https://ilstarno.github.io/Orchestrata/sitemap.xml
