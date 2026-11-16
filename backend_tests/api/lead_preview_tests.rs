@@ -48,7 +48,7 @@ async fn all_built_in_cases_match_the_independent_walkthrough() {
         assert!(!response.headers().contains_key(ERROR_CODE));
         let actual = json_body(response).await;
         assert_eq!(actual, want, "{lead_id}");
-        assert!(!actual.to_string().contains("@example.test"));
+        assert!(!actual.to_string().contains('@'));
     }
 }
 

@@ -1,6 +1,6 @@
 # Run a sample lead-to-contact decision
 
-The local API evaluates 60 built-in examples. It does not accept a real lead, connect to a CRM, create contacts, or write to a database.
+The local API evaluates 60 built-in examples. The examples use generated identities and non-deliverable sample addresses. It does not accept a real lead, connect to a CRM, create contacts, or write to a database.
 
 From the repository root, start the local API:
 

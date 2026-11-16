@@ -5,7 +5,7 @@ use super::{LeadPreview, Outcome, PreviewError, Reason, example::Example};
 const EXAMPLES: &str = include_str!("../../examples/lead-to-contact-v1.json");
 const ID_PREFIX: &str = "L-";
 const CONTACT_PREFIX: &str = "CT-";
-const SYNTHETIC_DOMAIN: &str = "example.test";
+const SAMPLE_DOMAIN_SUFFIX: &str = ".invalid";
 
 static CATALOG: OnceLock<Result<Vec<Example>, serde_json::Error>> = OnceLock::new();
 
@@ -95,10 +95,20 @@ fn normalize_email(value: &str) -> String {
 
 fn is_synthetic_address(value: &str) -> bool {
     value.split_once('@').is_some_and(|(name, domain)| {
-        !name.is_empty()
+        name.starts_with("sample-")
             && name
                 .bytes()
                 .all(|byte| byte.is_ascii_graphic() && byte != b'@')
-            && domain == SYNTHETIC_DOMAIN
+            && domain
+                .strip_suffix(SAMPLE_DOMAIN_SUFFIX)
+                .is_some_and(|label| {
+                    !label.is_empty()
+                        && label.len() <= 63
+                        && !label.starts_with('-')
+                        && !label.ends_with('-')
+                        && label.bytes().all(|byte| {
+                            byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'-'
+                        })
+                })
     })
 }
