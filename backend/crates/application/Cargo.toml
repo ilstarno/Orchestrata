@@ -3,7 +3,12 @@ name = "orchestrata-application"
 version = "0.1.0"
 edition.workspace = true
 
+[features]
+oidc = ["dep:openidconnect", "dep:subtle"]
+
 [dependencies]
+openidconnect = { version = "4.1.0", default-features = false, optional = true }
+subtle = { version = "2.6", optional = true }
 orchestrata-hygiene = { path = "../hygiene" }
 orchestrata-solver = { path = "../solver" }
 tokio = { version = "1", features = ["rt", "sync"] }
