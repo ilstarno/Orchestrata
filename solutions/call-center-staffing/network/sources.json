@@ -1,0 +1,35 @@
+{
+  "checkedDate": "2026-11-16",
+  "sources": [
+    {
+      "label": "Amazon Connect: forecasting",
+      "url": "https://docs.aws.amazon.com/en_en/connect/latest/adminguide/forecasting.html",
+      "use": "Keep contact volume and average handling time separate. A real forecast needs operational history; sample probabilities are assumptions."
+    },
+    {
+      "label": "Amazon Connect: metric definitions",
+      "url": "https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html",
+      "use": "Do not equate parallel chat contact-seconds to operator occupancy; the occupancy metric is time active, not multiplied by concurrent contacts."
+    },
+    {
+      "label": "Amazon Connect: channels and concurrency",
+      "url": "https://docs.aws.amazon.com/connect/latest/adminguide/channels-and-concurrency.html",
+      "use": "Different eligibility and available capacity by channel; the sample allows one coverage position per operator, not live mixed-channel routing."
+    },
+    {
+      "label": "Microsoft Dynamics 365 Contact Center: skill matching",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/customer-service/administer/set-up-skill-based-routing",
+      "use": "Task skill, proficiency, and available capacity are distinct. Rank eligible candidates, never override hard requirements with preference points."
+    },
+    {
+      "label": "Microsoft Dynamics 365 Contact Center: capacity profiles",
+      "url": "https://learn.microsoft.com/en-us/dynamics365/customer-service/administer/capacity-profiles",
+      "use": "Represent capacity as explicitly defined workload units, not one universal number for all operators and channels."
+    },
+    {
+      "label": "U.S. EEOC: employment tests and selection procedures",
+      "url": "https://www.eeoc.gov/laws/guidance/employment-tests-and-selection-procedures",
+      "use": "Job relatedness is a useful review principle; this sample is not an employment assessment or compliance determination."
+    }
+  ]
+}

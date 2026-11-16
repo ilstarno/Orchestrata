@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "city": "Tirana, Albania",
+    "source": "https://download.geofabrik.de/europe/albania-261113.osm.pbf",
+    "sourceSha256": "a881fa551a498f2a68c1e641c1d9a4fe46a6bab8fdf08a66d8efbd145f678a52",
+    "sourceExtract": "Geofabrik Albania snapshot, 2026-11-13 archive ID",
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "licenseUrl": "https://www.openstreetmap.org/copyright",
+    "fixMapUrl": "https://www.openstreetmap.org/fixthemap",
+    "geometry": "Actual consecutive OpenStreetMap road/path vertices, shortest-distance sample legs",
+    "speedsKph": {
+      "vehicle": 30,
+      "bicycle": 16,
+      "walking": 5
+    },
+    "usage": "32 synthetic snapped stops, eight fixed-order samples; not a dispatch or full-workload solve.",
+    "limitations": "Offline road/access profiles and fixed speeds, not live traffic or certified navigation."
+  },
+  "routes": [
+    {
+      "courierId": "TIA-001",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 5538.7,
+      "durationSeconds": 664,
+      "stopCount": 4,
+      "coordinateCount": 286
+    },
+    {
+      "courierId": "TIA-002",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 5878.8,
+      "durationSeconds": 706,
+      "stopCount": 4,
+      "coordinateCount": 320
+    },
+    {
+      "courierId": "TIA-003",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 3598.2,
+      "durationSeconds": 431,
+      "stopCount": 4,
+      "coordinateCount": 339
+    },
+    {
+      "courierId": "TIA-004",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 4106.9,
+      "durationSeconds": 493,
+      "stopCount": 4,
+      "coordinateCount": 251
+    },
+    {
+      "courierId": "TIA-005",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 4193.3,
+      "durationSeconds": 502,
+      "stopCount": 4,
+      "coordinateCount": 232
+    },
+    {
+      "courierId": "TIA-006",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 5652.5,
+      "durationSeconds": 678,
+      "stopCount": 4,
+      "coordinateCount": 440
+    },
+    {
+      "courierId": "TIA-007",
+      "mode": "bicycle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 3988.2,
+      "durationSeconds": 898,
+      "stopCount": 4,
+      "coordinateCount": 235
+    },
+    {
+      "courierId": "TIA-008",
+      "mode": "walking",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 976.1,
+      "durationSeconds": 702,
+      "stopCount": 4,
+      "coordinateCount": 81
+    }
+  ]
+}

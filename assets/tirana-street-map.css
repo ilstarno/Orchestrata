@@ -1,0 +1,8 @@
+.tirana-street-viewport:not([hidden]) { inline-size:100%; block-size:clamp(18rem, 52svh, 33rem); border:1px solid var(--rule); background:#edf1f2; color:#101820; }
+.tirana-street-controls:not([hidden]) { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem 1rem; margin-block:1rem .5rem; }
+.tirana-street-controls select { min-block-size:44px; font:inherit; }
+.tirana-street-status:empty { display:none; }
+.tirana-street .leaflet-container a { color:#154d73; }
+.tirana-street .leaflet-container { font-size:.8rem; }
+.tirana-street-summaries { margin-block:.75rem; }
+.tirana-street-summaries summary { font-weight:600; cursor:pointer; min-block-size:44px; padding:.6rem 0; }

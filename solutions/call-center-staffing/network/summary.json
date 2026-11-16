@@ -1,0 +1,143 @@
+{
+  "batch_id": "contact-center-five-branch-sample-v1",
+  "classification": "sample",
+  "schema_version": 1,
+  "first_verified_engine_revision": "cddfdaee5b9ee9ff2577399726b95a12286e69c7",
+  "native_abi_version": 1,
+  "scope": "Each branch-window variant is a separate solve; no network-wide scheduling or performance benchmark.",
+  "branches": 5,
+  "departments": 20,
+  "operators": 500,
+  "windows_per_branch": 3,
+  "variants_per_window": 4,
+  "independent_scenarios": 60,
+  "positions_per_scenario": 8,
+  "covered_positions": 480,
+  "assignments_by_channel": {
+    "chat": 240,
+    "voice": 240
+  },
+  "distinct_branch_assignment_vectors": 50,
+  "distinct_assigned_operator_ids": 173,
+  "cross_department_assignments": 23,
+  "exact_status_counts": {
+    "optimal_within_model": 60
+  },
+  "evaluated_combinations": {
+    "total": 94990,
+    "min_per_case": 64,
+    "max_per_case": 6561
+  },
+  "hard_feasible_combinations": 17940,
+  "preferences_met": 220,
+  "preferences_missed": 260,
+  "soft_score_histogram": {
+    "-66": 3,
+    "-65": 2,
+    "-50": 5,
+    "-49": 5,
+    "-42": 10,
+    "-30": 25,
+    "-24": 4,
+    "-22": 6
+  },
+  "branch_summary": [
+    {
+      "branch_id": "NYC",
+      "location_context": "New York",
+      "timezone": "America/New_York",
+      "departments": 4,
+      "operator_profiles": 100,
+      "independent_scenarios": 12,
+      "covered_positions": 96,
+      "evaluated_combinations": 18998
+    },
+    {
+      "branch_id": "LON",
+      "location_context": "London",
+      "timezone": "Europe/London",
+      "departments": 4,
+      "operator_profiles": 100,
+      "independent_scenarios": 12,
+      "covered_positions": 96,
+      "evaluated_combinations": 18998
+    },
+    {
+      "branch_id": "FRA",
+      "location_context": "Frankfurt",
+      "timezone": "Europe/Berlin",
+      "departments": 4,
+      "operator_profiles": 100,
+      "independent_scenarios": 12,
+      "covered_positions": 96,
+      "evaluated_combinations": 18998
+    },
+    {
+      "branch_id": "TIA",
+      "location_context": "Tirana",
+      "timezone": "Europe/Tirane",
+      "departments": 4,
+      "operator_profiles": 100,
+      "independent_scenarios": 12,
+      "covered_positions": 96,
+      "evaluated_combinations": 18998
+    },
+    {
+      "branch_id": "ROM",
+      "location_context": "Rome",
+      "timezone": "Europe/Rome",
+      "departments": 4,
+      "operator_profiles": 100,
+      "independent_scenarios": 12,
+      "covered_positions": 96,
+      "evaluated_combinations": 18998
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "roster.json",
+      "encoding": "identity",
+      "records": 1,
+      "download_bytes": 470273,
+      "download_sha256": "057546477c116ef797598a3d5f5e39f53da082e290415847d8af24bea1a60efa",
+      "uncompressed_bytes": 470273,
+      "uncompressed_sha256": "057546477c116ef797598a3d5f5e39f53da082e290415847d8af24bea1a60efa"
+    },
+    {
+      "path": "raw-scenarios.ndjson.gz",
+      "encoding": "gzip",
+      "records": 60,
+      "download_bytes": 4173,
+      "download_sha256": "c543fbcedd93d87607f3e92f8f4f2eca8264d6f41083c77fe7a1d106aa87dabf",
+      "uncompressed_bytes": 197266,
+      "uncompressed_sha256": "a04e090ed9006fd4b4ada5e0d7b8fadb900f5456c73f1ec6d0ea3c71aa54e246"
+    },
+    {
+      "path": "normalized-problems.ndjson.gz",
+      "encoding": "gzip",
+      "records": 60,
+      "download_bytes": 4385,
+      "download_sha256": "ded80df985f9dc62538e8a9ad7c5033b958a507fcfb71aba979ffa27c5953929",
+      "uncompressed_bytes": 172676,
+      "uncompressed_sha256": "d0d06d994a1ce7f8c38c3edcc1c7f378328c632671564c0476119371db94a358"
+    },
+    {
+      "path": "verified-output.ndjson.gz",
+      "encoding": "gzip",
+      "records": 60,
+      "download_bytes": 17790,
+      "download_sha256": "b13361b84b64994fa863ca867a879b9e5586002f4f168a2f9a119cee1c67b0d4",
+      "uncompressed_bytes": 610369,
+      "uncompressed_sha256": "a0d999bb6343dc79cba2759861496252495ee69bac31a3ea0d8c89f343fa6d94"
+    },
+    {
+      "path": "assignments.ndjson.gz",
+      "encoding": "gzip",
+      "records": 480,
+      "download_bytes": 16697,
+      "download_sha256": "8fef74bb9278eb633f02846c8615fa7cf750937093604583849c9d347ec3a26f",
+      "uncompressed_bytes": 603001,
+      "uncompressed_sha256": "5298d42e0610c3975a2ea50c77bc8daae75c7b4ddd0f94f9f3b655ce14f76c63"
+    }
+  ]
+}
