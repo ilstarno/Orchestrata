@@ -16,7 +16,7 @@ MCP is a separate backend transport over the same typed application services as 
 
 Implement MCP with the official JSON-RPC method and schema conventions, using a maintained Rust SDK. Support stdio for local development and authenticated Streamable HTTP for hosted clients. Tool calls that start long-running optimization return a job ID, not a long-held request.
 
-Every operation must enforce tenant scoping, request limits, authorization, and audit logging. Remote MCP cannot expose unrestricted SQL execution or direct connector credentials. External write-back requires a separate authorized action.
+Every operation must enforce request limits, authorization, and audit logging. Remote MCP cannot expose unrestricted SQL execution or direct connector credentials. External write-back requires a separate authorized action.
 
 ## Status
 

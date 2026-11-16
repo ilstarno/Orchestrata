@@ -5,9 +5,17 @@ edition.workspace = true
 
 [dependencies]
 axum = "0.8"
-tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "sync"] }
 serde.workspace = true
+serde_json = "1"
 utoipa = "5"
 orchestrata-domain = { path = "../domain" }
 orchestrata-solver = { path = "../solver" }
 orchestrata-application = { path = "../application" }
+orchestrata-recipes = { path = "../recipes" }
+tracing = { version = "0.1", default-features = false, features = ["std"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "json"] }
+uuid = { version = "1", features = ["v7"] }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }

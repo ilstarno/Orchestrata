@@ -8,8 +8,14 @@ pub mod reference_solver;
 pub mod score;
 #[path = "scoring.rs"]
 pub mod scoring;
+#[path = "search_scoring.rs"]
+pub(super) mod search_scoring;
 #[path = "solution.rs"]
 pub mod solution;
+#[path = "solution_validation.rs"]
+pub mod solution_validation;
+#[path = "solution_validation_error.rs"]
+pub mod solution_validation_error;
 #[path = "validation.rs"]
 pub mod validation;
 #[path = "variable.rs"]
