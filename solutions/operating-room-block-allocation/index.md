@@ -2,7 +2,7 @@
 
 ## Situation
 
-The facility supplies approved room choices for three fictional placeholders in the same fixed block. Each placeholder needs a distinct room.
+The facility supplies approved room choices for three sample placeholders in the same fixed block. Each placeholder needs a distinct room.
 
 ## Input and rules
 

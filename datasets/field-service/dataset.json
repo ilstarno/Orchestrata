@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "field-service",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates service intake and technician qualification data before eligibility is computed.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "site",
@@ -26,7 +26,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional customer-site code."
+          "description": "Sample customer-site code."
         },
         {
           "key": "skill",
@@ -62,7 +62,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -888,7 +888,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "skills",
@@ -906,7 +906,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional dispatch area code."
+          "description": "Sample dispatch area code."
         }
       ],
       "records": [

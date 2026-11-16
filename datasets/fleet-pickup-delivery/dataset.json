@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "fleet-pickup-delivery",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates pickup and delivery request data, vehicle capacities, and availability; not routes or a solved plan.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "pickupSite",
@@ -26,7 +26,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional origin code."
+          "description": "Sample origin code."
         },
         {
           "key": "deliverySite",
@@ -35,7 +35,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional receiving-site code."
+          "description": "Sample receiving-site code."
         },
         {
           "key": "weightKg",
@@ -62,7 +62,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -811,7 +811,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "category",
@@ -847,7 +847,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional dispatch depot code."
+          "description": "Sample dispatch depot code."
         },
         {
           "key": "startLocal",

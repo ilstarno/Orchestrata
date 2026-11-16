@@ -1,4 +1,4 @@
-The starter API accepts a small planning problem in JSON. This site is static: it does not host a solver, provide sign-in, or proxy calls to your workstation. Run the service locally and use fictional data while evaluating it.
+The starter API accepts a small planning problem in JSON. This site is static: it does not host a solver, provide sign-in, or proxy calls to your workstation. Run the service locally and use sample data while evaluating it.
 
 ## Start and call the service
 

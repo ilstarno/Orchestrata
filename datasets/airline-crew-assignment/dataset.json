@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "airline-crew-assignment",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates overlapping duties with illustrative fleet qualifications. Rest and duty-time legality are not computed.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "flight",
@@ -26,7 +26,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional service identifier."
+          "description": "Sample service identifier."
         },
         {
           "key": "fleet",
@@ -35,7 +35,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional aircraft fleet designation."
+          "description": "Sample aircraft fleet designation."
         },
         {
           "key": "base",
@@ -44,7 +44,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional operating-base code."
+          "description": "Sample operating-base code."
         },
         {
           "key": "localDate",
@@ -53,7 +53,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -698,7 +698,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "base",
@@ -707,7 +707,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional crew operating-base code."
+          "description": "Sample crew operating-base code."
         },
         {
           "key": "qualifications",
@@ -716,7 +716,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional fleets the crew is eligible to operate."
+          "description": "Sample fleets the crew is eligible to operate."
         },
         {
           "key": "available",

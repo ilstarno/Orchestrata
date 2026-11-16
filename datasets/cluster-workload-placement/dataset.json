@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "cluster-workload-placement",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates workload requests and node resources, not a connected cluster or a solved packing problem.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "workloadType",
@@ -62,7 +62,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional allowed region code."
+          "description": "Sample allowed region code."
         }
       ],
       "records": [
@@ -592,7 +592,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "cpu",
@@ -628,7 +628,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional region code."
+          "description": "Sample region code."
         },
         {
           "key": "ready",

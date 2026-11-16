@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "operating-room-block-allocation",
   "seed": 48021,
-  "fictional": true,
-  "purpose": "Illustrates fictional room blocks and facility approval tags, without any patient data or treatment decisions.",
+  "sampleData": true,
+  "purpose": "Illustrates sample room blocks and facility approval tags, without any patient data or treatment decisions.",
   "collections": [
     {
       "id": "blocks",
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "approvalTag",
@@ -35,7 +35,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -71,7 +71,7 @@
           "unit": null,
           "required": false,
           "nullable": true,
-          "description": "Optional fictional room setup code. Null means no code supplied."
+          "description": "Optional sample room setup code. Null means no code supplied."
         }
       ],
       "records": [
@@ -629,7 +629,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "approvalTags",

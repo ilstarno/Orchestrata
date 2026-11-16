@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "high-school-timetabling",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates fixed class periods and room-fit data, without any student or teacher identity.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "subject",
@@ -560,7 +560,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "category",
@@ -569,7 +569,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional equipment category."
+          "description": "Sample equipment category."
         },
         {
           "key": "seats",

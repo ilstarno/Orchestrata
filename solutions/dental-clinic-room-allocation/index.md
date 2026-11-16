@@ -2,7 +2,7 @@
 
 ## Situation
 
-Three fictional bookings share one fixed time block. The clinic supplies approved rooms for each booking; a room can only be assigned once.
+Three sample bookings share one fixed time block. The clinic supplies approved rooms for each booking; a room can only be assigned once.
 
 ## Input and rules
 

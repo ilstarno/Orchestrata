@@ -1,6 +1,6 @@
 Orchestrata helps you test a plan against rules and preferences. This example has two jobs and two slots. The slots are numbered 0 and 1. Both jobs can use either slot, but they cannot use the same one. Job A prefers slot 1.
 
-The example uses fictional data and runs locally. This website does not operate the API or accept uploads. To run it over HTTP instead, use the [local API guide](../api/).
+The example uses sample data and runs locally. This website does not operate the API or accept uploads. To run it over HTTP instead, use the [local API guide](../api/).
 
 ## Run the sample
 

@@ -1,4 +1,4 @@
-Run the service and UI on your workstation first. Orchestrata's project site is static; opening it does not start an API. The preview is for fictional data and local evaluation, not public access or production use.
+Run the service and UI on your workstation first. Orchestrata's project site is static; opening it does not start an API. The preview is for sample data and local evaluation, not public access or production use.
 
 ## Local API and web UI
 

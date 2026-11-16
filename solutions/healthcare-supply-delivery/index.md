@@ -2,7 +2,7 @@
 
 ## Situation
 
-Three fictional shipments weigh 90, 280, and 150 kg. Their receiving windows are 08:00–08:30, 08:05–08:40, and 08:10–08:50 respectively. A van must have enough capacity for its single job and be available for the entire receiving window. These tests are applied before solving to produce the eligible choices below.
+Three sample shipments weigh 90, 280, and 150 kg. Their receiving windows are 08:00–08:30, 08:05–08:40, and 08:10–08:50 respectively. A van must have enough capacity for its single job and be available for the entire receiving window. These tests are applied before solving to produce the eligible choices below.
 
 ## Input and rules
 

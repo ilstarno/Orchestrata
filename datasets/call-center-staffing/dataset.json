@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "call-center-staffing",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates staffing data, queue demand, and availability. These records are not a solved roster.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "displayName",
@@ -26,7 +26,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional role label, not a personal name."
+          "description": "Sample role label, not a personal name."
         },
         {
           "key": "skills",
@@ -84,7 +84,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -1219,7 +1219,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "name",
@@ -1228,7 +1228,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional support queue name."
+          "description": "Sample support queue name."
         },
         {
           "key": "requiredSkill",

@@ -1,4 +1,4 @@
-A recipe describes a small planning scenario and the fields it uses. The runnable examples have fictional data. Read the description, run the included JSON model, and compare the assignments with the expected result. The examples test specific decisions; they do not replace your scheduling or dispatch system.
+A recipe describes a small planning scenario and the fields it uses. The runnable examples have sample data. Read the description, run the included JSON model, and compare the assignments with the expected result. The examples test specific decisions; they do not replace your scheduling or dispatch system.
 
 | Example | What you can inspect | What it does not establish |
 | --- | --- | --- |

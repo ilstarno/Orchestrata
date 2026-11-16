@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "hospital-nonclinical-shift-coverage",
   "seed": 48021,
-  "fictional": true,
+  "sampleData": true,
   "purpose": "Illustrates support posts and eligibility. Contains no patient data or clinical staffing guidance.",
   "collections": [
     {
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "post",
@@ -35,7 +35,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional building code."
+          "description": "Sample building code."
         },
         {
           "key": "clearance",
@@ -53,7 +53,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -698,7 +698,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "clearances",
@@ -707,7 +707,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional categories supplied by facility staff."
+          "description": "Sample categories supplied by facility staff."
         },
         {
           "key": "available",

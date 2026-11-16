@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "caseId": "dental-clinic-room-allocation",
   "seed": 48021,
-  "fictional": true,
-  "purpose": "Illustrates fictional booking categories and room properties, not clinical suitability or appointment decisions.",
+  "sampleData": true,
+  "purpose": "Illustrates sample booking categories and room properties, not clinical suitability or appointment decisions.",
   "collections": [
     {
       "id": "bookings",
@@ -17,7 +17,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "roomTag",
@@ -35,7 +35,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+          "description": "Sample calendar date in ISO YYYY-MM-DD."
         },
         {
           "key": "startLocal",
@@ -560,7 +560,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Stable fictional record identifier, unique in this collection."
+          "description": "Stable sample record identifier, unique in this collection."
         },
         {
           "key": "roomTags",
@@ -569,7 +569,7 @@
           "unit": null,
           "required": true,
           "nullable": false,
-          "description": "Fictional tags supplied by the clinic."
+          "description": "Sample tags supplied by the clinic."
         },
         {
           "key": "available",
