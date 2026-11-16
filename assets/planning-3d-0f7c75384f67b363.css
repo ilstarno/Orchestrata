@@ -1,0 +1,48 @@
+.planning-3d-home > h2 { display:flex; align-items:center; gap:.6rem; }
+.planning-3d-home > h2 svg { flex:none; color:var(--accent); }
+.planning-3d-home > p { color:var(--muted); margin:.35rem 0 .85rem; max-inline-size:62ch; }
+.planning-3d { border:1px solid var(--rule); background:var(--dataset-surface); min-inline-size:0; }
+.planning-3d [hidden] { display:none !important; }
+.planning-3d-nav:has(:not([hidden])) { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.45rem; padding:.55rem .65rem; border-block-end:1px solid var(--rule); }
+.planning-3d-tabs, .planning-3d-camera { display:flex; flex-wrap:wrap; gap:.28rem; min-inline-size:0; }
+.planning-3d button, .planning-3d select {
+  min-block-size:44px; min-inline-size:44px; max-inline-size:100%; color:var(--ink);
+  border:1px solid var(--rule); background:var(--paper); font:inherit; font-size:.86rem;
+}
+.planning-3d button { display:inline-flex; justify-content:center; align-items:center; gap:.45rem; padding:.3rem .55rem; cursor:pointer; }
+.planning-3d button svg { flex:none; }
+.planning-3d button[aria-pressed="true"] { color:var(--on-accent); background:var(--accent); border-color:var(--accent); }
+.planning-3d button:hover:not([aria-pressed="true"]) { color:var(--accent); border-color:var(--accent); }
+.planning-3d select { padding:.25rem .35rem; }
+.planning-3d-viewport {
+  position:relative; inline-size:100%; block-size:clamp(225px,49vw,425px);
+  background:radial-gradient(ellipse at 45% 35%,var(--paper),var(--dataset-surface));
+}
+.planning-3d-viewport canvas { display:block; inline-size:100%; block-size:100%; touch-action:pan-y; cursor:grab; }
+.planning-3d-viewport canvas[data-dragging] { cursor:grabbing; }
+.planning-3d-load { padding:1rem; margin:0; color:var(--muted); }
+.planning-3d-controls {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(9rem,auto);
+  gap:.5rem .65rem; align-items:end; border-block-start:1px solid var(--rule); padding:.6rem .67rem;
+}
+.planning-3d-hint,.planning-3d-status { grid-column:1/-1; margin:0; color:var(--muted); font-size:.86rem; }
+.planning-3d-status { color:var(--ink); font-weight:630; min-block-size:1.4rem; }
+.planning-3d-inspection { display:grid; gap:.18rem; color:var(--muted); font-size:.8rem; }
+.planning-3d-links { display:flex; flex-wrap:wrap; gap:.05rem 1.1rem; margin-block-start:.4rem; }
+.planning-3d-links a { min-block-size:44px; }
+.airport-ops-scene[data-planning-ready] .airport-ops-fallback svg { display:none; }
+.airport-ops-scene[data-planning-ready] .airport-ops-output { grid-template-columns:minmax(0,1fr); }
+.airport-ops-table [data-planning-selected] { background:var(--dataset-head); }
+.airport-ops-table [data-planning-selected] th { box-shadow:inset 3px 0 var(--accent); }
+[data-hyper-map][data-planning-ready] .hyper-map-scene { display:none; }
+[data-hyper-map] .planning-3d { border:0; }
+:root[data-theme="dark"] .planning-3d { --planning-3d-dark:1; }
+@media(prefers-color-scheme:dark) { :root:not([data-theme]) .planning-3d { --planning-3d-dark:1; } }
+@media(max-width:37rem) { .planning-3d-controls { grid-template-columns:minmax(0,1fr); } }
+
+.planning-3d-home { scroll-margin-block-start:5.5rem; }
+.planning-3d-home .planning-3d-scope { font-size:.82rem; margin-block:.45rem 0; }
+.airport-ops-scene { scroll-margin-block-start:5.5rem; }
+.planning-3d-live-copy, [data-planning-ready] .planning-3d-fallback-copy { display:none; }
+[data-planning-ready] .planning-3d-live-copy { display:inline; }
+[data-planning-ready] .hyper-map-move-key i { border-radius:0; background:#d28e33; border-color:#754f23; transform:rotate(25deg) scale(.75); }
