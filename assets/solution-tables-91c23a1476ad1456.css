@@ -1,0 +1,166 @@
+/* Results and comparison tables. Keep queryable grids and file previews on
+   their own sizing rules and leave all native table and header roles intact. */
+main[data-solution-tables] {
+  min-inline-size: 0;
+}
+
+@media (min-width: 53rem) {
+  main[data-solution-tables].width {
+    width: min(100% - 3rem, 78rem);
+  }
+
+  main[data-solution-tables] .case-layout {
+    grid-template-columns: minmax(0, 1fr) clamp(12rem, 19vw, 17rem);
+    gap: clamp(1.35rem, 2.7vw, 2.75rem);
+  }
+}
+
+main[data-solution-tables] .case-body,
+main[data-solution-tables] .paper {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  margin-block: .8rem 1.15rem;
+  border: 1px solid var(--dataset-edge);
+  border-radius: .38rem;
+  background: var(--paper);
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table {
+  inline-size: 100%;
+  min-inline-size: 0;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+  font-size: .91rem;
+  line-height: 1.43;
+  font-variant-numeric: tabular-nums;
+  text-align: start;
+}
+
+/* A narrow screen can scroll wide relationships within the table rather than
+   splitting records into unlabelled cells or growing the document width. */
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table:has(> thead > tr > th:nth-child(5)) {
+  min-inline-size: 32rem;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table:has(> thead > tr > th:nth-child(8)) {
+  min-inline-size: 43rem;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table :is(th, td) {
+  box-sizing: border-box;
+  min-inline-size: 6ch;
+  padding: clamp(.46rem, 1vw, .68rem) clamp(.46rem, 1.2vw, .85rem);
+  border-block-end: 1px solid var(--rule);
+  text-align: start;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table thead th {
+  background: var(--dataset-head);
+  border-block-end-color: var(--dataset-edge);
+  color: var(--ink);
+  font-weight: 690;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table tbody tr:nth-child(even):not([data-planning-selected]) {
+  background: var(--dataset-surface);
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table tbody th {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table tbody tr:last-child > :is(th, td) {
+  border-block-end: none;
+}
+
+main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)) > table tbody tr:focus-within {
+  background: var(--dataset-head);
+}
+
+@media (forced-colors: active) {
+  main[data-solution-tables] .table-region:not(:where(.dataset-table, .fleet-roster-table, .file-preview-table, .lead-records *, .lead-candidates *)):focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* Keep the interactive grid's pinned ID and sort header. Long cell values
+   should wrap before increasing the width of every table row. */
+main[data-solution-tables] .dataset-section {
+  min-inline-size: 0;
+}
+
+main[data-solution-tables] .dataset-table {
+  max-inline-size: 100%;
+}
+
+main[data-solution-tables] .dataset-table table {
+  inline-size: 100%;
+  table-layout: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+main[data-solution-tables] .dataset-table :is(th, td) {
+  min-inline-size: clamp(5.8rem, 8vw, 7rem);
+  max-inline-size: 18rem;
+  overflow-wrap: anywhere;
+}
+
+main[data-solution-tables] .dataset-table--active .dataset-identifier {
+  min-inline-size: clamp(5.2rem, 7vw, 6.4rem);
+}
+
+main[data-solution-tables] .dataset-section :is(.dataset-toolbar, .dataset-view-controls) > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+main[data-solution-tables] .dataset-section .dataset-mode > button {
+  white-space: normal;
+}
+
+@media (min-width: 70rem) {
+  main[data-solution-tables] .case-layout .dataset-toolbar:has(.dataset-field) {
+    grid-template-columns: minmax(7rem, 1fr) minmax(9rem, 1.4fr) auto;
+    grid-template-areas: "collection search mode";
+  }
+}
+
+/* This dialog sits outside main. Keep the footer and header in view and
+   let wide files scroll inside the data frame rather than the page. */
+body:has(main[data-solution-tables]) .file-preview {
+  width: min(70rem, calc(100% - 1.25rem));
+}
+
+body:has(main[data-solution-tables]) .file-preview-body,
+body:has(main[data-solution-tables]) .file-preview-table {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+body:has(main[data-solution-tables]) .file-preview-table {
+  overscroll-behavior-inline: contain;
+}
+
+body:has(main[data-solution-tables]) .file-preview-table :is(th, td) {
+  min-inline-size: clamp(5.5rem, 7.5vw, 6.5rem);
+  max-inline-size: 18rem;
+  overflow-wrap: anywhere;
+}
