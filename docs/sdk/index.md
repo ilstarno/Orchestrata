@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the [standalone engine source on main](https://github.com/ilstarno/orchestrata-engine/tree/main), not downloadable SDK releases or published language packages. Build the library and binding from matching source. This reference was checked against [engine revision 8a18e00](https://github.com/ilstarno/orchestrata-engine/tree/8a18e001fe45d8fac036f62b890a6b5838af87f5). The examples use synthetic data and print `[1]` (C#, Python, and Go examples) or the corresponding complete JSON result.
+The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the [standalone engine source on main](https://github.com/ilstarno/orchestrata-engine/tree/main), not downloadable SDK releases or published language packages. Build the library and binding from matching source. This reference was checked against [engine revision d7b920e](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699). The examples use sample data. They show the same selected value, `1`, in the format returned by each binding.
 
 ## Build and locate the library
 
@@ -27,12 +27,12 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 | --- | --- | --- |
 | C# | .NET 8; reference `sdks/csharp/Orchestrata.csproj`. | The overloads accept UTF-8 bytes or a string and a `ulong` limit; return a raw JSON string. No checked-in problem or solution model. |
 | Java | A 64-bit JDK 22 or newer, with native access enabled. | Accepts a UTF-8 `byte[]` or a string and a `long` limit. Returns raw JSON text. No checked-in problem or solution model. |
-| Python | Python 3.10 or newer; uses the standard-library native loader. | `solve` accepts a mapping and returns a decoded `dict` or `None`; preserves integers but does not statically type individual fields. `solve_json` is the bytes interface. |
+| Python | Python 3.10 or newer; uses the standard-library native loader. | `solve_problem` takes a typed, immutable `Problem` with five of the seven constraint variants and returns `Solution | None`. The mapping and raw bytes methods remain available. |
 | Node.js | A Node release with Node-API BigInt support, a C toolchain, and `node-gyp`. | Type declarations enforce `string \| Buffer` input and a `bigint` limit. Result is raw JSON text, not a typed solution object. |
 | PHP | PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment. | Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model. |
 | Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
 
-Type-safe native argument handling is not the same as typed planning models. The current response convenience methods are described above. Go has typed inputs for the three baseline constraints. Where a wrapper returns raw JSON, use your language’s lossless decoder and validate the fields you consume; do not advertise typed models the library does not ship.
+A typed byte-string argument is not a typed planning model. Python models five of the seven constraints; Go models the three baseline constraints. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
 
 ## Problem and result format
 
@@ -50,7 +50,7 @@ Set the maximum number of evaluations to `2`. Both candidates fit the budget. Th
 
 - Each variable requires a nonempty integer domain. Values follow input variable order. Constraint indices are zero-based and refer to positions, not names. Include `constraints: []` if you have none. Use unique, nonblank names and distinct domain values if you intend to submit the same problem to the local HTTP API, which applies additional input checks.
 - `all_different` uses `variables` and positive `hard_weight` to penalize equal pairs. `not_equal_offset` uses `left`, `right`, `offset` and positive `hard_weight` to forbid the indicated left-minus-right difference. `prefer_value` uses `variable`, `value` and positive `soft_weight`. The model has no date, currency, time or speed units.
-- A success contains a verified optimal assignment, or `{"solution":null}` when the exact search proved no feasible assignment. Python’s decoded method returns `None`, and Go’s typed method returns `nil, nil` for that no-plan case. An exceeded budget is an error, not null and not a partial result. This native contract is separate from that of a running HTTP build.
+- A success contains a verified optimal assignment, or `{"solution":null}` when the exact search proved no feasible assignment. Python’s typed and decoded methods return `None`, and Go’s typed method returns `nil, nil` for that no-plan case. An exceeded budget is an error, not null and not a partial result. This native contract is separate from that of a running HTTP build.
 - Domain values, offsets, weights and scores use signed 64-bit integers. An evaluation count is unsigned 64-bit. The budget is a count of candidate combinations, not a duration. It is passed to the SDK method, not inside the JSON.
 - For full-range values, do not round through a floating-point JSON decoder. In C# use `GetInt64()` for values/scores and `GetUInt64()` for evaluation counts. In Java choose a JSON codec that preserves exact integer values, including unsigned counts. In Node.js transmit UTF-8 bytes or JSON text and keep the result as text or use a lossless decoder; `BigInt` passed in an object does not make ordinary `JSON.stringify` lossless. In PHP, keep JSON text or choose integer-safe decoding appropriate to your PHP integer width.
 
@@ -114,20 +114,21 @@ Run from the engine repository root. The binding is imported directly from this 
 ```sh
 PYTHONPATH="$PWD/sdks/python" python3 - <<'PY'
 import os
-from orchestrata import Solver
+from orchestrata import PreferValue, Problem, Solver, Variable
 
 solver = Solver(os.environ["ORCHESTRATA_LIBRARY"])
-solution = solver.solve({
-    "variables": [{"name": "job", "domain": [0, 1]}],
-    "constraints": [
-        {"kind": "prefer_value", "variable": 0, "value": 1, "soft_weight": 1}
-    ],
-}, 2)
-print(solution["values"] if solution is not None else "No feasible assignment")
+problem = Problem(
+    variables=(Variable("job", (0, 1)),),
+    constraints=(PreferValue(variable=0, value=1, soft_weight=1),),
+)
+solution = solver.solve_problem(problem, max_evaluations=2)
+print(solution.values if solution is not None else "No feasible assignment")
 PY
 ```
 
-The alternative `solve_json(problem_bytes, max_evaluations)` returns the complete response as UTF-8 bytes. The evaluation limit must be an integer in `0..2^64-1`; the wrapper rejects other types and values before calling the solver. Catch `SolveError` and inspect its `status` for a native failure. Local argument and library errors are separate.
+The typed constraints are `AllDifferent`, `NotEqualOffset`, `PreferValue`, `CountValue`, and `ResourceCapacity`. Use tuples for collection fields. A solution exposes `values`, `score.hard`, `score.soft`, and `evaluated`. `None` is proven infeasibility. A malformed typed response raises `ResultFormatError`; invalid local values raise `TypeError` or `ValueError`.
+
+The mapping method is `solve(mapping, max_evaluations)`. Use `solve_json(problem_bytes, max_evaluations)` for the complete UTF-8 response. The budget is an integer in `0..2^64-1`. Catch `SolveError` and inspect its numeric `status` for a native failure. A library load failure is separate.
 
 ## Node.js · Node-API native addon
 
@@ -214,14 +215,16 @@ CGO_ENABLED=1 CGO_CFLAGS="-I$ORCHESTRATA_INCLUDE" \
 
 `SolveProblem` accepts `AllDifferent`, `NotEqualOffset`, and `PreferValue`. Variable indices are `uint32`; domains, offsets, preference values, and weights are `int64`. Weights must be positive. Use `Solve(problemJSON, limit)` when you need the inner `*Solution` from a JSON request, including either additional constraint below. Use `SolveJSON(problemJSON, limit)` when you want the complete JSON response instead. Test native errors using `errors.As` with `*orchestrata.SolveError`, whose `Status` is a typed numeric value. A loader, ABI or decoding failure is not a native search result.
 
-## Two additional constraints in engine JSON
+## Four additional constraints in engine JSON
 
-The baseline Go structs do not wrap these two constraint kinds. Send their UTF-8 JSON through the raw request interface. This applies to the engine library built from the revision above; it does not imply that a separate HTTP endpoint accepts the same kinds. Do not add these names to a typed Go request or silently remove a rule to make the request fit.
+At the main revision above, Python also types `count_value` and `resource_capacity`. The baseline Go structs do not wrap the four constraints below. Send those through the raw request interface when no typed model is provided. This applies to the engine library built from the revision above; it does not imply that a separate HTTP endpoint accepts the same kinds. Do not add these names to a typed Go request or silently remove a rule to make the request fit.
 
 | `kind` | Required fields | Meaning |
 | --- | --- | --- |
 | `count_value` | `variables`: zero-based indices; `value`: signed 64-bit integer; `min` and `max`: inclusive nonnegative counts; `weight`: positive signed 64-bit integer; `tier`: `"hard"` or `"soft"`. | Counts how many referenced variables choose `value`. Each count below `min` or above `max` contributes one deduction of `weight` to the selected score. |
 | `resource_capacity` | `items`: array of `{"variable": index, "load": quantity}`; `limits`: array of `{"resource": id, "capacity": quantity}`. Loads and capacities are nonnegative unsigned 64-bit integers; resource IDs are signed 64-bit integers. | Sums the load of the items assigned to each resource and checks its inclusive capacity. Provide a limit for each resource in the listed item domains and use the same unit throughout a constraint. This is total assignment load, not a time-varying capacity or a route. |
+| `precedence` | `before`, `after`: distinct zero-based variable indices; `min_gap`: unsigned 64-bit duration. | The selected value of `after` must be at least the selected value of `before` plus the gap. Choose one time unit for both variables and the gap. |
+| `no_overlap` | `intervals`: at least two objects with distinct `start` variable indices and an unsigned 64-bit `duration`. | On one exclusive resource, intervals occupy their selected start through, but not including, the end. Back-to-back intervals are allowed. A zero-duration interval occupies no time. |
 
 For example, the raw request below requires exactly one item on resource `1` and caps the two resource loads:
 
