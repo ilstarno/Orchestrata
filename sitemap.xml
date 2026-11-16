@@ -112,7 +112,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/field-service/</loc>
@@ -300,6 +317,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -438,6 +475,26 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/docs/</loc>
@@ -580,6 +637,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -720,6 +797,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -858,6 +955,26 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/work-with-us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/work-with-us/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/docs/</loc>

@@ -7,79 +7,247 @@
   const controls = panel.querySelector('[data-street-controls]')
   const select = panel.querySelector('select')
   const status = panel.querySelector('[role="status"]')
-  if (!button || !mapTarget || !controls || !select || !status) return
+  const chooser = panel.querySelector('[data-street-chooser]')
+  const legend = panel.querySelector('[data-street-legend]')
+  const itinerary = panel.querySelector('[data-street-itinerary]')
+  const stopList = itinerary?.querySelector('ol')
+  if (!button || !mapTarget || !controls || !select || !status || !chooser || !legend || !itinerary || !stopList) return
 
-  const colors = ['#0b7662', '#104eaa', '#aa3f37', '#603ea0', '#8a5004', '#007099', '#a82268', '#324356']
+  const colors = ['#147362', '#2459a4', '#ad3a32', '#6940a5', '#90530c', '#00788e', '#a31766', '#364457']
   const idPattern = /^TIA-00[1-8]$/
   const modes = ['vehicle', 'bicycle', 'walking']
+  const symbols = { start: '↗', pickup: '+', delivery: '↓', end: '■', depot: '◆' }
+  const kindLabels = Object.fromEntries(Object.keys(symbols).map(kind => [kind, panel.dataset[kind]]))
   const point = coord => Array.isArray(coord) && coord.length === 2 && coord.every(Number.isFinite)
     && coord[0] >= 19.6 && coord[0] <= 20 && coord[1] >= 41.1 && coord[1] <= 41.6
   const modeLabel = { vehicle: panel.dataset.vehicle, bicycle: panel.dataset.bicycle, walking: panel.dataset.walking }
   const routeColor = id => colors[Number(id.slice(-1)) - 1]
   const number = new Intl.NumberFormat(document.documentElement.lang, { maximumFractionDigits: 1 })
+  const toLatLng = ([lon, lat]) => [lat, lon]
+  const dash = mode => mode === 'walking' ? '2 9' : mode === 'bicycle' ? '9 7' : undefined
+  const region = (mode, pane) => ({ pane, dashArray: dash(mode), lineCap: 'round', lineJoin: 'round', interactive: false })
+  const clock = new Intl.NumberFormat(document.documentElement.lang, { minimumIntegerDigits: 2, useGrouping: false })
+  const timeLabel = seconds => clock.format(Math.floor(seconds / 3600)) + ':' + clock.format(Math.floor(seconds / 60) % 60)
+  const nonnegative = number => Number.isSafeInteger(number) && number >= 0
+  const samePoint = (a, b) => point(a) && a[0] === b[0] && a[1] === b[1]
+  const dispatch = new Map()
   let map
+  let requestedCourier
 
-  function showMap(data) {
-    if (data.type !== 'FeatureCollection' || !Array.isArray(data.features) || data.features.length > 144) throw new Error('Invalid collection')
-    const features = data.features
-    for (const item of features) {
-      const info = item.properties
-      if (item.type !== 'Feature' || !info || !idPattern.test(info.courierId) || !modes.includes(info.mode)) throw new Error('Invalid courier')
-      if (item.geometry?.type === 'LineString') {
-        if (!Array.isArray(item.geometry.coordinates) || item.geometry.coordinates.length < 3 ||
-          item.geometry.coordinates.length > 20_000 || !item.geometry.coordinates.every(point) ||
-          !Number.isFinite(info.distanceMeters) || info.distanceMeters <= 0 || !Number.isFinite(info.durationSeconds) || info.durationSeconds <= 0) throw new Error('Invalid route')
-      } else if (item.geometry?.type !== 'Point' || !point(item.geometry.coordinates) ||
-                 !Number.isSafeInteger(info.sequence) || info.sequence < 0 || info.sequence > 20) throw new Error('Invalid stop')
-    }
-    const routes = features.filter(item => item.geometry.type === 'LineString')
-    if (routes.length !== 8 || new Set(routes.map(item => item.properties.courierId)).size !== 8) throw new Error('Missing route')
-
-    mapTarget.hidden = false
-    map = L.map(mapTarget, { scrollWheelZoom: false, minZoom: 11, maxZoom: 17, preferCanvas: true })
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 17, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
-    }).addTo(map)
-    const layer = L.layerGroup().addTo(map)
-    for (const { properties: info } of routes) {
-      const option = document.createElement('option')
-      option.value = info.courierId
-      option.textContent = info.courierId + ' · ' + modeLabel[info.mode]
-      select.append(option)
-    }
-
-    const refresh = () => {
-      layer.clearLayers()
-      const selected = features.filter(item => !select.value || item.properties.courierId === select.value)
-      const display = L.geoJSON({ type: 'FeatureCollection', features: selected }, {
-        style: ({ properties: info }) => ({
-          color: routeColor(info.courierId), opacity: .9, weight: info.mode === 'vehicle' ? 4 : 5,
-          dashArray: info.mode === 'walking' ? '2 6' : info.mode === 'bicycle' ? '8 6' : undefined,
-        }),
-        pointToLayer: ({ properties: info }, latLng) => L.circleMarker(latLng, {
-          radius: /^(start|end|depot)$/.test(info.kind) ? 7 : 5,
-          weight: 2, color: '#fff', fillColor: routeColor(info.courierId), fillOpacity: 1,
-        }),
-        onEachFeature: ({ geometry, properties: info }, item) => {
-          const label = document.createElement('span')
-          label.textContent = geometry.type === 'LineString' ? info.courierId + ' · ' + modeLabel[info.mode]
-            : info.courierId + ' · ' + panel.dataset.stops + ' ' + info.sequence
-          item.bindTooltip(label)
-        },
-      }).addTo(layer)
-      map.fitBounds(display.getBounds(), { padding: [22, 22], maxZoom: 15, animate: false })
-      const route = routes.find(item => item.properties.courierId === select.value)?.properties
-      if (route) {
-        status.textContent = route.courierId + ' · ' + modeLabel[route.mode] + ' · '
-          + panel.dataset.distance + ' ' + number.format(route.distanceMeters / 1000) + ' km · '
-          + panel.dataset.duration + ' ' + number.format(route.durationSeconds / 60) + ' min'
-      } else status.textContent = panel.dataset.summary
-    }
-    select.addEventListener('change', refresh)
-    controls.hidden = false
-    refresh()
+  async function loadDispatch(groups) {
+    try {
+      if (!panel.dataset.dispatchUrl) return false
+      const url = new URL(panel.dataset.dispatchUrl, document.baseURI)
+      if (url.origin !== location.origin) return false
+      const response = await fetch(url)
+      if (!response.ok) return false
+      const data = await response.json()
+      if (!Array.isArray(data?.runs) || !Array.isArray(data?.hubs) || data.runs.length > 8 || data.hubs.length > 8) return false
+      for (const group of groups) {
+        const run = data.runs.find(row => row.courierId === group.id && row.mode === group.mode)
+        if (!Array.isArray(run?.stops) || run.stops.length !== group.stops.length) continue
+        const stops = new Map()
+        for (const item of group.stops) {
+          const info = item.properties
+          const row = run.stops.find(stop => stop.sequence === info.sequence && stop.kind === info.kind &&
+            stop.osmNodeId === info.osmNodeId && samePoint(stop.coordinate, item.geometry.coordinates))
+          if (!row || !nonnegative(row.serviceStartSeconds) || row.serviceStartSeconds >= 86400 || !nonnegative(row.loadGrams)) continue
+          stops.set(info.sequence, row)
+        }
+        const hub = data.hubs.find(row => row.courierId === group.id && /^HUB-0[1-8]$/.test(row.id) &&
+          group.stops.some(item => item.properties.kind === 'start' && row.sequence === item.properties.sequence &&
+            samePoint(row.coordinate, item.geometry.coordinates)))
+        dispatch.set(group.id, { stops, hub })
+      }
+      return dispatch.size > 0
+    } catch { return false }
   }
 
+  function readRoutes(data) {
+    if (data?.type !== 'FeatureCollection' || !Array.isArray(data.features) || data.features.length > 144) throw new Error('Invalid collection')
+    const groups = new Map()
+    for (const item of data.features) {
+      const info = item?.properties
+      if (item?.type !== 'Feature' || !info || !idPattern.test(info.courierId) || !modes.includes(info.mode)) throw new Error('Invalid courier')
+      const group = groups.get(info.courierId) ?? { id: info.courierId, mode: info.mode, stops: [], line: null }
+      if (group.mode !== info.mode) throw new Error('Inconsistent mode')
+      groups.set(group.id, group)
+      if (item.geometry?.type === 'LineString') {
+        if (group.line || !Array.isArray(item.geometry.coordinates) || item.geometry.coordinates.length < 3 ||
+          item.geometry.coordinates.length > 20_000 || !item.geometry.coordinates.every(point) ||
+          !Number.isFinite(info.distanceMeters) || info.distanceMeters <= 0 || !Number.isFinite(info.durationSeconds) || info.durationSeconds <= 0) throw new Error('Invalid route')
+        group.line = item
+      } else {
+        if (item.geometry?.type !== 'Point' || !point(item.geometry.coordinates) ||
+          !Number.isSafeInteger(info.sequence) || info.sequence < 0 || info.sequence > 20 ||
+          !Object.hasOwn(symbols, info.kind)) throw new Error('Invalid stop')
+        group.stops.push(item)
+      }
+    }
+    if (groups.size !== 8) throw new Error('Missing route')
+    for (const group of groups.values()) {
+      if (!group.line || !group.stops.length) throw new Error('Missing route or stop')
+      group.stops.sort((a, b) => a.properties.sequence - b.properties.sequence)
+      if (new Set(group.stops.map(item => item.properties.sequence)).size !== group.stops.length) throw new Error('Duplicate stops')
+    }
+    return [...groups.values()].sort((a, b) => a.id.localeCompare(b.id))
+  }
+
+  function markerSymbol(kind, value, color) {
+    const span = document.createElement('span')
+    span.className = 'tirana-street-symbol tirana-street-symbol--' + kind
+    span.style.setProperty('--courier-color', color)
+    span.textContent = value
+    return span
+  }
+
+  function stopDescription(info) {
+    return info.sequence + ' · ' + kindLabels[info.kind]
+  }
+
+  function showMap(data) {
+    const groups = readRoutes(data)
+    mapTarget.hidden = false
+    map = L.map(mapTarget, { scrollWheelZoom: false, minZoom: 11, maxZoom: 18, preferCanvas: true })
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+    }).addTo(map)
+    map.createPane('tirana-selection').style.zIndex = '430'
+    const context = L.layerGroup().addTo(map)
+    const selection = L.layerGroup().addTo(map)
+    const points = L.layerGroup().addTo(map)
+    const pickers = new Map()
+    for (const group of groups) {
+      const option = document.createElement('option')
+      option.value = group.id
+      option.textContent = group.id + ' · ' + modeLabel[group.mode]
+      select.append(option)
+      const item = document.createElement('button')
+      item.type = 'button'
+      item.className = 'tirana-street-courier'
+      item.style.setProperty('--courier-color', routeColor(group.id))
+      item.dataset.mode = group.mode
+      item.textContent = group.id
+      item.title = modeLabel[group.mode]
+      item.setAttribute('aria-label', option.textContent)
+      item.setAttribute('aria-pressed', 'false')
+      item.addEventListener('click', () => {
+        select.value = select.value === group.id ? '' : group.id
+        refresh()
+      })
+      chooser.append(item)
+      pickers.set(group.id, item)
+    }
+
+    function refreshLegend() {
+      legend.replaceChildren()
+      for (const kind of Object.keys(symbols)) {
+        const present = groups.some(group => group.stops.some(item => item.properties.kind === kind) ||
+          (kind === 'depot' && dispatch.get(group.id)?.hub))
+        if (!present) continue
+        const item = document.createElement('li')
+        item.append(markerSymbol(kind, symbols[kind], '#364457'), document.createTextNode(kindLabels[kind]))
+        legend.append(item)
+      }
+    }
+
+    function addStop(item, group) {
+      const info = item.properties
+      const color = routeColor(group.id)
+      const hub = dispatch.get(group.id)?.hub
+      const depot = hub?.sequence === info.sequence ? hub : undefined
+      const detail = dispatch.get(group.id)?.stops.get(info.sequence)
+      const kind = depot ? 'depot' : info.kind
+      const numbered = markerSymbol(kind, symbols[kind], color)
+      const order = document.createElement('b')
+      order.className = 'tirana-map-stop-order'
+      order.textContent = info.sequence
+      numbered.append(order)
+      const location = toLatLng(item.geometry.coordinates)
+      const marker = L.marker(location, {
+        icon: L.divIcon({ html: numbered, className: 'tirana-map-stop', iconSize: [30, 30], iconAnchor: [15, 15] }),
+        keyboard: false,
+      })
+      const label = document.createElement('span')
+      label.textContent = group.id + ' · ' + stopDescription(info) + (depot ? ' · ' + kindLabels.depot + ' ' + depot.id : '')
+      marker.bindTooltip(label, { direction: 'top', offset: [0, -8] }).addTo(points)
+      const row = document.createElement('li')
+      const control = document.createElement('button')
+      control.type = 'button'
+      control.className = 'tirana-street-step'
+      const title = document.createElement('span')
+      title.textContent = kindLabels[info.kind] + (depot ? ' · ' + kindLabels.depot + ' ' + depot.id : '')
+      if (detail) {
+        const metrics = document.createElement('small')
+        metrics.textContent = panel.dataset.serviceTime + ' ' + timeLabel(detail.serviceStartSeconds) + ' · ' +
+          panel.dataset.load + ' ' + number.format(detail.loadGrams / 1000) + ' kg'
+        title.append(metrics)
+      }
+      control.append(markerSymbol(kind, info.sequence, color), title)
+      control.addEventListener('click', () => {
+        map.panTo(location, { animate: false })
+        marker.openTooltip()
+      })
+      row.append(control)
+      stopList.append(row)
+    }
+
+    function refresh(fit = true) {
+      context.clearLayers()
+      selection.clearLayers()
+      points.clearLayers()
+      stopList.replaceChildren()
+      const active = groups.find(group => group.id === select.value)
+      const paths = []
+      for (const group of groups) {
+        pickers.get(group.id).setAttribute('aria-pressed', String(group === active))
+        const coords = group.line.geometry.coordinates.map(toLatLng)
+        const selected = group === active
+        if (!active || selected) paths.push(...coords)
+        const target = selected ? selection : context
+        const width = selected ? 7 : active ? 3 : 5
+        if (!active || selected) L.polyline(coords, { ...region(group.mode, selected ? 'tirana-selection' : 'overlayPane'), color: '#fff', opacity: 1, weight: width + 3 }).addTo(target)
+        L.polyline(coords, { ...region(group.mode, selected ? 'tirana-selection' : 'overlayPane'), color: routeColor(group.id), opacity: active && !selected ? .32 : 1, weight: width }).addTo(target)
+      }
+      if (fit) map.fitBounds(paths, { padding: [28, 28], maxZoom: active ? 17 : 15, animate: false })
+      if (active) {
+        active.stops.forEach(item => addStop(item, active))
+        const info = active.line.properties
+        status.textContent = active.id + ' · ' + modeLabel[active.mode] + ' · '
+          + panel.dataset.distance + ' ' + number.format(info.distanceMeters / 1000) + ' km · '
+          + panel.dataset.travel + ' ' + number.format(info.durationSeconds / 60) + ' min'
+      } else status.textContent = panel.dataset.selectHint
+      itinerary.hidden = !active
+      panel.dispatchEvent(new CustomEvent('tirana:courier-selected', { bubbles: true, detail: { courierId: active?.id ?? null } }))
+    }
+    panel.addEventListener('tirana:select-courier', event => {
+      const courierId = event.detail?.courierId
+      if (courierId !== null && !pickers.has(courierId)) return
+      select.value = courierId ?? ''
+      refresh()
+    })
+    select.addEventListener('change', () => refresh())
+    controls.hidden = false
+    legend.hidden = false
+    select.value = groups.some(group => group.id === requestedCourier) ? requestedCourier : groups[0].id
+    refreshLegend()
+    refresh()
+    void loadDispatch(groups).then(loaded => {
+      if (!loaded) return
+      refreshLegend()
+      refresh(false)
+    })
+  }
+
+  // A decision-row link selects the same numbered courier on the map.
+  document.querySelectorAll('[data-select-courier]').forEach(link => link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    const id = link.dataset.selectCourier
+    if (!idPattern.test(id)) return
+    requestedCourier = id
+    if (!button.hidden && !button.disabled) button.click()
+    else if (button.hidden) panel.dispatchEvent(new CustomEvent('tirana:select-courier', { detail: { courierId: id } }))
+  }))
   button.hidden = false
   button.addEventListener('click', async () => {
     button.disabled = true
@@ -95,8 +263,12 @@
     } catch {
       if (map) map.remove()
       select.replaceChildren(select.options[0])
+      chooser.replaceChildren()
+      legend.replaceChildren()
       mapTarget.hidden = true
       controls.hidden = true
+      legend.hidden = true
+      itinerary.hidden = true
       button.disabled = false
       status.textContent = panel.dataset.error
     }

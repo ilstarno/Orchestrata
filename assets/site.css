@@ -592,3 +592,5 @@ pre {
 .case-technical-downloads { color: var(--muted); font-size: .89rem; }
 .case-technical-downloads summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
 .case-technical-downloads .fixture-links, .case-technical-downloads .cargo-downloads { margin-block-start: 0; }
+
+.header-content .buyer-nav-contact { padding-inline: .65rem; border: 1px solid var(--accent); }

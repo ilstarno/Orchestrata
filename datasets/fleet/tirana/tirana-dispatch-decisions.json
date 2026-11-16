@@ -1,0 +1,1055 @@
+{
+  "case": "TIA-FIXED-01",
+  "assigned": 8,
+  "on_hold": 10,
+  "records": [
+    {
+      "request": "REQ-018",
+      "cargo": "Pickup pending curb confirmation",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "access_evidence_missing"
+      ]
+    },
+    {
+      "request": "REQ-001",
+      "cargo": "Printed forms",
+      "result": "Assigned",
+      "courier": "TIA-001",
+      "departure": "08:00:00",
+      "route_finish": "08:32:36",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-002",
+      "cargo": "Market crates",
+      "result": "Assigned",
+      "courier": "TIA-002",
+      "departure": "08:01:00",
+      "route_finish": "08:16:16",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-003",
+      "cargo": "Retail tote",
+      "result": "Assigned",
+      "courier": "TIA-003",
+      "departure": "08:02:00",
+      "route_finish": "08:12:41",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-004",
+      "cargo": "Office supplies",
+      "result": "Assigned",
+      "courier": "TIA-004",
+      "departure": "08:03:00",
+      "route_finish": "08:14:43",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-005",
+      "cargo": "Packaged pantry goods",
+      "result": "Assigned",
+      "courier": "TIA-005",
+      "departure": "08:04:00",
+      "route_finish": "08:15:52",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-006",
+      "cargo": "Repair parts",
+      "result": "Assigned",
+      "courier": "TIA-006",
+      "departure": "08:05:00",
+      "route_finish": "08:19:48",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-007",
+      "cargo": "Books",
+      "result": "Assigned",
+      "courier": "TIA-007",
+      "departure": "08:06:00",
+      "route_finish": "08:24:28",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-008",
+      "cargo": "Document pouch",
+      "result": "Assigned",
+      "courier": "TIA-008",
+      "departure": "08:07:00",
+      "route_finish": "08:22:12",
+      "hold_reasons": []
+    },
+    {
+      "request": "REQ-009",
+      "cargo": "Oversize cartons",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "capacity_exceeded"
+      ]
+    },
+    {
+      "request": "REQ-010",
+      "cargo": "Asset parts",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "mode_not_allowed"
+      ]
+    },
+    {
+      "request": "REQ-011",
+      "cargo": "Missed handoff window",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "pickup_window_missed"
+      ]
+    },
+    {
+      "request": "REQ-012",
+      "cargo": "Unmapped address",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "no_mapped_pickup_delivery_pair"
+      ]
+    },
+    {
+      "request": "REQ-013",
+      "cargo": "Deferred batch",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "shift_end_exceeded"
+      ]
+    },
+    {
+      "request": "REQ-014",
+      "cargo": "Second request for same mapped stops",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "fixed_route_already_committed"
+      ]
+    },
+    {
+      "request": "REQ-015",
+      "cargo": "Sealed collection",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "handling_qualification_missing"
+      ]
+    },
+    {
+      "request": "REQ-016",
+      "cargo": "Long package",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "cargo_dimensions_exceeded"
+      ]
+    },
+    {
+      "request": "REQ-017",
+      "cargo": "Inter-team collection",
+      "result": "On hold",
+      "courier": null,
+      "departure": null,
+      "route_finish": null,
+      "hold_reasons": [
+        "cross_team_approval_missing"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "requestId": "REQ-018",
+      "status": "not_assigned",
+      "reviewRequired": true,
+      "courierId": null,
+      "reasonCodes": [
+        "access_evidence_missing"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-002",
+          "reasonCodes": [
+            "access_evidence_missing"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-001",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-001",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-001",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-002",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-002",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-002",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-003",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-003",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-003",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-004",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-004",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-004",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-005",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-005",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-005",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-006",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-006",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-006",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-007",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-007",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-007",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-008",
+      "status": "assigned",
+      "reviewRequired": false,
+      "courierId": "TIA-008",
+      "reasonCodes": [],
+      "candidates": [
+        {
+          "courierId": "TIA-008",
+          "reasonCodes": []
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-009",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "capacity_exceeded"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-007",
+          "reasonCodes": [
+            "capacity_exceeded"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-010",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "mode_not_allowed"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-008",
+          "reasonCodes": [
+            "mode_not_allowed"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-011",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "pickup_window_missed"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-001",
+          "reasonCodes": [
+            "pickup_window_missed"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-012",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "no_mapped_pickup_delivery_pair"
+      ],
+      "candidates": []
+    },
+    {
+      "requestId": "REQ-013",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "shift_end_exceeded"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-006",
+          "reasonCodes": [
+            "shift_end_exceeded"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-014",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "fixed_route_already_committed"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-002",
+          "reasonCodes": [
+            "fixed_route_already_committed"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-015",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "handling_qualification_missing"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-004",
+          "reasonCodes": [
+            "handling_qualification_missing"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-016",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "cargo_dimensions_exceeded"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-007",
+          "reasonCodes": [
+            "cargo_dimensions_exceeded"
+          ]
+        }
+      ]
+    },
+    {
+      "requestId": "REQ-017",
+      "status": "not_assigned",
+      "reviewRequired": false,
+      "courierId": null,
+      "reasonCodes": [
+        "cross_team_approval_missing"
+      ],
+      "candidates": [
+        {
+          "courierId": "TIA-001",
+          "reasonCodes": [
+            "cross_team_approval_missing"
+          ]
+        }
+      ]
+    }
+  ],
+  "schedules": [
+    {
+      "courierId": "TIA-001",
+      "requestId": "REQ-001",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.8047399,
+            41.3438155
+          ],
+          "osmNodeId": 1847323396,
+          "arrivalSeconds": 28800,
+          "serviceStartSeconds": 28800,
+          "departureSeconds": 28800,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.8112301,
+            41.346978
+          ],
+          "osmNodeId": 1847323458,
+          "arrivalSeconds": 28889,
+          "serviceStartSeconds": 28889,
+          "departureSeconds": 28979,
+          "waitSeconds": 0,
+          "loadGrams": 24000,
+          "travelFromPreviousSeconds": 89
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.821152,
+            41.3420616
+          ],
+          "osmNodeId": 11201074624,
+          "arrivalSeconds": 29218,
+          "serviceStartSeconds": 30300,
+          "departureSeconds": 30420,
+          "waitSeconds": 1082,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 239
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8259941,
+            41.3470511
+          ],
+          "osmNodeId": 12110019267,
+          "arrivalSeconds": 30756,
+          "serviceStartSeconds": 30756,
+          "departureSeconds": 30756,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 336
+        }
+      ],
+      "distanceMeters": 5538.7,
+      "travelSeconds": 664,
+      "waitSeconds": 1082,
+      "totalSeconds": 1956,
+      "finishSeconds": 30756,
+      "peakLoadGrams": 24000
+    },
+    {
+      "courierId": "TIA-002",
+      "requestId": "REQ-002",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.7903884,
+            41.3255762
+          ],
+          "osmNodeId": 6236571824,
+          "arrivalSeconds": 28860,
+          "serviceStartSeconds": 28860,
+          "departureSeconds": 28860,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.7972037,
+            41.3288349
+          ],
+          "osmNodeId": 6946535692,
+          "arrivalSeconds": 29055,
+          "serviceStartSeconds": 29055,
+          "departureSeconds": 29145,
+          "waitSeconds": 0,
+          "loadGrams": 62000,
+          "travelFromPreviousSeconds": 195
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.809126,
+            41.3289891
+          ],
+          "osmNodeId": 1946518665,
+          "arrivalSeconds": 29369,
+          "serviceStartSeconds": 29369,
+          "departureSeconds": 29489,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 224
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8149731,
+            41.3261597
+          ],
+          "osmNodeId": 4653389051,
+          "arrivalSeconds": 29776,
+          "serviceStartSeconds": 29776,
+          "departureSeconds": 29776,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 287
+        }
+      ],
+      "distanceMeters": 5878.8,
+      "travelSeconds": 706,
+      "waitSeconds": 0,
+      "totalSeconds": 916,
+      "finishSeconds": 29776,
+      "peakLoadGrams": 62000
+    },
+    {
+      "courierId": "TIA-003",
+      "requestId": "REQ-003",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.8199958,
+            41.3211209
+          ],
+          "osmNodeId": 6946764699,
+          "arrivalSeconds": 28920,
+          "serviceStartSeconds": 28920,
+          "departureSeconds": 28920,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.8271687,
+            41.3193401
+          ],
+          "osmNodeId": 5896601853,
+          "arrivalSeconds": 29051,
+          "serviceStartSeconds": 29051,
+          "departureSeconds": 29141,
+          "waitSeconds": 0,
+          "loadGrams": 18000,
+          "travelFromPreviousSeconds": 131
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.8319551,
+            41.323093
+          ],
+          "osmNodeId": 12072491839,
+          "arrivalSeconds": 29298,
+          "serviceStartSeconds": 29298,
+          "departureSeconds": 29418,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 157
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8389844,
+            41.3259984
+          ],
+          "osmNodeId": 6997487868,
+          "arrivalSeconds": 29561,
+          "serviceStartSeconds": 29561,
+          "departureSeconds": 29561,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 143
+        }
+      ],
+      "distanceMeters": 3598.2,
+      "travelSeconds": 431,
+      "waitSeconds": 0,
+      "totalSeconds": 641,
+      "finishSeconds": 29561,
+      "peakLoadGrams": 18000
+    },
+    {
+      "courierId": "TIA-004",
+      "requestId": "REQ-004",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.7840025,
+            41.3396528
+          ],
+          "osmNodeId": 12828989166,
+          "arrivalSeconds": 28980,
+          "serviceStartSeconds": 28980,
+          "departureSeconds": 28980,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.7918903,
+            41.3360098
+          ],
+          "osmNodeId": 1843955687,
+          "arrivalSeconds": 29090,
+          "serviceStartSeconds": 29090,
+          "departureSeconds": 29180,
+          "waitSeconds": 0,
+          "loadGrams": 37000,
+          "travelFromPreviousSeconds": 110
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.80601,
+            41.3378573
+          ],
+          "osmNodeId": 11194942982,
+          "arrivalSeconds": 29412,
+          "serviceStartSeconds": 29412,
+          "departureSeconds": 29532,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 232
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8119694,
+            41.3358795
+          ],
+          "osmNodeId": 4592868860,
+          "arrivalSeconds": 29683,
+          "serviceStartSeconds": 29683,
+          "departureSeconds": 29683,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 151
+        }
+      ],
+      "distanceMeters": 4106.9,
+      "travelSeconds": 493,
+      "waitSeconds": 0,
+      "totalSeconds": 703,
+      "finishSeconds": 29683,
+      "peakLoadGrams": 37000
+    },
+    {
+      "courierId": "TIA-005",
+      "requestId": "REQ-005",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.8317004,
+            41.3319691
+          ],
+          "osmNodeId": 4659048179,
+          "arrivalSeconds": 29040,
+          "serviceStartSeconds": 29040,
+          "departureSeconds": 29040,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.8428504,
+            41.3370451
+          ],
+          "osmNodeId": 1855842589,
+          "arrivalSeconds": 29240,
+          "serviceStartSeconds": 29240,
+          "departureSeconds": 29330,
+          "waitSeconds": 0,
+          "loadGrams": 84000,
+          "travelFromPreviousSeconds": 200
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.8494352,
+            41.3420041
+          ],
+          "osmNodeId": 7003233837,
+          "arrivalSeconds": 29466,
+          "serviceStartSeconds": 29466,
+          "departureSeconds": 29586,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 136
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.853956,
+            41.3460465
+          ],
+          "osmNodeId": 13634717022,
+          "arrivalSeconds": 29752,
+          "serviceStartSeconds": 29752,
+          "departureSeconds": 29752,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 166
+        }
+      ],
+      "distanceMeters": 4193.3,
+      "travelSeconds": 502,
+      "waitSeconds": 0,
+      "totalSeconds": 712,
+      "finishSeconds": 29752,
+      "peakLoadGrams": 84000
+    },
+    {
+      "courierId": "TIA-006",
+      "requestId": "REQ-006",
+      "mode": "vehicle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.7918688,
+            41.309608
+          ],
+          "osmNodeId": 7118279432,
+          "arrivalSeconds": 29100,
+          "serviceStartSeconds": 29100,
+          "departureSeconds": 29100,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.7968268,
+            41.3130804
+          ],
+          "osmNodeId": 1844141070,
+          "arrivalSeconds": 29243,
+          "serviceStartSeconds": 29243,
+          "departureSeconds": 29333,
+          "waitSeconds": 0,
+          "loadGrams": 21000,
+          "travelFromPreviousSeconds": 143
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.8050168,
+            41.3079954
+          ],
+          "osmNodeId": 11151866922,
+          "arrivalSeconds": 29659,
+          "serviceStartSeconds": 29659,
+          "departureSeconds": 29779,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 326
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8130276,
+            41.3150023
+          ],
+          "osmNodeId": 1843015728,
+          "arrivalSeconds": 29988,
+          "serviceStartSeconds": 29988,
+          "departureSeconds": 29988,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 209
+        }
+      ],
+      "distanceMeters": 5652.5,
+      "travelSeconds": 678,
+      "waitSeconds": 0,
+      "totalSeconds": 888,
+      "finishSeconds": 29988,
+      "peakLoadGrams": 21000
+    },
+    {
+      "courierId": "TIA-007",
+      "requestId": "REQ-007",
+      "mode": "bicycle",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.8119676,
+            41.322901
+          ],
+          "osmNodeId": 2608865139,
+          "arrivalSeconds": 29160,
+          "serviceStartSeconds": 29160,
+          "departureSeconds": 29160,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.8160139,
+            41.3272404
+          ],
+          "osmNodeId": 11117835887,
+          "arrivalSeconds": 29421,
+          "serviceStartSeconds": 29421,
+          "departureSeconds": 29511,
+          "waitSeconds": 0,
+          "loadGrams": 5000,
+          "travelFromPreviousSeconds": 261
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.8219602,
+            41.3279206
+          ],
+          "osmNodeId": 5893133722,
+          "arrivalSeconds": 29787,
+          "serviceStartSeconds": 29787,
+          "departureSeconds": 29907,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 276
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8240268,
+            41.3230765
+          ],
+          "osmNodeId": 11182102725,
+          "arrivalSeconds": 30268,
+          "serviceStartSeconds": 30268,
+          "departureSeconds": 30268,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 361
+        }
+      ],
+      "distanceMeters": 3988.2,
+      "travelSeconds": 898,
+      "waitSeconds": 0,
+      "totalSeconds": 1108,
+      "finishSeconds": 30268,
+      "peakLoadGrams": 5000
+    },
+    {
+      "courierId": "TIA-008",
+      "requestId": "REQ-008",
+      "mode": "walking",
+      "stops": [
+        {
+          "sequence": 1,
+          "kind": "start",
+          "coordinate": [
+            19.8179381,
+            41.3269865
+          ],
+          "osmNodeId": 12107092452,
+          "arrivalSeconds": 29220,
+          "serviceStartSeconds": 29220,
+          "departureSeconds": 29220,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 0
+        },
+        {
+          "sequence": 2,
+          "kind": "pickup",
+          "coordinate": [
+            19.8201767,
+            41.3272253
+          ],
+          "osmNodeId": 4551191466,
+          "arrivalSeconds": 29391,
+          "serviceStartSeconds": 29391,
+          "departureSeconds": 29481,
+          "waitSeconds": 0,
+          "loadGrams": 1200,
+          "travelFromPreviousSeconds": 171
+        },
+        {
+          "sequence": 3,
+          "kind": "delivery",
+          "coordinate": [
+            19.8211282,
+            41.3288979
+          ],
+          "osmNodeId": 2619527359,
+          "arrivalSeconds": 29707,
+          "serviceStartSeconds": 29707,
+          "departureSeconds": 29827,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 226
+        },
+        {
+          "sequence": 4,
+          "kind": "end",
+          "coordinate": [
+            19.8231456,
+            41.3304356
+          ],
+          "osmNodeId": 6394989311,
+          "arrivalSeconds": 30132,
+          "serviceStartSeconds": 30132,
+          "departureSeconds": 30132,
+          "waitSeconds": 0,
+          "loadGrams": 0,
+          "travelFromPreviousSeconds": 305
+        }
+      ],
+      "distanceMeters": 976.1,
+      "travelSeconds": 702,
+      "waitSeconds": 0,
+      "totalSeconds": 912,
+      "finishSeconds": 30132,
+      "peakLoadGrams": 1200
+    }
+  ],
+  "summary": {
+    "requestCount": 18,
+    "assignedCount": 8,
+    "notAssignedCount": 10,
+    "reviewCount": 1,
+    "routeCount": 8,
+    "stopCount": 32,
+    "distanceMeters": 33932.7,
+    "travelSeconds": 5074,
+    "waitSeconds": 1082
+  }
+}

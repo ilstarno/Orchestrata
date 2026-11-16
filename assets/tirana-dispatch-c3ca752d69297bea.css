@@ -1,0 +1,29 @@
+.tirana-dispatch-lead, .tirana-dispatch-evidence { margin-block: 2.25rem; min-width: 0; }
+.tirana-dispatch-lead > h2, .tirana-dispatch-evidence > h2 { margin-bottom: .5rem; }
+.tirana-dispatch-totals, .tirana-dispatch-nav { display: flex; flex-wrap: wrap; gap: .75rem; }
+.tirana-dispatch-totals { margin: 1.1rem 0 .85rem; }
+.tirana-dispatch-totals > div { border: 1px solid var(--rule); border-radius: .8rem; padding: .75rem 1.15rem; min-width: min(7rem, 30%); }
+.tirana-dispatch-totals dt { font-size: .9rem; }
+.tirana-dispatch-totals dd { font-size: 1.45rem; font-variant-numeric: tabular-nums; font-weight: 750; margin: .2rem 0 0; }
+.tirana-dispatch-nav a { padding: .3rem 0; text-underline-offset: .18em; }
+.tirana-dispatch-note { font-size: .875rem; max-width: 74ch; }
+.tirana-dispatch-detail { border-block-start: 1px solid var(--rule); margin-block: .85rem; padding-block: .9rem; min-width: 0; }
+.tirana-dispatch-detail > summary { cursor: pointer; font-weight: 650; padding-block: .35rem; }
+.tirana-dispatch-table { max-width: 100%; overflow-x: auto; margin-block: .9rem; }
+.tirana-dispatch-table table { width: 100%; }
+.tirana-dispatch-table :is(td,th) { text-align: start; vertical-align: top; }
+.tirana-dispatch-table th[scope="row"], .tirana-dispatch-table th[scope="col"] { font-weight: 650; }
+.tirana-record-id { display: inline-block; color: var(--muted); font: .8em ui-monospace, monospace; white-space: nowrap; }
+.tirana-dispatch-table td[data-dispatch-state] { min-width: 8.5rem; font-weight: 650; }
+.tirana-dispatch-table td[data-dispatch-state] { border-inline-start: 2px solid var(--rule); }
+.tirana-dispatch-table td[data-dispatch-state="held"] { border-inline-start-color: #bb7933; }
+.tirana-dispatch-table td[data-dispatch-state="assigned"] { border-inline-start-color: var(--accent); }
+.tirana-dispatch-detail li + li { margin-block-start: .35em; }
+@media (max-width: 42rem) {
+  .tirana-dispatch-totals { gap: .4rem; }
+  .tirana-dispatch-totals > div { flex: 1 1 auto; padding: .65rem; }
+  .tirana-dispatch-table table { min-width: 33rem; }
+}
+.tirana-decision-reasons { list-style: none; padding: 0; margin: 0; }
+.tirana-decision-reasons code { font-size: .75em; color: var(--muted); }
+.tirana-decision-reasons small { display: block; }

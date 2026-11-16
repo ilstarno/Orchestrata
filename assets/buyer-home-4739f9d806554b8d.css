@@ -1,0 +1,15 @@
+.buyer-hero h1 { max-width: 15ch; font-size: clamp(2.35rem, 5.1vw, 4rem); }
+.buyer-home-section { margin-block: clamp(2.2rem, 5vw, 4.2rem); }
+.buyer-home-decisions { margin-block-start: 1.3rem; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 4vw, 2rem); }
+.buyer-home-decisions li { min-inline-size: 0; border-block-start: 2px solid var(--rule); padding-block-start: 1rem; }
+.buyer-home-decisions h3 { display: flex; align-items: flex-start; gap: .4rem; }
+.buyer-home-decisions p { color: var(--muted); margin: .5rem 0 0; }
+.buyer-proof { padding: clamp(.9rem, 2.8vw, 2rem); border-inline-start: 3px solid var(--accent); background: var(--dataset-surface); }
+.buyer-engagement { margin-block: 2rem; padding-block: clamp(1.4rem, 4vw, 2.8rem); border-block: 1px solid var(--rule); }
+.buyer-engagement .hero-primary { margin-block-start: .9rem; }
+.buyer-secondary { margin-block: .9rem; border-block-start: 1px solid var(--rule); padding-block: .7rem; }
+.buyer-secondary summary { cursor: pointer; font-weight: 650; }
+@media (max-width: 41rem) {
+  .buyer-home-decisions { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .buyer-hero h1 { max-width: unset; }
+}

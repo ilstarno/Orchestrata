@@ -1,8 +1,60 @@
-.tirana-street-viewport:not([hidden]) { inline-size:100%; block-size:clamp(18rem, 52svh, 33rem); border:1px solid var(--rule); background:#edf1f2; color:#101820; }
-.tirana-street-controls:not([hidden]) { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem 1rem; margin-block:1rem .5rem; }
-.tirana-street-controls select { min-block-size:44px; font:inherit; }
+.tirana-street-viewport:not([hidden]) {
+  inline-size:100%; block-size:clamp(22rem, 57svh, 39rem); border:1px solid var(--rule);
+  background:#edf1f2; color:#101820;
+}
+.tirana-street-controls:not([hidden]) { display:grid; gap:.45rem; margin-block:1rem .65rem; }
+.tirana-street-control-row { display:flex; align-items:center; flex-wrap:wrap; gap:.45rem .75rem; }
+.tirana-street-controls select { max-inline-size:100%; min-block-size:44px; font:inherit; }
+.tirana-street-chooser { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,6.4rem),1fr)); gap:.35rem; }
+.tirana-street-courier,
+.tirana-street-step {
+  color:var(--ink); background:var(--paper); border:1px solid var(--rule);
+  border-radius:.3rem; font:inherit; min-block-size:44px; cursor:pointer;
+}
+.tirana-street-courier { padding:.4rem .28rem; font-variant-numeric:tabular-nums; font-weight:680; }
+.tirana-street-courier::before {
+  content:""; display:block; margin:0 auto .16rem; inline-size:1.75rem;
+  border-block-start:3px solid var(--courier-color);
+}
+.tirana-street-courier[data-mode="walking"]::before { border-block-start-style:dotted; }
+.tirana-street-courier[data-mode="bicycle"]::before { border-block-start-style:dashed; }
+.tirana-street-courier[aria-pressed="true"] {
+  border-color:var(--accent); color:var(--accent); background:var(--dataset-head);
+  box-shadow:inset 0 0 0 1px var(--accent);
+}
+.tirana-street-status { margin:.55rem 0 .7rem; font-variant-numeric:tabular-nums; }
 .tirana-street-status:empty { display:none; }
+.tirana-street-legend:not([hidden]) { display:flex; flex-wrap:wrap; gap:.35rem .9rem; list-style:none; margin:.55rem 0; padding:0; font-size:.87rem; }
+.tirana-street-legend li { display:inline-flex; align-items:center; gap:.32rem; }
+.tirana-street-symbol {
+  display:inline-grid; place-items:center; flex:none; inline-size:1.6rem; block-size:1.6rem; border-radius:50%;
+  border:2px solid #fff; background:var(--courier-color); color:#fff; outline:1px solid var(--courier-color);
+  font:bold .78rem/1 sans-serif; font-variant-numeric:tabular-nums;
+}
+.tirana-street-symbol--start,.tirana-street-symbol--end { border-radius:.25rem; }
+.tirana-street-symbol--depot { border-radius:.1rem; }
+.tirana-map-stop .tirana-street-symbol { inline-size:100%; block-size:100%; }
+.tirana-street-itinerary:not([hidden]) { margin-block:1rem; }
+.tirana-street-itinerary ol { display:flex; flex-wrap:wrap; gap:.4rem; list-style:none; margin:.45rem 0 0; padding:0; }
+.tirana-street-step { display:flex; align-items:center; gap:.45rem; padding:.3rem .65rem; text-align:start; }
+.tirana-street-step:hover { border-color:var(--accent); }
 .tirana-street .leaflet-container a { color:#154d73; }
 .tirana-street .leaflet-container { font-size:.8rem; }
 .tirana-street-summaries { margin-block:.75rem; }
 .tirana-street-summaries summary { font-weight:600; cursor:pointer; min-block-size:44px; padding:.6rem 0; }
+@media (max-width:38rem) {
+  .tirana-street-chooser { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .tirana-street-courier { font-size:.85rem; }
+  .tirana-street-itinerary ol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .tirana-street-step { inline-size:100%; }
+}
+@media (max-width:23rem) {
+  .tirana-street-chooser { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+.tirana-street-step small { display:block; font-size:.77rem; color:var(--muted); margin-block-start:.1rem; }
+.tirana-map-stop .tirana-street-symbol { position:relative; }
+.tirana-map-stop-order {
+  position:absolute; inset:auto -.35rem -.28rem auto; min-inline-size:.95rem;
+  padding:.1rem; color:#101820; background:#fff; border:1px solid var(--courier-color);
+  border-radius:1rem; font-size:.65rem; text-align:center;
+}

@@ -1,0 +1,1192 @@
+{
+  "case": "TIA-FIXED-01",
+  "timezone": "Europe/Tirane",
+  "organization": "Tirana City Parcel",
+  "records": [
+    {
+      "request": "REQ-001",
+      "cargo": "Printed forms",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 24,
+      "pickup_window": "08:01:00 – 08:20:00",
+      "delivery_window": "08:25:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-002",
+      "cargo": "Market crates",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 62,
+      "pickup_window": "08:02:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-003",
+      "cargo": "Retail tote",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 18,
+      "pickup_window": "08:03:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-004",
+      "cargo": "Office supplies",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 37,
+      "pickup_window": "08:04:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-005",
+      "cargo": "Packaged pantry goods",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 84,
+      "pickup_window": "08:05:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-006",
+      "cargo": "Repair parts",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 10,
+      "weight_kg": 21,
+      "pickup_window": "08:06:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-007",
+      "cargo": "Books",
+      "permitted_transport": [
+        "bicycle"
+      ],
+      "priority": 10,
+      "weight_kg": 5,
+      "pickup_window": "08:07:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-008",
+      "cargo": "Document pouch",
+      "permitted_transport": [
+        "walking"
+      ],
+      "priority": 10,
+      "weight_kg": 1.2,
+      "pickup_window": "08:08:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-009",
+      "cargo": "Oversize cartons",
+      "permitted_transport": [
+        "bicycle"
+      ],
+      "priority": 5,
+      "weight_kg": 19,
+      "pickup_window": "08:07:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-010",
+      "cargo": "Asset parts",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 1.2,
+      "pickup_window": "08:08:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-011",
+      "cargo": "Missed handoff window",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 24,
+      "pickup_window": "08:00:00 – 08:01:00",
+      "delivery_window": "08:25:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-012",
+      "cargo": "Unmapped address",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 37,
+      "pickup_window": "08:04:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-013",
+      "cargo": "Deferred batch",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 21,
+      "pickup_window": "08:06:00 – 08:20:00",
+      "delivery_window": "09:15:00 – 09:20:00"
+    },
+    {
+      "request": "REQ-014",
+      "cargo": "Second request for same mapped stops",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 62,
+      "pickup_window": "08:02:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-015",
+      "cargo": "Sealed collection",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 37,
+      "pickup_window": "08:04:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-016",
+      "cargo": "Long package",
+      "permitted_transport": [
+        "bicycle"
+      ],
+      "priority": 5,
+      "weight_kg": 5,
+      "pickup_window": "08:07:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-017",
+      "cargo": "Inter-team collection",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 5,
+      "weight_kg": 24,
+      "pickup_window": "08:01:00 – 08:20:00",
+      "delivery_window": "08:25:00 – 08:45:00"
+    },
+    {
+      "request": "REQ-018",
+      "cargo": "Pickup pending curb confirmation",
+      "permitted_transport": [
+        "vehicle"
+      ],
+      "priority": 20,
+      "weight_kg": 62,
+      "pickup_window": "08:02:00 – 08:20:00",
+      "delivery_window": "08:08:00 – 08:45:00"
+    }
+  ],
+  "requests": [
+    {
+      "requestId": "REQ-001",
+      "cargo": "Printed forms",
+      "priority": 10,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": true,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 24000,
+      "pickupOsmNodeId": 1847323458,
+      "deliveryOsmNodeId": 11201074624,
+      "pickupWindowSeconds": [
+        28860,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        30300,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-002",
+      "cargo": "Market crates",
+      "priority": 10,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "secure_handoff",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 62000,
+      "pickupOsmNodeId": 6946535692,
+      "deliveryOsmNodeId": 1946518665,
+      "pickupWindowSeconds": [
+        28920,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-003",
+      "cargo": "Retail tote",
+      "priority": 10,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 18000,
+      "pickupOsmNodeId": 5896601853,
+      "deliveryOsmNodeId": 12072491839,
+      "pickupWindowSeconds": [
+        28980,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-004",
+      "cargo": "Office supplies",
+      "priority": 10,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 37000,
+      "pickupOsmNodeId": 1843955687,
+      "deliveryOsmNodeId": 11194942982,
+      "pickupWindowSeconds": [
+        29040,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-005",
+      "cargo": "Packaged pantry goods",
+      "priority": 10,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 84000,
+      "pickupOsmNodeId": 1855842589,
+      "deliveryOsmNodeId": 7003233837,
+      "pickupWindowSeconds": [
+        29100,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-006",
+      "cargo": "Repair parts",
+      "priority": 10,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 21000,
+      "pickupOsmNodeId": 1844141070,
+      "deliveryOsmNodeId": 11151866922,
+      "pickupWindowSeconds": [
+        29160,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-007",
+      "cargo": "Books",
+      "priority": 10,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "bicycle"
+      ],
+      "massGrams": 5000,
+      "pickupOsmNodeId": 11117835887,
+      "deliveryOsmNodeId": 5893133722,
+      "pickupWindowSeconds": [
+        29220,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-008",
+      "cargo": "Document pouch",
+      "priority": 10,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "walking"
+      ],
+      "massGrams": 1200,
+      "pickupOsmNodeId": 4551191466,
+      "deliveryOsmNodeId": 2619527359,
+      "pickupWindowSeconds": [
+        29280,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-009",
+      "cargo": "Oversize cartons",
+      "priority": 5,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "bicycle"
+      ],
+      "massGrams": 19000,
+      "pickupOsmNodeId": 11117835887,
+      "deliveryOsmNodeId": 5893133722,
+      "pickupWindowSeconds": [
+        29220,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-010",
+      "cargo": "Asset parts",
+      "priority": 5,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 1200,
+      "pickupOsmNodeId": 4551191466,
+      "deliveryOsmNodeId": 2619527359,
+      "pickupWindowSeconds": [
+        29280,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-011",
+      "cargo": "Missed handoff window",
+      "priority": 5,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": true,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 24000,
+      "pickupOsmNodeId": 1847323458,
+      "deliveryOsmNodeId": 11201074624,
+      "pickupWindowSeconds": [
+        28800,
+        28860
+      ],
+      "deliveryWindowSeconds": [
+        30300,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-012",
+      "cargo": "Unmapped address",
+      "priority": 5,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 37000,
+      "pickupOsmNodeId": 1843955687,
+      "deliveryOsmNodeId": null,
+      "pickupWindowSeconds": [
+        29040,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-013",
+      "cargo": "Deferred batch",
+      "priority": 5,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 21000,
+      "pickupOsmNodeId": 1844141070,
+      "deliveryOsmNodeId": 11151866922,
+      "pickupWindowSeconds": [
+        29160,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        33300,
+        33600
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-014",
+      "cargo": "Second request for same mapped stops",
+      "priority": 5,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "secure_handoff",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 62000,
+      "pickupOsmNodeId": 6946535692,
+      "deliveryOsmNodeId": 1946518665,
+      "pickupWindowSeconds": [
+        28920,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-015",
+      "cargo": "Sealed collection",
+      "priority": 5,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "secure_handoff",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 37000,
+      "pickupOsmNodeId": 1843955687,
+      "deliveryOsmNodeId": 11194942982,
+      "pickupWindowSeconds": [
+        29040,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-016",
+      "cargo": "Long package",
+      "priority": 5,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        650,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "bicycle"
+      ],
+      "massGrams": 5000,
+      "pickupOsmNodeId": 11117835887,
+      "deliveryOsmNodeId": 5893133722,
+      "pickupWindowSeconds": [
+        29220,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-017",
+      "cargo": "Inter-team collection",
+      "priority": 5,
+      "teamId": "TEAM-C",
+      "crossTeamApproved": false,
+      "handling": "standard",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "sample_confirmed"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 24000,
+      "pickupOsmNodeId": 1847323458,
+      "deliveryOsmNodeId": 11201074624,
+      "pickupWindowSeconds": [
+        28860,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        30300,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    },
+    {
+      "requestId": "REQ-018",
+      "cargo": "Pickup pending curb confirmation",
+      "priority": 20,
+      "teamId": "TEAM-W",
+      "crossTeamApproved": false,
+      "handling": "secure_handoff",
+      "packedDimensionsMm": [
+        300,
+        200,
+        150
+      ],
+      "scenarioAccessEvidence": {
+        "road": "sample_confirmed",
+        "curb": "unknown"
+      },
+      "allowedModes": [
+        "vehicle"
+      ],
+      "massGrams": 62000,
+      "pickupOsmNodeId": 6946535692,
+      "deliveryOsmNodeId": 1946518665,
+      "pickupWindowSeconds": [
+        28920,
+        30000
+      ],
+      "deliveryWindowSeconds": [
+        29280,
+        31500
+      ],
+      "pickupServiceSeconds": 90,
+      "deliveryServiceSeconds": 120
+    }
+  ],
+  "rules": [
+    {
+      "id": "R01",
+      "description": "Mapped pickup and delivery must both match; sequence 2 precedes 3.",
+      "kind": "company"
+    },
+    {
+      "id": "R02",
+      "description": "The route mode must be among the modes allowed for the shipment.",
+      "kind": "company"
+    },
+    {
+      "id": "R03",
+      "description": "The courier must be available and their assigned asset in service.",
+      "kind": "company"
+    },
+    {
+      "id": "R04",
+      "description": "At pickup, shipment plus current load cannot exceed payload capacity.",
+      "kind": "company"
+    },
+    {
+      "id": "R05",
+      "description": "Wait if early; both pickup and delivery service must finish by each window's end.",
+      "kind": "company"
+    },
+    {
+      "id": "R06",
+      "description": "The planned route must finish by the courier's shift end.",
+      "kind": "company"
+    },
+    {
+      "id": "R07",
+      "description": "Only one request per fixed route; choose feasible requests by priority, then stable request ID.",
+      "kind": "company"
+    },
+    {
+      "id": "R09",
+      "description": "Operator must be qualified for the requested handling; cargo must fit the configured internal dimensions.",
+      "kind": "company"
+    },
+    {
+      "id": "R10",
+      "description": "Borrowing another team’s operator requires simulated cross-team approval.",
+      "kind": "company"
+    },
+    {
+      "id": "R11",
+      "description": "Missing scenario road or curb evidence holds the request for review. Sample evidence is not a permit.",
+      "kind": "company"
+    },
+    {
+      "id": "R08",
+      "description": "Travel follows the already mapped OSM profile; segment durations are estimates, not live traffic.",
+      "kind": "map_model"
+    }
+  ],
+  "hubs": [
+    {
+      "id": "HUB-01",
+      "name": "Synthetic northwest launch point 01",
+      "courierId": "TIA-001",
+      "sequence": 1,
+      "coordinate": [
+        19.8047399,
+        41.3438155
+      ]
+    },
+    {
+      "id": "HUB-02",
+      "name": "Synthetic southwest launch point 02",
+      "courierId": "TIA-002",
+      "sequence": 1,
+      "coordinate": [
+        19.7903884,
+        41.3255762
+      ]
+    },
+    {
+      "id": "HUB-03",
+      "name": "Synthetic east launch point 03",
+      "courierId": "TIA-003",
+      "sequence": 1,
+      "coordinate": [
+        19.8199958,
+        41.3211209
+      ]
+    },
+    {
+      "id": "HUB-04",
+      "name": "Synthetic northwest launch point 04",
+      "courierId": "TIA-004",
+      "sequence": 1,
+      "coordinate": [
+        19.7840025,
+        41.3396528
+      ]
+    },
+    {
+      "id": "HUB-05",
+      "name": "Synthetic east launch point 05",
+      "courierId": "TIA-005",
+      "sequence": 1,
+      "coordinate": [
+        19.8317004,
+        41.3319691
+      ]
+    },
+    {
+      "id": "HUB-06",
+      "name": "Synthetic southwest launch point 06",
+      "courierId": "TIA-006",
+      "sequence": 1,
+      "coordinate": [
+        19.7918688,
+        41.309608
+      ]
+    },
+    {
+      "id": "HUB-07",
+      "name": "Synthetic central launch point 07",
+      "courierId": "TIA-007",
+      "sequence": 1,
+      "coordinate": [
+        19.8119676,
+        41.322901
+      ]
+    },
+    {
+      "id": "HUB-08",
+      "name": "Synthetic central launch point 08",
+      "courierId": "TIA-008",
+      "sequence": 1,
+      "coordinate": [
+        19.8179381,
+        41.3269865
+      ]
+    }
+  ],
+  "couriers": [
+    {
+      "courierId": "TIA-001",
+      "driverId": "OP-01",
+      "assetId": "ASSET-01",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-01",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 200000,
+      "teamId": "TEAM-W",
+      "experienceMonths": 19,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 28800,
+      "shiftEndSeconds": 33300
+    },
+    {
+      "courierId": "TIA-002",
+      "driverId": "OP-02",
+      "assetId": "ASSET-02",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-02",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 120000,
+      "teamId": "TEAM-W",
+      "experienceMonths": 23,
+      "qualifiedHandling": [
+        "standard",
+        "secure_handoff"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 28860,
+      "shiftEndSeconds": 33300
+    },
+    {
+      "courierId": "TIA-003",
+      "driverId": "OP-03",
+      "assetId": "ASSET-03",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-03",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 160000,
+      "teamId": "TEAM-C",
+      "experienceMonths": 27,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 28920,
+      "shiftEndSeconds": 33300
+    },
+    {
+      "courierId": "TIA-004",
+      "driverId": "OP-04",
+      "assetId": "ASSET-04",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-04",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 180000,
+      "teamId": "TEAM-W",
+      "experienceMonths": 31,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 28980,
+      "shiftEndSeconds": 33300
+    },
+    {
+      "courierId": "TIA-005",
+      "driverId": "OP-05",
+      "assetId": "ASSET-05",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-05",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 140000,
+      "teamId": "TEAM-C",
+      "experienceMonths": 35,
+      "qualifiedHandling": [
+        "standard",
+        "secure_handoff"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 29040,
+      "shiftEndSeconds": 30360
+    },
+    {
+      "courierId": "TIA-006",
+      "driverId": "OP-06",
+      "assetId": "ASSET-06",
+      "assetType": "Compact cargo van",
+      "hubId": "HUB-06",
+      "mode": "vehicle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 160000,
+      "teamId": "TEAM-W",
+      "experienceMonths": 39,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        1400,
+        1100,
+        1000
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 29100,
+      "shiftEndSeconds": 33300
+    },
+    {
+      "courierId": "TIA-007",
+      "driverId": "OP-07",
+      "assetId": "ASSET-07",
+      "assetType": "Cargo bicycle",
+      "hubId": "HUB-07",
+      "mode": "bicycle",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 18000,
+      "teamId": "TEAM-C",
+      "experienceMonths": 43,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        600,
+        400,
+        350
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 29160,
+      "shiftEndSeconds": 30360
+    },
+    {
+      "courierId": "TIA-008",
+      "driverId": "OP-08",
+      "assetId": "ASSET-08",
+      "assetType": "Insulated backpack",
+      "hubId": "HUB-08",
+      "mode": "walking",
+      "available": true,
+      "assetInService": true,
+      "capacityGrams": 6000,
+      "teamId": "TEAM-C",
+      "experienceMonths": 47,
+      "qualifiedHandling": [
+        "standard"
+      ],
+      "interiorDimensionsMm": [
+        400,
+        300,
+        200
+      ],
+      "startingLoadGrams": 0,
+      "shiftStartSeconds": 29220,
+      "shiftEndSeconds": 30360
+    }
+  ],
+  "metadata": {
+    "caseId": "TIA-FIXED-01",
+    "organization": "Tirana City Parcel (illustrative dispatch data)",
+    "timezone": "Europe/Tirane",
+    "clock": "Seconds since local midnight; illustrative day, no real roster.",
+    "roadSource": "OpenStreetMap contributors, offline Geofabrik Albania extract 2026-11-13",
+    "osmLicenseUrl": "https://www.openstreetmap.org/copyright",
+    "scope": "Eight fixed street geometries, 32 mapped synthetic stops; no rerouting, live dispatch or global route optimization.",
+    "rulesScope": "Company rules are scenario assumptions. OSM profile/access is a routing model only; legal compliance and current road restrictions were not evaluated."
+  },
+  "organization_setup": {
+    "id": "ORG-TIA",
+    "name": "Tirana City Parcel",
+    "dataClass": "Illustrative dispatch data",
+    "function": "Local parcel collection and delivery",
+    "teams": [
+      {
+        "id": "TEAM-W",
+        "function": "West launch points"
+      },
+      {
+        "id": "TEAM-C",
+        "function": "Central/east launch points"
+      }
+    ]
+  },
+  "externalReview": {
+    "status": "not_verified",
+    "requiredBeforeRealDispatch": true,
+    "sources": [
+      {
+        "id": "SRC-ACCESS",
+        "name": "Municipality of Tirana: ring circulation authorization",
+        "url": "https://tirana.al/Bashkia-Tiran%C3%AB/detaje-sherbimi/Transporti/753",
+        "check": "Verify whether the route, vehicle and time require authorization inside the city ring."
+      },
+      {
+        "id": "SRC-CURB",
+        "name": "Tirana Parking: on-street paid parking",
+        "url": "https://tiranaparking.al/parkime-ne-rruge/",
+        "check": "Parking tariffs do not confirm lawful loading; check actual signs and allowed handoff location."
+      },
+      {
+        "id": "SRC-RESERVED",
+        "name": "Tirana Parking: reserved spaces",
+        "url": "https://tiranaparking.al/parkim-i-rezervuar-me-pagese/",
+        "check": "Check any sign, activity, applicable hours and permission for the specific bay."
+      },
+      {
+        "id": "SRC-LAW",
+        "name": "Official Publications Centre: Road Code register",
+        "url": "https://qbz.gov.al/eli/ligj/1998/07/22/8378",
+        "check": "Registry reference only; the case does not determine which provisions apply."
+      }
+    ]
+  }
+}
