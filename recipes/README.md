@@ -38,6 +38,10 @@ curl -fsS http://127.0.0.1:3000/api/v1/recipes/fleet-pickup-delivery/example \
       -H 'Content-Type: application/json' --data-binary @-
 ```
 
+## Larger synthetic workloads
+
+The [fleet benchmark cases](benchmarks/README.md) generate repeatable city-scale stop data; they do not solve routes.
+
 ## What these examples do not cover
 
 The XML describes the scenario and its fields. The runnable JSON is the normalized problem consumed by the exact solver; the metadata endpoint does not execute XML. These cases use fixed times, exclusive concurrent assignments, and precomputed eligibility. Fleet eligibility is checked against the supplied windows and per-job capacity. Multi-stop routing, cumulative loads, pickup-before-delivery sequencing, full workforce rules, and full school timetables are outside these examples. The healthcare examples contain no patient data and do not make clinical decisions.

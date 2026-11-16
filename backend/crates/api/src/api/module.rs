@@ -1,4 +1,3 @@
-mod builtin_recipe;
 #[path = "controllers/module.rs"]
 pub mod controllers;
 pub mod error;
