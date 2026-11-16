@@ -16,6 +16,7 @@ Try an example before connecting your data. Pick a scenario from the table, run 
 | Pickup and delivery | [Fleet assignment](fleet-pickup-delivery.xml) | Use vehicles that can carry one job's weight and cover its entire time window. |
 | Healthcare delivery | [Supplies delivery](healthcare-supply-delivery.xml) | Assign vans to overlapping supply jobs with weight and availability limits. |
 | Field service | [Technician assignment](field-service.xml) | Cover overlapping service jobs with distinct eligible technicians. |
+| Retail workforce | [Two-store staffing what-if](retail-staffing-what-if.xml) | Compare a baseline with a callout across two stores, while retaining a fixed shift. [Run both cases](examples/retail-staffing-what-if/README.md). |
 
 ## Run one
 

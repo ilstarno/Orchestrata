@@ -8,6 +8,9 @@ use super::builtin_recipe::BuiltinRecipe;
 
 macro_rules! example {
     ($id:literal) => {
+        example!($id, "")
+    };
+    ($id:literal, $variant:literal) => {
         BuiltinRecipe {
             id: $id,
             xml: include_str!(concat!(
@@ -20,14 +23,18 @@ macro_rules! example {
                 env!("CARGO_MANIFEST_DIR"),
                 "/../../../recipes/examples/",
                 $id,
-                "/problem.json"
+                "/",
+                $variant,
+                "problem.json"
             )),
             #[cfg(test)]
             expected: include_str!(concat!(
                 env!("CARGO_MANIFEST_DIR"),
                 "/../../../recipes/examples/",
                 $id,
-                "/expected.json"
+                "/",
+                $variant,
+                "expected.json"
             )),
         }
     };
@@ -46,6 +53,7 @@ pub(super) const BUILTIN_RECIPES: &[BuiltinRecipe] = &[
     example!("hospital-nonclinical-shift-coverage"),
     example!("loading-dock-assignment"),
     example!("operating-room-block-allocation"),
+    example!("retail-staffing-what-if", "baseline/"),
 ];
 
 static METADATA: OnceLock<Option<Vec<RecipeMetadataResponse>>> = OnceLock::new();

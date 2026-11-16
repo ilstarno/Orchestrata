@@ -38,3 +38,30 @@ fn every_built_in_recipe_is_valid_and_its_example_matches_a_verified_plan() {
         .collect();
     assert_eq!(source_ids, ids.into_iter().map(str::to_owned).collect());
 }
+
+#[test]
+fn retail_callout_changes_only_unavailable_choices_and_keeps_a_fixed_shift() {
+    let folder = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../../../recipes/examples/retail-staffing-what-if");
+    let mut cases = Vec::new();
+    for phase in ["baseline", "adjusted"] {
+        let path = folder.join(phase);
+        let problem: Problem =
+            serde_json::from_slice(&fs::read(path.join("problem.json")).unwrap()).unwrap();
+        let expected: serde_json::Value =
+            serde_json::from_slice(&fs::read(path.join("expected.json")).unwrap()).unwrap();
+        let result = SolveService::execute(&problem).unwrap().unwrap();
+        verify_solution(&problem, &result).unwrap();
+        assert_eq!(serde_json::to_value(&result).unwrap(), expected);
+        cases.push((problem, result));
+    }
+    let [(baseline, original), (updated, repaired)] = cases.try_into().ok().unwrap();
+    assert_eq!(baseline.constraints, updated.constraints);
+    assert_eq!(original.values[0], repaired.values[0]);
+    for (old, new) in baseline.variables.iter().zip(&updated.variables) {
+        assert_eq!(old.name, new.name);
+        let without_absence: Vec<_> = old.domain.iter().copied().filter(|n| *n != 1).collect();
+        assert_eq!(new.domain, without_absence);
+    }
+    assert_ne!(original.values, repaired.values);
+}
