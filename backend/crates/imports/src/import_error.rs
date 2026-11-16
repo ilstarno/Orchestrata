@@ -1,6 +1,16 @@
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ImportError {
     SourceTooLarge,
+    InvalidWorkbook,
+    InvalidWorksheet,
+    WorksheetNotFound,
+    WorkbookExpandedTooLarge,
+    WorkbookOutputTooLarge,
+    WorkbookDimensions,
+    DuplicateWorkbookHeader,
+    MissingWorkbookHeader,
+    UnsupportedWorkbookContent,
+    UnsupportedWorkbookCell { row: u32, column: u32 },
     InvalidCsv { line: Option<u64> },
     InvalidJson { line: usize },
     NoHeaders,
