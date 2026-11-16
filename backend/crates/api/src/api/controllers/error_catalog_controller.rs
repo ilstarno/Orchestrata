@@ -1,7 +1,10 @@
 use axum::Json;
 
 use crate::{
-    api::{error_code::SolveErrorCode, http_error_code::HttpErrorCode},
+    api::{
+        error_code::SolveErrorCode, http_error_code::HttpErrorCode,
+        lead_preview_error_code::LeadPreviewErrorCode,
+    },
     dto::error_catalog_entry::ErrorCatalogEntry,
 };
 
@@ -16,6 +19,11 @@ pub async fn error_catalog() -> Json<Vec<ErrorCatalogEntry>> {
             .into_iter()
             .map(SolveErrorCode::entry)
             .chain(HttpErrorCode::ALL.into_iter().map(HttpErrorCode::entry))
+            .chain(
+                LeadPreviewErrorCode::ALL
+                    .into_iter()
+                    .map(LeadPreviewErrorCode::entry),
+            )
             .collect(),
     )
 }

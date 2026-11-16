@@ -13,6 +13,10 @@ mod error_code;
 #[path = "../../../../../backend_tests/api/fleet_examples_tests.rs"]
 mod fleet_examples_tests;
 mod http_error_code;
+mod lead_preview_error_code;
+#[cfg(test)]
+#[path = "../../../../../backend_tests/api/lead_preview_tests.rs"]
+mod lead_preview_tests;
 pub mod openapi;
 mod recipe_catalog;
 #[cfg(test)]
@@ -28,15 +32,17 @@ mod recipe_run_tests;
 mod solve_admission;
 
 use axum::{
-    Json, Router, middleware,
+    Json, Router,
+    extract::DefaultBodyLimit,
+    middleware,
     routing::{get, post},
 };
 use utoipa::OpenApi;
 
 use crate::api::{
     controllers::{
-        error_catalog_controller, health_controller, recipe_controller, recipe_grid_controller,
-        solve_controller,
+        error_catalog_controller, health_controller, lead_preview_controller, recipe_controller,
+        recipe_grid_controller, solve_controller,
     },
     openapi::ApiDoc,
 };
@@ -49,6 +55,10 @@ pub fn router() -> Router {
 fn router_with_admission(admission: solve_admission::SolveAdmission) -> Router {
     Router::new()
         .route("/api/v1/health", get(health_controller::health))
+        .route(
+            "/api/v1/examples/lead-to-contact/{lead_id}/preview",
+            post(lead_preview_controller::evaluate).layer(DefaultBodyLimit::max(16)),
+        )
         .route(
             "/api/v1/error-codes",
             get(error_catalog_controller::error_catalog),

@@ -575,7 +575,10 @@ version = "0.1.0"
 dependencies = [
  "orchestrata-hygiene",
  "orchestrata-solver",
+ "serde",
+ "serde_json",
  "tokio",
+ "utoipa",
 ]
 
 [[package]]

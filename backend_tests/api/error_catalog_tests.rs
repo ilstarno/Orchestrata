@@ -30,7 +30,7 @@ async fn documented_codes_are_unique_and_include_current_transport_errors() {
     assert!(!response.headers().contains_key("x-orchestrata-error-code"));
     let body = to_bytes(response.into_body(), 16 * 1024).await.unwrap();
     let catalog: Vec<Value> = serde_json::from_slice(&body).unwrap();
-    assert_eq!(catalog.len(), 9);
+    assert_eq!(catalog.len(), 12);
     let mut codes = HashSet::new();
     for entry in &catalog {
         assert!(codes.insert(entry["code"].as_str().unwrap()));

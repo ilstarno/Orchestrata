@@ -1,13 +1,15 @@
+use orchestrata_application::lead_preview::{LeadPreview, Outcome, Reason};
 use orchestrata_solver::{Constraint, Problem, Score, Solution, Variable};
 use utoipa::OpenApi;
 
 use crate::{
     api::{
         controllers::{
-            error_catalog_controller, health_controller, recipe_controller, recipe_grid_controller,
-            solve_controller,
+            error_catalog_controller, health_controller, lead_preview_controller,
+            recipe_controller, recipe_grid_controller, solve_controller,
         },
         error_code::SolveErrorCode,
+        lead_preview_error_code::LeadPreviewErrorCode,
     },
     dto::{
         error_catalog_entry::ErrorCatalogEntry, health_response::HealthResponse,
@@ -24,6 +26,7 @@ use crate::{
     paths(
         error_catalog_controller::error_catalog,
         health_controller::health,
+        lead_preview_controller::evaluate,
         recipe_controller::list,
         recipe_grid_controller::grid,
         recipe_controller::metadata,
@@ -36,6 +39,10 @@ use crate::{
         SolveResponse,
         SolveErrorCode,
         ErrorCatalogEntry,
+        LeadPreview,
+        Outcome,
+        Reason,
+        LeadPreviewErrorCode,
         RecipeGridResponse,
         RecipeGridColumn,
         RecipeGridColumnId,
