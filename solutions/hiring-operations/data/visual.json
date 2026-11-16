@@ -1,0 +1,528 @@
+{
+  "timeZone": "UTC",
+  "plans": [
+    {
+      "id": "baseline",
+      "scheduled": 9,
+      "held": 5,
+      "changed": 0,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "schedule-conflict"
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "schedule-conflict"
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "prerequisite"
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "scheduled": 12,
+      "held": 2,
+      "changed": 2,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T16:00:00Z",
+          "endUtc": "2026-11-17T16:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:30:00Z",
+          "endUtc": "2026-11-18T16:15:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:00:00Z",
+          "endUtc": "2026-11-18T15:30:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "scheduled": 10,
+      "held": 4,
+      "changed": 1,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T16:00:00Z",
+          "endUtc": "2026-11-17T16:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:30:00Z",
+          "endUtc": "2026-11-18T16:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-panel"
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "prerequisite"
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1122 @@
+{
+  "caseId": "hiring-operations-interview-planner",
+  "scope": {
+    "workflow": "meeting_logistics_only",
+    "manualReviewRequired": true,
+    "invitesSent": false,
+    "candidateEvaluationPerformed": false,
+    "privateRecordsIncluded": false
+  },
+  "calendar": {
+    "horizonStartUtc": "2026-11-17T00:00:00Z",
+    "horizonEndUtc": "2026-11-20T00:00:00Z",
+    "timeZone": "UTC",
+    "calendarWindowConvention": "half_open_intervals",
+    "staffResources": [
+      {
+        "staffResourceId": "REC-01",
+        "panelRole": "recruiter",
+        "displayTimeZone": "Europe/London",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T14:00:00Z",
+            "untilUtc": "2026-11-17T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T14:00:00Z",
+            "untilUtc": "2026-11-18T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T14:00:00Z",
+            "untilUtc": "2026-11-19T17:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      },
+      {
+        "staffResourceId": "REC-02",
+        "panelRole": "recruiter",
+        "displayTimeZone": "America/New_York",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T15:00:00Z",
+            "untilUtc": "2026-11-17T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T15:00:00Z",
+            "untilUtc": "2026-11-18T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T15:00:00Z",
+            "untilUtc": "2026-11-19T18:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [
+          {
+            "fromUtc": "2026-11-17T15:00:00Z",
+            "untilUtc": "2026-11-17T15:30:00Z"
+          }
+        ],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      },
+      {
+        "staffResourceId": "ENG-01",
+        "panelRole": "specialist",
+        "displayTimeZone": "Europe/Berlin",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T14:00:00Z",
+            "untilUtc": "2026-11-17T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T14:00:00Z",
+            "untilUtc": "2026-11-18T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T14:00:00Z",
+            "untilUtc": "2026-11-19T17:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      },
+      {
+        "staffResourceId": "ENG-02",
+        "panelRole": "specialist",
+        "displayTimeZone": "America/New_York",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T15:00:00Z",
+            "untilUtc": "2026-11-17T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T15:00:00Z",
+            "untilUtc": "2026-11-18T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T15:00:00Z",
+            "untilUtc": "2026-11-19T18:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [
+          {
+            "fromUtc": "2026-11-18T15:00:00Z",
+            "untilUtc": "2026-11-18T15:30:00Z"
+          }
+        ],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      },
+      {
+        "staffResourceId": "MGR-01",
+        "panelRole": "manager",
+        "displayTimeZone": "Europe/London",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T14:00:00Z",
+            "untilUtc": "2026-11-17T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T14:00:00Z",
+            "untilUtc": "2026-11-18T17:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T14:00:00Z",
+            "untilUtc": "2026-11-19T17:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      },
+      {
+        "staffResourceId": "MGR-02",
+        "panelRole": "manager",
+        "displayTimeZone": "America/New_York",
+        "availableWindows": [
+          {
+            "fromUtc": "2026-11-17T15:00:00Z",
+            "untilUtc": "2026-11-17T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-18T15:00:00Z",
+            "untilUtc": "2026-11-18T18:00:00Z"
+          },
+          {
+            "fromUtc": "2026-11-19T15:00:00Z",
+            "untilUtc": "2026-11-19T18:00:00Z"
+          }
+        ],
+        "calendarBusyWindows": [
+          {
+            "fromUtc": "2026-11-19T14:00:00Z",
+            "untilUtc": "2026-11-19T15:30:00Z"
+          }
+        ],
+        "minimumGapMinutes": 10,
+        "dailyInterviewLimit": 4
+      }
+    ]
+  },
+  "interviewRequests": [
+    {
+      "requestId": "INT-001",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-17T14:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-17T14:00:00Z",
+          "untilUtc": "2026-11-17T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": true,
+        "startUtc": "2026-11-17T14:00:00Z",
+        "staffResourceIds": [
+          "REC-01"
+        ]
+      }
+    },
+    {
+      "requestId": "INT-002",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-17T15:00:00Z",
+        "2026-11-17T16:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-17T14:00:00Z",
+          "untilUtc": "2026-11-17T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-003",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-17T15:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-17T14:00:00Z",
+          "untilUtc": "2026-11-17T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-004",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-18T14:00:00Z",
+        "2026-11-18T15:30:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-18T14:00:00Z",
+          "untilUtc": "2026-11-18T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-005",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-18T14:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-18T14:00:00Z",
+          "untilUtc": "2026-11-18T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-006",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-18T16:30:00Z",
+        "2026-11-19T15:30:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-18T16:00:00Z",
+          "untilUtc": "2026-11-18T18:00:00Z"
+        },
+        {
+          "fromUtc": "2026-11-19T14:00:00Z",
+          "untilUtc": "2026-11-19T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-007",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-19T14:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-19T14:00:00Z",
+          "untilUtc": "2026-11-19T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": true,
+        "startUtc": "2026-11-19T14:00:00Z",
+        "staffResourceIds": [
+          "ENG-01",
+          "MGR-01"
+        ]
+      }
+    },
+    {
+      "requestId": "INT-008",
+      "stageCode": "debrief",
+      "requiredRoles": [
+        "recruiter",
+        "manager"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-18T15:00:00Z",
+        "2026-11-19T15:30:00Z",
+        "2026-11-19T16:30:00Z"
+      ],
+      "attendeeWindows": [],
+      "attendeeParticipates": false,
+      "requiresCompletedScheduleStage": "INT-005",
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-009",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-19T14:00:00Z",
+        "2026-11-19T15:30:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-19T17:00:00Z",
+          "untilUtc": "2026-11-19T18:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-010",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-17T17:30:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-17T17:00:00Z",
+          "untilUtc": "2026-11-17T18:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-011",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-18T14:00:00Z",
+        "2026-11-18T15:30:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-18T14:00:00Z",
+          "untilUtc": "2026-11-18T17:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-012",
+      "stageCode": "debrief",
+      "requiredRoles": [
+        "recruiter",
+        "manager"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-19T15:30:00Z",
+        "2026-11-19T16:30:00Z"
+      ],
+      "attendeeWindows": [],
+      "attendeeParticipates": false,
+      "requiresCompletedScheduleStage": "INT-006",
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-013",
+      "stageCode": "panel",
+      "requiredRoles": [
+        "specialist",
+        "manager"
+      ],
+      "durationMinutes": 45,
+      "offeredStartsUtc": [
+        "2026-11-19T16:00:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-19T16:00:00Z",
+          "untilUtc": "2026-11-19T18:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    },
+    {
+      "requestId": "INT-014",
+      "stageCode": "screen",
+      "requiredRoles": [
+        "recruiter"
+      ],
+      "durationMinutes": 30,
+      "offeredStartsUtc": [
+        "2026-11-19T16:40:00Z"
+      ],
+      "attendeeWindows": [
+        {
+          "fromUtc": "2026-11-19T16:00:00Z",
+          "untilUtc": "2026-11-19T18:00:00Z"
+        }
+      ],
+      "attendeeParticipates": true,
+      "requiresCompletedScheduleStage": null,
+      "confirmation": {
+        "locked": false,
+        "startUtc": null,
+        "staffResourceIds": []
+      }
+    }
+  ],
+  "planningPolicy": {
+    "minimumStaffBufferMinutes": 10,
+    "maximumInterviewsPerStaffDay": 4,
+    "debriefDelayAfterPanelMinutes": 15,
+    "confirmationLocksStartAndStaff": true,
+    "objectiveOrder": [
+      "fewest_unscheduled",
+      "fewest_changes_to_previous_schedule",
+      "earliest_total_starts",
+      "stable_technical_tie_break"
+    ],
+    "calendarWritesEnabled": false,
+    "excludedData": [
+      "application_content",
+      "ratings",
+      "identity_attributes"
+    ]
+  },
+  "whatIfEvent": {
+    "staffResourceId": "ENG-01",
+    "fromUtc": "2026-11-18T14:00:00Z",
+    "untilUtc": "2026-11-18T17:00:00Z",
+    "incidentKind": "calendar_window_removed"
+  },
+  "comparison": [
+    {
+      "id": "baseline",
+      "scheduled": 9,
+      "held": 5,
+      "changed": 0,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "schedule-conflict"
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "schedule-conflict"
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "prerequisite"
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "scheduled": 12,
+      "held": 2,
+      "changed": 2,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T16:00:00Z",
+          "endUtc": "2026-11-17T16:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:30:00Z",
+          "endUtc": "2026-11-18T16:15:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:00:00Z",
+          "endUtc": "2026-11-18T15:30:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "scheduled": 10,
+      "held": 4,
+      "changed": 1,
+      "rows": [
+        {
+          "requestId": "INT-001",
+          "stage": "screen",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T14:00:00Z",
+          "endUtc": "2026-11-17T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-002",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T16:00:00Z",
+          "endUtc": "2026-11-17T16:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-003",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-17T15:00:00Z",
+          "endUtc": "2026-11-17T15:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-004",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T15:30:00Z",
+          "endUtc": "2026-11-18T16:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-005",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-panel"
+        },
+        {
+          "requestId": "INT-006",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T16:30:00Z",
+          "endUtc": "2026-11-18T17:15:00Z",
+          "panelists": [
+            "ENG-02",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-007",
+          "stage": "panel",
+          "locked": true,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T14:00:00Z",
+          "endUtc": "2026-11-19T14:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-008",
+          "stage": "debrief",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "prerequisite"
+        },
+        {
+          "requestId": "INT-009",
+          "stage": "screen",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-010",
+          "stage": "panel",
+          "locked": false,
+          "status": "held",
+          "startUtc": null,
+          "endUtc": null,
+          "panelists": [],
+          "reason": "no-overlap"
+        },
+        {
+          "requestId": "INT-011",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-18T14:00:00Z",
+          "endUtc": "2026-11-18T14:30:00Z",
+          "panelists": [
+            "REC-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-012",
+          "stage": "debrief",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T15:30:00Z",
+          "endUtc": "2026-11-19T16:00:00Z",
+          "panelists": [
+            "REC-01",
+            "MGR-01"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-013",
+          "stage": "panel",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:00:00Z",
+          "endUtc": "2026-11-19T16:45:00Z",
+          "panelists": [
+            "ENG-01",
+            "MGR-02"
+          ],
+          "reason": null
+        },
+        {
+          "requestId": "INT-014",
+          "stage": "screen",
+          "locked": false,
+          "status": "scheduled",
+          "startUtc": "2026-11-19T16:40:00Z",
+          "endUtc": "2026-11-19T17:10:00Z",
+          "panelists": [
+            "REC-02"
+          ],
+          "reason": null
+        }
+      ]
+    }
+  ],
+  "scheduleAudit": {
+    "productionInputsUsed": false,
+    "replanReview": {
+      "scenario": "disruption",
+      "calendarChange": {
+        "eventType": "availability_removed",
+        "affectedWindow": {
+          "staffResourceId": "ENG-01",
+          "fromUtc": "2026-11-18T14:00:00Z",
+          "untilUtc": "2026-11-18T17:00:00Z",
+          "incidentKind": "calendar_window_removed",
+          "requestImpact": {
+            "affectedRequestId": "INT-004",
+            "previousAppointment": {
+              "previousStartUtc": "2026-11-18T15:30:00Z",
+              "previousPanel": [
+                "ENG-01",
+                "MGR-01"
+              ],
+              "invalidatedCoverage": {
+                "removedStaffResourceId": "ENG-01",
+                "remediation": {
+                  "plannerAction": "recommended_schedule_comparison",
+                  "proposedAppointment": {
+                    "requestId": "INT-004",
+                    "stage": "panel",
+                    "locked": false,
+                    "status": "scheduled",
+                    "startUtc": "2026-11-18T15:30:00Z",
+                    "endUtc": "2026-11-18T16:15:00Z",
+                    "panelists": [
+                      "ENG-02",
+                      "MGR-01"
+                    ],
+                    "reason": null
+                  },
+                  "reviewGates": {
+                    "coordinatorDecision": "review_required",
+                    "deliveryControls": {
+                      "writeCalendar": false,
+                      "notifyParticipants": false,
+                      "outcomeBoundary": {
+                        "decisionType": "meeting_logistics",
+                        "automatedHiringDecisionAllowed": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.hiring-demo, .hiring-recipes { display:grid; gap:.75rem; margin-block:1.1rem 2.3rem; min-inline-size:0; }
+.hiring-demo :is(h2,h3,p), .hiring-recipes :is(h2,h3,p) { margin:0; }
+.hiring-switch { display:none; flex-wrap:wrap; gap:.45rem; border:0; margin:0; padding:0; min-inline-size:0; }
+.hiring-switch label { display:inline-flex; gap:.45rem; align-items:center; padding:.25rem .6rem; min-block-size:44px; border:1px solid var(--rule); cursor:pointer; }
+.hiring-switch label:has(input:checked) { border-color:var(--accent); background:var(--dataset-head); }
+.hiring-switch label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.hiring-switch input { accent-color:var(--accent); }
+.hiring-plan { display:grid; gap:.75rem; min-inline-size:0; padding:clamp(.55rem,2vw,1rem); background:var(--dataset-surface); border:1px solid var(--rule); }
+.hiring-plan header { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.25rem .9rem; }
+.hiring-plan header p,.hiring-counts dt,.hiring-scope,.hiring-recipes li p { color:var(--muted); font-size:.9rem; }
+.hiring-counts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.6rem; margin:0; }
+.hiring-counts div { padding:.55rem .55rem .35rem; border-block-start:2px solid var(--accent); background:var(--paper); }
+.hiring-counts div:nth-child(2) { border-block-start-color:var(--status-review); }
+.hiring-counts dd { font-weight:720; font-size:1.25rem; margin:0; font-variant-numeric:tabular-nums; }
+.hiring-table { margin:0; font-variant-numeric:tabular-nums; }
+.hiring-table :is(th, time) { white-space:nowrap; }
+.hiring-table tbody tr[data-status="held"] th { box-shadow:inset 2px 0 var(--status-review); }
+.hiring-scope { display:flex; align-items:flex-start; gap:.45rem; }
+.hiring-scope svg,.hiring-recipes svg { flex:none; color:var(--accent); }
+.hiring-recipes ol { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; list-style:none; padding:0; margin:0; }
+.hiring-recipes li { display:flex; gap:.55rem; border-block-start:1px solid var(--rule); padding:.65rem 0; }
+.hiring-recipes li > svg { margin-block-start:.15rem; }
+.hiring-recipes li h3 { font-size:1rem; }
+.hiring-recipes li p { margin-block:.22rem 0; }
+.hiring-recipes li a { display:inline-flex; gap:.35rem; align-items:center; min-block-size:44px; }
+.hiring-recipes li a svg { inline-size:1rem; }
+.hiring-sources ul { padding-inline-start:1.15rem; }
+.hiring-sources li a { display:inline-flex; align-items:center; min-block-size:44px; }
+@supports selector(:has(*)) {
+  .hiring-switch { display:flex; }
+  .hiring-demo:has(input[value="baseline"]:checked) .hiring-plan:not([data-hiring-plan="baseline"]),
+  .hiring-demo:has(input[value="recommended"]:checked) .hiring-plan:not([data-hiring-plan="recommended"]),
+  .hiring-demo:has(input[value="disruption"]:checked) .hiring-plan:not([data-hiring-plan="disruption"]) { display:none; }
+}
+@media(max-width:44rem) { .hiring-recipes ol { grid-template-columns:1fr; gap:0; } }
+
+.hiring-calendar h4, .hiring-calendar h5 { margin:0; }
+.hiring-calendar h4 { font-size:.96rem; }
+.hiring-days { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.6rem; margin-top:.4rem; }
+.hiring-days > div { background:var(--paper); border:1px solid var(--rule); min-inline-size:0; padding:.5rem; }
+.hiring-days h5 { color:var(--muted); font-size:.85rem; text-transform:none; margin-bottom:.3rem; }
+.hiring-days ul { display:grid; gap:.24rem; list-style:none; padding:0; margin:0; }
+.hiring-days li { display:grid; grid-template-columns:3.4rem minmax(0,1fr); gap:.35rem; align-items:baseline; border-inline-start:3px solid var(--accent); padding:.26rem .35rem; background:var(--dataset-surface); font-size:.87rem; }
+.hiring-days li[data-stage="screen"] { border-inline-start-color:var(--muted); }
+.hiring-days li[data-stage="debrief"] { border-inline-start-color:var(--status-review); }
+.hiring-days time { font-variant-numeric:tabular-nums; }
+.hiring-days small { display:block; font-size:.75rem; color:var(--muted); }
+.hiring-details summary { min-block-size:44px; padding-block:.6rem; cursor:pointer; font-weight:650; }
+.hiring-details[open] { margin-block-end:.15rem; }
+@media(max-width:38rem) { .hiring-days { grid-template-columns:minmax(0,1fr); } }
