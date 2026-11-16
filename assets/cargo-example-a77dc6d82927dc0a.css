@@ -1,0 +1,63 @@
+.cargo-summary {
+  display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; padding-block: .65rem;
+  border-block: 1px solid var(--rule); color: var(--muted); font-size: .9rem;
+}
+.cargo-summary strong { color: var(--accent); }
+.cargo-results { margin-block: 2rem; }
+.cargo-results > p { color: var(--muted); max-inline-size: 68ch; }
+.cargo-fleet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.cargo-ship {
+  --haul: var(--dataset-head);
+  --shell: var(--dataset-edge);
+  min-inline-size: 0; margin: 0; padding-block-start: .75rem; border-block-start: 1px solid var(--rule);
+}
+.cargo-ship figcaption { display: grid; gap: .1rem; color: var(--muted); font-size: .87rem; }
+.cargo-ship figcaption strong { color: var(--ink); font-size: 1.13rem; }
+.cargo-ship figcaption div { display: flex; flex-wrap: wrap; gap: .15rem .9rem; color: var(--accent); font-weight: 680; }
+.cargo-cutaway { position: relative; padding-block-start: 2.2rem; margin-block: .85rem .2rem; isolation: isolate; }
+.cargo-superstructure {
+  position: absolute; inset-block-start: 1rem; inset-inline-start: 10%;
+  inline-size: 18%; block-size: 1.3rem; border: 1px solid var(--shell); background: var(--haul); z-index: -1;
+}
+.cargo-superstructure::before {
+  content: ''; position: absolute; inset-block-start: -.65rem; inset-inline-start: 17%;
+  inline-size: 52%; block-size: .6rem; border: 1px solid var(--shell); background: var(--haul);
+}
+.cargo-superstructure::after {
+  content: ''; position: absolute; inset-block-start: .35rem; inset-inline-end: 12%;
+  inline-size: 25%; block-size: .3rem; background: var(--muted);
+}
+.cargo-ship--1 .cargo-superstructure { inset-inline-start: 63%; inline-size: 20%; }
+.cargo-ship--2 .cargo-superstructure { inset-inline-start: 17%; inline-size: 23%; }
+.cargo-hold {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: .3rem; padding: .65rem 13% 1.1rem 9%; border-block-start: 2px solid var(--accent);
+}
+.cargo-hold::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; background: var(--haul);
+  clip-path: polygon(0 0, 100% 0, 88% 83%, 73% 100%, 15% 100%, 6% 84%);
+}
+.cargo-ship--1 .cargo-hold::before { clip-path: polygon(0 0, 100% 0, 85% 90%, 70% 100%, 10% 100%); }
+.cargo-ship--2 .cargo-hold::before { clip-path: polygon(0 0, 100% 0, 88% 76%, 77% 100%, 16% 100%, 4% 70%); }
+.cargo-box {
+  display: flex; min-block-size: 3.25rem; flex-direction: column; justify-content: center;
+  padding: .22rem .35rem; background: var(--paper); border: 1px solid var(--shell); color: var(--ink);
+  font-size: .77rem; line-height: 1.24; overflow-wrap: anywhere;
+}
+.cargo-box span { color: var(--muted); margin-block-start: .14rem; }
+.cargo-box--cold { border-inline-start: 3px solid var(--accent); }
+.cargo-table-section { max-inline-size: 100%; }
+.cargo-table table { width: 100%; min-inline-size: 34rem; border-collapse: collapse; }
+.cargo-table :is(th, td) { padding: .55rem .75rem; text-align: start; border-block-end: 1px solid var(--rule); }
+.cargo-table small { display: block; color: var(--muted); }
+.cargo-downloads { display: flex; flex-wrap: wrap; gap: .2rem 1.2rem; margin-block: .45rem; }
+.cargo-downloads a { display: inline-flex; align-items: center; min-block-size: 44px; }
+@media (max-width: 47rem) {
+  .cargo-fleet { grid-template-columns: minmax(0, 1fr); }
+  .cargo-cutaway { max-inline-size: 28rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cargo-ship[data-cargo-entered] .cargo-box { animation: cargo-arrives .6s cubic-bezier(.2,.75,.3,1) both; }
+  .cargo-ship[data-cargo-entered] .cargo-box:nth-child(2) { animation-delay: 115ms; }
+  @keyframes cargo-arrives { from { transform: translateY(-.85rem); } to { transform: translateY(0); } }
+}

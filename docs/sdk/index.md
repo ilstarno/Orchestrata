@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes a [tested standalone engine source revision](https://github.com/ilstarno/orchestrata-engine/tree/afab9aa0f1ce4138249165df5f8a27305b20693d) on the development branch, not downloadable SDK releases or published language packages. Build the native library and binding from that same revision. The examples use sample data. Most select `1`; the Node.js example uses a larger integer to show that the typed binding preserves it exactly.
+The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes a [tested standalone engine source revision](https://github.com/ilstarno/orchestrata-engine/tree/0281da6328b8a02b52e35fafee7348e144b22b48) on the development branch, not downloadable SDK releases or published language packages. Build the native library and binding from that same revision. The examples use sample data. Most select `1`; the Node.js example uses a larger integer to show that the typed binding preserves it exactly.
 
 ## Build and locate the library
 
@@ -25,14 +25,14 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 
 | Language | Source requirements | What the call actually types |
 | --- | --- | --- |
-| C# | .NET 8; reference `sdks/csharp/Orchestrata.csproj`. | The overloads accept UTF-8 bytes or a string and a `ulong` limit; return a raw JSON string. No checked-in problem or solution model. |
+| C# | .NET 8; reference `sdks/csharp/Orchestrata.csproj`. | `Solve` takes a typed `Problem` with all seven rules and returns `Solved` or `Infeasible`. `SolveJson` keeps the raw interface. |
 | Java | A 64-bit JDK 22 or newer, with native access enabled. | Accepts a UTF-8 `byte[]` or a string and a `long` limit. Returns raw JSON text. No checked-in problem or solution model. |
 | Python | Python 3.10 or newer; uses the standard-library native loader. | `solve_problem` takes a typed, immutable `Problem` with all seven constraint variants and returns `Solution \| None`. The mapping and raw bytes methods remain available. |
 | Node.js | A Node release with Node-API BigInt support, a C toolchain, and `node-gyp`. | `solve` takes a typed object with all seven rules and returns a typed solved or infeasible result. `bigint` preserves 64-bit values. `solveJson` remains available. |
 | PHP | PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment. | Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model. |
 | Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` with all seven rules and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
 
-A typed byte-string argument is not a typed planning model. Node.js, Python, and Go type all seven finite-domain constraints at this source revision. C#, Java, and PHP use the JSON interface. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
+A typed byte-string argument is not a typed planning model. C#, Node.js, Python, and Go type all seven finite-domain constraints at this source revision. Java and PHP use the JSON interface. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
 
 ## Problem and result format
 
@@ -60,22 +60,25 @@ Create a .NET 8 console project, add a project reference to `sdks/csharp/Orchest
 
 ```csharp
 using System;
-using System.Text.Json;
 using Orchestrata;
 
 using var solver = new Solver(args[0]);
-const string problem = """
-    {"variables":[{"name":"job","domain":[0,1]}],"constraints":[{"kind":"prefer_value","variable":0,"value":1,"soft_weight":1}]}
-    """;
-using var response = JsonDocument.Parse(solver.SolveJson(problem, 2UL));
-var solution = response.RootElement.GetProperty("solution");
-if (solution.ValueKind == JsonValueKind.Null)
-    Console.WriteLine("No feasible assignment");
-else
-    Console.WriteLine(solution.GetProperty("values").GetRawText());
+var problem = new Problem(
+    [new Variable("job", [0, 1])],
+    [new PreferValue(0, 1, 1)]);
+
+switch (solver.Solve(problem, 2))
+{
+    case Solved solved:
+        Console.WriteLine(solved.Solution.Values[0]);
+        break;
+    case Infeasible _:
+        Console.WriteLine("No feasible assignment");
+        break;
+}
 ```
 
-Dispose the solver when you are done. A nonzero solver status is a `SolveException` whose `Status` is numeric. A library load, incompatible version, or call after disposal is a separate failure.
+Indices are nonnegative `int`. Signed values and scores use `long`; durations, capacities and evaluation counts use `ulong`. `SolveException.Kind` gives the typed engine status and `Status` preserves the original code. `SolveResponseException` identifies a malformed result. Local argument, library loading, and disposal failures do not report a solver outcome. Use `SolveJson` when you need the unchanged raw interface.
 
 ## Java · JDK 22+
 
@@ -228,7 +231,7 @@ CGO_ENABLED=1 CGO_CFLAGS="-I$ORCHESTRATA_INCLUDE" \
 
 ## Scheduling and capacity constraints
 
-Node.js, Python, and Go model these constraints directly. The table shows their wire names and fields for callers using raw JSON. This is the native contract, not a guarantee that a separate HTTP endpoint accepts the same rules.
+C#, Node.js, Python, and Go model these constraints directly. The table shows their wire names and fields for callers using raw JSON. This is the native contract, not a guarantee that a separate HTTP endpoint accepts the same rules.
 
 | `kind` | Required fields | Meaning |
 | --- | --- | --- |

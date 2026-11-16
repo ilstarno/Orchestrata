@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "kind": "synthetic-workload",
+  "city": "tirana",
+  "prefix": "TIA",
+  "stops": 1282,
+  "shiftMinutes": 480,
+  "seed": 1282,
+  "modes": {
+    "vehicle": 6,
+    "bicycle": 1,
+    "walking": 1
+  },
+  "source": "https://github.com/ilstarno/orchestrata-recipes/blob/625737335be09cd1c899f8319864976f331e9c6f/recipes/benchmarks/tirana.xml",
+  "courierCount": 8,
+  "stopsPerCourier": 160.25,
+  "averageMinutesBudget": 2.995319812792512,
+  "lowerBound": 161,
+  "couriers": [
+    {
+      "id": "TIA-001",
+      "mode": "vehicle",
+      "color": "hsl(113.87 70% 50%)"
+    },
+    {
+      "id": "TIA-002",
+      "mode": "vehicle",
+      "color": "hsl(251.38 70% 50%)"
+    },
+    {
+      "id": "TIA-003",
+      "mode": "vehicle",
+      "color": "hsl(28.88 70% 50%)"
+    },
+    {
+      "id": "TIA-004",
+      "mode": "vehicle",
+      "color": "hsl(166.39 70% 50%)"
+    },
+    {
+      "id": "TIA-005",
+      "mode": "vehicle",
+      "color": "hsl(303.90 70% 50%)"
+    },
+    {
+      "id": "TIA-006",
+      "mode": "vehicle",
+      "color": "hsl(81.41 70% 50%)"
+    },
+    {
+      "id": "TIA-007",
+      "mode": "bicycle",
+      "color": "hsl(218.92 70% 50%)"
+    },
+    {
+      "id": "TIA-008",
+      "mode": "walking",
+      "color": "hsl(356.42 70% 50%)"
+    }
+  ]
+}

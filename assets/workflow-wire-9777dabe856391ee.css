@@ -1,0 +1,89 @@
+
+/* Static reading order is also the wire direction. */
+.workflow-wire {
+  container-type: inline-size;
+  margin-block: 1.25rem 2rem;
+  padding: clamp(.75rem, 2.6vw, 1.35rem);
+  border: 1px solid var(--dataset-edge);
+  border-radius: .4rem;
+  background: var(--dataset-surface);
+}
+.workflow-wire h2 { margin-block: 0 .4rem; font-size: clamp(1.25rem, 2.4vw, 1.75rem); }
+.workflow-wire .workflow-wire-caption { margin: 0; color: var(--muted); }
+.workflow-wire .workflow-wire-list {
+  display: grid;
+  gap: 1.65rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.workflow-wire-block {
+  position: relative;
+  min-inline-size: 0;
+  padding: .85rem;
+  border: 1px solid var(--dataset-edge);
+  border-radius: .3rem;
+  background: var(--paper);
+  overflow-wrap: anywhere;
+}
+.workflow-wire-block:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: calc(1rem + 15px);
+  inline-size: 2px;
+  block-size: calc(1.65rem + 2px);
+  background: var(--accent);
+  transform-origin: center top;
+  --wire-trace-start: scaleY(0);
+}
+.workflow-wire-icon {
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: .25rem;
+  background: var(--dataset-head);
+  color: var(--accent);
+}
+.workflow-wire-block h3 { margin: .55rem 0 .4rem; font-size: 1rem; }
+.workflow-wire-block p, .workflow-wire-block dl { margin: .45rem 0 0; }
+.workflow-wire-block dl > div + div { margin-block-start: .4rem; }
+.workflow-wire-block dt { font-weight: 650; }
+.workflow-wire-block dd { margin-inline-start: 0; color: var(--muted); }
+.workflow-wire-block .workflow-wire-checks { margin: .45rem 0 0; padding-inline-start: 1.2rem; }
+.workflow-wire-note { color: var(--muted); font-size: .875rem; }
+@container (min-width: 35rem) {
+  .workflow-wire-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .workflow-wire-block:not(:last-child)::after {
+    inset-inline-start: 100%;
+    inset-block-start: calc(.85rem + 15px);
+    inline-size: calc(1.65rem + 2px);
+    block-size: 2px;
+    transform-origin: left center;
+    --wire-trace-start: scaleX(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-wire-entered] .workflow-wire-block {
+    animation: workflow-wire-settle 420ms ease-out both;
+  }
+  [data-wire-entered] .workflow-wire-block:nth-child(2) { animation-delay: 130ms; }
+  [data-wire-entered] .workflow-wire-block:nth-child(3) { animation-delay: 260ms; }
+  [data-wire-entered] .workflow-wire-block:not(:last-child)::after {
+    animation: workflow-wire-trace 280ms ease-out both;
+    animation-delay: 70ms;
+  }
+  [data-wire-entered] .workflow-wire-block:nth-child(2)::after { animation-delay: 200ms; }
+  @keyframes workflow-wire-settle {
+    from { transform: translateY(.28rem); }
+    to { transform: none; }
+  }
+  @keyframes workflow-wire-trace {
+    from { transform: var(--wire-trace-start); }
+    to { transform: none; }
+  }
+}
+@media (forced-colors: active) {
+  .workflow-wire-block:not(:last-child)::after { border: 1px solid CanvasText; background: CanvasText; }
+}

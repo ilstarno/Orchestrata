@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "kind": "synthetic-workload",
+  "city": "rome",
+  "prefix": "ROM",
+  "stops": 11221,
+  "shiftMinutes": 480,
+  "seed": 11221,
+  "modes": {
+    "vehicle": 56,
+    "bicycle": 10,
+    "walking": 4
+  },
+  "source": "https://github.com/ilstarno/orchestrata-recipes/blob/625737335be09cd1c899f8319864976f331e9c6f/recipes/benchmarks/rome.xml",
+  "courierCount": 70,
+  "stopsPerCourier": 160.3,
+  "averageMinutesBudget": 2.9943855271366187,
+  "lowerBound": 161,
+  "couriers": [
+    {
+      "id": "ROM-001",
+      "mode": "vehicle",
+      "color": "hsl(208.31 70% 50%)"
+    },
+    {
+      "id": "ROM-002",
+      "mode": "vehicle",
+      "color": "hsl(345.82 70% 50%)"
+    },
+    {
+      "id": "ROM-003",
+      "mode": "vehicle",
+      "color": "hsl(123.32 70% 50%)"
+    },
+    {
+      "id": "ROM-004",
+      "mode": "vehicle",
+      "color": "hsl(260.83 70% 50%)"
+    },
+    {
+      "id": "ROM-005",
+      "mode": "vehicle",
+      "color": "hsl(38.34 70% 50%)"
+    },
+    {
+      "id": "ROM-006",
+      "mode": "vehicle",
+      "color": "hsl(175.85 70% 50%)"
+    },
+    {
+      "id": "ROM-007",
+      "mode": "vehicle",
+      "color": "hsl(313.36 70% 50%)"
+    },
+    {
+      "id": "ROM-008",
+      "mode": "vehicle",
+      "color": "hsl(90.86 70% 50%)"
+    },
+    {
+      "id": "ROM-009",
+      "mode": "vehicle",
+      "color": "hsl(228.37 70% 50%)"
+    },
+    {
+      "id": "ROM-010",
+      "mode": "vehicle",
+      "color": "hsl(5.88 70% 50%)"
+    },
+    {
+      "id": "ROM-011",
+      "mode": "vehicle",
+      "color": "hsl(143.39 70% 50%)"
+    },
+    {
+      "id": "ROM-012",
+      "mode": "vehicle",
+      "color": "hsl(280.90 70% 50%)"
+    },
+    {
+      "id": "ROM-013",
+      "mode": "vehicle",
+      "color": "hsl(58.40 70% 50%)"
+    },
+    {
+      "id": "ROM-014",
+      "mode": "vehicle",
+      "color": "hsl(195.91 70% 50%)"
+    },
+    {
+      "id": "ROM-015",
+      "mode": "vehicle",
+      "color": "hsl(333.42 70% 50%)"
+    },
+    {
+      "id": "ROM-016",
+      "mode": "vehicle",
+      "color": "hsl(110.93 70% 50%)"
+    },
+    {
+      "id": "ROM-017",
+      "mode": "vehicle",
+      "color": "hsl(248.44 70% 50%)"
+    },
+    {
+      "id": "ROM-018",
+      "mode": "vehicle",
+      "color": "hsl(25.94 70% 50%)"
+    },
+    {
+      "id": "ROM-019",
+      "mode": "vehicle",
+      "color": "hsl(163.45 70% 50%)"
+    },
+    {
+      "id": "ROM-020",
+      "mode": "vehicle",
+      "color": "hsl(300.96 70% 50%)"
+    },
+    {
+      "id": "ROM-021",
+      "mode": "vehicle",
+      "color": "hsl(78.47 70% 50%)"
+    },
+    {
+      "id": "ROM-022",
+      "mode": "vehicle",
+      "color": "hsl(215.98 70% 50%)"
+    },
+    {
+      "id": "ROM-023",
+      "mode": "vehicle",
+      "color": "hsl(353.48 70% 50%)"
+    },
+    {
+      "id": "ROM-024",
+      "mode": "vehicle",
+      "color": "hsl(130.99 70% 50%)"
+    },
+    {
+      "id": "ROM-025",
+      "mode": "vehicle",
+      "color": "hsl(268.50 70% 50%)"
+    },
+    {
+      "id": "ROM-026",
+      "mode": "vehicle",
+      "color": "hsl(46.01 70% 50%)"
+    },
+    {
+      "id": "ROM-027",
+      "mode": "vehicle",
+      "color": "hsl(183.52 70% 50%)"
+    },
+    {
+      "id": "ROM-028",
+      "mode": "vehicle",
+      "color": "hsl(321.02 70% 50%)"
+    },
+    {
+      "id": "ROM-029",
+      "mode": "vehicle",
+      "color": "hsl(98.53 70% 50%)"
+    },
+    {
+      "id": "ROM-030",
+      "mode": "vehicle",
+      "color": "hsl(236.04 70% 50%)"
+    },
+    {
+      "id": "ROM-031",
+      "mode": "vehicle",
+      "color": "hsl(13.55 70% 50%)"
+    },
+    {
+      "id": "ROM-032",
+      "mode": "vehicle",
+      "color": "hsl(151.06 70% 50%)"
+    },
+    {
+      "id": "ROM-033",
+      "mode": "vehicle",
+      "color": "hsl(288.56 70% 50%)"
+    },
+    {
+      "id": "ROM-034",
+      "mode": "vehicle",
+      "color": "hsl(66.07 70% 50%)"
+    },
+    {
+      "id": "ROM-035",
+      "mode": "vehicle",
+      "color": "hsl(203.58 70% 50%)"
+    },
+    {
+      "id": "ROM-036",
+      "mode": "vehicle",
+      "color": "hsl(341.09 70% 50%)"
+    },
+    {
+      "id": "ROM-037",
+      "mode": "vehicle",
+      "color": "hsl(118.60 70% 50%)"
+    },
+    {
+      "id": "ROM-038",
+      "mode": "vehicle",
+      "color": "hsl(256.10 70% 50%)"
+    },
+    {
+      "id": "ROM-039",
+      "mode": "vehicle",
+      "color": "hsl(33.61 70% 50%)"
+    },
+    {
+      "id": "ROM-040",
+      "mode": "vehicle",
+      "color": "hsl(171.12 70% 50%)"
+    },
+    {
+      "id": "ROM-041",
+      "mode": "vehicle",
+      "color": "hsl(308.63 70% 50%)"
+    },
+    {
+      "id": "ROM-042",
+      "mode": "vehicle",
+      "color": "hsl(86.14 70% 50%)"
+    },
+    {
+      "id": "ROM-043",
+      "mode": "vehicle",
+      "color": "hsl(223.64 70% 50%)"
+    },
+    {
+      "id": "ROM-044",
+      "mode": "vehicle",
+      "color": "hsl(1.15 70% 50%)"
+    },
+    {
+      "id": "ROM-045",
+      "mode": "vehicle",
+      "color": "hsl(138.66 70% 50%)"
+    },
+    {
+      "id": "ROM-046",
+      "mode": "vehicle",
+      "color": "hsl(276.17 70% 50%)"
+    },
+    {
+      "id": "ROM-047",
+      "mode": "vehicle",
+      "color": "hsl(53.68 70% 50%)"
+    },
+    {
+      "id": "ROM-048",
+      "mode": "vehicle",
+      "color": "hsl(191.18 70% 50%)"
+    },
+    {
+      "id": "ROM-049",
+      "mode": "vehicle",
+      "color": "hsl(328.69 70% 50%)"
+    },
+    {
+      "id": "ROM-050",
+      "mode": "vehicle",
+      "color": "hsl(106.20 70% 50%)"
+    },
+    {
+      "id": "ROM-051",
+      "mode": "vehicle",
+      "color": "hsl(243.71 70% 50%)"
+    },
+    {
+      "id": "ROM-052",
+      "mode": "vehicle",
+      "color": "hsl(21.22 70% 50%)"
+    },
+    {
+      "id": "ROM-053",
+      "mode": "vehicle",
+      "color": "hsl(158.72 70% 50%)"
+    },
+    {
+      "id": "ROM-054",
+      "mode": "vehicle",
+      "color": "hsl(296.23 70% 50%)"
+    },
+    {
+      "id": "ROM-055",
+      "mode": "vehicle",
+      "color": "hsl(73.74 70% 50%)"
+    },
+    {
+      "id": "ROM-056",
+      "mode": "vehicle",
+      "color": "hsl(211.25 70% 50%)"
+    },
+    {
+      "id": "ROM-057",
+      "mode": "bicycle",
+      "color": "hsl(348.76 70% 50%)"
+    },
+    {
+      "id": "ROM-058",
+      "mode": "bicycle",
+      "color": "hsl(126.26 70% 50%)"
+    },
+    {
+      "id": "ROM-059",
+      "mode": "bicycle",
+      "color": "hsl(263.77 70% 50%)"
+    },
+    {
+      "id": "ROM-060",
+      "mode": "bicycle",
+      "color": "hsl(41.28 70% 50%)"
+    },
+    {
+      "id": "ROM-061",
+      "mode": "bicycle",
+      "color": "hsl(178.79 70% 50%)"
+    },
+    {
+      "id": "ROM-062",
+      "mode": "bicycle",
+      "color": "hsl(316.30 70% 50%)"
+    },
+    {
+      "id": "ROM-063",
+      "mode": "bicycle",
+      "color": "hsl(93.80 70% 50%)"
+    },
+    {
+      "id": "ROM-064",
+      "mode": "bicycle",
+      "color": "hsl(231.31 70% 50%)"
+    },
+    {
+      "id": "ROM-065",
+      "mode": "bicycle",
+      "color": "hsl(8.82 70% 50%)"
+    },
+    {
+      "id": "ROM-066",
+      "mode": "bicycle",
+      "color": "hsl(146.33 70% 50%)"
+    },
+    {
+      "id": "ROM-067",
+      "mode": "walking",
+      "color": "hsl(283.84 70% 50%)"
+    },
+    {
+      "id": "ROM-068",
+      "mode": "walking",
+      "color": "hsl(61.34 70% 50%)"
+    },
+    {
+      "id": "ROM-069",
+      "mode": "walking",
+      "color": "hsl(198.85 70% 50%)"
+    },
+    {
+      "id": "ROM-070",
+      "mode": "walking",
+      "color": "hsl(336.36 70% 50%)"
+    }
+  ]
+}

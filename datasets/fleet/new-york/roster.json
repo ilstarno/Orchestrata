@@ -1,0 +1,521 @@
+{
+  "version": 1,
+  "kind": "synthetic-workload",
+  "city": "new-york",
+  "prefix": "NYC",
+  "stops": 16030,
+  "shiftMinutes": 480,
+  "seed": 16030,
+  "modes": {
+    "vehicle": 80,
+    "bicycle": 15,
+    "walking": 5
+  },
+  "source": "https://github.com/ilstarno/orchestrata-recipes/blob/625737335be09cd1c899f8319864976f331e9c6f/recipes/benchmarks/new-york.xml",
+  "courierCount": 100,
+  "stopsPerCourier": 160.3,
+  "averageMinutesBudget": 2.9943855271366187,
+  "lowerBound": 161,
+  "couriers": [
+    {
+      "id": "NYC-001",
+      "mode": "vehicle",
+      "color": "hsl(137.51 70% 50%)"
+    },
+    {
+      "id": "NYC-002",
+      "mode": "vehicle",
+      "color": "hsl(275.02 70% 50%)"
+    },
+    {
+      "id": "NYC-003",
+      "mode": "vehicle",
+      "color": "hsl(52.52 70% 50%)"
+    },
+    {
+      "id": "NYC-004",
+      "mode": "vehicle",
+      "color": "hsl(190.03 70% 50%)"
+    },
+    {
+      "id": "NYC-005",
+      "mode": "vehicle",
+      "color": "hsl(327.54 70% 50%)"
+    },
+    {
+      "id": "NYC-006",
+      "mode": "vehicle",
+      "color": "hsl(105.05 70% 50%)"
+    },
+    {
+      "id": "NYC-007",
+      "mode": "vehicle",
+      "color": "hsl(242.56 70% 50%)"
+    },
+    {
+      "id": "NYC-008",
+      "mode": "vehicle",
+      "color": "hsl(20.06 70% 50%)"
+    },
+    {
+      "id": "NYC-009",
+      "mode": "vehicle",
+      "color": "hsl(157.57 70% 50%)"
+    },
+    {
+      "id": "NYC-010",
+      "mode": "vehicle",
+      "color": "hsl(295.08 70% 50%)"
+    },
+    {
+      "id": "NYC-011",
+      "mode": "vehicle",
+      "color": "hsl(72.59 70% 50%)"
+    },
+    {
+      "id": "NYC-012",
+      "mode": "vehicle",
+      "color": "hsl(210.10 70% 50%)"
+    },
+    {
+      "id": "NYC-013",
+      "mode": "vehicle",
+      "color": "hsl(347.60 70% 50%)"
+    },
+    {
+      "id": "NYC-014",
+      "mode": "vehicle",
+      "color": "hsl(125.11 70% 50%)"
+    },
+    {
+      "id": "NYC-015",
+      "mode": "vehicle",
+      "color": "hsl(262.62 70% 50%)"
+    },
+    {
+      "id": "NYC-016",
+      "mode": "vehicle",
+      "color": "hsl(40.13 70% 50%)"
+    },
+    {
+      "id": "NYC-017",
+      "mode": "vehicle",
+      "color": "hsl(177.64 70% 50%)"
+    },
+    {
+      "id": "NYC-018",
+      "mode": "vehicle",
+      "color": "hsl(315.14 70% 50%)"
+    },
+    {
+      "id": "NYC-019",
+      "mode": "vehicle",
+      "color": "hsl(92.65 70% 50%)"
+    },
+    {
+      "id": "NYC-020",
+      "mode": "vehicle",
+      "color": "hsl(230.16 70% 50%)"
+    },
+    {
+      "id": "NYC-021",
+      "mode": "vehicle",
+      "color": "hsl(7.67 70% 50%)"
+    },
+    {
+      "id": "NYC-022",
+      "mode": "vehicle",
+      "color": "hsl(145.18 70% 50%)"
+    },
+    {
+      "id": "NYC-023",
+      "mode": "vehicle",
+      "color": "hsl(282.68 70% 50%)"
+    },
+    {
+      "id": "NYC-024",
+      "mode": "vehicle",
+      "color": "hsl(60.19 70% 50%)"
+    },
+    {
+      "id": "NYC-025",
+      "mode": "vehicle",
+      "color": "hsl(197.70 70% 50%)"
+    },
+    {
+      "id": "NYC-026",
+      "mode": "vehicle",
+      "color": "hsl(335.21 70% 50%)"
+    },
+    {
+      "id": "NYC-027",
+      "mode": "vehicle",
+      "color": "hsl(112.72 70% 50%)"
+    },
+    {
+      "id": "NYC-028",
+      "mode": "vehicle",
+      "color": "hsl(250.22 70% 50%)"
+    },
+    {
+      "id": "NYC-029",
+      "mode": "vehicle",
+      "color": "hsl(27.73 70% 50%)"
+    },
+    {
+      "id": "NYC-030",
+      "mode": "vehicle",
+      "color": "hsl(165.24 70% 50%)"
+    },
+    {
+      "id": "NYC-031",
+      "mode": "vehicle",
+      "color": "hsl(302.75 70% 50%)"
+    },
+    {
+      "id": "NYC-032",
+      "mode": "vehicle",
+      "color": "hsl(80.26 70% 50%)"
+    },
+    {
+      "id": "NYC-033",
+      "mode": "vehicle",
+      "color": "hsl(217.76 70% 50%)"
+    },
+    {
+      "id": "NYC-034",
+      "mode": "vehicle",
+      "color": "hsl(355.27 70% 50%)"
+    },
+    {
+      "id": "NYC-035",
+      "mode": "vehicle",
+      "color": "hsl(132.78 70% 50%)"
+    },
+    {
+      "id": "NYC-036",
+      "mode": "vehicle",
+      "color": "hsl(270.29 70% 50%)"
+    },
+    {
+      "id": "NYC-037",
+      "mode": "vehicle",
+      "color": "hsl(47.80 70% 50%)"
+    },
+    {
+      "id": "NYC-038",
+      "mode": "vehicle",
+      "color": "hsl(185.30 70% 50%)"
+    },
+    {
+      "id": "NYC-039",
+      "mode": "vehicle",
+      "color": "hsl(322.81 70% 50%)"
+    },
+    {
+      "id": "NYC-040",
+      "mode": "vehicle",
+      "color": "hsl(100.32 70% 50%)"
+    },
+    {
+      "id": "NYC-041",
+      "mode": "vehicle",
+      "color": "hsl(237.83 70% 50%)"
+    },
+    {
+      "id": "NYC-042",
+      "mode": "vehicle",
+      "color": "hsl(15.34 70% 50%)"
+    },
+    {
+      "id": "NYC-043",
+      "mode": "vehicle",
+      "color": "hsl(152.84 70% 50%)"
+    },
+    {
+      "id": "NYC-044",
+      "mode": "vehicle",
+      "color": "hsl(290.35 70% 50%)"
+    },
+    {
+      "id": "NYC-045",
+      "mode": "vehicle",
+      "color": "hsl(67.86 70% 50%)"
+    },
+    {
+      "id": "NYC-046",
+      "mode": "vehicle",
+      "color": "hsl(205.37 70% 50%)"
+    },
+    {
+      "id": "NYC-047",
+      "mode": "vehicle",
+      "color": "hsl(342.88 70% 50%)"
+    },
+    {
+      "id": "NYC-048",
+      "mode": "vehicle",
+      "color": "hsl(120.38 70% 50%)"
+    },
+    {
+      "id": "NYC-049",
+      "mode": "vehicle",
+      "color": "hsl(257.89 70% 50%)"
+    },
+    {
+      "id": "NYC-050",
+      "mode": "vehicle",
+      "color": "hsl(35.40 70% 50%)"
+    },
+    {
+      "id": "NYC-051",
+      "mode": "vehicle",
+      "color": "hsl(172.91 70% 50%)"
+    },
+    {
+      "id": "NYC-052",
+      "mode": "vehicle",
+      "color": "hsl(310.42 70% 50%)"
+    },
+    {
+      "id": "NYC-053",
+      "mode": "vehicle",
+      "color": "hsl(87.92 70% 50%)"
+    },
+    {
+      "id": "NYC-054",
+      "mode": "vehicle",
+      "color": "hsl(225.43 70% 50%)"
+    },
+    {
+      "id": "NYC-055",
+      "mode": "vehicle",
+      "color": "hsl(2.94 70% 50%)"
+    },
+    {
+      "id": "NYC-056",
+      "mode": "vehicle",
+      "color": "hsl(140.45 70% 50%)"
+    },
+    {
+      "id": "NYC-057",
+      "mode": "vehicle",
+      "color": "hsl(277.96 70% 50%)"
+    },
+    {
+      "id": "NYC-058",
+      "mode": "vehicle",
+      "color": "hsl(55.46 70% 50%)"
+    },
+    {
+      "id": "NYC-059",
+      "mode": "vehicle",
+      "color": "hsl(192.97 70% 50%)"
+    },
+    {
+      "id": "NYC-060",
+      "mode": "vehicle",
+      "color": "hsl(330.48 70% 50%)"
+    },
+    {
+      "id": "NYC-061",
+      "mode": "vehicle",
+      "color": "hsl(107.99 70% 50%)"
+    },
+    {
+      "id": "NYC-062",
+      "mode": "vehicle",
+      "color": "hsl(245.50 70% 50%)"
+    },
+    {
+      "id": "NYC-063",
+      "mode": "vehicle",
+      "color": "hsl(23.00 70% 50%)"
+    },
+    {
+      "id": "NYC-064",
+      "mode": "vehicle",
+      "color": "hsl(160.51 70% 50%)"
+    },
+    {
+      "id": "NYC-065",
+      "mode": "vehicle",
+      "color": "hsl(298.02 70% 50%)"
+    },
+    {
+      "id": "NYC-066",
+      "mode": "vehicle",
+      "color": "hsl(75.53 70% 50%)"
+    },
+    {
+      "id": "NYC-067",
+      "mode": "vehicle",
+      "color": "hsl(213.04 70% 50%)"
+    },
+    {
+      "id": "NYC-068",
+      "mode": "vehicle",
+      "color": "hsl(350.54 70% 50%)"
+    },
+    {
+      "id": "NYC-069",
+      "mode": "vehicle",
+      "color": "hsl(128.05 70% 50%)"
+    },
+    {
+      "id": "NYC-070",
+      "mode": "vehicle",
+      "color": "hsl(265.56 70% 50%)"
+    },
+    {
+      "id": "NYC-071",
+      "mode": "vehicle",
+      "color": "hsl(43.07 70% 50%)"
+    },
+    {
+      "id": "NYC-072",
+      "mode": "vehicle",
+      "color": "hsl(180.58 70% 50%)"
+    },
+    {
+      "id": "NYC-073",
+      "mode": "vehicle",
+      "color": "hsl(318.08 70% 50%)"
+    },
+    {
+      "id": "NYC-074",
+      "mode": "vehicle",
+      "color": "hsl(95.59 70% 50%)"
+    },
+    {
+      "id": "NYC-075",
+      "mode": "vehicle",
+      "color": "hsl(233.10 70% 50%)"
+    },
+    {
+      "id": "NYC-076",
+      "mode": "vehicle",
+      "color": "hsl(10.61 70% 50%)"
+    },
+    {
+      "id": "NYC-077",
+      "mode": "vehicle",
+      "color": "hsl(148.12 70% 50%)"
+    },
+    {
+      "id": "NYC-078",
+      "mode": "vehicle",
+      "color": "hsl(285.62 70% 50%)"
+    },
+    {
+      "id": "NYC-079",
+      "mode": "vehicle",
+      "color": "hsl(63.13 70% 50%)"
+    },
+    {
+      "id": "NYC-080",
+      "mode": "vehicle",
+      "color": "hsl(200.64 70% 50%)"
+    },
+    {
+      "id": "NYC-081",
+      "mode": "bicycle",
+      "color": "hsl(338.15 70% 50%)"
+    },
+    {
+      "id": "NYC-082",
+      "mode": "bicycle",
+      "color": "hsl(115.66 70% 50%)"
+    },
+    {
+      "id": "NYC-083",
+      "mode": "bicycle",
+      "color": "hsl(253.16 70% 50%)"
+    },
+    {
+      "id": "NYC-084",
+      "mode": "bicycle",
+      "color": "hsl(30.67 70% 50%)"
+    },
+    {
+      "id": "NYC-085",
+      "mode": "bicycle",
+      "color": "hsl(168.18 70% 50%)"
+    },
+    {
+      "id": "NYC-086",
+      "mode": "bicycle",
+      "color": "hsl(305.69 70% 50%)"
+    },
+    {
+      "id": "NYC-087",
+      "mode": "bicycle",
+      "color": "hsl(83.20 70% 50%)"
+    },
+    {
+      "id": "NYC-088",
+      "mode": "bicycle",
+      "color": "hsl(220.70 70% 50%)"
+    },
+    {
+      "id": "NYC-089",
+      "mode": "bicycle",
+      "color": "hsl(358.21 70% 50%)"
+    },
+    {
+      "id": "NYC-090",
+      "mode": "bicycle",
+      "color": "hsl(135.72 70% 50%)"
+    },
+    {
+      "id": "NYC-091",
+      "mode": "bicycle",
+      "color": "hsl(273.23 70% 50%)"
+    },
+    {
+      "id": "NYC-092",
+      "mode": "bicycle",
+      "color": "hsl(50.74 70% 50%)"
+    },
+    {
+      "id": "NYC-093",
+      "mode": "bicycle",
+      "color": "hsl(188.24 70% 50%)"
+    },
+    {
+      "id": "NYC-094",
+      "mode": "bicycle",
+      "color": "hsl(325.75 70% 50%)"
+    },
+    {
+      "id": "NYC-095",
+      "mode": "bicycle",
+      "color": "hsl(103.26 70% 50%)"
+    },
+    {
+      "id": "NYC-096",
+      "mode": "walking",
+      "color": "hsl(240.77 70% 50%)"
+    },
+    {
+      "id": "NYC-097",
+      "mode": "walking",
+      "color": "hsl(18.28 70% 50%)"
+    },
+    {
+      "id": "NYC-098",
+      "mode": "walking",
+      "color": "hsl(155.78 70% 50%)"
+    },
+    {
+      "id": "NYC-099",
+      "mode": "walking",
+      "color": "hsl(293.29 70% 50%)"
+    },
+    {
+      "id": "NYC-100",
+      "mode": "walking",
+      "color": "hsl(70.80 70% 50%)"
+    }
+  ]
+}
