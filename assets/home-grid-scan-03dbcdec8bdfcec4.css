@@ -1,0 +1,35 @@
+/* An original static-site treatment of the React Bits Grid Scan reference:
+   https://www.reactbits.dev/backgrounds/grid-scan */
+.home-grid-scan {
+  --scan-line: color-mix(in srgb, var(--accent) 14%, transparent);
+  --scan-light: color-mix(in srgb, var(--accent) 18%, transparent);
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 57% 36%, transparent 8%, var(--hero-ground) 92%),
+    repeating-linear-gradient(90deg, var(--scan-line) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(0deg, var(--scan-line) 0 1px, transparent 1px 24px);
+}
+.home-grid-scan::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(99deg, transparent 30%, var(--scan-light) 48%, transparent 60%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-grid-scan::after { animation: home-grid-reveal 1.25s .35s ease-out both; }
+  @keyframes home-grid-reveal {
+    from { transform: translateX(-56%); opacity: 0; }
+    28% { opacity: .88; }
+    74% { opacity: .65; }
+    to { transform: translateX(56%); opacity: 0; }
+  }
+}
+@media (forced-colors: active) {
+  .home-grid-scan { display: none; }
+}
