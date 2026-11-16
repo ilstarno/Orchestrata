@@ -1,0 +1,28 @@
+.vendor-screen a { font-weight: 650; text-underline-offset: .18em; }
+.vendor-screen-unavailable { font-size: .9rem; color: var(--muted); }
+.jira-case { margin-block: .9rem; border-block-start: 1px solid var(--rule); min-width: 0; padding-block-start: .7rem; }
+.jira-case summary { cursor: pointer; padding-block: .4rem; font-weight: 650; }
+.jira-case summary small { margin-inline-start: .55rem; color: var(--muted); }
+.jira-case-table { margin-block: .75rem; max-width: 100%; }
+.jira-case-table th,.jira-case-table td { text-align: start; vertical-align: top; }
+/* Keep native table semantics while fitting short case columns at phone widths. */
+.jira-case-table--decisions thead th:first-child { width: 35%; }
+.jira-case-table--decisions thead th:nth-child(2) { width: 23%; }
+.jira-case-id,
+.jira-case-time { display: block; color: var(--muted); font-size: .82em; font-weight: 550; }
+.jira-case-item,.jira-case-reason { display: block; margin-block-start: .18rem; }
+.jira-case-time { margin-block-start: .2rem; font-variant-numeric: tabular-nums; }
+.jira-case-status { display: inline-block; padding: .06rem .35rem; border: 1px solid currentColor; border-radius: .22rem; font-size: .85em; }
+.jira-case-status[data-status="held"] { color: var(--status-review); }
+@media (max-width: 30rem) {
+  .jira-case-table--decisions thead th:first-child { width: 31%; }
+  .jira-case-table--decisions thead th:nth-child(2) { width: 22%; }
+}
+.vendor-image { margin-inline: 0; }
+.vendor-image img { display: block; inline-size: 100%; block-size: auto; object-fit: contain; }
+.planning-scenario-groups { padding-block: 1.6rem; }
+.planning-scenario-group { margin-block: 1.25rem; }
+.planning-workflows { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),1fr)); list-style: none; padding: 0; gap: .75rem 1.3rem; }
+.planning-workflows li { border-block-start: 1px solid var(--rule); padding-block: .85rem; }
+.planning-workflows h3 { font-size: 1.12rem; }
+.planning-workflows p { margin-block-start: .45rem; }

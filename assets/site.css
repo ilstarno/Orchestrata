@@ -585,10 +585,14 @@ pre {
   .dataset-section .dataset-expand { display: inline-flex; align-items: center; }
   .case-layout:has([data-table-expanded="true"]) > .case-body { display: contents; }
   .case-layout:has([data-table-expanded="true"]) > .case-body > article { grid-column: 1; grid-row: 1; }
-  .case-layout:has([data-table-expanded="true"]) > .aside { grid-column: 2; grid-row: 1; }
+  /* The full-span table occupies row 2; a sticky rail can paint over it
+     while scrolling if it is allowed to follow the table down the grid. */
+  .case-layout:has([data-table-expanded="true"]) > .aside {
+    grid-column: 2; grid-row: 1; position: static;
+  }
   .case-layout:has([data-table-expanded="true"]) .dataset-section {
-    grid-column: 1 / -1; grid-row: 2; margin-block-start: 0; justify-self: center;
-    inline-size: min(94vw, 92rem); min-inline-size: 0;
+    grid-column: 1 / -1; grid-row: 2; margin-block-start: 0;
+    inline-size: 100%; min-inline-size: 0;
   }
   .case-layout:has([data-table-expanded="true"]) .dataset-toolbar {
     grid-template-columns: minmax(9rem, 1fr) minmax(10rem, 1.4fr) auto; grid-template-areas: "collection search mode";
@@ -606,3 +610,15 @@ pre {
 .case-technical-downloads .fixture-links, .case-technical-downloads .cargo-downloads { margin-block-start: 0; }
 
 .header-content .buyer-nav-contact { padding-inline: .65rem; border: 1px solid var(--accent); }
+
+.footer-content :is(.footer-brand,.footer-groups,.footer-groups > section) { min-inline-size:0; }
+.footer-groups :is(h2,a) { overflow-wrap:anywhere; }
+.footer-content .footer-groups a[aria-current="page"] { color:var(--accent); text-decoration:underline; }
+@media(max-width:29rem) {
+  .footer-content .footer-groups { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem 1rem; }
+  .footer-content .footer-groups > section:last-child { grid-column:1/-1; }
+}
+
+/* Link rows are used by standalone solutions as well as enterprise examples. */
+.jira-page-nav { display:flex; flex-wrap:wrap; align-items:baseline; gap:.25rem 1.15rem; padding-block:.55rem 0; }
+.jira-page-nav a { display:inline-flex; flex-wrap:wrap; align-items:center; column-gap:.35rem; min-block-size:44px; font-weight:650; }

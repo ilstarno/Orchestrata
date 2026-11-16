@@ -1,0 +1,40 @@
+.buyer-solutions-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem 1.25rem; margin-block-start:1.2rem; }
+.buyer-solutions-actions a, .buyer-decision-copy > a { display:inline-flex; align-items:center; min-block-size:44px; gap:.25rem; flex-wrap:wrap; }
+.buyer-decisions { margin-block:.8rem 2rem; }
+.buyer-decisions > ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(1.2rem,3vw,2.4rem); align-items:start; list-style:none; margin:0; padding:0; }
+.buyer-decisions li { min-inline-size:0; border-block-end:1px solid var(--rule); padding-block-end:.8rem; }
+.buyer-decision-visual { position:relative; background:var(--dataset-surface); border-block:1px solid var(--rule); }
+.buyer-decision-map { max-inline-size:none; margin:0; border:0; }
+.buyer-decision-visual img { display:block; inline-size:100%; block-size:auto; aspect-ratio:20 / 11; object-fit:contain; }
+.buyer-decision-map img { background:#e9eee7; }
+.buyer-decision-map figcaption { position:absolute; inset-block-end:.22rem; inset-inline-end:.3rem; font-size:.74rem; line-height:1.2; background:var(--paper); }
+.buyer-decision-map figcaption a { display:inline-flex; align-items:center; min-block-size:24px; padding-inline:.35rem; }
+.buyer-decision-copy { padding-block:.8rem .1rem; }
+.buyer-decisions h3 { font-size:clamp(1.13rem,2vw,1.35rem); margin:.18rem 0 0; }
+.buyer-decision-team { color:var(--accent); font-size:.84rem; font-weight:660; margin:0; }
+.buyer-decision-details { margin-block:.15rem .35rem; }
+.buyer-decision-details summary { cursor:pointer; min-block-size:44px; display:list-item; align-content:center; color:var(--muted); font-size:.89rem; }
+.buyer-decision-details p { margin:.1rem 0 .5rem; max-inline-size:66ch; }
+.buyer-decision-measure, .buyer-decision-boundary { color:var(--muted); font-size:.89rem; }
+.buyer-evaluate { border-inline-start:2px solid var(--accent); padding-inline-start:.9rem; }
+.buyer-more { max-inline-size:none; }
+@media (max-width: 43rem) {
+  .buyer-decisions > ul { grid-template-columns:minmax(0,1fr); }
+}
+
+.reading-section.operations-directory { max-inline-size:none; }
+.operations-directory-links {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));
+  gap:.55rem .85rem; list-style:none; margin:.75rem 0 0; padding:0;
+}
+.operations-directory-links li { min-inline-size:0; }
+.operations-directory-links a {
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem; min-block-size:52px; block-size:100%;
+  padding:.55rem .7rem; border:1px solid var(--rule); background:var(--dataset-surface);
+  text-decoration:none; font-weight:650; line-height:1.4; overflow-wrap:anywhere;
+}
+.operations-directory-links a:hover { border-color:var(--accent); text-decoration:underline; }
+.operations-directory-links svg { flex:none; inline-size:1rem; }
+.buyer-more-links { display:flex; flex-wrap:wrap; list-style:none; margin:.55rem 0 1.75rem; padding:0; gap:0 1.2rem; }
+.buyer-more-links a { display:inline-flex; flex-wrap:wrap; align-items:center; min-block-size:44px; }
+.buyer-more [data-case-finder] h2 { margin-block-end:.7rem; }
