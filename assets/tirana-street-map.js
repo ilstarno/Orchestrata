@@ -161,7 +161,7 @@
       const numbered = markerSymbol(kind, symbols[kind], color)
       const order = document.createElement('b')
       order.className = 'tirana-map-stop-order'
-      order.textContent = info.sequence
+      order.textContent = number.format(info.sequence)
       numbered.append(order)
       const location = toLatLng(item.geometry.coordinates)
       const marker = L.marker(location, {
@@ -184,7 +184,7 @@
           panel.dataset.load + ' ' + number.format(detail.loadGrams / 1000) + ' kg'
         title.append(metrics)
       }
-      control.append(markerSymbol(kind, info.sequence, color), title)
+      control.append(markerSymbol(kind, number.format(info.sequence), color), title)
       control.addEventListener('click', () => {
         map.panTo(location, { animate: false })
         marker.openTooltip()

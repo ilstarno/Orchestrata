@@ -204,9 +204,14 @@
           summary.textContent = labels.total + ': ' + f(data.stops.length) + ' · ' + labels.visible + ': ' +
             f(result.matching.length - result.unmapped) + ' · ' + labels.assigned + ': ' + f(result.assigned) + ' · ' +
             labels.held + ': ' + f(result.held) + (result.unmapped ? ' · ' + labels.noLocation + ': ' + f(result.unmapped) : '')
-          detail.textContent = !result.matching.length ? labels.noMatch : query && result.matching.length === 1 ?
-            id(result.matching[0]) + ' · ' + (data.stops[result.matching[0]][1] === null ? labels.held :
-              data.couriers[data.stops[result.matching[0]][1]].courierId) : labels.notice
+          detail.textContent = labels.notice
+          if (!result.matching.length) detail.textContent = labels.noMatch
+          else if (query && result.matching.length === 1) {
+            const index = result.matching[0]
+            const [, courierIndex, , , reason] = data.stops[index]
+            const status = courierIndex === null ? labels.held : data.couriers[courierIndex].courierId
+            detail.textContent = [id(index), status, reason === 'shift_capacity' ? labels.shiftCapacity : ''].filter(Boolean).join(' · ')
+          }
           if (refit) fitCurrent()
           queueDraw()
         }
