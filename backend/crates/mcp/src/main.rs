@@ -2,6 +2,8 @@ use std::error::Error;
 
 use rmcp::{ServiceExt, transport::stdio};
 
+mod empty_lead_catalog_request;
+mod lead_example_id;
 mod recipe_id;
 mod recipe_server;
 

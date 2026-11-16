@@ -617,6 +617,7 @@ dependencies = [
 name = "orchestrata-mcp"
 version = "0.1.0"
 dependencies = [
+ "orchestrata-application",
  "orchestrata-recipes",
  "rmcp",
  "schemars",

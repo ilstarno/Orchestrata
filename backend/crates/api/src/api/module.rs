@@ -41,8 +41,8 @@ use utoipa::OpenApi;
 
 use crate::api::{
     controllers::{
-        error_catalog_controller, health_controller, lead_preview_controller, recipe_controller,
-        recipe_grid_controller, solve_controller,
+        error_catalog_controller, health_controller, lead_preview_controller,
+        lead_preview_web_controller, recipe_controller, recipe_grid_controller, solve_controller,
     },
     openapi::ApiDoc,
 };
@@ -55,6 +55,18 @@ pub fn router() -> Router {
 fn router_with_admission(admission: solve_admission::SolveAdmission) -> Router {
     Router::new()
         .route("/api/v1/health", get(health_controller::health))
+        .route(
+            "/examples/lead-to-contact",
+            get(lead_preview_web_controller::catalog),
+        )
+        .route(
+            "/examples/lead-to-contact/{lead_id}",
+            get(lead_preview_web_controller::view),
+        )
+        .route(
+            "/api/v1/examples/lead-to-contact",
+            get(lead_preview_controller::catalog),
+        )
         .route(
             "/api/v1/examples/lead-to-contact/{lead_id}/preview",
             post(lead_preview_controller::evaluate).layer(DefaultBodyLimit::max(16)),

@@ -5,9 +5,28 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
 };
-use orchestrata_application::lead_preview::{LeadPreview, PreviewError, preview};
+use orchestrata_application::lead_preview::{
+    LeadExampleCatalog, LeadPreview, PreviewError, example_catalog, preview,
+};
 
 use crate::api::lead_preview_error_code::LeadPreviewErrorCode;
+
+#[utoipa::path(
+    get,
+    path = "/api/v1/examples/lead-to-contact",
+    description = "List only the identifiers of built-in synthetic lead previews.",
+    responses(
+        (status = 200, description = "Synthetic example IDs", body = LeadExampleCatalog),
+        (status = 500, description = "The built-in examples are unavailable",
+            headers(("X-Orchestrata-Error-Code" = LeadPreviewErrorCode)))
+    )
+)]
+pub async fn catalog() -> Response {
+    match example_catalog() {
+        Ok(result) => Json(result).into_response(),
+        Err(error) => preview_error(error),
+    }
+}
 
 #[utoipa::path(
     post,
@@ -41,10 +60,16 @@ pub async fn evaluate(
 
     match preview(&lead_id) {
         Ok(result) => Json(result).into_response(),
-        Err(PreviewError::UnknownExample) => {
+        Err(error) => preview_error(error),
+    }
+}
+
+pub(super) fn preview_error(error: PreviewError) -> Response {
+    match error {
+        PreviewError::UnknownExample => {
             LeadPreviewErrorCode::UnknownLeadExample.response(StatusCode::NOT_FOUND)
         }
-        Err(PreviewError::ExamplesUnavailable) => LeadPreviewErrorCode::LeadExamplesUnavailable
+        PreviewError::ExamplesUnavailable => LeadPreviewErrorCode::LeadExamplesUnavailable
             .response(StatusCode::INTERNAL_SERVER_ERROR),
     }
 }

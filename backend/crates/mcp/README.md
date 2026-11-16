@@ -1,4 +1,4 @@
-# Local recipe tools
+# Local example tools
 
 From the repository's `backend` directory, run:
 
@@ -11,5 +11,7 @@ Configure a local MCP client to launch that command over standard input and outp
 - `list_recipes` lists the built-in synthetic examples.
 - `describe_recipe` takes an `id` from the list and describes that recipe's inputs and outputs.
 - `get_recipe_example` takes an `id` and returns the corresponding synthetic solver input.
+- `list_lead_examples` lists identifiers for the built-in lead preview.
+- `preview_lead_example` takes a listed `lead_id` and returns its synthetic decision, the same as the [HTTP preview](../../../docs/LEAD-PREVIEW.md).
 
-The tools do not run a solve, accept file uploads, access accounts, or modify data.
+These tools do not run a solver, accept real records or uploads, access accounts, or modify data.

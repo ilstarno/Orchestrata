@@ -2,6 +2,7 @@ use axum::{
     http::{HeaderValue, StatusCode},
     response::{IntoResponse, Response},
 };
+use orchestrata_application::lead_preview::PreviewError;
 use serde::Serialize;
 use utoipa::ToSchema;
 
@@ -32,12 +33,12 @@ impl LeadPreviewErrorCode {
                 &[400, 413],
             ),
             Self::UnknownLeadExample => ErrorCatalogEntry::new(
-                "unknown_lead_example",
+                PreviewError::UnknownExample.code(),
                 "No built-in lead example matches the requested ID.",
                 &[404],
             ),
             Self::LeadExamplesUnavailable => ErrorCatalogEntry::new(
-                "lead_examples_unavailable",
+                PreviewError::ExamplesUnavailable.code(),
                 "The server could not load the built-in lead examples.",
                 &[500],
             ),

@@ -1,4 +1,4 @@
-use orchestrata_application::lead_preview::{LeadPreview, Outcome, Reason};
+use orchestrata_application::lead_preview::{LeadExampleCatalog, LeadPreview, Outcome, Reason};
 use orchestrata_solver::{Constraint, Problem, Score, Solution, Variable};
 use utoipa::OpenApi;
 
@@ -26,6 +26,7 @@ use crate::{
     paths(
         error_catalog_controller::error_catalog,
         health_controller::health,
+        lead_preview_controller::catalog,
         lead_preview_controller::evaluate,
         recipe_controller::list,
         recipe_grid_controller::grid,
@@ -39,6 +40,7 @@ use crate::{
         SolveResponse,
         SolveErrorCode,
         ErrorCatalogEntry,
+        LeadExampleCatalog,
         LeadPreview,
         Outcome,
         Reason,

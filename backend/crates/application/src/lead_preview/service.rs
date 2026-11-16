@@ -1,30 +1,63 @@
 use std::sync::OnceLock;
 
-use super::{LeadPreview, Outcome, PreviewError, Reason, example::Example};
+use super::{LeadExampleCatalog, LeadPreview, Outcome, PreviewError, Reason, example::Example};
 
 const EXAMPLES: &str = include_str!("../../examples/lead-to-contact-v1.json");
 const ID_PREFIX: &str = "L-";
 const CONTACT_PREFIX: &str = "CT-";
 const SAMPLE_DOMAIN_SUFFIX: &str = ".invalid";
 
-static CATALOG: OnceLock<Result<Vec<Example>, serde_json::Error>> = OnceLock::new();
+static CATALOG: OnceLock<Result<Vec<Example>, PreviewError>> = OnceLock::new();
 
 pub fn preview(lead_id: &str) -> Result<LeadPreview, PreviewError> {
-    if !lead_id
-        .strip_prefix(ID_PREFIX)
-        .is_some_and(|suffix| suffix.len() == 3 && suffix.bytes().all(|byte| byte.is_ascii_digit()))
-    {
+    if !is_example_id(lead_id) {
         return Err(PreviewError::UnknownExample);
     }
-    let examples = CATALOG
-        .get_or_init(|| serde_json::from_str(EXAMPLES))
+    let examples = examples()?;
+    let index = examples
+        .binary_search_by(|example| example.lead.id.as_str().cmp(lead_id))
+        .map_err(|_| PreviewError::UnknownExample)?;
+    Ok(assess(&examples[index]))
+}
+
+/// Lists only built-in identifiers, not the example inputs.
+pub fn example_catalog() -> Result<LeadExampleCatalog, PreviewError> {
+    Ok(LeadExampleCatalog {
+        synthetic: true,
+        lead_ids: examples()?
+            .iter()
+            .map(|example| example.lead.id.clone())
+            .collect(),
+    })
+}
+
+fn examples() -> Result<&'static [Example], PreviewError> {
+    CATALOG
+        .get_or_init(load_catalog)
         .as_ref()
-        .map_err(|_| PreviewError::ExamplesUnavailable)?;
-    let example = examples
-        .iter()
-        .find(|example| example.lead.id == lead_id)
-        .ok_or(PreviewError::UnknownExample)?;
-    Ok(assess(example))
+        .map(Vec::as_slice)
+        .map_err(|error| *error)
+}
+
+fn load_catalog() -> Result<Vec<Example>, PreviewError> {
+    let mut entries: Vec<Example> =
+        serde_json::from_str(EXAMPLES).map_err(|_| PreviewError::ExamplesUnavailable)?;
+    entries.sort_unstable_by(|left, right| left.lead.id.cmp(&right.lead.id));
+    if entries.is_empty()
+        || entries.iter().any(|entry| !is_example_id(&entry.lead.id))
+        || entries
+            .windows(2)
+            .any(|pair| pair[0].lead.id == pair[1].lead.id)
+    {
+        return Err(PreviewError::ExamplesUnavailable);
+    }
+    Ok(entries)
+}
+
+fn is_example_id(value: &str) -> bool {
+    value
+        .strip_prefix(ID_PREFIX)
+        .is_some_and(|suffix| suffix.len() == 3 && suffix.bytes().all(|byte| byte.is_ascii_digit()))
 }
 
 fn assess(example: &Example) -> LeadPreview {
