@@ -16,9 +16,18 @@ impl HardMediumSoftScore {
 
     pub fn checked_add(self, other: Self) -> Result<Self, CoreError> {
         Ok(Self {
-            hard: self.hard.checked_add(other.hard).ok_or(CoreError::ScoreOverflow)?,
-            medium: self.medium.checked_add(other.medium).ok_or(CoreError::ScoreOverflow)?,
-            soft: self.soft.checked_add(other.soft).ok_or(CoreError::ScoreOverflow)?,
+            hard: self
+                .hard
+                .checked_add(other.hard)
+                .ok_or(CoreError::ScoreOverflow)?,
+            medium: self
+                .medium
+                .checked_add(other.medium)
+                .ok_or(CoreError::ScoreOverflow)?,
+            soft: self
+                .soft
+                .checked_add(other.soft)
+                .ok_or(CoreError::ScoreOverflow)?,
         })
     }
 }

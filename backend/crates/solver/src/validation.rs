@@ -9,8 +9,16 @@ pub fn validate(problem: &Problem) -> Result<(), Error> {
 
     for constraint in &problem.constraints {
         let (weight, indices): (i64, &[usize]) = match constraint {
-            Constraint::AllDifferent { variables, hard_weight } => (*hard_weight, variables),
-            Constraint::NotEqualOffset { left, right, hard_weight, .. } => {
+            Constraint::AllDifferent {
+                variables,
+                hard_weight,
+            } => (*hard_weight, variables),
+            Constraint::NotEqualOffset {
+                left,
+                right,
+                hard_weight,
+                ..
+            } => {
                 if *hard_weight <= 0 {
                     return Err(Error::InvalidWeight);
                 }
@@ -22,7 +30,11 @@ pub fn validate(problem: &Problem) -> Result<(), Error> {
                 }
                 continue;
             }
-            Constraint::PreferValue { variable, soft_weight, .. } => {
+            Constraint::PreferValue {
+                variable,
+                soft_weight,
+                ..
+            } => {
                 if *soft_weight <= 0 {
                     return Err(Error::InvalidWeight);
                 }

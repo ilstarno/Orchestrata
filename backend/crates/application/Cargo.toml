@@ -10,3 +10,7 @@ tokio = { version = "1", features = ["rt", "sync"] }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["macros", "rt"] }
+
+[[test]]
+name = "solve_reliability"
+path = "../../../backend_tests/application/solve_reliability.rs"

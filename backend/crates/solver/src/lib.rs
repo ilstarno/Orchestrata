@@ -7,5 +7,7 @@ pub use module::reference_solver::solve;
 pub use module::score::Score;
 pub use module::scoring::score;
 pub use module::solution::Solution;
+pub use module::solution_validation::verify_solution;
+pub use module::solution_validation_error::SolutionValidationError;
 pub use module::validation::validate;
 pub use module::variable::Variable;
