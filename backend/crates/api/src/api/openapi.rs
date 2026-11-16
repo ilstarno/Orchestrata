@@ -14,7 +14,9 @@ use crate::{
 #[openapi(
     paths(
         health_controller::health,
-        recipe_controller::field_service,
+        recipe_controller::list,
+        recipe_controller::metadata,
+        recipe_controller::example,
         solve_controller::solve_problem
     ),
     components(schemas(
