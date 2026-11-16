@@ -92,7 +92,7 @@
           "localDate": "2026-02-02",
           "startLocal": "09:45",
           "endLocal": "11:00",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-002",
@@ -102,7 +102,7 @@
           "localDate": "2026-02-03",
           "startLocal": "11:30",
           "endLocal": "13:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-003",
@@ -112,7 +112,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:00",
           "endLocal": "11:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-004",
@@ -122,7 +122,7 @@
           "localDate": "2026-02-05",
           "startLocal": "10:30",
           "endLocal": "11:25",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-005",
@@ -132,7 +132,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:30",
           "endLocal": "14:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-006",
@@ -142,7 +142,7 @@
           "localDate": "2026-02-07",
           "startLocal": "11:00",
           "endLocal": "11:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-007",
@@ -152,7 +152,7 @@
           "localDate": "2026-02-08",
           "startLocal": "10:30",
           "endLocal": "12:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-008",
@@ -162,7 +162,7 @@
           "localDate": "2026-02-09",
           "startLocal": "12:45",
           "endLocal": "13:50",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-009",
@@ -172,7 +172,7 @@
           "localDate": "2026-02-10",
           "startLocal": "11:30",
           "endLocal": "12:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-010",
@@ -182,7 +182,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:45",
           "endLocal": "11:00",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-011",
@@ -192,7 +192,7 @@
           "localDate": "2026-02-12",
           "startLocal": "10:30",
           "endLocal": "12:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-012",
@@ -202,7 +202,7 @@
           "localDate": "2026-02-13",
           "startLocal": "09:00",
           "endLocal": "10:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-013",
@@ -212,7 +212,7 @@
           "localDate": "2026-02-14",
           "startLocal": "12:15",
           "endLocal": "13:10",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-014",
@@ -222,7 +222,7 @@
           "localDate": "2026-02-15",
           "startLocal": "12:00",
           "endLocal": "12:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-015",
@@ -232,7 +232,7 @@
           "localDate": "2026-02-02",
           "startLocal": "08:00",
           "endLocal": "09:15",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-016",
@@ -242,7 +242,7 @@
           "localDate": "2026-02-03",
           "startLocal": "11:30",
           "endLocal": "12:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-017",
@@ -252,7 +252,7 @@
           "localDate": "2026-02-04",
           "startLocal": "08:15",
           "endLocal": "09:50",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-018",
@@ -262,7 +262,7 @@
           "localDate": "2026-02-05",
           "startLocal": "12:45",
           "endLocal": "14:10",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-019",
@@ -272,7 +272,7 @@
           "localDate": "2026-02-06",
           "startLocal": "08:30",
           "endLocal": "09:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-020",
@@ -282,7 +282,7 @@
           "localDate": "2026-02-07",
           "startLocal": "11:15",
           "endLocal": "12:30",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-021",
@@ -292,7 +292,7 @@
           "localDate": "2026-02-08",
           "startLocal": "09:45",
           "endLocal": "10:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-022",
@@ -302,7 +302,7 @@
           "localDate": "2026-02-09",
           "startLocal": "08:00",
           "endLocal": "09:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-023",
@@ -312,7 +312,7 @@
           "localDate": "2026-02-10",
           "startLocal": "11:30",
           "endLocal": "12:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-024",
@@ -322,7 +322,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:30",
           "endLocal": "12:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-025",
@@ -332,7 +332,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:15",
           "endLocal": "12:50",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-026",
@@ -342,7 +342,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:30",
           "endLocal": "12:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-027",
@@ -352,7 +352,7 @@
           "localDate": "2026-02-14",
           "startLocal": "09:15",
           "endLocal": "10:10",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-028",
@@ -362,7 +362,7 @@
           "localDate": "2026-02-15",
           "startLocal": "10:15",
           "endLocal": "11:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-029",
@@ -372,7 +372,7 @@
           "localDate": "2026-02-02",
           "startLocal": "08:45",
           "endLocal": "10:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-030",
@@ -382,7 +382,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:30",
           "endLocal": "09:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-031",
@@ -392,7 +392,7 @@
           "localDate": "2026-02-04",
           "startLocal": "11:15",
           "endLocal": "12:50",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-032",
@@ -402,7 +402,7 @@
           "localDate": "2026-02-05",
           "startLocal": "10:00",
           "endLocal": "10:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-033",
@@ -412,7 +412,7 @@
           "localDate": "2026-02-06",
           "startLocal": "09:45",
           "endLocal": "10:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-034",
@@ -422,7 +422,7 @@
           "localDate": "2026-02-07",
           "startLocal": "12:15",
           "endLocal": "13:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-035",
@@ -432,7 +432,7 @@
           "localDate": "2026-02-08",
           "startLocal": "12:00",
           "endLocal": "12:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-036",
@@ -442,7 +442,7 @@
           "localDate": "2026-02-09",
           "startLocal": "08:00",
           "endLocal": "09:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-037",
@@ -452,7 +452,7 @@
           "localDate": "2026-02-10",
           "startLocal": "09:00",
           "endLocal": "10:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-038",
@@ -462,7 +462,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:00",
           "endLocal": "09:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-039",
@@ -472,7 +472,7 @@
           "localDate": "2026-02-12",
           "startLocal": "12:15",
           "endLocal": "13:30",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-040",
@@ -482,7 +482,7 @@
           "localDate": "2026-02-13",
           "startLocal": "10:00",
           "endLocal": "10:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-041",
@@ -492,7 +492,7 @@
           "localDate": "2026-02-14",
           "startLocal": "12:00",
           "endLocal": "13:15",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-042",
@@ -502,7 +502,7 @@
           "localDate": "2026-02-15",
           "startLocal": "12:30",
           "endLocal": "14:05",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-043",
@@ -512,7 +512,7 @@
           "localDate": "2026-02-02",
           "startLocal": "11:15",
           "endLocal": "12:10",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-044",
@@ -522,7 +522,7 @@
           "localDate": "2026-02-03",
           "startLocal": "12:15",
           "endLocal": "13:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-045",
@@ -532,7 +532,7 @@
           "localDate": "2026-02-04",
           "startLocal": "12:45",
           "endLocal": "14:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-046",
@@ -542,7 +542,7 @@
           "localDate": "2026-02-05",
           "startLocal": "09:00",
           "endLocal": "10:25",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-047",
@@ -552,7 +552,7 @@
           "localDate": "2026-02-06",
           "startLocal": "10:15",
           "endLocal": "11:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-048",
@@ -562,7 +562,7 @@
           "localDate": "2026-02-07",
           "startLocal": "09:15",
           "endLocal": "10:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-049",
@@ -572,7 +572,7 @@
           "localDate": "2026-02-08",
           "startLocal": "12:00",
           "endLocal": "13:25",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-050",
@@ -582,7 +582,7 @@
           "localDate": "2026-02-09",
           "startLocal": "08:30",
           "endLocal": "09:55",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-051",
@@ -592,7 +592,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:30",
           "endLocal": "09:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-052",
@@ -602,7 +602,7 @@
           "localDate": "2026-02-11",
           "startLocal": "12:45",
           "endLocal": "14:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-053",
@@ -612,7 +612,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:45",
           "endLocal": "13:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-054",
@@ -622,7 +622,7 @@
           "localDate": "2026-02-13",
           "startLocal": "12:45",
           "endLocal": "13:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-055",
@@ -632,7 +632,7 @@
           "localDate": "2026-02-14",
           "startLocal": "09:15",
           "endLocal": "10:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-056",
@@ -642,7 +642,7 @@
           "localDate": "2026-02-15",
           "startLocal": "09:30",
           "endLocal": "10:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-057",
@@ -652,7 +652,7 @@
           "localDate": "2026-02-02",
           "startLocal": "12:00",
           "endLocal": "13:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-058",
@@ -662,7 +662,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:30",
           "endLocal": "11:25",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-059",
@@ -672,7 +672,7 @@
           "localDate": "2026-02-04",
           "startLocal": "08:45",
           "endLocal": "10:20",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-060",
@@ -682,7 +682,7 @@
           "localDate": "2026-02-05",
           "startLocal": "08:45",
           "endLocal": "09:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-061",
@@ -692,7 +692,7 @@
           "localDate": "2026-02-06",
           "startLocal": "08:30",
           "endLocal": "09:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-062",
@@ -702,7 +702,7 @@
           "localDate": "2026-02-07",
           "startLocal": "12:15",
           "endLocal": "13:50",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-063",
@@ -712,7 +712,7 @@
           "localDate": "2026-02-08",
           "startLocal": "11:30",
           "endLocal": "12:35",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-064",
@@ -722,7 +722,7 @@
           "localDate": "2026-02-09",
           "startLocal": "10:15",
           "endLocal": "11:40",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-065",
@@ -732,7 +732,7 @@
           "localDate": "2026-02-10",
           "startLocal": "12:30",
           "endLocal": "13:25",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         },
         {
           "id": "TURN-066",
@@ -742,7 +742,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:30",
           "endLocal": "11:45",
-          "timezone": "Europe/Amsterdam"
+          "timezone": "America/New_York"
         }
       ]
     },

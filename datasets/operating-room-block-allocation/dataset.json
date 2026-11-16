@@ -81,8 +81,8 @@
           "localDate": "2026-02-02",
           "startLocal": "09:45",
           "endLocal": "11:15",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-002",
@@ -90,8 +90,8 @@
           "localDate": "2026-02-03",
           "startLocal": "11:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-003",
@@ -99,8 +99,8 @@
           "localDate": "2026-02-04",
           "startLocal": "09:00",
           "endLocal": "11:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-004",
@@ -108,8 +108,8 @@
           "localDate": "2026-02-05",
           "startLocal": "12:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-005",
@@ -117,8 +117,8 @@
           "localDate": "2026-02-06",
           "startLocal": "10:45",
           "endLocal": "12:45",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-006",
@@ -126,8 +126,8 @@
           "localDate": "2026-02-07",
           "startLocal": "12:45",
           "endLocal": "15:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-007",
@@ -135,8 +135,8 @@
           "localDate": "2026-02-08",
           "startLocal": "10:30",
           "endLocal": "12:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-008",
@@ -144,8 +144,8 @@
           "localDate": "2026-02-09",
           "startLocal": "10:00",
           "endLocal": "12:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-009",
@@ -153,8 +153,8 @@
           "localDate": "2026-02-10",
           "startLocal": "10:30",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-010",
@@ -162,8 +162,8 @@
           "localDate": "2026-02-11",
           "startLocal": "12:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-011",
@@ -171,8 +171,8 @@
           "localDate": "2026-02-12",
           "startLocal": "08:00",
           "endLocal": "10:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-012",
@@ -180,8 +180,8 @@
           "localDate": "2026-02-13",
           "startLocal": "12:30",
           "endLocal": "15:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-013",
@@ -189,8 +189,8 @@
           "localDate": "2026-02-14",
           "startLocal": "10:00",
           "endLocal": "11:30",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-014",
@@ -198,8 +198,8 @@
           "localDate": "2026-02-15",
           "startLocal": "08:30",
           "endLocal": "10:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-015",
@@ -207,8 +207,8 @@
           "localDate": "2026-02-02",
           "startLocal": "10:00",
           "endLocal": "12:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-016",
@@ -216,8 +216,8 @@
           "localDate": "2026-02-03",
           "startLocal": "11:15",
           "endLocal": "12:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-017",
@@ -225,8 +225,8 @@
           "localDate": "2026-02-04",
           "startLocal": "12:00",
           "endLocal": "14:00",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-018",
@@ -234,8 +234,8 @@
           "localDate": "2026-02-05",
           "startLocal": "11:45",
           "endLocal": "14:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-019",
@@ -243,8 +243,8 @@
           "localDate": "2026-02-06",
           "startLocal": "12:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-020",
@@ -252,8 +252,8 @@
           "localDate": "2026-02-07",
           "startLocal": "08:30",
           "endLocal": "10:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-021",
@@ -261,8 +261,8 @@
           "localDate": "2026-02-08",
           "startLocal": "11:00",
           "endLocal": "13:30",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-022",
@@ -270,8 +270,8 @@
           "localDate": "2026-02-09",
           "startLocal": "09:00",
           "endLocal": "10:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-023",
@@ -279,8 +279,8 @@
           "localDate": "2026-02-10",
           "startLocal": "11:45",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-024",
@@ -288,8 +288,8 @@
           "localDate": "2026-02-11",
           "startLocal": "10:45",
           "endLocal": "13:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-025",
@@ -297,8 +297,8 @@
           "localDate": "2026-02-12",
           "startLocal": "11:15",
           "endLocal": "12:45",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-026",
@@ -306,8 +306,8 @@
           "localDate": "2026-02-13",
           "startLocal": "09:45",
           "endLocal": "11:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-027",
@@ -315,8 +315,8 @@
           "localDate": "2026-02-14",
           "startLocal": "08:15",
           "endLocal": "10:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-028",
@@ -324,8 +324,8 @@
           "localDate": "2026-02-15",
           "startLocal": "09:45",
           "endLocal": "11:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-029",
@@ -333,8 +333,8 @@
           "localDate": "2026-02-02",
           "startLocal": "08:30",
           "endLocal": "10:30",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-030",
@@ -342,8 +342,8 @@
           "localDate": "2026-02-03",
           "startLocal": "08:45",
           "endLocal": "11:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-031",
@@ -351,8 +351,8 @@
           "localDate": "2026-02-04",
           "startLocal": "11:30",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-032",
@@ -360,8 +360,8 @@
           "localDate": "2026-02-05",
           "startLocal": "10:15",
           "endLocal": "12:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-033",
@@ -369,8 +369,8 @@
           "localDate": "2026-02-06",
           "startLocal": "09:15",
           "endLocal": "11:45",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-034",
@@ -378,8 +378,8 @@
           "localDate": "2026-02-07",
           "startLocal": "11:30",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-035",
@@ -387,8 +387,8 @@
           "localDate": "2026-02-08",
           "startLocal": "10:15",
           "endLocal": "12:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-036",
@@ -396,8 +396,8 @@
           "localDate": "2026-02-09",
           "startLocal": "11:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-037",
@@ -405,8 +405,8 @@
           "localDate": "2026-02-10",
           "startLocal": "10:30",
           "endLocal": "12:00",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-038",
@@ -414,8 +414,8 @@
           "localDate": "2026-02-11",
           "startLocal": "11:30",
           "endLocal": "13:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-039",
@@ -423,8 +423,8 @@
           "localDate": "2026-02-12",
           "startLocal": "09:45",
           "endLocal": "12:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-040",
@@ -432,8 +432,8 @@
           "localDate": "2026-02-13",
           "startLocal": "12:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-041",
@@ -441,8 +441,8 @@
           "localDate": "2026-02-14",
           "startLocal": "11:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-042",
@@ -450,8 +450,8 @@
           "localDate": "2026-02-15",
           "startLocal": "10:45",
           "endLocal": "13:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-043",
@@ -459,8 +459,8 @@
           "localDate": "2026-02-02",
           "startLocal": "12:00",
           "endLocal": "13:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-044",
@@ -468,8 +468,8 @@
           "localDate": "2026-02-03",
           "startLocal": "12:15",
           "endLocal": "14:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-045",
@@ -477,8 +477,8 @@
           "localDate": "2026-02-04",
           "startLocal": "09:45",
           "endLocal": "12:15",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-046",
@@ -486,8 +486,8 @@
           "localDate": "2026-02-05",
           "startLocal": "12:15",
           "endLocal": "13:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-047",
@@ -495,8 +495,8 @@
           "localDate": "2026-02-06",
           "startLocal": "12:00",
           "endLocal": "14:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-048",
@@ -504,8 +504,8 @@
           "localDate": "2026-02-07",
           "startLocal": "09:00",
           "endLocal": "11:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-049",
@@ -513,8 +513,8 @@
           "localDate": "2026-02-08",
           "startLocal": "11:15",
           "endLocal": "12:45",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-050",
@@ -522,8 +522,8 @@
           "localDate": "2026-02-09",
           "startLocal": "12:45",
           "endLocal": "14:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-051",
@@ -531,8 +531,8 @@
           "localDate": "2026-02-10",
           "startLocal": "10:15",
           "endLocal": "12:45",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-052",
@@ -540,8 +540,8 @@
           "localDate": "2026-02-11",
           "startLocal": "12:45",
           "endLocal": "14:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-002"
+          "setupCode": "SETUP-002",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-053",
@@ -549,8 +549,8 @@
           "localDate": "2026-02-12",
           "startLocal": "09:45",
           "endLocal": "11:45",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-054",
@@ -558,8 +558,8 @@
           "localDate": "2026-02-13",
           "startLocal": "08:30",
           "endLocal": "11:00",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-055",
@@ -567,8 +567,8 @@
           "localDate": "2026-02-14",
           "startLocal": "08:45",
           "endLocal": "10:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-056",
@@ -576,8 +576,8 @@
           "localDate": "2026-02-15",
           "startLocal": "09:15",
           "endLocal": "11:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-001"
+          "setupCode": "SETUP-001",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-057",
@@ -585,8 +585,8 @@
           "localDate": "2026-02-02",
           "startLocal": "12:30",
           "endLocal": "15:00",
-          "timezone": "America/Chicago",
-          "setupCode": null
+          "setupCode": null,
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-058",
@@ -594,8 +594,8 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "11:30",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-003"
+          "setupCode": "SETUP-003",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-059",
@@ -603,8 +603,8 @@
           "localDate": "2026-02-04",
           "startLocal": "08:15",
           "endLocal": "10:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-004"
+          "setupCode": "SETUP-004",
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "BLOCK-060",
@@ -612,8 +612,8 @@
           "localDate": "2026-02-05",
           "startLocal": "11:45",
           "endLocal": "14:15",
-          "timezone": "America/Chicago",
-          "setupCode": "SETUP-005"
+          "setupCode": "SETUP-005",
+          "timezone": "Europe/Warsaw"
         }
       ]
     },

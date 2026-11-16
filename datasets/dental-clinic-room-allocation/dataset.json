@@ -72,7 +72,7 @@
           "localDate": "2026-02-02",
           "startLocal": "11:45",
           "endLocal": "12:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-002",
@@ -80,7 +80,7 @@
           "localDate": "2026-02-03",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-003",
@@ -88,7 +88,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:30",
           "endLocal": "11:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-004",
@@ -96,7 +96,7 @@
           "localDate": "2026-02-05",
           "startLocal": "09:00",
           "endLocal": "09:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-005",
@@ -104,7 +104,7 @@
           "localDate": "2026-02-06",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-006",
@@ -112,7 +112,7 @@
           "localDate": "2026-02-07",
           "startLocal": "10:45",
           "endLocal": "11:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-007",
@@ -120,7 +120,7 @@
           "localDate": "2026-02-08",
           "startLocal": "12:00",
           "endLocal": "12:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-008",
@@ -128,7 +128,7 @@
           "localDate": "2026-02-09",
           "startLocal": "09:15",
           "endLocal": "10:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-009",
@@ -136,7 +136,7 @@
           "localDate": "2026-02-10",
           "startLocal": "12:30",
           "endLocal": "13:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-010",
@@ -144,7 +144,7 @@
           "localDate": "2026-02-11",
           "startLocal": "08:45",
           "endLocal": "09:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-011",
@@ -152,7 +152,7 @@
           "localDate": "2026-02-12",
           "startLocal": "09:15",
           "endLocal": "10:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-012",
@@ -160,7 +160,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:15",
           "endLocal": "12:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-013",
@@ -168,7 +168,7 @@
           "localDate": "2026-02-14",
           "startLocal": "11:00",
           "endLocal": "11:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-014",
@@ -176,7 +176,7 @@
           "localDate": "2026-02-15",
           "startLocal": "08:00",
           "endLocal": "08:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-015",
@@ -184,7 +184,7 @@
           "localDate": "2026-02-02",
           "startLocal": "12:15",
           "endLocal": "13:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-016",
@@ -192,7 +192,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:45",
           "endLocal": "09:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-017",
@@ -200,7 +200,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:30",
           "endLocal": "11:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-018",
@@ -208,7 +208,7 @@
           "localDate": "2026-02-05",
           "startLocal": "09:30",
           "endLocal": "10:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-019",
@@ -216,7 +216,7 @@
           "localDate": "2026-02-06",
           "startLocal": "08:30",
           "endLocal": "09:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-020",
@@ -224,7 +224,7 @@
           "localDate": "2026-02-07",
           "startLocal": "10:15",
           "endLocal": "11:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-021",
@@ -232,7 +232,7 @@
           "localDate": "2026-02-08",
           "startLocal": "12:45",
           "endLocal": "13:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-022",
@@ -240,7 +240,7 @@
           "localDate": "2026-02-09",
           "startLocal": "10:15",
           "endLocal": "10:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-023",
@@ -248,7 +248,7 @@
           "localDate": "2026-02-10",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-024",
@@ -256,7 +256,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:15",
           "endLocal": "11:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-025",
@@ -264,7 +264,7 @@
           "localDate": "2026-02-12",
           "startLocal": "10:45",
           "endLocal": "11:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-026",
@@ -272,7 +272,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:45",
           "endLocal": "12:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-027",
@@ -280,7 +280,7 @@
           "localDate": "2026-02-14",
           "startLocal": "10:00",
           "endLocal": "11:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-028",
@@ -288,7 +288,7 @@
           "localDate": "2026-02-15",
           "startLocal": "09:45",
           "endLocal": "10:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-029",
@@ -296,7 +296,7 @@
           "localDate": "2026-02-02",
           "startLocal": "10:00",
           "endLocal": "10:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-030",
@@ -304,7 +304,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:30",
           "endLocal": "09:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-031",
@@ -312,7 +312,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:30",
           "endLocal": "11:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-032",
@@ -320,7 +320,7 @@
           "localDate": "2026-02-05",
           "startLocal": "11:45",
           "endLocal": "12:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-033",
@@ -328,7 +328,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:00",
           "endLocal": "13:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-034",
@@ -336,7 +336,7 @@
           "localDate": "2026-02-07",
           "startLocal": "11:30",
           "endLocal": "12:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-035",
@@ -344,7 +344,7 @@
           "localDate": "2026-02-08",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-036",
@@ -352,7 +352,7 @@
           "localDate": "2026-02-09",
           "startLocal": "12:30",
           "endLocal": "13:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-037",
@@ -360,7 +360,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:45",
           "endLocal": "09:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-038",
@@ -368,7 +368,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-039",
@@ -376,7 +376,7 @@
           "localDate": "2026-02-12",
           "startLocal": "09:00",
           "endLocal": "10:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-040",
@@ -384,7 +384,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:00",
           "endLocal": "11:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-041",
@@ -392,7 +392,7 @@
           "localDate": "2026-02-14",
           "startLocal": "09:30",
           "endLocal": "10:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-042",
@@ -400,7 +400,7 @@
           "localDate": "2026-02-15",
           "startLocal": "10:15",
           "endLocal": "11:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-043",
@@ -408,7 +408,7 @@
           "localDate": "2026-02-02",
           "startLocal": "12:15",
           "endLocal": "12:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-044",
@@ -416,7 +416,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:30",
           "endLocal": "09:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-045",
@@ -424,7 +424,7 @@
           "localDate": "2026-02-04",
           "startLocal": "09:00",
           "endLocal": "10:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-046",
@@ -432,7 +432,7 @@
           "localDate": "2026-02-05",
           "startLocal": "08:15",
           "endLocal": "08:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-047",
@@ -440,7 +440,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:00",
           "endLocal": "12:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-048",
@@ -448,7 +448,7 @@
           "localDate": "2026-02-07",
           "startLocal": "08:15",
           "endLocal": "09:15",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-049",
@@ -456,7 +456,7 @@
           "localDate": "2026-02-08",
           "startLocal": "09:15",
           "endLocal": "09:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-050",
@@ -464,7 +464,7 @@
           "localDate": "2026-02-09",
           "startLocal": "08:00",
           "endLocal": "08:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-051",
@@ -472,7 +472,7 @@
           "localDate": "2026-02-10",
           "startLocal": "11:30",
           "endLocal": "12:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-052",
@@ -480,7 +480,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:30",
           "endLocal": "11:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-053",
@@ -488,7 +488,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:45",
           "endLocal": "12:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-054",
@@ -496,7 +496,7 @@
           "localDate": "2026-02-13",
           "startLocal": "09:00",
           "endLocal": "10:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-055",
@@ -504,7 +504,7 @@
           "localDate": "2026-02-14",
           "startLocal": "10:30",
           "endLocal": "11:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-056",
@@ -512,7 +512,7 @@
           "localDate": "2026-02-15",
           "startLocal": "08:45",
           "endLocal": "09:30",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-057",
@@ -520,7 +520,7 @@
           "localDate": "2026-02-02",
           "startLocal": "08:00",
           "endLocal": "09:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-058",
@@ -528,7 +528,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:15",
           "endLocal": "08:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-059",
@@ -536,7 +536,7 @@
           "localDate": "2026-02-04",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "BOOK-060",
@@ -544,7 +544,7 @@
           "localDate": "2026-02-05",
           "startLocal": "10:45",
           "endLocal": "11:45",
-          "timezone": "Europe/Paris"
+          "timezone": "America/Los_Angeles"
         }
       ]
     },

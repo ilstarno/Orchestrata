@@ -131,7 +131,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-002",
@@ -149,7 +149,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-003",
@@ -167,7 +167,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-004",
@@ -186,7 +186,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-005",
@@ -204,7 +204,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-006",
@@ -222,7 +222,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-007",
@@ -240,7 +240,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-008",
@@ -258,7 +258,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-009",
@@ -276,7 +276,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-010",
@@ -295,7 +295,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-011",
@@ -313,7 +313,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-012",
@@ -331,7 +331,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-013",
@@ -349,7 +349,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-014",
@@ -367,7 +367,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-015",
@@ -385,7 +385,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-016",
@@ -404,7 +404,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-017",
@@ -422,7 +422,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-018",
@@ -440,7 +440,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-019",
@@ -458,7 +458,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-020",
@@ -476,7 +476,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-021",
@@ -494,7 +494,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-022",
@@ -513,7 +513,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-023",
@@ -531,7 +531,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-024",
@@ -549,7 +549,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-025",
@@ -567,7 +567,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-026",
@@ -585,7 +585,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-027",
@@ -603,7 +603,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-028",
@@ -622,7 +622,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-029",
@@ -640,7 +640,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-030",
@@ -658,7 +658,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-031",
@@ -676,7 +676,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-032",
@@ -694,7 +694,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-033",
@@ -712,7 +712,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-034",
@@ -731,7 +731,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-035",
@@ -749,7 +749,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-036",
@@ -767,7 +767,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-037",
@@ -785,7 +785,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-038",
@@ -803,7 +803,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-039",
@@ -821,7 +821,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-040",
@@ -840,7 +840,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-041",
@@ -858,7 +858,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-042",
@@ -876,7 +876,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-043",
@@ -894,7 +894,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-044",
@@ -912,7 +912,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-045",
@@ -930,7 +930,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-046",
@@ -949,7 +949,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-047",
@@ -967,7 +967,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-048",
@@ -985,7 +985,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-049",
@@ -1003,7 +1003,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-050",
@@ -1021,7 +1021,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-051",
@@ -1039,7 +1039,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-052",
@@ -1058,7 +1058,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-053",
@@ -1076,7 +1076,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-054",
@@ -1094,7 +1094,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "OP-055",
@@ -1112,7 +1112,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "OP-056",
@@ -1130,7 +1130,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "OP-057",
@@ -1148,7 +1148,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "OP-058",
@@ -1167,7 +1167,7 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "15:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "OP-059",
@@ -1185,7 +1185,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "OP-060",
@@ -1203,7 +1203,7 @@
           "localDate": "2026-02-03",
           "startLocal": "13:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         }
       ]
     },

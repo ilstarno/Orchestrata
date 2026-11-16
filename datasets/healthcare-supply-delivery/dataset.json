@@ -92,7 +92,7 @@
           "localDate": "2026-02-02",
           "startLocal": "11:30",
           "endLocal": "12:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-002",
@@ -102,7 +102,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:30",
           "endLocal": "09:15",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "SHIP-003",
@@ -112,7 +112,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:15",
           "endLocal": "11:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-004",
@@ -122,7 +122,7 @@
           "localDate": "2026-02-05",
           "startLocal": "08:00",
           "endLocal": "08:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-005",
@@ -132,7 +132,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "SHIP-006",
@@ -142,7 +142,7 @@
           "localDate": "2026-02-07",
           "startLocal": "08:30",
           "endLocal": "09:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-007",
@@ -152,7 +152,7 @@
           "localDate": "2026-02-08",
           "startLocal": "09:30",
           "endLocal": "10:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-008",
@@ -162,7 +162,7 @@
           "localDate": "2026-02-09",
           "startLocal": "11:30",
           "endLocal": "12:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-009",
@@ -172,7 +172,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:15",
           "endLocal": "09:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-010",
@@ -182,7 +182,7 @@
           "localDate": "2026-02-11",
           "startLocal": "12:00",
           "endLocal": "12:45",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-011",
@@ -192,7 +192,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:30",
           "endLocal": "12:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-012",
@@ -202,7 +202,7 @@
           "localDate": "2026-02-13",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-013",
@@ -212,7 +212,7 @@
           "localDate": "2026-02-14",
           "startLocal": "12:00",
           "endLocal": "12:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-014",
@@ -222,7 +222,7 @@
           "localDate": "2026-02-15",
           "startLocal": "08:15",
           "endLocal": "09:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-015",
@@ -232,7 +232,7 @@
           "localDate": "2026-02-02",
           "startLocal": "08:00",
           "endLocal": "08:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-016",
@@ -242,7 +242,7 @@
           "localDate": "2026-02-03",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-017",
@@ -252,7 +252,7 @@
           "localDate": "2026-02-04",
           "startLocal": "08:45",
           "endLocal": "09:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-018",
@@ -262,7 +262,7 @@
           "localDate": "2026-02-05",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "America/Chicago"
+          "timezone": "Pacific/Auckland"
         },
         {
           "id": "SHIP-019",
@@ -272,7 +272,7 @@
           "localDate": "2026-02-06",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-020",
@@ -282,7 +282,7 @@
           "localDate": "2026-02-07",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-021",
@@ -292,7 +292,7 @@
           "localDate": "2026-02-08",
           "startLocal": "09:15",
           "endLocal": "10:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-022",
@@ -302,7 +302,7 @@
           "localDate": "2026-02-09",
           "startLocal": "11:00",
           "endLocal": "11:45",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-023",
@@ -312,7 +312,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:45",
           "endLocal": "09:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIP-024",
@@ -322,7 +322,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:15",
           "endLocal": "11:00",
-          "timezone": "America/Chicago"
+          "timezone": "Australia/Sydney"
         },
         {
           "id": "SHIP-025",
@@ -332,7 +332,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-026",
@@ -342,7 +342,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-027",
@@ -352,7 +352,7 @@
           "localDate": "2026-02-14",
           "startLocal": "10:45",
           "endLocal": "11:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-028",
@@ -362,7 +362,7 @@
           "localDate": "2026-02-15",
           "startLocal": "10:15",
           "endLocal": "11:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIP-029",
@@ -372,7 +372,7 @@
           "localDate": "2026-02-02",
           "startLocal": "12:30",
           "endLocal": "13:15",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-030",
@@ -382,7 +382,7 @@
           "localDate": "2026-02-03",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "SHIP-031",
@@ -392,7 +392,7 @@
           "localDate": "2026-02-04",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-032",
@@ -402,7 +402,7 @@
           "localDate": "2026-02-05",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "America/Chicago"
+          "timezone": "Pacific/Auckland"
         },
         {
           "id": "SHIP-033",
@@ -412,7 +412,7 @@
           "localDate": "2026-02-06",
           "startLocal": "09:30",
           "endLocal": "10:15",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-034",
@@ -422,7 +422,7 @@
           "localDate": "2026-02-07",
           "startLocal": "10:45",
           "endLocal": "11:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "SHIP-035",
@@ -432,7 +432,7 @@
           "localDate": "2026-02-08",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "America/Chicago"
+          "timezone": "Pacific/Auckland"
         },
         {
           "id": "SHIP-036",
@@ -442,7 +442,7 @@
           "localDate": "2026-02-09",
           "startLocal": "08:45",
           "endLocal": "09:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-037",
@@ -452,7 +452,7 @@
           "localDate": "2026-02-10",
           "startLocal": "09:15",
           "endLocal": "10:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "SHIP-038",
@@ -462,7 +462,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-039",
@@ -472,7 +472,7 @@
           "localDate": "2026-02-12",
           "startLocal": "08:30",
           "endLocal": "09:15",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-040",
@@ -482,7 +482,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:15",
           "endLocal": "12:00",
-          "timezone": "America/Chicago"
+          "timezone": "Australia/Sydney"
         },
         {
           "id": "SHIP-041",
@@ -492,7 +492,7 @@
           "localDate": "2026-02-14",
           "startLocal": "08:15",
           "endLocal": "09:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-042",
@@ -502,7 +502,7 @@
           "localDate": "2026-02-15",
           "startLocal": "11:00",
           "endLocal": "11:45",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-043",
@@ -512,7 +512,7 @@
           "localDate": "2026-02-02",
           "startLocal": "11:00",
           "endLocal": "11:45",
-          "timezone": "America/Chicago"
+          "timezone": "Africa/Nairobi"
         },
         {
           "id": "SHIP-044",
@@ -522,7 +522,7 @@
           "localDate": "2026-02-03",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Australia/Sydney"
         },
         {
           "id": "SHIP-045",
@@ -532,7 +532,7 @@
           "localDate": "2026-02-04",
           "startLocal": "09:00",
           "endLocal": "09:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "SHIP-046",
@@ -542,7 +542,7 @@
           "localDate": "2026-02-05",
           "startLocal": "08:00",
           "endLocal": "08:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-047",
@@ -552,7 +552,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:45",
           "endLocal": "13:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIP-048",
@@ -562,7 +562,7 @@
           "localDate": "2026-02-07",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Amsterdam"
         },
         {
           "id": "SHIP-049",
@@ -572,7 +572,7 @@
           "localDate": "2026-02-08",
           "startLocal": "08:15",
           "endLocal": "09:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SHIP-050",
@@ -582,7 +582,7 @@
           "localDate": "2026-02-09",
           "startLocal": "09:00",
           "endLocal": "09:45",
-          "timezone": "America/Chicago"
+          "timezone": "Pacific/Auckland"
         },
         {
           "id": "SHIP-051",
@@ -592,7 +592,7 @@
           "localDate": "2026-02-10",
           "startLocal": "11:45",
           "endLocal": "12:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SHIP-052",
@@ -602,7 +602,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-053",
@@ -612,7 +612,7 @@
           "localDate": "2026-02-12",
           "startLocal": "10:45",
           "endLocal": "11:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Los_Angeles"
         },
         {
           "id": "SHIP-054",
@@ -622,7 +622,7 @@
           "localDate": "2026-02-13",
           "startLocal": "09:00",
           "endLocal": "09:45",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-055",
@@ -632,7 +632,7 @@
           "localDate": "2026-02-14",
           "startLocal": "10:30",
           "endLocal": "11:15",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SHIP-056",
@@ -642,7 +642,7 @@
           "localDate": "2026-02-15",
           "startLocal": "10:15",
           "endLocal": "11:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-057",
@@ -652,7 +652,7 @@
           "localDate": "2026-02-02",
           "startLocal": "10:45",
           "endLocal": "11:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-058",
@@ -662,7 +662,7 @@
           "localDate": "2026-02-03",
           "startLocal": "08:15",
           "endLocal": "09:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SHIP-059",
@@ -672,7 +672,7 @@
           "localDate": "2026-02-04",
           "startLocal": "12:15",
           "endLocal": "13:00",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SHIP-060",
@@ -682,7 +682,7 @@
           "localDate": "2026-02-05",
           "startLocal": "09:45",
           "endLocal": "10:30",
-          "timezone": "America/Chicago"
+          "timezone": "Australia/Sydney"
         },
         {
           "id": "SHIP-061",
@@ -692,7 +692,7 @@
           "localDate": "2026-02-06",
           "startLocal": "10:00",
           "endLocal": "10:45",
-          "timezone": "America/Chicago"
+          "timezone": "Pacific/Auckland"
         },
         {
           "id": "SHIP-062",
@@ -702,7 +702,7 @@
           "localDate": "2026-02-07",
           "startLocal": "10:45",
           "endLocal": "11:30",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Tokyo"
         }
       ]
     },
@@ -793,7 +793,7 @@
           "depot": "DEPOT-003",
           "startLocal": "08:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SUPPLY-VAN-002",
@@ -803,7 +803,7 @@
           "depot": "DEPOT-004",
           "startLocal": "09:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SUPPLY-VAN-003",
@@ -813,7 +813,7 @@
           "depot": "DEPOT-003",
           "startLocal": "07:30",
           "endLocal": "16:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SUPPLY-VAN-004",
@@ -823,7 +823,7 @@
           "depot": "DEPOT-003",
           "startLocal": "09:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SUPPLY-VAN-005",
@@ -833,7 +833,7 @@
           "depot": "DEPOT-004",
           "startLocal": "07:30",
           "endLocal": "16:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SUPPLY-VAN-006",
@@ -843,7 +843,7 @@
           "depot": "DEPOT-002",
           "startLocal": "07:30",
           "endLocal": "16:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SUPPLY-VAN-007",
@@ -853,7 +853,7 @@
           "depot": "DEPOT-002",
           "startLocal": "08:30",
           "endLocal": "17:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SUPPLY-VAN-008",
@@ -863,7 +863,7 @@
           "depot": "DEPOT-004",
           "startLocal": "09:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SUPPLY-VAN-009",
@@ -873,7 +873,7 @@
           "depot": "DEPOT-004",
           "startLocal": "08:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SUPPLY-VAN-010",
@@ -883,7 +883,7 @@
           "depot": "DEPOT-001",
           "startLocal": "08:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago"
+          "timezone": "Asia/Singapore"
         },
         {
           "id": "SUPPLY-VAN-011",
@@ -893,7 +893,7 @@
           "depot": "DEPOT-004",
           "startLocal": "08:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         },
         {
           "id": "SUPPLY-VAN-012",
@@ -903,7 +903,7 @@
           "depot": "DEPOT-002",
           "startLocal": "08:30",
           "endLocal": "17:30",
-          "timezone": "America/Chicago"
+          "timezone": "Europe/Warsaw"
         },
         {
           "id": "SUPPLY-VAN-013",
@@ -913,7 +913,7 @@
           "depot": "DEPOT-003",
           "startLocal": "08:30",
           "endLocal": "17:30",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SUPPLY-VAN-014",
@@ -923,7 +923,7 @@
           "depot": "DEPOT-003",
           "startLocal": "09:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/Sao_Paulo"
         },
         {
           "id": "SUPPLY-VAN-015",
@@ -933,7 +933,7 @@
           "depot": "DEPOT-004",
           "startLocal": "09:00",
           "endLocal": "18:00",
-          "timezone": "America/Chicago"
+          "timezone": "America/New_York"
         }
       ]
     }

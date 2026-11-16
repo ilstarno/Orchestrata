@@ -114,9 +114,9 @@
           "localDate": "2026-02-02",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-001"
+          "baselineWorkerId": "WORK-001",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-002",
@@ -126,9 +126,9 @@
           "localDate": "2026-02-03",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-002"
+          "baselineWorkerId": "WORK-002",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-003",
@@ -138,9 +138,9 @@
           "localDate": "2026-02-04",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-003"
+          "baselineWorkerId": "WORK-003",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-004",
@@ -150,9 +150,9 @@
           "localDate": "2026-02-05",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-004"
+          "baselineWorkerId": "WORK-004",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-005",
@@ -162,9 +162,9 @@
           "localDate": "2026-02-06",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-005"
+          "baselineWorkerId": "WORK-005",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-006",
@@ -174,9 +174,9 @@
           "localDate": "2026-02-07",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-006"
+          "baselineWorkerId": "WORK-006",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-007",
@@ -186,9 +186,9 @@
           "localDate": "2026-02-08",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-007"
+          "baselineWorkerId": "WORK-007",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-008",
@@ -198,9 +198,9 @@
           "localDate": "2026-02-09",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-008"
+          "baselineWorkerId": "WORK-008",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-009",
@@ -210,9 +210,9 @@
           "localDate": "2026-02-10",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-009"
+          "baselineWorkerId": "WORK-009",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-010",
@@ -222,9 +222,9 @@
           "localDate": "2026-02-11",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-010"
+          "baselineWorkerId": "WORK-010",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-011",
@@ -234,9 +234,9 @@
           "localDate": "2026-02-12",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-011"
+          "baselineWorkerId": "WORK-011",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-012",
@@ -246,9 +246,9 @@
           "localDate": "2026-02-13",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-012"
+          "baselineWorkerId": "WORK-012",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-013",
@@ -258,9 +258,9 @@
           "localDate": "2026-02-14",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-013"
+          "baselineWorkerId": "WORK-013",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-014",
@@ -270,9 +270,9 @@
           "localDate": "2026-02-15",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-014"
+          "baselineWorkerId": "WORK-014",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-015",
@@ -282,9 +282,9 @@
           "localDate": "2026-02-02",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-015"
+          "baselineWorkerId": "WORK-015",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-016",
@@ -294,9 +294,9 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-001"
+          "baselineWorkerId": "WORK-001",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-017",
@@ -306,9 +306,9 @@
           "localDate": "2026-02-04",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-002"
+          "baselineWorkerId": "WORK-002",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-018",
@@ -318,9 +318,9 @@
           "localDate": "2026-02-05",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-003"
+          "baselineWorkerId": "WORK-003",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-019",
@@ -330,9 +330,9 @@
           "localDate": "2026-02-06",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-004"
+          "baselineWorkerId": "WORK-004",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-020",
@@ -342,9 +342,9 @@
           "localDate": "2026-02-07",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-005"
+          "baselineWorkerId": "WORK-005",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-021",
@@ -354,9 +354,9 @@
           "localDate": "2026-02-08",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-006"
+          "baselineWorkerId": "WORK-006",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-022",
@@ -366,9 +366,9 @@
           "localDate": "2026-02-09",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-007"
+          "baselineWorkerId": "WORK-007",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-023",
@@ -378,9 +378,9 @@
           "localDate": "2026-02-10",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-008"
+          "baselineWorkerId": "WORK-008",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-024",
@@ -390,9 +390,9 @@
           "localDate": "2026-02-11",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-009"
+          "baselineWorkerId": "WORK-009",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-025",
@@ -402,9 +402,9 @@
           "localDate": "2026-02-12",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-010"
+          "baselineWorkerId": "WORK-010",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-026",
@@ -414,9 +414,9 @@
           "localDate": "2026-02-13",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-011"
+          "baselineWorkerId": "WORK-011",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-027",
@@ -426,9 +426,9 @@
           "localDate": "2026-02-14",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-012"
+          "baselineWorkerId": "WORK-012",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-028",
@@ -438,9 +438,9 @@
           "localDate": "2026-02-15",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-013"
+          "baselineWorkerId": "WORK-013",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-029",
@@ -450,9 +450,9 @@
           "localDate": "2026-02-02",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-014"
+          "baselineWorkerId": "WORK-014",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-030",
@@ -462,9 +462,9 @@
           "localDate": "2026-02-03",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-015"
+          "baselineWorkerId": "WORK-015",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-031",
@@ -474,9 +474,9 @@
           "localDate": "2026-02-04",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-001"
+          "baselineWorkerId": "WORK-001",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-032",
@@ -486,9 +486,9 @@
           "localDate": "2026-02-05",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-002"
+          "baselineWorkerId": "WORK-002",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-033",
@@ -498,9 +498,9 @@
           "localDate": "2026-02-06",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-003"
+          "baselineWorkerId": "WORK-003",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-034",
@@ -510,9 +510,9 @@
           "localDate": "2026-02-07",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-004"
+          "baselineWorkerId": "WORK-004",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-035",
@@ -522,9 +522,9 @@
           "localDate": "2026-02-08",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-005"
+          "baselineWorkerId": "WORK-005",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-036",
@@ -534,9 +534,9 @@
           "localDate": "2026-02-09",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-006"
+          "baselineWorkerId": "WORK-006",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-037",
@@ -546,9 +546,9 @@
           "localDate": "2026-02-10",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-007"
+          "baselineWorkerId": "WORK-007",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-038",
@@ -558,9 +558,9 @@
           "localDate": "2026-02-11",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-008"
+          "baselineWorkerId": "WORK-008",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-039",
@@ -570,9 +570,9 @@
           "localDate": "2026-02-12",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-009"
+          "baselineWorkerId": "WORK-009",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-040",
@@ -582,9 +582,9 @@
           "localDate": "2026-02-13",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-010"
+          "baselineWorkerId": "WORK-010",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-041",
@@ -594,9 +594,9 @@
           "localDate": "2026-02-14",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-011"
+          "baselineWorkerId": "WORK-011",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-042",
@@ -606,9 +606,9 @@
           "localDate": "2026-02-15",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-012"
+          "baselineWorkerId": "WORK-012",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-043",
@@ -618,9 +618,9 @@
           "localDate": "2026-02-02",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-013"
+          "baselineWorkerId": "WORK-013",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-044",
@@ -630,9 +630,9 @@
           "localDate": "2026-02-03",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-014"
+          "baselineWorkerId": "WORK-014",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-045",
@@ -642,9 +642,9 @@
           "localDate": "2026-02-04",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-015"
+          "baselineWorkerId": "WORK-015",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-046",
@@ -654,9 +654,9 @@
           "localDate": "2026-02-05",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-001"
+          "baselineWorkerId": "WORK-001",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-047",
@@ -666,9 +666,9 @@
           "localDate": "2026-02-06",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-002"
+          "baselineWorkerId": "WORK-002",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-048",
@@ -678,9 +678,9 @@
           "localDate": "2026-02-07",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-003"
+          "baselineWorkerId": "WORK-003",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-049",
@@ -690,9 +690,9 @@
           "localDate": "2026-02-08",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-004"
+          "baselineWorkerId": "WORK-004",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-050",
@@ -702,9 +702,9 @@
           "localDate": "2026-02-09",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-005"
+          "baselineWorkerId": "WORK-005",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-051",
@@ -714,9 +714,9 @@
           "localDate": "2026-02-10",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": true,
-          "baselineWorkerId": "WORK-006"
+          "baselineWorkerId": "WORK-006",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-052",
@@ -726,9 +726,9 @@
           "localDate": "2026-02-11",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-007"
+          "baselineWorkerId": "WORK-007",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-053",
@@ -738,9 +738,9 @@
           "localDate": "2026-02-12",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-008"
+          "baselineWorkerId": "WORK-008",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-054",
@@ -750,9 +750,9 @@
           "localDate": "2026-02-13",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-009"
+          "baselineWorkerId": "WORK-009",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-055",
@@ -762,9 +762,9 @@
           "localDate": "2026-02-14",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-010"
+          "baselineWorkerId": "WORK-010",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-056",
@@ -774,9 +774,9 @@
           "localDate": "2026-02-15",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-011"
+          "baselineWorkerId": "WORK-011",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-057",
@@ -786,9 +786,9 @@
           "localDate": "2026-02-02",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-012"
+          "baselineWorkerId": "WORK-012",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-058",
@@ -798,9 +798,9 @@
           "localDate": "2026-02-03",
           "startLocal": "07:00",
           "endLocal": "13:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-013"
+          "baselineWorkerId": "WORK-013",
+          "timezone": "America/Toronto"
         },
         {
           "id": "SHIFT-059",
@@ -810,9 +810,9 @@
           "localDate": "2026-02-04",
           "startLocal": "11:00",
           "endLocal": "17:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-014"
+          "baselineWorkerId": "WORK-014",
+          "timezone": "Europe/Rome"
         },
         {
           "id": "SHIFT-060",
@@ -822,9 +822,9 @@
           "localDate": "2026-02-05",
           "startLocal": "15:00",
           "endLocal": "21:00",
-          "timezone": "America/Chicago",
           "pinned": false,
-          "baselineWorkerId": "WORK-015"
+          "baselineWorkerId": "WORK-015",
+          "timezone": "America/Toronto"
         }
       ]
     },

@@ -92,7 +92,7 @@
           "localDate": "2026-02-02",
           "startLocal": "10:45",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-002",
@@ -102,7 +102,7 @@
           "localDate": "2026-02-03",
           "startLocal": "09:00",
           "endLocal": "12:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-003",
@@ -112,7 +112,7 @@
           "localDate": "2026-02-04",
           "startLocal": "12:45",
           "endLocal": "15:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-004",
@@ -122,7 +122,7 @@
           "localDate": "2026-02-05",
           "startLocal": "11:15",
           "endLocal": "14:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-005",
@@ -132,7 +132,7 @@
           "localDate": "2026-02-06",
           "startLocal": "11:45",
           "endLocal": "14:00",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-006",
@@ -142,7 +142,7 @@
           "localDate": "2026-02-07",
           "startLocal": "11:15",
           "endLocal": "14:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-007",
@@ -152,7 +152,7 @@
           "localDate": "2026-02-08",
           "startLocal": "11:15",
           "endLocal": "14:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-008",
@@ -162,7 +162,7 @@
           "localDate": "2026-02-09",
           "startLocal": "11:15",
           "endLocal": "13:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-009",
@@ -172,7 +172,7 @@
           "localDate": "2026-02-10",
           "startLocal": "10:00",
           "endLocal": "11:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-010",
@@ -182,7 +182,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:45",
           "endLocal": "13:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-011",
@@ -192,7 +192,7 @@
           "localDate": "2026-02-12",
           "startLocal": "12:45",
           "endLocal": "14:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-012",
@@ -202,7 +202,7 @@
           "localDate": "2026-02-13",
           "startLocal": "08:15",
           "endLocal": "10:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-013",
@@ -212,7 +212,7 @@
           "localDate": "2026-02-14",
           "startLocal": "10:15",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-014",
@@ -222,7 +222,7 @@
           "localDate": "2026-02-15",
           "startLocal": "08:45",
           "endLocal": "11:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-015",
@@ -232,7 +232,7 @@
           "localDate": "2026-02-02",
           "startLocal": "12:45",
           "endLocal": "14:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-016",
@@ -242,7 +242,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:00",
           "endLocal": "12:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-017",
@@ -252,7 +252,7 @@
           "localDate": "2026-02-04",
           "startLocal": "09:45",
           "endLocal": "11:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-018",
@@ -262,7 +262,7 @@
           "localDate": "2026-02-05",
           "startLocal": "10:00",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-019",
@@ -272,7 +272,7 @@
           "localDate": "2026-02-06",
           "startLocal": "11:45",
           "endLocal": "14:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-020",
@@ -282,7 +282,7 @@
           "localDate": "2026-02-07",
           "startLocal": "08:45",
           "endLocal": "12:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-021",
@@ -292,7 +292,7 @@
           "localDate": "2026-02-08",
           "startLocal": "10:15",
           "endLocal": "14:00",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-022",
@@ -302,7 +302,7 @@
           "localDate": "2026-02-09",
           "startLocal": "11:45",
           "endLocal": "15:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-023",
@@ -312,7 +312,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:45",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-024",
@@ -322,7 +322,7 @@
           "localDate": "2026-02-11",
           "startLocal": "09:15",
           "endLocal": "13:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-025",
@@ -332,7 +332,7 @@
           "localDate": "2026-02-12",
           "startLocal": "09:45",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-026",
@@ -342,7 +342,7 @@
           "localDate": "2026-02-13",
           "startLocal": "08:15",
           "endLocal": "11:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-027",
@@ -352,7 +352,7 @@
           "localDate": "2026-02-14",
           "startLocal": "09:15",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-028",
@@ -362,7 +362,7 @@
           "localDate": "2026-02-15",
           "startLocal": "08:30",
           "endLocal": "10:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-029",
@@ -372,7 +372,7 @@
           "localDate": "2026-02-02",
           "startLocal": "11:00",
           "endLocal": "14:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-030",
@@ -382,7 +382,7 @@
           "localDate": "2026-02-03",
           "startLocal": "10:30",
           "endLocal": "14:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-031",
@@ -392,7 +392,7 @@
           "localDate": "2026-02-04",
           "startLocal": "08:00",
           "endLocal": "09:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-032",
@@ -402,7 +402,7 @@
           "localDate": "2026-02-05",
           "startLocal": "08:00",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-033",
@@ -412,7 +412,7 @@
           "localDate": "2026-02-06",
           "startLocal": "12:30",
           "endLocal": "15:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-034",
@@ -422,7 +422,7 @@
           "localDate": "2026-02-07",
           "startLocal": "08:45",
           "endLocal": "11:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-035",
@@ -432,7 +432,7 @@
           "localDate": "2026-02-08",
           "startLocal": "09:00",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-036",
@@ -442,7 +442,7 @@
           "localDate": "2026-02-09",
           "startLocal": "11:15",
           "endLocal": "12:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-037",
@@ -452,7 +452,7 @@
           "localDate": "2026-02-10",
           "startLocal": "09:15",
           "endLocal": "11:00",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-038",
@@ -462,7 +462,7 @@
           "localDate": "2026-02-11",
           "startLocal": "12:45",
           "endLocal": "14:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-039",
@@ -472,7 +472,7 @@
           "localDate": "2026-02-12",
           "startLocal": "11:45",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-040",
@@ -482,7 +482,7 @@
           "localDate": "2026-02-13",
           "startLocal": "08:45",
           "endLocal": "12:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-041",
@@ -492,7 +492,7 @@
           "localDate": "2026-02-14",
           "startLocal": "08:15",
           "endLocal": "10:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-042",
@@ -502,7 +502,7 @@
           "localDate": "2026-02-15",
           "startLocal": "10:00",
           "endLocal": "13:30",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-043",
@@ -512,7 +512,7 @@
           "localDate": "2026-02-02",
           "startLocal": "10:00",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-044",
@@ -522,7 +522,7 @@
           "localDate": "2026-02-03",
           "startLocal": "09:00",
           "endLocal": "12:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-045",
@@ -532,7 +532,7 @@
           "localDate": "2026-02-04",
           "startLocal": "11:15",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-046",
@@ -542,7 +542,7 @@
           "localDate": "2026-02-05",
           "startLocal": "09:15",
           "endLocal": "11:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-047",
@@ -552,7 +552,7 @@
           "localDate": "2026-02-06",
           "startLocal": "10:00",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-048",
@@ -562,7 +562,7 @@
           "localDate": "2026-02-07",
           "startLocal": "11:30",
           "endLocal": "13:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-049",
@@ -572,7 +572,7 @@
           "localDate": "2026-02-08",
           "startLocal": "08:15",
           "endLocal": "09:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-050",
@@ -582,7 +582,7 @@
           "localDate": "2026-02-09",
           "startLocal": "09:00",
           "endLocal": "12:15",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-051",
@@ -592,7 +592,7 @@
           "localDate": "2026-02-10",
           "startLocal": "08:45",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-052",
@@ -602,7 +602,7 @@
           "localDate": "2026-02-11",
           "startLocal": "10:30",
           "endLocal": "13:00",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-053",
@@ -612,7 +612,7 @@
           "localDate": "2026-02-12",
           "startLocal": "09:00",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-054",
@@ -622,7 +622,7 @@
           "localDate": "2026-02-13",
           "startLocal": "11:45",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-055",
@@ -632,7 +632,7 @@
           "localDate": "2026-02-14",
           "startLocal": "08:45",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-056",
@@ -642,7 +642,7 @@
           "localDate": "2026-02-15",
           "startLocal": "12:30",
           "endLocal": "15:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-057",
@@ -652,7 +652,7 @@
           "localDate": "2026-02-02",
           "startLocal": "09:15",
           "endLocal": "11:45",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-058",
@@ -662,7 +662,7 @@
           "localDate": "2026-02-03",
           "startLocal": "11:15",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         },
         {
           "id": "DUTY-059",
@@ -672,7 +672,7 @@
           "localDate": "2026-02-04",
           "startLocal": "10:30",
           "endLocal": "13:30",
-          "timezone": "Europe/Rome"
+          "timezone": "Asia/Tokyo"
         },
         {
           "id": "DUTY-060",
@@ -682,7 +682,7 @@
           "localDate": "2026-02-05",
           "startLocal": "11:15",
           "endLocal": "13:45",
-          "timezone": "Europe/Rome"
+          "timezone": "America/New_York"
         }
       ]
     },
