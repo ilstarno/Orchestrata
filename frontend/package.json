@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "test": "vitest run",
-    "test:unit": "vitest run src/tests/unit",
-    "test:integration": "vitest run src/tests/integration"
+    "test": "npm run test:typecheck && vitest run --config ../frontend_tests/vitest.config.ts",
+    "test:typecheck": "tsc --noEmit --project ../frontend_tests/tsconfig.json",
+    "test:unit": "vitest run --config ../frontend_tests/vitest.config.ts ../frontend_tests/unit",
+    "test:integration": "vitest run --config ../frontend_tests/vitest.config.ts ../frontend_tests/integration"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.0.0",
