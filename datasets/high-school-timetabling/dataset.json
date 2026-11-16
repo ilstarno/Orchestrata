@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "caseId": "high-school-timetabling",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates fixed class periods and room-fit data, without any student or teacher identity.",
+  "collections": [
+    {
+      "id": "classes",
+      "label": "Class meetings",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "subject",
+          "label": "Subject",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Generic high-school subject name."
+        },
+        {
+          "key": "period",
+          "label": "Fixed period",
+          "type": "integer",
+          "unit": "period",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative period ordinal; not chosen by the room assignment."
+        },
+        {
+          "key": "seatDemand",
+          "label": "Seat demand",
+          "type": "integer",
+          "unit": "seats",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative students needing seats, without personal data."
+        },
+        {
+          "key": "roomType",
+          "label": "Room requirement",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative room type needed."
+        },
+        {
+          "key": "accessibleRequired",
+          "label": "Accessible room required",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Class requires an accessible room."
+        }
+      ],
+      "records": [
+        {
+          "id": "CLASS-001",
+          "subject": "Chemistry",
+          "period": 2,
+          "seatDemand": 29,
+          "roomType": "lab",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-002",
+          "subject": "Digital design",
+          "period": 3,
+          "seatDemand": 32,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-003",
+          "subject": "Civics",
+          "period": 4,
+          "seatDemand": 31,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-004",
+          "subject": "Mathematics",
+          "period": 2,
+          "seatDemand": 23,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-005",
+          "subject": "Chemistry",
+          "period": 5,
+          "seatDemand": 19,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-006",
+          "subject": "Digital design",
+          "period": 2,
+          "seatDemand": 23,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-007",
+          "subject": "Civics",
+          "period": 1,
+          "seatDemand": 20,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-008",
+          "subject": "Mathematics",
+          "period": 5,
+          "seatDemand": 17,
+          "roomType": "standard",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-009",
+          "subject": "Chemistry",
+          "period": 3,
+          "seatDemand": 22,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-010",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 15,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-011",
+          "subject": "Civics",
+          "period": 1,
+          "seatDemand": 31,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-012",
+          "subject": "Mathematics",
+          "period": 6,
+          "seatDemand": 18,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-013",
+          "subject": "Chemistry",
+          "period": 6,
+          "seatDemand": 30,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-014",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 17,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-015",
+          "subject": "Civics",
+          "period": 4,
+          "seatDemand": 30,
+          "roomType": "standard",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-016",
+          "subject": "Mathematics",
+          "period": 6,
+          "seatDemand": 31,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-017",
+          "subject": "Chemistry",
+          "period": 4,
+          "seatDemand": 15,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-018",
+          "subject": "Digital design",
+          "period": 1,
+          "seatDemand": 21,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-019",
+          "subject": "Civics",
+          "period": 4,
+          "seatDemand": 21,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-020",
+          "subject": "Mathematics",
+          "period": 3,
+          "seatDemand": 20,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-021",
+          "subject": "Chemistry",
+          "period": 6,
+          "seatDemand": 29,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-022",
+          "subject": "Digital design",
+          "period": 3,
+          "seatDemand": 26,
+          "roomType": "media",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-023",
+          "subject": "Civics",
+          "period": 4,
+          "seatDemand": 21,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-024",
+          "subject": "Mathematics",
+          "period": 4,
+          "seatDemand": 26,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-025",
+          "subject": "Chemistry",
+          "period": 3,
+          "seatDemand": 14,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-026",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 19,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-027",
+          "subject": "Civics",
+          "period": 4,
+          "seatDemand": 15,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-028",
+          "subject": "Mathematics",
+          "period": 6,
+          "seatDemand": 17,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-029",
+          "subject": "Chemistry",
+          "period": 5,
+          "seatDemand": 14,
+          "roomType": "lab",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-030",
+          "subject": "Digital design",
+          "period": 1,
+          "seatDemand": 24,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-031",
+          "subject": "Civics",
+          "period": 3,
+          "seatDemand": 32,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-032",
+          "subject": "Mathematics",
+          "period": 5,
+          "seatDemand": 25,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-033",
+          "subject": "Chemistry",
+          "period": 5,
+          "seatDemand": 28,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-034",
+          "subject": "Digital design",
+          "period": 4,
+          "seatDemand": 24,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-035",
+          "subject": "Civics",
+          "period": 3,
+          "seatDemand": 19,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-036",
+          "subject": "Mathematics",
+          "period": 2,
+          "seatDemand": 18,
+          "roomType": "standard",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-037",
+          "subject": "Chemistry",
+          "period": 2,
+          "seatDemand": 27,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-038",
+          "subject": "Digital design",
+          "period": 3,
+          "seatDemand": 19,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-039",
+          "subject": "Civics",
+          "period": 2,
+          "seatDemand": 26,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-040",
+          "subject": "Mathematics",
+          "period": 2,
+          "seatDemand": 14,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-041",
+          "subject": "Chemistry",
+          "period": 5,
+          "seatDemand": 14,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-042",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 17,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-043",
+          "subject": "Civics",
+          "period": 2,
+          "seatDemand": 14,
+          "roomType": "standard",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-044",
+          "subject": "Mathematics",
+          "period": 2,
+          "seatDemand": 26,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-045",
+          "subject": "Chemistry",
+          "period": 6,
+          "seatDemand": 27,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-046",
+          "subject": "Digital design",
+          "period": 3,
+          "seatDemand": 30,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-047",
+          "subject": "Civics",
+          "period": 3,
+          "seatDemand": 14,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-048",
+          "subject": "Mathematics",
+          "period": 5,
+          "seatDemand": 29,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-049",
+          "subject": "Chemistry",
+          "period": 3,
+          "seatDemand": 22,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-050",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 17,
+          "roomType": "media",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-051",
+          "subject": "Civics",
+          "period": 2,
+          "seatDemand": 23,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-052",
+          "subject": "Mathematics",
+          "period": 5,
+          "seatDemand": 17,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-053",
+          "subject": "Chemistry",
+          "period": 3,
+          "seatDemand": 24,
+          "roomType": "lab",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-054",
+          "subject": "Digital design",
+          "period": 5,
+          "seatDemand": 28,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-055",
+          "subject": "Civics",
+          "period": 2,
+          "seatDemand": 24,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-056",
+          "subject": "Mathematics",
+          "period": 1,
+          "seatDemand": 19,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-057",
+          "subject": "Chemistry",
+          "period": 1,
+          "seatDemand": 21,
+          "roomType": "lab",
+          "accessibleRequired": true
+        },
+        {
+          "id": "CLASS-058",
+          "subject": "Digital design",
+          "period": 6,
+          "seatDemand": 22,
+          "roomType": "media",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-059",
+          "subject": "Civics",
+          "period": 3,
+          "seatDemand": 23,
+          "roomType": "standard",
+          "accessibleRequired": false
+        },
+        {
+          "id": "CLASS-060",
+          "subject": "Mathematics",
+          "period": 6,
+          "seatDemand": 14,
+          "roomType": "standard",
+          "accessibleRequired": false
+        }
+      ]
+    },
+    {
+      "id": "classrooms",
+      "label": "Classrooms",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "category",
+          "label": "Room type",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional equipment category."
+        },
+        {
+          "key": "seats",
+          "label": "Seat capacity",
+          "type": "integer",
+          "unit": "seats",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative usable seat count."
+        },
+        {
+          "key": "accessible",
+          "label": "Accessible",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative room accessibility flag."
+        }
+      ],
+      "records": [
+        {
+          "id": "ROOM-001",
+          "category": "lab",
+          "seats": 27,
+          "accessible": false
+        },
+        {
+          "id": "ROOM-002",
+          "category": "media",
+          "seats": 31,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-003",
+          "category": "standard",
+          "seats": 37,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-004",
+          "category": "lab",
+          "seats": 35,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-005",
+          "category": "media",
+          "seats": 32,
+          "accessible": false
+        },
+        {
+          "id": "ROOM-006",
+          "category": "standard",
+          "seats": 35,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-007",
+          "category": "lab",
+          "seats": 31,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-008",
+          "category": "media",
+          "seats": 29,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-009",
+          "category": "standard",
+          "seats": 32,
+          "accessible": false
+        },
+        {
+          "id": "ROOM-010",
+          "category": "lab",
+          "seats": 36,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-011",
+          "category": "media",
+          "seats": 37,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-012",
+          "category": "standard",
+          "seats": 32,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-013",
+          "category": "lab",
+          "seats": 34,
+          "accessible": false
+        },
+        {
+          "id": "ROOM-014",
+          "category": "media",
+          "seats": 25,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-015",
+          "category": "standard",
+          "seats": 36,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-016",
+          "category": "lab",
+          "seats": 40,
+          "accessible": true
+        },
+        {
+          "id": "ROOM-017",
+          "category": "media",
+          "seats": 26,
+          "accessible": false
+        },
+        {
+          "id": "ROOM-018",
+          "category": "standard",
+          "seats": 40,
+          "accessible": true
+        }
+      ]
+    }
+  ]
+}

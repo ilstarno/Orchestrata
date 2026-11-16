@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "caseId": "hospital-nonclinical-shift-coverage",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates support posts and eligibility. Contains no patient data or clinical staffing guidance.",
+  "collections": [
+    {
+      "id": "posts",
+      "label": "Nonclinical post windows",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "post",
+          "label": "Post type",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Nonclinical facility support function."
+        },
+        {
+          "key": "building",
+          "label": "Building",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional building code."
+        },
+        {
+          "key": "clearance",
+          "label": "Clearance tag",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Facility-provided nonclinical access category."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "POST-001",
+          "post": "Visitor desk",
+          "building": "BUILDING-002",
+          "clearance": "public-desk",
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-002",
+          "post": "Supply desk",
+          "building": "BUILDING-005",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-03",
+          "startLocal": "12:15",
+          "endLocal": "15:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-003",
+          "post": "Courier intake",
+          "building": "BUILDING-003",
+          "clearance": "intake",
+          "localDate": "2026-02-04",
+          "startLocal": "11:30",
+          "endLocal": "14:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-004",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-05",
+          "startLocal": "10:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-005",
+          "post": "Supply desk",
+          "building": "BUILDING-005",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-06",
+          "startLocal": "11:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-006",
+          "post": "Courier intake",
+          "building": "BUILDING-001",
+          "clearance": "intake",
+          "localDate": "2026-02-07",
+          "startLocal": "12:45",
+          "endLocal": "15:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-007",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-08",
+          "startLocal": "11:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-008",
+          "post": "Supply desk",
+          "building": "BUILDING-001",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-09",
+          "startLocal": "11:30",
+          "endLocal": "14:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-009",
+          "post": "Courier intake",
+          "building": "BUILDING-005",
+          "clearance": "intake",
+          "localDate": "2026-02-10",
+          "startLocal": "12:30",
+          "endLocal": "15:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-010",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-11",
+          "startLocal": "12:30",
+          "endLocal": "15:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-011",
+          "post": "Supply desk",
+          "building": "BUILDING-002",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-12",
+          "startLocal": "10:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-012",
+          "post": "Courier intake",
+          "building": "BUILDING-004",
+          "clearance": "intake",
+          "localDate": "2026-02-13",
+          "startLocal": "10:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-013",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-14",
+          "startLocal": "09:15",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-014",
+          "post": "Supply desk",
+          "building": "BUILDING-002",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-15",
+          "startLocal": "11:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-015",
+          "post": "Courier intake",
+          "building": "BUILDING-001",
+          "clearance": "intake",
+          "localDate": "2026-02-02",
+          "startLocal": "11:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-016",
+          "post": "Visitor desk",
+          "building": "BUILDING-005",
+          "clearance": "public-desk",
+          "localDate": "2026-02-03",
+          "startLocal": "10:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-017",
+          "post": "Supply desk",
+          "building": "BUILDING-004",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-04",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-018",
+          "post": "Courier intake",
+          "building": "BUILDING-001",
+          "clearance": "intake",
+          "localDate": "2026-02-05",
+          "startLocal": "09:00",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-019",
+          "post": "Visitor desk",
+          "building": "BUILDING-005",
+          "clearance": "public-desk",
+          "localDate": "2026-02-06",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-020",
+          "post": "Supply desk",
+          "building": "BUILDING-005",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-07",
+          "startLocal": "12:45",
+          "endLocal": "15:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-021",
+          "post": "Courier intake",
+          "building": "BUILDING-001",
+          "clearance": "intake",
+          "localDate": "2026-02-08",
+          "startLocal": "11:15",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-022",
+          "post": "Visitor desk",
+          "building": "BUILDING-004",
+          "clearance": "public-desk",
+          "localDate": "2026-02-09",
+          "startLocal": "09:30",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-023",
+          "post": "Supply desk",
+          "building": "BUILDING-004",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-10",
+          "startLocal": "10:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-024",
+          "post": "Courier intake",
+          "building": "BUILDING-003",
+          "clearance": "intake",
+          "localDate": "2026-02-11",
+          "startLocal": "09:45",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-025",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-12",
+          "startLocal": "12:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-026",
+          "post": "Supply desk",
+          "building": "BUILDING-005",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-13",
+          "startLocal": "10:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-027",
+          "post": "Courier intake",
+          "building": "BUILDING-005",
+          "clearance": "intake",
+          "localDate": "2026-02-14",
+          "startLocal": "12:30",
+          "endLocal": "15:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-028",
+          "post": "Visitor desk",
+          "building": "BUILDING-004",
+          "clearance": "public-desk",
+          "localDate": "2026-02-15",
+          "startLocal": "09:45",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-029",
+          "post": "Supply desk",
+          "building": "BUILDING-001",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-02",
+          "startLocal": "11:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-030",
+          "post": "Courier intake",
+          "building": "BUILDING-003",
+          "clearance": "intake",
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-031",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-04",
+          "startLocal": "11:15",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-032",
+          "post": "Supply desk",
+          "building": "BUILDING-005",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-05",
+          "startLocal": "12:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-033",
+          "post": "Courier intake",
+          "building": "BUILDING-002",
+          "clearance": "intake",
+          "localDate": "2026-02-06",
+          "startLocal": "08:30",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-034",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-07",
+          "startLocal": "10:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-035",
+          "post": "Supply desk",
+          "building": "BUILDING-001",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-08",
+          "startLocal": "12:30",
+          "endLocal": "15:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-036",
+          "post": "Courier intake",
+          "building": "BUILDING-003",
+          "clearance": "intake",
+          "localDate": "2026-02-09",
+          "startLocal": "08:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-037",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-10",
+          "startLocal": "11:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-038",
+          "post": "Supply desk",
+          "building": "BUILDING-001",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-11",
+          "startLocal": "11:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-039",
+          "post": "Courier intake",
+          "building": "BUILDING-004",
+          "clearance": "intake",
+          "localDate": "2026-02-12",
+          "startLocal": "09:30",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-040",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-13",
+          "startLocal": "11:30",
+          "endLocal": "14:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-041",
+          "post": "Supply desk",
+          "building": "BUILDING-003",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-14",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-042",
+          "post": "Courier intake",
+          "building": "BUILDING-001",
+          "clearance": "intake",
+          "localDate": "2026-02-15",
+          "startLocal": "08:15",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-043",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-044",
+          "post": "Supply desk",
+          "building": "BUILDING-004",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-03",
+          "startLocal": "11:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-045",
+          "post": "Courier intake",
+          "building": "BUILDING-005",
+          "clearance": "intake",
+          "localDate": "2026-02-04",
+          "startLocal": "08:30",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-046",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-05",
+          "startLocal": "11:15",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-047",
+          "post": "Supply desk",
+          "building": "BUILDING-001",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-06",
+          "startLocal": "09:30",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-048",
+          "post": "Courier intake",
+          "building": "BUILDING-004",
+          "clearance": "intake",
+          "localDate": "2026-02-07",
+          "startLocal": "12:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-049",
+          "post": "Visitor desk",
+          "building": "BUILDING-002",
+          "clearance": "public-desk",
+          "localDate": "2026-02-08",
+          "startLocal": "08:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-050",
+          "post": "Supply desk",
+          "building": "BUILDING-004",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-09",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-051",
+          "post": "Courier intake",
+          "building": "BUILDING-003",
+          "clearance": "intake",
+          "localDate": "2026-02-10",
+          "startLocal": "10:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-052",
+          "post": "Visitor desk",
+          "building": "BUILDING-005",
+          "clearance": "public-desk",
+          "localDate": "2026-02-11",
+          "startLocal": "11:15",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-053",
+          "post": "Supply desk",
+          "building": "BUILDING-002",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-12",
+          "startLocal": "10:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-054",
+          "post": "Courier intake",
+          "building": "BUILDING-002",
+          "clearance": "intake",
+          "localDate": "2026-02-13",
+          "startLocal": "10:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-055",
+          "post": "Visitor desk",
+          "building": "BUILDING-003",
+          "clearance": "public-desk",
+          "localDate": "2026-02-14",
+          "startLocal": "10:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-056",
+          "post": "Supply desk",
+          "building": "BUILDING-002",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-15",
+          "startLocal": "10:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-057",
+          "post": "Courier intake",
+          "building": "BUILDING-002",
+          "clearance": "intake",
+          "localDate": "2026-02-02",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-058",
+          "post": "Visitor desk",
+          "building": "BUILDING-001",
+          "clearance": "public-desk",
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-059",
+          "post": "Supply desk",
+          "building": "BUILDING-004",
+          "clearance": "supply-storage",
+          "localDate": "2026-02-04",
+          "startLocal": "12:15",
+          "endLocal": "15:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "POST-060",
+          "post": "Courier intake",
+          "building": "BUILDING-005",
+          "clearance": "intake",
+          "localDate": "2026-02-05",
+          "startLocal": "12:30",
+          "endLocal": "15:30",
+          "timezone": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "id": "supportStaff",
+      "label": "Support staff",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "clearances",
+          "label": "Clearances",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional categories supplied by facility staff."
+        },
+        {
+          "key": "available",
+          "label": "Available",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Example staff availability flag."
+        }
+      ],
+      "records": [
+        {
+          "id": "STAFF-001",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": false
+        },
+        {
+          "id": "STAFF-002",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-003",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-004",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-005",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-006",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-007",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-008",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-009",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-010",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-011",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-012",
+          "clearances": [
+            "intake"
+          ],
+          "available": false
+        },
+        {
+          "id": "STAFF-013",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-014",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-015",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-016",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-017",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-018",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-019",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-020",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-021",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-022",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-023",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": false
+        },
+        {
+          "id": "STAFF-024",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-025",
+          "clearances": [
+            "public-desk"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-026",
+          "clearances": [
+            "supply-storage"
+          ],
+          "available": true
+        },
+        {
+          "id": "STAFF-027",
+          "clearances": [
+            "intake"
+          ],
+          "available": true
+        }
+      ]
+    }
+  ]
+}

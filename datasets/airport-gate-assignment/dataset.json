@@ -1,0 +1,1011 @@
+{
+  "schemaVersion": 1,
+  "caseId": "airport-gate-assignment",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates fixed flight windows and airport gate properties, not aircraft movements or live gate plans.",
+  "collections": [
+    {
+      "id": "flights",
+      "label": "Flight turnarounds",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "flightCode",
+          "label": "Flight code",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional service identifier."
+        },
+        {
+          "key": "type",
+          "label": "Aircraft group",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative aircraft-size category."
+        },
+        {
+          "key": "international",
+          "label": "International handling",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Whether international processing is needed."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "TURN-001",
+          "flightCode": "DEMO-AIR-001",
+          "type": "regional",
+          "international": true,
+          "localDate": "2026-02-02",
+          "startLocal": "09:45",
+          "endLocal": "11:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-002",
+          "flightCode": "DEMO-AIR-002",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-03",
+          "startLocal": "11:30",
+          "endLocal": "13:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-003",
+          "flightCode": "DEMO-AIR-003",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-04",
+          "startLocal": "10:00",
+          "endLocal": "11:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-004",
+          "flightCode": "DEMO-AIR-004",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-05",
+          "startLocal": "10:30",
+          "endLocal": "11:25",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-005",
+          "flightCode": "DEMO-AIR-005",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-06",
+          "startLocal": "12:30",
+          "endLocal": "14:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-006",
+          "flightCode": "DEMO-AIR-006",
+          "type": "widebody",
+          "international": true,
+          "localDate": "2026-02-07",
+          "startLocal": "11:00",
+          "endLocal": "11:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-007",
+          "flightCode": "DEMO-AIR-007",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-08",
+          "startLocal": "10:30",
+          "endLocal": "12:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-008",
+          "flightCode": "DEMO-AIR-008",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-09",
+          "startLocal": "12:45",
+          "endLocal": "13:50",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-009",
+          "flightCode": "DEMO-AIR-009",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-10",
+          "startLocal": "11:30",
+          "endLocal": "12:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-010",
+          "flightCode": "DEMO-AIR-010",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-11",
+          "startLocal": "09:45",
+          "endLocal": "11:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-011",
+          "flightCode": "DEMO-AIR-011",
+          "type": "narrowbody",
+          "international": true,
+          "localDate": "2026-02-12",
+          "startLocal": "10:30",
+          "endLocal": "12:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-012",
+          "flightCode": "DEMO-AIR-012",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-13",
+          "startLocal": "09:00",
+          "endLocal": "10:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-013",
+          "flightCode": "DEMO-AIR-013",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-14",
+          "startLocal": "12:15",
+          "endLocal": "13:10",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-014",
+          "flightCode": "DEMO-AIR-014",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-15",
+          "startLocal": "12:00",
+          "endLocal": "12:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-015",
+          "flightCode": "DEMO-AIR-015",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "09:15",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-016",
+          "flightCode": "DEMO-AIR-016",
+          "type": "regional",
+          "international": true,
+          "localDate": "2026-02-03",
+          "startLocal": "11:30",
+          "endLocal": "12:45",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-017",
+          "flightCode": "DEMO-AIR-017",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-04",
+          "startLocal": "08:15",
+          "endLocal": "09:50",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-018",
+          "flightCode": "DEMO-AIR-018",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-05",
+          "startLocal": "12:45",
+          "endLocal": "14:10",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-019",
+          "flightCode": "DEMO-AIR-019",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-06",
+          "startLocal": "08:30",
+          "endLocal": "09:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-020",
+          "flightCode": "DEMO-AIR-020",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-07",
+          "startLocal": "11:15",
+          "endLocal": "12:30",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-021",
+          "flightCode": "DEMO-AIR-021",
+          "type": "widebody",
+          "international": true,
+          "localDate": "2026-02-08",
+          "startLocal": "09:45",
+          "endLocal": "10:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-022",
+          "flightCode": "DEMO-AIR-022",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-09",
+          "startLocal": "08:00",
+          "endLocal": "09:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-023",
+          "flightCode": "DEMO-AIR-023",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-10",
+          "startLocal": "11:30",
+          "endLocal": "12:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-024",
+          "flightCode": "DEMO-AIR-024",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-11",
+          "startLocal": "10:30",
+          "endLocal": "12:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-025",
+          "flightCode": "DEMO-AIR-025",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-12",
+          "startLocal": "11:15",
+          "endLocal": "12:50",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-026",
+          "flightCode": "DEMO-AIR-026",
+          "type": "narrowbody",
+          "international": true,
+          "localDate": "2026-02-13",
+          "startLocal": "11:30",
+          "endLocal": "12:45",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-027",
+          "flightCode": "DEMO-AIR-027",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-14",
+          "startLocal": "09:15",
+          "endLocal": "10:10",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-028",
+          "flightCode": "DEMO-AIR-028",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-15",
+          "startLocal": "10:15",
+          "endLocal": "11:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-029",
+          "flightCode": "DEMO-AIR-029",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-02",
+          "startLocal": "08:45",
+          "endLocal": "10:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-030",
+          "flightCode": "DEMO-AIR-030",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-03",
+          "startLocal": "08:30",
+          "endLocal": "09:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-031",
+          "flightCode": "DEMO-AIR-031",
+          "type": "regional",
+          "international": true,
+          "localDate": "2026-02-04",
+          "startLocal": "11:15",
+          "endLocal": "12:50",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-032",
+          "flightCode": "DEMO-AIR-032",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-05",
+          "startLocal": "10:00",
+          "endLocal": "10:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-033",
+          "flightCode": "DEMO-AIR-033",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-06",
+          "startLocal": "09:45",
+          "endLocal": "10:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-034",
+          "flightCode": "DEMO-AIR-034",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-07",
+          "startLocal": "12:15",
+          "endLocal": "13:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-035",
+          "flightCode": "DEMO-AIR-035",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-08",
+          "startLocal": "12:00",
+          "endLocal": "12:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-036",
+          "flightCode": "DEMO-AIR-036",
+          "type": "widebody",
+          "international": true,
+          "localDate": "2026-02-09",
+          "startLocal": "08:00",
+          "endLocal": "09:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-037",
+          "flightCode": "DEMO-AIR-037",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-10",
+          "startLocal": "09:00",
+          "endLocal": "10:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-038",
+          "flightCode": "DEMO-AIR-038",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-11",
+          "startLocal": "09:00",
+          "endLocal": "09:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-039",
+          "flightCode": "DEMO-AIR-039",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-12",
+          "startLocal": "12:15",
+          "endLocal": "13:30",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-040",
+          "flightCode": "DEMO-AIR-040",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-13",
+          "startLocal": "10:00",
+          "endLocal": "10:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-041",
+          "flightCode": "DEMO-AIR-041",
+          "type": "narrowbody",
+          "international": true,
+          "localDate": "2026-02-14",
+          "startLocal": "12:00",
+          "endLocal": "13:15",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-042",
+          "flightCode": "DEMO-AIR-042",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-15",
+          "startLocal": "12:30",
+          "endLocal": "14:05",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-043",
+          "flightCode": "DEMO-AIR-043",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-02",
+          "startLocal": "11:15",
+          "endLocal": "12:10",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-044",
+          "flightCode": "DEMO-AIR-044",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-03",
+          "startLocal": "12:15",
+          "endLocal": "13:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-045",
+          "flightCode": "DEMO-AIR-045",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-04",
+          "startLocal": "12:45",
+          "endLocal": "14:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-046",
+          "flightCode": "DEMO-AIR-046",
+          "type": "regional",
+          "international": true,
+          "localDate": "2026-02-05",
+          "startLocal": "09:00",
+          "endLocal": "10:25",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-047",
+          "flightCode": "DEMO-AIR-047",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-06",
+          "startLocal": "10:15",
+          "endLocal": "11:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-048",
+          "flightCode": "DEMO-AIR-048",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-07",
+          "startLocal": "09:15",
+          "endLocal": "10:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-049",
+          "flightCode": "DEMO-AIR-049",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-08",
+          "startLocal": "12:00",
+          "endLocal": "13:25",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-050",
+          "flightCode": "DEMO-AIR-050",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-09",
+          "startLocal": "08:30",
+          "endLocal": "09:55",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-051",
+          "flightCode": "DEMO-AIR-051",
+          "type": "widebody",
+          "international": true,
+          "localDate": "2026-02-10",
+          "startLocal": "08:30",
+          "endLocal": "09:45",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-052",
+          "flightCode": "DEMO-AIR-052",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-11",
+          "startLocal": "12:45",
+          "endLocal": "14:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-053",
+          "flightCode": "DEMO-AIR-053",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-12",
+          "startLocal": "11:45",
+          "endLocal": "13:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-054",
+          "flightCode": "DEMO-AIR-054",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-13",
+          "startLocal": "12:45",
+          "endLocal": "13:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-055",
+          "flightCode": "DEMO-AIR-055",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-14",
+          "startLocal": "09:15",
+          "endLocal": "10:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-056",
+          "flightCode": "DEMO-AIR-056",
+          "type": "narrowbody",
+          "international": true,
+          "localDate": "2026-02-15",
+          "startLocal": "09:30",
+          "endLocal": "10:45",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-057",
+          "flightCode": "DEMO-AIR-057",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-02",
+          "startLocal": "12:00",
+          "endLocal": "13:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-058",
+          "flightCode": "DEMO-AIR-058",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-03",
+          "startLocal": "10:30",
+          "endLocal": "11:25",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-059",
+          "flightCode": "DEMO-AIR-059",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-04",
+          "startLocal": "08:45",
+          "endLocal": "10:20",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-060",
+          "flightCode": "DEMO-AIR-060",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-05",
+          "startLocal": "08:45",
+          "endLocal": "09:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-061",
+          "flightCode": "DEMO-AIR-061",
+          "type": "regional",
+          "international": true,
+          "localDate": "2026-02-06",
+          "startLocal": "08:30",
+          "endLocal": "09:45",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-062",
+          "flightCode": "DEMO-AIR-062",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-07",
+          "startLocal": "12:15",
+          "endLocal": "13:50",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-063",
+          "flightCode": "DEMO-AIR-063",
+          "type": "widebody",
+          "international": false,
+          "localDate": "2026-02-08",
+          "startLocal": "11:30",
+          "endLocal": "12:35",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-064",
+          "flightCode": "DEMO-AIR-064",
+          "type": "regional",
+          "international": false,
+          "localDate": "2026-02-09",
+          "startLocal": "10:15",
+          "endLocal": "11:40",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-065",
+          "flightCode": "DEMO-AIR-065",
+          "type": "narrowbody",
+          "international": false,
+          "localDate": "2026-02-10",
+          "startLocal": "12:30",
+          "endLocal": "13:25",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "id": "TURN-066",
+          "flightCode": "DEMO-AIR-066",
+          "type": "widebody",
+          "international": true,
+          "localDate": "2026-02-11",
+          "startLocal": "10:30",
+          "endLocal": "11:45",
+          "timezone": "Europe/Amsterdam"
+        }
+      ]
+    },
+    {
+      "id": "gates",
+      "label": "Gates",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "aircraftTypes",
+          "label": "Aircraft groups",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Size categories supported by the gate."
+        },
+        {
+          "key": "international",
+          "label": "International handling",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Whether this gate is equipped for international handling."
+        },
+        {
+          "key": "terminal",
+          "label": "Terminal",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional terminal code."
+        }
+      ],
+      "records": [
+        {
+          "id": "GATE-001",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": true,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-002",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-003",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-004",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-005",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-006",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-007",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-008",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-009",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-010",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-011",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-012",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-013",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": true,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-014",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-015",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-016",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-017",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-018",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-019",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-020",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-021",
+          "aircraftTypes": [
+            "narrowbody",
+            "widebody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-022",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": true,
+          "terminal": "TERM-002"
+        },
+        {
+          "id": "GATE-023",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-001"
+        },
+        {
+          "id": "GATE-024",
+          "aircraftTypes": [
+            "regional",
+            "narrowbody"
+          ],
+          "international": false,
+          "terminal": "TERM-002"
+        }
+      ]
+    }
+  ]
+}

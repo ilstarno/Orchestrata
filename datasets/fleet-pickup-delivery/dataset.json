@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": 1,
+  "caseId": "fleet-pickup-delivery",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates pickup and delivery request data, vehicle capacities, and availability; not routes or a solved plan.",
+  "collections": [
+    {
+      "id": "deliveryJobs",
+      "label": "Pickup and delivery jobs",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "pickupSite",
+          "label": "Pickup site",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional origin code."
+        },
+        {
+          "key": "deliverySite",
+          "label": "Delivery site",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional receiving-site code."
+        },
+        {
+          "key": "weightKg",
+          "label": "Shipment weight",
+          "type": "integer",
+          "unit": "kg",
+          "required": true,
+          "nullable": false,
+          "description": "Total shipment weight."
+        },
+        {
+          "key": "handlingMinutes",
+          "label": "Expected handling",
+          "type": "integer",
+          "unit": "minutes",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative handling at a stop."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "JOB-001",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-032",
+          "weightKg": 1075,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-02",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-002",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-045",
+          "weightKg": 295,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-03",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-003",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-041",
+          "weightKg": 845,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-04",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-004",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-023",
+          "weightKg": 1165,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-05",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-005",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-028",
+          "weightKg": 835,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-06",
+          "startLocal": "11:45",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-006",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-003",
+          "weightKg": 1035,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-07",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-007",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-021",
+          "weightKg": 345,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-08",
+          "startLocal": "11:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-008",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-018",
+          "weightKg": 1045,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-09",
+          "startLocal": "08:30",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-009",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-012",
+          "weightKg": 135,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-10",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-010",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-011",
+          "weightKg": 535,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-11",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-011",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-018",
+          "weightKg": 1155,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-12",
+          "startLocal": "12:30",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-012",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-041",
+          "weightKg": 355,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-13",
+          "startLocal": "09:15",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-013",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-014",
+          "weightKg": 295,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-14",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-014",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-007",
+          "weightKg": 655,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-15",
+          "startLocal": "09:15",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-015",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-038",
+          "weightKg": 1135,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-02",
+          "startLocal": "08:45",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-016",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-029",
+          "weightKg": 875,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-03",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-017",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-045",
+          "weightKg": 35,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-04",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-018",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-031",
+          "weightKg": 95,
+          "handlingMinutes": 15,
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-019",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-024",
+          "weightKg": 965,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-06",
+          "startLocal": "12:30",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-020",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-039",
+          "weightKg": 1205,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-07",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-021",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-006",
+          "weightKg": 875,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-08",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-022",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-006",
+          "weightKg": 885,
+          "handlingMinutes": 30,
+          "localDate": "2026-02-09",
+          "startLocal": "11:45",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-023",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-001",
+          "weightKg": 715,
+          "handlingMinutes": 15,
+          "localDate": "2026-02-10",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-024",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-022",
+          "weightKg": 1095,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-11",
+          "startLocal": "09:00",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-025",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-043",
+          "weightKg": 705,
+          "handlingMinutes": 15,
+          "localDate": "2026-02-12",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-026",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-021",
+          "weightKg": 335,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-13",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-027",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-005",
+          "weightKg": 75,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-14",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-028",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-028",
+          "weightKg": 445,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-15",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-029",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-034",
+          "weightKg": 1045,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-02",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-030",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-006",
+          "weightKg": 955,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-03",
+          "startLocal": "08:45",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-031",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-045",
+          "weightKg": 95,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-04",
+          "startLocal": "08:00",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-032",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-044",
+          "weightKg": 255,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-05",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-033",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-025",
+          "weightKg": 435,
+          "handlingMinutes": 15,
+          "localDate": "2026-02-06",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-034",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-001",
+          "weightKg": 665,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-07",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-035",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-040",
+          "weightKg": 655,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-08",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-036",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-024",
+          "weightKg": 865,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-09",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-037",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-004",
+          "weightKg": 205,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-10",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-038",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-018",
+          "weightKg": 1195,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-11",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-039",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-009",
+          "weightKg": 835,
+          "handlingMinutes": 30,
+          "localDate": "2026-02-12",
+          "startLocal": "12:30",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-040",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-009",
+          "weightKg": 355,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-13",
+          "startLocal": "09:15",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-041",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-029",
+          "weightKg": 595,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-14",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-042",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-035",
+          "weightKg": 365,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-15",
+          "startLocal": "09:30",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-043",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-019",
+          "weightKg": 815,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-02",
+          "startLocal": "09:30",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-044",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-004",
+          "weightKg": 165,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-03",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-045",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-043",
+          "weightKg": 395,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-04",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-046",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-007",
+          "weightKg": 355,
+          "handlingMinutes": 30,
+          "localDate": "2026-02-05",
+          "startLocal": "09:30",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-047",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-013",
+          "weightKg": 735,
+          "handlingMinutes": 30,
+          "localDate": "2026-02-06",
+          "startLocal": "11:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-048",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-026",
+          "weightKg": 335,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-07",
+          "startLocal": "12:30",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-049",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-004",
+          "weightKg": 1185,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-08",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-050",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-018",
+          "weightKg": 835,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-09",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-051",
+          "pickupSite": "HUB-003",
+          "deliverySite": "DROP-004",
+          "weightKg": 555,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-10",
+          "startLocal": "08:15",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-052",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-039",
+          "weightKg": 825,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-11",
+          "startLocal": "08:30",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-053",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-025",
+          "weightKg": 1215,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-12",
+          "startLocal": "12:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-054",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-040",
+          "weightKg": 905,
+          "handlingMinutes": 40,
+          "localDate": "2026-02-13",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-055",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-043",
+          "weightKg": 855,
+          "handlingMinutes": 15,
+          "localDate": "2026-02-14",
+          "startLocal": "09:00",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-056",
+          "pickupSite": "HUB-005",
+          "deliverySite": "DROP-007",
+          "weightKg": 525,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-15",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-057",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-029",
+          "weightKg": 705,
+          "handlingMinutes": 35,
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-058",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-031",
+          "weightKg": 695,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-059",
+          "pickupSite": "HUB-002",
+          "deliverySite": "DROP-021",
+          "weightKg": 455,
+          "handlingMinutes": 20,
+          "localDate": "2026-02-04",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-060",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-024",
+          "weightKg": 1105,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-061",
+          "pickupSite": "HUB-004",
+          "deliverySite": "DROP-028",
+          "weightKg": 375,
+          "handlingMinutes": 10,
+          "localDate": "2026-02-06",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-062",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-009",
+          "weightKg": 845,
+          "handlingMinutes": 25,
+          "localDate": "2026-02-07",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-063",
+          "pickupSite": "HUB-006",
+          "deliverySite": "DROP-013",
+          "weightKg": 135,
+          "handlingMinutes": 5,
+          "localDate": "2026-02-08",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "JOB-064",
+          "pickupSite": "HUB-001",
+          "deliverySite": "DROP-041",
+          "weightKg": 645,
+          "handlingMinutes": 30,
+          "localDate": "2026-02-09",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "id": "vehicles",
+      "label": "Vehicles",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "category",
+          "label": "Type",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Class of vehicle used for transport."
+        },
+        {
+          "key": "payloadKg",
+          "label": "Usable payload",
+          "type": "integer",
+          "unit": "kg",
+          "required": true,
+          "nullable": false,
+          "description": "Cargo weight limit for this vehicle."
+        },
+        {
+          "key": "volumeM3",
+          "label": "Usable volume",
+          "type": "integer",
+          "unit": "m³",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative cargo volume limit."
+        },
+        {
+          "key": "depot",
+          "label": "Depot",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional dispatch depot code."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "VAN-001",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-004",
+          "startLocal": "08:30",
+          "endLocal": "17:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-002",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-002",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-003",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-003",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-004",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-002",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-005",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-001",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-006",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-002",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-007",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-001",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-008",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-002",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-009",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-001",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-010",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-003",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-011",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-001",
+          "startLocal": "07:00",
+          "endLocal": "16:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-012",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-001",
+          "startLocal": "07:00",
+          "endLocal": "16:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-013",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-001",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-014",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-003",
+          "startLocal": "07:00",
+          "endLocal": "16:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-015",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-001",
+          "startLocal": "07:00",
+          "endLocal": "16:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-016",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-002",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-017",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-002",
+          "startLocal": "07:00",
+          "endLocal": "16:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "VAN-018",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-003",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        }
+      ]
+    }
+  ]
+}

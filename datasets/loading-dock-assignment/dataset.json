@@ -1,0 +1,786 @@
+{
+  "schemaVersion": 1,
+  "caseId": "loading-dock-assignment",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates trailer appointments and door capabilities before choosing door assignments.",
+  "collections": [
+    {
+      "id": "appointments",
+      "label": "Dock appointments",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "movement",
+          "label": "Movement",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Inbound, outbound, or cross-dock transfer."
+        },
+        {
+          "key": "trailerMeters",
+          "label": "Trailer length",
+          "type": "integer",
+          "unit": "m",
+          "required": true,
+          "nullable": false,
+          "description": "Whole-meter sample trailer length."
+        },
+        {
+          "key": "requiresRefrigeratedDoor",
+          "label": "Refrigeration needed",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Whether this appointment requires a refrigerated door."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "APPT-001",
+          "movement": "inbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-02",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-002",
+          "movement": "outbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-03",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-003",
+          "movement": "transfer",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-04",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-004",
+          "movement": "inbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-05",
+          "startLocal": "09:30",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-005",
+          "movement": "outbound",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-06",
+          "startLocal": "12:15",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-006",
+          "movement": "transfer",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-07",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-007",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-08",
+          "startLocal": "09:00",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-008",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-09",
+          "startLocal": "09:30",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-009",
+          "movement": "transfer",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-10",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-010",
+          "movement": "inbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-11",
+          "startLocal": "08:45",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-011",
+          "movement": "outbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-12",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-012",
+          "movement": "transfer",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-13",
+          "startLocal": "12:30",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-013",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-14",
+          "startLocal": "12:45",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-014",
+          "movement": "outbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-15",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-015",
+          "movement": "transfer",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-02",
+          "startLocal": "09:45",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-016",
+          "movement": "inbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-017",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-04",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-018",
+          "movement": "transfer",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-05",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-019",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-06",
+          "startLocal": "08:45",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-020",
+          "movement": "outbound",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-07",
+          "startLocal": "10:30",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-021",
+          "movement": "transfer",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-08",
+          "startLocal": "12:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-022",
+          "movement": "inbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-09",
+          "startLocal": "12:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-023",
+          "movement": "outbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-10",
+          "startLocal": "12:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-024",
+          "movement": "transfer",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-11",
+          "startLocal": "08:30",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-025",
+          "movement": "inbound",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-12",
+          "startLocal": "08:45",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-026",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-13",
+          "startLocal": "10:45",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-027",
+          "movement": "transfer",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-14",
+          "startLocal": "08:00",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-028",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-15",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-029",
+          "movement": "outbound",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-02",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-030",
+          "movement": "transfer",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-03",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-031",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-032",
+          "movement": "outbound",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-05",
+          "startLocal": "12:45",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-033",
+          "movement": "transfer",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-06",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-034",
+          "movement": "inbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-07",
+          "startLocal": "08:00",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-035",
+          "movement": "outbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-08",
+          "startLocal": "08:30",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-036",
+          "movement": "transfer",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-09",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-037",
+          "movement": "inbound",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-10",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-038",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-11",
+          "startLocal": "12:30",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-039",
+          "movement": "transfer",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-12",
+          "startLocal": "12:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-040",
+          "movement": "inbound",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-13",
+          "startLocal": "10:30",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-041",
+          "movement": "outbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-14",
+          "startLocal": "12:00",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-042",
+          "movement": "transfer",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-15",
+          "startLocal": "11:00",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-043",
+          "movement": "inbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-02",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-044",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-03",
+          "startLocal": "08:30",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-045",
+          "movement": "transfer",
+          "trailerMeters": 10,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-04",
+          "startLocal": "10:00",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-046",
+          "movement": "inbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-05",
+          "startLocal": "11:45",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-047",
+          "movement": "outbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-06",
+          "startLocal": "09:00",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-048",
+          "movement": "transfer",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-07",
+          "startLocal": "11:15",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-049",
+          "movement": "inbound",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-08",
+          "startLocal": "11:45",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-050",
+          "movement": "outbound",
+          "trailerMeters": 14,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-09",
+          "startLocal": "12:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-051",
+          "movement": "transfer",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-10",
+          "startLocal": "12:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-052",
+          "movement": "inbound",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-11",
+          "startLocal": "09:00",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-053",
+          "movement": "outbound",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-12",
+          "startLocal": "12:30",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-054",
+          "movement": "transfer",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-13",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-055",
+          "movement": "inbound",
+          "trailerMeters": 15,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-14",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-056",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": true,
+          "localDate": "2026-02-15",
+          "startLocal": "10:00",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-057",
+          "movement": "transfer",
+          "trailerMeters": 12,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-058",
+          "movement": "inbound",
+          "trailerMeters": 16,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-03",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-059",
+          "movement": "outbound",
+          "trailerMeters": 13,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-04",
+          "startLocal": "10:45",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "APPT-060",
+          "movement": "transfer",
+          "trailerMeters": 11,
+          "requiresRefrigeratedDoor": false,
+          "localDate": "2026-02-05",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "id": "doors",
+      "label": "Loading doors",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "maxTrailerMeters",
+          "label": "Trailer limit",
+          "type": "integer",
+          "unit": "m",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative maximum trailer length."
+        },
+        {
+          "key": "refrigerated",
+          "label": "Refrigerated",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Whether this door serves cold cargo."
+        }
+      ],
+      "records": [
+        {
+          "id": "DOOR-001",
+          "maxTrailerMeters": 13,
+          "refrigerated": true
+        },
+        {
+          "id": "DOOR-002",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-003",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-004",
+          "maxTrailerMeters": 13,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-005",
+          "maxTrailerMeters": 16,
+          "refrigerated": true
+        },
+        {
+          "id": "DOOR-006",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-007",
+          "maxTrailerMeters": 13,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-008",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-009",
+          "maxTrailerMeters": 16,
+          "refrigerated": true
+        },
+        {
+          "id": "DOOR-010",
+          "maxTrailerMeters": 13,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-011",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        },
+        {
+          "id": "DOOR-012",
+          "maxTrailerMeters": 16,
+          "refrigerated": false
+        }
+      ]
+    }
+  ]
+}

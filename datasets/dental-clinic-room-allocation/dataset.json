@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 1,
+  "caseId": "dental-clinic-room-allocation",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates fictional booking categories and room properties, not clinical suitability or appointment decisions.",
+  "collections": [
+    {
+      "id": "bookings",
+      "label": "Room bookings",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "roomTag",
+          "label": "Approved room tag",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Opaque room eligibility tag, not a patient or procedure field."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "BOOK-001",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-02",
+          "startLocal": "11:45",
+          "endLocal": "12:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-002",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-03",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-003",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "11:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-004",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-05",
+          "startLocal": "09:00",
+          "endLocal": "09:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-005",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-06",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-006",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-07",
+          "startLocal": "10:45",
+          "endLocal": "11:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-007",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-08",
+          "startLocal": "12:00",
+          "endLocal": "12:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-008",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-09",
+          "startLocal": "09:15",
+          "endLocal": "10:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-009",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-10",
+          "startLocal": "12:30",
+          "endLocal": "13:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-010",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-11",
+          "startLocal": "08:45",
+          "endLocal": "09:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-011",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-12",
+          "startLocal": "09:15",
+          "endLocal": "10:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-012",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-13",
+          "startLocal": "11:15",
+          "endLocal": "12:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-013",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-14",
+          "startLocal": "11:00",
+          "endLocal": "11:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-014",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-15",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-015",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-02",
+          "startLocal": "12:15",
+          "endLocal": "13:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-016",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-03",
+          "startLocal": "08:45",
+          "endLocal": "09:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-017",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "11:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-018",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-05",
+          "startLocal": "09:30",
+          "endLocal": "10:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-019",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-06",
+          "startLocal": "08:30",
+          "endLocal": "09:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-020",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-07",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-021",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-08",
+          "startLocal": "12:45",
+          "endLocal": "13:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-022",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-09",
+          "startLocal": "10:15",
+          "endLocal": "10:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-023",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-10",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-024",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-11",
+          "startLocal": "10:15",
+          "endLocal": "11:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-025",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-12",
+          "startLocal": "10:45",
+          "endLocal": "11:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-026",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-13",
+          "startLocal": "11:45",
+          "endLocal": "12:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-027",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-14",
+          "startLocal": "10:00",
+          "endLocal": "11:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-028",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-15",
+          "startLocal": "09:45",
+          "endLocal": "10:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-029",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-02",
+          "startLocal": "10:00",
+          "endLocal": "10:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-030",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-03",
+          "startLocal": "08:30",
+          "endLocal": "09:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-031",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "11:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-032",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-05",
+          "startLocal": "11:45",
+          "endLocal": "12:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-033",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-06",
+          "startLocal": "12:00",
+          "endLocal": "13:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-034",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-07",
+          "startLocal": "11:30",
+          "endLocal": "12:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-035",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-08",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-036",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-09",
+          "startLocal": "12:30",
+          "endLocal": "13:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-037",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-10",
+          "startLocal": "08:45",
+          "endLocal": "09:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-038",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-11",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-039",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-12",
+          "startLocal": "09:00",
+          "endLocal": "10:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-040",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-13",
+          "startLocal": "11:00",
+          "endLocal": "11:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-041",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-14",
+          "startLocal": "09:30",
+          "endLocal": "10:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-042",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-15",
+          "startLocal": "10:15",
+          "endLocal": "11:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-043",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-02",
+          "startLocal": "12:15",
+          "endLocal": "12:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-044",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-03",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-045",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-04",
+          "startLocal": "09:00",
+          "endLocal": "10:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-046",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-05",
+          "startLocal": "08:15",
+          "endLocal": "08:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-047",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-06",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-048",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-07",
+          "startLocal": "08:15",
+          "endLocal": "09:15",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-049",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-08",
+          "startLocal": "09:15",
+          "endLocal": "09:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-050",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-09",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-051",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-10",
+          "startLocal": "11:30",
+          "endLocal": "12:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-052",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-11",
+          "startLocal": "10:30",
+          "endLocal": "11:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-053",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-12",
+          "startLocal": "11:45",
+          "endLocal": "12:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-054",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-13",
+          "startLocal": "09:00",
+          "endLocal": "10:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-055",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-14",
+          "startLocal": "10:30",
+          "endLocal": "11:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-056",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-15",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-057",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "09:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-058",
+          "roomTag": "ROOM-TAG-001",
+          "localDate": "2026-02-03",
+          "startLocal": "08:15",
+          "endLocal": "08:45",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-059",
+          "roomTag": "ROOM-TAG-002",
+          "localDate": "2026-02-04",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "Europe/Paris"
+        },
+        {
+          "id": "BOOK-060",
+          "roomTag": "ROOM-TAG-003",
+          "localDate": "2026-02-05",
+          "startLocal": "10:45",
+          "endLocal": "11:45",
+          "timezone": "Europe/Paris"
+        }
+      ]
+    },
+    {
+      "id": "rooms",
+      "label": "Treatment rooms",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "roomTags",
+          "label": "Room eligibility tags",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional tags supplied by the clinic."
+        },
+        {
+          "key": "available",
+          "label": "Available",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative room availability before bookings are assigned."
+        }
+      ],
+      "records": [
+        {
+          "id": "DENTAL-ROOM-001",
+          "roomTags": [
+            "ROOM-TAG-001"
+          ],
+          "available": false
+        },
+        {
+          "id": "DENTAL-ROOM-002",
+          "roomTags": [
+            "ROOM-TAG-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-003",
+          "roomTags": [
+            "ROOM-TAG-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-004",
+          "roomTags": [
+            "ROOM-TAG-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-005",
+          "roomTags": [
+            "ROOM-TAG-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-006",
+          "roomTags": [
+            "ROOM-TAG-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-007",
+          "roomTags": [
+            "ROOM-TAG-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-008",
+          "roomTags": [
+            "ROOM-TAG-002"
+          ],
+          "available": false
+        },
+        {
+          "id": "DENTAL-ROOM-009",
+          "roomTags": [
+            "ROOM-TAG-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-010",
+          "roomTags": [
+            "ROOM-TAG-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-011",
+          "roomTags": [
+            "ROOM-TAG-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "DENTAL-ROOM-012",
+          "roomTags": [
+            "ROOM-TAG-003"
+          ],
+          "available": true
+        }
+      ]
+    }
+  ]
+}

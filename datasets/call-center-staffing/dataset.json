@@ -1,0 +1,1322 @@
+{
+  "schemaVersion": 1,
+  "caseId": "call-center-staffing",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates staffing data, queue demand, and availability. These records are not a solved roster.",
+  "collections": [
+    {
+      "id": "operators",
+      "label": "Operators",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "displayName",
+          "label": "Operator label",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional role label, not a personal name."
+        },
+        {
+          "key": "skills",
+          "label": "Skills",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Training tags that can be checked against a queue’s required skill."
+        },
+        {
+          "key": "languages",
+          "label": "Languages",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Supported language codes, independently supplied."
+        },
+        {
+          "key": "experienceMonths",
+          "label": "Experience",
+          "type": "integer",
+          "unit": "months",
+          "required": true,
+          "nullable": false,
+          "description": "Months of contact-center experience."
+        },
+        {
+          "key": "homeQueueId",
+          "label": "Home queue",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Operator’s usual queue; not an exclusive assignment.",
+          "reference": {
+            "collection": "queues",
+            "property": "id"
+          }
+        },
+        {
+          "key": "availability",
+          "label": "Availability",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Availability for the example date: available, training, or unavailable."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "OP-001",
+          "displayName": "Operator 001",
+          "skills": [
+            "general-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 18,
+          "homeQueueId": "QUEUE-001",
+          "availability": "unavailable",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-002",
+          "displayName": "Operator 002",
+          "skills": [
+            "billing-disputes",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 11,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-003",
+          "displayName": "Operator 003",
+          "skills": [
+            "identity-verification",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 108,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-004",
+          "displayName": "Operator 004",
+          "skills": [
+            "general-support",
+            "technical-support"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 33,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-005",
+          "displayName": "Operator 005",
+          "skills": [
+            "technical-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 117,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-006",
+          "displayName": "Operator 006",
+          "skills": [
+            "order-management",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 6,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-007",
+          "displayName": "Operator 007",
+          "skills": [
+            "general-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 102,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-008",
+          "displayName": "Operator 008",
+          "skills": [
+            "billing-disputes",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 106,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-009",
+          "displayName": "Operator 009",
+          "skills": [
+            "identity-verification",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 18,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-010",
+          "displayName": "Operator 010",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 102,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-011",
+          "displayName": "Operator 011",
+          "skills": [
+            "technical-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 93,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-012",
+          "displayName": "Operator 012",
+          "skills": [
+            "order-management",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 86,
+          "homeQueueId": "QUEUE-006",
+          "availability": "training",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-013",
+          "displayName": "Operator 013",
+          "skills": [
+            "general-support",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 22,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-014",
+          "displayName": "Operator 014",
+          "skills": [
+            "billing-disputes",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 110,
+          "homeQueueId": "QUEUE-002",
+          "availability": "unavailable",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-015",
+          "displayName": "Operator 015",
+          "skills": [
+            "identity-verification",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 118,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-016",
+          "displayName": "Operator 016",
+          "skills": [
+            "general-support",
+            "order-management"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 5,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-017",
+          "displayName": "Operator 017",
+          "skills": [
+            "technical-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 102,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-018",
+          "displayName": "Operator 018",
+          "skills": [
+            "order-management",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 13,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-019",
+          "displayName": "Operator 019",
+          "skills": [
+            "general-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 14,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-020",
+          "displayName": "Operator 020",
+          "skills": [
+            "billing-disputes",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 27,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-021",
+          "displayName": "Operator 021",
+          "skills": [
+            "identity-verification",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 40,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-022",
+          "displayName": "Operator 022",
+          "skills": [
+            "general-support",
+            "order-management"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 14,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-023",
+          "displayName": "Operator 023",
+          "skills": [
+            "technical-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 46,
+          "homeQueueId": "QUEUE-005",
+          "availability": "training",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-024",
+          "displayName": "Operator 024",
+          "skills": [
+            "order-management",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 72,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-025",
+          "displayName": "Operator 025",
+          "skills": [
+            "general-support",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 10,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-026",
+          "displayName": "Operator 026",
+          "skills": [
+            "billing-disputes",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 31,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-027",
+          "displayName": "Operator 027",
+          "skills": [
+            "identity-verification",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 97,
+          "homeQueueId": "QUEUE-003",
+          "availability": "unavailable",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-028",
+          "displayName": "Operator 028",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 69,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-029",
+          "displayName": "Operator 029",
+          "skills": [
+            "technical-support",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 84,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-030",
+          "displayName": "Operator 030",
+          "skills": [
+            "order-management",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 59,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-031",
+          "displayName": "Operator 031",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 12,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-032",
+          "displayName": "Operator 032",
+          "skills": [
+            "billing-disputes",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 10,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-033",
+          "displayName": "Operator 033",
+          "skills": [
+            "identity-verification",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 60,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-034",
+          "displayName": "Operator 034",
+          "skills": [
+            "general-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 89,
+          "homeQueueId": "QUEUE-004",
+          "availability": "training",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-035",
+          "displayName": "Operator 035",
+          "skills": [
+            "technical-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 39,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-036",
+          "displayName": "Operator 036",
+          "skills": [
+            "order-management",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 38,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-037",
+          "displayName": "Operator 037",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 103,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-038",
+          "displayName": "Operator 038",
+          "skills": [
+            "billing-disputes",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 75,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-039",
+          "displayName": "Operator 039",
+          "skills": [
+            "identity-verification",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 69,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-040",
+          "displayName": "Operator 040",
+          "skills": [
+            "general-support",
+            "technical-support"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 101,
+          "homeQueueId": "QUEUE-004",
+          "availability": "unavailable",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-041",
+          "displayName": "Operator 041",
+          "skills": [
+            "technical-support",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 60,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-042",
+          "displayName": "Operator 042",
+          "skills": [
+            "order-management",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 43,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-043",
+          "displayName": "Operator 043",
+          "skills": [
+            "general-support",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 37,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-044",
+          "displayName": "Operator 044",
+          "skills": [
+            "billing-disputes",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 118,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-045",
+          "displayName": "Operator 045",
+          "skills": [
+            "identity-verification",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 56,
+          "homeQueueId": "QUEUE-003",
+          "availability": "training",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-046",
+          "displayName": "Operator 046",
+          "skills": [
+            "general-support",
+            "order-management"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 12,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-047",
+          "displayName": "Operator 047",
+          "skills": [
+            "technical-support",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 55,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-048",
+          "displayName": "Operator 048",
+          "skills": [
+            "order-management",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 58,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-049",
+          "displayName": "Operator 049",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 116,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-050",
+          "displayName": "Operator 050",
+          "skills": [
+            "billing-disputes",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 61,
+          "homeQueueId": "QUEUE-002",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-051",
+          "displayName": "Operator 051",
+          "skills": [
+            "identity-verification",
+            "general-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 65,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-052",
+          "displayName": "Operator 052",
+          "skills": [
+            "general-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 63,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-053",
+          "displayName": "Operator 053",
+          "skills": [
+            "technical-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 12,
+          "homeQueueId": "QUEUE-005",
+          "availability": "unavailable",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-054",
+          "displayName": "Operator 054",
+          "skills": [
+            "order-management",
+            "identity-verification"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 88,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-055",
+          "displayName": "Operator 055",
+          "skills": [
+            "general-support",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 44,
+          "homeQueueId": "QUEUE-001",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-056",
+          "displayName": "Operator 056",
+          "skills": [
+            "billing-disputes",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 10,
+          "homeQueueId": "QUEUE-002",
+          "availability": "training",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-057",
+          "displayName": "Operator 057",
+          "skills": [
+            "identity-verification",
+            "order-management"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 19,
+          "homeQueueId": "QUEUE-003",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-058",
+          "displayName": "Operator 058",
+          "skills": [
+            "general-support",
+            "technical-support"
+          ],
+          "languages": [
+            "en",
+            "es"
+          ],
+          "experienceMonths": 68,
+          "homeQueueId": "QUEUE-004",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-059",
+          "displayName": "Operator 059",
+          "skills": [
+            "technical-support",
+            "billing-disputes"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 85,
+          "homeQueueId": "QUEUE-005",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "OP-060",
+          "displayName": "Operator 060",
+          "skills": [
+            "order-management",
+            "technical-support"
+          ],
+          "languages": [
+            "en"
+          ],
+          "experienceMonths": 59,
+          "homeQueueId": "QUEUE-006",
+          "availability": "available",
+          "localDate": "2026-02-03",
+          "startLocal": "13:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "id": "queues",
+      "label": "Support queues",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "name",
+          "label": "Queue",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional support queue name."
+        },
+        {
+          "key": "requiredSkill",
+          "label": "Required skill",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Training tag used to check operator eligibility."
+        },
+        {
+          "key": "language",
+          "label": "Required language",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Language needed to cover the queue."
+        },
+        {
+          "key": "priority",
+          "label": "Service priority",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative priority category, not a service commitment."
+        },
+        {
+          "key": "targetOperators",
+          "label": "Coverage target",
+          "type": "integer",
+          "unit": "operators",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative headcount target for this queue."
+        }
+      ],
+      "records": [
+        {
+          "id": "QUEUE-001",
+          "name": "General support",
+          "requiredSkill": "general-support",
+          "language": "en",
+          "priority": "standard",
+          "targetOperators": 4
+        },
+        {
+          "id": "QUEUE-002",
+          "name": "Billing escalations",
+          "requiredSkill": "billing-disputes",
+          "language": "en",
+          "priority": "high",
+          "targetOperators": 5
+        },
+        {
+          "id": "QUEUE-003",
+          "name": "Account recovery",
+          "requiredSkill": "identity-verification",
+          "language": "en",
+          "priority": "high",
+          "targetOperators": 4
+        },
+        {
+          "id": "QUEUE-004",
+          "name": "Spanish support",
+          "requiredSkill": "general-support",
+          "language": "es",
+          "priority": "standard",
+          "targetOperators": 5
+        },
+        {
+          "id": "QUEUE-005",
+          "name": "Technical support",
+          "requiredSkill": "technical-support",
+          "language": "en",
+          "priority": "standard",
+          "targetOperators": 4
+        },
+        {
+          "id": "QUEUE-006",
+          "name": "Order changes",
+          "requiredSkill": "order-management",
+          "language": "en",
+          "priority": "standard",
+          "targetOperators": 4
+        }
+      ]
+    }
+  ]
+}

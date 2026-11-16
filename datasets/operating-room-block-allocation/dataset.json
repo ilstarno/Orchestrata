@@ -1,0 +1,769 @@
+{
+  "schemaVersion": 1,
+  "caseId": "operating-room-block-allocation",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates fictional room blocks and facility approval tags, without any patient data or treatment decisions.",
+  "collections": [
+    {
+      "id": "blocks",
+      "label": "Room block requests",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "approvalTag",
+          "label": "Facility approval tag",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Opaque logistics eligibility category supplied by the facility; not a clinical qualification."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        },
+        {
+          "key": "setupCode",
+          "label": "Setup code",
+          "type": "string",
+          "unit": null,
+          "required": false,
+          "nullable": true,
+          "description": "Optional fictional room setup code. Null means no code supplied."
+        }
+      ],
+      "records": [
+        {
+          "id": "BLOCK-001",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-02",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-002",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-003",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-04",
+          "startLocal": "09:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-004",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-05",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-005",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-06",
+          "startLocal": "10:45",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-006",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-07",
+          "startLocal": "12:45",
+          "endLocal": "15:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-007",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-08",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-008",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-09",
+          "startLocal": "10:00",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-009",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-10",
+          "startLocal": "10:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-010",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-11",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-011",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-12",
+          "startLocal": "08:00",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-012",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-13",
+          "startLocal": "12:30",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-013",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-14",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-014",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-15",
+          "startLocal": "08:30",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-015",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-02",
+          "startLocal": "10:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-016",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-03",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-017",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-04",
+          "startLocal": "12:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-018",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-05",
+          "startLocal": "11:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-019",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-06",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-020",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-07",
+          "startLocal": "08:30",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-021",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-08",
+          "startLocal": "11:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-022",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-09",
+          "startLocal": "09:00",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-023",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-10",
+          "startLocal": "11:45",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-024",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-11",
+          "startLocal": "10:45",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-025",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-12",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-026",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-13",
+          "startLocal": "09:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-027",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-14",
+          "startLocal": "08:15",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-028",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-15",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-029",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-02",
+          "startLocal": "08:30",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-030",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-03",
+          "startLocal": "08:45",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-031",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-04",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-032",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-05",
+          "startLocal": "10:15",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-033",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-06",
+          "startLocal": "09:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-034",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-07",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-035",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-08",
+          "startLocal": "10:15",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-036",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-09",
+          "startLocal": "11:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-037",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-10",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-038",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-11",
+          "startLocal": "11:30",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-039",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-12",
+          "startLocal": "09:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-040",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-13",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-041",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-14",
+          "startLocal": "11:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-042",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-15",
+          "startLocal": "10:45",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-043",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-02",
+          "startLocal": "12:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-044",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-03",
+          "startLocal": "12:15",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-045",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-04",
+          "startLocal": "09:45",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-046",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-05",
+          "startLocal": "12:15",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-047",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-06",
+          "startLocal": "12:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-048",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-07",
+          "startLocal": "09:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-049",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-08",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-050",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-09",
+          "startLocal": "12:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-051",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-10",
+          "startLocal": "10:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-052",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-11",
+          "startLocal": "12:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-002"
+        },
+        {
+          "id": "BLOCK-053",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-12",
+          "startLocal": "09:45",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-054",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-13",
+          "startLocal": "08:30",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-055",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-14",
+          "startLocal": "08:45",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        },
+        {
+          "id": "BLOCK-056",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-15",
+          "startLocal": "09:15",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-001"
+        },
+        {
+          "id": "BLOCK-057",
+          "approvalTag": "APPROVAL-001",
+          "localDate": "2026-02-02",
+          "startLocal": "12:30",
+          "endLocal": "15:00",
+          "timezone": "America/Chicago",
+          "setupCode": null
+        },
+        {
+          "id": "BLOCK-058",
+          "approvalTag": "APPROVAL-002",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-003"
+        },
+        {
+          "id": "BLOCK-059",
+          "approvalTag": "APPROVAL-003",
+          "localDate": "2026-02-04",
+          "startLocal": "08:15",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-004"
+        },
+        {
+          "id": "BLOCK-060",
+          "approvalTag": "APPROVAL-004",
+          "localDate": "2026-02-05",
+          "startLocal": "11:45",
+          "endLocal": "14:15",
+          "timezone": "America/Chicago",
+          "setupCode": "SETUP-005"
+        }
+      ]
+    },
+    {
+      "id": "rooms",
+      "label": "Operating rooms",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "approvalTags",
+          "label": "Facility approval tags",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Room tags supplied for the logistics example."
+        },
+        {
+          "key": "available",
+          "label": "Available",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative room availability before assigning blocks."
+        }
+      ],
+      "records": [
+        {
+          "id": "OR-001",
+          "approvalTags": [
+            "APPROVAL-001"
+          ],
+          "available": false
+        },
+        {
+          "id": "OR-002",
+          "approvalTags": [
+            "APPROVAL-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-003",
+          "approvalTags": [
+            "APPROVAL-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-004",
+          "approvalTags": [
+            "APPROVAL-004"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-005",
+          "approvalTags": [
+            "APPROVAL-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-006",
+          "approvalTags": [
+            "APPROVAL-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-007",
+          "approvalTags": [
+            "APPROVAL-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-008",
+          "approvalTags": [
+            "APPROVAL-004"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-009",
+          "approvalTags": [
+            "APPROVAL-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-010",
+          "approvalTags": [
+            "APPROVAL-002"
+          ],
+          "available": false
+        },
+        {
+          "id": "OR-011",
+          "approvalTags": [
+            "APPROVAL-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-012",
+          "approvalTags": [
+            "APPROVAL-004"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-013",
+          "approvalTags": [
+            "APPROVAL-001"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-014",
+          "approvalTags": [
+            "APPROVAL-002"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-015",
+          "approvalTags": [
+            "APPROVAL-003"
+          ],
+          "available": true
+        },
+        {
+          "id": "OR-016",
+          "approvalTags": [
+            "APPROVAL-004"
+          ],
+          "available": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,967 @@
+{
+  "schemaVersion": 1,
+  "caseId": "retail-staffing-what-if",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates shifts and staffing attributes a manager might compare before and after a callout.",
+  "collections": [
+    {
+      "id": "shifts",
+      "label": "Store shifts",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "store",
+          "label": "Store",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional store location code."
+        },
+        {
+          "key": "role",
+          "label": "Role",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Coverage role for the shift."
+        },
+        {
+          "key": "headcount",
+          "label": "Coverage target",
+          "type": "integer",
+          "unit": "workers",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative number of workers requested for the shift."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        },
+        {
+          "key": "pinned",
+          "label": "Pinned shift",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Whether to preserve an existing assignment in a what-if comparison."
+        },
+        {
+          "key": "baselineWorkerId",
+          "label": "Baseline worker",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative worker in an initial schedule.",
+          "reference": {
+            "collection": "workers",
+            "property": "id"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "SHIFT-001",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-02",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-001"
+        },
+        {
+          "id": "SHIFT-002",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 3,
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-002"
+        },
+        {
+          "id": "SHIFT-003",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-04",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-003"
+        },
+        {
+          "id": "SHIFT-004",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-05",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-004"
+        },
+        {
+          "id": "SHIFT-005",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-06",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-005"
+        },
+        {
+          "id": "SHIFT-006",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 2,
+          "localDate": "2026-02-07",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-006"
+        },
+        {
+          "id": "SHIFT-007",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-08",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-007"
+        },
+        {
+          "id": "SHIFT-008",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-09",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-008"
+        },
+        {
+          "id": "SHIFT-009",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-10",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-009"
+        },
+        {
+          "id": "SHIFT-010",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-11",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-010"
+        },
+        {
+          "id": "SHIFT-011",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-12",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-011"
+        },
+        {
+          "id": "SHIFT-012",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-13",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-012"
+        },
+        {
+          "id": "SHIFT-013",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 3,
+          "localDate": "2026-02-14",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-013"
+        },
+        {
+          "id": "SHIFT-014",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 3,
+          "localDate": "2026-02-15",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-014"
+        },
+        {
+          "id": "SHIFT-015",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 2,
+          "localDate": "2026-02-02",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-015"
+        },
+        {
+          "id": "SHIFT-016",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-001"
+        },
+        {
+          "id": "SHIFT-017",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-04",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-002"
+        },
+        {
+          "id": "SHIFT-018",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-05",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-003"
+        },
+        {
+          "id": "SHIFT-019",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-06",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-004"
+        },
+        {
+          "id": "SHIFT-020",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-07",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-005"
+        },
+        {
+          "id": "SHIFT-021",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-08",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-006"
+        },
+        {
+          "id": "SHIFT-022",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-09",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-007"
+        },
+        {
+          "id": "SHIFT-023",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-10",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-008"
+        },
+        {
+          "id": "SHIFT-024",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-11",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-009"
+        },
+        {
+          "id": "SHIFT-025",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-12",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-010"
+        },
+        {
+          "id": "SHIFT-026",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-13",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-011"
+        },
+        {
+          "id": "SHIFT-027",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-14",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-012"
+        },
+        {
+          "id": "SHIFT-028",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-15",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-013"
+        },
+        {
+          "id": "SHIFT-029",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-02",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-014"
+        },
+        {
+          "id": "SHIFT-030",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-03",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-015"
+        },
+        {
+          "id": "SHIFT-031",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-04",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-001"
+        },
+        {
+          "id": "SHIFT-032",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 3,
+          "localDate": "2026-02-05",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-002"
+        },
+        {
+          "id": "SHIFT-033",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-06",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-003"
+        },
+        {
+          "id": "SHIFT-034",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-07",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-004"
+        },
+        {
+          "id": "SHIFT-035",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-08",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-005"
+        },
+        {
+          "id": "SHIFT-036",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-09",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-006"
+        },
+        {
+          "id": "SHIFT-037",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 3,
+          "localDate": "2026-02-10",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-007"
+        },
+        {
+          "id": "SHIFT-038",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-11",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-008"
+        },
+        {
+          "id": "SHIFT-039",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-12",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-009"
+        },
+        {
+          "id": "SHIFT-040",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 3,
+          "localDate": "2026-02-13",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-010"
+        },
+        {
+          "id": "SHIFT-041",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 3,
+          "localDate": "2026-02-14",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-011"
+        },
+        {
+          "id": "SHIFT-042",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-15",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-012"
+        },
+        {
+          "id": "SHIFT-043",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-02",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-013"
+        },
+        {
+          "id": "SHIFT-044",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-03",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-014"
+        },
+        {
+          "id": "SHIFT-045",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-04",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-015"
+        },
+        {
+          "id": "SHIFT-046",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-05",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-001"
+        },
+        {
+          "id": "SHIFT-047",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-06",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-002"
+        },
+        {
+          "id": "SHIFT-048",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-07",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-003"
+        },
+        {
+          "id": "SHIFT-049",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-08",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-004"
+        },
+        {
+          "id": "SHIFT-050",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 1,
+          "localDate": "2026-02-09",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-005"
+        },
+        {
+          "id": "SHIFT-051",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-10",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": true,
+          "baselineWorkerId": "WORK-006"
+        },
+        {
+          "id": "SHIFT-052",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 1,
+          "localDate": "2026-02-11",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-007"
+        },
+        {
+          "id": "SHIFT-053",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 3,
+          "localDate": "2026-02-12",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-008"
+        },
+        {
+          "id": "SHIFT-054",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 3,
+          "localDate": "2026-02-13",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-009"
+        },
+        {
+          "id": "SHIFT-055",
+          "store": "STORE-001",
+          "role": "cashier",
+          "headcount": 3,
+          "localDate": "2026-02-14",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-010"
+        },
+        {
+          "id": "SHIFT-056",
+          "store": "STORE-002",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-15",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-011"
+        },
+        {
+          "id": "SHIFT-057",
+          "store": "STORE-001",
+          "role": "floor lead",
+          "headcount": 1,
+          "localDate": "2026-02-02",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-012"
+        },
+        {
+          "id": "SHIFT-058",
+          "store": "STORE-002",
+          "role": "cashier",
+          "headcount": 2,
+          "localDate": "2026-02-03",
+          "startLocal": "07:00",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-013"
+        },
+        {
+          "id": "SHIFT-059",
+          "store": "STORE-001",
+          "role": "stock",
+          "headcount": 2,
+          "localDate": "2026-02-04",
+          "startLocal": "11:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-014"
+        },
+        {
+          "id": "SHIFT-060",
+          "store": "STORE-002",
+          "role": "floor lead",
+          "headcount": 2,
+          "localDate": "2026-02-05",
+          "startLocal": "15:00",
+          "endLocal": "21:00",
+          "timezone": "America/Chicago",
+          "pinned": false,
+          "baselineWorkerId": "WORK-015"
+        }
+      ]
+    },
+    {
+      "id": "workers",
+      "label": "Store workers",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "role",
+          "label": "Usual role",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Worker’s example role."
+        },
+        {
+          "key": "maxWeeklyHours",
+          "label": "Weekly availability",
+          "type": "integer",
+          "unit": "hours",
+          "required": true,
+          "nullable": false,
+          "description": "Example declared weekly availability, not a labor rule."
+        },
+        {
+          "key": "availableAfterCallout",
+          "label": "Available after callout",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "False only for the fictional worker who called out."
+        }
+      ],
+      "records": [
+        {
+          "id": "WORK-001",
+          "role": "cashier",
+          "maxWeeklyHours": 40,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-002",
+          "role": "stock",
+          "maxWeeklyHours": 25,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-003",
+          "role": "floor lead",
+          "maxWeeklyHours": 25,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-004",
+          "role": "cashier",
+          "maxWeeklyHours": 40,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-005",
+          "role": "stock",
+          "maxWeeklyHours": 30,
+          "availableAfterCallout": false
+        },
+        {
+          "id": "WORK-006",
+          "role": "floor lead",
+          "maxWeeklyHours": 35,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-007",
+          "role": "cashier",
+          "maxWeeklyHours": 35,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-008",
+          "role": "stock",
+          "maxWeeklyHours": 35,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-009",
+          "role": "floor lead",
+          "maxWeeklyHours": 30,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-010",
+          "role": "cashier",
+          "maxWeeklyHours": 20,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-011",
+          "role": "stock",
+          "maxWeeklyHours": 20,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-012",
+          "role": "floor lead",
+          "maxWeeklyHours": 40,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-013",
+          "role": "cashier",
+          "maxWeeklyHours": 40,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-014",
+          "role": "stock",
+          "maxWeeklyHours": 20,
+          "availableAfterCallout": true
+        },
+        {
+          "id": "WORK-015",
+          "role": "floor lead",
+          "maxWeeklyHours": 40,
+          "availableAfterCallout": true
+        }
+      ]
+    }
+  ]
+}

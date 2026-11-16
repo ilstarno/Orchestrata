@@ -1,0 +1,1042 @@
+{
+  "schemaVersion": 1,
+  "caseId": "field-service",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates service intake and technician qualification data before eligibility is computed.",
+  "collections": [
+    {
+      "id": "workOrders",
+      "label": "Work orders",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "site",
+          "label": "Service site",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional customer-site code."
+        },
+        {
+          "key": "skill",
+          "label": "Required skill",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Qualification tag required for this job."
+        },
+        {
+          "key": "durationMinutes",
+          "label": "Service duration",
+          "type": "integer",
+          "unit": "minutes",
+          "required": true,
+          "nullable": false,
+          "description": "Expected time onsite; does not include travel."
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative service priority."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        },
+        {
+          "key": "preferredTechnicianId",
+          "label": "Preferred technician",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Suggested technician with the matching skill; availability still needs checking.",
+          "reference": {
+            "collection": "technicians",
+            "property": "id"
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "WO-001",
+          "site": "SITE-009",
+          "skill": "lift-systems",
+          "durationMinutes": 60,
+          "priority": "normal",
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-001"
+        },
+        {
+          "id": "WO-002",
+          "site": "SITE-003",
+          "skill": "fire-inspection",
+          "durationMinutes": 30,
+          "priority": "normal",
+          "localDate": "2026-02-03",
+          "startLocal": "08:15",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-002"
+        },
+        {
+          "id": "WO-003",
+          "site": "SITE-007",
+          "skill": "electrical",
+          "durationMinutes": 30,
+          "priority": "urgent",
+          "localDate": "2026-02-04",
+          "startLocal": "11:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-009"
+        },
+        {
+          "id": "WO-004",
+          "site": "SITE-005",
+          "skill": "HVAC",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-05",
+          "startLocal": "12:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-010"
+        },
+        {
+          "id": "WO-005",
+          "site": "SITE-015",
+          "skill": "mechanical",
+          "durationMinutes": 105,
+          "priority": "urgent",
+          "localDate": "2026-02-06",
+          "startLocal": "09:00",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-005"
+        },
+        {
+          "id": "WO-006",
+          "site": "SITE-014",
+          "skill": "water-systems",
+          "durationMinutes": 30,
+          "priority": "normal",
+          "localDate": "2026-02-07",
+          "startLocal": "12:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-018"
+        },
+        {
+          "id": "WO-007",
+          "site": "SITE-004",
+          "skill": "lift-systems",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-08",
+          "startLocal": "11:45",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-007"
+        },
+        {
+          "id": "WO-008",
+          "site": "SITE-004",
+          "skill": "fire-inspection",
+          "durationMinutes": 30,
+          "priority": "preventive",
+          "localDate": "2026-02-09",
+          "startLocal": "11:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-014"
+        },
+        {
+          "id": "WO-009",
+          "site": "SITE-015",
+          "skill": "electrical",
+          "durationMinutes": 45,
+          "priority": "urgent",
+          "localDate": "2026-02-10",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-003"
+        },
+        {
+          "id": "WO-010",
+          "site": "SITE-009",
+          "skill": "HVAC",
+          "durationMinutes": 45,
+          "priority": "preventive",
+          "localDate": "2026-02-11",
+          "startLocal": "10:00",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-011",
+          "site": "SITE-001",
+          "skill": "mechanical",
+          "durationMinutes": 30,
+          "priority": "preventive",
+          "localDate": "2026-02-12",
+          "startLocal": "12:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-011"
+        },
+        {
+          "id": "WO-012",
+          "site": "SITE-007",
+          "skill": "water-systems",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-13",
+          "startLocal": "11:00",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-018"
+        },
+        {
+          "id": "WO-013",
+          "site": "SITE-019",
+          "skill": "lift-systems",
+          "durationMinutes": 30,
+          "priority": "normal",
+          "localDate": "2026-02-14",
+          "startLocal": "08:30",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-014",
+          "site": "SITE-019",
+          "skill": "fire-inspection",
+          "durationMinutes": 120,
+          "priority": "urgent",
+          "localDate": "2026-02-15",
+          "startLocal": "11:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-014"
+        },
+        {
+          "id": "WO-015",
+          "site": "SITE-014",
+          "skill": "electrical",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-02",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-016",
+          "site": "SITE-016",
+          "skill": "HVAC",
+          "durationMinutes": 75,
+          "priority": "preventive",
+          "localDate": "2026-02-03",
+          "startLocal": "12:45",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-017",
+          "site": "SITE-009",
+          "skill": "mechanical",
+          "durationMinutes": 90,
+          "priority": "urgent",
+          "localDate": "2026-02-04",
+          "startLocal": "10:15",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-017"
+        },
+        {
+          "id": "WO-018",
+          "site": "SITE-019",
+          "skill": "water-systems",
+          "durationMinutes": 75,
+          "priority": "preventive",
+          "localDate": "2026-02-05",
+          "startLocal": "09:15",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-006"
+        },
+        {
+          "id": "WO-019",
+          "site": "SITE-011",
+          "skill": "lift-systems",
+          "durationMinutes": 30,
+          "priority": "urgent",
+          "localDate": "2026-02-06",
+          "startLocal": "08:15",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-020",
+          "site": "SITE-006",
+          "skill": "fire-inspection",
+          "durationMinutes": 105,
+          "priority": "preventive",
+          "localDate": "2026-02-07",
+          "startLocal": "09:30",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-014"
+        },
+        {
+          "id": "WO-021",
+          "site": "SITE-018",
+          "skill": "electrical",
+          "durationMinutes": 75,
+          "priority": "urgent",
+          "localDate": "2026-02-08",
+          "startLocal": "08:00",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-022",
+          "site": "SITE-009",
+          "skill": "HVAC",
+          "durationMinutes": 45,
+          "priority": "preventive",
+          "localDate": "2026-02-09",
+          "startLocal": "12:30",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-023",
+          "site": "SITE-021",
+          "skill": "mechanical",
+          "durationMinutes": 105,
+          "priority": "urgent",
+          "localDate": "2026-02-10",
+          "startLocal": "11:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-005"
+        },
+        {
+          "id": "WO-024",
+          "site": "SITE-013",
+          "skill": "water-systems",
+          "durationMinutes": 120,
+          "priority": "normal",
+          "localDate": "2026-02-11",
+          "startLocal": "10:30",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-018"
+        },
+        {
+          "id": "WO-025",
+          "site": "SITE-021",
+          "skill": "lift-systems",
+          "durationMinutes": 30,
+          "priority": "preventive",
+          "localDate": "2026-02-12",
+          "startLocal": "11:00",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-007"
+        },
+        {
+          "id": "WO-026",
+          "site": "SITE-001",
+          "skill": "fire-inspection",
+          "durationMinutes": 60,
+          "priority": "urgent",
+          "localDate": "2026-02-13",
+          "startLocal": "09:30",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-002"
+        },
+        {
+          "id": "WO-027",
+          "site": "SITE-004",
+          "skill": "electrical",
+          "durationMinutes": 75,
+          "priority": "normal",
+          "localDate": "2026-02-14",
+          "startLocal": "11:15",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-028",
+          "site": "SITE-021",
+          "skill": "HVAC",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-15",
+          "startLocal": "09:30",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-029",
+          "site": "SITE-005",
+          "skill": "mechanical",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-02",
+          "startLocal": "10:30",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-005"
+        },
+        {
+          "id": "WO-030",
+          "site": "SITE-022",
+          "skill": "water-systems",
+          "durationMinutes": 45,
+          "priority": "preventive",
+          "localDate": "2026-02-03",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-006"
+        },
+        {
+          "id": "WO-031",
+          "site": "SITE-002",
+          "skill": "lift-systems",
+          "durationMinutes": 60,
+          "priority": "urgent",
+          "localDate": "2026-02-04",
+          "startLocal": "08:15",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-032",
+          "site": "SITE-021",
+          "skill": "fire-inspection",
+          "durationMinutes": 60,
+          "priority": "preventive",
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-002"
+        },
+        {
+          "id": "WO-033",
+          "site": "SITE-016",
+          "skill": "electrical",
+          "durationMinutes": 30,
+          "priority": "normal",
+          "localDate": "2026-02-06",
+          "startLocal": "09:45",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-009"
+        },
+        {
+          "id": "WO-034",
+          "site": "SITE-006",
+          "skill": "HVAC",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-07",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-035",
+          "site": "SITE-009",
+          "skill": "mechanical",
+          "durationMinutes": 60,
+          "priority": "normal",
+          "localDate": "2026-02-08",
+          "startLocal": "09:15",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-017"
+        },
+        {
+          "id": "WO-036",
+          "site": "SITE-013",
+          "skill": "water-systems",
+          "durationMinutes": 45,
+          "priority": "urgent",
+          "localDate": "2026-02-09",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-012"
+        },
+        {
+          "id": "WO-037",
+          "site": "SITE-008",
+          "skill": "lift-systems",
+          "durationMinutes": 45,
+          "priority": "preventive",
+          "localDate": "2026-02-10",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-007"
+        },
+        {
+          "id": "WO-038",
+          "site": "SITE-017",
+          "skill": "fire-inspection",
+          "durationMinutes": 105,
+          "priority": "urgent",
+          "localDate": "2026-02-11",
+          "startLocal": "11:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-014"
+        },
+        {
+          "id": "WO-039",
+          "site": "SITE-007",
+          "skill": "electrical",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-12",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-040",
+          "site": "SITE-005",
+          "skill": "HVAC",
+          "durationMinutes": 45,
+          "priority": "preventive",
+          "localDate": "2026-02-13",
+          "startLocal": "11:30",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-010"
+        },
+        {
+          "id": "WO-041",
+          "site": "SITE-015",
+          "skill": "mechanical",
+          "durationMinutes": 90,
+          "priority": "normal",
+          "localDate": "2026-02-14",
+          "startLocal": "11:30",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-011"
+        },
+        {
+          "id": "WO-042",
+          "site": "SITE-005",
+          "skill": "water-systems",
+          "durationMinutes": 105,
+          "priority": "normal",
+          "localDate": "2026-02-15",
+          "startLocal": "11:30",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-012"
+        },
+        {
+          "id": "WO-043",
+          "site": "SITE-013",
+          "skill": "lift-systems",
+          "durationMinutes": 30,
+          "priority": "preventive",
+          "localDate": "2026-02-02",
+          "startLocal": "10:00",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-044",
+          "site": "SITE-018",
+          "skill": "fire-inspection",
+          "durationMinutes": 105,
+          "priority": "preventive",
+          "localDate": "2026-02-03",
+          "startLocal": "09:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-014"
+        },
+        {
+          "id": "WO-045",
+          "site": "SITE-013",
+          "skill": "electrical",
+          "durationMinutes": 60,
+          "priority": "preventive",
+          "localDate": "2026-02-04",
+          "startLocal": "12:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-009"
+        },
+        {
+          "id": "WO-046",
+          "site": "SITE-011",
+          "skill": "HVAC",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-05",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-010"
+        },
+        {
+          "id": "WO-047",
+          "site": "SITE-005",
+          "skill": "mechanical",
+          "durationMinutes": 120,
+          "priority": "normal",
+          "localDate": "2026-02-06",
+          "startLocal": "12:45",
+          "endLocal": "14:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-017"
+        },
+        {
+          "id": "WO-048",
+          "site": "SITE-020",
+          "skill": "water-systems",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-07",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-018"
+        },
+        {
+          "id": "WO-049",
+          "site": "SITE-010",
+          "skill": "lift-systems",
+          "durationMinutes": 90,
+          "priority": "urgent",
+          "localDate": "2026-02-08",
+          "startLocal": "09:15",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-050",
+          "site": "SITE-001",
+          "skill": "fire-inspection",
+          "durationMinutes": 105,
+          "priority": "preventive",
+          "localDate": "2026-02-09",
+          "startLocal": "12:00",
+          "endLocal": "13:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-002"
+        },
+        {
+          "id": "WO-051",
+          "site": "SITE-006",
+          "skill": "electrical",
+          "durationMinutes": 75,
+          "priority": "urgent",
+          "localDate": "2026-02-10",
+          "startLocal": "10:45",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-052",
+          "site": "SITE-015",
+          "skill": "HVAC",
+          "durationMinutes": 120,
+          "priority": "normal",
+          "localDate": "2026-02-11",
+          "startLocal": "12:00",
+          "endLocal": "14:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-010"
+        },
+        {
+          "id": "WO-053",
+          "site": "SITE-019",
+          "skill": "mechanical",
+          "durationMinutes": 105,
+          "priority": "normal",
+          "localDate": "2026-02-12",
+          "startLocal": "11:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-017"
+        },
+        {
+          "id": "WO-054",
+          "site": "SITE-003",
+          "skill": "water-systems",
+          "durationMinutes": 45,
+          "priority": "urgent",
+          "localDate": "2026-02-13",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-012"
+        },
+        {
+          "id": "WO-055",
+          "site": "SITE-017",
+          "skill": "lift-systems",
+          "durationMinutes": 120,
+          "priority": "preventive",
+          "localDate": "2026-02-14",
+          "startLocal": "10:45",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-056",
+          "site": "SITE-005",
+          "skill": "fire-inspection",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-15",
+          "startLocal": "12:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-008"
+        },
+        {
+          "id": "WO-057",
+          "site": "SITE-010",
+          "skill": "electrical",
+          "durationMinutes": 45,
+          "priority": "normal",
+          "localDate": "2026-02-02",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-015"
+        },
+        {
+          "id": "WO-058",
+          "site": "SITE-016",
+          "skill": "HVAC",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-03",
+          "startLocal": "08:45",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        },
+        {
+          "id": "WO-059",
+          "site": "SITE-015",
+          "skill": "mechanical",
+          "durationMinutes": 90,
+          "priority": "normal",
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-017"
+        },
+        {
+          "id": "WO-060",
+          "site": "SITE-019",
+          "skill": "water-systems",
+          "durationMinutes": 30,
+          "priority": "normal",
+          "localDate": "2026-02-05",
+          "startLocal": "12:00",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-012"
+        },
+        {
+          "id": "WO-061",
+          "site": "SITE-014",
+          "skill": "lift-systems",
+          "durationMinutes": 60,
+          "priority": "normal",
+          "localDate": "2026-02-06",
+          "startLocal": "12:15",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-013"
+        },
+        {
+          "id": "WO-062",
+          "site": "SITE-020",
+          "skill": "fire-inspection",
+          "durationMinutes": 90,
+          "priority": "preventive",
+          "localDate": "2026-02-07",
+          "startLocal": "12:00",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-002"
+        },
+        {
+          "id": "WO-063",
+          "site": "SITE-017",
+          "skill": "electrical",
+          "durationMinutes": 105,
+          "priority": "normal",
+          "localDate": "2026-02-08",
+          "startLocal": "10:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-003"
+        },
+        {
+          "id": "WO-064",
+          "site": "SITE-006",
+          "skill": "HVAC",
+          "durationMinutes": 120,
+          "priority": "normal",
+          "localDate": "2026-02-09",
+          "startLocal": "08:15",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago",
+          "preferredTechnicianId": "TECH-016"
+        }
+      ]
+    },
+    {
+      "id": "technicians",
+      "label": "Technicians",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "skills",
+          "label": "Recorded skills",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative qualification tags."
+        },
+        {
+          "key": "serviceZone",
+          "label": "Service zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional dispatch area code."
+        }
+      ],
+      "records": [
+        {
+          "id": "TECH-001",
+          "skills": [
+            "lift-systems"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-002",
+          "skills": [
+            "fire-inspection"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-003",
+          "skills": [
+            "electrical"
+          ],
+          "serviceZone": "ZONE-001"
+        },
+        {
+          "id": "TECH-004",
+          "skills": [
+            "HVAC"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-005",
+          "skills": [
+            "mechanical"
+          ],
+          "serviceZone": "ZONE-001"
+        },
+        {
+          "id": "TECH-006",
+          "skills": [
+            "water-systems"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-007",
+          "skills": [
+            "lift-systems"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-008",
+          "skills": [
+            "fire-inspection"
+          ],
+          "serviceZone": "ZONE-004"
+        },
+        {
+          "id": "TECH-009",
+          "skills": [
+            "electrical"
+          ],
+          "serviceZone": "ZONE-003"
+        },
+        {
+          "id": "TECH-010",
+          "skills": [
+            "HVAC"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-011",
+          "skills": [
+            "mechanical"
+          ],
+          "serviceZone": "ZONE-003"
+        },
+        {
+          "id": "TECH-012",
+          "skills": [
+            "water-systems"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-013",
+          "skills": [
+            "lift-systems"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-014",
+          "skills": [
+            "fire-inspection"
+          ],
+          "serviceZone": "ZONE-004"
+        },
+        {
+          "id": "TECH-015",
+          "skills": [
+            "electrical"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-016",
+          "skills": [
+            "HVAC"
+          ],
+          "serviceZone": "ZONE-002"
+        },
+        {
+          "id": "TECH-017",
+          "skills": [
+            "mechanical"
+          ],
+          "serviceZone": "ZONE-004"
+        },
+        {
+          "id": "TECH-018",
+          "skills": [
+            "water-systems"
+          ],
+          "serviceZone": "ZONE-004"
+        }
+      ]
+    }
+  ]
+}

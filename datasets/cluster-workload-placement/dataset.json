@@ -1,0 +1,839 @@
+{
+  "schemaVersion": 1,
+  "caseId": "cluster-workload-placement",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates workload requests and node resources, not a connected cluster or a solved packing problem.",
+  "collections": [
+    {
+      "id": "workloads",
+      "label": "Workloads",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "workloadType",
+          "label": "Workload",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Synthetic operating category."
+        },
+        {
+          "key": "cpu",
+          "label": "CPU request",
+          "type": "integer",
+          "unit": "cores",
+          "required": true,
+          "nullable": false,
+          "description": "Requested CPU cores."
+        },
+        {
+          "key": "memoryGiB",
+          "label": "Memory request",
+          "type": "integer",
+          "unit": "GiB",
+          "required": true,
+          "nullable": false,
+          "description": "Requested memory."
+        },
+        {
+          "key": "gpu",
+          "label": "GPU request",
+          "type": "integer",
+          "unit": "devices",
+          "required": true,
+          "nullable": false,
+          "description": "Requested GPU count, or zero for no accelerator."
+        },
+        {
+          "key": "region",
+          "label": "Requested region",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional allowed region code."
+        }
+      ],
+      "records": [
+        {
+          "id": "WORKLOAD-001",
+          "workloadType": "GPU batch",
+          "cpu": 14,
+          "memoryGiB": 40,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-002",
+          "workloadType": "Search rebuild",
+          "cpu": 16,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-003",
+          "workloadType": "Analytics export",
+          "cpu": 10,
+          "memoryGiB": 56,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-004",
+          "workloadType": "Nightly transform",
+          "cpu": 4,
+          "memoryGiB": 48,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-005",
+          "workloadType": "GPU batch",
+          "cpu": 16,
+          "memoryGiB": 32,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-006",
+          "workloadType": "Search rebuild",
+          "cpu": 13,
+          "memoryGiB": 48,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-007",
+          "workloadType": "Analytics export",
+          "cpu": 4,
+          "memoryGiB": 28,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-008",
+          "workloadType": "Nightly transform",
+          "cpu": 6,
+          "memoryGiB": 16,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-009",
+          "workloadType": "GPU batch",
+          "cpu": 4,
+          "memoryGiB": 20,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-010",
+          "workloadType": "Search rebuild",
+          "cpu": 4,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-011",
+          "workloadType": "Analytics export",
+          "cpu": 14,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-012",
+          "workloadType": "Nightly transform",
+          "cpu": 14,
+          "memoryGiB": 12,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-013",
+          "workloadType": "GPU batch",
+          "cpu": 13,
+          "memoryGiB": 44,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-014",
+          "workloadType": "Search rebuild",
+          "cpu": 15,
+          "memoryGiB": 12,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-015",
+          "workloadType": "Analytics export",
+          "cpu": 4,
+          "memoryGiB": 56,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-016",
+          "workloadType": "Nightly transform",
+          "cpu": 9,
+          "memoryGiB": 56,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-017",
+          "workloadType": "GPU batch",
+          "cpu": 6,
+          "memoryGiB": 28,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-018",
+          "workloadType": "Search rebuild",
+          "cpu": 5,
+          "memoryGiB": 28,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-019",
+          "workloadType": "Analytics export",
+          "cpu": 14,
+          "memoryGiB": 52,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-020",
+          "workloadType": "Nightly transform",
+          "cpu": 3,
+          "memoryGiB": 16,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-021",
+          "workloadType": "GPU batch",
+          "cpu": 6,
+          "memoryGiB": 8,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-022",
+          "workloadType": "Search rebuild",
+          "cpu": 2,
+          "memoryGiB": 36,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-023",
+          "workloadType": "Analytics export",
+          "cpu": 7,
+          "memoryGiB": 24,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-024",
+          "workloadType": "Nightly transform",
+          "cpu": 16,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-025",
+          "workloadType": "GPU batch",
+          "cpu": 9,
+          "memoryGiB": 12,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-026",
+          "workloadType": "Search rebuild",
+          "cpu": 8,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-027",
+          "workloadType": "Analytics export",
+          "cpu": 8,
+          "memoryGiB": 40,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-028",
+          "workloadType": "Nightly transform",
+          "cpu": 16,
+          "memoryGiB": 16,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-029",
+          "workloadType": "GPU batch",
+          "cpu": 11,
+          "memoryGiB": 32,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-030",
+          "workloadType": "Search rebuild",
+          "cpu": 15,
+          "memoryGiB": 60,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-031",
+          "workloadType": "Analytics export",
+          "cpu": 4,
+          "memoryGiB": 36,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-032",
+          "workloadType": "Nightly transform",
+          "cpu": 14,
+          "memoryGiB": 16,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-033",
+          "workloadType": "GPU batch",
+          "cpu": 10,
+          "memoryGiB": 16,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-034",
+          "workloadType": "Search rebuild",
+          "cpu": 3,
+          "memoryGiB": 40,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-035",
+          "workloadType": "Analytics export",
+          "cpu": 7,
+          "memoryGiB": 52,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-036",
+          "workloadType": "Nightly transform",
+          "cpu": 2,
+          "memoryGiB": 20,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-037",
+          "workloadType": "GPU batch",
+          "cpu": 2,
+          "memoryGiB": 52,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-038",
+          "workloadType": "Search rebuild",
+          "cpu": 16,
+          "memoryGiB": 36,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-039",
+          "workloadType": "Analytics export",
+          "cpu": 13,
+          "memoryGiB": 56,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-040",
+          "workloadType": "Nightly transform",
+          "cpu": 13,
+          "memoryGiB": 48,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-041",
+          "workloadType": "GPU batch",
+          "cpu": 14,
+          "memoryGiB": 40,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-042",
+          "workloadType": "Search rebuild",
+          "cpu": 10,
+          "memoryGiB": 60,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-043",
+          "workloadType": "Analytics export",
+          "cpu": 12,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-044",
+          "workloadType": "Nightly transform",
+          "cpu": 13,
+          "memoryGiB": 52,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-045",
+          "workloadType": "GPU batch",
+          "cpu": 11,
+          "memoryGiB": 12,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-046",
+          "workloadType": "Search rebuild",
+          "cpu": 13,
+          "memoryGiB": 12,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-047",
+          "workloadType": "Analytics export",
+          "cpu": 6,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-048",
+          "workloadType": "Nightly transform",
+          "cpu": 11,
+          "memoryGiB": 24,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-049",
+          "workloadType": "GPU batch",
+          "cpu": 6,
+          "memoryGiB": 36,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-050",
+          "workloadType": "Search rebuild",
+          "cpu": 10,
+          "memoryGiB": 28,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-051",
+          "workloadType": "Analytics export",
+          "cpu": 10,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-052",
+          "workloadType": "Nightly transform",
+          "cpu": 16,
+          "memoryGiB": 32,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-053",
+          "workloadType": "GPU batch",
+          "cpu": 10,
+          "memoryGiB": 40,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-054",
+          "workloadType": "Search rebuild",
+          "cpu": 6,
+          "memoryGiB": 36,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-055",
+          "workloadType": "Analytics export",
+          "cpu": 6,
+          "memoryGiB": 16,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-056",
+          "workloadType": "Nightly transform",
+          "cpu": 7,
+          "memoryGiB": 36,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-057",
+          "workloadType": "GPU batch",
+          "cpu": 15,
+          "memoryGiB": 48,
+          "gpu": 2,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-058",
+          "workloadType": "Search rebuild",
+          "cpu": 8,
+          "memoryGiB": 24,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-059",
+          "workloadType": "Analytics export",
+          "cpu": 7,
+          "memoryGiB": 8,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-060",
+          "workloadType": "Nightly transform",
+          "cpu": 13,
+          "memoryGiB": 24,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-061",
+          "workloadType": "GPU batch",
+          "cpu": 4,
+          "memoryGiB": 60,
+          "gpu": 1,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-062",
+          "workloadType": "Search rebuild",
+          "cpu": 12,
+          "memoryGiB": 60,
+          "gpu": 0,
+          "region": "REGION-002"
+        },
+        {
+          "id": "WORKLOAD-063",
+          "workloadType": "Analytics export",
+          "cpu": 4,
+          "memoryGiB": 40,
+          "gpu": 0,
+          "region": "REGION-001"
+        },
+        {
+          "id": "WORKLOAD-064",
+          "workloadType": "Nightly transform",
+          "cpu": 2,
+          "memoryGiB": 24,
+          "gpu": 0,
+          "region": "REGION-002"
+        }
+      ]
+    },
+    {
+      "id": "nodes",
+      "label": "Compute nodes",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "cpu",
+          "label": "CPU capacity",
+          "type": "integer",
+          "unit": "cores",
+          "required": true,
+          "nullable": false,
+          "description": "Available CPU cores in the data sample."
+        },
+        {
+          "key": "memoryGiB",
+          "label": "Memory capacity",
+          "type": "integer",
+          "unit": "GiB",
+          "required": true,
+          "nullable": false,
+          "description": "Available memory in the data sample."
+        },
+        {
+          "key": "gpu",
+          "label": "GPU capacity",
+          "type": "integer",
+          "unit": "devices",
+          "required": true,
+          "nullable": false,
+          "description": "Populated GPU devices, or zero."
+        },
+        {
+          "key": "region",
+          "label": "Node region",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional region code."
+        },
+        {
+          "key": "ready",
+          "label": "Ready",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative readiness before eligibility is computed."
+        }
+      ],
+      "records": [
+        {
+          "id": "NODE-001",
+          "cpu": 16,
+          "memoryGiB": 192,
+          "gpu": 4,
+          "region": "REGION-001",
+          "ready": false
+        },
+        {
+          "id": "NODE-002",
+          "cpu": 16,
+          "memoryGiB": 128,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-003",
+          "cpu": 48,
+          "memoryGiB": 160,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-004",
+          "cpu": 40,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-005",
+          "cpu": 40,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-006",
+          "cpu": 48,
+          "memoryGiB": 192,
+          "gpu": 4,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-007",
+          "cpu": 48,
+          "memoryGiB": 96,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-008",
+          "cpu": 32,
+          "memoryGiB": 160,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-009",
+          "cpu": 64,
+          "memoryGiB": 96,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-010",
+          "cpu": 16,
+          "memoryGiB": 128,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-011",
+          "cpu": 16,
+          "memoryGiB": 96,
+          "gpu": 4,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-012",
+          "cpu": 48,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": false
+        },
+        {
+          "id": "NODE-013",
+          "cpu": 64,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-014",
+          "cpu": 24,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-015",
+          "cpu": 16,
+          "memoryGiB": 64,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-016",
+          "cpu": 32,
+          "memoryGiB": 128,
+          "gpu": 4,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-017",
+          "cpu": 32,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-018",
+          "cpu": 56,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-019",
+          "cpu": 16,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-020",
+          "cpu": 40,
+          "memoryGiB": 160,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-021",
+          "cpu": 64,
+          "memoryGiB": 160,
+          "gpu": 4,
+          "region": "REGION-001",
+          "ready": true
+        },
+        {
+          "id": "NODE-022",
+          "cpu": 16,
+          "memoryGiB": 192,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        },
+        {
+          "id": "NODE-023",
+          "cpu": 64,
+          "memoryGiB": 128,
+          "gpu": 0,
+          "region": "REGION-001",
+          "ready": false
+        },
+        {
+          "id": "NODE-024",
+          "cpu": 24,
+          "memoryGiB": 160,
+          "gpu": 0,
+          "region": "REGION-002",
+          "ready": true
+        }
+      ]
+    }
+  ]
+}

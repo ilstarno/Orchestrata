@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "caseId": "healthcare-supply-delivery",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates receiving windows and nonclinical supplies without addresses, patients, or handling decisions.",
+  "collections": [
+    {
+      "id": "shipments",
+      "label": "Supply deliveries",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "receivingSite",
+          "label": "Receiving site",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional facility code."
+        },
+        {
+          "key": "cargoType",
+          "label": "Supplies",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Generic nonclinical cargo category."
+        },
+        {
+          "key": "weightKg",
+          "label": "Shipment weight",
+          "type": "integer",
+          "unit": "kg",
+          "required": true,
+          "nullable": false,
+          "description": "Single-load weight used to screen vehicle options."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "SHIP-001",
+          "receivingSite": "FACILITY-004",
+          "cargoType": "PPE cartons",
+          "weightKg": 215,
+          "localDate": "2026-02-02",
+          "startLocal": "11:30",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-002",
+          "receivingSite": "FACILITY-007",
+          "cargoType": "Stationery",
+          "weightKg": 375,
+          "localDate": "2026-02-03",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-003",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Cleaning materials",
+          "weightKg": 255,
+          "localDate": "2026-02-04",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-004",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "Packaging",
+          "weightKg": 315,
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-005",
+          "receivingSite": "FACILITY-002",
+          "cargoType": "Cleaning materials",
+          "weightKg": 255,
+          "localDate": "2026-02-06",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-006",
+          "receivingSite": "FACILITY-014",
+          "cargoType": "Packaging",
+          "weightKg": 275,
+          "localDate": "2026-02-07",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-007",
+          "receivingSite": "FACILITY-013",
+          "cargoType": "Cleaning materials",
+          "weightKg": 280,
+          "localDate": "2026-02-08",
+          "startLocal": "09:30",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-008",
+          "receivingSite": "FACILITY-013",
+          "cargoType": "Cleaning materials",
+          "weightKg": 255,
+          "localDate": "2026-02-09",
+          "startLocal": "11:30",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-009",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "Lab consumables",
+          "weightKg": 360,
+          "localDate": "2026-02-10",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-010",
+          "receivingSite": "FACILITY-013",
+          "cargoType": "PPE cartons",
+          "weightKg": 225,
+          "localDate": "2026-02-11",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-011",
+          "receivingSite": "FACILITY-004",
+          "cargoType": "Cleaning materials",
+          "weightKg": 350,
+          "localDate": "2026-02-12",
+          "startLocal": "11:30",
+          "endLocal": "12:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-012",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "Lab consumables",
+          "weightKg": 70,
+          "localDate": "2026-02-13",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-013",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "Stationery",
+          "weightKg": 55,
+          "localDate": "2026-02-14",
+          "startLocal": "12:00",
+          "endLocal": "12:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-014",
+          "receivingSite": "FACILITY-015",
+          "cargoType": "Packaging",
+          "weightKg": 100,
+          "localDate": "2026-02-15",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-015",
+          "receivingSite": "FACILITY-010",
+          "cargoType": "Stationery",
+          "weightKg": 365,
+          "localDate": "2026-02-02",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-016",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "PPE cartons",
+          "weightKg": 155,
+          "localDate": "2026-02-03",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-017",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "Packaging",
+          "weightKg": 115,
+          "localDate": "2026-02-04",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-018",
+          "receivingSite": "FACILITY-017",
+          "cargoType": "PPE cartons",
+          "weightKg": 360,
+          "localDate": "2026-02-05",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-019",
+          "receivingSite": "FACILITY-011",
+          "cargoType": "Packaging",
+          "weightKg": 225,
+          "localDate": "2026-02-06",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-020",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "PPE cartons",
+          "weightKg": 65,
+          "localDate": "2026-02-07",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-021",
+          "receivingSite": "FACILITY-015",
+          "cargoType": "Stationery",
+          "weightKg": 75,
+          "localDate": "2026-02-08",
+          "startLocal": "09:15",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-022",
+          "receivingSite": "FACILITY-014",
+          "cargoType": "Packaging",
+          "weightKg": 245,
+          "localDate": "2026-02-09",
+          "startLocal": "11:00",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-023",
+          "receivingSite": "FACILITY-008",
+          "cargoType": "PPE cartons",
+          "weightKg": 120,
+          "localDate": "2026-02-10",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-024",
+          "receivingSite": "FACILITY-005",
+          "cargoType": "Stationery",
+          "weightKg": 195,
+          "localDate": "2026-02-11",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-025",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "Stationery",
+          "weightKg": 240,
+          "localDate": "2026-02-12",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-026",
+          "receivingSite": "FACILITY-004",
+          "cargoType": "Stationery",
+          "weightKg": 150,
+          "localDate": "2026-02-13",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-027",
+          "receivingSite": "FACILITY-011",
+          "cargoType": "PPE cartons",
+          "weightKg": 115,
+          "localDate": "2026-02-14",
+          "startLocal": "10:45",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-028",
+          "receivingSite": "FACILITY-008",
+          "cargoType": "Cleaning materials",
+          "weightKg": 310,
+          "localDate": "2026-02-15",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-029",
+          "receivingSite": "FACILITY-010",
+          "cargoType": "Cleaning materials",
+          "weightKg": 235,
+          "localDate": "2026-02-02",
+          "startLocal": "12:30",
+          "endLocal": "13:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-030",
+          "receivingSite": "FACILITY-014",
+          "cargoType": "Stationery",
+          "weightKg": 160,
+          "localDate": "2026-02-03",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-031",
+          "receivingSite": "FACILITY-019",
+          "cargoType": "Packaging",
+          "weightKg": 75,
+          "localDate": "2026-02-04",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-032",
+          "receivingSite": "FACILITY-017",
+          "cargoType": "PPE cartons",
+          "weightKg": 185,
+          "localDate": "2026-02-05",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-033",
+          "receivingSite": "FACILITY-020",
+          "cargoType": "PPE cartons",
+          "weightKg": 340,
+          "localDate": "2026-02-06",
+          "startLocal": "09:30",
+          "endLocal": "10:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-034",
+          "receivingSite": "FACILITY-001",
+          "cargoType": "Cleaning materials",
+          "weightKg": 350,
+          "localDate": "2026-02-07",
+          "startLocal": "10:45",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-035",
+          "receivingSite": "FACILITY-012",
+          "cargoType": "PPE cartons",
+          "weightKg": 315,
+          "localDate": "2026-02-08",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-036",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Cleaning materials",
+          "weightKg": 255,
+          "localDate": "2026-02-09",
+          "startLocal": "08:45",
+          "endLocal": "09:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-037",
+          "receivingSite": "FACILITY-001",
+          "cargoType": "PPE cartons",
+          "weightKg": 355,
+          "localDate": "2026-02-10",
+          "startLocal": "09:15",
+          "endLocal": "10:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-038",
+          "receivingSite": "FACILITY-009",
+          "cargoType": "Lab consumables",
+          "weightKg": 335,
+          "localDate": "2026-02-11",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-039",
+          "receivingSite": "FACILITY-015",
+          "cargoType": "Cleaning materials",
+          "weightKg": 125,
+          "localDate": "2026-02-12",
+          "startLocal": "08:30",
+          "endLocal": "09:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-040",
+          "receivingSite": "FACILITY-005",
+          "cargoType": "PPE cartons",
+          "weightKg": 115,
+          "localDate": "2026-02-13",
+          "startLocal": "11:15",
+          "endLocal": "12:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-041",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Packaging",
+          "weightKg": 265,
+          "localDate": "2026-02-14",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-042",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Lab consumables",
+          "weightKg": 300,
+          "localDate": "2026-02-15",
+          "startLocal": "11:00",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-043",
+          "receivingSite": "FACILITY-003",
+          "cargoType": "Cleaning materials",
+          "weightKg": 150,
+          "localDate": "2026-02-02",
+          "startLocal": "11:00",
+          "endLocal": "11:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-044",
+          "receivingSite": "FACILITY-005",
+          "cargoType": "Cleaning materials",
+          "weightKg": 235,
+          "localDate": "2026-02-03",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-045",
+          "receivingSite": "FACILITY-002",
+          "cargoType": "Stationery",
+          "weightKg": 145,
+          "localDate": "2026-02-04",
+          "startLocal": "09:00",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-046",
+          "receivingSite": "FACILITY-015",
+          "cargoType": "Cleaning materials",
+          "weightKg": 195,
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "08:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-047",
+          "receivingSite": "FACILITY-011",
+          "cargoType": "Cleaning materials",
+          "weightKg": 240,
+          "localDate": "2026-02-06",
+          "startLocal": "12:45",
+          "endLocal": "13:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-048",
+          "receivingSite": "FACILITY-002",
+          "cargoType": "Stationery",
+          "weightKg": 120,
+          "localDate": "2026-02-07",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-049",
+          "receivingSite": "FACILITY-016",
+          "cargoType": "Packaging",
+          "weightKg": 115,
+          "localDate": "2026-02-08",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-050",
+          "receivingSite": "FACILITY-017",
+          "cargoType": "Stationery",
+          "weightKg": 35,
+          "localDate": "2026-02-09",
+          "startLocal": "09:00",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-051",
+          "receivingSite": "FACILITY-016",
+          "cargoType": "PPE cartons",
+          "weightKg": 70,
+          "localDate": "2026-02-10",
+          "startLocal": "11:45",
+          "endLocal": "12:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-052",
+          "receivingSite": "FACILITY-004",
+          "cargoType": "PPE cartons",
+          "weightKg": 370,
+          "localDate": "2026-02-11",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-053",
+          "receivingSite": "FACILITY-001",
+          "cargoType": "Lab consumables",
+          "weightKg": 260,
+          "localDate": "2026-02-12",
+          "startLocal": "10:45",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-054",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "Lab consumables",
+          "weightKg": 185,
+          "localDate": "2026-02-13",
+          "startLocal": "09:00",
+          "endLocal": "09:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-055",
+          "receivingSite": "FACILITY-004",
+          "cargoType": "Packaging",
+          "weightKg": 120,
+          "localDate": "2026-02-14",
+          "startLocal": "10:30",
+          "endLocal": "11:15",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-056",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "Lab consumables",
+          "weightKg": 145,
+          "localDate": "2026-02-15",
+          "startLocal": "10:15",
+          "endLocal": "11:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-057",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Stationery",
+          "weightKg": 230,
+          "localDate": "2026-02-02",
+          "startLocal": "10:45",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-058",
+          "receivingSite": "FACILITY-006",
+          "cargoType": "Lab consumables",
+          "weightKg": 250,
+          "localDate": "2026-02-03",
+          "startLocal": "08:15",
+          "endLocal": "09:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-059",
+          "receivingSite": "FACILITY-021",
+          "cargoType": "Stationery",
+          "weightKg": 235,
+          "localDate": "2026-02-04",
+          "startLocal": "12:15",
+          "endLocal": "13:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-060",
+          "receivingSite": "FACILITY-005",
+          "cargoType": "Cleaning materials",
+          "weightKg": 260,
+          "localDate": "2026-02-05",
+          "startLocal": "09:45",
+          "endLocal": "10:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-061",
+          "receivingSite": "FACILITY-017",
+          "cargoType": "Packaging",
+          "weightKg": 210,
+          "localDate": "2026-02-06",
+          "startLocal": "10:00",
+          "endLocal": "10:45",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SHIP-062",
+          "receivingSite": "FACILITY-014",
+          "cargoType": "Stationery",
+          "weightKg": 50,
+          "localDate": "2026-02-07",
+          "startLocal": "10:45",
+          "endLocal": "11:30",
+          "timezone": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "id": "vehicles",
+      "label": "Vehicles",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "category",
+          "label": "Type",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Class of vehicle used for transport."
+        },
+        {
+          "key": "payloadKg",
+          "label": "Usable payload",
+          "type": "integer",
+          "unit": "kg",
+          "required": true,
+          "nullable": false,
+          "description": "Cargo weight limit for this vehicle."
+        },
+        {
+          "key": "volumeM3",
+          "label": "Usable volume",
+          "type": "integer",
+          "unit": "m³",
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative cargo volume limit."
+        },
+        {
+          "key": "depot",
+          "label": "Depot",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional dispatch depot code."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "SUPPLY-VAN-001",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-003",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-002",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-004",
+          "startLocal": "09:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-003",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-003",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-004",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-003",
+          "startLocal": "09:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-005",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-004",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-006",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-002",
+          "startLocal": "07:30",
+          "endLocal": "16:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-007",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-002",
+          "startLocal": "08:30",
+          "endLocal": "17:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-008",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-004",
+          "startLocal": "09:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-009",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-004",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-010",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-001",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-011",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-004",
+          "startLocal": "08:00",
+          "endLocal": "17:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-012",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-002",
+          "startLocal": "08:30",
+          "endLocal": "17:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-013",
+          "category": "compact",
+          "payloadKg": 350,
+          "volumeM3": 2,
+          "depot": "DEPOT-003",
+          "startLocal": "08:30",
+          "endLocal": "17:30",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-014",
+          "category": "cargo",
+          "payloadKg": 900,
+          "volumeM3": 8,
+          "depot": "DEPOT-003",
+          "startLocal": "09:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        },
+        {
+          "id": "SUPPLY-VAN-015",
+          "category": "box-truck",
+          "payloadKg": 1800,
+          "volumeM3": 16,
+          "depot": "DEPOT-004",
+          "startLocal": "09:00",
+          "endLocal": "18:00",
+          "timezone": "America/Chicago"
+        }
+      ]
+    }
+  ]
+}

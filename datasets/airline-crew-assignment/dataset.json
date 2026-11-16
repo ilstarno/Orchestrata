@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 1,
+  "caseId": "airline-crew-assignment",
+  "seed": 48021,
+  "fictional": true,
+  "purpose": "Illustrates overlapping duties with illustrative fleet qualifications. Rest and duty-time legality are not computed.",
+  "collections": [
+    {
+      "id": "duties",
+      "label": "Flight duties",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "flight",
+          "label": "Flight code",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional service identifier."
+        },
+        {
+          "key": "fleet",
+          "label": "Fleet qualification",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional aircraft fleet designation."
+        },
+        {
+          "key": "base",
+          "label": "Crew base",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional operating-base code."
+        },
+        {
+          "key": "localDate",
+          "label": "Local date",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional calendar date in ISO YYYY-MM-DD."
+        },
+        {
+          "key": "startLocal",
+          "label": "Local start",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Start time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "endLocal",
+          "label": "Local end",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "End time on the local date, in 24-hour HH:mm."
+        },
+        {
+          "key": "timezone",
+          "label": "Time zone",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "IANA time zone for the local date and times."
+        }
+      ],
+      "records": [
+        {
+          "id": "DUTY-001",
+          "flight": "DEMO-001",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-02",
+          "startLocal": "10:45",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-002",
+          "flight": "DEMO-002",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-03",
+          "startLocal": "09:00",
+          "endLocal": "12:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-003",
+          "flight": "DEMO-003",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-04",
+          "startLocal": "12:45",
+          "endLocal": "15:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-004",
+          "flight": "DEMO-004",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-05",
+          "startLocal": "11:15",
+          "endLocal": "14:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-005",
+          "flight": "DEMO-005",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-06",
+          "startLocal": "11:45",
+          "endLocal": "14:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-006",
+          "flight": "DEMO-006",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-07",
+          "startLocal": "11:15",
+          "endLocal": "14:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-007",
+          "flight": "DEMO-007",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-08",
+          "startLocal": "11:15",
+          "endLocal": "14:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-008",
+          "flight": "DEMO-008",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-09",
+          "startLocal": "11:15",
+          "endLocal": "13:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-009",
+          "flight": "DEMO-009",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-10",
+          "startLocal": "10:00",
+          "endLocal": "11:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-010",
+          "flight": "DEMO-010",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-11",
+          "startLocal": "10:45",
+          "endLocal": "13:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-011",
+          "flight": "DEMO-011",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-12",
+          "startLocal": "12:45",
+          "endLocal": "14:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-012",
+          "flight": "DEMO-012",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-13",
+          "startLocal": "08:15",
+          "endLocal": "10:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-013",
+          "flight": "DEMO-013",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-14",
+          "startLocal": "10:15",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-014",
+          "flight": "DEMO-014",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-15",
+          "startLocal": "08:45",
+          "endLocal": "11:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-015",
+          "flight": "DEMO-015",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-02",
+          "startLocal": "12:45",
+          "endLocal": "14:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-016",
+          "flight": "DEMO-016",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-03",
+          "startLocal": "10:00",
+          "endLocal": "12:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-017",
+          "flight": "DEMO-017",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-04",
+          "startLocal": "09:45",
+          "endLocal": "11:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-018",
+          "flight": "DEMO-018",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-05",
+          "startLocal": "10:00",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-019",
+          "flight": "DEMO-019",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-06",
+          "startLocal": "11:45",
+          "endLocal": "14:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-020",
+          "flight": "DEMO-020",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-07",
+          "startLocal": "08:45",
+          "endLocal": "12:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-021",
+          "flight": "DEMO-021",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-08",
+          "startLocal": "10:15",
+          "endLocal": "14:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-022",
+          "flight": "DEMO-022",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-09",
+          "startLocal": "11:45",
+          "endLocal": "15:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-023",
+          "flight": "DEMO-023",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-10",
+          "startLocal": "08:45",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-024",
+          "flight": "DEMO-024",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-11",
+          "startLocal": "09:15",
+          "endLocal": "13:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-025",
+          "flight": "DEMO-025",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-12",
+          "startLocal": "09:45",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-026",
+          "flight": "DEMO-026",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-13",
+          "startLocal": "08:15",
+          "endLocal": "11:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-027",
+          "flight": "DEMO-027",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-14",
+          "startLocal": "09:15",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-028",
+          "flight": "DEMO-028",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-15",
+          "startLocal": "08:30",
+          "endLocal": "10:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-029",
+          "flight": "DEMO-029",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-02",
+          "startLocal": "11:00",
+          "endLocal": "14:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-030",
+          "flight": "DEMO-030",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-03",
+          "startLocal": "10:30",
+          "endLocal": "14:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-031",
+          "flight": "DEMO-031",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-04",
+          "startLocal": "08:00",
+          "endLocal": "09:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-032",
+          "flight": "DEMO-032",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-05",
+          "startLocal": "08:00",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-033",
+          "flight": "DEMO-033",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-06",
+          "startLocal": "12:30",
+          "endLocal": "15:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-034",
+          "flight": "DEMO-034",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-07",
+          "startLocal": "08:45",
+          "endLocal": "11:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-035",
+          "flight": "DEMO-035",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-08",
+          "startLocal": "09:00",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-036",
+          "flight": "DEMO-036",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-09",
+          "startLocal": "11:15",
+          "endLocal": "12:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-037",
+          "flight": "DEMO-037",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-10",
+          "startLocal": "09:15",
+          "endLocal": "11:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-038",
+          "flight": "DEMO-038",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-11",
+          "startLocal": "12:45",
+          "endLocal": "14:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-039",
+          "flight": "DEMO-039",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-12",
+          "startLocal": "11:45",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-040",
+          "flight": "DEMO-040",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-13",
+          "startLocal": "08:45",
+          "endLocal": "12:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-041",
+          "flight": "DEMO-041",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-14",
+          "startLocal": "08:15",
+          "endLocal": "10:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-042",
+          "flight": "DEMO-042",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-15",
+          "startLocal": "10:00",
+          "endLocal": "13:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-043",
+          "flight": "DEMO-043",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-02",
+          "startLocal": "10:00",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-044",
+          "flight": "DEMO-044",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-03",
+          "startLocal": "09:00",
+          "endLocal": "12:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-045",
+          "flight": "DEMO-045",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-04",
+          "startLocal": "11:15",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-046",
+          "flight": "DEMO-046",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-05",
+          "startLocal": "09:15",
+          "endLocal": "11:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-047",
+          "flight": "DEMO-047",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-06",
+          "startLocal": "10:00",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-048",
+          "flight": "DEMO-048",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-07",
+          "startLocal": "11:30",
+          "endLocal": "13:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-049",
+          "flight": "DEMO-049",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-08",
+          "startLocal": "08:15",
+          "endLocal": "09:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-050",
+          "flight": "DEMO-050",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-09",
+          "startLocal": "09:00",
+          "endLocal": "12:15",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-051",
+          "flight": "DEMO-051",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-10",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-052",
+          "flight": "DEMO-052",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-11",
+          "startLocal": "10:30",
+          "endLocal": "13:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-053",
+          "flight": "DEMO-053",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-12",
+          "startLocal": "09:00",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-054",
+          "flight": "DEMO-054",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-13",
+          "startLocal": "11:45",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-055",
+          "flight": "DEMO-055",
+          "fleet": "Narrowbody A",
+          "base": "BASE-001",
+          "localDate": "2026-02-14",
+          "startLocal": "08:45",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-056",
+          "flight": "DEMO-056",
+          "fleet": "Widebody B",
+          "base": "BASE-002",
+          "localDate": "2026-02-15",
+          "startLocal": "12:30",
+          "endLocal": "15:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-057",
+          "flight": "DEMO-057",
+          "fleet": "Regional C",
+          "base": "BASE-001",
+          "localDate": "2026-02-02",
+          "startLocal": "09:15",
+          "endLocal": "11:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-058",
+          "flight": "DEMO-058",
+          "fleet": "Narrowbody A",
+          "base": "BASE-002",
+          "localDate": "2026-02-03",
+          "startLocal": "11:15",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-059",
+          "flight": "DEMO-059",
+          "fleet": "Widebody B",
+          "base": "BASE-001",
+          "localDate": "2026-02-04",
+          "startLocal": "10:30",
+          "endLocal": "13:30",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "id": "DUTY-060",
+          "flight": "DEMO-060",
+          "fleet": "Regional C",
+          "base": "BASE-002",
+          "localDate": "2026-02-05",
+          "startLocal": "11:15",
+          "endLocal": "13:45",
+          "timezone": "Europe/Rome"
+        }
+      ]
+    },
+    {
+      "id": "crews",
+      "label": "Crew groups",
+      "primaryKey": "id",
+      "properties": [
+        {
+          "key": "id",
+          "label": "Record ID",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Stable fictional record identifier, unique in this collection."
+        },
+        {
+          "key": "base",
+          "label": "Crew base",
+          "type": "string",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional crew operating-base code."
+        },
+        {
+          "key": "qualifications",
+          "label": "Fleet qualifications",
+          "type": "string[]",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Fictional fleets the crew is eligible to operate."
+        },
+        {
+          "key": "available",
+          "label": "Available",
+          "type": "boolean",
+          "unit": null,
+          "required": true,
+          "nullable": false,
+          "description": "Illustrative pre-screening availability flag."
+        }
+      ],
+      "records": [
+        {
+          "id": "CREW-001",
+          "base": "BASE-001",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": false
+        },
+        {
+          "id": "CREW-002",
+          "base": "BASE-002",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-003",
+          "base": "BASE-001",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-004",
+          "base": "BASE-002",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-005",
+          "base": "BASE-001",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-006",
+          "base": "BASE-002",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-007",
+          "base": "BASE-001",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-008",
+          "base": "BASE-002",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-009",
+          "base": "BASE-001",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": false
+        },
+        {
+          "id": "CREW-010",
+          "base": "BASE-002",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-011",
+          "base": "BASE-001",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-012",
+          "base": "BASE-002",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-013",
+          "base": "BASE-001",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-014",
+          "base": "BASE-002",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-015",
+          "base": "BASE-001",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-016",
+          "base": "BASE-002",
+          "qualifications": [
+            "Narrowbody A"
+          ],
+          "available": true
+        },
+        {
+          "id": "CREW-017",
+          "base": "BASE-001",
+          "qualifications": [
+            "Widebody B"
+          ],
+          "available": false
+        },
+        {
+          "id": "CREW-018",
+          "base": "BASE-002",
+          "qualifications": [
+            "Regional C"
+          ],
+          "available": true
+        }
+      ]
+    }
+  ]
+}
