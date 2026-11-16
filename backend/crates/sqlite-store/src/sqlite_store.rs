@@ -1,24 +1,16 @@
 use std::{path::Path, time::Duration};
 
-use orchestrata_core::ids::{job_id::JobId, tenant_id::TenantId};
+use orchestrata_core::ids::job_id::JobId;
 use rusqlite::{Connection, OptionalExtension, Transaction, TransactionBehavior, params};
 use uuid::Uuid;
 
-use crate::{CancelOutcome, JobEvent, JobEventKind, StoreError, SubmitOutcome};
+use crate::{
+    CancelOutcome, JobEvent, JobEventKind, JobOwnerId, StoreError, SubmitOutcome, store_schema,
+};
 
 const MAX_IDEMPOTENCY_KEY_BYTES: usize = 128;
 const MAX_INPUT_REF_BYTES: usize = 1024;
 const MAX_OUTBOX_BATCH: u32 = 1000;
-const SCHEMA_VERSION: i64 = 2;
-const JOB_SCHEMA: &[&str] = &[
-    include_str!("../migrations/001_jobs.sql"),
-    include_str!("../migrations/001_job_outbox.sql"),
-];
-const JOB_LEASE_SCHEMA: &[&str] = &[
-    include_str!("../migrations/002_jobs_prepare.sql"),
-    include_str!("../migrations/002_job_outbox.sql"),
-    include_str!("../migrations/002_jobs_finalize.sql"),
-];
 
 pub struct SqliteStore {
     pub(super) connection: Connection,
@@ -30,23 +22,15 @@ impl SqliteStore {
         connection.busy_timeout(Duration::from_secs(3))?;
         connection.pragma_update(None, "foreign_keys", true)?;
         let transaction = connection.transaction_with_behavior(TransactionBehavior::Immediate)?;
-        let version = transaction.pragma_query_value(None, "user_version", |row| row.get(0))?;
-        match version {
-            0 => apply_schema(&transaction, JOB_SCHEMA)?,
-            1 | SCHEMA_VERSION => {}
-            version => return Err(StoreError::UnsupportedSchema(version)),
-        }
-        if version < SCHEMA_VERSION {
-            apply_schema(&transaction, JOB_LEASE_SCHEMA)?;
-            transaction.pragma_update(None, "user_version", SCHEMA_VERSION)?;
-        }
+        store_schema::initialize(&transaction)?;
         transaction.commit()?;
         Ok(Self { connection })
     }
 
+    /// Records a submission for a local user already resolved by the application.
     pub fn submit(
         &mut self,
-        tenant: TenantId,
+        owner: JobOwnerId,
         key: &str,
         input_ref: &str,
     ) -> Result<SubmitOutcome, StoreError> {
@@ -59,11 +43,11 @@ impl SqliteStore {
         let transaction = self
             .connection
             .transaction_with_behavior(TransactionBehavior::Immediate)?;
-        let tenant = tenant.as_uuid().to_string();
+        let owner = owner.as_uuid().to_string();
         let existing = transaction
             .query_row(
-                "SELECT job_id, input_ref FROM jobs WHERE tenant_id = ?1 AND idempotency_key = ?2",
-                params![tenant, key],
+                "SELECT job_id, input_ref FROM jobs WHERE owner_id = ?1 AND idempotency_key = ?2",
+                params![owner, key],
                 |row| Ok((row.get::<_, String>(0)?, row.get::<_, String>(1)?)),
             )
             .optional()?;
@@ -80,38 +64,38 @@ impl SqliteStore {
         let job = JobId::new();
         let job_id = job.as_uuid().to_string();
         transaction.execute(
-            "INSERT INTO jobs (tenant_id, job_id, idempotency_key, input_ref, status)
+            "INSERT INTO jobs (owner_id, job_id, idempotency_key, input_ref, status)
              VALUES (?1, ?2, ?3, ?4, 'pending')",
-            params![tenant, job_id, key, input_ref],
+            params![owner, job_id, key, input_ref],
         )?;
-        enqueue(&transaction, &tenant, &job_id, JobEventKind::Submitted)?;
+        enqueue(&transaction, &job_id, JobEventKind::Submitted)?;
         transaction.commit()?;
         Ok(SubmitOutcome::Created(job))
     }
 
     pub fn cancel_pending(
         &mut self,
-        tenant: TenantId,
+        owner: JobOwnerId,
         job: JobId,
     ) -> Result<CancelOutcome, StoreError> {
         let transaction = self
             .connection
             .transaction_with_behavior(TransactionBehavior::Immediate)?;
-        let tenant = tenant.as_uuid().to_string();
+        let owner = owner.as_uuid().to_string();
         let job = job.as_uuid().to_string();
         let changed = transaction.execute(
             "UPDATE jobs SET status = 'cancelled'
-             WHERE tenant_id = ?1 AND job_id = ?2 AND status = 'pending'",
-            params![tenant, job],
+             WHERE owner_id = ?1 AND job_id = ?2 AND status = 'pending'",
+            params![owner, job],
         )?;
         let outcome = if changed == 1 {
-            enqueue(&transaction, &tenant, &job, JobEventKind::Cancelled)?;
+            enqueue(&transaction, &job, JobEventKind::Cancelled)?;
             CancelOutcome::Cancelled
         } else {
             let status = transaction
                 .query_row(
-                    "SELECT status FROM jobs WHERE tenant_id = ?1 AND job_id = ?2",
-                    params![tenant, job],
+                    "SELECT status FROM jobs WHERE owner_id = ?1 AND job_id = ?2",
+                    params![owner, job],
                     |r| r.get::<_, String>(0),
                 )
                 .optional()?;
@@ -129,15 +113,16 @@ impl SqliteStore {
     /// Read at most 1000 unpublished events in commit order. Delivery may repeat.
     pub fn pending_events(
         &self,
-        tenant: TenantId,
+        owner: JobOwnerId,
         limit: u32,
     ) -> Result<Vec<JobEvent>, StoreError> {
         let mut sql = self.connection.prepare(
-            "SELECT event_id, job_id, kind FROM job_outbox
-             WHERE tenant_id = ?1 AND published = 0 ORDER BY sequence LIMIT ?2",
+            "SELECT event.event_id, event.job_id, event.kind FROM job_outbox AS event
+             JOIN jobs AS job ON job.job_id = event.job_id
+             WHERE job.owner_id = ?1 AND event.published = 0 ORDER BY event.sequence LIMIT ?2",
         )?;
         let mut rows = sql.query(params![
-            tenant.as_uuid().to_string(),
+            owner.as_uuid().to_string(),
             limit.min(MAX_OUTBOX_BATCH)
         ])?;
         let mut events = Vec::new();
@@ -155,21 +140,16 @@ impl SqliteStore {
     }
 
     /// Acknowledge only after successful delivery. Repeated acknowledgements are no-ops.
-    pub fn mark_published(&mut self, tenant: TenantId, event: Uuid) -> Result<bool, StoreError> {
+    pub fn mark_published(&mut self, owner: JobOwnerId, event: Uuid) -> Result<bool, StoreError> {
         let changed = self.connection.execute(
             "UPDATE job_outbox SET published = 1
-             WHERE tenant_id = ?1 AND event_id = ?2 AND published = 0",
-            params![tenant.as_uuid().to_string(), event.to_string()],
+             WHERE event_id = ?2 AND published = 0 AND EXISTS (
+                 SELECT 1 FROM jobs WHERE jobs.job_id = job_outbox.job_id AND owner_id = ?1
+             )",
+            params![owner.as_uuid().to_string(), event.to_string()],
         )?;
         Ok(changed == 1)
     }
-}
-
-fn apply_schema(transaction: &Transaction<'_>, statements: &[&str]) -> Result<(), StoreError> {
-    for sql in statements {
-        transaction.execute_batch(sql)?;
-    }
-    Ok(())
 }
 
 pub(super) fn valid_text(value: &str, max_bytes: usize) -> bool {
@@ -190,13 +170,12 @@ pub(super) fn parse_job(value: &str) -> Result<JobId, StoreError> {
 
 pub(super) fn enqueue(
     transaction: &Transaction<'_>,
-    tenant: &str,
     job: &str,
     kind: JobEventKind,
 ) -> Result<(), StoreError> {
     transaction.execute(
-        "INSERT INTO job_outbox (tenant_id, event_id, job_id, kind) VALUES (?1, ?2, ?3, ?4)",
-        params![tenant, Uuid::now_v7().to_string(), job, kind.as_str()],
+        "INSERT INTO job_outbox (event_id, job_id, kind) VALUES (?1, ?2, ?3)",
+        params![Uuid::now_v7().to_string(), job, kind.as_str()],
     )?;
     Ok(())
 }

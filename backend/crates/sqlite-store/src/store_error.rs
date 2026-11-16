@@ -8,6 +8,8 @@ pub enum StoreError {
     InvalidResultReference,
     #[error("unsupported store schema version {0}")]
     UnsupportedSchema(i64),
+    #[error("database is not an initialized Orchestrata job store or an empty SQLite database")]
+    IncompatibleDatabase,
     #[error("invalid persisted job or event data")]
     InvalidRecord,
     #[error("SQLite operation failed")]

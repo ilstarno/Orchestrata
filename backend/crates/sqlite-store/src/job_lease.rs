@@ -1,8 +1,10 @@
-use orchestrata_core::ids::{job_id::JobId, tenant_id::TenantId};
+use orchestrata_core::ids::job_id::JobId;
 use uuid::Uuid;
 
+use crate::JobOwnerId;
+
 pub struct JobLease {
-    pub(super) tenant_id: TenantId,
+    pub(super) owner_id: JobOwnerId,
     pub(super) job_id: JobId,
     pub(super) lease_id: Uuid,
     pub(super) expires_at_unix_ms: i64,
@@ -10,6 +12,10 @@ pub struct JobLease {
 }
 
 impl JobLease {
+    pub fn owner_id(&self) -> JobOwnerId {
+        self.owner_id
+    }
+
     pub fn job_id(&self) -> JobId {
         self.job_id
     }

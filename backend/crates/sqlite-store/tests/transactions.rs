@@ -5,9 +5,9 @@ use std::{
     thread,
 };
 
-use orchestrata_core::ids::{job_id::JobId, tenant_id::TenantId};
+use orchestrata_core::ids::job_id::JobId;
 use orchestrata_sqlite_store::{
-    CancelOutcome, JobEventKind, SqliteStore, StoreError, SubmitOutcome,
+    CancelOutcome, JobEventKind, JobOwnerId, SqliteStore, StoreError, SubmitOutcome,
 };
 use rusqlite::Connection;
 use uuid::Uuid;
@@ -24,10 +24,10 @@ fn created(outcome: SubmitOutcome) -> JobId {
 }
 
 #[test]
-fn retries_are_idempotent_only_for_the_same_scoped_request() {
+fn retries_are_idempotent_only_for_the_same_owner_and_request() {
     let mut store = SqliteStore::open(":memory:").unwrap();
-    let one = TenantId::new();
-    let two = TenantId::new();
+    let one = owner_id();
+    let two = owner_id();
     let job = created(store.submit(one, "request", "fixture/one").unwrap());
 
     assert_eq!(
@@ -60,16 +60,16 @@ fn rolled_back_outbox_insert_also_rolls_back_submission() {
         )
         .unwrap();
 
-    let tenant = TenantId::new();
-    assert!(store.submit(tenant, "request", "fixture/one").is_err());
-    assert!(store.pending_events(tenant, 10).unwrap().is_empty());
+    let owner = owner_id();
+    assert!(store.submit(owner, "request", "fixture/one").is_err());
+    assert!(store.pending_events(owner, 10).unwrap().is_empty());
     other.execute_batch("DROP TRIGGER fail_event;").unwrap();
 
     assert!(matches!(
-        store.submit(tenant, "request", "fixture/one").unwrap(),
+        store.submit(owner, "request", "fixture/one").unwrap(),
         SubmitOutcome::Created(_)
     ));
-    assert_eq!(store.pending_events(tenant, 10).unwrap().len(), 1);
+    assert_eq!(store.pending_events(owner, 10).unwrap().len(), 1);
     drop((store, other));
     fs::remove_file(path).unwrap();
 }
@@ -77,27 +77,27 @@ fn rolled_back_outbox_insert_also_rolls_back_submission() {
 #[test]
 fn unacknowledged_events_survive_restart_with_the_same_identity() {
     let path = temporary_database();
-    let tenant = TenantId::new();
-    let outsider = TenantId::new();
+    let owner = owner_id();
+    let outsider = owner_id();
     let mut store = SqliteStore::open(&path).unwrap();
-    let job = created(store.submit(tenant, "request", "fixture").unwrap());
-    let initial_event = store.pending_events(tenant, 10).unwrap()[0];
+    let job = created(store.submit(owner, "request", "fixture").unwrap());
+    let initial_event = store.pending_events(owner, 10).unwrap()[0];
     assert_eq!(
         store.cancel_pending(outsider, job).unwrap(),
         CancelOutcome::NotFound
     );
     assert_eq!(
-        store.cancel_pending(tenant, job).unwrap(),
+        store.cancel_pending(owner, job).unwrap(),
         CancelOutcome::Cancelled
     );
     assert_eq!(
-        store.cancel_pending(tenant, job).unwrap(),
+        store.cancel_pending(owner, job).unwrap(),
         CancelOutcome::AlreadyCancelled
     );
     drop(store);
 
     let mut store = SqliteStore::open(&path).unwrap();
-    let events = store.pending_events(tenant, 10).unwrap();
+    let events = store.pending_events(owner, 10).unwrap();
     assert_eq!(events.len(), 2);
     assert_eq!(events[0], initial_event);
     assert_eq!(events[1].kind, JobEventKind::Cancelled);
@@ -107,17 +107,9 @@ fn unacknowledged_events_survive_restart_with_the_same_identity() {
             .mark_published(outsider, initial_event.event_id)
             .unwrap()
     );
-    assert!(
-        store
-            .mark_published(tenant, initial_event.event_id)
-            .unwrap()
-    );
-    assert!(
-        !store
-            .mark_published(tenant, initial_event.event_id)
-            .unwrap()
-    );
-    assert_eq!(store.pending_events(tenant, 10).unwrap(), vec![events[1]]);
+    assert!(store.mark_published(owner, initial_event.event_id).unwrap());
+    assert!(!store.mark_published(owner, initial_event.event_id).unwrap());
+    assert_eq!(store.pending_events(owner, 10).unwrap(), vec![events[1]]);
     drop(store);
     fs::remove_file(path).unwrap();
 }
@@ -126,7 +118,7 @@ fn unacknowledged_events_survive_restart_with_the_same_identity() {
 fn two_connections_commit_one_job_and_one_event() {
     let path = temporary_database();
     let result_store = SqliteStore::open(&path).unwrap();
-    let tenant = TenantId::new();
+    let owner = owner_id();
     let barrier = Arc::new(Barrier::new(2));
     let handles: Vec<_> = (0..2)
         .map(|_| {
@@ -135,7 +127,7 @@ fn two_connections_commit_one_job_and_one_event() {
             thread::spawn(move || {
                 let mut store = SqliteStore::open(path).unwrap();
                 barrier.wait();
-                store.submit(tenant, "request", "fixture").unwrap()
+                store.submit(owner, "request", "fixture").unwrap()
             })
         })
         .collect();
@@ -152,7 +144,7 @@ fn two_connections_commit_one_job_and_one_event() {
         }
         _ => panic!("expected one creation and one matching retry, got {states:?}"),
     };
-    let events = result_store.pending_events(tenant, 10).unwrap();
+    let events = result_store.pending_events(owner, 10).unwrap();
     assert_eq!(events.len(), 1);
     assert_eq!(events[0].job_id, job);
     drop(result_store);
@@ -163,11 +155,15 @@ fn two_connections_commit_one_job_and_one_event() {
 fn unsupported_schema_version_fails_closed() {
     let path = temporary_database();
     let connection = Connection::open(&path).unwrap();
-    connection.pragma_update(None, "user_version", 3).unwrap();
+    connection.pragma_update(None, "user_version", 4).unwrap();
     drop(connection);
     assert!(matches!(
         SqliteStore::open(&path),
-        Err(StoreError::UnsupportedSchema(3))
+        Err(StoreError::UnsupportedSchema(4))
     ));
     fs::remove_file(path).unwrap();
+}
+
+fn owner_id() -> JobOwnerId {
+    JobOwnerId::parse(Uuid::now_v7()).unwrap()
 }
