@@ -428,3 +428,39 @@ pre {
   .home-workflow[data-workflow-entered] figure { animation: home-workflow-enter .55s cubic-bezier(.2,.75,.32,1) both; }
   @keyframes home-workflow-enter { from { transform: translateY(18px); } to { transform: translateY(0); } }
 }
+
+.case-finder-controls:not([hidden]) {
+  display: grid; align-items: start; gap: .75rem 1rem; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) auto;
+  padding: .9rem; border: 1px solid var(--dataset-edge); background: var(--dataset-surface);
+}
+.case-finder-controls > div { min-inline-size: 0; }
+.case-finder-controls label, .case-finder-controls span { display: block; font-size: .86rem; }
+.case-finder-controls label { font-weight: 670; margin-block-end: .22rem; }
+.case-finder-controls span { color: var(--muted); margin-block-start: .22rem; }
+.case-finder-controls :is(input, select, button) {
+  min-block-size: 44px; max-inline-size: 100%; padding: .3rem .5rem; border: 1px solid var(--muted);
+  background: var(--paper); color: var(--ink); font: inherit;
+}
+.case-finder-controls :is(input, select) { width: 100%; }
+.case-finder-controls button { margin-block-start: 1.55rem; cursor: pointer; color: var(--accent); }
+.case-finder-controls button:hover { text-decoration: underline; }
+.case-finder-controls .case-finder-summary { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .91rem; }
+.catalog-topics { display: flex; flex-wrap: wrap; gap: .35rem .9rem; padding-block: .3rem; }
+.catalog-topics a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.example-catalog section h3 { margin-block: .25rem .6rem; font-size: 1.2rem; }
+.example-catalog h4 { margin: 0; font-size: 1.05rem; }
+.case-body { min-inline-size: 0; }
+.case-layout > .aside { max-block-size: calc(100dvh - 8rem); overflow-y: auto; padding-inline-end: .4rem; }
+.case-layout .dataset-toolbar { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "collection mode" "search search"; }
+.case-layout .dataset-toolbar:not(:has(.dataset-field)) { grid-template-areas: none; }
+@media (max-width: 52rem) {
+  .case-layout > .aside { max-block-size: none; overflow: visible; padding-inline-end: 0; }
+}
+@media (max-width: 39rem) {
+  .case-finder-controls:not([hidden]) { grid-template-columns: minmax(0, 1fr) auto; }
+  .case-finder-controls > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 23rem) {
+  .case-finder-controls:not([hidden]) { grid-template-columns: minmax(0, 1fr); }
+  .case-finder-controls button { margin-block-start: 0; justify-self: start; }
+}
