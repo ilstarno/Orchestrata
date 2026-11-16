@@ -1,0 +1,10 @@
+.local-workforce-example { margin-block: clamp(1.5rem, 5vw, 3.4rem); }
+.local-workforce-cities { display:flex; flex-wrap:wrap; gap:.3rem .8rem; }
+.local-workforce-cities a { display:inline-flex; align-items:center; min-block-size:44px; }
+.local-workforce-roster { border-block-start:1px solid var(--rule); margin-block:.45rem; padding:.75rem 0; scroll-margin-block-start:5rem; }
+.local-workforce-roster summary { font-weight:650; cursor:pointer; }
+.local-workforce-roster dl { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:.7rem; }
+.local-workforce-roster dl > div { border-block-start:2px solid var(--accent); padding:.45rem .6rem; background:var(--dataset-surface); }
+.local-workforce-roster dl > div:nth-child(2) { border-block-start-color:var(--status-review); }
+.local-workforce-roster dt { color:var(--muted); }
+.local-workforce-roster dd { margin-inline-start:0; }
