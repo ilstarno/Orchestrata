@@ -1,4 +1,4 @@
-Exécutez d’abord le service et l’interface web sur votre poste de travail. Le site du projet Orchestrata est statique : l’ouvrir ne démarre pas d’API. Utilisez des données d’exemple et n’exposez pas cette version à Internet.
+Exécutez l’API et l’interface web sur votre poste. Utilisez les données d’exemple et gardez cette version hors de l’Internet public. Le site ne démarre pas l’API.
 
 ## API locale et interface web
 

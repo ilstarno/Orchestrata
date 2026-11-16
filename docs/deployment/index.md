@@ -1,4 +1,4 @@
-Run the service and web UI on your workstation first. The Orchestrata project site is static: opening it does not start an API. Use sample data and keep this build off the public internet.
+Run the API and web UI on your workstation. Use sample data and keep this build off the public internet. The website does not start the API.
 
 ## Local API and web UI
 

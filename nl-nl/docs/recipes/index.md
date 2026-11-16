@@ -1,4 +1,4 @@
-Een planningssjabloon beschrijft een kleine planningssituatie en de velden die daarbij horen. De voorbeelden gebruiken fictieve gegevens. Lees de beschrijving, voer het JSON-model uit en vergelijk de toewijzingen met de verwachte uitkomst. De voorbeelden testen specifieke beslissingen; ze vervangen uw planning- of dispatchsysteem niet.
+Een planningssjabloon benoemt het probleem en de invoervelden. Draai het JSON-voorbeeld en vergelijk de toewijzing met de verwachte uitkomst. Elk sjabloon test één beslissing, geen volledig planning- of dispatchsysteem.
 
 | Voorbeeld | Wat u kunt bekijken | Wat het voorbeeld niet laat zien |
 | --- | --- | --- |

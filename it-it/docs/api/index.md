@@ -1,4 +1,4 @@
-L’API introduttiva accetta un piccolo problema di pianificazione in formato JSON. Il sito è statico: non ospita un risolutore, non offre funzioni di accesso e non inoltra richieste al computer in uso. Avviare il servizio in locale e usare dati fittizi per la valutazione.
+Invia un esempio JSON all’API di base sul tuo computer. Questo sito statico non offre né risolutore, né accesso, né inoltro delle richieste.
 
 ## Avviare e chiamare il servizio
 

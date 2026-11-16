@@ -1,4 +1,4 @@
-Interfejs API w wersji startowej przyjmuje niewielki problem planistyczny w formacie JSON. Ta witryna jest statyczna: nie uruchamia modułu rozwiązującego, nie umożliwia logowania i nie przekazuje wywołań do Twojego komputera. Uruchom usługę lokalnie i używaj fikcyjnych danych podczas testowania.
+Wyślij przykładowy JSON do startowego API na swoim komputerze. Ta statyczna witryna nie udostępnia modułu rozwiązującego, logowania ani przekazywania żądań.
 
 ## Uruchamianie i wywoływanie usługi
 

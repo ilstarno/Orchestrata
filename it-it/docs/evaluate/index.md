@@ -1,6 +1,6 @@
-Con Orchestrata puoi verificare se un piano rispetta regole e preferenze. In questo esempio ci sono due attività e due posti, numerati 0 e 1. Ogni attività può occupare entrambi i posti, ma le due attività non possono occupare lo stesso posto. Per l’attività A è preferibile il posto 1.
+Due attività si dividono i posti 0 e 1. Entrambe possono usare qualsiasi posto, ma i posti assegnati devono essere distinti. L’attività A preferisce il posto 1.
 
-L’esempio usa dati fittizi e si esegue in locale. Questo sito non gestisce l’API e non accetta caricamenti. Per eseguire l’esempio via HTTP, consulta la [guida all’API locale](../api/).
+Esegui l’esempio in locale. Il sito non ospita l’API e non accetta caricamenti. Per HTTP, consulta la [guida all’API locale](../api/).
 
 ## Esegui l’esempio
 

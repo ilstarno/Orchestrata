@@ -1,6 +1,6 @@
-Orchestrata vous aide à vérifier qu’un plan respecte les règles et tient compte des préférences. Dans cet exemple, deux tâches peuvent occuper les places 0 et 1. Chaque tâche peut occuper l’une ou l’autre, mais elles ne peuvent pas être à la même place. La place 1 est préférable pour la tâche A.
+Deux tâches se partagent les places 0 et 1. Chaque tâche peut occuper l’une ou l’autre, mais elles doivent occuper des places distinctes. La tâche A préfère la place 1.
 
-L’exemple utilise des données fictives et s’exécute en local. Ce site n’héberge pas l’API et n’accepte pas de fichiers. Pour exécuter l’exemple via HTTP, consultez le [guide de l’API locale](../api/).
+Exécutez l’exemple en local. Ce site n’héberge pas l’API et n’accepte pas de fichiers. Pour HTTP, consultez le [guide de l’API locale](../api/).
 
 ## Exécuter l’exemple
 

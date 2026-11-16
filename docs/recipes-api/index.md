@@ -1,6 +1,6 @@
 # Recipe API reference
 
-**Local review builds only.** [Review #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the recipe catalog and example routes. [Review #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the recipe grid. These are not released or hosted endpoints. Check the revision you run and keep the service on your own machine. The catalog contains worked planning examples, not uploaded files or customer records.
+**Local review builds only.** [Review #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the catalog and example routes; [review #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the grid. Check the revision and run it locally. The endpoints are unreleased and unhosted; the catalog contains only worked examples.
 
 ## Start with the catalog
 
@@ -26,7 +26,7 @@ curl -fsS -X POST "$API/api/v1/recipes/field-service/run-example"
 | `GET /api/v1/error-codes` | An array of error codes, descriptions, and associated status lists (keys: `code`, `description`, `status_codes`). |
 | `GET /api/v1/openapi.json` | The OpenAPI document emitted by the running build. Check it before depending on a review route. |
 
-Catalog metadata has `id` (the path identifier), `title`, `scenario` (descriptive text), and the `inputs` and `outputs` arrays. Each field contains `name`, `kind`, `required` (boolean), and `description`. Supported field kinds are `string`, `integer`, `boolean`, `string-list`, and `integer-list`. These are recipe descriptions, not a form to submit to `run-example`.
+Catalog metadata has `id` (the path identifier), `title`, `scenario` (descriptive text), and the `inputs` and `outputs` arrays. Each field contains `name`, `kind`, `required` (boolean), and `description`. Supported field kinds are `string`, `integer`, `boolean`, `string-list`, and `integer-list`. Treat these fields as documentation. `run-example` uses the built-in input.
 
 The example response contains `variables` and `constraints`. A variable has a `name` and a `domain` of allowed signed 64-bit integers. Constraints are tagged by `kind` and use zero-based indices into `variables`. Consult the running OpenAPI schema for specific constraint fields. When reading JSON in a client with floating-point numbers by default, choose a way to preserve 64-bit integers exactly if values can exceed the safe integer range.
 
@@ -40,7 +40,7 @@ Send query parameters as URL-encoded values. The endpoint filters metadata befor
 | --- | --- | --- |
 | `page` | `1` | Integer from `1` to `100000`, inclusive. Pages are one-based. |
 | `page_size` | `25` | Integer from `1` to `100`, inclusive. It is the maximum rows returned. |
-| `sort` | `id` | `id` or `title`. Sorting uses the stored strings, not locale-specific collation. |
+| `sort` | `id` | `id` or `title`. Sorting compares stored strings directly, independent of locale. |
 | `direction` | `asc` | `asc` or `desc`. Rows with equal titles always tie-break on ascending `id`. |
 | `q` | Empty string | A literal, case-insensitive substring of `id`, `title`, or `scenario`. Surrounding whitespace is trimmed for matching. The decoded input must be at most 100 UTF-8 bytes before trimming and must not contain control characters. Empty or whitespace-only input matches every row. Wildcards and regular expressions are not supported. |
 
@@ -58,13 +58,13 @@ A grid response has five properties:
 - `columns`: descriptors with `id`, `label`, and `sortable`. In order: `id` / ID / true, `title` / Title / true, `scenario` / Scenario / false.
 - `items`: rows for this page, each with only `id`, `title`, and `scenario`. Fetch the detail route for input and output fields.
 - `page` and `page_size`: the effective page requested and maximum rows for that page.
-- `total_items`: number of matches across all pages, not the number of rows on this page.
+- `total_items`: number of matches across all pages.
 
 An in-range page past the available rows returns `200`, the requested page, and an empty `items` array; it does not erase `total_items`. Unknown, duplicate, malformed, and out-of-range parameters return `400`. For instance, `?page=0`, `?sort=scenario`, and `?page=1&page=2` are invalid.
 
 ## Diagnose a response
 
-Use `curl -i` rather than `curl -f` when inspecting a failure. These review builds attach `X-Request-ID` for correlation and use `X-Orchestrata-Error-Code` for machine-readable classification on errors. Header names are case-insensitive. Error text can be plain text; do not assume a JSON error envelope or parse the prose as a code.
+Use `curl -i` to inspect status and headers on a failure. Omit `curl -f` to keep the error body. These review builds attach `X-Request-ID` for correlation and use `X-Orchestrata-Error-Code` for machine-readable classification on errors. Header names are case-insensitive. Error text can be plain text; do not assume a JSON error envelope or parse the prose as a code.
 
 | Response | Meaning and next step |
 | --- | --- |
@@ -81,4 +81,4 @@ curl -si "$API/api/v1/recipes/no-such-recipe"
 curl -fsS "$API/api/v1/error-codes"
 ```
 
-If the grid command returns catalog metadata, a 404, or an HTML page instead of the documented JSON, confirm the server was restarted from the revision in review #24 and that you are calling the loopback API port rather than the static site.
+If the grid returns catalog metadata, a 404, or HTML, confirm the server was restarted from review #24 and the request targets the loopback API port.

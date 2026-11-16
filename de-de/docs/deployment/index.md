@@ -1,4 +1,4 @@
-Starten Sie den Dienst und die Weboberfläche zunächst auf Ihrem Rechner. Die Projektwebsite von Orchestrata ist statisch: Beim Öffnen startet keine API. Verwenden Sie Beispieldaten und stellen Sie diese Version nicht öffentlich ins Internet.
+Starten Sie API und Weboberfläche auf Ihrem Rechner. Nutzen Sie Beispieldaten und halten Sie diese Version aus dem öffentlichen Internet. Die Website startet keine API.
 
 ## Lokale API und Weboberfläche
 

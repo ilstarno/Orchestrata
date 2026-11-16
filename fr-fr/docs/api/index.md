@@ -1,4 +1,4 @@
-L’API de démarrage accepte un petit problème de planification au format JSON. Ce site est statique : il n’héberge pas de solveur, ne propose pas d’authentification et ne relaie pas de requêtes vers votre poste de travail. Exécutez le service en local et utilisez des données fictives pour l’évaluer.
+Envoyez un exemple JSON à l’API de démarrage sur votre poste. Ce site statique ne propose ni solveur, ni connexion, ni relais de requêtes.
 
 ## Démarrer et appeler le service
 

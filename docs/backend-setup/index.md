@@ -1,6 +1,6 @@
 # Set up and troubleshoot the local backend
 
-Use this guide to run the public project on your own computer with the bundled example. The static project website does not run the API. The public starter does not provide sign-in, a database-backed job queue, or production access controls. Keep it on loopback and do not send customer data.
+Run the public backend with the bundled example. Keep it on loopback and do not send customer data: the starter has no sign-in, database-backed job queue, or production access controls. The project website does not run the API.
 
 ## Prepare the checkout
 
@@ -49,9 +49,9 @@ Open the local address printed by the command. The Vite server forwards `/api` r
 | Cargo cannot find the manifest or the package | Run from the repository root. Use `--manifest-path backend/Cargo.toml`; if already in `backend`, omit that option. If Cargo rejects edition 2024 or a dependency's minimum Rust version, check the active toolchain with `rustc --version` and use a current stable toolchain. |
 | Cargo cannot download dependencies | Check registry access or your approved proxy. Offline mode works only when all resolved dependencies are already cached. Keep dependency version changes separate from network troubleshooting. |
 | Startup fails with “Address already in use” | Another process owns port 3000. Check whether it is your previous API instance; stop your own earlier process before restarting. Do not terminate an unidentified process or switch the API to a public interface. |
-| curl reports connection refused | Check the API terminal for a startup error. Use the API port, not the UI port, and retry after the process starts. |
+| curl reports connection refused | Check the API terminal for a startup error. Retry on the API port after the process starts. |
 | curl cannot read `assignment.json` | Run from the repository root, or change the file path after the `@` to match your working directory. |
-| A solve request fails | Retry with `curl -i` instead of `curl -f` to see the HTTP status and response. Check the method, `Content-Type`, JSON structure, and allowed problem size. Read the `X-Orchestrata-Error-Code` header and look it up at `/api/v1/error-codes`. An invalid problem or a solve limit does not mean no plan exists. |
+| A solve request fails | Use `curl -i` to see the HTTP status and response. Omit `curl -f` to keep the error body. Check the method, `Content-Type`, JSON structure, and allowed problem size. Read the `X-Orchestrata-Error-Code` header and look it up at `/api/v1/error-codes`. An invalid problem or a solve limit does not mean no plan exists. |
 | The UI loads but cannot solve | Call the API health URL directly, then check the Vite terminal for proxy errors. Confirm that the UI and API use the intended revisions and that the proxy points at the API's loopback address. |
 | A recipe route returns 404 | Check the running OpenAPI document. The current baseline serves the recipe catalog and grid. If the OpenAPI document does not list them, check the running revision. For a missing individual recipe, list the catalog and use an ID from its response. |
 
@@ -80,7 +80,7 @@ cargo test --manifest-path backend/Cargo.toml -p orchestrata-session-store \
   --features postgres-container-tests --test postgres_container
 ```
 
-The real test starts a disposable PostgreSQL container with a per-run credential and a dynamically allocated IPv4 loopback port. It applies the schema twice, creates sessions, checks duplicate detection and the exact expiry boundary, revokes a session and checks repeated revocation. If Docker is missing or unreachable, the opt-in test fails rather than skipping. If the image cannot be pulled, check your environment's registry access. Do not point the test at a shared or production database.
+The real test starts a disposable PostgreSQL container with a per-run credential and a dynamically allocated IPv4 loopback port. It applies the schema twice, creates sessions, checks duplicate detection and the exact expiry boundary, revokes a session and checks repeated revocation. The opt-in test requires a reachable Docker daemon and fails if one is unavailable. If the image cannot be pulled, check your environment's registry access. Do not point the test at a shared or production database.
 
 ### Use the adapter in a local integration test
 
@@ -89,6 +89,6 @@ The real test starts a disposable PostgreSQL container with a per-run credential
 3. Call `create` with a `SessionDigest` encapsulating 32 digest bytes, an internal UUID for the principal, and trusted server times in Unix milliseconds. Use fabricated values in an integration test. Never pass a raw session token as the digest. Expiry must be strictly later than the creation reference time.
 4. Call `resolve` with the same digest and the current trusted time. An unknown or expired session returns no principal; expiry is exclusive, so a session is already expired at its exact expiry time. Call `revoke` to delete one digest; it returns false if no record remains to delete.
 
-When a real check fails on schema or permissions, verify that the migration and test connections use the same target database and schema and that the test connection can read, insert and delete rows. An unsupported backend is a configuration error. A duplicate digest is not an authentication success. The adapter does not automatically purge expired rows, mint tokens, look up group memberships or establish a user session in the browser. A real local PostgreSQL check verifies only the adapter, not a sign-in flow.
+When a real check fails on schema or permissions, verify that the migration and test connections use the same target database and schema and that the test connection can read, insert and delete rows. An unsupported backend is a configuration error. A duplicate digest is not an authentication success. The adapter does not automatically purge expired rows, mint tokens, look up group memberships or establish a user session in the browser. The PostgreSQL test covers only the adapter. It does not test sign-in.
 
 Source references: [verified public source](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f), [SeaORM database and runtime configuration](https://www.sea-ql.org/SeaORM/docs/install-and-config/database-and-async-runtime/), and [PostgreSQL Testcontainers module](https://rust.testcontainers.org/modules/postgres/).

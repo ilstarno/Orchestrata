@@ -1,4 +1,4 @@
-De starters-API accepteert een klein planningsprobleem in JSON-indeling. Dit is een statische site: er draait geen solver, u kunt er niet inloggen en de site stuurt geen verzoeken door naar uw werkstation. Voer de service lokaal uit en gebruik fictieve gegevens voor uw evaluatie.
+Stuur voorbeeld-JSON naar de starters-API op je computer. Deze statische site biedt geen solver of aanmelding en stuurt geen verzoeken door.
 
 ## De service starten en aanroepen
 

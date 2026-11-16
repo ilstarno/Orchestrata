@@ -1,4 +1,4 @@
-Eine Planungsvorlage beschreibt eine kleine Planungsaufgabe und die benötigten Felder. Die ausführbaren Beispiele verwenden fiktive Daten. Lesen Sie die Beschreibung, führen Sie das JSON-Modell aus und vergleichen Sie die Zuordnungen mit dem erwarteten Ergebnis. Die Beispiele prüfen einzelne Entscheidungen; sie ersetzen kein Planungs- oder Dispositionssystem.
+Eine Planungsvorlage benennt die Aufgabe und ihre Eingabefelder. Führen Sie das JSON-Beispiel aus und vergleichen Sie die Zuordnung mit dem erwarteten Ergebnis. Jede Vorlage prüft eine Entscheidung, kein ganzes Planungs- oder Dispositionssystem.
 
 | Beispiel | Was Sie prüfen können | Was das Beispiel nicht abdeckt |
 | --- | --- | --- |

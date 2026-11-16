@@ -1,4 +1,4 @@
-Die Einsteiger-API nimmt ein kleines Planungsproblem im JSON-Format entgegen. Diese Website ist statisch: Sie hostet keinen Solver, bietet keine Anmeldung und leitet keine Aufrufe an Ihren Rechner weiter. Führen Sie den Dienst lokal aus und verwenden Sie für die Evaluierung fiktive Daten.
+Senden Sie Beispiel-JSON an die Einstiegs-API auf Ihrem Rechner. Diese statische Seite stellt weder Solver noch Anmeldung oder Anfrageweiterleitung bereit.
 
 ## Dienst starten und aufrufen
 

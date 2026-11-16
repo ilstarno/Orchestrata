@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes a [tested standalone engine source revision](https://github.com/ilstarno/orchestrata-engine/tree/0281da6328b8a02b52e35fafee7348e144b22b48) on the development branch, not downloadable SDK releases or published language packages. Build the native library and binding from that same revision. The examples use sample data. Most select `1`; the Node.js example uses a larger integer to show that the typed binding preserves it exactly.
+The bindings run Orchestrata in the calling process. Build the library and binding from the same [tested standalone engine revision](https://github.com/ilstarno/orchestrata-engine/tree/0281da6328b8a02b52e35fafee7348e144b22b48) on the development branch. The examples use sample data and source builds. No published packages are covered. Most examples choose `1`; Node.js shows a larger integer that the typed binding preserves.
 
 ## Build and locate the library
 
@@ -10,7 +10,7 @@ From the standalone engine repository root, use stable Rust and the target platf
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 ```
 
-The usual output path starts at `backend/target/release/`. The dynamic library is named `liborchestrata_ffi.so` on Linux, `liborchestrata_ffi.dylib` on macOS, or `orchestrata_ffi.dll` on Windows. A custom Cargo target directory changes the path. Use the library matching the operating system and architecture of the host process. These filenames are build conventions, not evidence of released binaries or cross-platform qualification. The commands below use a Linux shell and the source checkout:
+The usual output path starts at `backend/target/release/`. The dynamic library is named `liborchestrata_ffi.so` on Linux, `liborchestrata_ffi.dylib` on macOS, or `orchestrata_ffi.dll` on Windows. A custom Cargo target directory changes the path. Use the library matching the operating system and architecture of the host process. These filenames describe build conventions only. They establish neither binary availability nor cross-platform qualification. The commands below use a Linux shell and the source checkout:
 
 ```sh
 export ORCHESTRATA_LIB_DIR="$PWD/backend/target/release"
@@ -23,7 +23,7 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 
 ## Choose a binding
 
-| Language | Source requirements | What the call actually types |
+| Language | Source requirements | Typed fields and limits |
 | --- | --- | --- |
 | C# | .NET 8; reference `sdks/csharp/Orchestrata.csproj`. | `Solve` takes a typed `Problem` with all seven rules and returns `Solved` or `Infeasible`. `SolveJson` keeps the raw interface. |
 | Java | A 64-bit JDK 22 or newer, with native access enabled. | Accepts a UTF-8 `byte[]` or a string and a `long` limit. Returns raw JSON text. No checked-in problem or solution model. |
@@ -48,10 +48,10 @@ Set the maximum number of evaluations to `2`. Both candidates fit the budget. Th
 {"solution":{"values":[1],"score":{"hard":0,"soft":0},"evaluated":2}}
 ```
 
-- Each variable requires a nonempty integer domain. Values follow input variable order. Constraint indices are zero-based and refer to positions, not names. Include `constraints: []` if you have none. Use unique, nonblank names and distinct domain values if you intend to submit the same problem to the local HTTP API, which applies additional input checks.
+- Each variable requires a nonempty integer domain. Values follow input variable order. Constraints identify variables by zero-based position. Include `constraints: []` if you have none. Use unique, nonblank names and distinct domain values if you intend to submit the same problem to the local HTTP API, which applies additional input checks.
 - `all_different` uses `variables` and positive `hard_weight` to penalize equal pairs. `not_equal_offset` uses `left`, `right`, `offset` and positive `hard_weight` to forbid the indicated left-minus-right difference. `prefer_value` uses `variable`, `value` and positive `soft_weight`. The model has no date, currency, time or speed units.
-- A success contains a verified optimal assignment, or `{"solution":null}` when the exact search proved no feasible assignment. Python’s typed and decoded methods return `None`, and Go’s typed method returns `nil, nil` for that no-plan case. An exceeded budget is an error, not null and not a partial result. This native contract is separate from that of a running HTTP build.
-- Domain values, offsets, weights and scores use signed 64-bit integers. An evaluation count is unsigned 64-bit. The budget is a count of candidate combinations, not a duration. It is passed to the SDK method, not inside the JSON.
+- A success contains a verified optimal assignment, or `{"solution":null}` when the exact search proved no feasible assignment. Python’s typed and decoded methods return `None`, and Go’s typed method returns `nil, nil` for that no-plan case. Exceeding the budget returns an error. There is no null response or partial result. This native contract is separate from that of a running HTTP build.
+- Domain values, offsets, weights and scores use signed 64-bit integers. An evaluation count is unsigned 64-bit. The budget counts candidate combinations. Pass it as a separate SDK argument.
 - For full-range values, do not round through a floating-point JSON decoder. In C# use `GetInt64()` for values/scores and `GetUInt64()` for evaluation counts. In Java choose a JSON codec that preserves exact integer values, including unsigned counts. In Node.js the typed method handles exact `bigint` conversion. For its raw JSON method use a lossless decoder; ordinary `JSON.parse` can round numbers. In PHP, keep JSON text or choose integer-safe decoding appropriate to your PHP integer width.
 
 ## C# · .NET 8
@@ -231,12 +231,12 @@ CGO_ENABLED=1 CGO_CFLAGS="-I$ORCHESTRATA_INCLUDE" \
 
 ## Scheduling and capacity constraints
 
-C#, Node.js, Python, and Go model these constraints directly. The table shows their wire names and fields for callers using raw JSON. This is the native contract, not a guarantee that a separate HTTP endpoint accepts the same rules.
+C#, Node.js, Python, and Go model these constraints directly. The table shows their wire names and fields for callers using raw JSON. This table covers the native contract only. Check an HTTP build’s schema before sending these rules.
 
 | `kind` | Required fields | Meaning |
 | --- | --- | --- |
 | `count_value` | `variables`: zero-based indices; `value`: signed 64-bit integer; `min` and `max`: inclusive nonnegative counts; `weight`: positive signed 64-bit integer; `tier`: `"hard"` or `"soft"`. | Counts how many referenced variables choose `value`. Each count below `min` or above `max` contributes one deduction of `weight` to the selected score. |
-| `resource_capacity` | `items`: array of `{"variable": index, "load": quantity}`; `limits`: array of `{"resource": id, "capacity": quantity}`. Loads and capacities are nonnegative unsigned 64-bit integers; resource IDs are signed 64-bit integers. | Sums the load of the items assigned to each resource and checks its inclusive capacity. Provide a limit for each resource in the listed item domains and use the same unit throughout a constraint. This is total assignment load, not a time-varying capacity or a route. |
+| `resource_capacity` | `items`: array of `{"variable": index, "load": quantity}`; `limits`: array of `{"resource": id, "capacity": quantity}`. Loads and capacities are nonnegative unsigned 64-bit integers; resource IDs are signed 64-bit integers. | Sums the load of the items assigned to each resource and checks its inclusive capacity. Provide a limit for each resource in the listed item domains and use the same unit throughout a constraint. The rule covers total assignment load only. It does not model changing capacity or routes. |
 | `precedence` | `before`, `after`: distinct zero-based variable indices; `min_gap`: unsigned 64-bit duration. | The selected value of `after` must be at least the selected value of `before` plus the gap. Choose one time unit for both variables and the gap. |
 | `no_overlap` | `intervals`: at least two objects with distinct `start` variable indices and an unsigned 64-bit `duration`. | On one exclusive resource, intervals occupy their selected start through, but not including, the end. Back-to-back intervals are allowed. A zero-duration interval occupies no time. |
 

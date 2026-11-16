@@ -1,4 +1,4 @@
-Najpierw uruchom usługę i interfejs webowy na swoim komputerze. Witryna projektu Orchestrata jest statyczna: jej otwarcie nie uruchamia API. Używaj danych przykładowych i nie udostępniaj tej wersji przez internet.
+Uruchom API i interfejs webowy na swoim komputerze. Używaj danych przykładowych i nie udostępniaj tej wersji publicznie w internecie. Witryna nie uruchamia API.
 
 ## Lokalne API i interfejs webowy
 

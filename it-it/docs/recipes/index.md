@@ -1,4 +1,4 @@
-Un modello di pianificazione descrive un piccolo scenario e i campi che usa. Gli esempi eseguibili contengono dati fittizi. Leggi la descrizione, esegui il modello JSON e confronta le assegnazioni con il risultato atteso. Gli esempi verificano decisioni specifiche e non sostituiscono il tuo sistema di pianificazione o di gestione degli interventi.
+Un modello identifica il problema e i campi di input. Esegui l’esempio JSON e confronta l’assegnazione con il risultato atteso. Ogni modello verifica una decisione, non un sistema completo di pianificazione o dispatch.
 
 | Esempio | Che cosa puoi verificare | Che cosa non dimostra |
 | --- | --- | --- |

@@ -1,4 +1,4 @@
-Un modèle de planification décrit une situation simple et les champs qu’elle utilise. Les exemples à exécuter contiennent des données fictives. Lisez la description, exécutez le modèle JSON, puis comparez les affectations au résultat attendu. Les exemples vérifient des décisions précises ; ils ne remplacent pas votre système de planification ou de répartition des interventions.
+Un modèle nomme le problème et ses champs. Exécutez le JSON d’exemple et comparez l’affectation au résultat attendu. Chaque modèle teste une décision, pas un système complet de planification ou de répartition.
 
 | Exemple | Ce que vous pouvez examiner | Ce que l’exemple ne démontre pas |
 | --- | --- | --- |

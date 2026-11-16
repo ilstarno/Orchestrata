@@ -1,4 +1,4 @@
-Avvia il servizio e l’interfaccia web sul tuo computer. Il sito del progetto Orchestrata è statico: aprirlo non avvia alcuna API. Usa dati di esempio e non esporre questa versione a Internet.
+Avvia l’API e l’interfaccia web sul tuo computer. Usa dati di esempio e non esporre questa build a Internet. Il sito non avvia l’API.
 
 ## API locale e interfaccia web
 

@@ -1,4 +1,4 @@
-Szablon planowania opisuje mały scenariusz i używane w nim pola. Przykłady do uruchomienia zawierają fikcyjne dane. Przeczytaj opis, uruchom model JSON i porównaj przydziały z oczekiwanym wynikiem. Przykłady sprawdzają konkretne decyzje i nie zastępują systemu planowania ani dyspozytorni.
+Szablon planowania określa problem i pola wejściowe. Uruchom przykładowy JSON i porównaj przydział z oczekiwanym wynikiem. Każdy szablon sprawdza jedną decyzję, a nie cały system planowania czy dyspozytorni.
 
 | Przykład | Co można sprawdzić | Czego przykład nie pokazuje |
 | --- | --- | --- |

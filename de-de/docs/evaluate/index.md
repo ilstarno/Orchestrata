@@ -1,6 +1,6 @@
-Mit Orchestrata prüfen Sie, ob ein Plan Regeln und Präferenzen berücksichtigt. In diesem Beispiel gibt es zwei Aufgaben und zwei Plätze mit den Nummern 0 und 1. Beide Aufgaben können jeden Platz nutzen, aber nicht denselben. Für Aufgabe A ist Platz 1 vorzuziehen.
+Zwei Aufgaben werden auf die Plätze 0 und 1 verteilt. Beide Plätze sind für jede Aufgabe möglich, aber jede braucht einen eigenen Platz. Aufgabe A bevorzugt Platz 1.
 
-Das Beispiel verwendet fiktive Daten und läuft lokal. Diese Website betreibt keine API und nimmt keine Uploads an. Wenn Sie das Beispiel per HTTP ausführen möchten, nutzen Sie die [Anleitung zur lokalen API](../api/).
+Führen Sie das Beispiel lokal aus. Diese Website betreibt keine API und nimmt keine Uploads an. Für HTTP siehe die [Anleitung zur lokalen API](../api/).
 
 ## Beispiel ausführen
 

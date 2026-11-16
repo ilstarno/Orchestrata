@@ -1,6 +1,6 @@
-Orchestrata pozwala sprawdzić, czy plan spełnia zasady i uwzględnia preferencje. W tym przykładzie są dwa zadania i dwa miejsca, oznaczone numerami 0 i 1. Każde zadanie może trafić na dowolne miejsce, ale oba nie mogą zająć tego samego. Dla zadania A preferowane jest miejsce 1.
+Dwa zadania zajmą miejsca 0 i 1. Każde może trafić na dowolne miejsce, ale muszą dostać różne miejsca. Zadanie A preferuje miejsce 1.
 
-Przykład używa fikcyjnych danych i działa lokalnie. Ta witryna nie uruchamia API ani nie przyjmuje plików. Aby uruchomić przykład przez HTTP, skorzystaj z [instrukcji lokalnego API](../api/).
+Uruchom przykład lokalnie. Witryna nie uruchamia API ani nie przyjmuje plików. W przypadku HTTP zobacz [instrukcję lokalnego API](../api/).
 
 ## Uruchom przykład
 

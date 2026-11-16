@@ -1,4 +1,4 @@
-Start de dienst en de webinterface eerst op je eigen computer. De Orchestrata-projectsite is statisch: als je de site opent, start er geen API. Gebruik voorbeeldgegevens en stel deze versie niet open voor het internet.
+Start de API en webinterface op je computer. Gebruik voorbeeldgegevens en houd deze build buiten het openbare internet. De site start geen API.
 
 ## Lokale API en webinterface
 

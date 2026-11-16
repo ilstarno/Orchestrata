@@ -1,4 +1,4 @@
-A recipe describes a small planning scenario and the fields it uses. The runnable examples have sample data. Read the description, run the included JSON model, and compare the assignments with the expected result. The examples test specific decisions; they do not replace your scheduling or dispatch system.
+A recipe names a planning problem and its input fields. Run the sample JSON and compare it with the expected assignment. Each recipe tests one decision. It does not replace a scheduling or dispatch system.
 
 | Example | What you can inspect | What it does not establish |
 | --- | --- | --- |
@@ -16,6 +16,6 @@ With a checkout of the [recipe catalog](https://github.com/ilstarno/orchestrata-
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json
 ```
 
-The checked-in result has values `[1, 2, 0]`, with zero hard and soft penalties. Read the accompanying `inputs.json` to see the business inputs and `expected.json` to compare the result. The XML describes the scenario; the CLI receives the normalized JSON model. The catalog repository contains source examples, not a versioned catalog package.
+The checked-in result has values `[1, 2, 0]`, with zero hard and soft penalties. Read the accompanying `inputs.json` to see the business inputs and `expected.json` to compare the result. The XML describes the scenario; the CLI receives the normalized JSON model. The repository publishes the source examples only.
 
-Use the [assignment guide](../evaluate/) to run a smaller example without the catalog. Use a catalog example as a starting point: choose a decision, write down the allowed options, and model only rules you can verify. Do not send real customer or employee data into a local preview. Fleet scenarios provide repeatable stop inputs; the dataset generator does not route vehicles or estimate travel time.
+Use the [assignment guide](../evaluate/) to run a smaller, standalone example. Use a catalog example as a starting point: choose a decision, write down the allowed options, and model only rules you can verify. Do not send real customer or employee data into a local preview. Fleet scenarios provide repeatable stop inputs; the dataset generator does not route vehicles or estimate travel time.

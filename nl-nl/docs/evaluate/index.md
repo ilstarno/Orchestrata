@@ -1,6 +1,6 @@
-Met Orchestrata controleert u of een plan voldoet aan regels en voorkeuren. Dit voorbeeld heeft twee taken en twee plaatsen, genummerd 0 en 1. Elke taak kan op beide plaatsen terecht, maar de twee taken mogen niet dezelfde plaats krijgen. Voor taak A heeft plaats 1 de voorkeur.
+Twee taken delen plaatsen 0 en 1. Elke taak kan op beide plaatsen terecht, maar de taken moeten verschillende plaatsen krijgen. Taak A geeft de voorkeur aan plaats 1.
 
-Het voorbeeld gebruikt fictieve gegevens en draait lokaal. Deze website draait geen API en ontvangt geen uploads. Gebruik de [handleiding voor de lokale API](../api/) als u het voorbeeld via HTTP wilt uitvoeren.
+Draai het voorbeeld lokaal. Deze site draait geen API en ontvangt geen uploads. Voor HTTP zie de [handleiding voor de lokale API](../api/).
 
 ## Voer het voorbeeld uit
 
