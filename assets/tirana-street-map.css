@@ -58,3 +58,6 @@
   padding:.1rem; color:#101820; background:#fff; border:1px solid var(--courier-color);
   border-radius:1rem; font-size:.65rem; text-align:center;
 }
+.tirana-street-viewport[aria-busy="true"] {
+  background:repeating-linear-gradient(45deg,var(--dataset-surface) 0,var(--dataset-surface) 12px,var(--dataset-head) 12px,var(--dataset-head) 13px);
+}

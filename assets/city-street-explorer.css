@@ -2,7 +2,7 @@
 .street-explorer { margin-block: 2.5rem; min-width: 0; }
 .street-explorer h2 { margin-bottom: .35rem; }
 .street-explorer > p { max-inline-size: 70ch; }
-.street-explorer__enable, .street-explorer__route button {
+.street-explorer__route button {
   min-block-size: 44px; font: inherit; cursor: pointer; color: inherit;
   border: 1px solid currentColor; border-radius: .35rem; background: transparent; padding: .45rem .7rem;
 }
