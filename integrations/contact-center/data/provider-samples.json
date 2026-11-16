@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "snapshots": [
+    {
+      "providerId": "genesys",
+      "providerLabel": "Genesys Cloud CX",
+      "format": "Illustrative envelope; not a vendor payload or schema",
+      "capturedAt": "2026-11-16T08:57:00-05:00",
+      "decisionTime": "2026-11-16T09:00:00-05:00",
+      "branchId": "NYC",
+      "window": {
+        "start": "2026-11-16T09:00-05:00",
+        "end": "2026-11-16T09:30-05:00"
+      },
+      "queues": [
+        {
+          "queueReference": "billing-voice",
+          "media": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "billing-chat",
+          "media": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "accounts-voice",
+          "media": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "accounts-chat",
+          "media": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "technical-voice",
+          "media": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "technical-chat",
+          "media": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "customer-voice",
+          "media": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueReference": "customer-chat",
+          "media": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        }
+      ]
+    },
+    {
+      "providerId": "ringcx",
+      "providerLabel": "RingCentral RingCX",
+      "format": "Illustrative envelope; not a vendor payload or schema",
+      "capturedAt": "2026-11-16T08:57:00-05:00",
+      "decisionTime": "2026-11-16T09:00:00-05:00",
+      "branchId": "NYC",
+      "window": {
+        "start": "2026-11-16T09:00-05:00",
+        "end": "2026-11-16T09:30-05:00"
+      },
+      "queueReports": [
+        {
+          "workgroupReference": "billing-voice",
+          "mediaType": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "billing-chat",
+          "mediaType": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "accounts-voice",
+          "mediaType": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "accounts-chat",
+          "mediaType": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "technical-voice",
+          "mediaType": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "technical-chat",
+          "mediaType": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "customer-voice",
+          "mediaType": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "workgroupReference": "customer-chat",
+          "mediaType": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        }
+      ]
+    },
+    {
+      "providerId": "asterisk",
+      "providerLabel": "Asterisk PBX",
+      "format": "Illustrative envelope; not a vendor payload or schema",
+      "capturedAt": "2026-11-16T08:57:00-05:00",
+      "decisionTime": "2026-11-16T09:00:00-05:00",
+      "branchId": "NYC",
+      "window": {
+        "start": "2026-11-16T09:00-05:00",
+        "end": "2026-11-16T09:30-05:00"
+      },
+      "planningRows": [
+        {
+          "queueLabel": "billing-voice",
+          "channel": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueLabel": "billing-chat",
+          "channel": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "independent_chat_planning_input"
+        },
+        {
+          "queueLabel": "accounts-voice",
+          "channel": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueLabel": "accounts-chat",
+          "channel": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "independent_chat_planning_input"
+        },
+        {
+          "queueLabel": "technical-voice",
+          "channel": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueLabel": "technical-chat",
+          "channel": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "independent_chat_planning_input"
+        },
+        {
+          "queueLabel": "customer-voice",
+          "channel": "voice",
+          "plannedPositions": 1,
+          "inputOrigin": "illustrative_queue_export"
+        },
+        {
+          "queueLabel": "customer-chat",
+          "channel": "chat",
+          "plannedPositions": 1,
+          "inputOrigin": "independent_chat_planning_input"
+        }
+      ]
+    }
+  ]
+}

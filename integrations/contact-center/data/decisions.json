@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "sourceScenarioId": "NYC-early-baseline",
+  "networkContext": {
+    "branches": 5,
+    "operators": 500,
+    "coverageScope": "Existing five-branch roster, this replay uses only the NYC early window"
+  },
+  "commonDecision": {
+    "branchId": "NYC",
+    "profilesScreened": 100,
+    "positionsCovered": 8,
+    "positionsRequested": 8,
+    "positions": [
+      {
+        "queueId": "billing-voice",
+        "departmentId": "billing",
+        "channel": "voice",
+        "proposedOperatorId": "NYC-BILLING-01",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "billing_review",
+          "min_skill": 4,
+          "language": "en",
+          "min_language": 4,
+          "capability": "billing_adjustment",
+          "min_role_months": 12,
+          "min_parallel_contacts": 1
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 2,
+            "billing_review": 5
+          },
+          "language_proficiency": {
+            "en": 5,
+            "es": 5
+          },
+          "role_months": 46,
+          "parallel_contact_limit": {
+            "voice": 1,
+            "chat": 3
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": true
+      },
+      {
+        "queueId": "billing-chat",
+        "departmentId": "billing",
+        "channel": "chat",
+        "proposedOperatorId": "NYC-BILLING-03",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "billing_review",
+          "min_skill": 4,
+          "language": "es",
+          "min_language": 4,
+          "capability": "billing_adjustment",
+          "min_role_months": 12,
+          "min_parallel_contacts": 2
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 4,
+            "billing_review": 4
+          },
+          "language_proficiency": {
+            "en": 3,
+            "es": 4
+          },
+          "role_months": 36,
+          "parallel_contact_limit": {
+            "voice": 0,
+            "chat": 2
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": false
+      },
+      {
+        "queueId": "accounts-voice",
+        "departmentId": "accounts",
+        "channel": "voice",
+        "proposedOperatorId": "NYC-ACCOUNTS-01",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "account_recovery",
+          "min_skill": 4,
+          "language": "en",
+          "min_language": 4,
+          "capability": "recovery_workflow",
+          "min_role_months": 9,
+          "min_parallel_contacts": 1
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 3,
+            "account_recovery": 5
+          },
+          "language_proficiency": {
+            "en": 5,
+            "es": 5
+          },
+          "role_months": 47,
+          "parallel_contact_limit": {
+            "voice": 1,
+            "chat": 3
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": true
+      },
+      {
+        "queueId": "accounts-chat",
+        "departmentId": "accounts",
+        "channel": "chat",
+        "proposedOperatorId": "NYC-ACCOUNTS-03",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "account_recovery",
+          "min_skill": 4,
+          "language": "es",
+          "min_language": 4,
+          "capability": "recovery_workflow",
+          "min_role_months": 9,
+          "min_parallel_contacts": 2
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 5,
+            "account_recovery": 4
+          },
+          "language_proficiency": {
+            "en": 3,
+            "es": 4
+          },
+          "role_months": 37,
+          "parallel_contact_limit": {
+            "voice": 0,
+            "chat": 2
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": false
+      },
+      {
+        "queueId": "technical-voice",
+        "departmentId": "technical",
+        "channel": "voice",
+        "proposedOperatorId": "NYC-TECHNICAL-01",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "technical_diagnostics",
+          "min_skill": 4,
+          "language": "en",
+          "min_language": 4,
+          "capability": "technical_escalation",
+          "min_role_months": 6,
+          "min_parallel_contacts": 1
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 4,
+            "technical_diagnostics": 5
+          },
+          "language_proficiency": {
+            "en": 5,
+            "es": 5
+          },
+          "role_months": 48,
+          "parallel_contact_limit": {
+            "voice": 1,
+            "chat": 3
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": true
+      },
+      {
+        "queueId": "technical-chat",
+        "departmentId": "technical",
+        "channel": "chat",
+        "proposedOperatorId": "NYC-TECHNICAL-03",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "technical_diagnostics",
+          "min_skill": 4,
+          "language": "es",
+          "min_language": 4,
+          "capability": "technical_escalation",
+          "min_role_months": 6,
+          "min_parallel_contacts": 2
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 2,
+            "technical_diagnostics": 4
+          },
+          "language_proficiency": {
+            "en": 3,
+            "es": 4
+          },
+          "role_months": 38,
+          "parallel_contact_limit": {
+            "voice": 0,
+            "chat": 2
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": false
+      },
+      {
+        "queueId": "customer-voice",
+        "departmentId": "customer",
+        "channel": "voice",
+        "proposedOperatorId": "NYC-CUSTOMER-01",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "case_resolution",
+          "min_skill": 4,
+          "language": "en",
+          "min_language": 4,
+          "capability": "complaint_handoff",
+          "min_role_months": 8,
+          "min_parallel_contacts": 1
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 5,
+            "case_resolution": 5
+          },
+          "language_proficiency": {
+            "en": 5,
+            "es": 5
+          },
+          "role_months": 49,
+          "parallel_contact_limit": {
+            "voice": 1,
+            "chat": 3
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": true
+      },
+      {
+        "queueId": "customer-chat",
+        "departmentId": "customer",
+        "channel": "chat",
+        "proposedOperatorId": "NYC-CUSTOMER-03",
+        "eligibleCandidateCount": 2,
+        "requirements": {
+          "skill": "case_resolution",
+          "min_skill": 4,
+          "language": "es",
+          "min_language": 4,
+          "capability": "complaint_handoff",
+          "min_role_months": 8,
+          "min_parallel_contacts": 2
+        },
+        "selectedProfile": {
+          "task_skills": {
+            "customer_communication": 3,
+            "case_resolution": 4
+          },
+          "language_proficiency": {
+            "en": 3,
+            "es": 4
+          },
+          "role_months": 39,
+          "parallel_contact_limit": {
+            "voice": 0,
+            "chat": 2
+          },
+          "shift": {
+            "start": "2026-11-16T07:30-05:00",
+            "end": "2026-11-16T11:30-05:00"
+          },
+          "breaks": [
+            {
+              "start": "2026-11-16T10:30-05:00",
+              "end": "2026-11-16T10:45-05:00"
+            }
+          ]
+        },
+        "hardRuleResults": {
+          "inHomeDepartment": true,
+          "shiftCoversWindow": true,
+          "noBreakOverlap": true,
+          "roleCapabilityMet": true,
+          "taskProficiencyMet": true,
+          "serviceLanguageMet": true,
+          "experienceMet": true,
+          "channelCapacityMet": true
+        },
+        "preferredOperatorRetained": false
+      }
+    ],
+    "allDistinct": true,
+    "exactScoredCombinations": 256,
+    "hardFeasibleCombinations": 81,
+    "preferencePenalty": 30,
+    "nativeArchiveMatches": true,
+    "nativeEngineRunDuringReplay": false
+  },
+  "providerComparisons": [
+    {
+      "providerId": "genesys",
+      "providerLabel": "Genesys Cloud CX",
+      "variants": {
+        "current": {
+          "status": "review_only",
+          "reason": null,
+          "normalized": {
+            "branchId": "NYC",
+            "window": {
+              "start": "2026-11-16T09:00-05:00",
+              "end": "2026-11-16T09:30-05:00"
+            },
+            "queueIds": [
+              "billing-voice",
+              "billing-chat",
+              "accounts-voice",
+              "accounts-chat",
+              "technical-voice",
+              "technical-chat",
+              "customer-voice",
+              "customer-chat"
+            ],
+            "snapshotAgeSeconds": 180.0
+          },
+          "proposedPositions": 8,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "missing": {
+          "status": "manual_review",
+          "reason": "snapshot_missing",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "stale": {
+          "status": "manual_review",
+          "reason": "snapshot_stale",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "invalid": {
+          "status": "manual_review",
+          "reason": "snapshot_invalid",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        }
+      }
+    },
+    {
+      "providerId": "ringcx",
+      "providerLabel": "RingCentral RingCX",
+      "variants": {
+        "current": {
+          "status": "review_only",
+          "reason": null,
+          "normalized": {
+            "branchId": "NYC",
+            "window": {
+              "start": "2026-11-16T09:00-05:00",
+              "end": "2026-11-16T09:30-05:00"
+            },
+            "queueIds": [
+              "billing-voice",
+              "billing-chat",
+              "accounts-voice",
+              "accounts-chat",
+              "technical-voice",
+              "technical-chat",
+              "customer-voice",
+              "customer-chat"
+            ],
+            "snapshotAgeSeconds": 180.0
+          },
+          "proposedPositions": 8,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "missing": {
+          "status": "manual_review",
+          "reason": "snapshot_missing",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "stale": {
+          "status": "manual_review",
+          "reason": "snapshot_stale",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "invalid": {
+          "status": "manual_review",
+          "reason": "snapshot_invalid",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        }
+      }
+    },
+    {
+      "providerId": "asterisk",
+      "providerLabel": "Asterisk PBX",
+      "variants": {
+        "current": {
+          "status": "review_only",
+          "reason": null,
+          "normalized": {
+            "branchId": "NYC",
+            "window": {
+              "start": "2026-11-16T09:00-05:00",
+              "end": "2026-11-16T09:30-05:00"
+            },
+            "queueIds": [
+              "billing-voice",
+              "billing-chat",
+              "accounts-voice",
+              "accounts-chat",
+              "technical-voice",
+              "technical-chat",
+              "customer-voice",
+              "customer-chat"
+            ],
+            "snapshotAgeSeconds": 180.0
+          },
+          "proposedPositions": 8,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "missing": {
+          "status": "manual_review",
+          "reason": "snapshot_missing",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "stale": {
+          "status": "manual_review",
+          "reason": "snapshot_stale",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        },
+        "invalid": {
+          "status": "manual_review",
+          "reason": "snapshot_invalid",
+          "normalized": null,
+          "proposedPositions": 0,
+          "reusePreviousDraft": false,
+          "writeback": false
+        }
+      }
+    }
+  ]
+}
