@@ -14,7 +14,7 @@ Wynik zawiera `values: [1, 0]`. Ocena przestrzegania obowiązkowych zasad i ocen
 
 ## Zmień jedną rzecz
 
-Skopiuj [przykład przydziału](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) do `backend/examples/preference-change.json`. Dla zadania A w warunku `prefer_value` zmień pole `value` z `1` na `0`. Uruchom to samo polecenie z plikiem `examples/preference-change.json`. Oczekiwany przydział to teraz `[0, 1]`. Obowiązkowa zasada pozostaje bez zmian.
+Skopiuj `backend/examples/assignment.json` do `backend/examples/preference-change.json`. Dla zadania A w warunku `prefer_value` zmień pole `value` z `1` na `0`. Uruchom to samo polecenie z plikiem `examples/preference-change.json`. Oczekiwany przydział to teraz `[0, 1]`. Obowiązkowa zasada pozostaje bez zmian.
 
 W nowej kopii daj obu zadaniom tylko opcję `[0]`. Zachowaj zasadę różnych miejsc. W wersji ze zweryfikowanym wyszukiwaniem dokładnym CLI zwróci `null`: dla tych danych nie istnieje poprawny przydział.
 

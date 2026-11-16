@@ -10,7 +10,7 @@ Eine Planungsvorlage benennt die Aufgabe und ihre Eingabefelder. Führen Sie das
 
 ## Ein Beispiel aus dem Katalog ausführen
 
-Checken Sie den [Vorlagenkatalog](https://github.com/ilstarno/orchestrata-recipes/tree/main) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Katalogs aus:
+Checken Sie den [Vorlagenkatalog](https://github.com/ilstarno/orchestrata-recipes) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Katalogs aus:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

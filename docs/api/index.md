@@ -31,7 +31,7 @@ The example returns a JSON object with a `solution` field. The returned values f
 
 ## Recipe and error catalogs
 
-The routes below are available in [the checked public revision](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Use the running OpenAPI schema for other revisions. There is no hosted service.
+Check `GET /api/v1/openapi.json` for the routes below before calling them. This site does not host the API.
 
 | Method and path | Purpose |
 | --- | --- |
@@ -42,4 +42,4 @@ The routes below are available in [the checked public revision](https://github.c
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Solve a bundled example without a request body. |
 | `GET /api/v1/recipes/grid` | Page and filter the bundled recipe metadata. |
 
-The separate local MCP server at this revision exposes `list_recipes`, `describe_recipe`, and `get_recipe_example` through standard input and output. It lists and reads sample cases only. It neither listens for network connections nor runs a solve. Do not expect hosted MCP, remote credentials, or sign-in from the local evaluation build.
+The separate local MCP server, if included in your build, exposes `list_recipes`, `describe_recipe`, and `get_recipe_example` through standard input and output. It lists and reads sample cases only. It neither listens for network connections nor runs a solve. Do not expect hosted MCP, remote credentials, or sign-in from the local evaluation build.

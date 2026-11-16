@@ -1,10 +1,10 @@
 # Recipe API reference
 
-Use the built-in catalog on [public revision `b8d1271e3faddfffaf220698e381197bcae1752f`](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). The catalog holds worked examples and runs on your own machine. It does not accept customer uploads. The project website does not host these endpoints.
+Use the bundled catalog if the running API lists it in `GET /api/v1/openapi.json`. The catalog holds worked examples and runs on your own machine. It does not accept customer uploads. The project website does not host these endpoints.
 
 ## Start with the catalog
 
-From the repository root at the pinned revision, run `(cd backend && cargo run -p orchestrata-api)`. Run the following in a second terminal:
+From the repository root, run `(cd backend && cargo run -p orchestrata-api)`. Run the following in a second terminal:
 
 ```sh
 API=http://127.0.0.1:3000
@@ -64,15 +64,15 @@ An in-range page past the available rows returns `200`, the requested page, and 
 
 ## Diagnose a response
 
-Use `curl -i` to inspect status and headers on a failure. Omit `curl -f` to keep the error body. This revision attaches `X-Request-ID` for correlation and use `X-Orchestrata-Error-Code` for machine-readable classification on errors. Header names are case-insensitive. Error text can be plain text; do not assume a JSON error envelope or parse the prose as a code.
+Use `curl -i` to inspect status and headers on a failure. Omit `curl -f` to keep the error body. Use `X-Request-ID` for correlation and `X-Orchestrata-Error-Code` for machine-readable classification on errors. Header names are case-insensitive. Error text can be plain text; do not assume a JSON error envelope or parse the prose as a code.
 
 | Response | Meaning and next step |
 | --- | --- |
 | `400 request_rejected` from the grid | Correct the query. The body is `Invalid recipe grid query`; the server does not echo the submitted query. |
-| `404 not_found` | Check the exact recipe ID and running revision. An unknown recipe and an unavailable route can both return this code. |
+| `404 not_found` | Check the exact recipe ID and routes listed by the running API. An unknown recipe and an unavailable route can both return this code. |
 | `405 method_not_allowed` | Check the verb; running an example uses `POST`, while fetching it uses `GET`. |
 | `500 internal_error` from catalog, detail, or grid | The build could not load bundled metadata. Keep the request ID and inspect the local API output. |
-| `500 solve_execution_failed` from the bundled runner | The bundled solve could not finish. Capture the request ID and revision. This is not a planning outcome. |
+| `500 solve_execution_failed` from the bundled runner | The bundled solve could not finish. Capture the request ID and server version. This is not a planning outcome. |
 | `503 solver_busy` from the bundled runner | All solve slots were occupied. Wait and retry with backoff. |
 
 ```sh
@@ -81,4 +81,4 @@ curl -si "$API/api/v1/recipes/no-such-recipe"
 curl -fsS "$API/api/v1/error-codes"
 ```
 
-If the grid returns catalog metadata, a 404, or HTML, check the pinned revision and confirm that the request targets the loopback API port.
+If the grid returns catalog metadata, a 404, or HTML, check the running OpenAPI document and confirm that the request targets the loopback API port.

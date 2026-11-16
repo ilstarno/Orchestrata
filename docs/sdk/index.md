@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The bindings run Orchestrata in the calling process. Build the library and binding from the same [tested standalone engine revision](https://github.com/ilstarno/orchestrata-engine/tree/0281da6328b8a02b52e35fafee7348e144b22b48) on the development branch. The examples use sample data and source builds. No published packages are covered. Most examples choose `1`; Node.js shows a larger integer that the typed binding preserves.
+The bindings run Orchestrata in the calling process. Build the library and binding from the same [standalone engine repository](https://github.com/ilstarno/orchestrata-engine). The examples use sample data and source builds. These instructions cover source builds, not packaged releases. Check that the engine workspace includes `orchestrata-ffi` and that the matching binding exposes the methods used below. Most examples choose `1`; Node.js shows a larger integer that the typed binding preserves.
 
 ## Build and locate the library
 
@@ -32,7 +32,7 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 | PHP | PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment. | Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model. |
 | Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` with all seven rules and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
 
-A typed byte-string argument is not a typed planning model. C#, Node.js, Python, and Go type all seven finite-domain constraints at this source revision. Java and PHP use the JSON interface. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
+A typed byte-string argument is not a typed planning model. The typed C#, Node.js, Python, and Go models below cover seven finite-domain constraints. Check that your binding exposes the corresponding types before use. Java and PHP use the JSON interface. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
 
 ## Problem and result format
 

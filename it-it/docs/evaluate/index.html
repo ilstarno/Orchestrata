@@ -37,7 +37,7 @@
 </code></pre>
 <p>Il risultato contiene <code>values: [1, 0]</code>. I punteggi per i vincoli obbligatori e per le preferenze sono entrambi a zero. I valori seguono l’ordine dei dati in ingresso: l’attività A occupa il posto 1, la B il posto 0. La regola e la preferenza sono rispettate.</p>
 <h2 id="section-cambia-una-cosa">Cambia una cosa</h2>
-<p>Copia l’<a href="https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json">esempio di assegnazione</a> in <code>backend/examples/preference-change.json</code>. Nel vincolo <code>prefer_value</code> dell’attività A cambia il campo <code>value</code> da <code>1</code> a <code>0</code>. Esegui lo stesso comando con <code>examples/preference-change.json</code>. L’assegnazione attesa ora è <code>[0, 1]</code>; la regola obbligatoria rimane invariata.</p>
+<p>Copia l’<code>backend/examples/assignment.json</code> in <code>backend/examples/preference-change.json</code>. Nel vincolo <code>prefer_value</code> dell’attività A cambia il campo <code>value</code> da <code>1</code> a <code>0</code>. Esegui lo stesso comando con <code>examples/preference-change.json</code>. L’assegnazione attesa ora è <code>[0, 1]</code>; la regola obbligatoria rimane invariata.</p>
 <p>In una nuova copia, lascia a entrambe le attività solo l’opzione <code>[0]</code> e mantieni la regola dei posti distinti. In una versione con risultati esatti verificati, la CLI restituisce <code>null</code>: per questi dati non esiste un’assegnazione valida.</p>
 <h2 id="section-decidi-cosa-includere-nel-modello">Decidi cosa includere nel modello</h2>
 <ul>

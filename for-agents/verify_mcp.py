@@ -9,11 +9,9 @@ from subprocess import PIPE, Popen
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("binary", type=Path)
-    parser.add_argument("--revision", required=True, help="Git revision used to build the binary")
     args = parser.parse_args()
 
     print("Orchestrata MCP · local, synthetic examples only", flush=True)
-    print(f"Build revision: {args.revision}", flush=True)
     with Popen([str(args.binary.resolve())], stdin=PIPE, stdout=PIPE, text=True) as process:
         def send(request):
             assert process.stdin is not None
@@ -36,28 +34,25 @@ def main():
 
         send({"jsonrpc": "2.0", "method": "notifications/initialized"})
         tools = [tool["name"] for tool in call(2, "tools/list", {})["tools"]]
-        assert "list_lead_examples" in tools and "preview_lead_example" in tools
+        assert {"list_recipes", "describe_recipe", "get_recipe_example"} <= set(tools)
         for name in tools:
             print("tools/list →", name, flush=True)
 
-        catalog = call(3, "tools/call", {"name": "list_lead_examples", "arguments": {}})
-        listing = catalog["structuredContent"]
-        ids = listing["lead_ids"]
-        assert not catalog.get("isError") and listing["synthetic"] is True
-        assert [ids[0], ids[-1], len(ids)] == ["L-001", "L-060", 60]
-        print(f"list_lead_examples → {len(ids)} synthetic IDs ({ids[0]} to {ids[-1]})", flush=True)
+        def read_tool(index, name, arguments):
+            result = call(index, "tools/call", {"name": name, "arguments": arguments})
+            if result.get("isError"):
+                raise RuntimeError(f"{name} did not return a readable result")
+            return result["structuredContent"]
 
-        preview = call(4, "tools/call", {
-            "name": "preview_lead_example", "arguments": {"lead_id": ids[0]},
-        })
-        decision = preview["structuredContent"]
-        assert not preview.get("isError")
-        assert decision == {
-            "lead_id": "L-001", "outcome": "created", "reason": "new",
-            "assigned_representative_id": "REP-08", "contact_id": "CT-001",
-        }
-        print("preview_lead_example →", json.dumps(decision, indent=2), flush=True)
-        print("PASS · no real leads or records were created", flush=True)
+        catalog = read_tool(3, "list_recipes", {})["recipes"]
+        assert catalog, "The catalog should contain at least one recipe."
+        recipe_id = catalog[0]["id"]
+        description = read_tool(4, "describe_recipe", {"id": recipe_id})
+        example = read_tool(5, "get_recipe_example", {"id": recipe_id})
+        assert description["id"] == recipe_id and {"inputs", "outputs"} <= set(description)
+        assert example["id"] == recipe_id and example.get("synthetic") is True
+        assert isinstance(example["problem"], dict)
+        print(f"PASS · {len(catalog)} recipes. Read fields and example for {recipe_id}.", flush=True)
 
         assert process.stdin is not None
         process.stdin.close()

@@ -2,7 +2,7 @@ Start de API en webinterface op je computer. Gebruik voorbeeldgegevens en houd d
 
 ## Lokale API en webinterface
 
-Gebruik een stabiele Rust-versie met Cargo en curl. Installeer voor de webinterface ook Node.js 22 en npm. [Download het openbare startproject bij deze handleiding](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), pak het uit en open een terminal in de uitgepakte map.
+Gebruik een stabiele Rust-versie met Cargo en curl. Installeer voor de webinterface ook Node.js 22 en npm. Open de [Orchestrata-repository](https://github.com/ilstarno/Orchestrata). Haal de broncode op en controleer of de Cargo-werkruimte `orchestrata-api` bevat. Controleer optionele routes in het OpenAPI-document van de draaiende API.
 
 Voer vanuit de hoofdmap eerst de workspacetests uit met de vastgelegde afhankelijkheden en start daarna de API op de loopbackinterface:
 
@@ -23,7 +23,7 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 
 De statuscontrole bevestigt dat het proces reageert. Het receptenoverzicht geeft metadata terug en start geen taken. De verwachte toewijzing is `[1,0]` in invoervolgorde. Deze controles bewijzen niet dat aanmelden, blijvende taakopslag of capaciteit op orde zijn.
 
-Laat de API draaien en gebruik een andere terminal om de webinterface uit dezelfde checkout te starten:
+Laat de API draaien voor de webinterface en open, als u toegang hebt, een terminal in de [aparte frontend-repository](https://github.com/ilstarno/orchestrata-frontend). Controleer `frontend/package.json` en vergelijk het API-schema met de draaiende backend.
 
 ```sh
 (cd frontend && npm install && npm run dev)
@@ -35,7 +35,7 @@ De [handleiding voor de lokale API](../api/) beschrijft de aanvragen en antwoord
 
 ## De zelfstandige engine en de SDK’s evalueren
 
-De [repository van de zelfstandige engine](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. Bouw de SDK uit de bijbehorende broncode. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
+De [repository van de zelfstandige engine](https://github.com/ilstarno/orchestrata-engine) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. Bouw de SDK uit de bijbehorende broncode. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
@@ -49,7 +49,7 @@ Raadpleeg de README van de SDK voor de vereisten voor het laden van de bibliothe
 
 Beoordeel clustergebruik apart. De controles hierboven tonen niet aan dat een containerimage, configuratie voor een beheerde cloud of publieke toegang klaar is voor gebruik. Gebruik alleen voorbeeldgegevens en laat publieke toegang uitgeschakeld.
 
-1. Leg de gecontroleerde bronrevisie en de digest van het daarmee gebouwde image vast. Gebruik een eigen namespace buiten productie.
+1. Noteer de digest van de geteste image. Gebruik een eigen namespace buiten productie.
 2. Stel aanvragen en limieten in voor CPU en geheugen. Controleer de status, receptenlijst en toewijzing vanaf een toegestane client in het testnetwerk.
 3. Controleer dat toegang van buiten de toegestane omgeving wordt geblokkeerd. Controleer de logs zonder inlog- of klantgegevens vast te leggen.
 4. Installeer de te testen versie, keer terug naar het vorige image en herhaal de controles. Voeg je blijvende opslag toe, test back-ups en herstel dan afzonderlijk.
@@ -58,7 +58,6 @@ Beoordeel clustergebruik apart. De controles hierboven tonen niet aan dat een co
 
 Bouw de API-image met de Dockerfile en installeer deze met Helm in een bestaand privécluster. De Terraform-handleiding behandelt bestaande clusters in Amazon EKS, Azure AKS en Google GKE. Er wordt geen cloudinfrastructuur aangemaakt.
 
-- [Handleiding voor containers en Helm (Engels)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy)
-- [Terraform-handleiding (Engels)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy/terraform)
+Raadpleeg voor Dockerfile, Helm en Terraform `deploy/` en `deploy/terraform/` als deze mappen aanwezig zijn.
 
 De Helm-controles zijn lokaal geslaagd. De container en de installatie op beheerde clusters zijn niet getest.

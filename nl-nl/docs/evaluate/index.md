@@ -14,7 +14,7 @@ Het resultaat bevat `values: [1, 0]`; de score voor zowel harde regels als voork
 
 ## Pas één ding aan
 
-Kopieer het [toewijzingsvoorbeeld](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) naar `backend/examples/preference-change.json`. Verander bij `prefer_value` voor taak A de `value` van `1` naar `0`. Voer hetzelfde commando uit met `examples/preference-change.json`. De verwachte toewijzing is nu `[0, 1]`. De harde regel blijft gelijk.
+Kopieer het `backend/examples/assignment.json` naar `backend/examples/preference-change.json`. Verander bij `prefer_value` voor taak A de `value` van `1` naar `0`. Voer hetzelfde commando uit met `examples/preference-change.json`. De verwachte toewijzing is nu `[0, 1]`. De harde regel blijft gelijk.
 
 Geef beide taken in een nieuwe kopie alleen de optie `[0]`. Laat de regel over verschillende plaatsen staan. In een versie waarvan de exacte uitkomst is getoetst, toont de CLI `null`: er is geen geldige toewijzing voor deze invoer.
 

@@ -31,7 +31,7 @@ Przykład zwraca obiekt JSON z polem `solution`. Wartości są ułożone w tej s
 
 ## Katalogi szablonów i błędów
 
-Poniższe ścieżki są dostępne w [sprawdzonej publicznej wersji](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Dla innych wersji sprawdź schemat OpenAPI działającej usługi. Nie ma usługi hostowanej.
+Przed wywołaniem poniższych ścieżek sprawdź ich dostępność w `GET /api/v1/openapi.json`. Ta witryna nie hostuje API.
 
 | Metoda i ścieżka | Przeznaczenie |
 | --- | --- |
@@ -42,4 +42,4 @@ Poniższe ścieżki są dostępne w [sprawdzonej publicznej wersji](https://gith
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Rozwiąż dołączony przykład bez treści żądania. |
 | `GET /api/v1/recipes/grid` | Filtruj i przeglądaj metadane dołączonych szablonów stronami. |
 
-Osobny lokalny serwer MCP w tej wersji udostępnia `list_recipes`, `describe_recipe` i `get_recipe_example` przez standardowe wejście i wyjście. Pozwala wyłącznie wyświetlać listę syntetycznych przykładów i odczytywać je. Nie przyjmuje połączeń sieciowych i nie uruchamia rozwiązywania problemów. Lokalna wersja testowa nie oferuje hostowanego MCP, danych uwierzytelniających do zdalnego dostępu ani logowania.
+Osobny lokalny serwer MCP, jeśli jest dostępny w kompilacji, udostępnia `list_recipes`, `describe_recipe` i `get_recipe_example` przez standardowe wejście i wyjście. Pozwala wyłącznie wyświetlać listę syntetycznych przykładów i odczytywać je. Nie przyjmuje połączeń sieciowych i nie uruchamia rozwiązywania problemów. Lokalna wersja testowa nie oferuje hostowanego MCP, danych uwierzytelniających do zdalnego dostępu ani logowania.

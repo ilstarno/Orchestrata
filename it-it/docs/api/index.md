@@ -31,7 +31,7 @@ L’esempio restituisce un oggetto JSON con il campo `solution`. I valori restit
 
 ## Cataloghi dei modelli e degli errori
 
-I percorsi seguenti sono disponibili nella [revisione pubblica verificata](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Per le altre revisioni consulta lo schema OpenAPI del servizio in esecuzione. Il servizio non è ospitato.
+Controlla i percorsi qui sotto in `GET /api/v1/openapi.json` prima di chiamarli. Questo sito non ospita l’API.
 
 | Metodo e percorso | Scopo |
 | --- | --- |
@@ -42,4 +42,4 @@ I percorsi seguenti sono disponibili nella [revisione pubblica verificata](https
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Risolvere un esempio incluso senza corpo della richiesta. |
 | `GET /api/v1/recipes/grid` | Filtrare e consultare per pagina i metadati dei modelli inclusi. |
 
-Il server MCP locale separato di questa revisione espone `list_recipes`, `describe_recipe` e `get_recipe_example` tramite input e output standard. Consente soltanto di elencare e leggere esempi sintetici. Non accetta connessioni di rete e non esegue risoluzioni. La build di valutazione locale non offre un MCP ospitato, credenziali per l’accesso remoto o funzioni di accesso.
+Il server MCP locale separato, se incluso nella build, espone `list_recipes`, `describe_recipe` e `get_recipe_example` tramite input e output standard. Consente soltanto di elencare e leggere esempi sintetici. Non accetta connessioni di rete e non esegue risoluzioni. La build di valutazione locale non offre un MCP ospitato, credenziali per l’accesso remoto o funzioni di accesso.

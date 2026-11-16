@@ -37,7 +37,7 @@
 </code></pre>
 <p>Le résultat contient <code>values: [1, 0]</code>. Les scores des règles obligatoires et des préférences sont tous deux à zéro. Les valeurs suivent l’ordre de la saisie : la tâche A occupe la place 1 et la tâche B la place 0. La règle et la préférence sont respectées.</p>
 <h2 id="section-modifier-un-seul-element">Modifier un seul élément</h2>
-<p>Copiez l’<a href="https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json">exemple d’affectation</a> dans <code>backend/examples/preference-change.json</code>. Dans la contrainte <code>prefer_value</code> de la tâche A, remplacez la <code>value</code> de <code>1</code> par <code>0</code>. Relancez la même commande avec <code>examples/preference-change.json</code>. L’affectation attendue devient <code>[0, 1]</code> ; la règle obligatoire ne change pas.</p>
+<p>Copiez l’<code>backend/examples/assignment.json</code> dans <code>backend/examples/preference-change.json</code>. Dans la contrainte <code>prefer_value</code> de la tâche A, remplacez la <code>value</code> de <code>1</code> par <code>0</code>. Relancez la même commande avec <code>examples/preference-change.json</code>. L’affectation attendue devient <code>[0, 1]</code> ; la règle obligatoire ne change pas.</p>
 <p>Dans une nouvelle copie, ne laissez que l’option <code>[0]</code> aux deux tâches et conservez la règle des places distinctes. Dans une version dont les résultats exacts ont été vérifiés, la CLI renvoie <code>null</code> : aucune affectation ne convient à ces données.</p>
 <h2 id="section-choisir-ce-que-le-modele-doit-representer">Choisir ce que le modèle doit représenter</h2>
 <ul>

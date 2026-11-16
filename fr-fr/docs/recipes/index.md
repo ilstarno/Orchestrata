@@ -10,7 +10,7 @@ Un modèle nomme le problème et ses champs. Exécutez le JSON d’exemple et co
 
 ## Exécuter un exemple du catalogue
 
-Récupérez le [catalogue des modèles](https://github.com/ilstarno/orchestrata-recipes/tree/main) et vérifiez que l’exécutable compilé `orchestrata-cli` est dans votre chemin de recherche. À la racine du dépôt du catalogue, exécutez :
+Récupérez le [catalogue des modèles](https://github.com/ilstarno/orchestrata-recipes) et vérifiez que l’exécutable compilé `orchestrata-cli` est dans votre chemin de recherche. À la racine du dépôt du catalogue, exécutez :
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

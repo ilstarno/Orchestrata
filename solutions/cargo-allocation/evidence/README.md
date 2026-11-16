@@ -13,18 +13,21 @@ This worked example uses sample data and demonstrates allocation against an expl
 
 ## Reproduce
 
-With Python 3.10+ and the Rust toolchain installed, check out the standalone engine revision recorded under `proof.native.engine_revision`. From the engine checkout, build its native C ABI:
+Use Python 3.10+ and a Rust toolchain. From this bundle, read the engine revision the native check used:
 
 ```sh
-cargo build --manifest-path backend/Cargo.toml --locked -p orchestrata-ffi
+ENGINE_REVISION=$(python3 -c 'import json; from pathlib import Path; print(json.loads(Path("allocation-report.json").read_text())["proof"]["native"]["engine_revision"])')
 ```
 
-From this bundle, substitute the path to that compiled shared library (Linux shown; use the corresponding `.dylib` or `.dll` on macOS or Windows) and the exact revision you built:
+Use a standalone engine checkout at that revision. Set its local path below, then build its native C ABI. The shared-library path is for Linux; use the corresponding `.dylib` or `.dll` on macOS or Windows.
 
 ```sh
-export ORCHESTRATA_CARGO_LIBRARY=/path/to/engine/backend/target/debug/liborchestrata_ffi.so
+ENGINE_DIR=/path/to/orchestrata-engine
+test "$(git -C "$ENGINE_DIR" rev-parse HEAD)" = "$ENGINE_REVISION" &&
+  cargo build --manifest-path "$ENGINE_DIR/backend/Cargo.toml" --locked -p orchestrata-ffi
+export ORCHESTRATA_CARGO_LIBRARY="$ENGINE_DIR/backend/target/debug/liborchestrata_ffi.so"
 python3 reproduce.py --library "$ORCHESTRATA_CARGO_LIBRARY" \
-  --engine-revision 0281da6328b8a02b52e35fafee7348e144b22b48
+  --engine-revision "$ENGINE_REVISION"
 python3 -m unittest -v test_reproduce.py
 ```
 

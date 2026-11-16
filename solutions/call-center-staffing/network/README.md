@@ -90,8 +90,8 @@ data are required. The build recomputes the roster and calls native exact
 search for every case, runs the independent oracle, and compares canonical
 artifacts on the same compression implementation. `--write` intentionally
 rebuilds the common files. The SHA-256 hashes of the uncompressed streams
-can be compared even across gzip implementations. The native revision
-first used for verification is linked as the [verified engine source](https://github.com/ilstarno/orchestrata-engine/tree/cddfdaee5b9ee9ff2577399726b95a12286e69c7).
+can be compared even across gzip implementations. A successful comparison
+verifies the 60 recorded cases with the native library you supplied.
 
 The [workload forecast reference](https://docs.aws.amazon.com/en_en/connect/latest/adminguide/forecasting.html),
 [occupancy metric definition](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html),

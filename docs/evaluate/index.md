@@ -14,7 +14,7 @@ The result contains `values: [1, 0]` with hard and soft scores of zero. Values f
 
 ## Change one thing
 
-Copy the [assignment fixture](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) to `backend/examples/preference-change.json`. Change the `value` in job A’s `prefer_value` constraint from `1` to `0`. Run the same command with `examples/preference-change.json`. The expected assignment is now `[0, 1]`; the hard rule does not change.
+Copy the `backend/examples/assignment.json` to `backend/examples/preference-change.json`. Change the `value` in job A’s `prefer_value` constraint from `1` to `0`. Run the same command with `examples/preference-change.json`. The expected assignment is now `[0, 1]`; the hard rule does not change.
 
 In a fresh copy, give both jobs the single option `[0]` and leave the different-slots rule in place. In a build with the verified exact-result contract, the CLI prints `null`: there is no valid assignment for this input.
 

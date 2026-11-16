@@ -1,6 +1,6 @@
 # Connect an agent to Orchestrata
 
-This local, read-only example lists recipes and previews a lead decision. It does not run a solve or create CRM records. The website does not host the solver or an MCP endpoint. A chat subscription may not include API access; your client may require its own sign-in or workspace approval.
+The local, read-only tool lists recipes, describes their inputs and outputs, and returns worked planning problems. It does not run a solve or create CRM records. The website does not host the solver or an MCP endpoint. A chat subscription may not include API access; your client may require its own sign-in or workspace approval.
 
 ## 1. Prepare the tool
 
@@ -9,7 +9,6 @@ In a Linux or macOS shell with GitHub CLI and Cargo:
 ```sh
 gh repo clone ilstarno/Orchestrata
 cd Orchestrata
-git switch --detach c841b36ad4d8fd1f246a5cefe96a05a72d8784fe
 cargo build --locked --manifest-path backend/Cargo.toml -p orchestrata-mcp
 ORCHESTRATA_MCP="$PWD/backend/target/debug/orchestrata-mcp"
 test -x "$ORCHESTRATA_MCP"
@@ -71,22 +70,22 @@ grok mcp doctor orchestrata
 
 Use `/mcps` to see the tools. [Official Grok Build instructions](https://docs.x.ai/build/features/mcp-servers).
 
-## 3. Preview one result
+## 3. Inspect a recipe
 
 Use this prompt with the connected client:
 
-> Use list_lead_examples, then preview_lead_example with lead_id L-001. Show the outcome, assigned representative and contact ID. Do not create a record or send it anywhere.
+> Use `list_recipes` to find one recipe. Call `describe_recipe` and `get_recipe_example` with its ID. Tell me what goes in, what comes out, and one rule in the example. Don’t run a solve or send the result anywhere.
 
-Expected preview: REP-08, contact CT-001, tool outcome `created` (would create a contact; no record is written). Use only sample or anonymized inputs when testing with a hosted model.
+The recipe description gives the declared inputs and outputs. The example returns a planning problem, not an assignment. Use only sample or anonymized inputs when testing with a hosted model.
 
 ### Run the same check without a model account
 
 Save [the local verifier](verify_mcp.py) and run:
 
 ```sh
-python3 verify_mcp.py "$ORCHESTRATA_MCP" --revision c841b36ad4d8fd1f246a5cefe96a05a72d8784fe
+python3 verify_mcp.py "$ORCHESTRATA_MCP"
 ```
 
-See the [recorded response](verified-stdio.txt). The inline terminal images show actual Cargo output, Codex CLI registration, and local Orchestrata tool output, presented as excerpts. They do not show a signed-in agent conversation. The Claude Code, Cursor and Grok action cards summarize the vendor instructions; they are not captures from those clients.
+The verifier discovers a recipe and checks that the declared fields and worked problem are readable. The inline terminal images show actual Cargo output, Codex CLI registration, and local Orchestrata tool output, presented as excerpts. The [recorded lead response](verified-stdio.txt) is a separate walkthrough; it shows a read-only preview for L-001, not a CRM write. Follow the recipe steps above to check a new installation. They do not show a signed-in agent conversation. The Claude Code, Cursor and Grok action cards summarize the vendor instructions; they are not captures from those clients.
 
 For assignments over HTTP, use [the separate solve API](../docs/solve-api/), `POST /api/v1/solve`.

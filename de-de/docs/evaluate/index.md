@@ -14,7 +14,7 @@ Das Ergebnis enthält `values: [1, 0]`. Die Bewertungen für harte und weiche Re
 
 ## Eine Änderung ausprobieren
 
-Kopieren Sie das [Zuordnungsbeispiel](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) nach `backend/examples/preference-change.json`. Ändern Sie für Aufgabe A im Eintrag `prefer_value` den `value` von `1` in `0`. Führen Sie denselben Befehl mit `examples/preference-change.json` aus. Die erwartete Zuordnung ist jetzt `[0, 1]`. Die harte Regel bleibt unverändert.
+Kopieren Sie das `backend/examples/assignment.json` nach `backend/examples/preference-change.json`. Ändern Sie für Aufgabe A im Eintrag `prefer_value` den `value` von `1` in `0`. Führen Sie denselben Befehl mit `examples/preference-change.json` aus. Die erwartete Zuordnung ist jetzt `[0, 1]`. Die harte Regel bleibt unverändert.
 
 Geben Sie in einer neuen Kopie beiden Aufgaben nur die Option `[0]`. Lassen Sie die Regel für verschiedene Plätze unverändert. In einer Version mit geprüftem exaktem Ergebnis gibt die CLI `null` aus: Für diese Eingabe gibt es keine gültige Zuordnung.
 

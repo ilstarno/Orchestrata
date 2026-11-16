@@ -10,7 +10,7 @@ Szablon planowania określa problem i pola wejściowe. Uruchom przykładowy JSON
 
 ## Uruchom przykład z katalogu
 
-Pobierz [katalog szablonów](https://github.com/ilstarno/orchestrata-recipes/tree/main) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium wykonaj:
+Pobierz [katalog szablonów](https://github.com/ilstarno/orchestrata-recipes) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium wykonaj:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

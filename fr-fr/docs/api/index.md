@@ -31,7 +31,7 @@ L’exemple renvoie un objet JSON contenant le champ `solution`. Les valeurs sui
 
 ## Catalogues des modèles et des erreurs
 
-Les routes ci-dessous sont disponibles dans [la révision publique vérifiée](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Pour les autres révisions, consultez le schéma OpenAPI du service en cours d’exécution. Le service n’est pas hébergé.
+Vérifiez les routes ci-dessous dans `GET /api/v1/openapi.json` avant de les appeler. Ce site n’héberge pas l’API.
 
 | Méthode et chemin | Fonction |
 | --- | --- |
@@ -42,4 +42,4 @@ Les routes ci-dessous sont disponibles dans [la révision publique vérifiée](h
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Résoudre un exemple fourni sans corps de requête. |
 | `GET /api/v1/recipes/grid` | Filtrer et paginer les métadonnées des modèles fournis. |
 
-Le serveur MCP local distinct de cette révision expose `list_recipes`, `describe_recipe` et `get_recipe_example` par l’entrée et la sortie standard. Elle permet uniquement de lister et de consulter des exemples synthétiques. Elle n’accepte pas de connexions réseau et ne lance aucune résolution. Cette version d’évaluation locale ne fournit ni MCP hébergé, ni identifiants d’accès à distance, ni fonction de connexion.
+Le serveur MCP local distinct, s’il est inclus, expose `list_recipes`, `describe_recipe` et `get_recipe_example` par l’entrée et la sortie standard. Elle permet uniquement de lister et de consulter des exemples synthétiques. Elle n’accepte pas de connexions réseau et ne lance aucune résolution. Cette version d’évaluation locale ne fournit ni MCP hébergé, ni identifiants d’accès à distance, ni fonction de connexion.

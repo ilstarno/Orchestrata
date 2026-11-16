@@ -10,7 +10,7 @@ Un modello identifica il problema e i campi di input. Esegui l’esempio JSON e 
 
 ## Esegui un esempio del catalogo
 
-Scarica il [catalogo dei modelli](https://github.com/ilstarno/orchestrata-recipes/tree/main) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del catalogo:
+Scarica il [catalogo dei modelli](https://github.com/ilstarno/orchestrata-recipes) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del catalogo:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

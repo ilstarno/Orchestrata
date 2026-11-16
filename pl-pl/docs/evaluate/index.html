@@ -37,7 +37,7 @@
 </code></pre>
 <p>Wynik zawiera <code>values: [1, 0]</code>. Ocena przestrzegania obowiązkowych zasad i ocena preferencji wynoszą zero. Wartości są w takiej samej kolejności jak zadania w danych wejściowych: A trafia na miejsce 1, a B na miejsce 0. Zasada i preferencja zostały spełnione.</p>
 <h2 id="section-zmien-jedna-rzecz">Zmień jedną rzecz</h2>
-<p>Skopiuj <a href="https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json">przykład przydziału</a> do <code>backend/examples/preference-change.json</code>. Dla zadania A w warunku <code>prefer_value</code> zmień pole <code>value</code> z <code>1</code> na <code>0</code>. Uruchom to samo polecenie z plikiem <code>examples/preference-change.json</code>. Oczekiwany przydział to teraz <code>[0, 1]</code>. Obowiązkowa zasada pozostaje bez zmian.</p>
+<p>Skopiuj <code>backend/examples/assignment.json</code> do <code>backend/examples/preference-change.json</code>. Dla zadania A w warunku <code>prefer_value</code> zmień pole <code>value</code> z <code>1</code> na <code>0</code>. Uruchom to samo polecenie z plikiem <code>examples/preference-change.json</code>. Oczekiwany przydział to teraz <code>[0, 1]</code>. Obowiązkowa zasada pozostaje bez zmian.</p>
 <p>W nowej kopii daj obu zadaniom tylko opcję <code>[0]</code>. Zachowaj zasadę różnych miejsc. W wersji ze zweryfikowanym wyszukiwaniem dokładnym CLI zwróci <code>null</code>: dla tych danych nie istnieje poprawny przydział.</p>
 <h2 id="section-ustal-co-nalezy-uwzglednic-w-modelu">Ustal, co należy uwzględnić w modelu</h2>
 <ul>

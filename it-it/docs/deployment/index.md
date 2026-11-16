@@ -2,7 +2,7 @@ Avvia l’API e l’interfaccia web sul tuo computer. Usa dati di esempio e non 
 
 ## API locale e interfaccia web
 
-Usa una versione stabile di Rust con Cargo e curl. Per l’interfaccia web, installa anche Node.js 22 e npm. [Scarica il progetto pubblico usato in questa guida](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), estrai l’archivio e apri il terminale nella cartella estratta.
+Usa una versione stabile di Rust con Cargo e curl. Per l’interfaccia web, installa anche Node.js 22 e npm. Apri il [repository Orchestrata](https://github.com/ilstarno/Orchestrata). Scarica il codice sorgente e verifica che il workspace Cargo contenga `orchestrata-api`. Controlla i percorsi facoltativi nel documento OpenAPI del servizio.
 
 Dalla directory principale del repository, esegui i test del workspace con le dipendenze bloccate e avvia l’API sull’interfaccia di loopback:
 
@@ -23,7 +23,7 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 
 La verifica dello stato conferma che il processo risponde. L’elenco restituisce i metadati delle ricette e non invia lavori. L’assegnazione attesa è `[1,0]` nell’ordine dei dati in ingresso. Questi controlli non verificano accesso, archiviazione persistente dei lavori o capacità del servizio.
 
-Lascia l’API in esecuzione e usa un altro terminale per avviare l’interfaccia web dalla stessa copia del repository:
+Per usare l’interfaccia web, lascia attiva l’API e apri un terminale nel [repository separato del frontend](https://github.com/ilstarno/orchestrata-frontend) se hai accesso. Verifica `frontend/package.json` e confronta lo schema API con quello del backend in esecuzione.
 
 ```sh
 (cd frontend && npm install && npm run dev)
@@ -35,7 +35,7 @@ La [guida all’API locale](../api/) spiega richieste e risposte. Per problemi d
 
 ## Valutare il motore autonomo e gli SDK
 
-Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
+Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
@@ -49,7 +49,7 @@ Consultare il README dell’SDK per i requisiti di caricamento e di runtime del 
 
 Valuta il cluster separatamente. I controlli locali non dimostrano che un’immagine, la configurazione di un servizio cloud gestito o l’accesso pubblico siano pronti. Usa solo dati di esempio e lascia disattivato l’accesso pubblico.
 
-1. Annota la revisione dei sorgenti verificata e il digest dell’immagine compilata da quella revisione. Usa un namespace dedicato, non di produzione.
+1. Registra il digest dell’immagine testata. Usa un namespace dedicato, non di produzione.
 2. Imposta richieste e limiti per CPU e memoria. Da un client autorizzato nella rete di test, controlla lo stato, l’elenco delle ricette e l’assegnazione.
 3. Verifica che l’accesso dall’esterno dell’ambiente consentito sia bloccato. Controlla i log senza registrare credenziali o dati dei clienti.
 4. Installa la versione da valutare, torna all’immagine precedente e ripeti i controlli. Se aggiungi storage persistente, verifica separatamente backup e ripristino.
@@ -58,7 +58,6 @@ Valuta il cluster separatamente. I controlli locali non dimostrano che un’imma
 
 Crea l’immagine dell’API dal Dockerfile e installala con Helm in un cluster Kubernetes privato già esistente. La guida Terraform riguarda cluster Amazon EKS, Azure AKS e Google GKE già operativi. Non crea infrastruttura cloud.
 
-- [Guida a container e Helm (in inglese)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy)
-- [Guida a Terraform (in inglese)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy/terraform)
+Per Dockerfile, Helm e Terraform, consulta `deploy/` e `deploy/terraform/` se presenti.
 
 Il chart ha superato i controlli Helm locali. Il container e l’installazione su cluster gestiti non sono stati testati.

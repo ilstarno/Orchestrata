@@ -14,7 +14,7 @@ Il risultato contiene `values: [1, 0]`. I punteggi per i vincoli obbligatori e p
 
 ## Cambia una cosa
 
-Copia l’[esempio di assegnazione](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) in `backend/examples/preference-change.json`. Nel vincolo `prefer_value` dell’attività A cambia il campo `value` da `1` a `0`. Esegui lo stesso comando con `examples/preference-change.json`. L’assegnazione attesa ora è `[0, 1]`; la regola obbligatoria rimane invariata.
+Copia l’`backend/examples/assignment.json` in `backend/examples/preference-change.json`. Nel vincolo `prefer_value` dell’attività A cambia il campo `value` da `1` a `0`. Esegui lo stesso comando con `examples/preference-change.json`. L’assegnazione attesa ora è `[0, 1]`; la regola obbligatoria rimane invariata.
 
 In una nuova copia, lascia a entrambe le attività solo l’opzione `[0]` e mantieni la regola dei posti distinti. In una versione con risultati esatti verificati, la CLI restituisce `null`: per questi dati non esiste un’assegnazione valida.
 

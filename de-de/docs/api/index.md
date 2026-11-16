@@ -31,7 +31,7 @@ Das Beispiel gibt ein JSON-Objekt mit dem Feld `solution` zurück. Die Werte ste
 
 ## Kataloge für Planungsvorlagen und Fehler
 
-Die folgenden Pfade sind in [der geprüften öffentlichen Revision](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f) verfügbar. Nutzen Sie für andere Revisionen das OpenAPI-Schema des laufenden Dienstes. Ein gehosteter Dienst steht nicht zur Verfügung.
+Prüfen Sie vor dem Aufruf in `GET /api/v1/openapi.json`, welche Pfade verfügbar sind. Diese Website betreibt keine API.
 
 | Methode und Pfad | Zweck |
 | --- | --- |
@@ -42,4 +42,4 @@ Die folgenden Pfade sind in [der geprüften öffentlichen Revision](https://gith
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Ein mitgeliefertes Beispiel ohne Anfrageinhalt lösen. |
 | `GET /api/v1/recipes/grid` | Metadaten der Vorlagen filtern und seitenweise abrufen. |
 
-Der separate lokale MCP-Server dieser Revision stellt `list_recipes`, `describe_recipe` und `get_recipe_example` über Standardeingabe und Standardausgabe bereit. Er listet und liest ausschließlich synthetische Beispiele. Er nimmt keine Netzwerkverbindungen an und führt keine Berechnungen zur Lösung aus. Die lokale Evaluierungsversion bietet weder gehostetes MCP noch Zugangsdaten für den Fernzugriff oder eine Anmeldung.
+Der separate lokale MCP-Server stellt, sofern enthalten, `list_recipes`, `describe_recipe` und `get_recipe_example` über Standardeingabe und Standardausgabe bereit. Er listet und liest ausschließlich synthetische Beispiele. Er nimmt keine Netzwerkverbindungen an und führt keine Berechnungen zur Lösung aus. Die lokale Evaluierungsversion bietet weder gehostetes MCP noch Zugangsdaten für den Fernzugriff oder eine Anmeldung.

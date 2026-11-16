@@ -1,6 +1,6 @@
 # Call center coverage: six simultaneous queues
 
-This sample sample covers six voice queues in one 30-minute window starting
+This sample covers six voice queues in one 30-minute window starting
 at 10:00 in New York (UTC−05:00 on 16 November 2026). It screens 60 synthetic
 operator profiles. IDs are invented; there are no names, emails, recordings,
 customer records, or observed arrival statistics.
@@ -84,4 +84,4 @@ python reproduce.py --library /path/to/engine/backend/target/release/liborchestr
 The check rebuilds all four JSON documents in memory, calls the native
 library, runs a separate exhaustive check, and compares the canonical output
 with each saved file. Add `--write` only when intentionally refreshing the
-sample. First checked against the [verified engine source](https://github.com/ilstarno/orchestrata-engine/tree/cddfdaee5b9ee9ff2577399726b95a12286e69c7).
+sample. A match verifies the six-queue result with the library you supplied.

@@ -14,7 +14,7 @@ Le résultat contient `values: [1, 0]`. Les scores des règles obligatoires et d
 
 ## Modifier un seul élément
 
-Copiez l’[exemple d’affectation](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) dans `backend/examples/preference-change.json`. Dans la contrainte `prefer_value` de la tâche A, remplacez la `value` de `1` par `0`. Relancez la même commande avec `examples/preference-change.json`. L’affectation attendue devient `[0, 1]` ; la règle obligatoire ne change pas.
+Copiez l’`backend/examples/assignment.json` dans `backend/examples/preference-change.json`. Dans la contrainte `prefer_value` de la tâche A, remplacez la `value` de `1` par `0`. Relancez la même commande avec `examples/preference-change.json`. L’affectation attendue devient `[0, 1]` ; la règle obligatoire ne change pas.
 
 Dans une nouvelle copie, ne laissez que l’option `[0]` aux deux tâches et conservez la règle des places distinctes. Dans une version dont les résultats exacts ont été vérifiés, la CLI renvoie `null` : aucune affectation ne convient à ces données.
 

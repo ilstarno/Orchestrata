@@ -31,7 +31,7 @@ Het voorbeeld geeft een JSON-object met het veld `solution` terug. De volgorde v
 
 ## Catalogi voor sjablonen en fouten
 
-De onderstaande paden zijn beschikbaar in [de gecontroleerde openbare revisie](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Gebruik voor andere revisies het OpenAPI-schema van de draaiende service. Er is geen gehoste service.
+Controleer de onderstaande routes in `GET /api/v1/openapi.json` voordat u ze aanroept. Deze site host de API niet.
 
 | Methode en pad | Doel |
 | --- | --- |
@@ -42,4 +42,4 @@ De onderstaande paden zijn beschikbaar in [de gecontroleerde openbare revisie](h
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Los een meegeleverd voorbeeld op zonder verzoekinhoud. |
 | `GET /api/v1/recipes/grid` | Filter en doorloop de metagegevens van de meegeleverde sjablonen per pagina. |
 
-De aparte lokale MCP-server in deze revisie biedt `list_recipes`, `describe_recipe` en `get_recipe_example` via standaardinvoer en standaarduitvoer. Hiermee kunt u uitsluitend synthetische voorbeelden opvragen en bekijken. De build accepteert geen netwerkverbindingen en voert geen berekeningen uit om een oplossing te vinden. Deze lokale evaluatiebuild biedt geen gehoste MCP, gegevens voor externe toegang of inlogfunctie.
+De aparte lokale MCP-server, indien aanwezig, biedt `list_recipes`, `describe_recipe` en `get_recipe_example` via standaardinvoer en standaarduitvoer. Hiermee kunt u uitsluitend synthetische voorbeelden opvragen en bekijken. De build accepteert geen netwerkverbindingen en voert geen berekeningen uit om een oplossing te vinden. Deze lokale evaluatiebuild biedt geen gehoste MCP, gegevens voor externe toegang of inlogfunctie.

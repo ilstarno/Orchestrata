@@ -37,7 +37,7 @@
 </code></pre>
 <p>The result contains <code>values: [1, 0]</code> with hard and soft scores of zero. Values follow the input order, so job A takes slot 1 and job B takes slot 0. Both rules and preferences are satisfied.</p>
 <h2 id="section-change-one-thing">Change one thing</h2>
-<p>Copy the <a href="https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json">assignment fixture</a> to <code>backend/examples/preference-change.json</code>. Change the <code>value</code> in job A’s <code>prefer_value</code> constraint from <code>1</code> to <code>0</code>. Run the same command with <code>examples/preference-change.json</code>. The expected assignment is now <code>[0, 1]</code>; the hard rule does not change.</p>
+<p>Copy the <code>backend/examples/assignment.json</code> to <code>backend/examples/preference-change.json</code>. Change the <code>value</code> in job A’s <code>prefer_value</code> constraint from <code>1</code> to <code>0</code>. Run the same command with <code>examples/preference-change.json</code>. The expected assignment is now <code>[0, 1]</code>; the hard rule does not change.</p>
 <p>In a fresh copy, give both jobs the single option <code>[0]</code> and leave the different-slots rule in place. In a build with the verified exact-result contract, the CLI prints <code>null</code>: there is no valid assignment for this input.</p>
 <h2 id="section-decide-what-belongs-in-the-model">Decide what belongs in the model</h2>
 <ul>

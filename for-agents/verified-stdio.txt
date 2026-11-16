@@ -1,5 +1,4 @@
 Orchestrata MCP · local, synthetic examples only
-Build revision: c841b36ad4d8fd1f246a5cefe96a05a72d8784fe
 initialize → 2025-11-25
 tools/list → describe_recipe
 tools/list → get_recipe_example

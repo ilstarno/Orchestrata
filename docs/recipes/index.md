@@ -10,7 +10,7 @@ A recipe names a planning problem and its input fields. Run the sample JSON and 
 
 ## Run a catalog fixture
 
-With a checkout of the [recipe catalog](https://github.com/ilstarno/orchestrata-recipes/tree/main) and a built `orchestrata-cli` on your path, run this from the catalog repository root:
+With a checkout of the [recipe catalog](https://github.com/ilstarno/orchestrata-recipes) and a built `orchestrata-cli` on your path, run this from the catalog repository root:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

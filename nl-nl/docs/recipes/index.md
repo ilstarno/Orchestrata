@@ -10,7 +10,7 @@ Een planningssjabloon benoemt het probleem en de invoervelden. Draai het JSON-vo
 
 ## Voer een catalogusvoorbeeld uit
 
-Open een checkout van de [sjablooncatalogus](https://github.com/ilstarno/orchestrata-recipes/tree/main) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de catalogus:
+Open een checkout van de [sjablooncatalogus](https://github.com/ilstarno/orchestrata-recipes) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de catalogus:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

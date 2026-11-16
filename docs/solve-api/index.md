@@ -1,6 +1,6 @@
 # Solve API reference
 
-Send a finite planning problem to the local API. Each decision needs a list of allowed values. This reference covers [public revision `b8d1271e3faddfffaf220698e381197bcae1752f`](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f); see the [local setup guide](../backend-setup/) for the pinned checkout.
+Send a finite planning problem to the local API. Each decision needs a list of allowed values. See the [local setup guide](../backend-setup/) and use the running OpenAPI schema to verify the routes and fields below.
 
 ## Connect to the local service
 
@@ -25,7 +25,7 @@ Start the service at the checkout root:
 | `GET /api/v1/openapi.json` | No body | JSON schema for health, solve, errors, and the recipe catalog. The schema document does not list its own URL as an operation. |
 | `POST /api/v1/solve` | Problem JSON, described below | A JSON object containing `solution`. Check that it contains an assignment with hard score zero before using it. |
 
-If you use the CLI from the same checkout, the [assignment example](https://github.com/ilstarno/Orchestrata/blob/b8d1271e3faddfffaf220698e381197bcae1752f/backend/examples/assignment.json) is also available as a file: `(cd backend && cargo run -p orchestrata-cli -- examples/assignment.json)`. The CLI prints the solution directly, with no HTTP wrapper.
+If the source includes the CLI and `backend/examples/assignment.json`, run the example directly: `(cd backend && cargo run -p orchestrata-cli -- examples/assignment.json)`. The CLI prints the solution directly, with no HTTP wrapper.
 
 ## Problem fields
 
@@ -85,11 +85,11 @@ Expected status: **200 OK**. Response header: `content-type: application/json`. 
 | --- | --- | --- |
 | `solution` | Object or null in the schema | An object contains the optimum found within the supplied rules. Null means the completed exact search proved there was no hard-feasible assignment. |
 | `solution.values` | Array of signed 64-bit integers | One entry per input variable in the same order. Job A takes resource 1 and Job B takes resource 0. |
-| `solution.score.hard` | Signed 64-bit integer | `0` means the assignment satisfies every required rule supplied. The checked revision only returns hard-feasible assignments. |
+| `solution.score.hard` | Signed 64-bit integer | `0` means the assignment satisfies every required rule supplied. Under this exact-result contract, the solver only returns hard-feasible assignments. |
 | `solution.score.soft` | Signed 64-bit integer | `0` means all supplied preferences are met. A negative value reports the combined deductions for unmet preferences. |
 | `solution.evaluated` | Nonnegative JSON integer (the OpenAPI schema marks it as `int64` with minimum 0) | The number of assignments examined. The local API caps the number of combinations. |
 
-**An input error or search limit is not proof of infeasibility.** To check the null response, give both jobs the sole domain `[0]` in the worked request. Their all-different rule makes the model infeasible. The checked revision returns HTTP 200 and `{"solution":null}`. Reserve negative-hard candidates from older builds for diagnosis; do not apply them as plans.
+**An input error or search limit is not proof of infeasibility.** To check the null response, give both jobs the sole domain `[0]` in the worked request. Their all-different rule makes the model infeasible. A build with this exact-result contract returns HTTP 200 and `{"solution":null}`. Reserve negative-hard candidates from older builds for diagnosis; do not apply them as plans.
 
 ## Status and response headers
 
@@ -102,12 +102,12 @@ Expected status: **200 OK**. Response header: `content-type: application/json`. 
 | `500 Internal Server Error` | `solve_execution_failed` | Keep the request ID and the reproducible sample. An overflow in scoring can trigger this response. |
 | `503 Service Unavailable` | `solver_busy` | Solve slots are occupied. Retry later with backoff. |
 
-Read `GET /api/v1/error-codes` for the running build’s code catalog and keep `X-Request-ID` for correlation. Error bodies can be plaintext. This revision has no per-request timeout field or header.
+Read `GET /api/v1/error-codes` for the running build’s code catalog and keep `X-Request-ID` for correlation. Error bodies can be plaintext. This solve contract has no per-request timeout field or header.
 
 ## Size limits and troubleshooting
 
 - The exact-search limit is **100,000 combinations**. Calculate the total by multiplying all domain lengths. Five variables with ten options each are within the cap; six such variables exceed it. The limit is checked before search. A model rejected on this basis produces no planning result.
-- The tested starter build accepts a JSON body up to **2,097,152 bytes (2 MiB)**. This is independent of the combinations cap. A compact JSON body can encode a huge search; a model with few choices can still have a body too large to read. Other revisions or a proxy may impose a different body limit.
+- The tested starter build accepts a JSON body up to **2,097,152 bytes (2 MiB)**. This is independent of the combinations cap. A compact JSON body can encode a huge search; a model with few choices can still have a body too large to read. Your running server or a proxy may impose a different body limit.
 - If `curl` cannot connect, start the API on the same machine and confirm that port 3000 is available. The project site URL is not the API base URL. If health works but a solve fails, confirm that the request body contains the file contents.
 - If a result looks surprising, confirm zero-based indices and the order in `variables`, check for a preferred value outside the corresponding domain, and review hard and soft scores separately. If you intended an option to be forbidden, remove it from the domain. A preference only changes the score.
 - If you exceed the limit, reduce the case to a smaller representative model or remove options that genuinely cannot be chosen. Do not drop hard rules to get an answer. No retry can turn an unchanged over-budget model into a proof.
