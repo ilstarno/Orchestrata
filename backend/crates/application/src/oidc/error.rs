@@ -6,4 +6,10 @@ pub enum OidcError {
     InvalidClientId,
     ExpiredSignIn,
     InvalidCallback,
+    InvalidTokenEndpoint,
+    InvalidVerificationKeys,
+    WrongTransaction,
+    TokenExchangeFailed,
+    MissingIdToken,
+    InvalidIdToken,
 }

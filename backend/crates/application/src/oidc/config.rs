@@ -14,10 +14,10 @@ use super::{
 
 /// Trusted static OIDC provider configuration. Do not derive it from a request.
 pub struct OidcConfig {
-    issuer: IssuerUrl,
+    pub(super) issuer: IssuerUrl,
     authorize: AuthUrl,
-    redirect: RedirectUrl,
-    client_id: ClientId,
+    pub(super) redirect: RedirectUrl,
+    pub(super) client_id: ClientId,
 }
 
 impl OidcConfig {
@@ -89,7 +89,7 @@ impl OidcConfig {
     }
 }
 
-fn configured_https_url(value: &str) -> Option<Url> {
+pub(super) fn configured_https_url(value: &str) -> Option<Url> {
     let authority = value
         .strip_prefix("https://")?
         .split(['/', '?', '#'])

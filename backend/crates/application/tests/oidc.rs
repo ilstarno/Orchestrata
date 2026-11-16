@@ -50,12 +50,12 @@ fn authorization_and_callback_are_bound_by_s256_state_and_nonce() {
         )
         .unwrap();
 
-    assert_eq!(accepted.code.secret(), "synthetic-code");
-    assert_eq!(accepted.expected_nonce.secret(), &params["nonce"]);
-    assert_eq!(accepted.issuer.as_str(), ISSUER);
-    assert_eq!(accepted.redirect_uri.as_str(), REDIRECT);
-    assert_eq!(accepted.client_id.as_str(), CLIENT_ID);
-    let challenge = PkceCodeChallenge::from_code_verifier_sha256(&accepted.pkce_verifier);
+    assert_eq!(accepted.authorization_code().secret(), "synthetic-code");
+    assert_eq!(accepted.expected_nonce().secret(), &params["nonce"]);
+    assert_eq!(accepted.issuer().as_str(), ISSUER);
+    assert_eq!(accepted.redirect_uri().as_str(), REDIRECT);
+    assert_eq!(accepted.client_id().as_str(), CLIENT_ID);
+    let challenge = PkceCodeChallenge::from_code_verifier_sha256(accepted.pkce_verifier());
     assert_eq!(challenge.as_str(), params["code_challenge"]);
 }
 
