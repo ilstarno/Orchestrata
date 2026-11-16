@@ -9,6 +9,8 @@ use super::error_code::SolveErrorCode;
 
 pub enum ApiError {
     UnknownRecipe,
+    InvalidRecipeGridQuery,
+    RecipeCatalogUnavailable,
     InvalidRequestBody(JsonRejection),
     Solve(SolveError),
     SolveBusy,
@@ -31,6 +33,16 @@ impl IntoResponse for ApiError {
         let (status, message, code) = match self {
             Self::UnknownRecipe => {
                 return (StatusCode::NOT_FOUND, "Unknown built-in recipe").into_response();
+            }
+            Self::InvalidRecipeGridQuery => {
+                return (StatusCode::BAD_REQUEST, "Invalid recipe grid query").into_response();
+            }
+            Self::RecipeCatalogUnavailable => {
+                return (
+                    StatusCode::INTERNAL_SERVER_ERROR,
+                    "Built-in recipe metadata is unavailable",
+                )
+                    .into_response();
             }
             Self::InvalidRequestBody(rejection) => {
                 return SolveErrorCode::InvalidRequestBody.attach(rejection.into_response());

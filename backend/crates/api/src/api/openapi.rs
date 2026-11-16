@@ -4,13 +4,17 @@ use utoipa::OpenApi;
 use crate::{
     api::{
         controllers::{
-            error_catalog_controller, health_controller, recipe_controller, solve_controller,
+            error_catalog_controller, health_controller, recipe_controller, recipe_grid_controller,
+            solve_controller,
         },
         error_code::SolveErrorCode,
     },
     dto::{
         error_catalog_entry::ErrorCatalogEntry, health_response::HealthResponse,
         recipe_field_kind::RecipeFieldKind, recipe_field_response::RecipeFieldResponse,
+        recipe_grid_column::RecipeGridColumn, recipe_grid_column_id::RecipeGridColumnId,
+        recipe_grid_direction::RecipeGridDirection, recipe_grid_response::RecipeGridResponse,
+        recipe_grid_row::RecipeGridRow, recipe_grid_sort::RecipeGridSort,
         recipe_metadata_response::RecipeMetadataResponse, solve_response::SolveResponse,
     },
 };
@@ -21,6 +25,7 @@ use crate::{
         error_catalog_controller::error_catalog,
         health_controller::health,
         recipe_controller::list,
+        recipe_grid_controller::grid,
         recipe_controller::metadata,
         recipe_controller::example,
         recipe_controller::run_example,
@@ -31,6 +36,12 @@ use crate::{
         SolveResponse,
         SolveErrorCode,
         ErrorCatalogEntry,
+        RecipeGridResponse,
+        RecipeGridColumn,
+        RecipeGridColumnId,
+        RecipeGridRow,
+        RecipeGridSort,
+        RecipeGridDirection,
         RecipeMetadataResponse,
         RecipeFieldResponse,
         RecipeFieldKind,

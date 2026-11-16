@@ -14,6 +14,10 @@ pub mod openapi;
 mod recipe_catalog;
 #[cfg(test)]
 mod recipe_catalog_tests;
+mod recipe_grid;
+#[cfg(test)]
+#[path = "../../../../../backend_tests/api/recipe_grid.rs"]
+mod recipe_grid_tests;
 #[cfg(test)]
 mod recipe_run_tests;
 mod solve_admission;
@@ -26,7 +30,8 @@ use utoipa::OpenApi;
 
 use crate::api::{
     controllers::{
-        error_catalog_controller, health_controller, recipe_controller, solve_controller,
+        error_catalog_controller, health_controller, recipe_controller, recipe_grid_controller,
+        solve_controller,
     },
     openapi::ApiDoc,
 };
@@ -45,6 +50,7 @@ fn router_with_admission(admission: solve_admission::SolveAdmission) -> Router {
         )
         .route("/api/v1/solve", post(solve_controller::solve_problem))
         .route("/api/v1/recipes", get(recipe_controller::list))
+        .route("/api/v1/recipes/grid", get(recipe_grid_controller::grid))
         .route(
             "/api/v1/recipes/{recipe_id}",
             get(recipe_controller::metadata),
