@@ -4,3 +4,6 @@ pub(crate) const MAX_ROWS: usize = 4_096;
 pub(crate) const MAX_COLUMNS: usize = 64;
 pub(crate) const MAX_HEADER_BYTES: usize = 128;
 pub(crate) const MAX_CELL_BYTES: usize = 4_096;
+pub(crate) const MAX_STREAM_BYTES: u64 = 16 * 1_048_576;
+pub(crate) const MAX_STREAM_ROWS: usize = 100_000;
+pub(crate) const STREAM_BATCH_ROWS: usize = 128;

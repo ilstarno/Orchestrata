@@ -1,9 +1,9 @@
-use std::collections::{BTreeMap, HashMap};
+use std::{collections::HashMap, io::Read};
 
 use csv::{Reader, ReaderBuilder, StringRecord};
 
 use crate::{
-    ColumnMapping, ImportError, Mapping,
+    ColumnMapping, CsvRow, ImportError, Mapping,
     constants::{MAX_BYTES, MAX_CELL_BYTES, MAX_COLUMNS, MAX_ROWS},
     header::{normalized_header, validate_target},
 };
@@ -27,47 +27,76 @@ pub fn suggest_csv_mapping(data: &[u8], target_fields: &[&str]) -> Result<Mappin
     Mapping::new(columns)
 }
 
-pub fn normalize_csv(
-    data: &[u8],
-    mapping: &Mapping,
-) -> Result<Vec<BTreeMap<String, String>>, ImportError> {
-    mapping.validate()?;
+pub fn normalize_csv(data: &[u8], mapping: &Mapping) -> Result<Vec<CsvRow>, ImportError> {
     let mut reader = reader(data)?;
+    let mut output = Vec::new();
+    visit_rows(&mut reader, mapping, MAX_ROWS, MAX_BYTES as u64, |row| {
+        output.push(row);
+        Ok::<(), ImportError>(())
+    })?;
+    Ok(output)
+}
+
+pub(super) fn visit_rows<R, E>(
+    reader: &mut Reader<R>,
+    mapping: &Mapping,
+    row_limit: usize,
+    byte_limit: u64,
+    mut consume: impl FnMut(CsvRow) -> Result<(), E>,
+) -> Result<usize, E>
+where
+    R: Read,
+    E: From<ImportError>,
+{
+    mapping.validate()?;
     let headers = reader.headers().map_err(csv_error)?;
     let by_name = index_headers(headers)?;
     let columns = mapped_indices(mapping, &by_name)?;
 
-    let mut output = Vec::new();
-    for record in reader.records() {
-        let record = record.map_err(csv_error)?;
-        if output.len() == MAX_ROWS {
-            return Err(ImportError::TooManyRows);
+    let mut count = 0;
+    let mut record = StringRecord::new();
+    while reader.read_record(&mut record).map_err(csv_error)? {
+        if reader.position().byte() > byte_limit {
+            return Err(ImportError::SourceTooLarge.into());
         }
-        for (column, cell) in record.iter().enumerate() {
-            if cell.len() > MAX_CELL_BYTES {
-                return Err(ImportError::CellTooLarge {
-                    line: record.position().map(csv::Position::line),
-                    column: column + 1,
-                });
-            }
+        if count == row_limit {
+            return Err(ImportError::TooManyRows.into());
         }
+        check_cells(&record)?;
         let row = columns
             .iter()
             .map(|(index, target)| (target.to_string(), record[*index].trim().to_owned()))
             .collect();
-        output.push(row);
+        consume(row)?;
+        count += 1;
     }
-    Ok(output)
+    Ok(count)
+}
+
+fn check_cells(record: &StringRecord) -> Result<(), ImportError> {
+    for (column, cell) in record.iter().enumerate() {
+        if cell.len() > MAX_CELL_BYTES {
+            return Err(ImportError::CellTooLarge {
+                line: record.position().map(csv::Position::line),
+                column: column + 1,
+            });
+        }
+    }
+    Ok(())
 }
 
 fn reader(data: &[u8]) -> Result<Reader<&[u8]>, ImportError> {
     if data.len() > MAX_BYTES {
         return Err(ImportError::SourceTooLarge);
     }
-    Ok(ReaderBuilder::new()
+    Ok(reader_from(data))
+}
+
+pub(super) fn reader_from<R: Read>(input: R) -> Reader<R> {
+    ReaderBuilder::new()
         .has_headers(true)
         .flexible(false)
-        .from_reader(data))
+        .from_reader(input)
 }
 
 fn index_headers(headers: &StringRecord) -> Result<HashMap<String, usize>, ImportError> {
