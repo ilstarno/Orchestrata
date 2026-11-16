@@ -1,0 +1,53 @@
+.planning-comparison {
+  --comparison-label: clamp(6.2rem, 12vw, 9rem);
+  --comparison-provider: clamp(11.5rem, 18vw, 15rem);
+  margin-block: 0 2.5rem; min-inline-size: 0;
+}
+.planning-comparison p { margin-block-start: .5rem; }
+.planning-comparison-hint,.planning-comparison-credits { color: var(--muted); font-size: .9rem; }
+.planning-comparison-scroll {
+  overflow-x: auto; border: 1px solid var(--rule); margin-block-start: .75rem;
+  overscroll-behavior-inline: contain; scroll-padding-inline-start: var(--comparison-label);
+}
+.planning-comparison-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.planning-comparison table {
+  border-collapse: separate; border-spacing: 0; inline-size: 100%;
+  min-inline-size: calc(var(--comparison-label) + 4 * var(--comparison-provider));
+  table-layout: fixed; text-align: start; color: var(--ink); background: var(--paper);
+}
+.planning-comparison :is(th,td) {
+  min-inline-size: 0; border-block-end: 1px solid var(--rule);
+  padding: clamp(.65rem, 1.1vw, .95rem); vertical-align: top; overflow-wrap: anywhere;
+}
+.planning-comparison thead th { background: var(--dataset-surface); font-size: 1.025rem; }
+.planning-comparison th:first-child {
+  inline-size: var(--comparison-label); position: sticky; inset-inline-start: 0; z-index: 1;
+  background: var(--paper); border-inline-end: 1px solid var(--rule);
+}
+.planning-comparison thead th:first-child { z-index: 2; vertical-align: bottom; }
+.planning-comparison [data-provider="orchestrata"] { background: var(--dataset-surface); border-inline-end: 1px solid var(--rule); }
+.planning-comparison thead [data-provider="orchestrata"] { border-block-start: 3px solid var(--ink); }
+.planning-comparison-provider { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem; min-block-size: 2rem; }
+.planning-comparison thead small { display: block; margin-block-start: .2rem; color: var(--muted); font-weight: 450; font-size: .84rem; }
+.planning-comparison-provider img { inline-size: 2rem; block-size: 2rem; flex: none; }
+.planning-comparison tbody tr:last-child :is(th,td) { border-block-end: 0; }
+.planning-comparison td { font-size: .94rem; line-height: 1.45; }
+@media (min-width: 65rem) { .planning-comparison-hint { display: none; } }
+@media (forced-colors: active) { .planning-comparison th:first-child { border-inline-end: 1px solid CanvasText; } }
+.planning-comparison caption.sr-only {
+  position: absolute; inline-size: 1px; block-size: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+
+.planning-compare-article > .page-hero { padding-block: clamp(1.4rem, 3.6vw, 2.65rem) 1rem; }
+.planning-compare-article > .page-hero h1 {
+  max-inline-size: 24ch; font-size: clamp(1.85rem, 4.7vw, 3.4rem);
+}
+@media (max-width: 30rem) {
+  .planning-comparison {
+    --comparison-label: 5rem;
+    --comparison-provider: 10.75rem;
+  }
+  .planning-comparison :is(th,td) { padding-inline: .55rem; }
+}
