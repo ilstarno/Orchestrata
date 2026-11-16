@@ -27,7 +27,7 @@ Keep this build on loopback. A successful health check confirms a responding pro
 
 ## Evaluate the standalone engine and SDKs
 
-The [draft standalone engine import](https://github.com/ilstarno/orchestrata-engine/pull/1) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. The branch is not a packaged or tagged SDK release. On the engine checkout, with stable Rust:
+The [standalone engine import under review](https://github.com/ilstarno/orchestrata-engine/pull/1) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. The branch is not a packaged or tagged SDK release. On the engine checkout, with stable Rust:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

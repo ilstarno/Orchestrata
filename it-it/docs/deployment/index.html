@@ -15,7 +15,7 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 </code></pre>
 <p>Limitare questa build all’interfaccia di loopback. Una verifica di disponibilità riuscita conferma soltanto che il processo risponde; non verifica l’autenticazione, la capacità del servizio o la disponibilità di un archivio persistente dei job.</p>
 <h2>Valutare il motore autonomo e gli SDK</h2>
-<p>La <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">bozza di importazione del motore autonomo</a> include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Il ramo non è un rilascio SDK né come pacchetto né come tag. Dalla copia locale del motore, con Rust stabile, eseguire:</p>
+<p>La <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">importazione del motore autonomo in revisione</a> include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Il ramo non è un rilascio SDK né come pacchetto né come tag. Dalla copia locale del motore, con Rust stabile, eseguire:</p>
 <pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 </code></pre>
 <p>Consultare il README dell’SDK per i requisiti di caricamento e di runtime del linguaggio in uso. Usare la libreria nativa della stessa revisione estratta e un binding compatibile con l’ABI. La compilazione della libreria nativa su una piattaforma non dimostra che siano supportati pacchetti per altre piattaforme.</p>

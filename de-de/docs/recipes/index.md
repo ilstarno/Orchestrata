@@ -10,7 +10,7 @@ Eine Planungsvorlage beschreibt eine kleine Planungsaufgabe und die benötigten 
 
 ## Ein Beispiel aus dem Katalog ausführen
 
-Checken Sie den [Entwurf für den Vorlagenimport](https://github.com/ilstarno/orchestrata-recipes/pull/1) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Vorlagen-Repositorys aus:
+Checken Sie den [Vorlagenimport zur Prüfung](https://github.com/ilstarno/orchestrata-recipes/pull/1) aus und stellen Sie sicher, dass das gebaute Programm `orchestrata-cli` im Suchpfad liegt. Führen Sie im Stammverzeichnis des Vorlagen-Repositorys aus:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

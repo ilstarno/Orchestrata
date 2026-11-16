@@ -15,7 +15,7 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 </code></pre>
 <p>Beperk deze build tot de loopbackinterface. Een geslaagde statuscontrole bevestigt alleen dat het proces reageert. Dit zegt niets over authenticatie, de capaciteit van de service of de beschikbaarheid van persistente taakopslag.</p>
 <h2>De zelfstandige engine en de SDK’s evalueren</h2>
-<p>De <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">conceptimport van de zelfstandige engine</a> bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. De branch is niet als SDK-pakket of getagde SDK-release uitgebracht. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:</p>
+<p>De <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">import van de zelfstandige engine ter beoordeling</a> bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. De branch is niet als SDK-pakket of getagde SDK-release uitgebracht. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:</p>
 <pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 </code></pre>
 <p>Raadpleeg de README van de SDK voor de vereisten voor het laden van de bibliotheek en de runtime van uw taal. Gebruik de native bibliotheek uit dezelfde checkout en een ABI-compatibele binding. Dat u de native bibliotheek op één platform kunt bouwen, bewijst niet dat pakketdistributie op andere platforms wordt ondersteund.</p>

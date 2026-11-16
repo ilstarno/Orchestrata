@@ -27,7 +27,7 @@ Beperk deze build tot de loopbackinterface. Een geslaagde statuscontrole bevesti
 
 ## De zelfstandige engine en de SDK’s evalueren
 
-De [conceptimport van de zelfstandige engine](https://github.com/ilstarno/orchestrata-engine/pull/1) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. De branch is niet als SDK-pakket of getagde SDK-release uitgebracht. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
+De [import van de zelfstandige engine ter beoordeling](https://github.com/ilstarno/orchestrata-engine/pull/1) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. De branch is niet als SDK-pakket of getagde SDK-release uitgebracht. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

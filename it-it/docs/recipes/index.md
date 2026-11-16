@@ -10,7 +10,7 @@ Un modello di pianificazione descrive un piccolo scenario e i campi che usa. Gli
 
 ## Esegui un esempio del catalogo
 
-Scarica il ramo della [bozza di importazione dei modelli](https://github.com/ilstarno/orchestrata-recipes/pull/1) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del repository dei modelli:
+Scarica il ramo della [importazione dei modelli in revisione](https://github.com/ilstarno/orchestrata-recipes/pull/1) e assicurati che l’eseguibile compilato `orchestrata-cli` sia nel percorso di ricerca. Esegui il comando dalla cartella principale del repository dei modelli:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

@@ -31,7 +31,7 @@ L’esempio restituisce un oggetto JSON con il campo `solution`. I valori restit
 
 ## Ricette e catalogo degli errori in revisione
 
-I percorsi che seguono sono stati implementati nell’ambito di una revisione o di un’integrazione locale. Consultare la [bozza HTTP in revisione](https://github.com/ilstarno/Orchestrata/pull/22) per le modifiche che contiene. L’insieme dei percorsi integrati in locale può essere diverso. Verificare la revisione in esecuzione: questi percorsi non sono necessariamente presenti in un checkout predefinito o in un servizio ospitato.
+I percorsi che seguono sono stati implementati nell’ambito di una revisione o di un’integrazione locale. Consultare la [modifiche HTTP in revisione](https://github.com/ilstarno/Orchestrata/pull/22) per le modifiche che contiene. L’insieme dei percorsi integrati in locale può essere diverso. Verificare la revisione in esecuzione: questi percorsi non sono necessariamente presenti in un checkout predefinito o in un servizio ospitato.
 
 | Metodo e percorso | Scopo |
 | --- | --- |

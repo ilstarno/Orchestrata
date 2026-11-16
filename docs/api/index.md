@@ -31,7 +31,7 @@ The example returns a JSON object with a `solution` field. The returned values f
 
 ## Recipe and error catalog review work
 
-The following paths are implemented in review or local integration work. See the [HTTP review draft](https://github.com/ilstarno/Orchestrata/pull/22) for the changes it contains; the merged set of local review paths may differ. Check the revision you run; do not assume they exist on a default checkout or on a hosted service.
+The following paths are implemented in review or local integration work. See the [HTTP review #22](https://github.com/ilstarno/Orchestrata/pull/22) for the changes it contains; the merged set of local review paths may differ. Check the revision you run; do not assume they exist on a default checkout or on a hosted service.
 
 | Method and path | Purpose |
 | --- | --- |

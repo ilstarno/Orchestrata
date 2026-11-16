@@ -1,6 +1,6 @@
 # Recipe API reference
 
-**Local review builds only.** [Draft #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the recipe catalog and example routes. [Draft #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the recipe grid. These are not released or hosted endpoints. Check the revision you run and keep the service on your own machine. The catalog contains bundled synthetic planning examples, not uploaded files or customer records.
+**Local review builds only.** [Review #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the recipe catalog and example routes. [Review #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the recipe grid. These are not released or hosted endpoints. Check the revision you run and keep the service on your own machine. The catalog contains bundled synthetic planning examples, not uploaded files or customer records.
 
 ## Start with the catalog
 
@@ -22,7 +22,7 @@ curl -fsS -X POST "$API/api/v1/recipes/field-service/run-example"
 | `GET /api/v1/recipes/{recipe_id}` | One metadata object. Use the exact `id` returned by the catalog. |
 | `GET /api/v1/recipes/{recipe_id}/example` | The checked-in synthetic planning problem as JSON. It does not solve it. |
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Solves the bundled example and returns a JSON result. Send no request body. Where variants exist, this route uses the default example. |
-| `GET /api/v1/recipes/grid` | One filtered, sorted page of catalog metadata. Requires the grid draft. |
+| `GET /api/v1/recipes/grid` | One filtered, sorted page of catalog metadata. Requires the revision in review #24. |
 | `GET /api/v1/error-codes` | An array of error codes, descriptions, and associated status lists (keys: `code`, `description`, `status_codes`). |
 | `GET /api/v1/openapi.json` | The OpenAPI document emitted by the running build. Check it before depending on a review route. |
 
@@ -81,4 +81,4 @@ curl -si "$API/api/v1/recipes/no-such-recipe"
 curl -fsS "$API/api/v1/error-codes"
 ```
 
-If the grid command returns catalog metadata, a 404, or an HTML page instead of the documented JSON, confirm the server was restarted from draft #24 and that you are calling the loopback API port rather than the static site.
+If the grid command returns catalog metadata, a 404, or an HTML page instead of the documented JSON, confirm the server was restarted from the revision in review #24 and that you are calling the loopback API port rather than the static site.

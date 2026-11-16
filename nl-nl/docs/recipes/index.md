@@ -10,7 +10,7 @@ Een planningssjabloon beschrijft een kleine planningssituatie en de velden die d
 
 ## Voer een catalogusvoorbeeld uit
 
-Gebruik een checkout van de [conceptimport van de sjablonen](https://github.com/ilstarno/orchestrata-recipes/pull/1) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de sjabloonrepository:
+Gebruik een checkout van de [import van de sjablonen ter beoordeling](https://github.com/ilstarno/orchestrata-recipes/pull/1) en zorg dat het gebouwde programma `orchestrata-cli` in uw zoekpad staat. Voer dit uit vanuit de hoofdmap van de sjabloonrepository:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

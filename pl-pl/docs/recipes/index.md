@@ -10,7 +10,7 @@ Szablon planowania opisuje mały scenariusz i używane w nim pola. Przykłady do
 
 ## Uruchom przykład z katalogu
 
-Pobierz gałąź [roboczego importu szablonów](https://github.com/ilstarno/orchestrata-recipes/pull/1) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium szablonów wykonaj:
+Pobierz gałąź [importu szablonów do przeglądu](https://github.com/ilstarno/orchestrata-recipes/pull/1) i upewnij się, że skompilowane polecenie `orchestrata-cli` jest dostępne na ścieżce wyszukiwania. W katalogu głównym repozytorium szablonów wykonaj:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

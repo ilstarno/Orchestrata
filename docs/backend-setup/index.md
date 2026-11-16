@@ -52,13 +52,13 @@ Open the local address printed by the command. The Vite server forwards `/api` r
 | curl cannot read `assignment.json` | Run from the repository root, or change the file path after the `@` to match your working directory. |
 | A solve request fails | Retry with `curl -i` instead of `curl -f` to see the HTTP status and response. Check the method, `Content-Type`, JSON structure, and allowed problem size. The public-main starter can return `422` for invalid input or a search space beyond its limit without distinguishing the two in the error text. Neither means that no plan exists. |
 | The UI loads but cannot solve | Call the API health URL directly, then check the Vite terminal for proxy errors. Confirm that the UI and API use the intended revisions and that the proxy points at the API's loopback address. |
-| A recipe route returns 404 | Check the running OpenAPI document. Recipe routes are [draft #22](https://github.com/ilstarno/Orchestrata/pull/22) work; the grid additionally requires [draft #24](https://github.com/ilstarno/Orchestrata/pull/24). A default checkout does not include those draft routes. |
+| A recipe route returns 404 | Check the running OpenAPI document. Recipe routes are [review #22](https://github.com/ilstarno/Orchestrata/pull/22) work; the grid additionally requires [review #24](https://github.com/ilstarno/Orchestrata/pull/24). A default checkout does not include those routes. |
 
 ## Optional: evaluate PostgreSQL session persistence
 
-[Draft #25](https://github.com/ilstarno/Orchestrata/pull/25) adds the `orchestrata-session-store` crate with SeaORM 2.0.4. These steps apply to that draft checkout only. The adapter accepts a PostgreSQL SeaORM connection. It does not change the baseline API setup, read a database URL from the API environment, or enable accounts, login, cookies, or any authenticated route. No database is needed for the basic API walkthrough above.
+[Review #25](https://github.com/ilstarno/Orchestrata/pull/25) adds the `orchestrata-session-store` crate with SeaORM 2.0.4. These steps apply to that revision only. The adapter accepts a PostgreSQL SeaORM connection. It does not change the baseline API setup, read a database URL from the API environment, or enable accounts, login, cookies, or any authenticated route. No database is needed for the basic API walkthrough above.
 
-From the draft's repository root, run the default adapter tests without Docker or database credentials:
+From the repository root of that revision, run the default adapter tests without Docker or database credentials:
 
 ```sh
 cargo test --manifest-path backend/Cargo.toml -p orchestrata-session-store

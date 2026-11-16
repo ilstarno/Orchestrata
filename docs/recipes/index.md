@@ -10,7 +10,7 @@ A recipe describes a small planning scenario and the fields it uses. The runnabl
 
 ## Run a catalog fixture
 
-With a checkout of the [draft recipe import](https://github.com/ilstarno/orchestrata-recipes/pull/1) and a built `orchestrata-cli` on your path, run from the recipe repository root:
+With a checkout of the [recipe import under review](https://github.com/ilstarno/orchestrata-recipes/pull/1) and a built `orchestrata-cli` on your path, run from the recipe repository root:
 
 ```sh
 orchestrata-cli recipes/examples/fleet-pickup-delivery/problem.json

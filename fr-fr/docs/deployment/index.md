@@ -1,4 +1,4 @@
-Exécutez d’abord le service et l’interface sur votre poste de travail. Le site du projet Orchestrata est statique : l’ouvrir ne démarre aucune API. Cette préversion est destinée à une évaluation locale avec des données fictives, non à un accès public ou à un usage en production.
+Exécutez d’abord le service et l’interface sur votre poste de travail. Le site du projet Orchestrata est statique : l’ouvrir ne démarre aucune API. Ce guide est destiné à une évaluation locale avec des données fictives, non à un accès public ou à un usage en production.
 
 ## API locale et interface web
 

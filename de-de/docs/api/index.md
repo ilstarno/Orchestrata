@@ -31,7 +31,7 @@ Das Beispiel gibt ein JSON-Objekt mit dem Feld `solution` zurück. Die Werte ste
 
 ## Rezepte und Fehlerkatalog in der Review-Phase
 
-Die folgenden Pfade wurden in Review-Entwürfen oder bei der lokalen Integration umgesetzt. Welche Änderungen der [HTTP-Entwurf zur Prüfung](https://github.com/ilstarno/Orchestrata/pull/22) enthält, steht im Pull Request. Der lokal zusammengeführte Stand kann andere Pfade umfassen. Prüfen Sie die verwendete Revision. Gehen Sie nicht davon aus, dass diese Pfade nach einem Standard-Checkout oder bei einem gehosteten Dienst verfügbar sind.
+Die folgenden Pfade wurden zur Prüfung oder für die lokale Integration umgesetzt. Welche Änderungen der [HTTP-Änderungen zur Prüfung](https://github.com/ilstarno/Orchestrata/pull/22) enthält, steht im Pull Request. Der lokal zusammengeführte Stand kann andere Pfade umfassen. Prüfen Sie die verwendete Revision. Gehen Sie nicht davon aus, dass diese Pfade nach einem Standard-Checkout oder bei einem gehosteten Dienst verfügbar sind.
 
 | Methode und Pfad | Zweck |
 | --- | --- |

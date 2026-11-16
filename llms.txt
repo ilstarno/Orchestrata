@@ -4,6 +4,19 @@
 
 ## Markdown guides
 
+- [Airline crew assignment](https://ilstarno.github.io/Orchestrata/solutions/airline-crew-assignment/index.md): Match eligible crews to overlapping flight duties. See the eligible choices, verified result, and downloadable inputs.
+- [Hospital operations staffing](https://ilstarno.github.io/Orchestrata/solutions/hospital-nonclinical-shift-coverage/index.md): Cover simultaneous nonclinical shifts with available staff. See the eligible choices, verified result, and downloadable inputs.
+- [Healthcare supply delivery](https://ilstarno.github.io/Orchestrata/solutions/healthcare-supply-delivery/index.md): Allocate available vehicles to overlapping supply deliveries. See the eligible choices, verified result, and downloadable inputs.
+- [Loading dock assignment](https://ilstarno.github.io/Orchestrata/solutions/loading-dock-assignment/index.md): Assign overlapping cargo appointments to distinct eligible docks. See the eligible choices, verified result, and downloadable inputs.
+- [Operating room blocks](https://ilstarno.github.io/Orchestrata/solutions/operating-room-block-allocation/index.md): Assign overlapping blocks to compatible rooms. See the eligible choices, verified result, and downloadable inputs.
+- [Dental treatment rooms](https://ilstarno.github.io/Orchestrata/solutions/dental-clinic-room-allocation/index.md): Match concurrent procedures to compatible rooms. See the eligible choices, verified result, and downloadable inputs.
+- [School classroom assignment](https://ilstarno.github.io/Orchestrata/solutions/high-school-timetabling/index.md): Place classes in distinct eligible rooms during one period. See the eligible choices, verified result, and downloadable inputs.
+- [Field service technician assignment](https://ilstarno.github.io/Orchestrata/solutions/field-service/index.md): See how prequalified technicians can be assigned to three simultaneous service jobs without double-booking. Inspect the checked-in synthetic example.
+- [Workforce and shift assignment](https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/index.md): Compare shift assignments across two retail stores before and after a callout, while keeping required coverage and checking missed preferences.
+- [Fleet pickup and delivery assignment](https://ilstarno.github.io/Orchestrata/solutions/fleet-assignment/index.md): Explore matching three overlapping delivery jobs to eligible vans by per-job capacity and availability, without claiming live vehicle routing.
+- [Call center queue staffing](https://ilstarno.github.io/Orchestrata/solutions/call-center-staffing/index.md): Assign qualified agents to three concurrent support queues without double-booking. Download the exact job domains, preference, and expected assignments.
+- [Airport gate assignment](https://ilstarno.github.io/Orchestrata/solutions/airport-gate-assignment/index.md): Match three overlapping flights to compatible gates, avoid a conflicting gate assignment, and see how a preferred gate changes the result.
+- [Cluster workload placement](https://ilstarno.github.io/Orchestrata/solutions/cluster-workload-placement/index.md): Assign concurrent compute jobs to eligible nodes, keep workloads separate, and inspect the expected solution for a preferred GPU node.
 - [Evaluate the planning engine](https://ilstarno.github.io/Orchestrata/docs/evaluate/index.md): Use a small planning problem to evaluate hard constraints, priorities, feasibility, and search budgets in Orchestrata.
 - [CLI and API reference](https://ilstarno.github.io/Orchestrata/docs/api/index.md): Run a planning problem locally, understand the HTTP request and result, and handle validation and exact-search limits.
 - [Planning examples and recipes](https://ilstarno.github.io/Orchestrata/docs/recipes/index.md): Start with a reproducible assignment problem and see how example inputs can inform your own finite planning model.

@@ -31,7 +31,7 @@ Przykład zwraca obiekt JSON z polem `solution`. Wartości są ułożone w tej s
 
 ## Receptury i katalog błędów w trakcie przeglądu
 
-Poniższe ścieżki zaimplementowano w ramach prac podlegających przeglądowi lub lokalnej integracji. Zmiany w propozycji HTTP znajdziesz w [roboczym pull requeście HTTP](https://github.com/ilstarno/Orchestrata/pull/22). Zestaw ścieżek scalonych lokalnie może się różnić. Sprawdź uruchamianą rewizję. Nie zakładaj, że ścieżki są dostępne w domyślnie pobranej wersji repozytorium lub w usłudze hostingowej.
+Poniższe ścieżki zaimplementowano w ramach prac podlegających przeglądowi lub lokalnej integracji. Zmiany w propozycji HTTP znajdziesz w [zmianach HTTP w przeglądzie](https://github.com/ilstarno/Orchestrata/pull/22). Zestaw ścieżek scalonych lokalnie może się różnić. Sprawdź uruchamianą rewizję. Nie zakładaj, że ścieżki są dostępne w domyślnie pobranej wersji repozytorium lub w usłudze hostingowej.
 
 | Metoda i ścieżka | Przeznaczenie |
 | --- | --- |

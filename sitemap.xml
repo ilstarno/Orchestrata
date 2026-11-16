@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/airline-crew-assignment/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/hospital-nonclinical-shift-coverage/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/healthcare-supply-delivery/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/loading-dock-assignment/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/operating-room-block-allocation/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/dental-clinic-room-allocation/</loc>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/high-school-timetabling/</loc>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/"/>

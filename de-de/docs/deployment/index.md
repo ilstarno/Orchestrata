@@ -1,4 +1,4 @@
-Starten Sie den Dienst und die Oberfläche zunächst auf Ihrem Rechner. Die Projektwebsite von Orchestrata ist statisch. Wenn Sie sie öffnen, wird keine API gestartet. Die Vorschau dient der lokalen Evaluierung mit fiktiven Daten, nicht dem öffentlichen Zugriff oder dem Produktivbetrieb.
+Starten Sie den Dienst und die Oberfläche zunächst auf Ihrem Rechner. Die Projektwebsite von Orchestrata ist statisch. Wenn Sie sie öffnen, wird keine API gestartet. Diese Anleitung dient der lokalen Evaluierung mit fiktiven Daten, nicht dem öffentlichen Zugriff oder dem Produktivbetrieb.
 
 ## Lokale API und Weboberfläche
 
@@ -27,7 +27,7 @@ Beschränken Sie diesen Build auf die Loopback-Schnittstelle. Eine erfolgreiche 
 
 ## Eigenständige Engine und SDKs evaluieren
 
-Der [Entwurf zur Übernahme der eigenständigen Engine](https://github.com/ilstarno/orchestrata-engine/pull/1) enthält die Rust-Engine, die native Bibliothek und Anbindungen für C#, Java, Python, Node.js, PHP und Go. Der Branch ist weder als SDK-Paket veröffentlicht noch als SDK-Release markiert. Führen Sie im Checkout der Engine mit stabilem Rust Folgendes aus:
+Der [Übernahme der eigenständigen Engine zur Prüfung](https://github.com/ilstarno/orchestrata-engine/pull/1) enthält die Rust-Engine, die native Bibliothek und Anbindungen für C#, Java, Python, Node.js, PHP und Go. Der Branch ist weder als SDK-Paket veröffentlicht noch als SDK-Release markiert. Führen Sie im Checkout der Engine mit stabilem Rust Folgendes aus:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi

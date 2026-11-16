@@ -15,7 +15,7 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 </code></pre>
 <p>Keep this build on loopback. A successful health check confirms a responding process, not authentication, service capacity, or availability of a durable job store.</p>
 <h2>Evaluate the standalone engine and SDKs</h2>
-<p>The <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">draft standalone engine import</a> contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. The branch is not a packaged or tagged SDK release. On the engine checkout, with stable Rust:</p>
+<p>The <a href="https://github.com/ilstarno/orchestrata-engine/pull/1">standalone engine import under review</a> contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. The branch is not a packaged or tagged SDK release. On the engine checkout, with stable Rust:</p>
 <pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 </code></pre>
 <p>Follow the SDK README for loader and runtime requirements for your language. Use the native library from the same checkout and an ABI-compatible binding. A native library built on one platform is not proof of packaging support for other platforms.</p>
