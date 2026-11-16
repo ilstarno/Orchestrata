@@ -7,11 +7,12 @@
       "input": {
         "lead": {
           "id": "L-001",
-          "company": "Northline",
+          "name": "Sample Jules Haven",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-001@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.HAVEN-001@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -58,7 +59,7 @@
         "contact": {
           "id": "CT-001",
           "account": "AC-0",
-          "email": "inquiry-001@example.test",
+          "email": "sample-jules.haven-001@drift-quarry-01.invalid",
           "owner": "REP-08"
         }
       }
@@ -68,11 +69,12 @@
       "input": {
         "lead": {
           "id": "L-002",
-          "company": "Harbor Point",
+          "name": "Sample Caro Moss",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-002@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.MOSS-002@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -114,7 +116,7 @@
           {
             "id": "CT-EX-002",
             "account": "AC-1",
-            "email": "inquiry-002@example.test",
+            "email": "sample-caro.moss-002@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]
@@ -126,7 +128,7 @@
         "contact": {
           "id": "CT-EX-002",
           "account": "AC-1",
-          "email": "inquiry-002@example.test",
+          "email": "sample-caro.moss-002@reed-ridge-02.invalid",
           "owner": "REP-18"
         }
       }
@@ -136,11 +138,12 @@
       "input": {
         "lead": {
           "id": "L-003",
-          "company": "Alder Works",
+          "name": "Sample Caro Lake",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-003@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.LAKE-003@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -192,11 +195,12 @@
       "input": {
         "lead": {
           "id": "L-004",
-          "company": "Cedar Ridge",
+          "name": "Sample Remy Cinder",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-004@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.CINDER-004@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -238,7 +242,7 @@
           {
             "id": "CT-EX-004",
             "account": "AC-OTHER",
-            "email": "inquiry-004@example.test",
+            "email": "sample-remy.cinder-004@arc-foundry-04.invalid",
             "owner": "REP-18"
           }
         ]
@@ -255,11 +259,12 @@
       "input": {
         "lead": {
           "id": "L-005",
-          "company": "Bridgewell",
+          "name": "Sample Dani Amber",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-005@EXAMPLE.TEST ",
+          "email": "  SAMPLE-DANI.AMBER-005@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -306,7 +311,7 @@
         "contact": {
           "id": "CT-005",
           "account": "AC-5",
-          "email": "inquiry-005@example.test",
+          "email": "sample-dani.amber-005@alder-harbor-06.invalid",
           "owner": "REP-08"
         }
       }
@@ -316,11 +321,12 @@
       "input": {
         "lead": {
           "id": "L-006",
-          "company": "Northline",
+          "name": "Sample Remy Grove",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-006@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.GROVE-006@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -362,7 +368,7 @@
           {
             "id": "CT-EX-006",
             "account": "AC-0",
-            "email": "inquiry-006@example.test",
+            "email": "sample-remy.grove-006@drift-quarry-01.invalid",
             "owner": "REP-18"
           }
         ]
@@ -374,7 +380,7 @@
         "contact": {
           "id": "CT-EX-006",
           "account": "AC-0",
-          "email": "inquiry-006@example.test",
+          "email": "sample-remy.grove-006@drift-quarry-01.invalid",
           "owner": "REP-18"
         }
       }
@@ -384,11 +390,12 @@
       "input": {
         "lead": {
           "id": "L-007",
-          "company": "Harbor Point",
+          "name": "Sample Uma Vale",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-007@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.VALE-007@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -440,11 +447,12 @@
       "input": {
         "lead": {
           "id": "L-008",
-          "company": "Alder Works",
+          "name": "Sample Uma Pine",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-008@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.PINE-008@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -486,13 +494,13 @@
           {
             "id": "CT-EX-008",
             "account": "AC-2",
-            "email": "inquiry-008@example.test",
+            "email": "sample-uma.pine-008@reed-ridge-03.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-008",
             "account": "AC-2",
-            "email": "inquiry-008@example.test",
+            "email": "sample-uma.pine-008@reed-ridge-03.invalid",
             "owner": "REP-18"
           }
         ]
@@ -509,11 +517,12 @@
       "input": {
         "lead": {
           "id": "L-009",
-          "company": "Riverside Supply",
+          "name": "Sample Uma Dale",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-009@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.DALE-009@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -560,7 +569,7 @@
         "contact": {
           "id": "CT-009",
           "account": "AC-4",
-          "email": "inquiry-009@example.test",
+          "email": "sample-uma.dale-009@cedar-harbor-05.invalid",
           "owner": "REP-08"
         }
       }
@@ -570,11 +579,12 @@
       "input": {
         "lead": {
           "id": "L-010",
-          "company": "Bridgewell",
+          "name": "Sample Uma Amber",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-010@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.AMBER-010@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -616,7 +626,7 @@
           {
             "id": "CT-EX-010",
             "account": "AC-5",
-            "email": "inquiry-010@example.test",
+            "email": "sample-uma.amber-010@alder-harbor-06.invalid",
             "owner": "REP-18"
           }
         ]
@@ -628,7 +638,7 @@
         "contact": {
           "id": "CT-EX-010",
           "account": "AC-5",
-          "email": "inquiry-010@example.test",
+          "email": "sample-uma.amber-010@alder-harbor-06.invalid",
           "owner": "REP-18"
         }
       }
@@ -638,11 +648,12 @@
       "input": {
         "lead": {
           "id": "L-011",
-          "company": "Northline",
+          "name": "Sample Sami Vale",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-011@EXAMPLE.TEST ",
+          "email": "  SAMPLE-SAMI.VALE-011@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -694,11 +705,12 @@
       "input": {
         "lead": {
           "id": "L-012",
-          "company": "Harbor Point",
+          "name": "Sample Nila Vale",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-012@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.VALE-012@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -740,7 +752,7 @@
           {
             "id": "CT-EX-012",
             "account": "AC-OTHER",
-            "email": "inquiry-012@example.test",
+            "email": "sample-nila.vale-012@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]
@@ -757,11 +769,12 @@
       "input": {
         "lead": {
           "id": "L-013",
-          "company": "Cedar Ridge",
+          "name": "Sample Remy Grove",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-013@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.GROVE-013@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -808,7 +821,7 @@
         "contact": {
           "id": "CT-013",
           "account": "AC-3",
-          "email": "inquiry-013@example.test",
+          "email": "sample-remy.grove-013@arc-foundry-04.invalid",
           "owner": "REP-08"
         }
       }
@@ -818,11 +831,12 @@
       "input": {
         "lead": {
           "id": "L-014",
-          "company": "Riverside Supply",
+          "name": "Sample Remy Cinder",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-014@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.CINDER-014@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -864,7 +878,7 @@
           {
             "id": "CT-EX-014",
             "account": "AC-4",
-            "email": "inquiry-014@example.test",
+            "email": "sample-remy.cinder-014@cedar-harbor-05.invalid",
             "owner": "REP-18"
           }
         ]
@@ -876,7 +890,7 @@
         "contact": {
           "id": "CT-EX-014",
           "account": "AC-4",
-          "email": "inquiry-014@example.test",
+          "email": "sample-remy.cinder-014@cedar-harbor-05.invalid",
           "owner": "REP-18"
         }
       }
@@ -886,11 +900,12 @@
       "input": {
         "lead": {
           "id": "L-015",
-          "company": "Bridgewell",
+          "name": "Sample Remy West",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-015@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.WEST-015@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -942,11 +957,12 @@
       "input": {
         "lead": {
           "id": "L-016",
-          "company": "Northline",
+          "name": "Sample Ari Pine",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-016@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ARI.PINE-016@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -988,13 +1004,13 @@
           {
             "id": "CT-EX-016",
             "account": "AC-0",
-            "email": "inquiry-016@example.test",
+            "email": "sample-ari.pine-016@drift-quarry-01.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-016",
             "account": "AC-0",
-            "email": "inquiry-016@example.test",
+            "email": "sample-ari.pine-016@drift-quarry-01.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1011,11 +1027,12 @@
       "input": {
         "lead": {
           "id": "L-017",
-          "company": "Alder Works",
+          "name": "Sample Eli West",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-017@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.WEST-017@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1062,7 +1079,7 @@
         "contact": {
           "id": "CT-017",
           "account": "AC-2",
-          "email": "inquiry-017@example.test",
+          "email": "sample-eli.west-017@reed-ridge-03.invalid",
           "owner": "REP-08"
         }
       }
@@ -1072,11 +1089,12 @@
       "input": {
         "lead": {
           "id": "L-018",
-          "company": "Cedar Ridge",
+          "name": "Sample Sami Cinder",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-018@EXAMPLE.TEST ",
+          "email": "  SAMPLE-SAMI.CINDER-018@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1118,7 +1136,7 @@
           {
             "id": "CT-EX-018",
             "account": "AC-3",
-            "email": "inquiry-018@example.test",
+            "email": "sample-sami.cinder-018@arc-foundry-04.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1130,7 +1148,7 @@
         "contact": {
           "id": "CT-EX-018",
           "account": "AC-3",
-          "email": "inquiry-018@example.test",
+          "email": "sample-sami.cinder-018@arc-foundry-04.invalid",
           "owner": "REP-18"
         }
       }
@@ -1140,11 +1158,12 @@
       "input": {
         "lead": {
           "id": "L-019",
-          "company": "Riverside Supply",
+          "name": "Sample Nila Grove",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-019@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.GROVE-019@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1196,11 +1215,12 @@
       "input": {
         "lead": {
           "id": "L-020",
-          "company": "Bridgewell",
+          "name": "Sample Caro Moss",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-020@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.MOSS-020@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1242,7 +1262,7 @@
           {
             "id": "CT-EX-020",
             "account": "AC-OTHER",
-            "email": "inquiry-020@example.test",
+            "email": "sample-caro.moss-020@alder-harbor-06.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1259,11 +1279,12 @@
       "input": {
         "lead": {
           "id": "L-021",
-          "company": "Harbor Point",
+          "name": "Sample Jules Lake",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-021@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.LAKE-021@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1310,7 +1331,7 @@
         "contact": {
           "id": "CT-021",
           "account": "AC-1",
-          "email": "inquiry-021@example.test",
+          "email": "sample-jules.lake-021@reed-ridge-02.invalid",
           "owner": "REP-08"
         }
       }
@@ -1320,11 +1341,12 @@
       "input": {
         "lead": {
           "id": "L-022",
-          "company": "Alder Works",
+          "name": "Sample Caro Moss",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-022@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.MOSS-022@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1366,7 +1388,7 @@
           {
             "id": "CT-EX-022",
             "account": "AC-2",
-            "email": "inquiry-022@example.test",
+            "email": "sample-caro.moss-022@reed-ridge-03.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1378,7 +1400,7 @@
         "contact": {
           "id": "CT-EX-022",
           "account": "AC-2",
-          "email": "inquiry-022@example.test",
+          "email": "sample-caro.moss-022@reed-ridge-03.invalid",
           "owner": "REP-18"
         }
       }
@@ -1388,11 +1410,12 @@
       "input": {
         "lead": {
           "id": "L-023",
-          "company": "Cedar Ridge",
+          "name": "Sample Kai Amber",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-023@EXAMPLE.TEST ",
+          "email": "  SAMPLE-KAI.AMBER-023@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1444,11 +1467,12 @@
       "input": {
         "lead": {
           "id": "L-024",
-          "company": "Riverside Supply",
+          "name": "Sample Remy Vale",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-024@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.VALE-024@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1490,13 +1514,13 @@
           {
             "id": "CT-EX-024",
             "account": "AC-4",
-            "email": "inquiry-024@example.test",
+            "email": "sample-remy.vale-024@cedar-harbor-05.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-024",
             "account": "AC-4",
-            "email": "inquiry-024@example.test",
+            "email": "sample-remy.vale-024@cedar-harbor-05.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1513,11 +1537,12 @@
       "input": {
         "lead": {
           "id": "L-025",
-          "company": "Northline",
+          "name": "Sample Kai Brook",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-025@EXAMPLE.TEST ",
+          "email": "  SAMPLE-KAI.BROOK-025@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1564,7 +1589,7 @@
         "contact": {
           "id": "CT-025",
           "account": "AC-0",
-          "email": "inquiry-025@example.test",
+          "email": "sample-kai.brook-025@drift-quarry-01.invalid",
           "owner": "REP-08"
         }
       }
@@ -1574,11 +1599,12 @@
       "input": {
         "lead": {
           "id": "L-026",
-          "company": "Harbor Point",
+          "name": "Sample Nila West",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-026@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.WEST-026@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1620,7 +1646,7 @@
           {
             "id": "CT-EX-026",
             "account": "AC-1",
-            "email": "inquiry-026@example.test",
+            "email": "sample-nila.west-026@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1632,7 +1658,7 @@
         "contact": {
           "id": "CT-EX-026",
           "account": "AC-1",
-          "email": "inquiry-026@example.test",
+          "email": "sample-nila.west-026@reed-ridge-02.invalid",
           "owner": "REP-18"
         }
       }
@@ -1642,11 +1668,12 @@
       "input": {
         "lead": {
           "id": "L-027",
-          "company": "Alder Works",
+          "name": "Sample Eli Flint",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-027@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.FLINT-027@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1698,11 +1725,12 @@
       "input": {
         "lead": {
           "id": "L-028",
-          "company": "Cedar Ridge",
+          "name": "Sample Uma Flint",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-028@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.FLINT-028@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1744,7 +1772,7 @@
           {
             "id": "CT-EX-028",
             "account": "AC-OTHER",
-            "email": "inquiry-028@example.test",
+            "email": "sample-uma.flint-028@arc-foundry-04.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1761,11 +1789,12 @@
       "input": {
         "lead": {
           "id": "L-029",
-          "company": "Bridgewell",
+          "name": "Sample Caro Haven",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-029@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.HAVEN-029@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1812,7 +1841,7 @@
         "contact": {
           "id": "CT-029",
           "account": "AC-5",
-          "email": "inquiry-029@example.test",
+          "email": "sample-caro.haven-029@alder-harbor-06.invalid",
           "owner": "REP-08"
         }
       }
@@ -1822,11 +1851,12 @@
       "input": {
         "lead": {
           "id": "L-030",
-          "company": "Northline",
+          "name": "Sample Uma Lake",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-030@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.LAKE-030@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1868,7 +1898,7 @@
           {
             "id": "CT-EX-030",
             "account": "AC-0",
-            "email": "inquiry-030@example.test",
+            "email": "sample-uma.lake-030@drift-quarry-01.invalid",
             "owner": "REP-18"
           }
         ]
@@ -1880,7 +1910,7 @@
         "contact": {
           "id": "CT-EX-030",
           "account": "AC-0",
-          "email": "inquiry-030@example.test",
+          "email": "sample-uma.lake-030@drift-quarry-01.invalid",
           "owner": "REP-18"
         }
       }
@@ -1890,11 +1920,12 @@
       "input": {
         "lead": {
           "id": "L-031",
-          "company": "Harbor Point",
+          "name": "Sample Jules Brook",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-031@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.BROOK-031@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1946,11 +1977,12 @@
       "input": {
         "lead": {
           "id": "L-032",
-          "company": "Alder Works",
+          "name": "Sample Uma Dale",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-032@EXAMPLE.TEST ",
+          "email": "  SAMPLE-UMA.DALE-032@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -1992,13 +2024,13 @@
           {
             "id": "CT-EX-032",
             "account": "AC-2",
-            "email": "inquiry-032@example.test",
+            "email": "sample-uma.dale-032@reed-ridge-03.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-032",
             "account": "AC-2",
-            "email": "inquiry-032@example.test",
+            "email": "sample-uma.dale-032@reed-ridge-03.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2015,11 +2047,12 @@
       "input": {
         "lead": {
           "id": "L-033",
-          "company": "Riverside Supply",
+          "name": "Sample Ira Cinder",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-033@EXAMPLE.TEST ",
+          "email": "  SAMPLE-IRA.CINDER-033@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2066,7 +2099,7 @@
         "contact": {
           "id": "CT-033",
           "account": "AC-4",
-          "email": "inquiry-033@example.test",
+          "email": "sample-ira.cinder-033@cedar-harbor-05.invalid",
           "owner": "REP-08"
         }
       }
@@ -2076,11 +2109,12 @@
       "input": {
         "lead": {
           "id": "L-034",
-          "company": "Bridgewell",
+          "name": "Sample Ira Flint",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-034@EXAMPLE.TEST ",
+          "email": "  SAMPLE-IRA.FLINT-034@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2122,7 +2156,7 @@
           {
             "id": "CT-EX-034",
             "account": "AC-5",
-            "email": "inquiry-034@example.test",
+            "email": "sample-ira.flint-034@alder-harbor-06.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2134,7 +2168,7 @@
         "contact": {
           "id": "CT-EX-034",
           "account": "AC-5",
-          "email": "inquiry-034@example.test",
+          "email": "sample-ira.flint-034@alder-harbor-06.invalid",
           "owner": "REP-18"
         }
       }
@@ -2144,11 +2178,12 @@
       "input": {
         "lead": {
           "id": "L-035",
-          "company": "Northline",
+          "name": "Sample Ari Pine",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-035@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ARI.PINE-035@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2200,11 +2235,12 @@
       "input": {
         "lead": {
           "id": "L-036",
-          "company": "Harbor Point",
+          "name": "Sample Sami Flint",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-036@EXAMPLE.TEST ",
+          "email": "  SAMPLE-SAMI.FLINT-036@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2246,7 +2282,7 @@
           {
             "id": "CT-EX-036",
             "account": "AC-OTHER",
-            "email": "inquiry-036@example.test",
+            "email": "sample-sami.flint-036@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2263,11 +2299,12 @@
       "input": {
         "lead": {
           "id": "L-037",
-          "company": "Cedar Ridge",
+          "name": "Sample Eli Cinder",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-037@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.CINDER-037@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2314,7 +2351,7 @@
         "contact": {
           "id": "CT-037",
           "account": "AC-3",
-          "email": "inquiry-037@example.test",
+          "email": "sample-eli.cinder-037@arc-foundry-04.invalid",
           "owner": "REP-08"
         }
       }
@@ -2324,11 +2361,12 @@
       "input": {
         "lead": {
           "id": "L-038",
-          "company": "Riverside Supply",
+          "name": "Sample Caro West",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-038@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.WEST-038@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2370,7 +2408,7 @@
           {
             "id": "CT-EX-038",
             "account": "AC-4",
-            "email": "inquiry-038@example.test",
+            "email": "sample-caro.west-038@cedar-harbor-05.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2382,7 +2420,7 @@
         "contact": {
           "id": "CT-EX-038",
           "account": "AC-4",
-          "email": "inquiry-038@example.test",
+          "email": "sample-caro.west-038@cedar-harbor-05.invalid",
           "owner": "REP-18"
         }
       }
@@ -2392,11 +2430,12 @@
       "input": {
         "lead": {
           "id": "L-039",
-          "company": "Bridgewell",
+          "name": "Sample Jules Flint",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-039@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.FLINT-039@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2448,11 +2487,12 @@
       "input": {
         "lead": {
           "id": "L-040",
-          "company": "Northline",
+          "name": "Sample Caro Flint",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "IT",
           "language": "it",
-          "email": "  INQUIRY-040@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.FLINT-040@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2494,13 +2534,13 @@
           {
             "id": "CT-EX-040",
             "account": "AC-0",
-            "email": "inquiry-040@example.test",
+            "email": "sample-caro.flint-040@drift-quarry-01.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-040",
             "account": "AC-0",
-            "email": "inquiry-040@example.test",
+            "email": "sample-caro.flint-040@drift-quarry-01.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2517,11 +2557,12 @@
       "input": {
         "lead": {
           "id": "L-041",
-          "company": "Alder Works",
+          "name": "Sample Jules Dale",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-041@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.DALE-041@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2568,7 +2609,7 @@
         "contact": {
           "id": "CT-041",
           "account": "AC-2",
-          "email": "inquiry-041@example.test",
+          "email": "sample-jules.dale-041@reed-ridge-03.invalid",
           "owner": "REP-08"
         }
       }
@@ -2578,11 +2619,12 @@
       "input": {
         "lead": {
           "id": "L-042",
-          "company": "Cedar Ridge",
+          "name": "Sample Remy Amber",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-042@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.AMBER-042@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2624,7 +2666,7 @@
           {
             "id": "CT-EX-042",
             "account": "AC-3",
-            "email": "inquiry-042@example.test",
+            "email": "sample-remy.amber-042@arc-foundry-04.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2636,7 +2678,7 @@
         "contact": {
           "id": "CT-EX-042",
           "account": "AC-3",
-          "email": "inquiry-042@example.test",
+          "email": "sample-remy.amber-042@arc-foundry-04.invalid",
           "owner": "REP-18"
         }
       }
@@ -2646,11 +2688,12 @@
       "input": {
         "lead": {
           "id": "L-043",
-          "company": "Riverside Supply",
+          "name": "Sample Tali Moss",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-043@EXAMPLE.TEST ",
+          "email": "  SAMPLE-TALI.MOSS-043@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2702,11 +2745,12 @@
       "input": {
         "lead": {
           "id": "L-044",
-          "company": "Bridgewell",
+          "name": "Sample Remy West",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "PL",
           "language": "pl",
-          "email": "  INQUIRY-044@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.WEST-044@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2748,7 +2792,7 @@
           {
             "id": "CT-EX-044",
             "account": "AC-OTHER",
-            "email": "inquiry-044@example.test",
+            "email": "sample-remy.west-044@alder-harbor-06.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2765,11 +2809,12 @@
       "input": {
         "lead": {
           "id": "L-045",
-          "company": "Harbor Point",
+          "name": "Sample Nila Vale",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-045@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.VALE-045@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2816,7 +2861,7 @@
         "contact": {
           "id": "CT-045",
           "account": "AC-1",
-          "email": "inquiry-045@example.test",
+          "email": "sample-nila.vale-045@reed-ridge-02.invalid",
           "owner": "REP-08"
         }
       }
@@ -2826,11 +2871,12 @@
       "input": {
         "lead": {
           "id": "L-046",
-          "company": "Alder Works",
+          "name": "Sample Eli Flint",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-046@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.FLINT-046@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2872,7 +2918,7 @@
           {
             "id": "CT-EX-046",
             "account": "AC-2",
-            "email": "inquiry-046@example.test",
+            "email": "sample-eli.flint-046@reed-ridge-03.invalid",
             "owner": "REP-18"
           }
         ]
@@ -2884,7 +2930,7 @@
         "contact": {
           "id": "CT-EX-046",
           "account": "AC-2",
-          "email": "inquiry-046@example.test",
+          "email": "sample-eli.flint-046@reed-ridge-03.invalid",
           "owner": "REP-18"
         }
       }
@@ -2894,11 +2940,12 @@
       "input": {
         "lead": {
           "id": "L-047",
-          "company": "Cedar Ridge",
+          "name": "Sample Nila Brook",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-047@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.BROOK-047@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2950,11 +2997,12 @@
       "input": {
         "lead": {
           "id": "L-048",
-          "company": "Riverside Supply",
+          "name": "Sample Kai Dale",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "FR",
           "language": "fr",
-          "email": "  INQUIRY-048@EXAMPLE.TEST ",
+          "email": "  SAMPLE-KAI.DALE-048@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -2996,13 +3044,13 @@
           {
             "id": "CT-EX-048",
             "account": "AC-4",
-            "email": "inquiry-048@example.test",
+            "email": "sample-kai.dale-048@cedar-harbor-05.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-048",
             "account": "AC-4",
-            "email": "inquiry-048@example.test",
+            "email": "sample-kai.dale-048@cedar-harbor-05.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3019,11 +3067,12 @@
       "input": {
         "lead": {
           "id": "L-049",
-          "company": "Northline",
+          "name": "Sample Jules Brook",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-049@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.BROOK-049@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3070,7 +3119,7 @@
         "contact": {
           "id": "CT-049",
           "account": "AC-0",
-          "email": "inquiry-049@example.test",
+          "email": "sample-jules.brook-049@drift-quarry-01.invalid",
           "owner": "REP-08"
         }
       }
@@ -3080,11 +3129,12 @@
       "input": {
         "lead": {
           "id": "L-050",
-          "company": "Harbor Point",
+          "name": "Sample Nila Lake",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-050@EXAMPLE.TEST ",
+          "email": "  SAMPLE-NILA.LAKE-050@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3126,7 +3176,7 @@
           {
             "id": "CT-EX-050",
             "account": "AC-1",
-            "email": "inquiry-050@example.test",
+            "email": "sample-nila.lake-050@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3138,7 +3188,7 @@
         "contact": {
           "id": "CT-EX-050",
           "account": "AC-1",
-          "email": "inquiry-050@example.test",
+          "email": "sample-nila.lake-050@reed-ridge-02.invalid",
           "owner": "REP-18"
         }
       }
@@ -3148,11 +3198,12 @@
       "input": {
         "lead": {
           "id": "L-051",
-          "company": "Alder Works",
+          "name": "Sample Caro Moss",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-051@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.MOSS-051@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3204,11 +3255,12 @@
       "input": {
         "lead": {
           "id": "L-052",
-          "company": "Cedar Ridge",
+          "name": "Sample Remy Grove",
+          "company": "Sample Arc Foundry 04",
           "account": "AC-3",
           "territory": "US",
           "language": "en",
-          "email": "  INQUIRY-052@EXAMPLE.TEST ",
+          "email": "  SAMPLE-REMY.GROVE-052@ARC-FOUNDRY-04.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3250,7 +3302,7 @@
           {
             "id": "CT-EX-052",
             "account": "AC-OTHER",
-            "email": "inquiry-052@example.test",
+            "email": "sample-remy.grove-052@arc-foundry-04.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3267,11 +3319,12 @@
       "input": {
         "lead": {
           "id": "L-053",
-          "company": "Bridgewell",
+          "name": "Sample Ari Lake",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-053@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ARI.LAKE-053@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3318,7 +3371,7 @@
         "contact": {
           "id": "CT-053",
           "account": "AC-5",
-          "email": "inquiry-053@example.test",
+          "email": "sample-ari.lake-053@alder-harbor-06.invalid",
           "owner": "REP-08"
         }
       }
@@ -3328,11 +3381,12 @@
       "input": {
         "lead": {
           "id": "L-054",
-          "company": "Northline",
+          "name": "Sample Ira Dale",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-054@EXAMPLE.TEST ",
+          "email": "  SAMPLE-IRA.DALE-054@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3374,7 +3428,7 @@
           {
             "id": "CT-EX-054",
             "account": "AC-0",
-            "email": "inquiry-054@example.test",
+            "email": "sample-ira.dale-054@drift-quarry-01.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3386,7 +3440,7 @@
         "contact": {
           "id": "CT-EX-054",
           "account": "AC-0",
-          "email": "inquiry-054@example.test",
+          "email": "sample-ira.dale-054@drift-quarry-01.invalid",
           "owner": "REP-18"
         }
       }
@@ -3396,11 +3450,12 @@
       "input": {
         "lead": {
           "id": "L-055",
-          "company": "Harbor Point",
+          "name": "Sample Eli West",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-055@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.WEST-055@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3452,11 +3507,12 @@
       "input": {
         "lead": {
           "id": "L-056",
-          "company": "Alder Works",
+          "name": "Sample Caro Moss",
+          "company": "Sample Reed Ridge 03",
           "account": "AC-2",
           "territory": "DE",
           "language": "de",
-          "email": "  INQUIRY-056@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.MOSS-056@REED-RIDGE-03.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3498,13 +3554,13 @@
           {
             "id": "CT-EX-056",
             "account": "AC-2",
-            "email": "inquiry-056@example.test",
+            "email": "sample-caro.moss-056@reed-ridge-03.invalid",
             "owner": "REP-18"
           },
           {
             "id": "CT-DUP-056",
             "account": "AC-2",
-            "email": "inquiry-056@example.test",
+            "email": "sample-caro.moss-056@reed-ridge-03.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3521,11 +3577,12 @@
       "input": {
         "lead": {
           "id": "L-057",
-          "company": "Riverside Supply",
+          "name": "Sample Eli Grove",
+          "company": "Sample Cedar Harbor 05",
           "account": "AC-4",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-057@EXAMPLE.TEST ",
+          "email": "  SAMPLE-ELI.GROVE-057@CEDAR-HARBOR-05.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3572,7 +3629,7 @@
         "contact": {
           "id": "CT-057",
           "account": "AC-4",
-          "email": "inquiry-057@example.test",
+          "email": "sample-eli.grove-057@cedar-harbor-05.invalid",
           "owner": "REP-08"
         }
       }
@@ -3582,11 +3639,12 @@
       "input": {
         "lead": {
           "id": "L-058",
-          "company": "Bridgewell",
+          "name": "Sample Caro Brook",
+          "company": "Sample Alder Harbor 06",
           "account": "AC-5",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-058@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.BROOK-058@ALDER-HARBOR-06.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3628,7 +3686,7 @@
           {
             "id": "CT-EX-058",
             "account": "AC-5",
-            "email": "inquiry-058@example.test",
+            "email": "sample-caro.brook-058@alder-harbor-06.invalid",
             "owner": "REP-18"
           }
         ]
@@ -3640,7 +3698,7 @@
         "contact": {
           "id": "CT-EX-058",
           "account": "AC-5",
-          "email": "inquiry-058@example.test",
+          "email": "sample-caro.brook-058@alder-harbor-06.invalid",
           "owner": "REP-18"
         }
       }
@@ -3650,11 +3708,12 @@
       "input": {
         "lead": {
           "id": "L-059",
-          "company": "Northline",
+          "name": "Sample Jules Pine",
+          "company": "Sample Drift Quarry 01",
           "account": "AC-0",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-059@EXAMPLE.TEST ",
+          "email": "  SAMPLE-JULES.PINE-059@DRIFT-QUARRY-01.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3706,11 +3765,12 @@
       "input": {
         "lead": {
           "id": "L-060",
-          "company": "Harbor Point",
+          "name": "Sample Caro Cinder",
+          "company": "Sample Reed Ridge 02",
           "account": "AC-1",
           "territory": "NL",
           "language": "nl",
-          "email": "  INQUIRY-060@EXAMPLE.TEST ",
+          "email": "  SAMPLE-CARO.CINDER-060@REED-RIDGE-02.INVALID ",
           "source": "inbound",
           "qualification": {
             "need": true,
@@ -3752,7 +3812,7 @@
           {
             "id": "CT-EX-060",
             "account": "AC-OTHER",
-            "email": "inquiry-060@example.test",
+            "email": "sample-caro.cinder-060@reed-ridge-02.invalid",
             "owner": "REP-18"
           }
         ]

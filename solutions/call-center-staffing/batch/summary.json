@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "classification": "sample",
+  "batch_id": "call-center-coverage-sample-batch-v1",
+  "method": "separate bounded exact ABI v1 solves with independent exhaustive verification",
+  "first_verified_engine_revision": "cddfdaee5b9ee9ff2577399726b95a12286e69c7",
+  "native_abi_version": 1,
+  "joint_solve": false,
+  "throughput_benchmark": false,
+  "scenarios": 240,
+  "queues_per_scenario": 6,
+  "operator_profiles_per_scenario": 60,
+  "covered_queue_assignments": 1440,
+  "distinct_normalized_problems": 240,
+  "distinct_assignment_vectors": 125,
+  "scenario_status_counts": {
+    "optimal_within_model": 240
+  },
+  "candidate_combinations_evaluated": {
+    "total": 13598,
+    "per_scenario_min": 4,
+    "per_scenario_max": 324
+  },
+  "hard_feasible_candidate_combinations_total": 7803,
+  "soft_preferences": {
+    "satisfied": 1260,
+    "missed": 180,
+    "soft_score_histogram": {
+      "-14": 10,
+      "-13": 4,
+      "-12": 13,
+      "-11": 8,
+      "-10": 13,
+      "-9": 10,
+      "-8": 17,
+      "-7": 18,
+      "-6": 20,
+      "-5": 14,
+      "-4": 23,
+      "-3": 30,
+      "0": 60
+    }
+  },
+  "assignment_count_by_operator_id": {
+    "OP-001": 180,
+    "OP-002": 180,
+    "OP-003": 120,
+    "OP-004": 144,
+    "OP-005": 48,
+    "OP-006": 48,
+    "OP-007": 144,
+    "OP-008": 48,
+    "OP-009": 48,
+    "OP-010": 144,
+    "OP-011": 45,
+    "OP-012": 51,
+    "OP-013": 143,
+    "OP-014": 42,
+    "OP-015": 55
+  },
+  "scenario_count_above_zero_demand_risk_by_queue": {
+    "account-recovery": 129,
+    "billing-escalations": 180,
+    "fraud-review": 208,
+    "french-product": 190,
+    "priority-support": 123,
+    "spanish-billing": 180
+  },
+  "artifacts": [
+    {
+      "path": "raw-input.ndjson.gz",
+      "encoding": "gzip",
+      "format": "ndjson",
+      "records": 240,
+      "uncompressed_bytes": 4501771,
+      "uncompressed_sha256": "d7665b662ffaa1061bb968b9dd561c8d3be0bace7612ea6335b6e50038099e01",
+      "download_bytes": 58200,
+      "download_sha256": "46dd8c93a010ce12e53edae59bb7513de062f86aaadacfd2b4f62161e68bd318"
+    },
+    {
+      "path": "normalized-problems.ndjson.gz",
+      "encoding": "gzip",
+      "format": "ndjson",
+      "records": 240,
+      "uncompressed_bytes": 191920,
+      "uncompressed_sha256": "a748e7b24857b720d9532475ac4382359b06b064e08d83560d56d77d245c4435",
+      "download_bytes": 5655,
+      "download_sha256": "d843bb771290f5f341c4091a3ee1640a6bc2fa48f573c26a940452a3f489918c"
+    },
+    {
+      "path": "native-solutions.ndjson.gz",
+      "encoding": "gzip",
+      "format": "ndjson",
+      "records": 240,
+      "uncompressed_bytes": 33222,
+      "uncompressed_sha256": "049f68d151f4a005df8c8058bf4e9b6c53279f00f62149a053ac80b8f7231b80",
+      "download_bytes": 1980,
+      "download_sha256": "6fcc8ec19fb24e85368c8bfafad581afdd56f975eadbfa0e6c973eae18f4f393"
+    },
+    {
+      "path": "enriched-output.ndjson.gz",
+      "encoding": "gzip",
+      "format": "ndjson",
+      "records": 240,
+      "uncompressed_bytes": 9180829,
+      "uncompressed_sha256": "72e78e892e9f2e3eb79902b3064910d949d9af2924f07f7e92d46e051c0ace36",
+      "download_bytes": 377388,
+      "download_sha256": "4ab9ac0678fd49644ae1b462989fa8aa786da0466bf8eea70ca3d80300e2dc7e"
+    },
+    {
+      "path": "assignments.ndjson.gz",
+      "encoding": "gzip",
+      "format": "ndjson",
+      "records": 1440,
+      "uncompressed_bytes": 540262,
+      "uncompressed_sha256": "5642ff86ea18b19149fefe63984426fd637b2662c5b0fd27673f1ca58b177920",
+      "download_bytes": 15620,
+      "download_sha256": "b063e80885031db9199bd4fc7338e50f90a69bca47aaedf5134d9ac81bad2187"
+    }
+  ]
+}
