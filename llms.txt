@@ -8,3 +8,6 @@
 - [CLI and API reference](https://ilstarno.github.io/Orchestrata/docs/api/index.md): Run a planning problem locally, understand the HTTP request and result, and handle validation and exact-search limits.
 - [Planning examples and recipes](https://ilstarno.github.io/Orchestrata/docs/recipes/index.md): Start with a reproducible assignment problem and see how example inputs can inform your own finite planning model.
 - [Run and deploy](https://ilstarno.github.io/Orchestrata/docs/deployment/index.md): Understand the difference between the static product site and the separately running planning API, including deployment limitations.
+- [Solve API reference](https://ilstarno.github.io/Orchestrata/docs/solve-api/index.md): Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits.
+- [Recipe API reference](https://ilstarno.github.io/Orchestrata/docs/recipes-api/index.md): Inspect the recipe catalog, synthetic example routes, and recipe grid contract in local review builds.
+- [Set up and troubleshoot the local backend](https://ilstarno.github.io/Orchestrata/docs/backend-setup/index.md): Start the local Orchestrata backend, check the API, troubleshoot common failures, and evaluate optional persistence separately.
