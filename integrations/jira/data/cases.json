@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "scope": "Synthetic Jira and Jira Service Management inputs. Output is a planning draft for human review; no Jira connection or write.",
+  "cases": [
+    {
+      "id": "jsm-queue",
+      "context": "Jira Service Management queue: allocate agents while preserving SLA deadlines on an illustrative uninterrupted clock.",
+      "policy": "Highest priority first, then earliest deadline and stable issue key. Hand-off is not automatic.",
+      "resources": [
+        {"id": "AGENT-A", "skills": ["identity"], "window": [0, 130]},
+        {"id": "AGENT-B", "skills": ["identity", "billing"], "window": [10, 180]}
+      ],
+      "items": [
+        {"id": "HELP-101", "title": "Restore account access", "skills": ["identity"], "duration": 25, "priority": 3, "window": [0, 40], "requires": []},
+        {"id": "HELP-102", "title": "Correct billing adjustment", "skills": ["billing"], "duration": 35, "priority": 2, "window": [0, 65], "requires": []},
+        {"id": "HELP-103", "title": "Investigate account permissions", "skills": ["identity"], "duration": 30, "priority": 2, "window": [0, 50], "requires": []},
+        {"id": "HELP-104", "title": "Review invoice export after adjustment", "skills": ["billing"], "duration": 20, "priority": 1, "window": [0, 100], "requires": ["HELP-102"]},
+        {"id": "HELP-105", "title": "Handle request requiring legal triage", "skills": ["legal"], "duration": 20, "priority": 1, "window": [0, 100], "requires": []}
+      ]
+    },
+    {
+      "id": "jira-release",
+      "context": "Jira Software release: coordinate engineering, QA and release duties with explicit dependencies.",
+      "policy": "A prerequisite must finish before dependent work starts. Out-of-scope items remain for review.",
+      "resources": [
+        {"id": "ENG-1", "skills": ["api"], "window": [0, 360]},
+        {"id": "QA-1", "skills": ["qa"], "window": [60, 360]},
+        {"id": "REL-1", "skills": ["deploy"], "window": [180, 300]}
+      ],
+      "items": [
+        {"id": "REL-201", "title": "Finalize compatibility patch", "skills": ["api"], "duration": 100, "priority": 3, "window": [0, 150], "requires": []},
+        {"id": "REL-202", "title": "Run release smoke tests", "skills": ["qa"], "duration": 45, "priority": 3, "window": [0, 210], "requires": ["REL-201"]},
+        {"id": "REL-203", "title": "Prepare deployment handoff", "skills": ["deploy"], "duration": 30, "priority": 3, "window": [175, 240], "requires": ["REL-202"]},
+        {"id": "REL-204", "title": "Add optional API import", "skills": ["api"], "duration": 170, "priority": 1, "window": [0, 240], "requires": []},
+        {"id": "REL-205", "title": "Test optional API import", "skills": ["qa"], "duration": 45, "priority": 1, "window": [0, 360], "requires": ["REL-204"]}
+      ]
+    },
+    {
+      "id": "jsm-change-window",
+      "context": "Jira Service Management incident and change: reserve change windows without assuming approval in Jira.",
+      "policy": "An explicit sample approval is required for changes marked approval-required. Review does not execute any change.",
+      "resources": [
+        {"id": "ONCALL-1", "skills": ["incident", "change"], "window": [0, 220]},
+        {"id": "ONCALL-2", "skills": ["observability"], "window": [15, 200]}
+      ],
+      "items": [
+        {"id": "OPS-301", "title": "Triage checkout latency", "skills": ["incident"], "duration": 40, "priority": 4, "window": [0, 60], "requires": []},
+        {"id": "OPS-302", "title": "Confirm rollback readiness", "skills": ["observability"], "duration": 30, "priority": 3, "window": [30, 105], "requires": ["OPS-301"]},
+        {"id": "OPS-303", "title": "Stage approved capacity change", "skills": ["change"], "duration": 20, "priority": 2, "window": [90, 140], "requires": ["OPS-302"], "approval": "sample-approved"},
+        {"id": "OPS-304", "title": "Stage secondary change pending review", "skills": ["change"], "duration": 15, "priority": 1, "window": [100, 175], "requires": [], "approval": "pending"},
+        {"id": "OPS-305", "title": "Verify metrics after secondary change", "skills": ["observability"], "duration": 25, "priority": 1, "window": [100, 175], "requires": ["OPS-304"]}
+      ]
+    }
+  ]
+}

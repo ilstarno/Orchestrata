@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "scope": "Synthetic Jira and Jira Service Management inputs. Output is a planning draft for human review; no Jira connection or write.",
+  "results": [
+    {
+      "id": "jsm-queue",
+      "assignments": [
+        {
+          "itemId": "HELP-101",
+          "resourceId": "AGENT-A",
+          "startMinute": 0,
+          "endMinute": 25
+        },
+        {
+          "itemId": "HELP-103",
+          "resourceId": "AGENT-B",
+          "startMinute": 10,
+          "endMinute": 40
+        }
+      ],
+      "held": [
+        {
+          "itemId": "HELP-102",
+          "code": "no_slot_before_deadline",
+          "reason": "No qualified resource can fit the whole item before its deadline in the current draft.",
+          "eligibleResourceIds": [
+            "AGENT-B"
+          ]
+        },
+        {
+          "itemId": "HELP-104",
+          "code": "prerequisite_held",
+          "reason": "At least one prerequisite was held in this draft.",
+          "prerequisiteIds": [
+            "HELP-102"
+          ]
+        },
+        {
+          "itemId": "HELP-105",
+          "code": "no_qualified_resource",
+          "reason": "No resource has all required skills."
+        }
+      ],
+      "summary": {
+        "assigned": 2,
+        "held": 3,
+        "total": 5
+      }
+    },
+    {
+      "id": "jira-release",
+      "assignments": [
+        {
+          "itemId": "REL-201",
+          "resourceId": "ENG-1",
+          "startMinute": 0,
+          "endMinute": 100
+        },
+        {
+          "itemId": "REL-202",
+          "resourceId": "QA-1",
+          "startMinute": 100,
+          "endMinute": 145
+        },
+        {
+          "itemId": "REL-203",
+          "resourceId": "REL-1",
+          "startMinute": 180,
+          "endMinute": 210
+        }
+      ],
+      "held": [
+        {
+          "itemId": "REL-204",
+          "code": "no_slot_before_deadline",
+          "reason": "No qualified resource can fit the whole item before its deadline in the current draft.",
+          "eligibleResourceIds": [
+            "ENG-1"
+          ]
+        },
+        {
+          "itemId": "REL-205",
+          "code": "prerequisite_held",
+          "reason": "At least one prerequisite was held in this draft.",
+          "prerequisiteIds": [
+            "REL-204"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 3,
+        "held": 2,
+        "total": 5
+      }
+    },
+    {
+      "id": "jsm-change-window",
+      "assignments": [
+        {
+          "itemId": "OPS-301",
+          "resourceId": "ONCALL-1",
+          "startMinute": 0,
+          "endMinute": 40
+        },
+        {
+          "itemId": "OPS-302",
+          "resourceId": "ONCALL-2",
+          "startMinute": 40,
+          "endMinute": 70
+        },
+        {
+          "itemId": "OPS-303",
+          "resourceId": "ONCALL-1",
+          "startMinute": 90,
+          "endMinute": 110
+        }
+      ],
+      "held": [
+        {
+          "itemId": "OPS-304",
+          "code": "approval_pending",
+          "reason": "The required sample change approval is pending."
+        },
+        {
+          "itemId": "OPS-305",
+          "code": "prerequisite_held",
+          "reason": "At least one prerequisite was held in this draft.",
+          "prerequisiteIds": [
+            "OPS-304"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 3,
+        "held": 2,
+        "total": 5
+      }
+    }
+  ]
+}
