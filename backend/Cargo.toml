@@ -4,6 +4,7 @@ members = [
     "crates/domain",
     "crates/solver",
     "crates/hygiene",
+    "crates/imports",
     "crates/sqlite-store",
     "crates/application",
     "crates/api",

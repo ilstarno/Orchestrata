@@ -155,11 +155,11 @@ fn two_connections_commit_one_job_and_one_event() {
 fn unsupported_schema_version_fails_closed() {
     let path = temporary_database();
     let connection = Connection::open(&path).unwrap();
-    connection.pragma_update(None, "user_version", 4).unwrap();
+    connection.pragma_update(None, "user_version", 5).unwrap();
     drop(connection);
     assert!(matches!(
         SqliteStore::open(&path),
-        Err(StoreError::UnsupportedSchema(4))
+        Err(StoreError::UnsupportedSchema(5))
     ));
     fs::remove_file(path).unwrap();
 }
