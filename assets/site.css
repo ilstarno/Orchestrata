@@ -583,3 +583,12 @@ pre {
   }
 }
 .lead-home { border-inline-start: 3px solid var(--accent); padding-inline: 1rem; }
+
+.walkthrough-technical { color: var(--muted); font-size: .84rem; margin-block: .25rem; }
+.walkthrough-technical summary { display: list-item; min-block-size: 44px; width: fit-content; padding-block: .6rem; cursor: pointer; }
+.case-outcome { max-inline-size: 68ch; margin-block: .3rem 1rem; border-inline-start: 2px solid var(--accent); padding-inline-start: .8rem; }
+.case-outcome h2 { color: var(--accent); font-size: .9rem; margin: 0; }
+.case-outcome p { margin-block: .2rem; }
+.case-technical-downloads { color: var(--muted); font-size: .89rem; }
+.case-technical-downloads summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
+.case-technical-downloads .fixture-links, .case-technical-downloads .cargo-downloads { margin-block-start: 0; }

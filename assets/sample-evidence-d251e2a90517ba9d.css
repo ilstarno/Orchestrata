@@ -1,0 +1,12 @@
+.sample-evidence { max-inline-size: 100%; scroll-margin-block-start: 5.5rem; }
+.sample-evidence > p { max-inline-size: 72ch; }
+.sample-evidence-table table { inline-size: 100%; min-inline-size: 34rem; border-collapse: collapse; }
+.sample-evidence-table :is(th,td) { padding: .52rem .7rem; text-align: start; border-block-end: 1px solid var(--rule); }
+.sample-evidence-files { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: .25rem 1.2rem; padding-inline-start: 1.25rem; }
+.sample-evidence-files a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.fleet-route-figure { margin: 1rem 0; }
+.fleet-route-figure img { display: block; max-inline-size: 100%; block-size: auto; border: 1px solid var(--rule); }
+.fleet-route-figure figcaption { max-inline-size: 72ch; color: var(--muted); margin-block: .5rem 1rem; }
+.sample-evidence-detail { margin-block-start: .35rem; color: var(--muted); font-size: .84rem; font-weight: 400; }
+.sample-evidence-downloads { margin-block:1rem; border-block:1px solid var(--rule); }
+.sample-evidence-downloads > summary { cursor:pointer; min-block-size:44px; padding-block:.7rem; font-weight:600; }
