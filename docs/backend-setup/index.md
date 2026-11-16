@@ -17,8 +17,8 @@ cargo --version
 Run these commands from the repository root to check the starter and start the API. The first build may need access to the Cargo registry:
 
 ```sh
-cargo test --manifest-path backend/Cargo.toml --workspace
-cargo run --manifest-path backend/Cargo.toml -p orchestrata-api
+cargo test --manifest-path backend/Cargo.toml --locked --workspace
+cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
 Leave the API terminal running. In another terminal, go to the repository root and send the bundled example:
@@ -26,6 +26,7 @@ Leave the API terminal running. In another terminal, go to the repository root a
 ```sh
 curl -fsS http://127.0.0.1:3000/api/v1/health
 curl -fsS http://127.0.0.1:3000/api/v1/openapi.json
+curl -fsS "http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3"
 curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
   -H 'Content-Type: application/json' \
   --data-binary @backend/examples/assignment.json
@@ -39,7 +40,7 @@ If you need the UI, leave the API running and open another terminal at the repos
 (cd frontend && npm install && npm run dev)
 ```
 
-Open the local address printed by the command. The Vite server forwards `/api` requests to `http://127.0.0.1:3000`. The public-main API binds to `127.0.0.1:3000`; it does not read a bind environment variable. Review builds with the [portable runtime change](https://github.com/ilstarno/Orchestrata/pull/22) accept `ORCHESTRATA_HTTP_BIND` as an explicit IP-and-port socket address. In those builds, keep the default for this walkthrough. If you choose a different loopback port, change both the curl URLs and the local Vite proxy target. A hostname, port alone, or empty setting is invalid in those builds.
+Open the local address printed by the command. The Vite server forwards `/api` requests to `http://127.0.0.1:3000`. The API listens on `127.0.0.1:3000` unless you set `ORCHESTRATA_HTTP_BIND` to an explicit IP address and port. For example, `127.0.0.1:8080` keeps access on the same computer while changing the port. Update the curl URLs and the local Vite proxy target if you change it. A hostname, port alone, or empty setting is invalid.
 
 ## Troubleshoot the starter
 
@@ -50,9 +51,9 @@ Open the local address printed by the command. The Vite server forwards `/api` r
 | Startup fails with “Address already in use” | Another process owns port 3000. Check whether it is your previous API instance; stop your own earlier process before restarting. Do not terminate an unidentified process or switch the API to a public interface. |
 | curl reports connection refused | Check the API terminal for a startup error. Use the API port, not the UI port, and retry after the process starts. |
 | curl cannot read `assignment.json` | Run from the repository root, or change the file path after the `@` to match your working directory. |
-| A solve request fails | Retry with `curl -i` instead of `curl -f` to see the HTTP status and response. Check the method, `Content-Type`, JSON structure, and allowed problem size. The public-main starter can return `422` for invalid input or a search space beyond its limit without distinguishing the two in the error text. Neither means that no plan exists. |
+| A solve request fails | Retry with `curl -i` instead of `curl -f` to see the HTTP status and response. Check the method, `Content-Type`, JSON structure, and allowed problem size. Read the `X-Orchestrata-Error-Code` header and look it up at `/api/v1/error-codes`. An invalid problem or a solve limit does not mean no plan exists. |
 | The UI loads but cannot solve | Call the API health URL directly, then check the Vite terminal for proxy errors. Confirm that the UI and API use the intended revisions and that the proxy points at the API's loopback address. |
-| A recipe route returns 404 | Check the running OpenAPI document. Recipe routes are [review #22](https://github.com/ilstarno/Orchestrata/pull/22) work; the grid additionally requires [review #24](https://github.com/ilstarno/Orchestrata/pull/24). A default checkout does not include those routes. |
+| A recipe route returns 404 | Check the running OpenAPI document. The current baseline serves the recipe catalog and grid. If the OpenAPI document does not list them, check the running revision. For a missing individual recipe, list the catalog and use an ID from its response. |
 
 ## Optional: evaluate PostgreSQL session persistence
 
@@ -90,4 +91,4 @@ The real test starts a disposable PostgreSQL container with a per-run credential
 
 When a real check fails on schema or permissions, verify that the migration and test connections use the same target database and schema and that the test connection can read, insert and delete rows. An unsupported backend is a configuration error. A duplicate digest is not an authentication success. The adapter does not automatically purge expired rows, mint tokens, look up group memberships or establish a user session in the browser. A real local PostgreSQL check verifies only the adapter, not a sign-in flow.
 
-Source references: [public starter source](https://github.com/ilstarno/Orchestrata/tree/9dab0545beb8cb9ded93cc632e41f0b6bc718e77), [SeaORM database and runtime configuration](https://www.sea-ql.org/SeaORM/docs/install-and-config/database-and-async-runtime/), and [PostgreSQL Testcontainers module](https://rust.testcontainers.org/modules/postgres/).
+Source references: [verified public source](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f), [SeaORM database and runtime configuration](https://www.sea-ql.org/SeaORM/docs/install-and-config/database-and-async-runtime/), and [PostgreSQL Testcontainers module](https://rust.testcontainers.org/modules/postgres/).

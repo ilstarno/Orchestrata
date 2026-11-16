@@ -1,40 +1,70 @@
-Run the service and UI on your workstation first. Orchestrata's project site is static; opening it does not start an API. The preview is for sample data and local evaluation, not public access or production use.
+Run the service and web UI on your workstation first. The Orchestrata project site is static: opening it does not start an API. Use sample data and keep this build off the public internet.
 
 ## Local API and web UI
 
-Use a stable Rust toolchain for the API, and Node.js 22 and npm for the web UI. From the Orchestrata repository root:
+Use stable Rust with Cargo, Git, and curl. For the web UI, also install Node.js 22 and npm. These commands use a specific reviewed revision of the public starter:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+git clone https://github.com/ilstarno/Orchestrata.git
+cd Orchestrata
+git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
 ```
 
-In a second terminal:
+From the repository root, run the locked workspace tests, then start the API on loopback:
 
 ```sh
-(cd frontend && npm install && npm run dev)
+cargo test --manifest-path backend/Cargo.toml --locked --workspace
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-The API uses `127.0.0.1:3000`. See the [local API guide](../api/) for request and outcome details. Open the UI address printed by the frontend command. The development web server forwards `/api/` requests to the local service. Check health and run the bundled assignment before evaluating a larger example:
+Leave the API running. From the repository root in a second terminal, check the health endpoint, request the first three rows of the recipe grid, and run the bundled assignment:
 
 ```sh
 curl -fsS http://127.0.0.1:3000/api/v1/health
+curl -fsS 'http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3'
 curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
   -H 'Content-Type: application/json' \
   --data-binary @backend/examples/assignment.json
 ```
 
-Keep this build on loopback. A successful health check confirms a responding process, not authentication, service capacity, or availability of a durable job store.
+The health request confirms the process responds. The recipe grid returns recipe metadata; it does not submit jobs. The expected assignment is `[1,0]` in input order. None of these checks proves sign-in, durable job storage, or service capacity.
+
+To use the web UI from this checkout, leave the API running and use another terminal:
+
+```sh
+(cd frontend && npm install && npm run dev)
+```
+
+Open the local URL printed by the UI command. The development server forwards `/api` to `127.0.0.1:3000`. If you change `ORCHESTRATA_HTTP_BIND` to another loopback port, update both the curl URLs and the development proxy target.
+
+See the [local API guide](../api/) for request and response details and the [backend setup and troubleshooting guide (English)](../backend-setup/) if startup or the proxy fails.
 
 ## Evaluate the standalone engine and SDKs
 
-The [standalone engine repository](https://github.com/ilstarno/orchestrata-engine/tree/main) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. Build the SDK from matching source; this guide does not require a packaged release. On the engine checkout, with stable Rust:
+The [standalone engine repository](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. Build the SDK from matching source; this guide does not require a packaged release. On the engine checkout, with stable Rust:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 ```
 
+This build command is for the engine checkout, not the public API checkout above.
+
 Follow the SDK README for loader and runtime requirements for your language. Use the native library from the same checkout and an ABI-compatible binding. A native library built on one platform is not proof of packaging support for other platforms.
 
-## Before using a cluster
+## Checklist before testing on a cluster
 
-Experimental deployment manifests have been checked for rendering and schema consistency in separate review work. No production image, managed-cloud certification, public endpoint, or sign-in configuration is required or implied by this local guide. A cluster evaluation needs its own reviewed revision, protected ingress, tested access controls, explicit resource limits, and install/rollback evidence. Do not expose a preview API to the internet or enter real customer records to see whether it works.
+Treat cluster use as a separate evaluation. The local checks above do not establish that an image, a managed-cloud configuration, or public access is ready. Use only sample data and leave public ingress disabled.
+
+1. Record the reviewed source revision and the digest of the image built from it. Use a dedicated, non-production namespace.
+2. Set CPU and memory requests and limits. Run health, recipe grid, and assignment checks from an authorized client inside the test network.
+3. Verify that access outside the intended boundary is blocked. Inspect logs without recording credentials or customer data.
+4. Install the candidate and roll back to the previous image; repeat the checks. If you add persistent storage, test backup and restore separately before using it.
+
+## Container, Kubernetes, and Terraform
+
+Build the API image from the checked-in Dockerfile, then use Helm to install it in an existing private Kubernetes cluster. The Terraform instructions cover existing Amazon EKS, Azure AKS, and Google GKE clusters. They do not create cloud infrastructure.
+
+- [API container and Helm guide (English)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy)
+- [Terraform guide (English)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy/terraform)
+
+The chart passed local Helm checks. The container and managed-cluster rollout have not been tested.

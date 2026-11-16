@@ -1,40 +1,70 @@
-Avviare prima il servizio e l’interfaccia sul proprio computer. Il sito del progetto Orchestrata è statico: aprirlo non avvia alcuna API. L’anteprima è destinata alla valutazione locale con dati fittizi, non all’accesso pubblico o all’uso in produzione.
+Avvia il servizio e l’interfaccia web sul tuo computer. Il sito del progetto Orchestrata è statico: aprirlo non avvia alcuna API. Usa dati di esempio e non esporre questa versione a Internet.
 
 ## API locale e interfaccia web
 
-Usare una toolchain stabile di Rust per l’API, e Node.js 22 e npm per l’interfaccia web. Dalla directory principale del repository Orchestrata, eseguire:
+Usa una versione stabile di Rust con Cargo, Git e curl. Per l’interfaccia web, installa anche Node.js 22 e npm. I comandi seguenti usano una revisione verificata del progetto pubblico di partenza:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+git clone https://github.com/ilstarno/Orchestrata.git
+cd Orchestrata
+git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
 ```
 
-In un secondo terminale, eseguire:
+Dalla directory principale del repository, esegui i test del workspace con le dipendenze bloccate e avvia l’API sull’interfaccia di loopback:
 
 ```sh
-(cd frontend && npm install && npm run dev)
+cargo test --manifest-path backend/Cargo.toml --locked --workspace
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-L’API usa `127.0.0.1:3000`. Per i dettagli su richieste e risultati, consultare la [guida all’API locale](../api/). Aprire l’indirizzo dell’interfaccia indicato dal comando del frontend. Il server web di sviluppo inoltra le richieste a `/api/` al servizio locale. Verificare che il servizio risponda ed eseguire l’esempio di assegnazione incluso prima di provarne uno più ampio:
+Lascia l’API in esecuzione. Da un secondo terminale, nella directory principale, verifica la risposta, richiedi le prime tre righe dell’elenco delle ricette ed esegui l’esempio di assegnazione incluso:
 
 ```sh
 curl -fsS http://127.0.0.1:3000/api/v1/health
+curl -fsS 'http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3'
 curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
   -H 'Content-Type: application/json' \
   --data-binary @backend/examples/assignment.json
 ```
 
-Limitare questa build all’interfaccia di loopback. Una verifica di disponibilità riuscita conferma soltanto che il processo risponde; non verifica l’autenticazione, la capacità del servizio o la disponibilità di un archivio persistente dei job.
+La verifica dello stato conferma che il processo risponde. L’elenco restituisce i metadati delle ricette e non invia lavori. L’assegnazione attesa è `[1,0]` nell’ordine dei dati in ingresso. Questi controlli non verificano accesso, archiviazione persistente dei lavori o capacità del servizio.
+
+Lascia l’API in esecuzione e usa un altro terminale per avviare l’interfaccia web dalla stessa copia del repository:
+
+```sh
+(cd frontend && npm install && npm run dev)
+```
+
+Apri l’indirizzo locale mostrato dal comando. Il server di sviluppo inoltra `/api` a `127.0.0.1:3000`. Se imposti un’altra porta di loopback in `ORCHESTRATA_HTTP_BIND`, aggiorna sia gli indirizzi curl sia la destinazione del proxy di sviluppo.
+
+La [guida all’API locale](../api/) spiega richieste e risposte. Per problemi di avvio o di proxy, consulta la [guida alla configurazione e alla risoluzione dei problemi del backend (in inglese)](../../../docs/backend-setup/).
 
 ## Valutare il motore autonomo e gli SDK
 
-Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine/tree/main) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
+Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
 
 ```sh
 cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
 ```
 
+Esegui questo comando nella copia del motore, non in quella dell’API pubblica usata sopra.
+
 Consultare il README dell’SDK per i requisiti di caricamento e di runtime del linguaggio in uso. Usare la libreria nativa della stessa revisione estratta e un binding compatibile con l’ABI. La compilazione della libreria nativa su una piattaforma non dimostra che siano supportati pacchetti per altre piattaforme.
 
-## Prima di usare un cluster
+## Lista di controllo prima di un test su cluster
 
-In un’attività di revisione separata sono state controllate la generazione dei manifesti sperimentali di deployment e la loro conformità allo schema. Questa guida locale non richiede né dà per scontati un’immagine per la produzione, una certificazione per servizi cloud gestiti, un endpoint pubblico o una configurazione di accesso. Per una valutazione su cluster occorrono una revisione verificata appositamente, un ingresso protetto, controlli di accesso testati, limiti espliciti alle risorse e verifiche documentate di installazione e rollback. Non esporre a Internet un’API in anteprima e non usare dati reali dei clienti per provarla.
+Valuta il cluster separatamente. I controlli locali non dimostrano che un’immagine, la configurazione di un servizio cloud gestito o l’accesso pubblico siano pronti. Usa solo dati di esempio e lascia disattivato l’accesso pubblico.
+
+1. Annota la revisione dei sorgenti verificata e il digest dell’immagine compilata da quella revisione. Usa un namespace dedicato, non di produzione.
+2. Imposta richieste e limiti per CPU e memoria. Da un client autorizzato nella rete di test, controlla lo stato, l’elenco delle ricette e l’assegnazione.
+3. Verifica che l’accesso dall’esterno dell’ambiente consentito sia bloccato. Controlla i log senza registrare credenziali o dati dei clienti.
+4. Installa la versione da valutare, torna all’immagine precedente e ripeti i controlli. Se aggiungi storage persistente, verifica separatamente backup e ripristino.
+
+## Container, Kubernetes e Terraform
+
+Crea l’immagine dell’API dal Dockerfile e installala con Helm in un cluster Kubernetes privato già esistente. La guida Terraform riguarda cluster Amazon EKS, Azure AKS e Google GKE già operativi. Non crea infrastruttura cloud.
+
+- [Guida a container e Helm (in inglese)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy)
+- [Guida a Terraform (in inglese)](https://github.com/ilstarno/Orchestrata/tree/2c921cedad7e20d3c1a892b35024d3465e336d75/deploy/terraform)
+
+Il chart ha superato i controlli Helm locali. Il container e l’installazione su cluster gestiti non sono stati testati.
