@@ -1,0 +1,2059 @@
+{
+  "caseId": "insurance-property-claims-operations",
+  "scenarioTitle": "Fit approved desk and field work into a disrupted claims schedule",
+  "sourceCatalog": [
+    {
+      "sourceId": "CDI-CCR-CLAIMS",
+      "publisher": "California Department of Insurance",
+      "sourceTitle": "Fair Claims Settlement Practices Regulations",
+      "officialUrl": "https://www.insurance.ca.gov/01-consumers/130-laws-regs-hearings/05-CCR/fair-claims-regs.cfm",
+      "sourceVersion": "Regulations index; Title 10, Chapter 5, Subchapter 7.5",
+      "reviewedOn": "2026-11-16",
+      "sourceKind": "regulatory_context",
+      "support": "Sections 2695.3, 2695.5, 2695.6 and 2695.9 distinguish record documentation, communications, training, and certain property insurance requirements.",
+      "limit": "This case uses internal planning cutoff windows, does not determine any statutory time or proof trigger, and does not measure legal compliance."
+    },
+    {
+      "sourceId": "CDI-DISASTER-2026",
+      "publisher": "California Department of Insurance",
+      "sourceTitle": "2026 Guide for Adjusting Property Claims in California After a Major Disaster",
+      "officialUrl": "https://www.insurance.ca.gov/0200-industry/0050-renew-license/0200-requirements/upload/2026-Guide-for-Adjusting-Property-Claims-in-California-After-a-Major-Disaster_Final.pdf",
+      "sourceVersion": "January 9, 2026; ordinary and declared-emergency requirements, pages 6–8",
+      "reviewedOn": "2026-11-16",
+      "sourceKind": "official_department_guidance",
+      "support": "The guide describes distinct licensing, registration, supervision and certification contexts, including arrangements conditional on a Commissioner-declared emergency.",
+      "limit": "Operational surge does not mean a declared emergency. This sample does not verify real credentials or assume an emergency permission."
+    },
+    {
+      "sourceId": "CDI-ADJUSTER-INFO",
+      "publisher": "California Department of Insurance",
+      "sourceTitle": "Insurance Adjuster Licensing Information",
+      "officialUrl": "https://www.insurance.ca.gov/0200-industry/0050-renew-license/0200-requirements/insurance-adjuster.cfm",
+      "sourceVersion": "Online information checked November 2026",
+      "reviewedOn": "2026-11-16",
+      "sourceKind": "official_department_guidance",
+      "support": "CDI publishes information on independent adjuster licensing and distinct emergency registration/certification processes.",
+      "limit": "The role grants in this fixture are approved operational inputs and do not substitute for current legal authority or professional credentials."
+    },
+    {
+      "sourceId": "ORG-CALENDAR-2026.11",
+      "publisher": "Example claims operations coordinator",
+      "sourceTitle": "Desk and field work controls",
+      "sourceVersion": "2026.11",
+      "reviewedOn": "2026-11-16",
+      "sourceKind": "illustrative_company_policy",
+      "support": "Dispatch limited to a sample approved queue, current roster scopes and calendars, distinct desk/field duties, confirmed field access, exclusive shared support, and protected booking locks.",
+      "limit": "The sample employer rules are not statutory obligations, insurance policy terms, or real authorization records."
+    }
+  ],
+  "workbook": {
+    "serviceDate": "2026-11-18",
+    "snapshotId": "PROPERTY-OPS-2026.11.18-A",
+    "capturedAtUtc": "2026-11-18T16:50:00Z",
+    "operatingScope": {
+      "jurisdiction": "California, US (context only)",
+      "localTimeZone": "America/Los_Angeles",
+      "lossClass": "property_operations",
+      "workOnlyAfterHumanApproval": true,
+      "businessScope": {
+        "included": [
+          "desk_contact_preparation",
+          "field_inspection_booking"
+        ],
+        "excludesClaimDecisioning": true,
+        "excludesPayouts": true,
+        "participantPrivacy": "no_customer_identity_addresses_documents_or_medical_information"
+      },
+      "policyBundle": {
+        "bundleId": "INS-PROP-OPS-CA",
+        "bundleEdition": "2026.11",
+        "policyReviewedOn": "2026-11-16",
+        "companyDispatchPolicy": {
+          "policyIssuer": "Example claims operations coordinator",
+          "policyRevision": "2026.11",
+          "effectiveOn": "2026-11-01",
+          "conditions": {
+            "approvedQueueState": "approved_for_scheduling",
+            "fieldAccessConfirmedState": "access_confirmed",
+            "currentScopeState": "verified_by_compliance",
+            "dispatchScope": {
+              "approvedZones": [
+                "CA-NORTH",
+                "CA-SOUTH",
+                "CA-COAST"
+              ],
+              "zoneKind": "sample_coordinator_service_zone",
+              "authorizesOtherJurisdictions": false,
+              "scopeRegistry": {
+                "sourceSystem": "offline_approved_roster",
+                "verifierRole": "human_compliance_owner",
+                "effectivePeriod": {
+                  "checkedAgainst": "local_service_date",
+                  "validThroughInclusive": true,
+                  "decisionBoundary": {
+                    "doesNotVerifyLicense": true,
+                    "doesNotInferEmergencyPermissions": true,
+                    "operationalApprovalInput": {
+                      "requiredVerificationState": "verified_by_compliance",
+                      "eligibleForDispatchOnly": true,
+                      "acceptsRegistrantPersonalDetails": false
+                    }
+                  }
+                }
+              }
+            },
+            "calendarLimits": {
+              "minutesPerWindow": 60,
+              "capacityPerStaffPerWindow": 1,
+              "sharedFieldSupportPerWindow": 1,
+              "sourceOfCutoff": "configured_company_target",
+              "cutoffInclusive": true,
+              "noRouteInference": true
+            },
+            "changeControl": {
+              "lockOwnerRole": "dispatcher",
+              "rejectInvalidLock": true,
+              "occursBeforeCalendarWrite": true,
+              "publishesExternalUpdates": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "ruleCatalog": {
+    "INS-OPS-001": {
+      "ruleName": "Review the approved work queue and service zone",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11"
+      ]
+    },
+    "INS-OPS-002": {
+      "ruleName": "Confirm field access before reserving an inspection slot",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11"
+      ]
+    },
+    "INS-OPS-003": {
+      "ruleName": "Match a current approved duty and zone",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11",
+        "CDI-ADJUSTER-INFO",
+        "CDI-DISASTER-2026"
+      ]
+    },
+    "INS-OPS-004": {
+      "ruleName": "Stay in offered windows at or before the internal cutoff",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11",
+        "CDI-CCR-CLAIMS"
+      ]
+    },
+    "INS-OPS-005": {
+      "ruleName": "Fit the staff calendar and exclusive shared support",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11"
+      ]
+    },
+    "INS-OPS-006": {
+      "ruleName": "Preserve confirmed bookings; minimize changes to other prior placements",
+      "revision": "2026.11",
+      "verifiedAsOf": "2026-11-16",
+      "policyAuthority": "company_policy",
+      "sourceIds": [
+        "ORG-CALENDAR-2026.11"
+      ]
+    }
+  },
+  "reasonCatalog": {
+    "work_scope_review": {
+      "disposition": "review",
+      "ruleId": "INS-OPS-001",
+      "reviewAction": "Have a coordinator confirm that the work item was approved for this scheduling queue."
+    },
+    "region_scope_review": {
+      "disposition": "review",
+      "ruleId": "INS-OPS-001",
+      "reviewAction": "Confirm a service zone and its approved roster before proposing a booking."
+    },
+    "site_access_review": {
+      "disposition": "review",
+      "ruleId": "INS-OPS-002",
+      "reviewAction": "Confirm access through an authorized human channel; no outreach is sent."
+    },
+    "authorization_review": {
+      "disposition": "review",
+      "ruleId": "INS-OPS-003",
+      "reviewAction": "Ask the roster owner to confirm a current assignment scope; do not infer a permission from the surge."
+    },
+    "no_slot_before_target": {
+      "disposition": "held",
+      "ruleId": "INS-OPS-004",
+      "reviewAction": "Review offered slots before the company target; route a target exception to the coordinator."
+    },
+    "no_staffed_window": {
+      "disposition": "held",
+      "ruleId": "INS-OPS-005",
+      "reviewAction": "Find a different offered window with both authorized staff and field support, where required."
+    },
+    "shared_plan_capacity": {
+      "disposition": "held",
+      "ruleId": "INS-OPS-005",
+      "reviewAction": "Review worker and shared support capacity across the proposed plan."
+    },
+    "within_approved_capacity": {
+      "disposition": "scheduled",
+      "ruleId": "INS-OPS-005",
+      "reviewAction": "Confirm the proposal before making any system or calendar change."
+    },
+    "replacement_capacity_found": {
+      "disposition": "scheduled",
+      "ruleId": "INS-OPS-006",
+      "reviewAction": "Review the proposed replacement beside its earlier slot and coach the handoff."
+    },
+    "prior_booking_retained": {
+      "disposition": "scheduled",
+      "ruleId": "INS-OPS-006",
+      "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+    },
+    "locked_booking_retained": {
+      "disposition": "scheduled",
+      "ruleId": "INS-OPS-006",
+      "reviewAction": "Keep the already confirmed booking unchanged."
+    }
+  },
+  "slotInventory": [
+    {
+      "slotId": "WIN-01",
+      "slotIndex": 0,
+      "startUtc": "2026-11-18T17:00:00Z",
+      "endUtc": "2026-11-18T18:00:00Z",
+      "fieldSupportOpen": true,
+      "calendarSource": "approved_company_calendar"
+    },
+    {
+      "slotId": "WIN-02",
+      "slotIndex": 1,
+      "startUtc": "2026-11-18T18:00:00Z",
+      "endUtc": "2026-11-18T19:00:00Z",
+      "fieldSupportOpen": true,
+      "calendarSource": "approved_company_calendar"
+    },
+    {
+      "slotId": "WIN-03",
+      "slotIndex": 2,
+      "startUtc": "2026-11-18T19:00:00Z",
+      "endUtc": "2026-11-18T20:00:00Z",
+      "fieldSupportOpen": true,
+      "calendarSource": "approved_company_calendar"
+    },
+    {
+      "slotId": "WIN-04",
+      "slotIndex": 3,
+      "startUtc": "2026-11-18T20:00:00Z",
+      "endUtc": "2026-11-18T21:00:00Z",
+      "fieldSupportOpen": true,
+      "calendarSource": "approved_company_calendar"
+    },
+    {
+      "slotId": "WIN-05",
+      "slotIndex": 4,
+      "startUtc": "2026-11-18T21:00:00Z",
+      "endUtc": "2026-11-18T22:00:00Z",
+      "fieldSupportOpen": true,
+      "calendarSource": "approved_company_calendar"
+    }
+  ],
+  "approvedRoster": [
+    {
+      "staffId": "ADJ-D01",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-DESK-NORTH",
+          "dutyCode": "desk_contact_prep",
+          "approvedZones": [
+            "CA-NORTH",
+            "CA-SOUTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-01",
+        "WIN-02",
+        "WIN-03",
+        "WIN-04",
+        "WIN-05"
+      ]
+    },
+    {
+      "staffId": "ADJ-D02",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-DESK-NORTH",
+          "dutyCode": "desk_contact_prep",
+          "approvedZones": [
+            "CA-NORTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-01",
+        "WIN-02",
+        "WIN-03",
+        "WIN-05"
+      ]
+    },
+    {
+      "staffId": "ADJ-F01",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-FIEL-NORTH",
+          "dutyCode": "field_inspection",
+          "approvedZones": [
+            "CA-NORTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-01",
+        "WIN-02",
+        "WIN-03",
+        "WIN-04"
+      ]
+    },
+    {
+      "staffId": "ADJ-F02",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-FIEL-SOUTH",
+          "dutyCode": "field_inspection",
+          "approvedZones": [
+            "CA-SOUTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-02",
+        "WIN-03",
+        "WIN-04",
+        "WIN-05"
+      ]
+    },
+    {
+      "staffId": "ADJ-F03",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-DESK-NORTH",
+          "dutyCode": "desk_contact_prep",
+          "approvedZones": [
+            "CA-NORTH",
+            "CA-SOUTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        },
+        {
+          "scopeGrantCode": "GRANT-FIEL-NORTH",
+          "dutyCode": "field_inspection",
+          "approvedZones": [
+            "CA-NORTH"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-30",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-02",
+        "WIN-03",
+        "WIN-04",
+        "WIN-05"
+      ]
+    },
+    {
+      "staffId": "ADJ-F04",
+      "rosterClass": "opaque_operational_resource",
+      "calendarRevision": "2026.11.18-r1",
+      "scopeGrants": [
+        {
+          "scopeGrantCode": "GRANT-FIEL-COAST",
+          "dutyCode": "field_inspection",
+          "approvedZones": [
+            "CA-COAST"
+          ],
+          "verificationState": "verified_by_compliance",
+          "assertedAtUtc": "2026-11-12T19:00:00Z",
+          "validFrom": "2026-10-01",
+          "validThrough": "2026-11-15",
+          "verifiedEvidenceType": "approved_internal_scope_assertion"
+        }
+      ],
+      "freeSlotIds": [
+        "WIN-01",
+        "WIN-02",
+        "WIN-03",
+        "WIN-04",
+        "WIN-05"
+      ]
+    }
+  ],
+  "approvedQueue": [
+    {
+      "workId": "WORK-01",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-01",
+        "WIN-02"
+      ],
+      "internalTargetSlot": "WIN-02",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-02",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-01"
+      ],
+      "internalTargetSlot": "WIN-01",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-03",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-02",
+        "WIN-03"
+      ],
+      "internalTargetSlot": "WIN-03",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-04",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-02"
+      ],
+      "internalTargetSlot": "WIN-02",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-05",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-01"
+      ],
+      "internalTargetSlot": "WIN-01",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-06",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-03",
+        "WIN-04"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-07",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-03",
+        "WIN-04"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-08",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-03",
+        "WIN-04",
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-09",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-04",
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-05",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-10",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-NORTH",
+      "reviewState": "work_scope_pending",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-04",
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-05",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-11",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_pending",
+      "offeredSlotIds": [
+        "WIN-03",
+        "WIN-04"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-12",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-COAST",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-01",
+        "WIN-02",
+        "WIN-03"
+      ],
+      "internalTargetSlot": "WIN-03",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-13",
+      "arrivalWave": "normal",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-01"
+      ],
+      "internalTargetSlot": "WIN-01",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-14",
+      "arrivalWave": "normal",
+      "workType": "desk_contact_prep",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-15",
+      "arrivalWave": "surge",
+      "workType": "desk_contact_prep",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-02",
+        "WIN-03"
+      ],
+      "internalTargetSlot": "WIN-03",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-16",
+      "arrivalWave": "surge",
+      "workType": "field_inspection",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-03",
+        "WIN-04"
+      ],
+      "internalTargetSlot": "WIN-04",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-17",
+      "arrivalWave": "surge",
+      "workType": "field_inspection",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-02",
+        "WIN-03"
+      ],
+      "internalTargetSlot": "WIN-03",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-18",
+      "arrivalWave": "surge",
+      "workType": "desk_contact_prep",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-03"
+      ],
+      "internalTargetSlot": "WIN-03",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-19",
+      "arrivalWave": "surge",
+      "workType": "desk_contact_prep",
+      "region": "CA-SOUTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-05",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-20",
+      "arrivalWave": "surge",
+      "workType": "field_inspection",
+      "region": "CA-NORTH",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "access_confirmed",
+      "offeredSlotIds": [
+        "WIN-04",
+        "WIN-05"
+      ],
+      "internalTargetSlot": "WIN-05",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    },
+    {
+      "workId": "WORK-21",
+      "arrivalWave": "surge",
+      "workType": "desk_contact_prep",
+      "region": "OUT-OF-SCOPE",
+      "reviewState": "approved_for_scheduling",
+      "siteAccess": "not_needed",
+      "offeredSlotIds": [
+        "WIN-01",
+        "WIN-02"
+      ],
+      "internalTargetSlot": "WIN-02",
+      "targetPolicyReference": "INS-OPS-004",
+      "estimatedEffortMinutes": 60
+    }
+  ],
+  "scenarioInputs": [
+    {
+      "id": "baseline",
+      "includedWaves": [
+        "normal"
+      ],
+      "strategy": "first_fit",
+      "comparePriorPlan": null,
+      "lockedWorkIds": [],
+      "calendarChanges": []
+    },
+    {
+      "id": "recommended",
+      "includedWaves": [
+        "normal"
+      ],
+      "strategy": "exact",
+      "comparePriorPlan": null,
+      "lockedWorkIds": [],
+      "calendarChanges": []
+    },
+    {
+      "id": "surge",
+      "includedWaves": [
+        "normal",
+        "surge"
+      ],
+      "strategy": "exact",
+      "comparePriorPlan": null,
+      "lockedWorkIds": [],
+      "calendarChanges": []
+    },
+    {
+      "id": "disruption",
+      "includedWaves": [
+        "normal",
+        "surge"
+      ],
+      "strategy": "exact",
+      "comparePriorPlan": "surge",
+      "lockedWorkIds": [
+        "WORK-02",
+        "WORK-05"
+      ],
+      "calendarChanges": [
+        {
+          "calendarChangeId": "CAL-OUT-01",
+          "staffId": "ADJ-F02",
+          "blockedSlotIds": [
+            "WIN-04"
+          ],
+          "availabilityState": "unavailable",
+          "calendarSource": "staff_calendar_update"
+        }
+      ]
+    }
+  ],
+  "recordedPlans": [
+    {
+      "id": "baseline",
+      "requested": 14,
+      "scheduled": 7,
+      "held": 4,
+      "review": 3,
+      "changed": 0,
+      "retained": 0,
+      "locked": 0,
+      "rows": [
+        {
+          "workId": "WORK-01",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-02",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-03",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-04",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-05",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-06",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-07",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-08",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-09",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-04",
+          "startUtc": "2026-11-18T20:00:00Z",
+          "endUtc": "2026-11-18T21:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-10",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "work_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Have a coordinator confirm that the work item was approved for this scheduling queue."
+        },
+        {
+          "workId": "WORK-11",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "site_access_review",
+          "locked": false,
+          "ruleId": "INS-OPS-002",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm access through an authorized human channel; no outreach is sent."
+        },
+        {
+          "workId": "WORK-12",
+          "workType": "field_inspection",
+          "region": "CA-COAST",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "authorization_review",
+          "locked": false,
+          "ruleId": "INS-OPS-003",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Ask the roster owner to confirm a current assignment scope; do not infer a permission from the surge."
+        },
+        {
+          "workId": "WORK-13",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_staffed_window",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Find a different offered window with both authorized staff and field support, where required."
+        },
+        {
+          "workId": "WORK-14",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_slot_before_target",
+          "locked": false,
+          "ruleId": "INS-OPS-004",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Review offered slots before the company target; route a target exception to the coordinator."
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "requested": 14,
+      "scheduled": 9,
+      "held": 2,
+      "review": 3,
+      "changed": 0,
+      "retained": 0,
+      "locked": 0,
+      "rows": [
+        {
+          "workId": "WORK-01",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-02",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-03",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-04",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-05",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-06",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-04",
+          "startUtc": "2026-11-18T20:00:00Z",
+          "endUtc": "2026-11-18T21:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-07",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-08",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-09",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-05",
+          "startUtc": "2026-11-18T21:00:00Z",
+          "endUtc": "2026-11-18T22:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-10",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "work_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Have a coordinator confirm that the work item was approved for this scheduling queue."
+        },
+        {
+          "workId": "WORK-11",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "site_access_review",
+          "locked": false,
+          "ruleId": "INS-OPS-002",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm access through an authorized human channel; no outreach is sent."
+        },
+        {
+          "workId": "WORK-12",
+          "workType": "field_inspection",
+          "region": "CA-COAST",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "authorization_review",
+          "locked": false,
+          "ruleId": "INS-OPS-003",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Ask the roster owner to confirm a current assignment scope; do not infer a permission from the surge."
+        },
+        {
+          "workId": "WORK-13",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_staffed_window",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Find a different offered window with both authorized staff and field support, where required."
+        },
+        {
+          "workId": "WORK-14",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_slot_before_target",
+          "locked": false,
+          "ruleId": "INS-OPS-004",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Review offered slots before the company target; route a target exception to the coordinator."
+        }
+      ]
+    },
+    {
+      "id": "surge",
+      "requested": 21,
+      "scheduled": 12,
+      "held": 5,
+      "review": 4,
+      "changed": 0,
+      "retained": 0,
+      "locked": 0,
+      "rows": [
+        {
+          "workId": "WORK-01",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-02",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-03",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-04",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-05",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-06",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-07",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F03",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-08",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-09",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-04",
+          "startUtc": "2026-11-18T20:00:00Z",
+          "endUtc": "2026-11-18T21:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-10",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "work_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Have a coordinator confirm that the work item was approved for this scheduling queue."
+        },
+        {
+          "workId": "WORK-11",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "site_access_review",
+          "locked": false,
+          "ruleId": "INS-OPS-002",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm access through an authorized human channel; no outreach is sent."
+        },
+        {
+          "workId": "WORK-12",
+          "workType": "field_inspection",
+          "region": "CA-COAST",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "authorization_review",
+          "locked": false,
+          "ruleId": "INS-OPS-003",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Ask the roster owner to confirm a current assignment scope; do not infer a permission from the surge."
+        },
+        {
+          "workId": "WORK-13",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_staffed_window",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Find a different offered window with both authorized staff and field support, where required."
+        },
+        {
+          "workId": "WORK-14",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_slot_before_target",
+          "locked": false,
+          "ruleId": "INS-OPS-004",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Review offered slots before the company target; route a target exception to the coordinator."
+        },
+        {
+          "workId": "WORK-15",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-16",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-17",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-18",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 3,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-19",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-05",
+          "startUtc": "2026-11-18T21:00:00Z",
+          "endUtc": "2026-11-18T22:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-20",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F03",
+          "slotId": "WIN-05",
+          "startUtc": "2026-11-18T21:00:00Z",
+          "endUtc": "2026-11-18T22:00:00Z",
+          "reason": "within_approved_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 3,
+          "reviewAction": "Confirm the proposal before making any system or calendar change."
+        },
+        {
+          "workId": "WORK-21",
+          "workType": "desk_contact_prep",
+          "region": "OUT-OF-SCOPE",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "region_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm a service zone and its approved roster before proposing a booking."
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "requested": 21,
+      "scheduled": 12,
+      "held": 5,
+      "review": 4,
+      "changed": 2,
+      "retained": 10,
+      "locked": 2,
+      "rows": [
+        {
+          "workId": "WORK-01",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-02",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "locked_booking_retained",
+          "locked": true,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Keep the already confirmed booking unchanged."
+        },
+        {
+          "workId": "WORK-03",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-04",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-05",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-01",
+          "startUtc": "2026-11-18T17:00:00Z",
+          "endUtc": "2026-11-18T18:00:00Z",
+          "reason": "locked_booking_retained",
+          "locked": true,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Keep the already confirmed booking unchanged."
+        },
+        {
+          "workId": "WORK-06",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-07",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F03",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-08",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D02",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 5,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-09",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F02",
+          "slotId": "WIN-05",
+          "startUtc": "2026-11-18T21:00:00Z",
+          "endUtc": "2026-11-18T22:00:00Z",
+          "reason": "replacement_capacity_found",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 1,
+          "reviewAction": "Review the proposed replacement beside its earlier slot and coach the handoff."
+        },
+        {
+          "workId": "WORK-10",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "work_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Have a coordinator confirm that the work item was approved for this scheduling queue."
+        },
+        {
+          "workId": "WORK-11",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "site_access_review",
+          "locked": false,
+          "ruleId": "INS-OPS-002",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm access through an authorized human channel; no outreach is sent."
+        },
+        {
+          "workId": "WORK-12",
+          "workType": "field_inspection",
+          "region": "CA-COAST",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "authorization_review",
+          "locked": false,
+          "ruleId": "INS-OPS-003",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Ask the roster owner to confirm a current assignment scope; do not infer a permission from the surge."
+        },
+        {
+          "workId": "WORK-13",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_staffed_window",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Find a different offered window with both authorized staff and field support, where required."
+        },
+        {
+          "workId": "WORK-14",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "no_slot_before_target",
+          "locked": false,
+          "ruleId": "INS-OPS-004",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Review offered slots before the company target; route a target exception to the coordinator."
+        },
+        {
+          "workId": "WORK-15",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-02",
+          "startUtc": "2026-11-18T18:00:00Z",
+          "endUtc": "2026-11-18T19:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-16",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 4,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-17",
+          "workType": "field_inspection",
+          "region": "CA-SOUTH",
+          "status": "held",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "shared_plan_capacity",
+          "locked": false,
+          "ruleId": "INS-OPS-005",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "Review worker and shared support capacity across the proposed plan."
+        },
+        {
+          "workId": "WORK-18",
+          "workType": "desk_contact_prep",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-03",
+          "startUtc": "2026-11-18T19:00:00Z",
+          "endUtc": "2026-11-18T20:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 3,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-19",
+          "workType": "desk_contact_prep",
+          "region": "CA-SOUTH",
+          "status": "scheduled",
+          "staffId": "ADJ-D01",
+          "slotId": "WIN-05",
+          "startUtc": "2026-11-18T21:00:00Z",
+          "endUtc": "2026-11-18T22:00:00Z",
+          "reason": "prior_booking_retained",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 2,
+          "reviewAction": "No change to the previously proposed slot or assigned staff resource."
+        },
+        {
+          "workId": "WORK-20",
+          "workType": "field_inspection",
+          "region": "CA-NORTH",
+          "status": "scheduled",
+          "staffId": "ADJ-F01",
+          "slotId": "WIN-04",
+          "startUtc": "2026-11-18T20:00:00Z",
+          "endUtc": "2026-11-18T21:00:00Z",
+          "reason": "replacement_capacity_found",
+          "locked": false,
+          "ruleId": "INS-OPS-006",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 3,
+          "reviewAction": "Review the proposed replacement beside its earlier slot and coach the handoff."
+        },
+        {
+          "workId": "WORK-21",
+          "workType": "desk_contact_prep",
+          "region": "OUT-OF-SCOPE",
+          "status": "review",
+          "staffId": null,
+          "slotId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "reason": "region_scope_review",
+          "locked": false,
+          "ruleId": "INS-OPS-001",
+          "ruleRevision": "2026.11",
+          "ruleVerifiedAsOf": "2026-11-16",
+          "compatiblePairsBeforeSharedBooking": 0,
+          "reviewAction": "Confirm a service zone and its approved roster before proposing a booking."
+        }
+      ]
+    }
+  ]
+}

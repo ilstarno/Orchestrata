@@ -1,0 +1,2577 @@
+{
+  "caseId": "fintech-payment-exception-queue",
+  "schemaVersion": 1,
+  "scope": {
+    "replayDate": "2026-11-16",
+    "timezone": "America/New_York",
+    "bankingDayAssumption": "sample weekday only; not a holiday calendar or live network status",
+    "workspace": "offline example payments operations",
+    "casePopulation": "24 example internal exception work items, not actual payments",
+    "authorityRuleCoverage": "Transmission window context only",
+    "noTransfers": true,
+    "noFinancialIdentifiers": true,
+    "noConsumerDecision": true,
+    "noCreditOrFraudDecision": true,
+    "policyNotLaw": true,
+    "resultMeaning": "planned review work, not an approval, eligibility decision, settlement or network transmission"
+  },
+  "replayTimeReference": "2026-11-16T00:00:00-05:00",
+  "replayTimeEnds": "2026-11-17T00:00:00-05:00",
+  "primarySources": {
+    "fedach": {
+      "publisher": "Federal Reserve Financial Services",
+      "title": "FedACH Processing Schedule, Electronic Return Items",
+      "url": "https://www.frbservices.org/resources/resource-centers/same-day-ach-resource-center/fedach-processing-schedule/",
+      "verifiedOn": "2026-11-16",
+      "use": "Three published same-day electronic return-item transmission windows. Not a case eligibility determination."
+    },
+    "reg-e": {
+      "publisher": "Consumer Financial Protection Bureau",
+      "title": "12 CFR \u00a71005.11, Procedures for resolving errors",
+      "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/11/",
+      "verifiedOn": "2026-11-16",
+      "use": "Context only. Consumer or unclear coverage is routed outside this operations queue without deciding rights or deadlines."
+    }
+  },
+  "returnWindows": [
+    {
+      "windowId": "RET-AM",
+      "networkTransmissionDeadline": 630,
+      "targetDistribution": 720,
+      "scheduledSettlementTime": 780,
+      "dayRelation": "current banking day"
+    },
+    {
+      "windowId": "RET-PM",
+      "networkTransmissionDeadline": 885,
+      "targetDistribution": 960,
+      "scheduledSettlementTime": 1020,
+      "dayRelation": "current banking day"
+    },
+    {
+      "windowId": "RET-END",
+      "networkTransmissionDeadline": 1005,
+      "targetDistribution": 1050,
+      "scheduledSettlementTime": 1080,
+      "dayRelation": "current banking day"
+    }
+  ],
+  "companyPolicy": {
+    "reviewersDistinct": true,
+    "timeStepMinutes": 5,
+    "transmissionBufferMinutes": 15,
+    "needsVerifiedEvidence": true,
+    "permitImplicitWindowRoll": false,
+    "minutesUnit": "whole minutes since midnight on sample banking day",
+    "rulesetId": "PAYOPS-CO-01",
+    "ownership": "payments operations training team",
+    "candidateOrder": [
+      "internalDueMinutes",
+      "priority",
+      "caseId"
+    ],
+    "reviewMustFollowPreparation": true,
+    "outageAppliesToAllRolesOnAffectedAnalyst": true
+  },
+  "scenarios": [
+    {
+      "scenarioId": "normal-shift",
+      "counterfactual": false,
+      "outages": [],
+      "counts": {
+        "scheduled": 15,
+        "held": 8,
+        "manual_review": 1
+      },
+      "analystUtilization": [
+        {
+          "analystRef": "AN-01",
+          "plannedIntervalCount": 11,
+          "plannedWorkMinutes": 270
+        },
+        {
+          "analystRef": "AN-02",
+          "plannedIntervalCount": 7,
+          "plannedWorkMinutes": 140
+        },
+        {
+          "analystRef": "AN-03",
+          "plannedIntervalCount": 3,
+          "plannedWorkMinutes": 55
+        },
+        {
+          "analystRef": "AN-04",
+          "plannedIntervalCount": 2,
+          "plannedWorkMinutes": 40
+        }
+      ],
+      "decisions": [
+        {
+          "caseId": "PX-001",
+          "label": "Check a packet against the morning window",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 565,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                570,
+                585
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                585,
+                600
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-001-EV",
+                            "observedAtLocalMinute": 560,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-002",
+          "label": "Second packet shares the morning quality desk",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 575,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-03",
+              "workIntervalLocalMinutes": [
+                575,
+                595
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                595,
+                610
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-002-EV",
+                            "observedAtLocalMinute": 570,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-003",
+          "label": "Arrived too late for two checks",
+          "status": "held",
+          "reasonCode": "DUE_WINDOW_TOO_SHORT",
+          "explanation": "Even without competing work, no complete plan fits between arrival and the internal due time.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 600,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-003-EV",
+                            "observedAtLocalMinute": 595,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-004",
+          "label": "Compare imported batch totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 545,
+          "serviceDueLocalMinute": 600,
+          "internalDueLocalMinute": 600,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                545,
+                570
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-004-EV",
+                            "observedAtLocalMinute": 540,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-005",
+          "label": "Match internal settlement entries",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 555,
+          "serviceDueLocalMinute": 615,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                585,
+                615
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-005-EV",
+                            "observedAtLocalMinute": 550,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-006",
+          "label": "Reconcile an afternoon packet reference",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 615,
+          "serviceDueLocalMinute": 875,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                615,
+                650
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                650,
+                675
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-006-EV",
+                            "observedAtLocalMinute": 610,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-007",
+          "label": "Afternoon packet needs a separate reviewer",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 810,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                810,
+                835
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                835,
+                865
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-007-EV",
+                            "observedAtLocalMinute": 805,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-008",
+          "label": "Competing afternoon exception",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 815,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-008-EV",
+                            "observedAtLocalMinute": 810,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-009",
+          "label": "Check duplicate import records without changing ledger",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 830,
+          "serviceDueLocalMinute": 890,
+          "internalDueLocalMinute": 890,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                835,
+                865
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-009-EV",
+                            "observedAtLocalMinute": 825,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-010",
+          "label": "Late-day packet with third window request",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 890,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                890,
+                915
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                915,
+                935
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-010-EV",
+                            "observedAtLocalMinute": 885,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-011",
+          "label": "Competing late-day review",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 925,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-011-EV",
+                            "observedAtLocalMinute": 920,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-012",
+          "label": "Insufficient time before the internal cutoff",
+          "status": "held",
+          "reasonCode": "DUE_WINDOW_TOO_SHORT",
+          "explanation": "Even without competing work, no complete plan fits between arrival and the internal due time.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 865,
+          "serviceDueLocalMinute": 875,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-012-EV",
+                            "observedAtLocalMinute": 860,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-013",
+          "label": "No supporting evidence attached",
+          "status": "held",
+          "reasonCode": "EVIDENCE_MISSING_OR_REJECTED",
+          "explanation": "The supporting operational record has not been accepted for this work. Do not assign a preparer or reviewer.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 600,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "missing",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-013-EV",
+                            "observedAtLocalMinute": 595,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-014",
+          "label": "Conflicting import evidence",
+          "status": "held",
+          "reasonCode": "EVIDENCE_MISSING_OR_REJECTED",
+          "explanation": "The supporting operational record has not been accepted for this work. Do not assign a preparer or reviewer.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 785,
+          "serviceDueLocalMinute": 840,
+          "internalDueLocalMinute": 840,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "rejected",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-014-EV",
+                            "observedAtLocalMinute": 780,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-015",
+          "label": "Evidence expires before the work can finish",
+          "status": "held",
+          "reasonCode": "EVIDENCE_EXPIRES_BEFORE_MINIMUM_WORK",
+          "explanation": "The accepted evidence will expire before even the shortest complete task can end.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 915,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-015-EV",
+                            "observedAtLocalMinute": 910,
+                            "validThroughLocalMinute": 930,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-016",
+          "label": "Unclear consumer account coverage",
+          "status": "manual_review",
+          "reasonCode": "SEPARATE_APPLICABILITY_REVIEW",
+          "explanation": "The intake lane is consumer-related or unclear. Route this to a qualified owner without deciding rights, remedies, or deadlines.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 635,
+          "serviceDueLocalMinute": 700,
+          "internalDueLocalMinute": 700,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-016-EV",
+                            "observedAtLocalMinute": 630,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "consumer_or_unclear"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-017",
+          "label": "Match journal and batch counts",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 575,
+          "serviceDueLocalMinute": 650,
+          "internalDueLocalMinute": 650,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                610,
+                635
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-017-EV",
+                            "observedAtLocalMinute": 570,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-018",
+          "label": "End-of-day control totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 930,
+          "serviceDueLocalMinute": 980,
+          "internalDueLocalMinute": 980,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                930,
+                950
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-018-EV",
+                            "observedAtLocalMinute": 925,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-019",
+          "label": "Late high-priority operational exception",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 940,
+          "serviceDueLocalMinute": 985,
+          "internalDueLocalMinute": 985,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-03",
+              "workIntervalLocalMinutes": [
+                940,
+                955
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                955,
+                975
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-019-EV",
+                            "observedAtLocalMinute": 935,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-020",
+          "label": "Control task conflicts with break cover",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 715,
+          "serviceDueLocalMinute": 745,
+          "internalDueLocalMinute": 745,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-020-EV",
+                            "observedAtLocalMinute": 710,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-021",
+          "label": "Packet arrived immediately before cutoff",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 960,
+          "serviceDueLocalMinute": 1000,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                960,
+                975
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                975,
+                990
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-021-EV",
+                            "observedAtLocalMinute": 955,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-022",
+          "label": "Early-arriving exception can be handled offline",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 610,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-03",
+              "workIntervalLocalMinutes": [
+                610,
+                630
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                630,
+                645
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-022-EV",
+                            "observedAtLocalMinute": 605,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-023",
+          "label": "Midday imported control totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 750,
+          "serviceDueLocalMinute": 825,
+          "internalDueLocalMinute": 825,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                750,
+                780
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-023-EV",
+                            "observedAtLocalMinute": 745,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-024",
+          "label": "Cross-check reconciliation reference",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 860,
+          "serviceDueLocalMinute": 925,
+          "internalDueLocalMinute": 925,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                865,
+                885
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-024-EV",
+                            "observedAtLocalMinute": 855,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenarioId": "reviewer-outage",
+      "counterfactual": true,
+      "outages": [
+        {
+          "analystRef": "AN-02",
+          "windowLocalMinutes": [
+            810,
+            1010
+          ],
+          "reason": "Simulated workstation loss; alternate reviewers follow normal qualification and separation rules."
+        }
+      ],
+      "counts": {
+        "scheduled": 13,
+        "held": 10,
+        "manual_review": 1
+      },
+      "analystUtilization": [
+        {
+          "analystRef": "AN-01",
+          "plannedIntervalCount": 10,
+          "plannedWorkMinutes": 245
+        },
+        {
+          "analystRef": "AN-02",
+          "plannedIntervalCount": 3,
+          "plannedWorkMinutes": 55
+        },
+        {
+          "analystRef": "AN-03",
+          "plannedIntervalCount": 2,
+          "plannedWorkMinutes": 40
+        },
+        {
+          "analystRef": "AN-04",
+          "plannedIntervalCount": 4,
+          "plannedWorkMinutes": 75
+        }
+      ],
+      "decisions": [
+        {
+          "caseId": "PX-001",
+          "label": "Check a packet against the morning window",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 565,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                570,
+                585
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                585,
+                600
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-001-EV",
+                            "observedAtLocalMinute": 560,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-002",
+          "label": "Second packet shares the morning quality desk",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 575,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-03",
+              "workIntervalLocalMinutes": [
+                575,
+                595
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                595,
+                610
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-002-EV",
+                            "observedAtLocalMinute": 570,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-003",
+          "label": "Arrived too late for two checks",
+          "status": "held",
+          "reasonCode": "DUE_WINDOW_TOO_SHORT",
+          "explanation": "Even without competing work, no complete plan fits between arrival and the internal due time.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 600,
+          "serviceDueLocalMinute": 620,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": "RET-AM",
+          "networkTransmissionDeadline": 630,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-003-EV",
+                            "observedAtLocalMinute": 595,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-004",
+          "label": "Compare imported batch totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 545,
+          "serviceDueLocalMinute": 600,
+          "internalDueLocalMinute": 600,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                545,
+                570
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-004-EV",
+                            "observedAtLocalMinute": 540,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-005",
+          "label": "Match internal settlement entries",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 555,
+          "serviceDueLocalMinute": 615,
+          "internalDueLocalMinute": 615,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                585,
+                615
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-005-EV",
+                            "observedAtLocalMinute": 550,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-006",
+          "label": "Reconcile an afternoon packet reference",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 615,
+          "serviceDueLocalMinute": 875,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                615,
+                650
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                650,
+                675
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-006-EV",
+                            "observedAtLocalMinute": 610,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-007",
+          "label": "Afternoon packet needs a separate reviewer",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 810,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-007-EV",
+                            "observedAtLocalMinute": 805,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-008",
+          "label": "Competing afternoon exception",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 815,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-008-EV",
+                            "observedAtLocalMinute": 810,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-009",
+          "label": "Check duplicate import records without changing ledger",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 830,
+          "serviceDueLocalMinute": 890,
+          "internalDueLocalMinute": 890,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                830,
+                860
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-009-EV",
+                            "observedAtLocalMinute": 825,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-010",
+          "label": "Late-day packet with third window request",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 890,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                890,
+                915
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                915,
+                935
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-010-EV",
+                            "observedAtLocalMinute": 885,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-011",
+          "label": "Competing late-day review",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 925,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-011-EV",
+                            "observedAtLocalMinute": 920,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-012",
+          "label": "Insufficient time before the internal cutoff",
+          "status": "held",
+          "reasonCode": "DUE_WINDOW_TOO_SHORT",
+          "explanation": "Even without competing work, no complete plan fits between arrival and the internal due time.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 865,
+          "serviceDueLocalMinute": 875,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-012-EV",
+                            "observedAtLocalMinute": 860,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-013",
+          "label": "No supporting evidence attached",
+          "status": "held",
+          "reasonCode": "EVIDENCE_MISSING_OR_REJECTED",
+          "explanation": "The supporting operational record has not been accepted for this work. Do not assign a preparer or reviewer.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 600,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "missing",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-013-EV",
+                            "observedAtLocalMinute": 595,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-014",
+          "label": "Conflicting import evidence",
+          "status": "held",
+          "reasonCode": "EVIDENCE_MISSING_OR_REJECTED",
+          "explanation": "The supporting operational record has not been accepted for this work. Do not assign a preparer or reviewer.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 785,
+          "serviceDueLocalMinute": 840,
+          "internalDueLocalMinute": 840,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "rejected",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-014-EV",
+                            "observedAtLocalMinute": 780,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-015",
+          "label": "Evidence expires before the work can finish",
+          "status": "held",
+          "reasonCode": "EVIDENCE_EXPIRES_BEFORE_MINIMUM_WORK",
+          "explanation": "The accepted evidence will expire before even the shortest complete task can end.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 915,
+          "serviceDueLocalMinute": 990,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-015-EV",
+                            "observedAtLocalMinute": 910,
+                            "validThroughLocalMinute": 930,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-016",
+          "label": "Unclear consumer account coverage",
+          "status": "manual_review",
+          "reasonCode": "SEPARATE_APPLICABILITY_REVIEW",
+          "explanation": "The intake lane is consumer-related or unclear. Route this to a qualified owner without deciding rights, remedies, or deadlines.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 635,
+          "serviceDueLocalMinute": 700,
+          "internalDueLocalMinute": 700,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-016-EV",
+                            "observedAtLocalMinute": 630,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "consumer_or_unclear"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-017",
+          "label": "Match journal and batch counts",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 575,
+          "serviceDueLocalMinute": 650,
+          "internalDueLocalMinute": 650,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                610,
+                635
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-017-EV",
+                            "observedAtLocalMinute": 570,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-018",
+          "label": "End-of-day control totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 930,
+          "serviceDueLocalMinute": 980,
+          "internalDueLocalMinute": 980,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                930,
+                950
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-018-EV",
+                            "observedAtLocalMinute": 925,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-019",
+          "label": "Late high-priority operational exception",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 940,
+          "serviceDueLocalMinute": 985,
+          "internalDueLocalMinute": 985,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-019-EV",
+                            "observedAtLocalMinute": 935,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-020",
+          "label": "Control task conflicts with break cover",
+          "status": "held",
+          "reasonCode": "NO_QUALIFIED_COMPLETE_PLAN",
+          "explanation": "There is no complete qualified assignment within the available time. No partial or next-window handoff is scheduled.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 715,
+          "serviceDueLocalMinute": 745,
+          "internalDueLocalMinute": 745,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-020-EV",
+                            "observedAtLocalMinute": 710,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-021",
+          "label": "Packet arrived immediately before cutoff",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 960,
+          "serviceDueLocalMinute": 1000,
+          "internalDueLocalMinute": 990,
+          "targetNetworkWindowRef": "RET-END",
+          "networkTransmissionDeadline": 1005,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                960,
+                975
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-04",
+              "workIntervalLocalMinutes": [
+                975,
+                990
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-021-EV",
+                            "observedAtLocalMinute": 955,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-022",
+          "label": "Early-arriving exception can be handled offline",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "return_packet_admin",
+          "availableAtLocalMinute": 610,
+          "serviceDueLocalMinute": 870,
+          "internalDueLocalMinute": 870,
+          "targetNetworkWindowRef": "RET-PM",
+          "networkTransmissionDeadline": 885,
+          "workAssignments": [
+            {
+              "stage": "prepare",
+              "requiredQualification": "prepare_return_packet",
+              "analystRef": "AN-03",
+              "workIntervalLocalMinutes": [
+                610,
+                630
+              ]
+            },
+            {
+              "stage": "independent_qa",
+              "requiredQualification": "independent_return_qa",
+              "analystRef": "AN-02",
+              "workIntervalLocalMinutes": [
+                630,
+                645
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-022-EV",
+                            "observedAtLocalMinute": 605,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-023",
+          "label": "Midday imported control totals",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 750,
+          "serviceDueLocalMinute": 825,
+          "internalDueLocalMinute": 825,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                750,
+                780
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-023-EV",
+                            "observedAtLocalMinute": 745,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        },
+        {
+          "caseId": "PX-024",
+          "label": "Cross-check reconciliation reference",
+          "status": "scheduled",
+          "reasonCode": "PLANNED_INTERNAL_WORK",
+          "explanation": "All listed work stages can be planned by the applicable internal due time with qualified staff.",
+          "workType": "reconciliation",
+          "availableAtLocalMinute": 860,
+          "serviceDueLocalMinute": 925,
+          "internalDueLocalMinute": 925,
+          "targetNetworkWindowRef": null,
+          "networkTransmissionDeadline": null,
+          "workAssignments": [
+            {
+              "stage": "reconcile",
+              "requiredQualification": "reconcile_batches",
+              "analystRef": "AN-01",
+              "workIntervalLocalMinutes": [
+                860,
+                880
+              ]
+            }
+          ],
+          "paymentAuthorized": false,
+          "consumerRightsDetermined": false,
+          "audit": {
+            "control": {
+              "caseTrace": {
+                "intake": {
+                  "workEvidence": {
+                    "envelope": {
+                      "validation": {
+                        "attestation": {
+                          "status": "verified",
+                          "proofType": "example internal record",
+                          "validity": {
+                            "evidenceRef": "PX-024-EV",
+                            "observedAtLocalMinute": 855,
+                            "validThroughLocalMinute": 1020,
+                            "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "companyPolicyRef": "PAYOPS-CO-01",
+                "intakeLane": "nonconsumer_operations"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

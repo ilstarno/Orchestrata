@@ -1,0 +1,1357 @@
+{
+  "id": "fintech-payment-exception-queue",
+  "schemaVersion": 1,
+  "scope": {
+    "replayDate": "2026-11-16",
+    "timezone": "America/New_York",
+    "bankingDayAssumption": "sample weekday only; not a holiday calendar or live network status",
+    "workspace": "offline example payments operations",
+    "casePopulation": "24 example internal exception work items, not actual payments",
+    "authorityRuleCoverage": "Transmission window context only",
+    "noTransfers": true,
+    "noFinancialIdentifiers": true,
+    "noConsumerDecision": true,
+    "noCreditOrFraudDecision": true,
+    "policyNotLaw": true,
+    "resultMeaning": "planned review work, not an approval, eligibility decision, settlement or network transmission"
+  },
+  "primarySources": {
+    "fedach": {
+      "publisher": "Federal Reserve Financial Services",
+      "title": "FedACH Processing Schedule, Electronic Return Items",
+      "url": "https://www.frbservices.org/resources/resource-centers/same-day-ach-resource-center/fedach-processing-schedule/",
+      "verifiedOn": "2026-11-16",
+      "use": "Three published same-day electronic return-item transmission windows. Not a case eligibility determination."
+    },
+    "reg-e": {
+      "publisher": "Consumer Financial Protection Bureau",
+      "title": "12 CFR \u00a71005.11, Procedures for resolving errors",
+      "url": "https://www.consumerfinance.gov/rules-policy/regulations/1005/11/",
+      "verifiedOn": "2026-11-16",
+      "use": "Context only. Consumer or unclear coverage is routed outside this operations queue without deciding rights or deadlines."
+    }
+  },
+  "returnWindows": [
+    {
+      "windowId": "RET-AM",
+      "networkTransmissionDeadline": 630,
+      "targetDistribution": 720,
+      "scheduledSettlementTime": 780,
+      "dayRelation": "current banking day"
+    },
+    {
+      "windowId": "RET-PM",
+      "networkTransmissionDeadline": 885,
+      "targetDistribution": 960,
+      "scheduledSettlementTime": 1020,
+      "dayRelation": "current banking day"
+    },
+    {
+      "windowId": "RET-END",
+      "networkTransmissionDeadline": 1005,
+      "targetDistribution": 1050,
+      "scheduledSettlementTime": 1080,
+      "dayRelation": "current banking day"
+    }
+  ],
+  "companyPolicy": {
+    "reviewersDistinct": true,
+    "timeStepMinutes": 5,
+    "transmissionBufferMinutes": 15,
+    "needsVerifiedEvidence": true,
+    "permitImplicitWindowRoll": false,
+    "minutesUnit": "whole minutes since midnight on sample banking day",
+    "rulesetId": "PAYOPS-CO-01",
+    "ownership": "payments operations training team",
+    "candidateOrder": [
+      "internalDueMinutes",
+      "priority",
+      "caseId"
+    ],
+    "reviewMustFollowPreparation": true,
+    "outageAppliesToAllRolesOnAffectedAnalyst": true
+  },
+  "staffing": {
+    "analysts": [
+      {
+        "analystRef": "AN-01",
+        "qualifications": [
+          "prepare_return_packet",
+          "reconcile_batches"
+        ],
+        "shiftLocalMinutes": [
+          540,
+          990
+        ],
+        "unavailableLocalMinutes": [
+          [
+            720,
+            750
+          ]
+        ],
+        "qualificationEvidenceRef": "AN-01-TRAIN",
+        "employeeDataIncluded": false
+      },
+      {
+        "analystRef": "AN-02",
+        "qualifications": [
+          "independent_return_qa"
+        ],
+        "shiftLocalMinutes": [
+          555,
+          1020
+        ],
+        "unavailableLocalMinutes": [
+          [
+            720,
+            750
+          ]
+        ],
+        "qualificationEvidenceRef": "AN-02-TRAIN",
+        "employeeDataIncluded": false
+      },
+      {
+        "analystRef": "AN-03",
+        "qualifications": [
+          "prepare_return_packet"
+        ],
+        "shiftLocalMinutes": [
+          570,
+          990
+        ],
+        "unavailableLocalMinutes": [
+          [
+            750,
+            780
+          ]
+        ],
+        "qualificationEvidenceRef": "AN-03-TRAIN",
+        "employeeDataIncluded": false
+      },
+      {
+        "analystRef": "AN-04",
+        "qualifications": [
+          "independent_return_qa",
+          "reconcile_batches"
+        ],
+        "shiftLocalMinutes": [
+          570,
+          990
+        ],
+        "unavailableLocalMinutes": [
+          [
+            710,
+            750
+          ],
+          [
+            845,
+            870
+          ],
+          [
+            960,
+            975
+          ]
+        ],
+        "qualificationEvidenceRef": "AN-04-TRAIN",
+        "employeeDataIncluded": false
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "scenarioId": "normal-shift",
+      "counterfactual": false,
+      "outages": []
+    },
+    {
+      "scenarioId": "reviewer-outage",
+      "counterfactual": true,
+      "outages": [
+        {
+          "analystRef": "AN-02",
+          "windowLocalMinutes": [
+            810,
+            1010
+          ],
+          "reason": "Simulated workstation loss; alternate reviewers follow normal qualification and separation rules."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "PX-001",
+      "label": "Check a packet against the morning window",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 565,
+      "serviceDueLocalMinute": 620,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-AM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 15,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-001",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-001-EV",
+                        "observedAtLocalMinute": 560,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-002",
+      "label": "Second packet shares the morning quality desk",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 575,
+      "serviceDueLocalMinute": 620,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": "RET-AM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-002",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-002-EV",
+                        "observedAtLocalMinute": 570,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-003",
+      "label": "Arrived too late for two checks",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 600,
+      "serviceDueLocalMinute": 620,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-AM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 10,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-003",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-003-EV",
+                        "observedAtLocalMinute": 595,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-004",
+      "label": "Compare imported batch totals",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 545,
+      "serviceDueLocalMinute": 600,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 25,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-004",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-004-EV",
+                        "observedAtLocalMinute": 540,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-005",
+      "label": "Match internal settlement entries",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 555,
+      "serviceDueLocalMinute": 615,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 30,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-005",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-005-EV",
+                        "observedAtLocalMinute": 550,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-006",
+      "label": "Reconcile an afternoon packet reference",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 615,
+      "serviceDueLocalMinute": 875,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 35,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 25,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-006",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-006-EV",
+                        "observedAtLocalMinute": 610,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-007",
+      "label": "Afternoon packet needs a separate reviewer",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 810,
+      "serviceDueLocalMinute": 870,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 25,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 30,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-007",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-007-EV",
+                        "observedAtLocalMinute": 805,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-008",
+      "label": "Competing afternoon exception",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 815,
+      "serviceDueLocalMinute": 870,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 20,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-008",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-008-EV",
+                        "observedAtLocalMinute": 810,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-009",
+      "label": "Check duplicate import records without changing ledger",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 830,
+      "serviceDueLocalMinute": 890,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 30,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-009",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-009-EV",
+                        "observedAtLocalMinute": 825,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-010",
+      "label": "Late-day packet with third window request",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 890,
+      "serviceDueLocalMinute": 990,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-END",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 25,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 20,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-010",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-010-EV",
+                        "observedAtLocalMinute": 885,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-011",
+      "label": "Competing late-day review",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 925,
+      "serviceDueLocalMinute": 990,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": "RET-END",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 30,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 25,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-011",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-011-EV",
+                        "observedAtLocalMinute": 920,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-012",
+      "label": "Insufficient time before the internal cutoff",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 865,
+      "serviceDueLocalMinute": 875,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-012",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-012-EV",
+                        "observedAtLocalMinute": 860,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-013",
+      "label": "No supporting evidence attached",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 600,
+      "serviceDueLocalMinute": 870,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-013",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "missing",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-013-EV",
+                        "observedAtLocalMinute": 595,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-014",
+      "label": "Conflicting import evidence",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 785,
+      "serviceDueLocalMinute": 840,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 25,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-014",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "rejected",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-014-EV",
+                        "observedAtLocalMinute": 780,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-015",
+      "label": "Evidence expires before the work can finish",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 915,
+      "serviceDueLocalMinute": 990,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": "RET-END",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 20,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-015",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-015-EV",
+                        "observedAtLocalMinute": 910,
+                        "validThroughLocalMinute": 930,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-016",
+      "label": "Unclear consumer account coverage",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 635,
+      "serviceDueLocalMinute": 700,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "consumer_or_unclear",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 20,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-016",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-016-EV",
+                        "observedAtLocalMinute": 630,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-017",
+      "label": "Match journal and batch counts",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 575,
+      "serviceDueLocalMinute": 650,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 25,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-017",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-017-EV",
+                        "observedAtLocalMinute": 570,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-018",
+      "label": "End-of-day control totals",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 930,
+      "serviceDueLocalMinute": 980,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 20,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-018",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-018-EV",
+                        "observedAtLocalMinute": 925,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-019",
+      "label": "Late high-priority operational exception",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 940,
+      "serviceDueLocalMinute": 985,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-END",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 15,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 20,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-019",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-019-EV",
+                        "observedAtLocalMinute": 935,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-020",
+      "label": "Control task conflicts with break cover",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 715,
+      "serviceDueLocalMinute": 745,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 20,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-020",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-020-EV",
+                        "observedAtLocalMinute": 710,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-021",
+      "label": "Packet arrived immediately before cutoff",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 960,
+      "serviceDueLocalMinute": 1000,
+      "priorityRank": 1,
+      "targetNetworkWindowRef": "RET-END",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 15,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-021",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-021-EV",
+                        "observedAtLocalMinute": 955,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-022",
+      "label": "Early-arriving exception can be handled offline",
+      "workType": "return_packet_admin",
+      "availableAtLocalMinute": 610,
+      "serviceDueLocalMinute": 870,
+      "priorityRank": 2,
+      "targetNetworkWindowRef": "RET-PM",
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "prepare",
+          "minutes": 20,
+          "requiredQualification": "prepare_return_packet"
+        },
+        {
+          "stage": "independent_qa",
+          "minutes": 15,
+          "requiredQualification": "independent_return_qa"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-022",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-022-EV",
+                        "observedAtLocalMinute": 605,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-023",
+      "label": "Midday imported control totals",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 750,
+      "serviceDueLocalMinute": 825,
+      "priorityRank": 3,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 30,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-023",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-023-EV",
+                        "observedAtLocalMinute": 745,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "caseId": "PX-024",
+      "label": "Cross-check reconciliation reference",
+      "workType": "reconciliation",
+      "availableAtLocalMinute": 860,
+      "serviceDueLocalMinute": 925,
+      "priorityRank": 3,
+      "targetNetworkWindowRef": null,
+      "applicability": {
+        "intakeLane": "nonconsumer_operations",
+        "classificationOrigin": "example intake attestation",
+        "determineConsumerRights": false
+      },
+      "workSteps": [
+        {
+          "stage": "reconcile",
+          "minutes": 20,
+          "requiredQualification": "reconcile_batches"
+        }
+      ],
+      "operationsRecord": {
+        "intakeSnapshot": {
+          "caseReference": "PX-024",
+          "workflow": {
+            "workItem": {
+              "linkedEvidence": {
+                "evidenceEnvelope": {
+                  "manifest": {
+                    "attestation": {
+                      "status": "verified",
+                      "proofType": "example internal record",
+                      "validity": {
+                        "evidenceRef": "PX-024-EV",
+                        "observedAtLocalMinute": 855,
+                        "validThroughLocalMinute": 1020,
+                        "timestampPolicy": "attestation must remain usable through the proposed work finish"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
