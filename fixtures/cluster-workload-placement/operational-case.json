@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "cluster-workload-placement",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "content/solutions/cluster-workload-placement/index.md",
+    "excludedChecks": "Dynamic cluster state, cumulative resource demand and rolling deployment",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Infrastructure operations",
+      "sites": [
+        {
+          "siteLabel": "Sample cluster",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Cluster placement",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "node",
+                  "displayLabel": "Node ID 0",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "node",
+                  "displayLabel": "Node ID 1",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "node",
+                  "displayLabel": "Node ID 2",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Concurrent batch jobs",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "GPU batch job",
+                          "demandQuantity": 1,
+                          "demandUnit": "node",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Node eligibility was supplied by an operator.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Node ID 0",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Node ID 1",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Node ID 2",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Node ID 2",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "Search index rebuild",
+                          "demandQuantity": 1,
+                          "demandUnit": "node",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Node eligibility was supplied by an operator.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Node ID 0",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Node ID 1",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Node ID 2",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Node ID 0",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "Analytics export",
+                          "demandQuantity": 1,
+                          "demandUnit": "node",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Node eligibility was supplied by an operator.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Node ID 0",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Node ID 1",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Node ID 2",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/cluster-workload-placement/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Node ID 1",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/cluster-workload-placement/problem.json",
+          "resultSource": "catalog/cluster-workload-placement/expected.json",
+          "expectedOutput": {
+            "values": [
+              2,
+              0,
+              1
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 8
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 0,
+              "preferredResourceId": 2,
+              "preferredResourceLabel": "Node ID 2",
+              "preferredResourceEligible": true,
+              "softWeight": 1,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

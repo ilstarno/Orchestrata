@@ -1,0 +1,1521 @@
+{
+  "schemaVersion": 1,
+  "scope": "Example issues and roster; no Jira read, write, or actual staffing decision. Minutes are elapsed since the planning-window start, not a Jira SLA clock.",
+  "id": "jira-mixed-queue-stress",
+  "context": "Twelve queues share one planning horizon. Review what can fit before existing deadlines and what must be held for a human.",
+  "clock": {
+    "timezone": "Europe/Rome",
+    "start": "2026-11-17T08:00:00+01:00",
+    "unit": "minute",
+    "maxMinute": 480
+  },
+  "policy": "Check dependencies and sample approvals; among eligible ready issues use priority, earliest deadline and stable key. Require all skills, no overlapping work per person, and a whole slot inside staff and issue windows. Held items require a human review; no optimality claim.",
+  "resources": [
+    {
+      "id": "TEAM-IAM",
+      "role": "Identity analyst",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "window": [
+        0,
+        350
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-NET",
+      "role": "Network engineer",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "window": [
+        30,
+        380
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-BIL",
+      "role": "Billing specialist",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "window": [
+        60,
+        410
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-APP",
+      "role": "Application specialist",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "window": [
+        90,
+        440
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-DATA",
+      "role": "Data engineer",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "window": [
+        0,
+        350
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-SEC",
+      "role": "Security analyst",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "window": [
+        30,
+        380
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-END",
+      "role": "Endpoint technician",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "window": [
+        60,
+        410
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-CHG",
+      "role": "Change coordinator",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "window": [
+        90,
+        440
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-RPT",
+      "role": "Reporting analyst",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "window": [
+        0,
+        350
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-OBS",
+      "role": "Reliability engineer",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "window": [
+        30,
+        380
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-WAN",
+      "role": "Connectivity specialist",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "window": [
+        60,
+        410
+      ],
+      "timezone": "Europe/Rome"
+    },
+    {
+      "id": "TEAM-OPS",
+      "role": "Service desk coordinator",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "window": [
+        90,
+        440
+      ],
+      "timezone": "Europe/Rome"
+    }
+  ],
+  "items": [
+    {
+      "id": "IAM-201",
+      "title": "Confirm the requesting team",
+      "queue": "Access services",
+      "issueType": "service-request",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 18,
+      "priority": 3,
+      "window": [
+        0,
+        160
+      ],
+      "requires": []
+    },
+    {
+      "id": "IAM-202",
+      "title": "Verify identity evidence",
+      "queue": "Access services",
+      "issueType": "incident-review",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 21,
+      "priority": 3,
+      "window": [
+        10,
+        200
+      ],
+      "requires": [
+        "IAM-201"
+      ]
+    },
+    {
+      "id": "IAM-203",
+      "title": "Check approval record",
+      "queue": "Access services",
+      "issueType": "change-review",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 24,
+      "priority": 2,
+      "window": [
+        20,
+        240
+      ],
+      "requires": [
+        "IAM-202"
+      ]
+    },
+    {
+      "id": "IAM-204",
+      "title": "Review group membership",
+      "queue": "Access services",
+      "issueType": "service-request",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 27,
+      "priority": 2,
+      "window": [
+        30,
+        280
+      ],
+      "requires": [
+        "IAM-203"
+      ]
+    },
+    {
+      "id": "IAM-205",
+      "title": "Test access with a sample account",
+      "queue": "Access services",
+      "issueType": "incident-review",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 30,
+      "priority": 1,
+      "window": [
+        40,
+        320
+      ],
+      "requires": [
+        "IAM-204"
+      ]
+    },
+    {
+      "id": "IAM-206",
+      "title": "Record the proposed change",
+      "queue": "Access services",
+      "issueType": "change-review",
+      "skills": [
+        "identity",
+        "support"
+      ],
+      "duration": 33,
+      "priority": 1,
+      "window": [
+        50,
+        360
+      ],
+      "requires": [
+        "IAM-205"
+      ]
+    },
+    {
+      "id": "NET-201",
+      "title": "Review the link alert",
+      "queue": "Network operations",
+      "issueType": "incident-review",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 19,
+      "priority": 3,
+      "window": [
+        30,
+        190
+      ],
+      "requires": []
+    },
+    {
+      "id": "NET-202",
+      "title": "Compare interface counters",
+      "queue": "Network operations",
+      "issueType": "change-review",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 22,
+      "priority": 3,
+      "window": [
+        40,
+        230
+      ],
+      "requires": [
+        "NET-201"
+      ]
+    },
+    {
+      "id": "NET-203",
+      "title": "Check backup circuit status",
+      "queue": "Network operations",
+      "issueType": "service-request",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 25,
+      "priority": 2,
+      "window": [
+        50,
+        270
+      ],
+      "requires": [
+        "NET-202"
+      ]
+    },
+    {
+      "id": "NET-204",
+      "title": "Confirm approved window",
+      "queue": "Network operations",
+      "issueType": "incident-review",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 28,
+      "priority": 2,
+      "window": [
+        60,
+        310
+      ],
+      "requires": [
+        "NET-203"
+      ]
+    },
+    {
+      "id": "NET-205",
+      "title": "Validate sample failover checks",
+      "queue": "Network operations",
+      "issueType": "change-review",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 31,
+      "priority": 1,
+      "window": [
+        70,
+        350
+      ],
+      "requires": [
+        "NET-204"
+      ]
+    },
+    {
+      "id": "NET-206",
+      "title": "Record monitoring follow-up",
+      "queue": "Network operations",
+      "issueType": "service-request",
+      "skills": [
+        "network",
+        "monitoring"
+      ],
+      "duration": 34,
+      "priority": 1,
+      "window": [
+        80,
+        390
+      ],
+      "requires": [
+        "NET-205"
+      ]
+    },
+    {
+      "id": "BIL-201",
+      "title": "Reconcile invoice entries",
+      "queue": "Billing support",
+      "issueType": "change-review",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 20,
+      "priority": 3,
+      "window": [
+        60,
+        220
+      ],
+      "requires": []
+    },
+    {
+      "id": "BIL-202",
+      "title": "Verify account reference",
+      "queue": "Billing support",
+      "issueType": "service-request",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 23,
+      "priority": 3,
+      "window": [
+        70,
+        260
+      ],
+      "requires": [
+        "BIL-201"
+      ]
+    },
+    {
+      "id": "BIL-203",
+      "title": "Check prior adjustment",
+      "queue": "Billing support",
+      "issueType": "incident-review",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 26,
+      "priority": 2,
+      "window": [
+        80,
+        300
+      ],
+      "requires": [
+        "BIL-202"
+      ]
+    },
+    {
+      "id": "BIL-204",
+      "title": "Review credit evidence",
+      "queue": "Billing support",
+      "issueType": "change-review",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 29,
+      "priority": 2,
+      "window": [
+        90,
+        340
+      ],
+      "requires": [
+        "BIL-203"
+      ]
+    },
+    {
+      "id": "BIL-205",
+      "title": "Validate sample adjustment",
+      "queue": "Billing support",
+      "issueType": "service-request",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 32,
+      "priority": 1,
+      "window": [
+        100,
+        380
+      ],
+      "requires": [
+        "BIL-204"
+      ]
+    },
+    {
+      "id": "BIL-206",
+      "title": "Record the billing follow-up",
+      "queue": "Billing support",
+      "issueType": "incident-review",
+      "skills": [
+        "billing",
+        "support"
+      ],
+      "duration": 18,
+      "priority": 1,
+      "window": [
+        110,
+        420
+      ],
+      "requires": [
+        "BIL-205"
+      ]
+    },
+    {
+      "id": "APP-201",
+      "title": "Check application logs",
+      "queue": "Application support",
+      "issueType": "service-request",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 21,
+      "priority": 3,
+      "window": [
+        90,
+        250
+      ],
+      "requires": []
+    },
+    {
+      "id": "APP-202",
+      "title": "Match the error to a release",
+      "queue": "Application support",
+      "issueType": "incident-review",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 24,
+      "priority": 3,
+      "window": [
+        100,
+        290
+      ],
+      "requires": [
+        "APP-201"
+      ]
+    },
+    {
+      "id": "APP-203",
+      "title": "Verify affected records",
+      "queue": "Application support",
+      "issueType": "change-review",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 27,
+      "priority": 2,
+      "window": [
+        110,
+        330
+      ],
+      "requires": [
+        "APP-202"
+      ]
+    },
+    {
+      "id": "APP-204",
+      "title": "Review rollback evidence",
+      "queue": "Application support",
+      "issueType": "service-request",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 30,
+      "priority": 2,
+      "window": [
+        120,
+        370
+      ],
+      "requires": [
+        "APP-203"
+      ]
+    },
+    {
+      "id": "APP-205",
+      "title": "Run the sample recovery checks",
+      "queue": "Application support",
+      "issueType": "incident-review",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 33,
+      "priority": 1,
+      "window": [
+        130,
+        410
+      ],
+      "requires": [
+        "APP-204"
+      ]
+    },
+    {
+      "id": "APP-206",
+      "title": "Record the follow-up decision",
+      "queue": "Application support",
+      "issueType": "change-review",
+      "skills": [
+        "application",
+        "database"
+      ],
+      "duration": 19,
+      "priority": 1,
+      "window": [
+        140,
+        450
+      ],
+      "requires": [
+        "APP-205"
+      ]
+    },
+    {
+      "id": "DATA-201",
+      "title": "Check extract completeness",
+      "queue": "Data operations",
+      "issueType": "incident-review",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 22,
+      "priority": 3,
+      "window": [
+        0,
+        160
+      ],
+      "requires": []
+    },
+    {
+      "id": "DATA-202",
+      "title": "Review failed partitions",
+      "queue": "Data operations",
+      "issueType": "change-review",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 25,
+      "priority": 3,
+      "window": [
+        10,
+        200
+      ],
+      "requires": [
+        "DATA-201"
+      ]
+    },
+    {
+      "id": "DATA-203",
+      "title": "Compare sample counts",
+      "queue": "Data operations",
+      "issueType": "service-request",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 28,
+      "priority": 2,
+      "window": [
+        20,
+        240
+      ],
+      "requires": [
+        "DATA-202"
+      ]
+    },
+    {
+      "id": "DATA-204",
+      "title": "Verify export permissions",
+      "queue": "Data operations",
+      "issueType": "incident-review",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 31,
+      "priority": 2,
+      "window": [
+        30,
+        280
+      ],
+      "requires": [
+        "DATA-203"
+      ]
+    },
+    {
+      "id": "DATA-205",
+      "title": "Validate the sample export",
+      "queue": "Data operations",
+      "issueType": "change-review",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 34,
+      "priority": 1,
+      "window": [
+        40,
+        320
+      ],
+      "requires": [
+        "DATA-204"
+      ]
+    },
+    {
+      "id": "DATA-206",
+      "title": "Record reconciliation notes",
+      "queue": "Data operations",
+      "issueType": "service-request",
+      "skills": [
+        "database",
+        "reporting"
+      ],
+      "duration": 20,
+      "priority": 1,
+      "window": [
+        50,
+        360
+      ],
+      "requires": [
+        "DATA-205"
+      ]
+    },
+    {
+      "id": "SEC-201",
+      "title": "Review the alert summary",
+      "queue": "Security operations",
+      "issueType": "change-review",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "duration": 23,
+      "priority": 3,
+      "window": [
+        30,
+        190
+      ],
+      "requires": []
+    },
+    {
+      "id": "SEC-202",
+      "title": "Verify incident references",
+      "queue": "Security operations",
+      "issueType": "service-request",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "duration": 26,
+      "priority": 3,
+      "window": [
+        40,
+        230
+      ],
+      "requires": [
+        "SEC-201"
+      ]
+    },
+    {
+      "id": "SEC-203",
+      "title": "Check affected access scope",
+      "queue": "Security operations",
+      "issueType": "incident-review",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "duration": 29,
+      "priority": 2,
+      "window": [
+        50,
+        270
+      ],
+      "requires": [
+        "SEC-202"
+      ]
+    },
+    {
+      "id": "SEC-204",
+      "title": "Review escalation evidence",
+      "queue": "Security operations",
+      "issueType": "change-review",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "duration": 32,
+      "priority": 2,
+      "window": [
+        60,
+        310
+      ],
+      "requires": [
+        "SEC-203"
+      ]
+    },
+    {
+      "id": "SEC-205",
+      "title": "Validate closure criteria",
+      "queue": "Security operations",
+      "issueType": "service-request",
+      "skills": [
+        "forensics"
+      ],
+      "duration": 18,
+      "priority": 1,
+      "window": [
+        70,
+        350
+      ],
+      "requires": [
+        "SEC-204"
+      ]
+    },
+    {
+      "id": "SEC-206",
+      "title": "Record the review decision",
+      "queue": "Security operations",
+      "issueType": "incident-review",
+      "skills": [
+        "security",
+        "identity"
+      ],
+      "duration": 21,
+      "priority": 1,
+      "window": [
+        80,
+        390
+      ],
+      "requires": [
+        "SEC-205"
+      ]
+    },
+    {
+      "id": "END-201",
+      "title": "Confirm asset record",
+      "queue": "Endpoint support",
+      "issueType": "service-request",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 24,
+      "priority": 3,
+      "window": [
+        60,
+        220
+      ],
+      "requires": []
+    },
+    {
+      "id": "END-202",
+      "title": "Review enrollment status",
+      "queue": "Endpoint support",
+      "issueType": "incident-review",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 27,
+      "priority": 3,
+      "window": [
+        70,
+        260
+      ],
+      "requires": [
+        "END-201"
+      ]
+    },
+    {
+      "id": "END-203",
+      "title": "Check coverage window",
+      "queue": "Endpoint support",
+      "issueType": "change-review",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 30,
+      "priority": 2,
+      "window": [
+        80,
+        300
+      ],
+      "requires": [
+        "END-202"
+      ]
+    },
+    {
+      "id": "END-204",
+      "title": "Verify approved configuration",
+      "queue": "Endpoint support",
+      "issueType": "service-request",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 33,
+      "priority": 2,
+      "window": [
+        90,
+        340
+      ],
+      "requires": [
+        "END-203"
+      ],
+      "approval": "sample-approved"
+    },
+    {
+      "id": "END-205",
+      "title": "Check sample update status",
+      "queue": "Endpoint support",
+      "issueType": "incident-review",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 19,
+      "priority": 1,
+      "window": [
+        100,
+        380
+      ],
+      "requires": [
+        "END-204"
+      ]
+    },
+    {
+      "id": "END-206",
+      "title": "Record the support decision",
+      "queue": "Endpoint support",
+      "issueType": "change-review",
+      "skills": [
+        "endpoint",
+        "support"
+      ],
+      "duration": 22,
+      "priority": 1,
+      "window": [
+        110,
+        420
+      ],
+      "requires": [
+        "END-205"
+      ]
+    },
+    {
+      "id": "CHG-201",
+      "title": "Review the change request",
+      "queue": "Change coordination",
+      "issueType": "incident-review",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 25,
+      "priority": 3,
+      "window": [
+        90,
+        250
+      ],
+      "requires": []
+    },
+    {
+      "id": "CHG-202",
+      "title": "Check the owner and window",
+      "queue": "Change coordination",
+      "issueType": "change-review",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 28,
+      "priority": 3,
+      "window": [
+        100,
+        290
+      ],
+      "requires": [
+        "CHG-201"
+      ]
+    },
+    {
+      "id": "CHG-203",
+      "title": "Verify approval evidence",
+      "queue": "Change coordination",
+      "issueType": "service-request",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 31,
+      "priority": 2,
+      "window": [
+        110,
+        330
+      ],
+      "requires": [
+        "CHG-202"
+      ]
+    },
+    {
+      "id": "CHG-204",
+      "title": "Review fallback steps",
+      "queue": "Change coordination",
+      "issueType": "incident-review",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 34,
+      "priority": 2,
+      "window": [
+        120,
+        370
+      ],
+      "requires": [
+        "CHG-203"
+      ],
+      "approval": "pending"
+    },
+    {
+      "id": "CHG-205",
+      "title": "Check the release handover",
+      "queue": "Change coordination",
+      "issueType": "change-review",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 20,
+      "priority": 1,
+      "window": [
+        130,
+        410
+      ],
+      "requires": [
+        "CHG-204"
+      ]
+    },
+    {
+      "id": "CHG-206",
+      "title": "Record the reviewer decision",
+      "queue": "Change coordination",
+      "issueType": "service-request",
+      "skills": [
+        "change",
+        "application"
+      ],
+      "duration": 23,
+      "priority": 1,
+      "window": [
+        140,
+        450
+      ],
+      "requires": [
+        "CHG-205"
+      ]
+    },
+    {
+      "id": "RPT-201",
+      "title": "Confirm reporting period",
+      "queue": "Reporting requests",
+      "issueType": "change-review",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 26,
+      "priority": 3,
+      "window": [
+        0,
+        160
+      ],
+      "requires": []
+    },
+    {
+      "id": "RPT-202",
+      "title": "Check report access",
+      "queue": "Reporting requests",
+      "issueType": "service-request",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 29,
+      "priority": 3,
+      "window": [
+        10,
+        200
+      ],
+      "requires": [
+        "RPT-201"
+      ]
+    },
+    {
+      "id": "RPT-203",
+      "title": "Review data exceptions",
+      "queue": "Reporting requests",
+      "issueType": "incident-review",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 32,
+      "priority": 2,
+      "window": [
+        20,
+        240
+      ],
+      "requires": [
+        "RPT-202"
+      ]
+    },
+    {
+      "id": "RPT-204",
+      "title": "Validate totals against sample",
+      "queue": "Reporting requests",
+      "issueType": "change-review",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 18,
+      "priority": 2,
+      "window": [
+        30,
+        280
+      ],
+      "requires": [
+        "RPT-203"
+      ]
+    },
+    {
+      "id": "RPT-205",
+      "title": "Review delivery permission",
+      "queue": "Reporting requests",
+      "issueType": "service-request",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 21,
+      "priority": 1,
+      "window": [
+        40,
+        320
+      ],
+      "requires": [
+        "RPT-204"
+      ]
+    },
+    {
+      "id": "RPT-206",
+      "title": "Record distribution notes",
+      "queue": "Reporting requests",
+      "issueType": "incident-review",
+      "skills": [
+        "reporting",
+        "billing"
+      ],
+      "duration": 24,
+      "priority": 1,
+      "window": [
+        50,
+        360
+      ],
+      "requires": [
+        "RPT-205"
+      ]
+    },
+    {
+      "id": "OBS-201",
+      "title": "Inspect dashboard alerts",
+      "queue": "Platform observability",
+      "issueType": "service-request",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 27,
+      "priority": 3,
+      "window": [
+        30,
+        190
+      ],
+      "requires": []
+    },
+    {
+      "id": "OBS-202",
+      "title": "Review recent releases",
+      "queue": "Platform observability",
+      "issueType": "incident-review",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 30,
+      "priority": 3,
+      "window": [
+        40,
+        230
+      ],
+      "requires": [
+        "OBS-201"
+      ]
+    },
+    {
+      "id": "OBS-203",
+      "title": "Check telemetry coverage",
+      "queue": "Platform observability",
+      "issueType": "change-review",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 33,
+      "priority": 2,
+      "window": [
+        50,
+        270
+      ],
+      "requires": [
+        "OBS-202"
+      ]
+    },
+    {
+      "id": "OBS-204",
+      "title": "Verify retention settings",
+      "queue": "Platform observability",
+      "issueType": "service-request",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 19,
+      "priority": 2,
+      "window": [
+        60,
+        310
+      ],
+      "requires": [
+        "OBS-203"
+      ]
+    },
+    {
+      "id": "OBS-205",
+      "title": "Compare sample signal windows",
+      "queue": "Platform observability",
+      "issueType": "incident-review",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 22,
+      "priority": 1,
+      "window": [
+        70,
+        350
+      ],
+      "requires": [
+        "OBS-204"
+      ]
+    },
+    {
+      "id": "OBS-206",
+      "title": "Record the monitoring decision",
+      "queue": "Platform observability",
+      "issueType": "change-review",
+      "skills": [
+        "monitoring",
+        "application"
+      ],
+      "duration": 25,
+      "priority": 1,
+      "window": [
+        80,
+        390
+      ],
+      "requires": [
+        "OBS-205"
+      ]
+    },
+    {
+      "id": "WAN-201",
+      "title": "Confirm site contact",
+      "queue": "Site connectivity",
+      "issueType": "incident-review",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 28,
+      "priority": 3,
+      "window": [
+        60,
+        220
+      ],
+      "requires": []
+    },
+    {
+      "id": "WAN-202",
+      "title": "Check the affected devices",
+      "queue": "Site connectivity",
+      "issueType": "change-review",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 31,
+      "priority": 3,
+      "window": [
+        70,
+        260
+      ],
+      "requires": [
+        "WAN-201"
+      ]
+    },
+    {
+      "id": "WAN-203",
+      "title": "Review local circuit handoff",
+      "queue": "Site connectivity",
+      "issueType": "service-request",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 34,
+      "priority": 2,
+      "window": [
+        80,
+        300
+      ],
+      "requires": [
+        "WAN-202"
+      ]
+    },
+    {
+      "id": "WAN-204",
+      "title": "Verify sample gateway settings",
+      "queue": "Site connectivity",
+      "issueType": "incident-review",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 20,
+      "priority": 2,
+      "window": [
+        90,
+        340
+      ],
+      "requires": [
+        "WAN-203"
+      ]
+    },
+    {
+      "id": "WAN-205",
+      "title": "Check mitigation evidence",
+      "queue": "Site connectivity",
+      "issueType": "change-review",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 23,
+      "priority": 1,
+      "window": [
+        100,
+        380
+      ],
+      "requires": [
+        "WAN-204",
+        "NET-203"
+      ]
+    },
+    {
+      "id": "WAN-206",
+      "title": "Record the next review",
+      "queue": "Site connectivity",
+      "issueType": "service-request",
+      "skills": [
+        "network",
+        "endpoint"
+      ],
+      "duration": 26,
+      "priority": 1,
+      "window": [
+        110,
+        118
+      ],
+      "requires": [
+        "WAN-205"
+      ]
+    },
+    {
+      "id": "OPS-201",
+      "title": "Confirm service ownership",
+      "queue": "Service coordination",
+      "issueType": "change-review",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 29,
+      "priority": 3,
+      "window": [
+        90,
+        250
+      ],
+      "requires": []
+    },
+    {
+      "id": "OPS-202",
+      "title": "Review the intake record",
+      "queue": "Service coordination",
+      "issueType": "service-request",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 32,
+      "priority": 3,
+      "window": [
+        100,
+        290
+      ],
+      "requires": [
+        "OPS-201"
+      ]
+    },
+    {
+      "id": "OPS-203",
+      "title": "Check response window",
+      "queue": "Service coordination",
+      "issueType": "incident-review",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 18,
+      "priority": 2,
+      "window": [
+        110,
+        330
+      ],
+      "requires": [
+        "OPS-202",
+        "IAM-202",
+        "CHG-202"
+      ]
+    },
+    {
+      "id": "OPS-204",
+      "title": "Verify handover coverage",
+      "queue": "Service coordination",
+      "issueType": "change-review",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 21,
+      "priority": 2,
+      "window": [
+        120,
+        370
+      ],
+      "requires": [
+        "OPS-203"
+      ]
+    },
+    {
+      "id": "OPS-205",
+      "title": "Review escalation conditions",
+      "queue": "Service coordination",
+      "issueType": "service-request",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 24,
+      "priority": 1,
+      "window": [
+        130,
+        410
+      ],
+      "requires": [
+        "OPS-204"
+      ]
+    },
+    {
+      "id": "OPS-206",
+      "title": "Record the dispatch decision",
+      "queue": "Service coordination",
+      "issueType": "incident-review",
+      "skills": [
+        "support",
+        "change"
+      ],
+      "duration": 27,
+      "priority": 1,
+      "window": [
+        140,
+        450
+      ],
+      "requires": [
+        "OPS-205"
+      ]
+    }
+  ]
+}

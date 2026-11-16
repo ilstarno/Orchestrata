@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "scope": "Illustrative ServiceNow planning inputs. Offline draft for human review, with no service connection, real data, record update, or change approval.",
+  "results": [
+    {
+      "id": "servicenow-incident-triage",
+      "assignments": [
+        {
+          "itemId": "INC-1002",
+          "resourceId": "IAM-A",
+          "startMinute": 0,
+          "endMinute": 35
+        },
+        {
+          "itemId": "INC-1001",
+          "resourceId": "NET-A",
+          "startMinute": 0,
+          "endMinute": 45
+        },
+        {
+          "itemId": "INC-1003",
+          "resourceId": "APP-A",
+          "startMinute": 5,
+          "endMinute": 35
+        },
+        {
+          "itemId": "INC-1004",
+          "resourceId": "NET-A",
+          "startMinute": 45,
+          "endMinute": 80
+        },
+        {
+          "itemId": "INC-1005",
+          "resourceId": "IAM-A",
+          "startMinute": 35,
+          "endMinute": 65
+        }
+      ],
+      "held": [
+        {
+          "itemId": "INC-1006",
+          "code": "skills_unavailable",
+          "reason": "No candidate in the region has all the required skills.",
+          "candidateResourceIds": []
+        },
+        {
+          "itemId": "INC-1007",
+          "code": "right_missing",
+          "reason": "No qualified candidate in the region has the required record or review permission.",
+          "candidateResourceIds": []
+        },
+        {
+          "itemId": "INC-1008",
+          "code": "workload_full",
+          "reason": "Every eligible candidate is at the modeled workload cap.",
+          "candidateResourceIds": [
+            "IAM-A"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 5,
+        "held": 3,
+        "total": 8
+      }
+    },
+    {
+      "id": "servicenow-change-calendar",
+      "assignments": [
+        {
+          "itemId": "CHG-2001",
+          "resourceId": "CHG-QA",
+          "startMinute": 10,
+          "endMinute": 30
+        },
+        {
+          "itemId": "CHG-2002",
+          "resourceId": "CHG-NET",
+          "startMinute": 40,
+          "endMinute": 70
+        },
+        {
+          "itemId": "CHG-2004",
+          "resourceId": "CHG-DB",
+          "startMinute": 55,
+          "endMinute": 95
+        },
+        {
+          "itemId": "CHG-2003",
+          "resourceId": "CHG-QA",
+          "startMinute": 70,
+          "endMinute": 90
+        },
+        {
+          "itemId": "CHG-2005",
+          "resourceId": "CHG-QA",
+          "startMinute": 95,
+          "endMinute": 120
+        }
+      ],
+      "held": [
+        {
+          "itemId": "CHG-2006",
+          "code": "approval_pending",
+          "reason": "Required review evidence is absent from the illustrative request."
+        },
+        {
+          "itemId": "CHG-2008",
+          "code": "no_slot_before_deadline",
+          "reason": "No eligible candidate has an uninterrupted slot before the deadline.",
+          "candidateResourceIds": [
+            "CHG-DB"
+          ]
+        },
+        {
+          "itemId": "CHG-2007",
+          "code": "prerequisite_held",
+          "reason": "At least one required earlier step was held.",
+          "prerequisiteIds": [
+            "CHG-2006"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 5,
+        "held": 3,
+        "total": 8
+      }
+    },
+    {
+      "id": "servicenow-on-call-handoff",
+      "assignments": [
+        {
+          "itemId": "TASK-3001",
+          "resourceId": "DUTY-DAY",
+          "startMinute": 0,
+          "endMinute": 35
+        },
+        {
+          "itemId": "TASK-3002",
+          "resourceId": "DUTY-DAY",
+          "startMinute": 40,
+          "endMinute": 60
+        },
+        {
+          "itemId": "TASK-3003",
+          "resourceId": "DUTY-NIGHT",
+          "startMinute": 65,
+          "endMinute": 90
+        },
+        {
+          "itemId": "TASK-3004",
+          "resourceId": "DUTY-OBS",
+          "startMinute": 90,
+          "endMinute": 120
+        },
+        {
+          "itemId": "TASK-3005",
+          "resourceId": "DUTY-NIGHT",
+          "startMinute": 100,
+          "endMinute": 140
+        },
+        {
+          "itemId": "TASK-3006",
+          "resourceId": "DUTY-NIGHT",
+          "startMinute": 140,
+          "endMinute": 160
+        }
+      ],
+      "held": [
+        {
+          "itemId": "TASK-3007",
+          "code": "territory_uncovered",
+          "reason": "No candidate covers the record’s service region or sales territory.",
+          "candidateResourceIds": []
+        },
+        {
+          "itemId": "TASK-3008",
+          "code": "workload_full",
+          "reason": "Every eligible candidate is at the modeled workload cap.",
+          "candidateResourceIds": [
+            "DUTY-DAY",
+            "DUTY-NIGHT"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 6,
+        "held": 2,
+        "total": 8
+      }
+    }
+  ]
+}

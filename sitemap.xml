@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/"/>
@@ -254,6 +294,46 @@
     <loc>https://ilstarno.github.io/Orchestrata/docs/backend-setup/</loc>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/"/>
@@ -442,6 +522,46 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/docs/deployment/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/docs/deployment/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/docs/deployment/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/new-york/</loc>
@@ -634,6 +754,46 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/docs/deployment/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/"/>
@@ -824,6 +984,46 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/docs/deployment/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/"/>
@@ -1012,6 +1212,46 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/docs/deployment/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/docs/deployment/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/docs/deployment/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/urban-traffic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/urban-traffic/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/new-york/</loc>

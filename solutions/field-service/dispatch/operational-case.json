@@ -1,0 +1,1034 @@
+{
+  "version": 1,
+  "classification": "Sample dispatch exercise",
+  "sourceFiles": {
+    "solverInputs": "input.json",
+    "checkedResults": "result.json",
+    "nativeReplayScript": "reproduce.py",
+    "companionCheck": "python3 compose_operational_case.py --check"
+  },
+  "serviceOperation": {
+    "dispatchBoard": {
+      "localTimeZone": "Europe/Paris",
+      "clockUnit": "Minutes since local midnight",
+      "dispatchWave": {
+        "modelDescription": "One simultaneous dispatch wave. Depot-to-job drive and return times are fixed sample estimates, not live street routes. At most one job per technician. The clock is expressed in minutes since local midnight.",
+        "maxJobsPerTechnician": 1,
+        "returnToDepotRequired": true,
+        "vehicleTravel": {
+          "source": "Fixed sample depot-to-job and return leg estimates",
+          "outboundEstimatesByJob": {
+            "lift_repair": [
+              {
+                "technicianId": 0,
+                "outboundMinutes": 14
+              },
+              {
+                "technicianId": 1,
+                "outboundMinutes": 15
+              },
+              {
+                "technicianId": 2,
+                "outboundMinutes": 22
+              },
+              {
+                "technicianId": 3,
+                "outboundMinutes": 15
+              }
+            ],
+            "safety_inspection": [
+              {
+                "technicianId": 0,
+                "outboundMinutes": 21
+              },
+              {
+                "technicianId": 1,
+                "outboundMinutes": 12
+              },
+              {
+                "technicianId": 2,
+                "outboundMinutes": 20
+              },
+              {
+                "technicianId": 3,
+                "outboundMinutes": 24
+              }
+            ],
+            "preventive_maintenance": [
+              {
+                "technicianId": 0,
+                "outboundMinutes": 18
+              },
+              {
+                "technicianId": 1,
+                "outboundMinutes": 18
+              },
+              {
+                "technicianId": 2,
+                "outboundMinutes": 13
+              },
+              {
+                "technicianId": 3,
+                "outboundMinutes": 25
+              }
+            ],
+            "urgent_isolation": [
+              {
+                "technicianId": 0,
+                "outboundMinutes": 14
+              },
+              {
+                "technicianId": 1,
+                "outboundMinutes": 20
+              },
+              {
+                "technicianId": 2,
+                "outboundMinutes": 24
+              },
+              {
+                "technicianId": 3,
+                "outboundMinutes": 18
+              }
+            ]
+          }
+        },
+        "workRules": {
+          "individualOvertimeCeilingMinutes": 20,
+          "businessScoreOvertimeMultiplier": 2,
+          "requiredSkillMustMatch": true,
+          "activeStaffOnly": true
+        },
+        "teamRoster": [
+          {
+            "id": 0,
+            "name": "Ana",
+            "skills": [
+              "lift repair",
+              "safety inspection"
+            ],
+            "ready": 530,
+            "shiftEnd": 600
+          },
+          {
+            "id": 1,
+            "name": "Ben",
+            "skills": [
+              "safety inspection",
+              "preventive maintenance"
+            ],
+            "ready": 530,
+            "shiftEnd": 600
+          },
+          {
+            "id": 2,
+            "name": "Noor",
+            "skills": [
+              "lift repair",
+              "preventive maintenance",
+              "urgent isolation"
+            ],
+            "ready": 535,
+            "shiftEnd": 600
+          },
+          {
+            "id": 3,
+            "name": "Rami",
+            "skills": [
+              "lift repair"
+            ],
+            "ready": 550,
+            "shiftEnd": 600
+          }
+        ],
+        "scenarioDecisions": {
+          "original": {
+            "businessEvent": "Original plan",
+            "absentTechnicianIds": [],
+            "urgentIsolationRequested": false,
+            "rollup": {
+              "travelMinutes": 78,
+              "overtimeMinutes": 0,
+              "assignedJobs": 3,
+              "requestedJobs": 3,
+              "businessScore": 78
+            },
+            "jobsInWave": [
+              {
+                "jobId": "lift_repair",
+                "workRequested": "Lift repair",
+                "skillRequired": "lift repair",
+                "serviceDurationMinutes": 40,
+                "unservedScorePenalty": 260,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 540,
+                  "latestServiceStartMinute": 565,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 544,
+                        "actualStartMinute": 544,
+                        "waitingMinutes": 0,
+                        "minutesBeforeWindowCloses": 21
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ana",
+                        "Noor",
+                        "Rami"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Noor",
+                          "selectedFor": "Preventive maintenance"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 544,
+                          "start": 544,
+                          "returnAt": 598,
+                          "travelMinutes": 28,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 545,
+                          "start": 545,
+                          "returnAt": 600,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 557,
+                          "start": 557,
+                          "returnAt": 619,
+                          "travelMinutes": 44,
+                          "overtimeMinutes": 19,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 565,
+                          "start": 565,
+                          "returnAt": 620,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 20,
+                          "excluded": []
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Ana",
+                  "arrival": 544,
+                  "start": 544,
+                  "returnAt": 598,
+                  "travelMinutes": 28,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "safety_inspection",
+                "workRequested": "Safety inspection",
+                "skillRequired": "safety inspection",
+                "serviceDurationMinutes": 35,
+                "unservedScorePenalty": 230,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 545,
+                  "latestServiceStartMinute": 570,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 542,
+                        "actualStartMinute": 545,
+                        "waitingMinutes": 3,
+                        "minutesBeforeWindowCloses": 25
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ana",
+                        "Ben"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Ana",
+                          "selectedFor": "Lift repair"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 551,
+                          "start": 551,
+                          "returnAt": 607,
+                          "travelMinutes": 42,
+                          "overtimeMinutes": 7,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 542,
+                          "start": 545,
+                          "returnAt": 592,
+                          "travelMinutes": 24,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 555,
+                          "start": 555,
+                          "returnAt": 610,
+                          "travelMinutes": 40,
+                          "overtimeMinutes": 10,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 574,
+                          "start": 574,
+                          "returnAt": 633,
+                          "travelMinutes": 48,
+                          "overtimeMinutes": 33,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Misses service window",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Ben",
+                  "arrival": 542,
+                  "start": 545,
+                  "returnAt": 592,
+                  "travelMinutes": 24,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "preventive_maintenance",
+                "workRequested": "Preventive maintenance",
+                "skillRequired": "preventive maintenance",
+                "serviceDurationMinutes": 30,
+                "unservedScorePenalty": 200,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 550,
+                  "latestServiceStartMinute": 585,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 548,
+                        "actualStartMinute": 550,
+                        "waitingMinutes": 2,
+                        "minutesBeforeWindowCloses": 35
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ben",
+                        "Noor"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Ben",
+                          "selectedFor": "Safety inspection"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 593,
+                          "travelMinutes": 26,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 575,
+                          "start": 575,
+                          "returnAt": 630,
+                          "travelMinutes": 50,
+                          "overtimeMinutes": 30,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Noor",
+                  "arrival": 548,
+                  "start": 550,
+                  "returnAt": 593,
+                  "travelMinutes": 26,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              }
+            ],
+            "jobsNeedingFollowup": []
+          },
+          "callout": {
+            "businessEvent": "Ana calls out",
+            "absentTechnicianIds": [
+              0
+            ],
+            "urgentIsolationRequested": false,
+            "rollup": {
+              "travelMinutes": 80,
+              "overtimeMinutes": 20,
+              "assignedJobs": 3,
+              "requestedJobs": 3,
+              "businessScore": 120
+            },
+            "jobsInWave": [
+              {
+                "jobId": "lift_repair",
+                "workRequested": "Lift repair",
+                "skillRequired": "lift repair",
+                "serviceDurationMinutes": 40,
+                "unservedScorePenalty": 260,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 540,
+                  "latestServiceStartMinute": 565,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 565,
+                        "actualStartMinute": 565,
+                        "waitingMinutes": 0,
+                        "minutesBeforeWindowCloses": 0
+                      },
+                      "qualifiedAndAvailable": [
+                        "Noor",
+                        "Rami"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Noor",
+                          "selectedFor": "Preventive maintenance"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 544,
+                          "start": 544,
+                          "returnAt": 598,
+                          "travelMinutes": 28,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Called out"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 545,
+                          "start": 545,
+                          "returnAt": 600,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 557,
+                          "start": 557,
+                          "returnAt": 619,
+                          "travelMinutes": 44,
+                          "overtimeMinutes": 19,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 565,
+                          "start": 565,
+                          "returnAt": 620,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 20,
+                          "excluded": []
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Rami",
+                  "arrival": 565,
+                  "start": 565,
+                  "returnAt": 620,
+                  "travelMinutes": 30,
+                  "overtimeMinutes": 20,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "safety_inspection",
+                "workRequested": "Safety inspection",
+                "skillRequired": "safety inspection",
+                "serviceDurationMinutes": 35,
+                "unservedScorePenalty": 230,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 545,
+                  "latestServiceStartMinute": 570,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 542,
+                        "actualStartMinute": 545,
+                        "waitingMinutes": 3,
+                        "minutesBeforeWindowCloses": 25
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ben"
+                      ],
+                      "techniciansBusyElsewhere": [],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 551,
+                          "start": 551,
+                          "returnAt": 607,
+                          "travelMinutes": 42,
+                          "overtimeMinutes": 7,
+                          "excluded": [
+                            "Called out"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 542,
+                          "start": 545,
+                          "returnAt": 592,
+                          "travelMinutes": 24,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 555,
+                          "start": 555,
+                          "returnAt": 610,
+                          "travelMinutes": 40,
+                          "overtimeMinutes": 10,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 574,
+                          "start": 574,
+                          "returnAt": 633,
+                          "travelMinutes": 48,
+                          "overtimeMinutes": 33,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Misses service window",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Ben",
+                  "arrival": 542,
+                  "start": 545,
+                  "returnAt": 592,
+                  "travelMinutes": 24,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "preventive_maintenance",
+                "workRequested": "Preventive maintenance",
+                "skillRequired": "preventive maintenance",
+                "serviceDurationMinutes": 30,
+                "unservedScorePenalty": 200,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 550,
+                  "latestServiceStartMinute": 585,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 548,
+                        "actualStartMinute": 550,
+                        "waitingMinutes": 2,
+                        "minutesBeforeWindowCloses": 35
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ben",
+                        "Noor"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Ben",
+                          "selectedFor": "Safety inspection"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Called out",
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 593,
+                          "travelMinutes": 26,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 575,
+                          "start": 575,
+                          "returnAt": 630,
+                          "travelMinutes": 50,
+                          "overtimeMinutes": 30,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Noor",
+                  "arrival": 548,
+                  "start": 550,
+                  "returnAt": 593,
+                  "travelMinutes": 26,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              }
+            ],
+            "jobsNeedingFollowup": []
+          },
+          "urgent": {
+            "businessEvent": "An urgent job arrives",
+            "absentTechnicianIds": [
+              0
+            ],
+            "urgentIsolationRequested": true,
+            "rollup": {
+              "travelMinutes": 102,
+              "overtimeMinutes": 38,
+              "assignedJobs": 3,
+              "requestedJobs": 4,
+              "businessScore": 378
+            },
+            "jobsInWave": [
+              {
+                "jobId": "lift_repair",
+                "workRequested": "Lift repair",
+                "skillRequired": "lift repair",
+                "serviceDurationMinutes": 40,
+                "unservedScorePenalty": 260,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 540,
+                  "latestServiceStartMinute": 565,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 565,
+                        "actualStartMinute": 565,
+                        "waitingMinutes": 0,
+                        "minutesBeforeWindowCloses": 0
+                      },
+                      "qualifiedAndAvailable": [
+                        "Noor",
+                        "Rami"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Noor",
+                          "selectedFor": "Urgent isolation"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 544,
+                          "start": 544,
+                          "returnAt": 598,
+                          "travelMinutes": 28,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Called out"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 545,
+                          "start": 545,
+                          "returnAt": 600,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 557,
+                          "start": 557,
+                          "returnAt": 619,
+                          "travelMinutes": 44,
+                          "overtimeMinutes": 19,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 565,
+                          "start": 565,
+                          "returnAt": 620,
+                          "travelMinutes": 30,
+                          "overtimeMinutes": 20,
+                          "excluded": []
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Rami",
+                  "arrival": 565,
+                  "start": 565,
+                  "returnAt": 620,
+                  "travelMinutes": 30,
+                  "overtimeMinutes": 20,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "safety_inspection",
+                "workRequested": "Safety inspection",
+                "skillRequired": "safety inspection",
+                "serviceDurationMinutes": 35,
+                "unservedScorePenalty": 230,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 545,
+                  "latestServiceStartMinute": 570,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 542,
+                        "actualStartMinute": 545,
+                        "waitingMinutes": 3,
+                        "minutesBeforeWindowCloses": 25
+                      },
+                      "qualifiedAndAvailable": [
+                        "Ben"
+                      ],
+                      "techniciansBusyElsewhere": [],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 551,
+                          "start": 551,
+                          "returnAt": 607,
+                          "travelMinutes": 42,
+                          "overtimeMinutes": 7,
+                          "excluded": [
+                            "Called out"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 542,
+                          "start": 545,
+                          "returnAt": 592,
+                          "travelMinutes": 24,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 555,
+                          "start": 555,
+                          "returnAt": 610,
+                          "travelMinutes": 40,
+                          "overtimeMinutes": 10,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 574,
+                          "start": 574,
+                          "returnAt": 633,
+                          "travelMinutes": 48,
+                          "overtimeMinutes": 33,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Misses service window",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Ben",
+                  "arrival": 542,
+                  "start": 545,
+                  "returnAt": 592,
+                  "travelMinutes": 24,
+                  "overtimeMinutes": 0,
+                  "excluded": []
+                }
+              },
+              {
+                "jobId": "preventive_maintenance",
+                "workRequested": "Preventive maintenance",
+                "skillRequired": "preventive maintenance",
+                "serviceDurationMinutes": 30,
+                "unservedScorePenalty": 200,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 550,
+                  "latestServiceStartMinute": 585,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "unassigned",
+                      "serviceStartEvidence": null,
+                      "qualifiedAndAvailable": [
+                        "Ben",
+                        "Noor"
+                      ],
+                      "techniciansBusyElsewhere": [
+                        {
+                          "technician": "Ben",
+                          "selectedFor": "Safety inspection"
+                        },
+                        {
+                          "technician": "Noor",
+                          "selectedFor": "Urgent isolation"
+                        }
+                      ],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Called out",
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 598,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 548,
+                          "start": 550,
+                          "returnAt": 593,
+                          "travelMinutes": 26,
+                          "overtimeMinutes": 0,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 575,
+                          "start": 575,
+                          "returnAt": 630,
+                          "travelMinutes": 50,
+                          "overtimeMinutes": 30,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": null
+              },
+              {
+                "jobId": "urgent_isolation",
+                "workRequested": "Urgent isolation",
+                "skillRequired": "urgent isolation",
+                "serviceDurationMinutes": 35,
+                "unservedScorePenalty": 1000,
+                "siteAccessWindow": {
+                  "earliestServiceStartMinute": 550,
+                  "latestServiceStartMinute": 565,
+                  "constraint": {
+                    "boundary": "Service start at either endpoint is accepted",
+                    "evaluation": {
+                      "state": "assigned",
+                      "serviceStartEvidence": {
+                        "arrivalMinute": 559,
+                        "actualStartMinute": 559,
+                        "waitingMinutes": 0,
+                        "minutesBeforeWindowCloses": 6
+                      },
+                      "qualifiedAndAvailable": [
+                        "Noor"
+                      ],
+                      "techniciansBusyElsewhere": [],
+                      "candidateScreening": [
+                        {
+                          "technician": "Ana",
+                          "arrival": 544,
+                          "start": 550,
+                          "returnAt": 599,
+                          "travelMinutes": 28,
+                          "overtimeMinutes": 0,
+                          "excluded": [
+                            "Called out",
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Ben",
+                          "arrival": 550,
+                          "start": 550,
+                          "returnAt": 605,
+                          "travelMinutes": 40,
+                          "overtimeMinutes": 5,
+                          "excluded": [
+                            "Required skill unavailable"
+                          ]
+                        },
+                        {
+                          "technician": "Noor",
+                          "arrival": 559,
+                          "start": 559,
+                          "returnAt": 618,
+                          "travelMinutes": 48,
+                          "overtimeMinutes": 18,
+                          "excluded": []
+                        },
+                        {
+                          "technician": "Rami",
+                          "arrival": 568,
+                          "start": 568,
+                          "returnAt": 621,
+                          "travelMinutes": 36,
+                          "overtimeMinutes": 21,
+                          "excluded": [
+                            "Required skill unavailable",
+                            "Misses service window",
+                            "Exceeds overtime cap"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                "selectedAssignment": {
+                  "technician": "Noor",
+                  "arrival": 559,
+                  "start": 559,
+                  "returnAt": 618,
+                  "travelMinutes": 48,
+                  "overtimeMinutes": 18,
+                  "excluded": []
+                }
+              }
+            ],
+            "jobsNeedingFollowup": [
+              {
+                "jobId": "preventive_maintenance",
+                "nextAction": "Find a later qualified slot before dispatch."
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

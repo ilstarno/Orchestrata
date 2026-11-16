@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "field-service",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "content/solutions/field-service/index.md",
+    "excludedChecks": "Live travel, individual certification details, full-shift job sequencing",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Service operations",
+      "sites": [
+        {
+          "siteLabel": "Sample service area",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Technician dispatch",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "technician",
+                  "displayLabel": "Alex",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "technician",
+                  "displayLabel": "Sam",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "technician",
+                  "displayLabel": "Noor",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Simultaneous job wave",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "lift_repair",
+                          "demandQuantity": 1,
+                          "demandUnit": "technician",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Qualifications and availability were checked before publishing the approved pairs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Alex",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Sam",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Noor",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Alex",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "safety_inspection",
+                          "demandQuantity": 1,
+                          "demandUnit": "technician",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Qualifications and availability were checked before publishing the approved pairs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Alex",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Sam",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Noor",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Sam",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "preventive_maintenance",
+                          "demandQuantity": 1,
+                          "demandUnit": "technician",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Qualifications and availability were checked before publishing the approved pairs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Alex",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Sam",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Noor",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/field-service/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Noor",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/field-service/problem.json",
+          "resultSource": "catalog/field-service/expected.json",
+          "expectedOutput": {
+            "values": [
+              0,
+              1,
+              2
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 8
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 0,
+              "preferredResourceId": 0,
+              "preferredResourceLabel": "Alex",
+              "preferredResourceEligible": true,
+              "softWeight": 5,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

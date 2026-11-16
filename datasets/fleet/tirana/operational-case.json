@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "operationalExample": {
+    "market": {
+      "cityId": "tirana",
+      "displayName": "Tirana, Albania"
+    },
+    "workloadProvenance": {
+      "classification": "synthetic service visits",
+      "fixtureCountSource": "https://github.com/ilstarno/orchestrata-recipes/blob/625737335be09cd1c899f8319864976f331e9c6f/recipes/benchmarks/tirana.xml",
+      "countBasis": "count from named benchmark fixture",
+      "exampleVisitIdsAreRealAddresses": false
+    },
+    "coverage": {
+      "streetGeometry": "Consecutive directed OpenStreetMap street/path vertices; routes return to their start.",
+      "coverageScope": "Full sample roster and workload counts; geography limited to the downloaded source bounds.",
+      "visitedAndHeldNodeCount": 488,
+      "distinctHeldVisitNodeCount": 186,
+      "publishedCoordinateCount": 489,
+      "geometrySource": {
+        "downloadUrl": "https://download.geofabrik.de/europe/albania-261113.osm.pbf",
+        "sourceDescription": "Geofabrik Albania snapshot, 2026-11-13 archive ID",
+        "sourceSha256": "a881fa551a498f2a68c1e641c1d9a4fe46a6bab8fdf08a66d8efbd145f678a52",
+        "boundsWestSouthEastNorth": [
+          19.775,
+          41.293,
+          19.866,
+          41.365
+        ],
+        "attribution": "© OpenStreetMap contributors",
+        "license": "ODbL 1.0",
+        "licenseUrl": "https://www.openstreetmap.org/copyright",
+        "correctionUrl": "https://www.openstreetmap.org/fixthemap"
+      }
+    },
+    "dispatchReview": {
+      "planningMethod": "greedy offline route construction with synthetic repeated visits",
+      "outcome": {
+        "requestedVisits": 1282,
+        "assignedVisits": 948,
+        "heldVisits": 334,
+        "rosteredCouriers": 8,
+        "couriersWithAssignedVisits": 8,
+        "couriersWithMappedLines": 8,
+        "totalRouteDistanceMeters": 350408.5
+      },
+      "holdDisposition": {
+        "reasonCounts": {
+          "shift_capacity": 334
+        },
+        "reasonDefinitions": {
+          "shift_capacity": "The greedy draft could not fit the visit, its service time and the return trip within the mode group’s shifts."
+        },
+        "unassignedIsProofOfInfeasibility": false
+      },
+      "notEvaluated": {
+        "payloadWeightCapacity": true,
+        "payloadVolumeCapacity": true,
+        "pickupDeliveryPairingAndPrecedence": true,
+        "individualDeliveryWindows": true,
+        "realTimeTraffic": true,
+        "legalAccessAndCurbPermission": true,
+        "globalOptimality": true
+      },
+      "policyEvidence": {
+        "timeBudget": {
+          "shiftRule": {
+            "shiftStartReference": "elapsed seconds from each courier’s sample shift start",
+            "shiftLimitSeconds": 28800,
+            "workIncluded": [
+              "travel",
+              "service",
+              "return to starting node"
+            ],
+            "check": {
+              "assertion": "Every assigned visit finishes service in sequence; each courier’s total travel including return plus service fits its shift.",
+              "scope": {
+                "appliesTo": "each courier within its planned mode group",
+                "modeBinding": {
+                  "readAs": "observations keyed by roster mode; held counts per mode are differences of recorded requested and assigned counts, not per-stop mode tags",
+                  "observationsByMode": {
+                    "vehicle": {
+                      "assumptions": {
+                        "fixedTravelSpeedKph": 30,
+                        "fixedServiceSecondsPerVisit": 170
+                      },
+                      "observed": {
+                        "assignmentTotals": {
+                          "rosteredCouriers": 6,
+                          "couriersWithAssignedVisits": 6,
+                          "couriersWithMappedLines": 6,
+                          "requestedVisits": 962,
+                          "assignedVisits": 829,
+                          "heldVisitsDerivedFromModeCounts": 133
+                        },
+                        "routeTotals": {
+                          "traveledDistanceMeters": 261565.4,
+                          "travelSeconds": 31393,
+                          "serviceSeconds": 140930,
+                          "occupiedSeconds": 172323,
+                          "availableShiftSeconds": 172800
+                        },
+                        "courierExtremes": {
+                          "earliestFinishElapsedSeconds": 28677,
+                          "latestFinishElapsedSeconds": 28785,
+                          "minimumRemainingShiftSeconds": 15,
+                          "fewestVisitsPerCourier": 133,
+                          "mostVisitsPerCourier": 148,
+                          "longestRouteMeters": 51235.1
+                        }
+                      }
+                    },
+                    "bicycle": {
+                      "assumptions": {
+                        "fixedTravelSpeedKph": 16,
+                        "fixedServiceSecondsPerVisit": 180
+                      },
+                      "observed": {
+                        "assignmentTotals": {
+                          "rosteredCouriers": 1,
+                          "couriersWithAssignedVisits": 1,
+                          "couriersWithMappedLines": 1,
+                          "requestedVisits": 160,
+                          "assignedVisits": 83,
+                          "heldVisitsDerivedFromModeCounts": 77
+                        },
+                        "routeTotals": {
+                          "traveledDistanceMeters": 58623.3,
+                          "travelSeconds": 13188,
+                          "serviceSeconds": 14940,
+                          "occupiedSeconds": 28128,
+                          "availableShiftSeconds": 28800
+                        },
+                        "courierExtremes": {
+                          "earliestFinishElapsedSeconds": 28128,
+                          "latestFinishElapsedSeconds": 28128,
+                          "minimumRemainingShiftSeconds": 672,
+                          "fewestVisitsPerCourier": 83,
+                          "mostVisitsPerCourier": 83,
+                          "longestRouteMeters": 58623.3
+                        }
+                      }
+                    },
+                    "walking": {
+                      "assumptions": {
+                        "fixedTravelSpeedKph": 5,
+                        "fixedServiceSecondsPerVisit": 195
+                      },
+                      "observed": {
+                        "assignmentTotals": {
+                          "rosteredCouriers": 1,
+                          "couriersWithAssignedVisits": 1,
+                          "couriersWithMappedLines": 1,
+                          "requestedVisits": 160,
+                          "assignedVisits": 36,
+                          "heldVisitsDerivedFromModeCounts": 124
+                        },
+                        "routeTotals": {
+                          "traveledDistanceMeters": 30219.8,
+                          "travelSeconds": 21759,
+                          "serviceSeconds": 7020,
+                          "occupiedSeconds": 28779,
+                          "availableShiftSeconds": 28800
+                        },
+                        "courierExtremes": {
+                          "earliestFinishElapsedSeconds": 28779,
+                          "latestFinishElapsedSeconds": 28779,
+                          "minimumRemainingShiftSeconds": 21,
+                          "fewestVisitsPerCourier": 36,
+                          "mostVisitsPerCourier": 36,
+                          "longestRouteMeters": 30219.8
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

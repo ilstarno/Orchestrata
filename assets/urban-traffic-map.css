@@ -1,0 +1,20 @@
+.urban-traffic [hidden] { display: none !important; }
+.urban-traffic { margin-block: 2.6rem; min-width: 0; }
+.urban-traffic > p { max-inline-size: 76ch; }
+.urban-traffic button {
+  border: 1px solid currentColor; border-radius: .3rem; color: inherit;
+  background: transparent; font: inherit; min-height: 44px; padding-inline: .7rem; cursor: pointer;
+}
+.urban-traffic :is(button,input,a):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.urban-traffic fieldset { display: flex; gap: 0 .9rem; flex-wrap: wrap; padding-block: .2rem; margin-block: 1rem; border: 1px solid var(--line, #89998f); }
+.urban-traffic label { display: flex; gap: .45rem; align-items: center; min-height: 44px; cursor: pointer; }
+.urban-traffic label input { accent-color: var(--accent, #126256); }
+.urban-traffic__map { isolation: isolate; block-size: clamp(18rem, 40vw, 27rem); border: 1px solid var(--line, #89998f); }
+.urban-traffic__key { list-style: none; padding-inline-start: 0; display: flex; gap: .5rem 1rem; flex-wrap: wrap; }
+.urban-traffic__key li { display: flex; align-items: center; gap: .5rem; }
+.urban-traffic__key span { inline-size: 2rem; border-block-start: 4px solid #218271; }
+.urban-traffic__key [data-variant] span { border-color: #bc6b27; border-style: dashed; }
+.urban-traffic__key [data-variant="closure"] span { border-color: #c94b57; border-style: dotted; }
+.urban-traffic__table { overflow-x: auto; }
+.urban-traffic__table table { min-width: 30rem; width: 100%; }
+.urban-traffic__table [aria-current="true"] th { border-inline-start: 4px solid var(--accent, #126256); }

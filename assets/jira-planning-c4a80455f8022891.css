@@ -1,0 +1,18 @@
+.vendor-screen a { font-weight: 650; text-underline-offset: .18em; }
+.vendor-screen-unavailable { font-size: .9rem; color: var(--muted); }
+.jira-page-nav { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; padding-block: .85rem 0; }
+.jira-page-nav a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
+.jira-case { margin-block: .9rem; border-block-start: 1px solid var(--rule); min-width: 0; padding-block-start: .7rem; }
+.jira-case summary { cursor: pointer; padding-block: .4rem; font-weight: 650; }
+.jira-case summary small { margin-inline-start: .55rem; color: var(--muted); }
+.jira-case-table { margin-block: .75rem; max-width: 100%; }
+.jira-case-table th,.jira-case-table td { text-align: start; vertical-align: top; }
+@media (max-width: 42rem) { .jira-case-table table { min-width: 32rem; } }
+.vendor-image { margin-inline: 0; }
+.vendor-image img { display: block; inline-size: 100%; block-size: auto; object-fit: contain; }
+.planning-scenario-groups { padding-block: 1.6rem; }
+.planning-scenario-group { margin-block: 1.25rem; }
+.planning-workflows { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),1fr)); list-style: none; padding: 0; gap: .75rem 1.3rem; }
+.planning-workflows li { border-block-start: 1px solid var(--rule); padding-block: .85rem; }
+.planning-workflows h3 { font-size: 1.12rem; }
+.planning-workflows p { margin-block-start: .45rem; }

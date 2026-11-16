@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "caseId": "airport-gate-assignment",
+  "recordClassification": "sample with public reference context",
+  "documentRole": "Worked sample and public passenger reference register; not submitted to the solver.",
+  "sampleGatePlanning": {
+    "schemaVersion": "1.0",
+    "caseId": "airport-gate-assignment",
+    "recordClassification": "sample",
+    "companionKind": "operational-context",
+    "solverContract": {
+      "acceptedAsSolverInput": false,
+      "input": "Use the problemSource for the formal solver request.",
+      "scopeSource": "content/solutions/airport-gate-assignment/index.md",
+      "excludedChecks": "Aircraft type checks, turnaround buffers, towing, transfers and disruption recovery",
+      "operationalState": "No communication or action is performed."
+    },
+    "scenario": {
+      "operation": {
+        "industry": "Airport operations",
+        "sites": [
+          {
+            "siteLabel": "Sample terminal",
+            "sitePurpose": "Sample planning scope",
+            "departments": [
+              {
+                "departmentLabel": "Gate planning",
+                "resources": [
+                  {
+                    "resourceId": 0,
+                    "resourceType": "gate",
+                    "displayLabel": "Gate ID 0",
+                    "identityScope": "Sample dataset only"
+                  },
+                  {
+                    "resourceId": 1,
+                    "resourceType": "gate",
+                    "displayLabel": "Gate ID 1",
+                    "identityScope": "Sample dataset only"
+                  },
+                  {
+                    "resourceId": 2,
+                    "resourceType": "gate",
+                    "displayLabel": "Gate ID 2",
+                    "identityScope": "Sample dataset only"
+                  }
+                ],
+                "planningWindows": [
+                  {
+                    "windowId": "published-fixture",
+                    "windowLabel": "Overlapping flight gate demand",
+                    "concurrencyModel": "One resource per simultaneous requirement",
+                    "clockBasis": "Fixed relative block, not a calendar timestamp",
+                    "workBatches": [
+                      {
+                        "batchId": "published-fixture",
+                        "requirements": [
+                          {
+                            "variableIndex": 0,
+                            "fixtureName": "Flight 201",
+                            "demandQuantity": 1,
+                            "demandUnit": "gate",
+                            "eligibility": {
+                              "method": "approved-domain",
+                              "reasoningScope": "Gate compatibility was supplied externally as anonymous IDs.",
+                              "eligibleCount": 2,
+                              "candidateCount": 3,
+                              "assessments": [
+                                {
+                                  "candidateId": 0,
+                                  "candidateLabel": "Gate ID 0",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[0].domain",
+                                      "passed": true,
+                                      "observedResourceId": 0,
+                                      "allowedResourceIds": [
+                                        0,
+                                        1
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 1,
+                                  "candidateLabel": "Gate ID 1",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[0].domain",
+                                      "passed": true,
+                                      "observedResourceId": 1,
+                                      "allowedResourceIds": [
+                                        0,
+                                        1
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 2,
+                                  "candidateLabel": "Gate ID 2",
+                                  "eligible": false,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[0].domain",
+                                      "passed": false,
+                                      "observedResourceId": 2,
+                                      "allowedResourceIds": [
+                                        0,
+                                        1
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "publishedAssignment": {
+                              "selectedResourceId": 0,
+                              "selectedResourceLabel": "Gate ID 0",
+                              "selectedResourceEligible": true
+                            }
+                          },
+                          {
+                            "variableIndex": 1,
+                            "fixtureName": "Flight 415",
+                            "demandQuantity": 1,
+                            "demandUnit": "gate",
+                            "eligibility": {
+                              "method": "approved-domain",
+                              "reasoningScope": "Gate compatibility was supplied externally as anonymous IDs.",
+                              "eligibleCount": 2,
+                              "candidateCount": 3,
+                              "assessments": [
+                                {
+                                  "candidateId": 0,
+                                  "candidateLabel": "Gate ID 0",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[1].domain",
+                                      "passed": true,
+                                      "observedResourceId": 0,
+                                      "allowedResourceIds": [
+                                        0,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 1,
+                                  "candidateLabel": "Gate ID 1",
+                                  "eligible": false,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[1].domain",
+                                      "passed": false,
+                                      "observedResourceId": 1,
+                                      "allowedResourceIds": [
+                                        0,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 2,
+                                  "candidateLabel": "Gate ID 2",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[1].domain",
+                                      "passed": true,
+                                      "observedResourceId": 2,
+                                      "allowedResourceIds": [
+                                        0,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "publishedAssignment": {
+                              "selectedResourceId": 2,
+                              "selectedResourceLabel": "Gate ID 2",
+                              "selectedResourceEligible": true
+                            }
+                          },
+                          {
+                            "variableIndex": 2,
+                            "fixtureName": "Flight 630",
+                            "demandQuantity": 1,
+                            "demandUnit": "gate",
+                            "eligibility": {
+                              "method": "approved-domain",
+                              "reasoningScope": "Gate compatibility was supplied externally as anonymous IDs.",
+                              "eligibleCount": 2,
+                              "candidateCount": 3,
+                              "assessments": [
+                                {
+                                  "candidateId": 0,
+                                  "candidateLabel": "Gate ID 0",
+                                  "eligible": false,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[2].domain",
+                                      "passed": false,
+                                      "observedResourceId": 0,
+                                      "allowedResourceIds": [
+                                        1,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 1,
+                                  "candidateLabel": "Gate ID 1",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[2].domain",
+                                      "passed": true,
+                                      "observedResourceId": 1,
+                                      "allowedResourceIds": [
+                                        1,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "candidateId": 2,
+                                  "candidateLabel": "Gate ID 2",
+                                  "eligible": true,
+                                  "eligibilitySource": "catalog/airport-gate-assignment/problem.json",
+                                  "checks": [
+                                    {
+                                      "conditionId": "approved-candidate",
+                                      "comparison": "published domain contains this ID",
+                                      "sourceField": "variables[2].domain",
+                                      "passed": true,
+                                      "observedResourceId": 2,
+                                      "allowedResourceIds": [
+                                        1,
+                                        2
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "publishedAssignment": {
+                              "selectedResourceId": 1,
+                              "selectedResourceLabel": "Gate ID 1",
+                              "selectedResourceEligible": true
+                            }
+                          }
+                        ],
+                        "sharedRules": [
+                          {
+                            "normalizationKind": "all_different",
+                            "variableIndices": [
+                              0,
+                              1,
+                              2
+                            ],
+                            "hardWeight": 1,
+                            "checkPurpose": "prevent concurrent resource reuse"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "audit": {
+        "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+        "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+        "runs": [
+          {
+            "runId": "published-fixture",
+            "problemSource": "catalog/airport-gate-assignment/problem.json",
+            "resultSource": "catalog/airport-gate-assignment/expected.json",
+            "expectedOutput": {
+              "values": [
+                0,
+                2,
+                1
+              ],
+              "score": {
+                "hard": 0,
+                "soft": 0
+              },
+              "evaluated": 8
+            },
+            "independentHardFeasibleCount": 2,
+            "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+            "preferenceDecisions": [
+              {
+                "variableIndex": 0,
+                "preferredResourceId": 0,
+                "preferredResourceLabel": "Gate ID 0",
+                "preferredResourceEligible": true,
+                "softWeight": 1,
+                "preferenceMet": true,
+                "missedPenalty": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "contextBoundary": {
+    "useOfPublishedReferences": "Terminal orientation and wayfinding only.",
+    "linkageToSample": "No modeled flight, gate ID, or eligibility rule is associated with a named airport.",
+    "upToDateOperatingStateVerified": false,
+    "schedulesOrGateInventoryIncluded": false
+  },
+  "publicPassengerReferenceContext": {
+    "contextSource": "airport-evidence/airport-passenger-context.json",
+    "publicationScope": "Seven example hubs, one per listed city. Links are public passenger references, separate from the sample planning model. Airport operators do not supply or operate the worked example.",
+    "reviewWindow": {
+      "checkedDate": "2026-11-16",
+      "reviewClockTimeZone": "UTC",
+      "metropolitanAreas": [
+        {
+          "cityLabel": "New York",
+          "publicHubs": [
+            {
+              "iataCode": "JFK",
+              "airportName": "John F. Kennedy International Airport",
+              "localTimeZone": "America/New_York",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 1",
+                  "Terminal 4",
+                  "Terminal 5",
+                  "Terminal 7",
+                  "Terminal 8"
+                ],
+                "publishedOperatorContext": "The Port Authority's current passenger map and terminal directory list these terminal groups.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "JFK passenger airport map",
+                    "sourceUrl": "https://www.jfkairport.com/explore-jfk/airport-map",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "JFK terminal directory",
+                    "sourceUrl": "https://www.jfkairport.com/explore-jfk/terminals",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "Paris",
+          "publicHubs": [
+            {
+              "iataCode": "CDG",
+              "airportName": "Paris Charles de Gaulle Airport",
+              "localTimeZone": "Europe/Paris",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 1",
+                  "Terminal 2 (2A–2G)",
+                  "Terminal 3"
+                ],
+                "publishedOperatorContext": "These are the current terminal groupings in the operator’s 2026 reference material. Groupe ADP announced a passenger wayfinding and terminal naming change for March 2027; this list is not an availability statement for each individual facility.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Paris Aéroport passenger map, Terminal 1",
+                    "sourceUrl": "https://www.parisaeroport.fr/planpoi/plan.html?level=2&terminal=T1",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Paris Aéroport passenger map, Terminal 2 area",
+                    "sourceUrl": "https://www.parisaeroport.fr/planpoi/plan.html?level=2&terminal=2F",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Groupe ADP terminal-naming announcement",
+                    "sourceUrl": "https://presse.groupeadp.fr/groupe-adp-simplifies-the-passenger-experience-at-paris-charles-de-gaulle-airport-renaming-of-all-terminals-in-march-2027/?lang=en",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "München",
+          "publicHubs": [
+            {
+              "iataCode": "MUC",
+              "airportName": "Munich Airport",
+              "localTimeZone": "Europe/Berlin",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 1",
+                  "Terminal 2",
+                  "Terminal 2 Satellite"
+                ],
+                "publishedOperatorContext": "The Terminal 2 satellite is part of Terminal 2, not a separately numbered terminal. The new Terminal 1 Pier is part of Terminal 1 and entered passenger service in April 2026.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Munich Airport passenger map",
+                    "sourceUrl": "https://www.munich-airport.com/airport-map-261352",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Munich Airport terminal connections",
+                    "sourceUrl": "https://www.munich-airport.com/connecting-flights-260553",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Munich Airport Terminal 1 Pier",
+                    "sourceUrl": "https://www.munich-airport.com/terminal-1-pier-40274281",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "Frankfurt",
+          "publicHubs": [
+            {
+              "iataCode": "FRA",
+              "airportName": "Frankfurt Airport",
+              "localTimeZone": "Europe/Berlin",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 1",
+                  "Terminal 3"
+                ],
+                "publishedOperatorContext": "The current passenger map describes Terminal 1 and Terminal 3. Fraport halted Terminal 2 passenger operations in June 2026 for refurbishment.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Frankfurt Airport passenger map",
+                    "sourceUrl": "https://www.frankfurt-airport.com/en/at-the-airport/orientation/airport-map.html",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Fraport Terminal 2 passenger closure",
+                    "sourceUrl": "https://www.fraport.com/en/newsroom/press-releases/2026/q2/terminal-2-closed-for-refurbishment-starting-today.html",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "Tirana",
+          "publicHubs": [
+            {
+              "iataCode": "TIA",
+              "airportName": "Tirana International Airport",
+              "localTimeZone": "Europe/Tirane",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Passenger terminal"
+                ],
+                "publishedOperatorContext": "The airport links to a passenger terminal map and describes expanding that terminal during 2026. The downloadable map is reference-only and is not used as an up-to-date gate inventory.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Tirana International Airport passenger map",
+                    "sourceUrl": "https://tirana-airport.com/en/transport-and-directions/12/Airport-map",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Tirana International Airport terminal expansion update",
+                    "sourceUrl": "https://www.tirana-airport.com/en/article/1188",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "Rome",
+          "publicHubs": [
+            {
+              "iataCode": "FCO",
+              "airportName": "Rome Fiumicino Airport",
+              "localTimeZone": "Europe/Rome",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 1",
+                  "Terminal 3"
+                ],
+                "publishedOperatorContext": "The 2026 Aeroporti di Roma service charter identifies Terminals 1 and 3 for passengers and publishes departure and arrival maps.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Aeroporti di Roma 2026 terminal maps (ENAC-hosted PDF, printed page 112 onward)",
+                    "sourceUrl": "https://www.enac.gov.it/app/uploads/2026/05/ADR_REL_CartaServizi_FCO_2026_05_08.pdf",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "cityLabel": "London",
+          "publicHubs": [
+            {
+              "iataCode": "LHR",
+              "airportName": "Heathrow Airport",
+              "localTimeZone": "Europe/London",
+              "passengerFacilities": {
+                "terminalGroupLabels": [
+                  "Terminal 2",
+                  "Terminal 3",
+                  "Terminal 4",
+                  "Terminal 5"
+                ],
+                "publishedOperatorContext": "Heathrow publishes passenger maps and terminal guides for its four current passenger terminals.",
+                "orientationReferences": [
+                  {
+                    "sourceLabel": "Heathrow passenger airport maps",
+                    "sourceUrl": "https://www.heathrow.com/at-the-airport/airport-maps",
+                    "supports": "Passenger layout context only"
+                  },
+                  {
+                    "sourceLabel": "Heathrow terminal guides",
+                    "sourceUrl": "https://www.heathrow.com/at-the-airport/terminal-guides",
+                    "supports": "Passenger layout context only"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

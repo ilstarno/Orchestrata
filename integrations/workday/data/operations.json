@@ -1,0 +1,5109 @@
+{
+  "evidenceVersion": 1,
+  "sourceRecordType": "Standalone sample workforce planning data",
+  "sourceArtifacts": {
+    "demandAndWorkerRules": "input.json",
+    "checkedSeatAssignments": "result.json",
+    "verificationCommand": "python3 reproduce.py --check",
+    "compositionCommand": "python3 compose_operations.py --check"
+  },
+  "planningCalendar": {
+    "weekStarting": "2026-11-16",
+    "timeZone": "Europe/London",
+    "coveredLocalDates": [
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20"
+    ]
+  },
+  "organization": {
+    "organizationScope": "Two-site warehouse roster",
+    "division": {
+      "divisionScope": "Distribution operations",
+      "sites": [
+        {
+          "siteId": "NW",
+          "siteName": "North Warehouse",
+          "homeRosterWorkerIds": [
+            "W001",
+            "W002",
+            "W003",
+            "W004",
+            "W005",
+            "W006",
+            "W007",
+            "W008",
+            "W009",
+            "W010",
+            "W011",
+            "W012",
+            "W013",
+            "W014",
+            "W015",
+            "W016",
+            "W017",
+            "W018",
+            "W019",
+            "W020",
+            "W021",
+            "W022",
+            "W023",
+            "W024",
+            "W025"
+          ],
+          "crossSiteAuthorizedWorkerIds": [
+            "W031",
+            "W035",
+            "W043",
+            "W047"
+          ],
+          "department": {
+            "functionName": "Warehouse operations",
+            "workstream": {
+              "activityName": "Shift handover, dispatch and controlled-goods handling",
+              "coverageSpecification": {
+                "plannedSeatTotal": 31,
+                "shiftDemand": [
+                  {
+                    "localDate": "2026-11-16",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 4
+                  },
+                  {
+                    "localDate": "2026-11-16",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-17",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-17",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-18",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-18",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-19",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-19",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-20",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-20",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  }
+                ],
+                "roleRequirements": [
+                  {
+                    "roleName": "lead",
+                    "demandSeatIds": [
+                      "2026-11-16/NW/early/lead/1",
+                      "2026-11-16/NW/late/lead/1",
+                      "2026-11-17/NW/early/lead/1",
+                      "2026-11-17/NW/late/lead/1",
+                      "2026-11-18/NW/early/lead/1",
+                      "2026-11-18/NW/late/lead/1",
+                      "2026-11-19/NW/early/lead/1",
+                      "2026-11-19/NW/late/lead/1",
+                      "2026-11-20/NW/early/lead/1",
+                      "2026-11-20/NW/late/lead/1"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "NW"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "handover"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:lead"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "roleName": "operator",
+                    "demandSeatIds": [
+                      "2026-11-16/NW/early/operator/1",
+                      "2026-11-16/NW/early/operator/2",
+                      "2026-11-16/NW/late/operator/1",
+                      "2026-11-16/NW/late/operator/2",
+                      "2026-11-17/NW/early/operator/1",
+                      "2026-11-17/NW/early/operator/2",
+                      "2026-11-17/NW/late/operator/1",
+                      "2026-11-17/NW/late/operator/2",
+                      "2026-11-18/NW/early/operator/1",
+                      "2026-11-18/NW/early/operator/2",
+                      "2026-11-18/NW/late/operator/1",
+                      "2026-11-18/NW/late/operator/2",
+                      "2026-11-19/NW/early/operator/1",
+                      "2026-11-19/NW/early/operator/2",
+                      "2026-11-19/NW/late/operator/1",
+                      "2026-11-19/NW/late/operator/2",
+                      "2026-11-20/NW/early/operator/1",
+                      "2026-11-20/NW/early/operator/2",
+                      "2026-11-20/NW/late/operator/1",
+                      "2026-11-20/NW/late/operator/2"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "NW"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "dispatch"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:dispatch"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "roleName": "security",
+                    "demandSeatIds": [
+                      "2026-11-16/NW/early/security/1"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "NW"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "controlled-goods"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:controlled"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "siteId": "SE",
+          "siteName": "South Exchange",
+          "homeRosterWorkerIds": [
+            "W026",
+            "W027",
+            "W028",
+            "W029",
+            "W030",
+            "W031",
+            "W032",
+            "W033",
+            "W034",
+            "W035",
+            "W036",
+            "W037",
+            "W038",
+            "W039",
+            "W040",
+            "W041",
+            "W042",
+            "W043",
+            "W044",
+            "W045",
+            "W046",
+            "W047",
+            "W048",
+            "W049",
+            "W050"
+          ],
+          "crossSiteAuthorizedWorkerIds": [
+            "W006",
+            "W010",
+            "W018",
+            "W022"
+          ],
+          "department": {
+            "functionName": "Warehouse operations",
+            "workstream": {
+              "activityName": "Shift handover, dispatch and controlled-goods handling",
+              "coverageSpecification": {
+                "plannedSeatTotal": 31,
+                "shiftDemand": [
+                  {
+                    "localDate": "2026-11-16",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 4
+                  },
+                  {
+                    "localDate": "2026-11-16",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-17",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-17",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-18",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-18",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-19",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-19",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-20",
+                    "shiftCode": "early",
+                    "requiredHeadcount": 3
+                  },
+                  {
+                    "localDate": "2026-11-20",
+                    "shiftCode": "late",
+                    "requiredHeadcount": 3
+                  }
+                ],
+                "roleRequirements": [
+                  {
+                    "roleName": "lead",
+                    "demandSeatIds": [
+                      "2026-11-16/SE/early/lead/1",
+                      "2026-11-16/SE/late/lead/1",
+                      "2026-11-17/SE/early/lead/1",
+                      "2026-11-17/SE/late/lead/1",
+                      "2026-11-18/SE/early/lead/1",
+                      "2026-11-18/SE/late/lead/1",
+                      "2026-11-19/SE/early/lead/1",
+                      "2026-11-19/SE/late/lead/1",
+                      "2026-11-20/SE/early/lead/1",
+                      "2026-11-20/SE/late/lead/1"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "SE"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "handover"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:lead"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "roleName": "operator",
+                    "demandSeatIds": [
+                      "2026-11-16/SE/early/operator/1",
+                      "2026-11-16/SE/early/operator/2",
+                      "2026-11-16/SE/late/operator/1",
+                      "2026-11-16/SE/late/operator/2",
+                      "2026-11-17/SE/early/operator/1",
+                      "2026-11-17/SE/early/operator/2",
+                      "2026-11-17/SE/late/operator/1",
+                      "2026-11-17/SE/late/operator/2",
+                      "2026-11-18/SE/early/operator/1",
+                      "2026-11-18/SE/early/operator/2",
+                      "2026-11-18/SE/late/operator/1",
+                      "2026-11-18/SE/late/operator/2",
+                      "2026-11-19/SE/early/operator/1",
+                      "2026-11-19/SE/early/operator/2",
+                      "2026-11-19/SE/late/operator/1",
+                      "2026-11-19/SE/late/operator/2",
+                      "2026-11-20/SE/early/operator/1",
+                      "2026-11-20/SE/early/operator/2",
+                      "2026-11-20/SE/late/operator/1",
+                      "2026-11-20/SE/late/operator/2"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "SE"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "dispatch"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:dispatch"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "roleName": "security",
+                    "demandSeatIds": [
+                      "2026-11-16/SE/early/security/1"
+                    ],
+                    "eligibilityRule": {
+                      "decision": "all predicates required",
+                      "predicate": {
+                        "siteAccessCheck": {
+                          "sourceField": "authorizedLocations",
+                          "mustContain": "SE"
+                        },
+                        "skillCheck": {
+                          "sourceField": "skills",
+                          "mustContain": "controlled-goods"
+                        },
+                        "roleGrantCheck": {
+                          "sourceField": "roleGrants",
+                          "mustContain": "schedule:controlled"
+                        },
+                        "availabilityCheck": {
+                          "sourceField": "availability",
+                          "mustCover": "entire seat interval on the local date"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "workerDirectory": [
+    {
+      "id": "W001",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W002",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W003",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W004",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch",
+        "controlled-goods"
+      ],
+      "roleGrants": [
+        "schedule:dispatch",
+        "schedule:controlled"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W005",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W006",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW",
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W007",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W008",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W009",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W010",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW",
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W011",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W012",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W013",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W014",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W015",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W016",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W017",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W018",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW",
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W019",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W020",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W021",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W022",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW",
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W023",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W024",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W025",
+      "homeLocation": "NW",
+      "authorizedLocations": [
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W026",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W027",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W028",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W029",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch",
+        "controlled-goods"
+      ],
+      "roleGrants": [
+        "schedule:dispatch",
+        "schedule:controlled"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W030",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W031",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE",
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W032",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W033",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W034",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W035",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE",
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W036",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W037",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "06:00",
+          "end": "14:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "06:00",
+          "end": "14:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "early"
+    },
+    {
+      "id": "W038",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W039",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W040",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "handover"
+      ],
+      "roleGrants": [
+        "schedule:lead"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W041",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W042",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 24,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W043",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE",
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W044",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W045",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 40,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W046",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W047",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE",
+        "NW"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W048",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W049",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    },
+    {
+      "id": "W050",
+      "homeLocation": "SE",
+      "authorizedLocations": [
+        "SE"
+      ],
+      "skills": [
+        "dispatch"
+      ],
+      "roleGrants": [
+        "schedule:dispatch"
+      ],
+      "availability": [
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ],
+      "weeklyTargetHours": 16,
+      "weeklyCapHours": 24,
+      "preferredShift": "late"
+    }
+  ],
+  "baselineDemand": [
+    {
+      "id": "2026-11-16/NW/early/lead/1",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-16/NW/early/operator/1",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/NW/early/operator/2",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/NW/late/lead/1",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-16/NW/late/operator/1",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/NW/late/operator/2",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/SE/early/lead/1",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-16/SE/early/operator/1",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/SE/early/operator/2",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/SE/late/lead/1",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-16/SE/late/operator/1",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/SE/late/operator/2",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/NW/early/lead/1",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-17/NW/early/operator/1",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/NW/early/operator/2",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/NW/late/lead/1",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-17/NW/late/operator/1",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/NW/late/operator/2",
+      "date": "2026-11-17",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/SE/early/lead/1",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-17/SE/early/operator/1",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/SE/early/operator/2",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/SE/late/lead/1",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-17/SE/late/operator/1",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-17/SE/late/operator/2",
+      "date": "2026-11-17",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/NW/early/lead/1",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-18/NW/early/operator/1",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/NW/early/operator/2",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/NW/late/lead/1",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-18/NW/late/operator/1",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/NW/late/operator/2",
+      "date": "2026-11-18",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/SE/early/lead/1",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-18/SE/early/operator/1",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/SE/early/operator/2",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/SE/late/lead/1",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-18/SE/late/operator/1",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-18/SE/late/operator/2",
+      "date": "2026-11-18",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/NW/early/lead/1",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-19/NW/early/operator/1",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/NW/early/operator/2",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/NW/late/lead/1",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-19/NW/late/operator/1",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/NW/late/operator/2",
+      "date": "2026-11-19",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/SE/early/lead/1",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-19/SE/early/operator/1",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/SE/early/operator/2",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/SE/late/lead/1",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-19/SE/late/operator/1",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-19/SE/late/operator/2",
+      "date": "2026-11-19",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/NW/early/lead/1",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-20/NW/early/operator/1",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/NW/early/operator/2",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/NW/late/lead/1",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-20/NW/late/operator/1",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/NW/late/operator/2",
+      "date": "2026-11-20",
+      "locationId": "NW",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/SE/early/lead/1",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-20/SE/early/operator/1",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/SE/early/operator/2",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/SE/late/lead/1",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "lead",
+      "requiredSkill": "handover",
+      "requiredGrant": "schedule:lead"
+    },
+    {
+      "id": "2026-11-20/SE/late/operator/1",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-20/SE/late/operator/2",
+      "date": "2026-11-20",
+      "locationId": "SE",
+      "shift": "late",
+      "start": "14:00",
+      "end": "22:00",
+      "role": "operator",
+      "requiredSkill": "dispatch",
+      "requiredGrant": "schedule:dispatch"
+    },
+    {
+      "id": "2026-11-16/NW/early/security/1",
+      "date": "2026-11-16",
+      "locationId": "NW",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "security",
+      "requiredSkill": "controlled-goods",
+      "requiredGrant": "schedule:controlled"
+    },
+    {
+      "id": "2026-11-16/SE/early/security/1",
+      "date": "2026-11-16",
+      "locationId": "SE",
+      "shift": "early",
+      "start": "06:00",
+      "end": "14:00",
+      "role": "security",
+      "requiredSkill": "controlled-goods",
+      "requiredGrant": "schedule:controlled"
+    }
+  ],
+  "workingTimeAndApprovalPolicy": {
+    "minimumRestHours": 12,
+    "maxShiftsPerDate": 1,
+    "defaultWeeklyCapHours": 40,
+    "paidHoursPerShift": 8,
+    "publishedMinimumCoveragePerSiteShift": 3,
+    "editingGrant": "roster:publish",
+    "planningGrant": "roster:propose",
+    "notes": "Example site policy, not employment law. Meals and intrashift relief are scheduled separately and not validated here."
+  },
+  "scenarioDecisions": [
+    {
+      "scenarioId": "baseline",
+      "businessEvent": "Staff both sites",
+      "staffAbsences": [],
+      "incrementalDemandSeatIds": [],
+      "decisionActorGrants": [
+        "roster:propose"
+      ],
+      "assignmentDecisions": [
+        {
+          "id": "2026-11-16/NW/early/security/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "security",
+          "requiredSkill": "controlled-goods",
+          "requiredGrant": "schedule:controlled",
+          "eligibleWorkers": 1,
+          "workerId": "W004",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/early/security/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "security",
+          "requiredSkill": "controlled-goods",
+          "requiredGrant": "schedule:controlled",
+          "eligibleWorkers": 1,
+          "workerId": "W029",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/early/lead/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W002",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/early/operator/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W005",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/early/operator/2",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W006",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/early/lead/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W026",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/early/operator/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W030",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/early/operator/2",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W032",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/late/lead/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W013",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/late/operator/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W016",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/NW/late/operator/2",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W017",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/late/lead/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W038",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/late/operator/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W041",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/late/operator/2",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W043",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/early/lead/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W001",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/early/operator/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W007",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/early/operator/2",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W008",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/early/lead/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W027",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/early/operator/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W031",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/early/operator/2",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W033",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/late/lead/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W014",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/late/operator/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W018",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/NW/late/operator/2",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W019",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/late/lead/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W039",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/late/operator/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W042",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-17/SE/late/operator/2",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W044",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/early/lead/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W001",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/early/operator/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W009",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/early/operator/2",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W011",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/early/lead/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W028",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/early/operator/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W034",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/early/operator/2",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W035",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/late/lead/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W015",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/late/operator/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W020",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/NW/late/operator/2",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W022",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/late/lead/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W040",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/late/operator/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W045",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-18/SE/late/operator/2",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W046",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/early/lead/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W003",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/early/operator/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W010",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/early/operator/2",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W012",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/early/lead/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W026",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/early/operator/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W036",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/early/operator/2",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W037",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/late/lead/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W013",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/late/operator/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W021",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/NW/late/operator/2",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W023",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/late/lead/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W039",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/late/operator/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W047",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-19/SE/late/operator/2",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W048",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/early/lead/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W002",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/early/operator/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W004",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/early/operator/2",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W006",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/early/lead/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W027",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/early/operator/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W029",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/early/operator/2",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W030",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/late/lead/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W014",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/late/operator/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W024",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/NW/late/operator/2",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W025",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/late/lead/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W038",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/late/operator/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W049",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-20/SE/late/operator/2",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W050",
+          "status": "assigned",
+          "reason": "eligible"
+        }
+      ],
+      "exceptionQueue": [
+        {
+          "type": "publish",
+          "id": "roster",
+          "reason": "publish-grant-required",
+          "nextAction": "Send to an authorized roster publisher. No source system was changed."
+        }
+      ],
+      "reconciliation": {
+        "requiredSeats": 62,
+        "assignedSeats": 62,
+        "unfilledSeats": 0,
+        "paidHours": 496,
+        "workersScheduled": 50,
+        "keptAssignments": 0,
+        "writebacks": 0
+      }
+    },
+    {
+      "scenarioId": "absence-and-demand",
+      "businessEvent": "Specialist absent; late demand climbs",
+      "staffAbsences": [
+        {
+          "workerId": "W029",
+          "date": "2026-11-16"
+        }
+      ],
+      "incrementalDemandSeatIds": [
+        "2026-11-16/NW/late/operator/3",
+        "2026-11-16/SE/late/security/1"
+      ],
+      "decisionActorGrants": [
+        "roster:propose"
+      ],
+      "assignmentDecisions": [
+        {
+          "id": "2026-11-16/NW/early/security/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "security",
+          "requiredSkill": "controlled-goods",
+          "requiredGrant": "schedule:controlled",
+          "eligibleWorkers": 1,
+          "workerId": "W004",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/early/security/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "security",
+          "requiredSkill": "controlled-goods",
+          "requiredGrant": "schedule:controlled",
+          "eligibleWorkers": 0,
+          "workerId": null,
+          "status": "hold",
+          "reason": "specialist-unavailable"
+        },
+        {
+          "id": "2026-11-16/NW/early/lead/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W002",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/NW/early/operator/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W005",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/NW/early/operator/2",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W006",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/early/lead/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W026",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/early/operator/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W030",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/early/operator/2",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W032",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/late/security/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "security",
+          "requiredSkill": "controlled-goods",
+          "requiredGrant": "schedule:controlled",
+          "eligibleWorkers": 0,
+          "workerId": null,
+          "status": "hold",
+          "reason": "specialist-unavailable"
+        },
+        {
+          "id": "2026-11-16/NW/late/lead/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W013",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/NW/late/operator/1",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W016",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/NW/late/operator/2",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W017",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/NW/late/operator/3",
+          "date": "2026-11-16",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W018",
+          "status": "assigned",
+          "reason": "eligible"
+        },
+        {
+          "id": "2026-11-16/SE/late/lead/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W038",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/late/operator/1",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W041",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-16/SE/late/operator/2",
+          "date": "2026-11-16",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W043",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/early/lead/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W001",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/early/operator/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W007",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/early/operator/2",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W008",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/early/lead/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W027",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/early/operator/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W031",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/early/operator/2",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W033",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/late/lead/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W014",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/late/operator/1",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W018",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/NW/late/operator/2",
+          "date": "2026-11-17",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W019",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/late/lead/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W039",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/late/operator/1",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W042",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-17/SE/late/operator/2",
+          "date": "2026-11-17",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W044",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/early/lead/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W001",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/early/operator/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W009",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/early/operator/2",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W011",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/early/lead/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W028",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/early/operator/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W034",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/early/operator/2",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W035",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/late/lead/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W015",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/late/operator/1",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W020",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/NW/late/operator/2",
+          "date": "2026-11-18",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W022",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/late/lead/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W040",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/late/operator/1",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W045",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-18/SE/late/operator/2",
+          "date": "2026-11-18",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W046",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/early/lead/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W003",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/early/operator/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W010",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/early/operator/2",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W012",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/early/lead/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W026",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/early/operator/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W036",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/early/operator/2",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W037",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/late/lead/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W013",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/late/operator/1",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W021",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/NW/late/operator/2",
+          "date": "2026-11-19",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W023",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/late/lead/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W039",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/late/operator/1",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W047",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-19/SE/late/operator/2",
+          "date": "2026-11-19",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W048",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/early/lead/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W002",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/early/operator/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W004",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/early/operator/2",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 7,
+          "workerId": "W006",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/early/lead/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W027",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/early/operator/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W029",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/early/operator/2",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "early",
+          "start": "06:00",
+          "end": "14:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 8,
+          "workerId": "W030",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/late/lead/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 3,
+          "workerId": "W014",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/late/operator/1",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W024",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/NW/late/operator/2",
+          "date": "2026-11-20",
+          "locationId": "NW",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 9,
+          "workerId": "W025",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/late/lead/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "lead",
+          "requiredSkill": "handover",
+          "requiredGrant": "schedule:lead",
+          "eligibleWorkers": 2,
+          "workerId": "W038",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/late/operator/1",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 11,
+          "workerId": "W049",
+          "status": "assigned",
+          "reason": "reused"
+        },
+        {
+          "id": "2026-11-20/SE/late/operator/2",
+          "date": "2026-11-20",
+          "locationId": "SE",
+          "shift": "late",
+          "start": "14:00",
+          "end": "22:00",
+          "role": "operator",
+          "requiredSkill": "dispatch",
+          "requiredGrant": "schedule:dispatch",
+          "eligibleWorkers": 10,
+          "workerId": "W050",
+          "status": "assigned",
+          "reason": "reused"
+        }
+      ],
+      "exceptionQueue": [
+        {
+          "type": "coverage",
+          "id": "2026-11-16/SE/early/security/1",
+          "reason": "specialist-unavailable",
+          "rejected": {
+            "location": 21,
+            "skill": 28,
+            "absence": 1
+          },
+          "nextAction": "Find an authorized specialist or move the controlled work window."
+        },
+        {
+          "type": "coverage",
+          "id": "2026-11-16/SE/late/security/1",
+          "reason": "specialist-unavailable",
+          "rejected": {
+            "location": 21,
+            "skill": 28,
+            "absence": 1
+          },
+          "nextAction": "Find an authorized specialist or move the controlled work window."
+        },
+        {
+          "type": "publish",
+          "id": "roster",
+          "reason": "publish-grant-required",
+          "nextAction": "Send to an authorized roster publisher. No source system was changed."
+        }
+      ],
+      "reconciliation": {
+        "requiredSeats": 64,
+        "assignedSeats": 62,
+        "unfilledSeats": 2,
+        "paidHours": 496,
+        "workersScheduled": 50,
+        "keptAssignments": 61,
+        "writebacks": 0
+      }
+    }
+  ],
+  "limits": {
+    "policyScope": "Illustrative operating rules; not employment law or a compliance claim.",
+    "vendorAccess": "No Workday account, tenant, API, or employee records were used.",
+    "writebackResult": "No source system writes were attempted.",
+    "optimizationResult": "Feasibility checks only; no claim of optimality or vendor/engine execution."
+  }
+}

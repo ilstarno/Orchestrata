@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "high-school-timetabling",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "src/worked-cases.ts",
+    "excludedChecks": "Period selection, teacher assignments, pupil conflicts and weekly scheduling",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "School operations",
+      "sites": [
+        {
+          "siteLabel": "Sample high school",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Room timetable",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "room",
+                  "displayLabel": "North Lab",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "room",
+                  "displayLabel": "South Lab",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "room",
+                  "displayLabel": "Media Studio",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Second period",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "chemistry_lab",
+                          "demandQuantity": 1,
+                          "demandUnit": "room",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Staff supplied eligibility based on equipment, capacity, accessibility and availability.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "North Lab",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "South Lab",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Media Studio",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "North Lab",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "digital_design",
+                          "demandQuantity": 1,
+                          "demandUnit": "room",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Staff supplied eligibility based on equipment, capacity, accessibility and availability.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "North Lab",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "South Lab",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Media Studio",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Media Studio",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "civics_seminar",
+                          "demandQuantity": 1,
+                          "demandUnit": "room",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Staff supplied eligibility based on equipment, capacity, accessibility and availability.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "North Lab",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "South Lab",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Media Studio",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/high-school-timetabling/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "South Lab",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/high-school-timetabling/problem.json",
+          "resultSource": "catalog/high-school-timetabling/expected.json",
+          "expectedOutput": {
+            "values": [
+              0,
+              2,
+              1
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 8
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 2,
+              "preferredResourceId": 1,
+              "preferredResourceLabel": "South Lab",
+              "preferredResourceEligible": true,
+              "softWeight": 5,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

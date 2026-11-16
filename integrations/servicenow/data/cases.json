@@ -1,0 +1,644 @@
+{
+  "schemaVersion": 1,
+  "scope": "Illustrative ServiceNow planning inputs. Offline draft for human review, with no service connection, real data, record update, or change approval.",
+  "cases": [
+    {
+      "id": "servicenow-incident-triage",
+      "context": "IT Service Management incident queue: route an illustrative outage, a protected identity incident, and lower-priority follow-ups.",
+      "policy": "Use assigned support group, skills, record permission, shift and remaining triage capacity. A dependent follow-up needs its incident diagnosis to finish first.",
+      "resources": [
+        {
+          "id": "NET-A",
+          "role": "Network duty lead",
+          "skills": [
+            "network",
+            "incident"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "incident_triage"
+          ],
+          "window": [
+            0,
+            160
+          ],
+          "capacity": 4,
+          "currentLoad": 1
+        },
+        {
+          "id": "NET-B",
+          "role": "Network analyst",
+          "skills": [
+            "network",
+            "incident"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "incident_triage"
+          ],
+          "window": [
+            15,
+            145
+          ],
+          "capacity": 3,
+          "currentLoad": 2
+        },
+        {
+          "id": "IAM-A",
+          "role": "Identity duty lead",
+          "skills": [
+            "identity",
+            "incident"
+          ],
+          "regions": [
+            "identity"
+          ],
+          "rights": [
+            "incident_triage",
+            "restricted_identity"
+          ],
+          "window": [
+            0,
+            120
+          ],
+          "capacity": 2,
+          "currentLoad": 0
+        },
+        {
+          "id": "APP-A",
+          "role": "Application analyst",
+          "skills": [
+            "application",
+            "incident"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "incident_triage"
+          ],
+          "window": [
+            0,
+            120
+          ],
+          "capacity": 3,
+          "currentLoad": 0
+        }
+      ],
+      "items": [
+        {
+          "id": "INC-1001",
+          "title": "Diagnose production DNS errors",
+          "skills": [
+            "network"
+          ],
+          "region": "platform",
+          "right": "incident_triage",
+          "priority": 5,
+          "duration": 45,
+          "window": [
+            0,
+            55
+          ],
+          "requires": []
+        },
+        {
+          "id": "INC-1002",
+          "title": "Investigate privileged sign-in anomaly",
+          "skills": [
+            "identity"
+          ],
+          "region": "identity",
+          "right": "restricted_identity",
+          "priority": 5,
+          "duration": 35,
+          "window": [
+            0,
+            50
+          ],
+          "requires": []
+        },
+        {
+          "id": "INC-1003",
+          "title": "Triage checkout integration timeout",
+          "skills": [
+            "application"
+          ],
+          "region": "platform",
+          "right": "incident_triage",
+          "priority": 4,
+          "duration": 30,
+          "window": [
+            5,
+            55
+          ],
+          "requires": []
+        },
+        {
+          "id": "INC-1004",
+          "title": "Confirm affected network regions after diagnosis",
+          "skills": [
+            "network"
+          ],
+          "region": "platform",
+          "right": "incident_triage",
+          "priority": 4,
+          "duration": 35,
+          "window": [
+            25,
+            110
+          ],
+          "requires": [
+            "INC-1001"
+          ]
+        },
+        {
+          "id": "INC-1005",
+          "title": "Review privileged access after initial triage",
+          "skills": [
+            "identity"
+          ],
+          "region": "identity",
+          "right": "restricted_identity",
+          "priority": 3,
+          "duration": 30,
+          "window": [
+            20,
+            100
+          ],
+          "requires": [
+            "INC-1002"
+          ]
+        },
+        {
+          "id": "INC-1006",
+          "title": "Review a storage cluster incident",
+          "skills": [
+            "storage"
+          ],
+          "region": "platform",
+          "right": "incident_triage",
+          "priority": 3,
+          "duration": 20,
+          "window": [
+            0,
+            115
+          ],
+          "requires": []
+        },
+        {
+          "id": "INC-1007",
+          "title": "Review restricted event logs in application group",
+          "skills": [
+            "application"
+          ],
+          "region": "platform",
+          "right": "restricted_identity",
+          "priority": 2,
+          "duration": 20,
+          "window": [
+            0,
+            120
+          ],
+          "requires": []
+        },
+        {
+          "id": "INC-1008",
+          "title": "Assess a second privileged identity alert",
+          "skills": [
+            "identity"
+          ],
+          "region": "identity",
+          "right": "restricted_identity",
+          "priority": 1,
+          "duration": 10,
+          "window": [
+            60,
+            115
+          ],
+          "requires": []
+        }
+      ]
+    },
+    {
+      "id": "servicenow-change-calendar",
+      "context": "Change Enablement calendar: propose implementation and verification tasks within supplied maintenance windows. Sample approval evidence does not authorize a real change.",
+      "policy": "Require a supplied sample approval for controlled changes, authorized operators, prerequisite completion and a non-overlapping maintenance slot.",
+      "resources": [
+        {
+          "id": "CHG-NET",
+          "role": "Change implementation",
+          "skills": [
+            "network",
+            "change"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "stage_change"
+          ],
+          "window": [
+            40,
+            155
+          ],
+          "capacity": 4,
+          "currentLoad": 0
+        },
+        {
+          "id": "CHG-DB",
+          "role": "Database change implementation",
+          "skills": [
+            "database",
+            "change"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "stage_change"
+          ],
+          "window": [
+            55,
+            180
+          ],
+          "capacity": 4,
+          "currentLoad": 1
+        },
+        {
+          "id": "CHG-QA",
+          "role": "Change validation",
+          "skills": [
+            "checks"
+          ],
+          "regions": [
+            "platform"
+          ],
+          "rights": [
+            "verify_change"
+          ],
+          "window": [
+            0,
+            185
+          ],
+          "capacity": 5,
+          "currentLoad": 1
+        }
+      ],
+      "items": [
+        {
+          "id": "CHG-2001",
+          "title": "Validate rollback steps for approved firewall change",
+          "skills": [
+            "checks"
+          ],
+          "region": "platform",
+          "right": "verify_change",
+          "priority": 5,
+          "duration": 20,
+          "window": [
+            10,
+            45
+          ],
+          "requires": []
+        },
+        {
+          "id": "CHG-2002",
+          "title": "Reserve approved firewall staging window",
+          "skills": [
+            "network"
+          ],
+          "region": "platform",
+          "right": "stage_change",
+          "priority": 5,
+          "duration": 30,
+          "window": [
+            40,
+            95
+          ],
+          "requires": [
+            "CHG-2001"
+          ],
+          "approval": "sample-approved"
+        },
+        {
+          "id": "CHG-2003",
+          "title": "Verify firewall health after staging",
+          "skills": [
+            "checks"
+          ],
+          "region": "platform",
+          "right": "verify_change",
+          "priority": 4,
+          "duration": 20,
+          "window": [
+            50,
+            125
+          ],
+          "requires": [
+            "CHG-2002"
+          ]
+        },
+        {
+          "id": "CHG-2004",
+          "title": "Reserve approved replica patch window",
+          "skills": [
+            "database"
+          ],
+          "region": "platform",
+          "right": "stage_change",
+          "priority": 4,
+          "duration": 40,
+          "window": [
+            55,
+            110
+          ],
+          "requires": [],
+          "approval": "sample-approved"
+        },
+        {
+          "id": "CHG-2005",
+          "title": "Verify replica recovery after patch",
+          "skills": [
+            "checks"
+          ],
+          "region": "platform",
+          "right": "verify_change",
+          "priority": 3,
+          "duration": 25,
+          "window": [
+            75,
+            150
+          ],
+          "requires": [
+            "CHG-2004"
+          ]
+        },
+        {
+          "id": "CHG-2006",
+          "title": "Reserve secondary firewall change pending review",
+          "skills": [
+            "network"
+          ],
+          "region": "platform",
+          "right": "stage_change",
+          "priority": 3,
+          "duration": 25,
+          "window": [
+            95,
+            145
+          ],
+          "requires": [],
+          "approval": "pending"
+        },
+        {
+          "id": "CHG-2007",
+          "title": "Validate secondary firewall after change",
+          "skills": [
+            "checks"
+          ],
+          "region": "platform",
+          "right": "verify_change",
+          "priority": 2,
+          "duration": 15,
+          "window": [
+            100,
+            175
+          ],
+          "requires": [
+            "CHG-2006"
+          ]
+        },
+        {
+          "id": "CHG-2008",
+          "title": "Reserve second approved database change in same window",
+          "skills": [
+            "database"
+          ],
+          "region": "platform",
+          "right": "stage_change",
+          "priority": 2,
+          "duration": 35,
+          "window": [
+            55,
+            120
+          ],
+          "requires": [],
+          "approval": "sample-approved"
+        }
+      ]
+    },
+    {
+      "id": "servicenow-on-call-handoff",
+      "context": "On-call handoff: allocate service ownership and next-shift work across overlapping duty windows.",
+      "policy": "Respect the supplied support group and role. Follow-ups cannot start before their handoff finishes; unavailable regional ownership remains unassigned.",
+      "resources": [
+        {
+          "id": "DUTY-DAY",
+          "role": "Outgoing duty engineer",
+          "skills": [
+            "triage",
+            "handoff"
+          ],
+          "regions": [
+            "payments"
+          ],
+          "rights": [
+            "own_service",
+            "handoff_service"
+          ],
+          "window": [
+            0,
+            80
+          ],
+          "capacity": 3,
+          "currentLoad": 1
+        },
+        {
+          "id": "DUTY-NIGHT",
+          "role": "Incoming duty engineer",
+          "skills": [
+            "triage",
+            "handoff"
+          ],
+          "regions": [
+            "payments"
+          ],
+          "rights": [
+            "own_service",
+            "handoff_service"
+          ],
+          "window": [
+            65,
+            210
+          ],
+          "capacity": 4,
+          "currentLoad": 1
+        },
+        {
+          "id": "DUTY-OBS",
+          "role": "Observability aftercare",
+          "skills": [
+            "observability"
+          ],
+          "regions": [
+            "payments"
+          ],
+          "rights": [
+            "monitor_service"
+          ],
+          "window": [
+            85,
+            220
+          ],
+          "capacity": 4,
+          "currentLoad": 0
+        }
+      ],
+      "items": [
+        {
+          "id": "TASK-3001",
+          "title": "Review outstanding payment outage actions",
+          "skills": [
+            "triage"
+          ],
+          "region": "payments",
+          "right": "own_service",
+          "priority": 5,
+          "duration": 35,
+          "window": [
+            0,
+            65
+          ],
+          "requires": []
+        },
+        {
+          "id": "TASK-3002",
+          "title": "Prepare outgoing payment handoff notes",
+          "skills": [
+            "handoff"
+          ],
+          "region": "payments",
+          "right": "handoff_service",
+          "priority": 4,
+          "duration": 20,
+          "window": [
+            40,
+            80
+          ],
+          "requires": [
+            "TASK-3001"
+          ]
+        },
+        {
+          "id": "TASK-3003",
+          "title": "Take ownership on the incoming shift",
+          "skills": [
+            "handoff"
+          ],
+          "region": "payments",
+          "right": "handoff_service",
+          "priority": 4,
+          "duration": 25,
+          "window": [
+            65,
+            110
+          ],
+          "requires": [
+            "TASK-3002"
+          ]
+        },
+        {
+          "id": "TASK-3004",
+          "title": "Monitor payment retries on incoming shift",
+          "skills": [
+            "observability"
+          ],
+          "region": "payments",
+          "right": "monitor_service",
+          "priority": 3,
+          "duration": 30,
+          "window": [
+            85,
+            160
+          ],
+          "requires": [
+            "TASK-3003"
+          ]
+        },
+        {
+          "id": "TASK-3005",
+          "title": "Handle follow-up payment timeout report",
+          "skills": [
+            "triage"
+          ],
+          "region": "payments",
+          "right": "own_service",
+          "priority": 3,
+          "duration": 40,
+          "window": [
+            100,
+            165
+          ],
+          "requires": [
+            "TASK-3003"
+          ]
+        },
+        {
+          "id": "TASK-3006",
+          "title": "Publish an internal handoff checkpoint",
+          "skills": [
+            "handoff"
+          ],
+          "region": "payments",
+          "right": "handoff_service",
+          "priority": 2,
+          "duration": 20,
+          "window": [
+            130,
+            200
+          ],
+          "requires": [
+            "TASK-3005"
+          ]
+        },
+        {
+          "id": "TASK-3007",
+          "title": "Identify an owner for the warehouse on-call issue",
+          "skills": [
+            "triage"
+          ],
+          "region": "warehouse",
+          "right": "own_service",
+          "priority": 2,
+          "duration": 25,
+          "window": [
+            120,
+            180
+          ],
+          "requires": []
+        },
+        {
+          "id": "TASK-3008",
+          "title": "Review a second payment alert before midnight shift ends",
+          "skills": [
+            "triage"
+          ],
+          "region": "payments",
+          "right": "own_service",
+          "priority": 1,
+          "duration": 20,
+          "window": [
+            140,
+            200
+          ],
+          "requires": []
+        }
+      ]
+    }
+  ]
+}

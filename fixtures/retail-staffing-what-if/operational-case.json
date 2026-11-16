@@ -1,0 +1,1146 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "retail-staffing-what-if",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "content/solutions/workforce-scheduling/index.md",
+    "excludedChecks": "Demand forecast, payroll, breaks, overtime, labor compliance and weekly rosters",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Retail operations",
+      "sites": [
+        {
+          "siteLabel": "Two sample stores",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Store coverage",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "worker",
+                  "displayLabel": "Ana",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "worker",
+                  "displayLabel": "Ben",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "worker",
+                  "displayLabel": "Clara",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 3,
+                  "resourceType": "worker",
+                  "displayLabel": "Diego",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 4,
+                  "resourceType": "worker",
+                  "displayLabel": "Elena",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "baseline",
+                  "windowLabel": "14:00 staffing overlap",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "baseline",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "north_keyholder",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 1,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Ana",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "north_floor",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Ben",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "south_register",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 3,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Clara",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 3,
+                          "fixtureName": "south_stock",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": true,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/baseline/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": true,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 3,
+                            "selectedResourceLabel": "Diego",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2,
+                            3
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "windowId": "adjusted",
+                  "windowLabel": "14:00 staffing overlap",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "adjusted",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "north_keyholder",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 1,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      0
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Ana",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "north_floor",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 1,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Clara",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "south_register",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      2,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 4,
+                            "selectedResourceLabel": "Elena",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 3,
+                          "fixtureName": "south_stock",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Role-qualified and available workers form the domains; the adjusted run removes Ben from both eligible posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 5,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Ana",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Ben",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Clara",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "Diego",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": true,
+                                    "observedResourceId": 3,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 4,
+                                "candidateLabel": "Elena",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[3].domain",
+                                    "passed": true,
+                                    "observedResourceId": 4,
+                                    "allowedResourceIds": [
+                                      3,
+                                      4
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 3,
+                            "selectedResourceLabel": "Diego",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2,
+                            3
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "baseline",
+          "problemSource": "catalog/retail-staffing-what-if/baseline/problem.json",
+          "resultSource": "catalog/retail-staffing-what-if/baseline/expected.json",
+          "expectedOutput": {
+            "values": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 12
+          },
+          "independentHardFeasibleCount": 6,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 1,
+              "preferredResourceId": 1,
+              "preferredResourceLabel": "Ben",
+              "preferredResourceEligible": true,
+              "softWeight": 5,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            },
+            {
+              "variableIndex": 2,
+              "preferredResourceId": 2,
+              "preferredResourceLabel": "Clara",
+              "preferredResourceEligible": true,
+              "softWeight": 3,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            },
+            {
+              "variableIndex": 3,
+              "preferredResourceId": 3,
+              "preferredResourceLabel": "Diego",
+              "preferredResourceEligible": true,
+              "softWeight": 2,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        },
+        {
+          "runId": "adjusted",
+          "problemSource": "catalog/retail-staffing-what-if/adjusted/problem.json",
+          "resultSource": "catalog/retail-staffing-what-if/adjusted/expected.json",
+          "expectedOutput": {
+            "values": [
+              0,
+              2,
+              4,
+              3
+            ],
+            "score": {
+              "hard": 0,
+              "soft": -8
+            },
+            "evaluated": 4
+          },
+          "independentHardFeasibleCount": 1,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 1,
+              "preferredResourceId": 1,
+              "preferredResourceLabel": "Ben",
+              "preferredResourceEligible": false,
+              "softWeight": 5,
+              "preferenceMet": false,
+              "missedPenalty": 5
+            },
+            {
+              "variableIndex": 2,
+              "preferredResourceId": 2,
+              "preferredResourceLabel": "Clara",
+              "preferredResourceEligible": true,
+              "softWeight": 3,
+              "preferenceMet": false,
+              "missedPenalty": 3
+            },
+            {
+              "variableIndex": 3,
+              "preferredResourceId": 3,
+              "preferredResourceLabel": "Diego",
+              "preferredResourceEligible": true,
+              "softWeight": 2,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ],
+      "scenarioChange": {
+        "eventType": "worker-callout",
+        "resourceId": 1,
+        "sampleWorkerLabel": "Ben",
+        "referenceRun": "baseline",
+        "comparisonRun": "adjusted",
+        "eligibilityChanges": [
+          {
+            "fixtureName": "north_floor",
+            "removedCandidateIds": [
+              1
+            ],
+            "addedCandidateIds": []
+          },
+          {
+            "fixtureName": "south_register",
+            "removedCandidateIds": [
+              1
+            ],
+            "addedCandidateIds": []
+          }
+        ],
+        "ruleWeightsUnchanged": true,
+        "softScoreDelta": -8
+      }
+    }
+  }
+}

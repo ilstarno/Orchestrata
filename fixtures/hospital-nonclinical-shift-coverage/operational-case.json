@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "hospital-nonclinical-shift-coverage",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "src/worked-cases.ts",
+    "excludedChecks": "Clinical staffing, qualification decisions, staffing ratios, breaks and cross-block coverage",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Hospital operations",
+      "sites": [
+        {
+          "siteLabel": "Sample hospital",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Nonclinical facilities support",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "worker",
+                  "displayLabel": "Staff A",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "worker",
+                  "displayLabel": "Staff B",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "worker",
+                  "displayLabel": "Staff C",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Fixed desk coverage block",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "visitor-desk",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "The facility supplied available and cleared staff for nonclinical posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Staff A",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Staff B",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Staff C",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Staff B",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "supply-desk",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "The facility supplied available and cleared staff for nonclinical posts.",
+                            "eligibleCount": 1,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Staff A",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Staff B",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Staff C",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Staff C",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "courier-intake",
+                          "demandQuantity": 1,
+                          "demandUnit": "worker",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "The facility supplied available and cleared staff for nonclinical posts.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Staff A",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Staff B",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Staff C",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Staff A",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/hospital-nonclinical-shift-coverage/problem.json",
+          "resultSource": "catalog/hospital-nonclinical-shift-coverage/expected.json",
+          "expectedOutput": {
+            "values": [
+              1,
+              2,
+              0
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 4
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 0,
+              "preferredResourceId": 1,
+              "preferredResourceLabel": "Staff B",
+              "preferredResourceEligible": true,
+              "softWeight": 1,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

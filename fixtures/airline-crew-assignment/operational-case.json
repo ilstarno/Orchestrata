@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "airline-crew-assignment",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "src/worked-cases.ts",
+    "excludedChecks": "Duty legality, rest, crew pairing, reserve recovery and seniority",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Airline operations",
+      "sites": [
+        {
+          "siteLabel": "Sample flight operation",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Crew assignment",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "crew",
+                  "displayLabel": "Crew Alpha",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "crew",
+                  "displayLabel": "Crew Bravo",
+                  "identityScope": "Sample dataset only"
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "crew",
+                  "displayLabel": "Crew Charlie",
+                  "identityScope": "Sample dataset only"
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Overlapping duties",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Fixed relative block, not a calendar timestamp",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "Duty 801",
+                          "demandQuantity": 1,
+                          "demandUnit": "crew",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Fleet qualifications and availability were supplied as eligible crew IDs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Crew Alpha",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Crew Bravo",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Crew Charlie",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[0].domain",
+                                    "passed": false,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      1
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Crew Bravo",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "Duty 816",
+                          "demandQuantity": 1,
+                          "demandUnit": "crew",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Fleet qualifications and availability were supplied as eligible crew IDs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Crew Alpha",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Crew Bravo",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": false,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Crew Charlie",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[1].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      0,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Crew Alpha",
+                            "selectedResourceEligible": true
+                          }
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "Duty 842",
+                          "demandQuantity": 1,
+                          "demandUnit": "crew",
+                          "eligibility": {
+                            "method": "approved-domain",
+                            "reasoningScope": "Fleet qualifications and availability were supplied as eligible crew IDs.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Crew Alpha",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": false,
+                                    "observedResourceId": 0,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Crew Bravo",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 1,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Crew Charlie",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/airline-crew-assignment/problem.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "approved-candidate",
+                                    "comparison": "published domain contains this ID",
+                                    "sourceField": "variables[2].domain",
+                                    "passed": true,
+                                    "observedResourceId": 2,
+                                    "allowedResourceIds": [
+                                      1,
+                                      2
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Crew Charlie",
+                            "selectedResourceEligible": true
+                          }
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Only approved IDs and documented rationale; no underlying qualification data",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/airline-crew-assignment/problem.json",
+          "resultSource": "catalog/airline-crew-assignment/expected.json",
+          "expectedOutput": {
+            "values": [
+              1,
+              0,
+              2
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 8
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 0,
+              "preferredResourceId": 1,
+              "preferredResourceLabel": "Crew Bravo",
+              "preferredResourceEligible": true,
+              "softWeight": 1,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

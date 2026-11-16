@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "scope": "Illustrative Salesforce records and staffing only. Review drafts offline; nothing is read, changed, routed, or approved in Salesforce.",
+  "results": [
+    {
+      "id": "service-cloud-queue",
+      "assignments": [
+        {
+          "itemId": "CASE-101",
+          "resourceId": "AGENT-EMEA-1",
+          "startMinute": 0,
+          "endMinute": 25
+        },
+        {
+          "itemId": "CASE-102",
+          "resourceId": "AGENT-EMEA-2",
+          "startMinute": 15,
+          "endMinute": 35
+        },
+        {
+          "itemId": "CASE-104",
+          "resourceId": "AGENT-EMEA-1",
+          "startMinute": 25,
+          "endMinute": 40
+        }
+      ],
+      "held": [
+        {
+          "itemId": "CASE-106",
+          "code": "no_slot_before_deadline",
+          "reason": "No eligible candidate has an uninterrupted slot before the deadline.",
+          "candidateResourceIds": [
+            "AGENT-AMER-1"
+          ]
+        },
+        {
+          "itemId": "CASE-103",
+          "code": "right_missing",
+          "reason": "No qualified candidate in the region has the required record or review permission.",
+          "candidateResourceIds": []
+        },
+        {
+          "itemId": "CASE-105",
+          "code": "workload_full",
+          "reason": "Every eligible candidate is at the modeled workload cap.",
+          "candidateResourceIds": [
+            "AGENT-EMEA-2"
+          ]
+        }
+      ],
+      "summary": {
+        "assigned": 3,
+        "held": 3,
+        "total": 6
+      }
+    },
+    {
+      "id": "sales-cloud-renewal",
+      "assignments": [
+        {
+          "itemId": "OPP-201",
+          "resourceId": "SELLER-DACH",
+          "startMinute": 0,
+          "endMinute": 45
+        },
+        {
+          "itemId": "OPP-203",
+          "resourceId": "SELLER-FR",
+          "startMinute": 10,
+          "endMinute": 40
+        },
+        {
+          "itemId": "OPP-202",
+          "resourceId": "DESK-EU",
+          "startMinute": 60,
+          "endMinute": 95
+        }
+      ],
+      "held": [
+        {
+          "itemId": "OPP-204",
+          "code": "no_slot_before_deadline",
+          "reason": "No eligible candidate has an uninterrupted slot before the deadline.",
+          "candidateResourceIds": [
+            "DESK-EU"
+          ]
+        },
+        {
+          "itemId": "OPP-205",
+          "code": "prerequisite_held",
+          "reason": "At least one required earlier step was held.",
+          "prerequisiteIds": [
+            "OPP-204"
+          ]
+        },
+        {
+          "itemId": "OPP-206",
+          "code": "territory_uncovered",
+          "reason": "No candidate covers the record’s service region or sales territory.",
+          "candidateResourceIds": []
+        }
+      ],
+      "summary": {
+        "assigned": 3,
+        "held": 3,
+        "total": 6
+      }
+    }
+  ]
+}

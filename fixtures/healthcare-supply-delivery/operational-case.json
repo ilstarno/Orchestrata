@@ -1,0 +1,546 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "healthcare-supply-delivery",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "src/worked-cases.ts",
+    "excludedChecks": "Patient information, clinical decisions, routing and special handling",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Healthcare logistics",
+      "sites": [
+        {
+          "siteLabel": "Sample supply operation",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Medical supplies dispatch",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Cargo van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 400,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 450,
+                    "endMinuteOfDay": 560
+                  }
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Compact van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 120,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 470,
+                    "endMinuteOfDay": 520
+                  }
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Courier van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 250,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 475,
+                    "endMinuteOfDay": 550
+                  }
+                },
+                {
+                  "resourceId": 3,
+                  "resourceType": "vehicle",
+                  "displayLabel": "East van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 450,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 490,
+                    "endMinuteOfDay": 535
+                  }
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Overlapping receiving windows",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Sample local minute-of-day; no timezone/date supplied",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "Clinic cartons",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full receiving-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 3,
+                            "candidateCount": 4,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Cargo van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 90,
+                                    "capacityKg": 400,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 450,
+                                      "endMinuteOfDay": 560
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 480,
+                                      "endMinuteOfDay": 510
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Compact van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 90,
+                                    "capacityKg": 120,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 470,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 480,
+                                      "endMinuteOfDay": 510
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Courier van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 90,
+                                    "capacityKg": 250,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 475,
+                                      "endMinuteOfDay": 550
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 480,
+                                      "endMinuteOfDay": 510
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "East van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 90,
+                                    "capacityKg": 450,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 535
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 480,
+                                      "endMinuteOfDay": 510
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Compact van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 480,
+                            "endMinuteOfDay": 510
+                          },
+                          "payloadRequiredKg": 90
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "Lab consumables",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full receiving-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 1,
+                            "candidateCount": 4,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Cargo van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 280,
+                                    "capacityKg": 400,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 450,
+                                      "endMinuteOfDay": 560
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 485,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Compact van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 280,
+                                    "capacityKg": 120,
+                                    "passed": false
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 470,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 485,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Courier van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 280,
+                                    "capacityKg": 250,
+                                    "passed": false
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 475,
+                                      "endMinuteOfDay": 550
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 485,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "East van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 280,
+                                    "capacityKg": 450,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 535
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 485,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Cargo van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 485,
+                            "endMinuteOfDay": 520
+                          },
+                          "payloadRequiredKg": 280
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "Care center PPE",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full receiving-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 3,
+                            "candidateCount": 4,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Cargo van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 400,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 450,
+                                      "endMinuteOfDay": 560
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 530
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Compact van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 120,
+                                    "passed": false
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 470,
+                                      "endMinuteOfDay": 520
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 530
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Courier van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 250,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 475,
+                                      "endMinuteOfDay": 550
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 530
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 3,
+                                "candidateLabel": "East van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/healthcare-supply-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 450,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 535
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 490,
+                                      "endMinuteOfDay": 530
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 3,
+                            "selectedResourceLabel": "East van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 490,
+                            "endMinuteOfDay": 530
+                          },
+                          "payloadRequiredKg": 150
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Numeric sample fixture fields",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/healthcare-supply-delivery/problem.json",
+          "resultSource": "catalog/healthcare-supply-delivery/expected.json",
+          "expectedOutput": {
+            "values": [
+              1,
+              0,
+              3
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 9
+          },
+          "independentHardFeasibleCount": 3,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 2,
+              "preferredResourceId": 3,
+              "preferredResourceLabel": "East van",
+              "preferredResourceEligible": true,
+              "softWeight": 1,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

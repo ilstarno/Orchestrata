@@ -1,0 +1,1545 @@
+{
+  "schemaVersion": 1,
+  "scope": "Illustrative ServiceNow planning inputs. Offline draft for human review, with no service connection, real data, record update, or change approval.",
+  "cases": [
+    {
+      "id": "servicenow-incident-triage",
+      "title": "Incident triage",
+      "dataClassification": "Illustrative planning data",
+      "sourceEvidence": {
+        "scenarioInput": "cases.json",
+        "calculationOutput": "results.json",
+        "reproducibilityCheck": "verify.mjs",
+        "sourceCaseId": "servicenow-incident-triage",
+        "liveSystemConnection": false
+      },
+      "operatingOrganization": {
+        "organizationRole": "Example operator of the planning process",
+        "businessUnit": {
+          "businessUnitName": "Technology operations",
+          "serviceFunction": {
+            "functionName": "Service reliability",
+            "productArea": "IT Service Management",
+            "workstream": {
+              "workstreamName": "Incident triage",
+              "mandate": "Incident response windows",
+              "narrative": "IT Service Management incident queue: route an illustrative outage, a protected identity incident, and lower-priority follow-ups.",
+              "operatingPolicy": {
+                "priorityRule": "Use assigned support group, skills, record permission, shift and remaining triage capacity. A dependent follow-up needs its incident diagnosis to finish first.",
+                "timeBasis": "Integer minutes from illustrative plan start",
+                "planIsOperationalApproval": false
+              },
+              "planningRun": {
+                "demandCount": 8,
+                "proposedCount": 5,
+                "exceptionCount": 3,
+                "resourceRoster": [
+                  {
+                    "profileId": "NET-A",
+                    "operatorRole": "Network duty lead",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "network",
+                        "incident"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "incident_triage"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 0,
+                      "availableUntilMinute": 160,
+                      "maximumWorkItems": 4,
+                      "workAlreadyCounted": 1,
+                      "newlyPlannedWorkItems": 2,
+                      "remainingPlanningSlots": 1
+                    }
+                  },
+                  {
+                    "profileId": "NET-B",
+                    "operatorRole": "Network analyst",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "network",
+                        "incident"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "incident_triage"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 15,
+                      "availableUntilMinute": 145,
+                      "maximumWorkItems": 3,
+                      "workAlreadyCounted": 2,
+                      "newlyPlannedWorkItems": 0,
+                      "remainingPlanningSlots": 1
+                    }
+                  },
+                  {
+                    "profileId": "IAM-A",
+                    "operatorRole": "Identity duty lead",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "identity",
+                        "incident"
+                      ],
+                      "ownershipScopes": [
+                        "identity"
+                      ],
+                      "permittedActivities": [
+                        "incident_triage",
+                        "restricted_identity"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 0,
+                      "availableUntilMinute": 120,
+                      "maximumWorkItems": 2,
+                      "workAlreadyCounted": 0,
+                      "newlyPlannedWorkItems": 2,
+                      "remainingPlanningSlots": 0
+                    }
+                  },
+                  {
+                    "profileId": "APP-A",
+                    "operatorRole": "Application analyst",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "application",
+                        "incident"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "incident_triage"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 0,
+                      "availableUntilMinute": 120,
+                      "maximumWorkItems": 3,
+                      "workAlreadyCounted": 0,
+                      "newlyPlannedWorkItems": 1,
+                      "remainingPlanningSlots": 2
+                    }
+                  }
+                ],
+                "decisionLedger": {
+                  "proposedAssignments": [
+                    {
+                      "issueReference": "INC-1002",
+                      "requestBasis": {
+                        "displayTitle": "Investigate privileged sign-in anomaly",
+                        "policyScope": "identity",
+                        "requiredCapabilities": [
+                          "identity"
+                        ],
+                        "requiredActivity": "restricted_identity",
+                        "priorityRank": 5,
+                        "estimatedEffortMinutes": 35,
+                        "releaseMinute": 0,
+                        "latestFinishMinute": 50,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "IAM-A",
+                        "plannedStartMinute": 0,
+                        "plannedEndMinute": 35,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "restricted_identity",
+                              "matchingAuthority": "restricted_identity",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "identity",
+                                "incident"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 0,
+                              "deadlineMarginMinutes": 15
+                            },
+                            "capacity": {
+                              "loadWithDraft": 2,
+                              "slotLimit": 2
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1001",
+                      "requestBasis": {
+                        "displayTitle": "Diagnose production DNS errors",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "network"
+                        ],
+                        "requiredActivity": "incident_triage",
+                        "priorityRank": 5,
+                        "estimatedEffortMinutes": 45,
+                        "releaseMinute": 0,
+                        "latestFinishMinute": 55,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "NET-A",
+                        "plannedStartMinute": 0,
+                        "plannedEndMinute": 45,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "incident_triage",
+                              "matchingAuthority": "incident_triage",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "network",
+                                "incident"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 0,
+                              "deadlineMarginMinutes": 10
+                            },
+                            "capacity": {
+                              "loadWithDraft": 3,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1003",
+                      "requestBasis": {
+                        "displayTitle": "Triage checkout integration timeout",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "application"
+                        ],
+                        "requiredActivity": "incident_triage",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 30,
+                        "releaseMinute": 5,
+                        "latestFinishMinute": 55,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "APP-A",
+                        "plannedStartMinute": 5,
+                        "plannedEndMinute": 35,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "incident_triage",
+                              "matchingAuthority": "incident_triage",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "application",
+                                "incident"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 5,
+                              "deadlineMarginMinutes": 20
+                            },
+                            "capacity": {
+                              "loadWithDraft": 1,
+                              "slotLimit": 3
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1004",
+                      "requestBasis": {
+                        "displayTitle": "Confirm affected network regions after diagnosis",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "network"
+                        ],
+                        "requiredActivity": "incident_triage",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 35,
+                        "releaseMinute": 25,
+                        "latestFinishMinute": 110,
+                        "upstreamRecordIds": [
+                          "INC-1001"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "NET-A",
+                        "plannedStartMinute": 45,
+                        "plannedEndMinute": 80,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "incident_triage",
+                              "matchingAuthority": "incident_triage",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "network",
+                                "incident"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 45,
+                              "deadlineMarginMinutes": 30
+                            },
+                            "capacity": {
+                              "loadWithDraft": 3,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "INC-1001",
+                                  "projectedFinishMinute": 45
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1005",
+                      "requestBasis": {
+                        "displayTitle": "Review privileged access after initial triage",
+                        "policyScope": "identity",
+                        "requiredCapabilities": [
+                          "identity"
+                        ],
+                        "requiredActivity": "restricted_identity",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 30,
+                        "releaseMinute": 20,
+                        "latestFinishMinute": 100,
+                        "upstreamRecordIds": [
+                          "INC-1002"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "IAM-A",
+                        "plannedStartMinute": 35,
+                        "plannedEndMinute": 65,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "restricted_identity",
+                              "matchingAuthority": "restricted_identity",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "identity",
+                                "incident"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 35,
+                              "deadlineMarginMinutes": 35
+                            },
+                            "capacity": {
+                              "loadWithDraft": 2,
+                              "slotLimit": 2
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "INC-1002",
+                                  "projectedFinishMinute": 35
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "heldForReview": [
+                    {
+                      "issueReference": "INC-1006",
+                      "requestBasis": {
+                        "displayTitle": "Review a storage cluster incident",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "storage"
+                        ],
+                        "requiredActivity": "incident_triage",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 0,
+                        "latestFinishMinute": 115,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "skills_unavailable",
+                        "reasonText": "No candidate in the region has all the required skills.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "NET-A",
+                            "NET-B",
+                            "APP-A"
+                          ],
+                          "skillCandidateIds": [],
+                          "authorizedCandidateIds": []
+                        },
+                        "blockingDependencies": []
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1007",
+                      "requestBasis": {
+                        "displayTitle": "Review restricted event logs in application group",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "application"
+                        ],
+                        "requiredActivity": "restricted_identity",
+                        "priorityRank": 2,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 0,
+                        "latestFinishMinute": 120,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "right_missing",
+                        "reasonText": "No qualified candidate in the region has the required record or review permission.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "NET-A",
+                            "NET-B",
+                            "APP-A"
+                          ],
+                          "skillCandidateIds": [
+                            "APP-A"
+                          ],
+                          "authorizedCandidateIds": []
+                        },
+                        "blockingDependencies": []
+                      }
+                    },
+                    {
+                      "issueReference": "INC-1008",
+                      "requestBasis": {
+                        "displayTitle": "Assess a second privileged identity alert",
+                        "policyScope": "identity",
+                        "requiredCapabilities": [
+                          "identity"
+                        ],
+                        "requiredActivity": "restricted_identity",
+                        "priorityRank": 1,
+                        "estimatedEffortMinutes": 10,
+                        "releaseMinute": 60,
+                        "latestFinishMinute": 115,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "workload_full",
+                        "reasonText": "Every eligible candidate is at the modeled workload cap.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "IAM-A"
+                          ],
+                          "skillCandidateIds": [
+                            "IAM-A"
+                          ],
+                          "authorizedCandidateIds": [
+                            "IAM-A"
+                          ]
+                        },
+                        "blockingDependencies": []
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "servicenow-change-calendar",
+      "title": "Maintenance scheduling",
+      "dataClassification": "Illustrative planning data",
+      "sourceEvidence": {
+        "scenarioInput": "cases.json",
+        "calculationOutput": "results.json",
+        "reproducibilityCheck": "verify.mjs",
+        "sourceCaseId": "servicenow-change-calendar",
+        "liveSystemConnection": false
+      },
+      "operatingOrganization": {
+        "organizationRole": "Example operator of the planning process",
+        "businessUnit": {
+          "businessUnitName": "Technology operations",
+          "serviceFunction": {
+            "functionName": "Release operations",
+            "productArea": "Change Enablement",
+            "workstream": {
+              "workstreamName": "Maintenance scheduling",
+              "mandate": "Controlled change windows",
+              "narrative": "Change Enablement calendar: propose implementation and verification tasks within supplied maintenance windows. Sample approval evidence does not authorize a real change.",
+              "operatingPolicy": {
+                "priorityRule": "Require a supplied sample approval for controlled changes, authorized operators, prerequisite completion and a non-overlapping maintenance slot.",
+                "timeBasis": "Integer minutes from illustrative plan start",
+                "planIsOperationalApproval": false
+              },
+              "planningRun": {
+                "demandCount": 8,
+                "proposedCount": 5,
+                "exceptionCount": 3,
+                "resourceRoster": [
+                  {
+                    "profileId": "CHG-NET",
+                    "operatorRole": "Change implementation",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "network",
+                        "change"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "stage_change"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 40,
+                      "availableUntilMinute": 155,
+                      "maximumWorkItems": 4,
+                      "workAlreadyCounted": 0,
+                      "newlyPlannedWorkItems": 1,
+                      "remainingPlanningSlots": 3
+                    }
+                  },
+                  {
+                    "profileId": "CHG-DB",
+                    "operatorRole": "Database change implementation",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "database",
+                        "change"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "stage_change"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 55,
+                      "availableUntilMinute": 180,
+                      "maximumWorkItems": 4,
+                      "workAlreadyCounted": 1,
+                      "newlyPlannedWorkItems": 1,
+                      "remainingPlanningSlots": 2
+                    }
+                  },
+                  {
+                    "profileId": "CHG-QA",
+                    "operatorRole": "Change validation",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "checks"
+                      ],
+                      "ownershipScopes": [
+                        "platform"
+                      ],
+                      "permittedActivities": [
+                        "verify_change"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 0,
+                      "availableUntilMinute": 185,
+                      "maximumWorkItems": 5,
+                      "workAlreadyCounted": 1,
+                      "newlyPlannedWorkItems": 3,
+                      "remainingPlanningSlots": 1
+                    }
+                  }
+                ],
+                "decisionLedger": {
+                  "proposedAssignments": [
+                    {
+                      "issueReference": "CHG-2001",
+                      "requestBasis": {
+                        "displayTitle": "Validate rollback steps for approved firewall change",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "checks"
+                        ],
+                        "requiredActivity": "verify_change",
+                        "priorityRank": 5,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 10,
+                        "latestFinishMinute": 45,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "CHG-QA",
+                        "plannedStartMinute": 10,
+                        "plannedEndMinute": 30,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "verify_change",
+                              "matchingAuthority": "verify_change",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "checks"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 10,
+                              "deadlineMarginMinutes": 15
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 5
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2002",
+                      "requestBasis": {
+                        "displayTitle": "Reserve approved firewall staging window",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "network"
+                        ],
+                        "requiredActivity": "stage_change",
+                        "priorityRank": 5,
+                        "estimatedEffortMinutes": 30,
+                        "releaseMinute": 40,
+                        "latestFinishMinute": 95,
+                        "upstreamRecordIds": [
+                          "CHG-2001"
+                        ],
+                        "sampleApprovalState": "sample-approved"
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "CHG-NET",
+                        "plannedStartMinute": 40,
+                        "plannedEndMinute": 70,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "stage_change",
+                              "matchingAuthority": "stage_change",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "network",
+                                "change"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 40,
+                              "deadlineMarginMinutes": 25
+                            },
+                            "capacity": {
+                              "loadWithDraft": 1,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "CHG-2001",
+                                  "projectedFinishMinute": 30
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2004",
+                      "requestBasis": {
+                        "displayTitle": "Reserve approved replica patch window",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "database"
+                        ],
+                        "requiredActivity": "stage_change",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 40,
+                        "releaseMinute": 55,
+                        "latestFinishMinute": 110,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": "sample-approved"
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "CHG-DB",
+                        "plannedStartMinute": 55,
+                        "plannedEndMinute": 95,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "stage_change",
+                              "matchingAuthority": "stage_change",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "database",
+                                "change"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 55,
+                              "deadlineMarginMinutes": 15
+                            },
+                            "capacity": {
+                              "loadWithDraft": 2,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2003",
+                      "requestBasis": {
+                        "displayTitle": "Verify firewall health after staging",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "checks"
+                        ],
+                        "requiredActivity": "verify_change",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 50,
+                        "latestFinishMinute": 125,
+                        "upstreamRecordIds": [
+                          "CHG-2002"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "CHG-QA",
+                        "plannedStartMinute": 70,
+                        "plannedEndMinute": 90,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "verify_change",
+                              "matchingAuthority": "verify_change",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "checks"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 70,
+                              "deadlineMarginMinutes": 35
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 5
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "CHG-2002",
+                                  "projectedFinishMinute": 70
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2005",
+                      "requestBasis": {
+                        "displayTitle": "Verify replica recovery after patch",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "checks"
+                        ],
+                        "requiredActivity": "verify_change",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 25,
+                        "releaseMinute": 75,
+                        "latestFinishMinute": 150,
+                        "upstreamRecordIds": [
+                          "CHG-2004"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "CHG-QA",
+                        "plannedStartMinute": 95,
+                        "plannedEndMinute": 120,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "verify_change",
+                              "matchingAuthority": "verify_change",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "checks"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 95,
+                              "deadlineMarginMinutes": 30
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 5
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "CHG-2004",
+                                  "projectedFinishMinute": 95
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "heldForReview": [
+                    {
+                      "issueReference": "CHG-2006",
+                      "requestBasis": {
+                        "displayTitle": "Reserve secondary firewall change pending review",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "network"
+                        ],
+                        "requiredActivity": "stage_change",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 25,
+                        "releaseMinute": 95,
+                        "latestFinishMinute": 145,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": "pending"
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "approval_pending",
+                        "reasonText": "Required review evidence is absent from the illustrative request.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "CHG-NET",
+                            "CHG-DB",
+                            "CHG-QA"
+                          ],
+                          "skillCandidateIds": [
+                            "CHG-NET"
+                          ],
+                          "authorizedCandidateIds": [
+                            "CHG-NET"
+                          ]
+                        },
+                        "blockingDependencies": []
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2008",
+                      "requestBasis": {
+                        "displayTitle": "Reserve second approved database change in same window",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "database"
+                        ],
+                        "requiredActivity": "stage_change",
+                        "priorityRank": 2,
+                        "estimatedEffortMinutes": 35,
+                        "releaseMinute": 55,
+                        "latestFinishMinute": 120,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": "sample-approved"
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "no_slot_before_deadline",
+                        "reasonText": "No eligible candidate has an uninterrupted slot before the deadline.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "CHG-NET",
+                            "CHG-DB",
+                            "CHG-QA"
+                          ],
+                          "skillCandidateIds": [
+                            "CHG-DB"
+                          ],
+                          "authorizedCandidateIds": [
+                            "CHG-DB"
+                          ]
+                        },
+                        "blockingDependencies": []
+                      }
+                    },
+                    {
+                      "issueReference": "CHG-2007",
+                      "requestBasis": {
+                        "displayTitle": "Validate secondary firewall after change",
+                        "policyScope": "platform",
+                        "requiredCapabilities": [
+                          "checks"
+                        ],
+                        "requiredActivity": "verify_change",
+                        "priorityRank": 2,
+                        "estimatedEffortMinutes": 15,
+                        "releaseMinute": 100,
+                        "latestFinishMinute": 175,
+                        "upstreamRecordIds": [
+                          "CHG-2006"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "prerequisite_held",
+                        "reasonText": "At least one required earlier step was held.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "CHG-NET",
+                            "CHG-DB",
+                            "CHG-QA"
+                          ],
+                          "skillCandidateIds": [
+                            "CHG-QA"
+                          ],
+                          "authorizedCandidateIds": [
+                            "CHG-QA"
+                          ]
+                        },
+                        "blockingDependencies": [
+                          {
+                            "recordId": "CHG-2006",
+                            "upstreamHoldCode": "approval_pending"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "servicenow-on-call-handoff",
+      "title": "Shift handoff",
+      "dataClassification": "Illustrative planning data",
+      "sourceEvidence": {
+        "scenarioInput": "cases.json",
+        "calculationOutput": "results.json",
+        "reproducibilityCheck": "verify.mjs",
+        "sourceCaseId": "servicenow-on-call-handoff",
+        "liveSystemConnection": false
+      },
+      "operatingOrganization": {
+        "organizationRole": "Example operator of the planning process",
+        "businessUnit": {
+          "businessUnitName": "Technology operations",
+          "serviceFunction": {
+            "functionName": "Service ownership",
+            "productArea": "On-call operations",
+            "workstream": {
+              "workstreamName": "Shift handoff",
+              "mandate": "Coverage continuity",
+              "narrative": "On-call handoff: allocate service ownership and next-shift work across overlapping duty windows.",
+              "operatingPolicy": {
+                "priorityRule": "Respect the supplied support group and role. Follow-ups cannot start before their handoff finishes; unavailable regional ownership remains unassigned.",
+                "timeBasis": "Integer minutes from illustrative plan start",
+                "planIsOperationalApproval": false
+              },
+              "planningRun": {
+                "demandCount": 8,
+                "proposedCount": 6,
+                "exceptionCount": 2,
+                "resourceRoster": [
+                  {
+                    "profileId": "DUTY-DAY",
+                    "operatorRole": "Outgoing duty engineer",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "triage",
+                        "handoff"
+                      ],
+                      "ownershipScopes": [
+                        "payments"
+                      ],
+                      "permittedActivities": [
+                        "own_service",
+                        "handoff_service"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 0,
+                      "availableUntilMinute": 80,
+                      "maximumWorkItems": 3,
+                      "workAlreadyCounted": 1,
+                      "newlyPlannedWorkItems": 2,
+                      "remainingPlanningSlots": 0
+                    }
+                  },
+                  {
+                    "profileId": "DUTY-NIGHT",
+                    "operatorRole": "Incoming duty engineer",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "triage",
+                        "handoff"
+                      ],
+                      "ownershipScopes": [
+                        "payments"
+                      ],
+                      "permittedActivities": [
+                        "own_service",
+                        "handoff_service"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 65,
+                      "availableUntilMinute": 210,
+                      "maximumWorkItems": 4,
+                      "workAlreadyCounted": 1,
+                      "newlyPlannedWorkItems": 3,
+                      "remainingPlanningSlots": 0
+                    }
+                  },
+                  {
+                    "profileId": "DUTY-OBS",
+                    "operatorRole": "Observability aftercare",
+                    "capabilityMatrix": {
+                      "configuredSkills": [
+                        "observability"
+                      ],
+                      "ownershipScopes": [
+                        "payments"
+                      ],
+                      "permittedActivities": [
+                        "monitor_service"
+                      ]
+                    },
+                    "staffingEnvelope": {
+                      "availableFromMinute": 85,
+                      "availableUntilMinute": 220,
+                      "maximumWorkItems": 4,
+                      "workAlreadyCounted": 0,
+                      "newlyPlannedWorkItems": 1,
+                      "remainingPlanningSlots": 3
+                    }
+                  }
+                ],
+                "decisionLedger": {
+                  "proposedAssignments": [
+                    {
+                      "issueReference": "TASK-3001",
+                      "requestBasis": {
+                        "displayTitle": "Review outstanding payment outage actions",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "triage"
+                        ],
+                        "requiredActivity": "own_service",
+                        "priorityRank": 5,
+                        "estimatedEffortMinutes": 35,
+                        "releaseMinute": 0,
+                        "latestFinishMinute": 65,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-DAY",
+                        "plannedStartMinute": 0,
+                        "plannedEndMinute": 35,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "own_service",
+                              "matchingAuthority": "own_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "triage",
+                                "handoff"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 0,
+                              "deadlineMarginMinutes": 30
+                            },
+                            "capacity": {
+                              "loadWithDraft": 3,
+                              "slotLimit": 3
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3002",
+                      "requestBasis": {
+                        "displayTitle": "Prepare outgoing payment handoff notes",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "handoff"
+                        ],
+                        "requiredActivity": "handoff_service",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 40,
+                        "latestFinishMinute": 80,
+                        "upstreamRecordIds": [
+                          "TASK-3001"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-DAY",
+                        "plannedStartMinute": 40,
+                        "plannedEndMinute": 60,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "handoff_service",
+                              "matchingAuthority": "handoff_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "triage",
+                                "handoff"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 40,
+                              "deadlineMarginMinutes": 20
+                            },
+                            "capacity": {
+                              "loadWithDraft": 3,
+                              "slotLimit": 3
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "TASK-3001",
+                                  "projectedFinishMinute": 35
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3003",
+                      "requestBasis": {
+                        "displayTitle": "Take ownership on the incoming shift",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "handoff"
+                        ],
+                        "requiredActivity": "handoff_service",
+                        "priorityRank": 4,
+                        "estimatedEffortMinutes": 25,
+                        "releaseMinute": 65,
+                        "latestFinishMinute": 110,
+                        "upstreamRecordIds": [
+                          "TASK-3002"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-NIGHT",
+                        "plannedStartMinute": 65,
+                        "plannedEndMinute": 90,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "handoff_service",
+                              "matchingAuthority": "handoff_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "triage",
+                                "handoff"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 65,
+                              "deadlineMarginMinutes": 20
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "TASK-3002",
+                                  "projectedFinishMinute": 60
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3004",
+                      "requestBasis": {
+                        "displayTitle": "Monitor payment retries on incoming shift",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "observability"
+                        ],
+                        "requiredActivity": "monitor_service",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 30,
+                        "releaseMinute": 85,
+                        "latestFinishMinute": 160,
+                        "upstreamRecordIds": [
+                          "TASK-3003"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-OBS",
+                        "plannedStartMinute": 90,
+                        "plannedEndMinute": 120,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "monitor_service",
+                              "matchingAuthority": "monitor_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "observability"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 90,
+                              "deadlineMarginMinutes": 40
+                            },
+                            "capacity": {
+                              "loadWithDraft": 1,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "TASK-3003",
+                                  "projectedFinishMinute": 90
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3005",
+                      "requestBasis": {
+                        "displayTitle": "Handle follow-up payment timeout report",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "triage"
+                        ],
+                        "requiredActivity": "own_service",
+                        "priorityRank": 3,
+                        "estimatedEffortMinutes": 40,
+                        "releaseMinute": 100,
+                        "latestFinishMinute": 165,
+                        "upstreamRecordIds": [
+                          "TASK-3003"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-NIGHT",
+                        "plannedStartMinute": 100,
+                        "plannedEndMinute": 140,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "own_service",
+                              "matchingAuthority": "own_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "triage",
+                                "handoff"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 100,
+                              "deadlineMarginMinutes": 25
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "TASK-3003",
+                                  "projectedFinishMinute": 90
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3006",
+                      "requestBasis": {
+                        "displayTitle": "Publish an internal handoff checkpoint",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "handoff"
+                        ],
+                        "requiredActivity": "handoff_service",
+                        "priorityRank": 2,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 130,
+                        "latestFinishMinute": 200,
+                        "upstreamRecordIds": [
+                          "TASK-3005"
+                        ],
+                        "sampleApprovalState": null
+                      },
+                      "proposedCommitment": {
+                        "proposedOperatorId": "DUTY-NIGHT",
+                        "plannedStartMinute": 140,
+                        "plannedEndMinute": 160,
+                        "actualExecution": false,
+                        "reviewBasis": {
+                          "eligibilityChecks": {
+                            "authority": {
+                              "requestedActivity": "handoff_service",
+                              "matchingAuthority": "handoff_service",
+                              "scopeCovered": true
+                            },
+                            "capability": {
+                              "missingSkills": [],
+                              "operatorSkills": [
+                                "triage",
+                                "handoff"
+                              ]
+                            },
+                            "timeWindow": {
+                              "effectiveStartMinute": 140,
+                              "deadlineMarginMinutes": 40
+                            },
+                            "capacity": {
+                              "loadWithDraft": 4,
+                              "slotLimit": 4
+                            },
+                            "dependency": {
+                              "predecessorCompletions": [
+                                {
+                                  "recordId": "TASK-3005",
+                                  "projectedFinishMinute": 140
+                                }
+                              ],
+                              "readyAtStart": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "heldForReview": [
+                    {
+                      "issueReference": "TASK-3007",
+                      "requestBasis": {
+                        "displayTitle": "Identify an owner for the warehouse on-call issue",
+                        "policyScope": "warehouse",
+                        "requiredCapabilities": [
+                          "triage"
+                        ],
+                        "requiredActivity": "own_service",
+                        "priorityRank": 2,
+                        "estimatedEffortMinutes": 25,
+                        "releaseMinute": 120,
+                        "latestFinishMinute": 180,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "territory_uncovered",
+                        "reasonText": "No candidate covers the record’s service region or sales territory.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [],
+                          "skillCandidateIds": [],
+                          "authorizedCandidateIds": []
+                        },
+                        "blockingDependencies": []
+                      }
+                    },
+                    {
+                      "issueReference": "TASK-3008",
+                      "requestBasis": {
+                        "displayTitle": "Review a second payment alert before midnight shift ends",
+                        "policyScope": "payments",
+                        "requiredCapabilities": [
+                          "triage"
+                        ],
+                        "requiredActivity": "own_service",
+                        "priorityRank": 1,
+                        "estimatedEffortMinutes": 20,
+                        "releaseMinute": 140,
+                        "latestFinishMinute": 200,
+                        "upstreamRecordIds": [],
+                        "sampleApprovalState": null
+                      },
+                      "reviewRequired": true,
+                      "reportedHold": {
+                        "reasonCode": "workload_full",
+                        "reasonText": "Every eligible candidate is at the modeled workload cap.",
+                        "supportingCandidateMatrix": {
+                          "scopeCandidateIds": [
+                            "DUTY-DAY",
+                            "DUTY-NIGHT",
+                            "DUTY-OBS"
+                          ],
+                          "skillCandidateIds": [
+                            "DUTY-DAY",
+                            "DUTY-NIGHT"
+                          ],
+                          "authorizedCandidateIds": [
+                            "DUTY-DAY",
+                            "DUTY-NIGHT"
+                          ]
+                        },
+                        "blockingDependencies": []
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

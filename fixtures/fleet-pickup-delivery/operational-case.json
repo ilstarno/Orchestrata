@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "fleet-pickup-delivery",
+  "recordClassification": "sample",
+  "companionKind": "operational-context",
+  "solverContract": {
+    "acceptedAsSolverInput": false,
+    "input": "Use the problemSource for the formal solver request.",
+    "scopeSource": "content/solutions/fleet-assignment/index.md",
+    "excludedChecks": "Travel times, route ordering and consolidated loads",
+    "operationalState": "No communication or action is performed."
+  },
+  "scenario": {
+    "operation": {
+      "industry": "Fleet operations",
+      "sites": [
+        {
+          "siteLabel": "Sample distribution depot",
+          "sitePurpose": "Sample planning scope",
+          "departments": [
+            {
+              "departmentLabel": "Shipment dispatch",
+              "resources": [
+                {
+                  "resourceId": 0,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Large van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 1000,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 510,
+                    "endMinuteOfDay": 620
+                  }
+                },
+                {
+                  "resourceId": 1,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Short-shift van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 500,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 530,
+                    "endMinuteOfDay": 580
+                  }
+                },
+                {
+                  "resourceId": 2,
+                  "resourceType": "vehicle",
+                  "displayLabel": "Late-start van",
+                  "identityScope": "Sample dataset only",
+                  "payloadCapacityKg": 800,
+                  "availabilityWindow": {
+                    "startMinuteOfDay": 545,
+                    "endMinuteOfDay": 630
+                  }
+                }
+              ],
+              "planningWindows": [
+                {
+                  "windowId": "published-fixture",
+                  "windowLabel": "Overlapping job windows",
+                  "concurrencyModel": "One resource per simultaneous requirement",
+                  "clockBasis": "Sample local minute-of-day; no timezone/date supplied",
+                  "workBatches": [
+                    {
+                      "batchId": "published-fixture",
+                      "requirements": [
+                        {
+                          "variableIndex": 0,
+                          "fixtureName": "Parcel pickup",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full job-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Large van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 450,
+                                    "capacityKg": 1000,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 510,
+                                      "endMinuteOfDay": 620
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 540,
+                                      "endMinuteOfDay": 570
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Short-shift van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 450,
+                                    "capacityKg": 500,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 530,
+                                      "endMinuteOfDay": 580
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 540,
+                                      "endMinuteOfDay": 570
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Late-start van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 450,
+                                    "capacityKg": 800,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 545,
+                                      "endMinuteOfDay": 630
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 540,
+                                      "endMinuteOfDay": 570
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 1,
+                            "selectedResourceLabel": "Short-shift van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 540,
+                            "endMinuteOfDay": 570
+                          },
+                          "payloadRequiredKg": 450
+                        },
+                        {
+                          "variableIndex": 1,
+                          "fixtureName": "Depot delivery",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full job-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Large van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 700,
+                                    "capacityKg": 1000,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 510,
+                                      "endMinuteOfDay": 620
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 550,
+                                      "endMinuteOfDay": 590
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Short-shift van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 700,
+                                    "capacityKg": 500,
+                                    "passed": false
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 530,
+                                      "endMinuteOfDay": 580
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 550,
+                                      "endMinuteOfDay": 590
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Late-start van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 700,
+                                    "capacityKg": 800,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 545,
+                                      "endMinuteOfDay": 630
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 550,
+                                      "endMinuteOfDay": 590
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 2,
+                            "selectedResourceLabel": "Late-start van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 550,
+                            "endMinuteOfDay": 590
+                          },
+                          "payloadRequiredKg": 700
+                        },
+                        {
+                          "variableIndex": 2,
+                          "fixtureName": "Small-box drop",
+                          "demandQuantity": 1,
+                          "demandUnit": "vehicle",
+                          "eligibility": {
+                            "method": "payload-and-window",
+                            "reasoningScope": "Available payload capacity and full job-window coverage determine vehicle eligibility.",
+                            "eligibleCount": 2,
+                            "candidateCount": 3,
+                            "assessments": [
+                              {
+                                "candidateId": 0,
+                                "candidateLabel": "Large van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 1000,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 510,
+                                      "endMinuteOfDay": 620
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 555,
+                                      "endMinuteOfDay": 600
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 1,
+                                "candidateLabel": "Short-shift van",
+                                "eligible": false,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 500,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 530,
+                                      "endMinuteOfDay": 580
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 555,
+                                      "endMinuteOfDay": 600
+                                    },
+                                    "passed": false
+                                  }
+                                ]
+                              },
+                              {
+                                "candidateId": 2,
+                                "candidateLabel": "Late-start van",
+                                "eligible": true,
+                                "eligibilitySource": "catalog/fleet-pickup-delivery/inputs.json",
+                                "checks": [
+                                  {
+                                    "conditionId": "payload",
+                                    "comparison": "job weight <= vehicle capacity",
+                                    "demandKg": 150,
+                                    "capacityKg": 800,
+                                    "passed": true
+                                  },
+                                  {
+                                    "conditionId": "window",
+                                    "comparison": "availability contains entire job window",
+                                    "availability": {
+                                      "startMinuteOfDay": 545,
+                                      "endMinuteOfDay": 630
+                                    },
+                                    "requiredWindow": {
+                                      "startMinuteOfDay": 555,
+                                      "endMinuteOfDay": 600
+                                    },
+                                    "passed": true
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "publishedAssignment": {
+                            "selectedResourceId": 0,
+                            "selectedResourceLabel": "Large van",
+                            "selectedResourceEligible": true
+                          },
+                          "jobWindow": {
+                            "startMinuteOfDay": 555,
+                            "endMinuteOfDay": 600
+                          },
+                          "payloadRequiredKg": 150
+                        }
+                      ],
+                      "sharedRules": [
+                        {
+                          "normalizationKind": "all_different",
+                          "variableIndices": [
+                            0,
+                            1,
+                            2
+                          ],
+                          "hardWeight": 1,
+                          "checkPurpose": "prevent concurrent resource reuse"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "audit": {
+      "inputAvailability": "Numeric sample fixture fields",
+      "sourcePolicy": "Fixture facts plus explicitly descriptive display labels",
+      "runs": [
+        {
+          "runId": "published-fixture",
+          "problemSource": "catalog/fleet-pickup-delivery/problem.json",
+          "resultSource": "catalog/fleet-pickup-delivery/expected.json",
+          "expectedOutput": {
+            "values": [
+              1,
+              2,
+              0
+            ],
+            "score": {
+              "hard": 0,
+              "soft": 0
+            },
+            "evaluated": 8
+          },
+          "independentHardFeasibleCount": 2,
+          "verificationMethod": "Enumerate published domains and independently check all_different and prefer_value.",
+          "preferenceDecisions": [
+            {
+              "variableIndex": 1,
+              "preferredResourceId": 2,
+              "preferredResourceLabel": "Late-start van",
+              "preferredResourceEligible": true,
+              "softWeight": 1,
+              "preferenceMet": true,
+              "missedPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

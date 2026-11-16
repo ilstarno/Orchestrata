@@ -1,0 +1,172 @@
+{
+  "id": "NYC-TRAFFIC-01",
+  "title": "Midtown Manhattan: respond to a simulated street closure",
+  "dataClassification": "Illustrative traffic changes on mapped OpenStreetMap streets",
+  "sourceEvidence": {
+    "originDataset": "https://api.openstreetmap.org/api/0.6/map?bbox=-73.9940,40.7440,-73.9870,40.7500",
+    "snapshotDigest": "0d3d5bb7b5ea00bfababf013ee59cffc724b2d4f2d9aae7ebc4df9aa276635a6",
+    "mapAttribution": "© OpenStreetMap contributors",
+    "mapDataLicense": "ODbL 1.0",
+    "replayResult": "replay.json",
+    "mapGeometry": "replay.geojson",
+    "shortestTimeVerifier": "verify.py"
+  },
+  "operation": {
+    "operatingArea": "New York · Midtown Manhattan",
+    "coverageBounds": [
+      -73.994,
+      40.744,
+      -73.987,
+      40.75
+    ],
+    "businessUnit": {
+      "unitFunction": "Coordinate local service travel",
+      "dispatchDesk": {
+        "deskMandate": "Decide whether to retain or replace a planned travel path",
+        "routingWorkstream": {
+          "travelMode": "vehicle",
+          "serviceDemand": {
+            "tripCount": 1,
+            "tripOrigin": {
+              "kind": "origin",
+              "osmNodeId": 9051115967,
+              "coordinate": [
+                -73.989005,
+                40.7481021
+              ]
+            },
+            "tripDestination": {
+              "kind": "destination",
+              "osmNodeId": 8265964372,
+              "coordinate": [
+                -73.9886357,
+                40.7452414
+              ]
+            }
+          },
+          "replayRun": {
+            "executionMode": "Offline deterministic replay",
+            "sourceIsLive": false,
+            "streetNetwork": {
+              "retainedGraphNodes": 200,
+              "retainedDirectedEdges": 231,
+              "comparisonUnits": "Per-edge travel rounded to integer milliseconds",
+              "nominalModelSpeedKph": 30
+            },
+            "eventLog": {
+              "eventCount": 2,
+              "updateRecords": [
+                {
+                  "eventId": "UPD-01",
+                  "effectType": "reduced_speed",
+                  "activeReplayVariants": [
+                    "slowdown",
+                    "closure"
+                  ],
+                  "directionalWayNodes": [
+                    42428232,
+                    9032581896,
+                    6223969247,
+                    11355997383,
+                    11766442644,
+                    11766442643,
+                    7369969942,
+                    11766442642,
+                    9198484656,
+                    42428227
+                  ],
+                  "modifiedDirectedEdgeCount": 9,
+                  "replaySpeedKph": 8,
+                  "evidenceClass": "Illustrative input, not a real incident notice"
+                },
+                {
+                  "eventId": "UPD-02",
+                  "effectType": "closed_segment",
+                  "activeReplayVariants": [
+                    "closure"
+                  ],
+                  "directionalWayNodes": [
+                    42428227,
+                    9198484657
+                  ],
+                  "modifiedDirectedEdgeCount": 1,
+                  "replaySpeedKph": null,
+                  "evidenceClass": "Illustrative input, not a real incident notice"
+                }
+              ]
+            },
+            "decisionProcess": {
+              "initialPlanVariant": "baseline",
+              "intermediateVariant": "slowdown",
+              "closureVariant": "closure",
+              "objectiveCriterion": "Minimum modeled travel time among directed edges retained by the sample access profile",
+              "solverMethod": "Dijkstra over the snapshot graph",
+              "independentCheck": "Bellman-Ford agrees on exact integer travel time",
+              "decisionLedger": {
+                "recordedVariants": [
+                  {
+                    "variantId": "baseline",
+                    "selectedAction": "keep_route",
+                    "performanceRecord": {
+                      "measuredGeometryMeters": 451.9,
+                      "modeledCostMs": 54225,
+                      "secondsAboveBaseline": 0,
+                      "extraMetersAgainstBaseline": 0
+                    },
+                    "policyReview": {
+                      "decisionReason": "Available path remains fastest",
+                      "operatingEvidence": {
+                        "baselineStillUsable": true,
+                        "baselineCostWhenAvailableMs": 54225,
+                        "requiresLiveDispatchReview": true,
+                        "routineTrafficNotModeled": true
+                      }
+                    }
+                  },
+                  {
+                    "variantId": "slowdown",
+                    "selectedAction": "keep_route",
+                    "performanceRecord": {
+                      "measuredGeometryMeters": 451.9,
+                      "modeledCostMs": 82298,
+                      "secondsAboveBaseline": 28.073,
+                      "extraMetersAgainstBaseline": -0.0
+                    },
+                    "policyReview": {
+                      "decisionReason": "Available path remains fastest",
+                      "operatingEvidence": {
+                        "baselineStillUsable": true,
+                        "baselineCostWhenAvailableMs": 82298,
+                        "requiresLiveDispatchReview": true,
+                        "routineTrafficNotModeled": true
+                      }
+                    }
+                  },
+                  {
+                    "variantId": "closure",
+                    "selectedAction": "use_detour",
+                    "performanceRecord": {
+                      "measuredGeometryMeters": 1232.5,
+                      "modeledCostMs": 147898,
+                      "secondsAboveBaseline": 93.673,
+                      "extraMetersAgainstBaseline": 780.6
+                    },
+                    "policyReview": {
+                      "decisionReason": "Baseline path contains a closed edge",
+                      "operatingEvidence": {
+                        "baselineStillUsable": false,
+                        "baselineCostWhenAvailableMs": null,
+                        "requiresLiveDispatchReview": true,
+                        "routineTrafficNotModeled": true
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

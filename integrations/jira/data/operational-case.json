@@ -1,0 +1,3143 @@
+{
+  "schemaVersion": 1,
+  "caseId": "jira-mixed-queue-stress",
+  "sourceArtifacts": {
+    "operationalInputs": "stress-roster.json",
+    "replayCommand": "node stress-check.mjs",
+    "schedulingRuleSource": "calculate.mjs"
+  },
+  "evidenceScope": {
+    "integrationMode": "Offline example",
+    "allowedUsage": "Review a proposed internal assignment; no Jira writes",
+    "verificationMethod": "Deterministic replay and independent schedule checks"
+  },
+  "operation": {
+    "operatingUnit": "Enterprise service desk",
+    "assignmentService": {
+      "serviceName": "Issue intake and assignment review",
+      "schedulingWorkflow": {
+        "workflowName": "Review ready issues before queue deadlines",
+        "schedulingPolicy": {
+          "priorityOrder": "Higher priority before lower priority among ready issues",
+          "urgencyOrder": "Earliest deadline within priority",
+          "tieBreak": "Stable issue key, then resource ID after earliest completion",
+          "writeBackMode": "None",
+          "assignmentRequiresReview": true
+        },
+        "planningHorizon": {
+          "timeZone": "Europe/Rome",
+          "horizonStart": "2026-11-17T08:00:00+01:00",
+          "timeUnit": "minute",
+          "horizonLengthMinutes": 480,
+          "resultSummary": {
+            "totalIssues": 72,
+            "assignedIssues": 66,
+            "heldIssues": 6
+          },
+          "staffRoster": [
+            {
+              "resourceId": "TEAM-IAM",
+              "staffRole": "Identity analyst",
+              "certifiedExampleSkills": [
+                "identity",
+                "support"
+              ],
+              "shiftStartMinute": 0,
+              "shiftEndMinute": 350,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-NET",
+              "staffRole": "Network engineer",
+              "certifiedExampleSkills": [
+                "network",
+                "monitoring"
+              ],
+              "shiftStartMinute": 30,
+              "shiftEndMinute": 380,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-BIL",
+              "staffRole": "Billing specialist",
+              "certifiedExampleSkills": [
+                "billing",
+                "support"
+              ],
+              "shiftStartMinute": 60,
+              "shiftEndMinute": 410,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-APP",
+              "staffRole": "Application specialist",
+              "certifiedExampleSkills": [
+                "application",
+                "database"
+              ],
+              "shiftStartMinute": 90,
+              "shiftEndMinute": 440,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-DATA",
+              "staffRole": "Data engineer",
+              "certifiedExampleSkills": [
+                "database",
+                "reporting"
+              ],
+              "shiftStartMinute": 0,
+              "shiftEndMinute": 350,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-SEC",
+              "staffRole": "Security analyst",
+              "certifiedExampleSkills": [
+                "security",
+                "identity"
+              ],
+              "shiftStartMinute": 30,
+              "shiftEndMinute": 380,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-END",
+              "staffRole": "Endpoint technician",
+              "certifiedExampleSkills": [
+                "endpoint",
+                "support"
+              ],
+              "shiftStartMinute": 60,
+              "shiftEndMinute": 410,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-CHG",
+              "staffRole": "Change coordinator",
+              "certifiedExampleSkills": [
+                "change",
+                "application"
+              ],
+              "shiftStartMinute": 90,
+              "shiftEndMinute": 440,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-RPT",
+              "staffRole": "Reporting analyst",
+              "certifiedExampleSkills": [
+                "reporting",
+                "billing"
+              ],
+              "shiftStartMinute": 0,
+              "shiftEndMinute": 350,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-OBS",
+              "staffRole": "Reliability engineer",
+              "certifiedExampleSkills": [
+                "monitoring",
+                "application"
+              ],
+              "shiftStartMinute": 30,
+              "shiftEndMinute": 380,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-WAN",
+              "staffRole": "Connectivity specialist",
+              "certifiedExampleSkills": [
+                "network",
+                "endpoint"
+              ],
+              "shiftStartMinute": 60,
+              "shiftEndMinute": 410,
+              "localTimeZone": "Europe/Rome"
+            },
+            {
+              "resourceId": "TEAM-OPS",
+              "staffRole": "Service desk coordinator",
+              "certifiedExampleSkills": [
+                "support",
+                "change"
+              ],
+              "shiftStartMinute": 90,
+              "shiftEndMinute": 440,
+              "localTimeZone": "Europe/Rome"
+            }
+          ],
+          "queuePlans": [
+            {
+              "queueName": "Access services",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-201",
+                      "issueTitle": "Confirm the requesting team",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 18,
+                        "priorityRank": 3,
+                        "releaseMinute": 0,
+                        "deadlineMinute": 160,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 0,
+                      "proposedEndMinute": 18,
+                      "deadlineSlackMinutes": 142,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-202",
+                      "issueTitle": "Verify identity evidence",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 21,
+                        "priorityRank": 3,
+                        "releaseMinute": 10,
+                        "deadlineMinute": 200,
+                        "prerequisiteIssueKeys": [
+                          "IAM-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 18,
+                      "proposedEndMinute": 39,
+                      "deadlineSlackMinutes": 161,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-203",
+                      "issueTitle": "Check approval record",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 24,
+                        "priorityRank": 2,
+                        "releaseMinute": 20,
+                        "deadlineMinute": 240,
+                        "prerequisiteIssueKeys": [
+                          "IAM-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 39,
+                      "proposedEndMinute": 63,
+                      "deadlineSlackMinutes": 177,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-204",
+                      "issueTitle": "Review group membership",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 27,
+                        "priorityRank": 2,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 280,
+                        "prerequisiteIssueKeys": [
+                          "IAM-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 63,
+                      "proposedEndMinute": 90,
+                      "deadlineSlackMinutes": 190,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-205",
+                      "issueTitle": "Test access with a sample account",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 30,
+                        "priorityRank": 1,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 320,
+                        "prerequisiteIssueKeys": [
+                          "IAM-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 90,
+                      "proposedEndMinute": 120,
+                      "deadlineSlackMinutes": 200,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "IAM-206",
+                      "issueTitle": "Record the proposed change",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "identity",
+                          "support"
+                        ],
+                        "estimateMinutes": 33,
+                        "priorityRank": 1,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 360,
+                        "prerequisiteIssueKeys": [
+                          "IAM-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-IAM",
+                      "proposedStartMinute": 120,
+                      "proposedEndMinute": 153,
+                      "deadlineSlackMinutes": 207,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Network operations",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-201",
+                      "issueTitle": "Review the link alert",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 19,
+                        "priorityRank": 3,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 190,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 30,
+                      "proposedEndMinute": 49,
+                      "deadlineSlackMinutes": 141,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-202",
+                      "issueTitle": "Compare interface counters",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 22,
+                        "priorityRank": 3,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 230,
+                        "prerequisiteIssueKeys": [
+                          "NET-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 49,
+                      "proposedEndMinute": 71,
+                      "deadlineSlackMinutes": 159,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-203",
+                      "issueTitle": "Check backup circuit status",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 25,
+                        "priorityRank": 2,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 270,
+                        "prerequisiteIssueKeys": [
+                          "NET-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 71,
+                      "proposedEndMinute": 96,
+                      "deadlineSlackMinutes": 174,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-204",
+                      "issueTitle": "Confirm approved window",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 28,
+                        "priorityRank": 2,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 310,
+                        "prerequisiteIssueKeys": [
+                          "NET-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 96,
+                      "proposedEndMinute": 124,
+                      "deadlineSlackMinutes": 186,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-205",
+                      "issueTitle": "Validate sample failover checks",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 31,
+                        "priorityRank": 1,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 350,
+                        "prerequisiteIssueKeys": [
+                          "NET-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 124,
+                      "proposedEndMinute": 155,
+                      "deadlineSlackMinutes": 195,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "NET-206",
+                      "issueTitle": "Record monitoring follow-up",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "monitoring"
+                        ],
+                        "estimateMinutes": 34,
+                        "priorityRank": 1,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 390,
+                        "prerequisiteIssueKeys": [
+                          "NET-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-NET",
+                      "proposedStartMinute": 155,
+                      "proposedEndMinute": 189,
+                      "deadlineSlackMinutes": 201,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Billing support",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-201",
+                      "issueTitle": "Reconcile invoice entries",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 20,
+                        "priorityRank": 3,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 220,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 60,
+                      "proposedEndMinute": 80,
+                      "deadlineSlackMinutes": 140,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-202",
+                      "issueTitle": "Verify account reference",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 23,
+                        "priorityRank": 3,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 260,
+                        "prerequisiteIssueKeys": [
+                          "BIL-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 80,
+                      "proposedEndMinute": 103,
+                      "deadlineSlackMinutes": 157,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-203",
+                      "issueTitle": "Check prior adjustment",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 26,
+                        "priorityRank": 2,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 300,
+                        "prerequisiteIssueKeys": [
+                          "BIL-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 103,
+                      "proposedEndMinute": 129,
+                      "deadlineSlackMinutes": 171,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-204",
+                      "issueTitle": "Review credit evidence",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 29,
+                        "priorityRank": 2,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 340,
+                        "prerequisiteIssueKeys": [
+                          "BIL-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 129,
+                      "proposedEndMinute": 158,
+                      "deadlineSlackMinutes": 182,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-205",
+                      "issueTitle": "Validate sample adjustment",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 32,
+                        "priorityRank": 1,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 380,
+                        "prerequisiteIssueKeys": [
+                          "BIL-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 158,
+                      "proposedEndMinute": 190,
+                      "deadlineSlackMinutes": 190,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "BIL-206",
+                      "issueTitle": "Record the billing follow-up",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "billing",
+                          "support"
+                        ],
+                        "estimateMinutes": 18,
+                        "priorityRank": 1,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 420,
+                        "prerequisiteIssueKeys": [
+                          "BIL-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-BIL",
+                      "proposedStartMinute": 190,
+                      "proposedEndMinute": 208,
+                      "deadlineSlackMinutes": 212,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Application support",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-201",
+                      "issueTitle": "Check application logs",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 21,
+                        "priorityRank": 3,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 250,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 90,
+                      "proposedEndMinute": 111,
+                      "deadlineSlackMinutes": 139,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-202",
+                      "issueTitle": "Match the error to a release",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 24,
+                        "priorityRank": 3,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 290,
+                        "prerequisiteIssueKeys": [
+                          "APP-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 111,
+                      "proposedEndMinute": 135,
+                      "deadlineSlackMinutes": 155,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-203",
+                      "issueTitle": "Verify affected records",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 27,
+                        "priorityRank": 2,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 330,
+                        "prerequisiteIssueKeys": [
+                          "APP-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 135,
+                      "proposedEndMinute": 162,
+                      "deadlineSlackMinutes": 168,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-204",
+                      "issueTitle": "Review rollback evidence",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 30,
+                        "priorityRank": 2,
+                        "releaseMinute": 120,
+                        "deadlineMinute": 370,
+                        "prerequisiteIssueKeys": [
+                          "APP-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 162,
+                      "proposedEndMinute": 192,
+                      "deadlineSlackMinutes": 178,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-205",
+                      "issueTitle": "Run the sample recovery checks",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 33,
+                        "priorityRank": 1,
+                        "releaseMinute": 130,
+                        "deadlineMinute": 410,
+                        "prerequisiteIssueKeys": [
+                          "APP-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 192,
+                      "proposedEndMinute": 225,
+                      "deadlineSlackMinutes": 185,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "APP-206",
+                      "issueTitle": "Record the follow-up decision",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "application",
+                          "database"
+                        ],
+                        "estimateMinutes": 19,
+                        "priorityRank": 1,
+                        "releaseMinute": 140,
+                        "deadlineMinute": 450,
+                        "prerequisiteIssueKeys": [
+                          "APP-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-APP",
+                      "proposedStartMinute": 225,
+                      "proposedEndMinute": 244,
+                      "deadlineSlackMinutes": 206,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Data operations",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-201",
+                      "issueTitle": "Check extract completeness",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 22,
+                        "priorityRank": 3,
+                        "releaseMinute": 0,
+                        "deadlineMinute": 160,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 0,
+                      "proposedEndMinute": 22,
+                      "deadlineSlackMinutes": 138,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-202",
+                      "issueTitle": "Review failed partitions",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 25,
+                        "priorityRank": 3,
+                        "releaseMinute": 10,
+                        "deadlineMinute": 200,
+                        "prerequisiteIssueKeys": [
+                          "DATA-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 22,
+                      "proposedEndMinute": 47,
+                      "deadlineSlackMinutes": 153,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-203",
+                      "issueTitle": "Compare sample counts",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 28,
+                        "priorityRank": 2,
+                        "releaseMinute": 20,
+                        "deadlineMinute": 240,
+                        "prerequisiteIssueKeys": [
+                          "DATA-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 47,
+                      "proposedEndMinute": 75,
+                      "deadlineSlackMinutes": 165,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-204",
+                      "issueTitle": "Verify export permissions",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 31,
+                        "priorityRank": 2,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 280,
+                        "prerequisiteIssueKeys": [
+                          "DATA-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 75,
+                      "proposedEndMinute": 106,
+                      "deadlineSlackMinutes": 174,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-205",
+                      "issueTitle": "Validate the sample export",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 34,
+                        "priorityRank": 1,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 320,
+                        "prerequisiteIssueKeys": [
+                          "DATA-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 106,
+                      "proposedEndMinute": 140,
+                      "deadlineSlackMinutes": 180,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "DATA-206",
+                      "issueTitle": "Record reconciliation notes",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "database",
+                          "reporting"
+                        ],
+                        "estimateMinutes": 20,
+                        "priorityRank": 1,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 360,
+                        "prerequisiteIssueKeys": [
+                          "DATA-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-DATA",
+                      "proposedStartMinute": 140,
+                      "proposedEndMinute": 160,
+                      "deadlineSlackMinutes": 200,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Security operations",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-201",
+                      "issueTitle": "Review the alert summary",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "security",
+                          "identity"
+                        ],
+                        "estimateMinutes": 23,
+                        "priorityRank": 3,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 190,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-SEC",
+                      "proposedStartMinute": 30,
+                      "proposedEndMinute": 53,
+                      "deadlineSlackMinutes": 137,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-202",
+                      "issueTitle": "Verify incident references",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "security",
+                          "identity"
+                        ],
+                        "estimateMinutes": 26,
+                        "priorityRank": 3,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 230,
+                        "prerequisiteIssueKeys": [
+                          "SEC-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-SEC",
+                      "proposedStartMinute": 53,
+                      "proposedEndMinute": 79,
+                      "deadlineSlackMinutes": 151,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-203",
+                      "issueTitle": "Check affected access scope",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "security",
+                          "identity"
+                        ],
+                        "estimateMinutes": 29,
+                        "priorityRank": 2,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 270,
+                        "prerequisiteIssueKeys": [
+                          "SEC-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-SEC",
+                      "proposedStartMinute": 79,
+                      "proposedEndMinute": 108,
+                      "deadlineSlackMinutes": 162,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-204",
+                      "issueTitle": "Review escalation evidence",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "security",
+                          "identity"
+                        ],
+                        "estimateMinutes": 32,
+                        "priorityRank": 2,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 310,
+                        "prerequisiteIssueKeys": [
+                          "SEC-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-SEC",
+                      "proposedStartMinute": 108,
+                      "proposedEndMinute": 140,
+                      "deadlineSlackMinutes": 170,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-205",
+                      "issueTitle": "Validate closure criteria",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "forensics"
+                        ],
+                        "estimateMinutes": 18,
+                        "priorityRank": 1,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 350,
+                        "prerequisiteIssueKeys": [
+                          "SEC-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "no_qualified_resource",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": []
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "SEC-206",
+                      "issueTitle": "Record the review decision",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "security",
+                          "identity"
+                        ],
+                        "estimateMinutes": 21,
+                        "priorityRank": 1,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 390,
+                        "prerequisiteIssueKeys": [
+                          "SEC-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "prerequisite_held",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": [
+                          "SEC-205"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Endpoint support",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-201",
+                      "issueTitle": "Confirm asset record",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 24,
+                        "priorityRank": 3,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 220,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 60,
+                      "proposedEndMinute": 84,
+                      "deadlineSlackMinutes": 136,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-202",
+                      "issueTitle": "Review enrollment status",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 27,
+                        "priorityRank": 3,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 260,
+                        "prerequisiteIssueKeys": [
+                          "END-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 84,
+                      "proposedEndMinute": 111,
+                      "deadlineSlackMinutes": 149,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-203",
+                      "issueTitle": "Check coverage window",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 30,
+                        "priorityRank": 2,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 300,
+                        "prerequisiteIssueKeys": [
+                          "END-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 111,
+                      "proposedEndMinute": 141,
+                      "deadlineSlackMinutes": 159,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-204",
+                      "issueTitle": "Verify approved configuration",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 33,
+                        "priorityRank": 2,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 340,
+                        "prerequisiteIssueKeys": [
+                          "END-203"
+                        ],
+                        "approvalGate": "sample-approved"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 141,
+                      "proposedEndMinute": 174,
+                      "deadlineSlackMinutes": 166,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-205",
+                      "issueTitle": "Check sample update status",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 19,
+                        "priorityRank": 1,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 380,
+                        "prerequisiteIssueKeys": [
+                          "END-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 174,
+                      "proposedEndMinute": 193,
+                      "deadlineSlackMinutes": 187,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "END-206",
+                      "issueTitle": "Record the support decision",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "endpoint",
+                          "support"
+                        ],
+                        "estimateMinutes": 22,
+                        "priorityRank": 1,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 420,
+                        "prerequisiteIssueKeys": [
+                          "END-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-END",
+                      "proposedStartMinute": 193,
+                      "proposedEndMinute": 215,
+                      "deadlineSlackMinutes": 205,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Change coordination",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-201",
+                      "issueTitle": "Review the change request",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 25,
+                        "priorityRank": 3,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 250,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-CHG",
+                      "proposedStartMinute": 90,
+                      "proposedEndMinute": 115,
+                      "deadlineSlackMinutes": 135,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-202",
+                      "issueTitle": "Check the owner and window",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 28,
+                        "priorityRank": 3,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 290,
+                        "prerequisiteIssueKeys": [
+                          "CHG-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-CHG",
+                      "proposedStartMinute": 115,
+                      "proposedEndMinute": 143,
+                      "deadlineSlackMinutes": 147,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-203",
+                      "issueTitle": "Verify approval evidence",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 31,
+                        "priorityRank": 2,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 330,
+                        "prerequisiteIssueKeys": [
+                          "CHG-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-CHG",
+                      "proposedStartMinute": 143,
+                      "proposedEndMinute": 174,
+                      "deadlineSlackMinutes": 156,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-204",
+                      "issueTitle": "Review fallback steps",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 34,
+                        "priorityRank": 2,
+                        "releaseMinute": 120,
+                        "deadlineMinute": 370,
+                        "prerequisiteIssueKeys": [
+                          "CHG-203"
+                        ],
+                        "approvalGate": "pending"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "approval_pending",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": []
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-205",
+                      "issueTitle": "Check the release handover",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 20,
+                        "priorityRank": 1,
+                        "releaseMinute": 130,
+                        "deadlineMinute": 410,
+                        "prerequisiteIssueKeys": [
+                          "CHG-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "prerequisite_held",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": [
+                          "CHG-204"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "CHG-206",
+                      "issueTitle": "Record the reviewer decision",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "change",
+                          "application"
+                        ],
+                        "estimateMinutes": 23,
+                        "priorityRank": 1,
+                        "releaseMinute": 140,
+                        "deadlineMinute": 450,
+                        "prerequisiteIssueKeys": [
+                          "CHG-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "prerequisite_held",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": [
+                          "CHG-205"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Reporting requests",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-201",
+                      "issueTitle": "Confirm reporting period",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 26,
+                        "priorityRank": 3,
+                        "releaseMinute": 0,
+                        "deadlineMinute": 160,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 0,
+                      "proposedEndMinute": 26,
+                      "deadlineSlackMinutes": 134,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-202",
+                      "issueTitle": "Check report access",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 29,
+                        "priorityRank": 3,
+                        "releaseMinute": 10,
+                        "deadlineMinute": 200,
+                        "prerequisiteIssueKeys": [
+                          "RPT-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 26,
+                      "proposedEndMinute": 55,
+                      "deadlineSlackMinutes": 145,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-203",
+                      "issueTitle": "Review data exceptions",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 32,
+                        "priorityRank": 2,
+                        "releaseMinute": 20,
+                        "deadlineMinute": 240,
+                        "prerequisiteIssueKeys": [
+                          "RPT-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 55,
+                      "proposedEndMinute": 87,
+                      "deadlineSlackMinutes": 153,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-204",
+                      "issueTitle": "Validate totals against sample",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 18,
+                        "priorityRank": 2,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 280,
+                        "prerequisiteIssueKeys": [
+                          "RPT-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 87,
+                      "proposedEndMinute": 105,
+                      "deadlineSlackMinutes": 175,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-205",
+                      "issueTitle": "Review delivery permission",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 21,
+                        "priorityRank": 1,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 320,
+                        "prerequisiteIssueKeys": [
+                          "RPT-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 105,
+                      "proposedEndMinute": 126,
+                      "deadlineSlackMinutes": 194,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "RPT-206",
+                      "issueTitle": "Record distribution notes",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "reporting",
+                          "billing"
+                        ],
+                        "estimateMinutes": 24,
+                        "priorityRank": 1,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 360,
+                        "prerequisiteIssueKeys": [
+                          "RPT-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-RPT",
+                      "proposedStartMinute": 126,
+                      "proposedEndMinute": 150,
+                      "deadlineSlackMinutes": 210,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Platform observability",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-201",
+                      "issueTitle": "Inspect dashboard alerts",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 27,
+                        "priorityRank": 3,
+                        "releaseMinute": 30,
+                        "deadlineMinute": 190,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 30,
+                      "proposedEndMinute": 57,
+                      "deadlineSlackMinutes": 133,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-202",
+                      "issueTitle": "Review recent releases",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 30,
+                        "priorityRank": 3,
+                        "releaseMinute": 40,
+                        "deadlineMinute": 230,
+                        "prerequisiteIssueKeys": [
+                          "OBS-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 57,
+                      "proposedEndMinute": 87,
+                      "deadlineSlackMinutes": 143,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-203",
+                      "issueTitle": "Check telemetry coverage",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 33,
+                        "priorityRank": 2,
+                        "releaseMinute": 50,
+                        "deadlineMinute": 270,
+                        "prerequisiteIssueKeys": [
+                          "OBS-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 87,
+                      "proposedEndMinute": 120,
+                      "deadlineSlackMinutes": 150,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-204",
+                      "issueTitle": "Verify retention settings",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 19,
+                        "priorityRank": 2,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 310,
+                        "prerequisiteIssueKeys": [
+                          "OBS-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 120,
+                      "proposedEndMinute": 139,
+                      "deadlineSlackMinutes": 171,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-205",
+                      "issueTitle": "Compare sample signal windows",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 22,
+                        "priorityRank": 1,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 350,
+                        "prerequisiteIssueKeys": [
+                          "OBS-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 139,
+                      "proposedEndMinute": 161,
+                      "deadlineSlackMinutes": 189,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OBS-206",
+                      "issueTitle": "Record the monitoring decision",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "monitoring",
+                          "application"
+                        ],
+                        "estimateMinutes": 25,
+                        "priorityRank": 1,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 390,
+                        "prerequisiteIssueKeys": [
+                          "OBS-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OBS",
+                      "proposedStartMinute": 161,
+                      "proposedEndMinute": 186,
+                      "deadlineSlackMinutes": 204,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Site connectivity",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-201",
+                      "issueTitle": "Confirm site contact",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 28,
+                        "priorityRank": 3,
+                        "releaseMinute": 60,
+                        "deadlineMinute": 220,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-WAN",
+                      "proposedStartMinute": 60,
+                      "proposedEndMinute": 88,
+                      "deadlineSlackMinutes": 132,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-202",
+                      "issueTitle": "Check the affected devices",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 31,
+                        "priorityRank": 3,
+                        "releaseMinute": 70,
+                        "deadlineMinute": 260,
+                        "prerequisiteIssueKeys": [
+                          "WAN-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-WAN",
+                      "proposedStartMinute": 88,
+                      "proposedEndMinute": 119,
+                      "deadlineSlackMinutes": 141,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-203",
+                      "issueTitle": "Review local circuit handoff",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 34,
+                        "priorityRank": 2,
+                        "releaseMinute": 80,
+                        "deadlineMinute": 300,
+                        "prerequisiteIssueKeys": [
+                          "WAN-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-WAN",
+                      "proposedStartMinute": 119,
+                      "proposedEndMinute": 153,
+                      "deadlineSlackMinutes": 147,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-204",
+                      "issueTitle": "Verify sample gateway settings",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 20,
+                        "priorityRank": 2,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 340,
+                        "prerequisiteIssueKeys": [
+                          "WAN-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-WAN",
+                      "proposedStartMinute": 153,
+                      "proposedEndMinute": 173,
+                      "deadlineSlackMinutes": 167,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-205",
+                      "issueTitle": "Check mitigation evidence",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 23,
+                        "priorityRank": 1,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 380,
+                        "prerequisiteIssueKeys": [
+                          "WAN-204",
+                          "NET-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-WAN",
+                      "proposedStartMinute": 173,
+                      "proposedEndMinute": 196,
+                      "deadlineSlackMinutes": 184,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "WAN-206",
+                      "issueTitle": "Record the next review",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "network",
+                          "endpoint"
+                        ],
+                        "estimateMinutes": 26,
+                        "priorityRank": 1,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 118,
+                        "prerequisiteIssueKeys": [
+                          "WAN-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "held",
+                      "heldReasonCode": "no_slot_before_deadline",
+                      "reviewRecord": {
+                        "reviewState": "requires_human_triage",
+                        "reviewerRole": "Queue supervisor",
+                        "heldPrerequisiteIssueKeys": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "queueName": "Service coordination",
+              "decisionBatch": {
+                "queueIssueCount": 6,
+                "assignmentReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-201",
+                      "issueTitle": "Confirm service ownership",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 29,
+                        "priorityRank": 3,
+                        "releaseMinute": 90,
+                        "deadlineMinute": 250,
+                        "prerequisiteIssueKeys": [],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 90,
+                      "proposedEndMinute": 119,
+                      "deadlineSlackMinutes": 131,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-202",
+                      "issueTitle": "Review the intake record",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 32,
+                        "priorityRank": 3,
+                        "releaseMinute": 100,
+                        "deadlineMinute": 290,
+                        "prerequisiteIssueKeys": [
+                          "OPS-201"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 119,
+                      "proposedEndMinute": 151,
+                      "deadlineSlackMinutes": 139,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-203",
+                      "issueTitle": "Check response window",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 18,
+                        "priorityRank": 2,
+                        "releaseMinute": 110,
+                        "deadlineMinute": 330,
+                        "prerequisiteIssueKeys": [
+                          "OPS-202",
+                          "IAM-202",
+                          "CHG-202"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 151,
+                      "proposedEndMinute": 169,
+                      "deadlineSlackMinutes": 161,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-204",
+                      "issueTitle": "Verify handover coverage",
+                      "issueType": "change-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 21,
+                        "priorityRank": 2,
+                        "releaseMinute": 120,
+                        "deadlineMinute": 370,
+                        "prerequisiteIssueKeys": [
+                          "OPS-203"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 169,
+                      "proposedEndMinute": 190,
+                      "deadlineSlackMinutes": 180,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-205",
+                      "issueTitle": "Review escalation conditions",
+                      "issueType": "service-request",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 24,
+                        "priorityRank": 1,
+                        "releaseMinute": 130,
+                        "deadlineMinute": 410,
+                        "prerequisiteIssueKeys": [
+                          "OPS-204"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 190,
+                      "proposedEndMinute": 214,
+                      "deadlineSlackMinutes": 196,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-206",
+                      "issueTitle": "Record the dispatch decision",
+                      "issueType": "incident-review",
+                      "intakeRequirements": {
+                        "requiredSkills": [
+                          "support",
+                          "change"
+                        ],
+                        "estimateMinutes": 27,
+                        "priorityRank": 1,
+                        "releaseMinute": 140,
+                        "deadlineMinute": 450,
+                        "prerequisiteIssueKeys": [
+                          "OPS-205"
+                        ],
+                        "approvalGate": "not_required"
+                      }
+                    },
+                    "recommendation": {
+                      "recommendationStatus": "assigned",
+                      "proposedResourceId": "TEAM-OPS",
+                      "proposedStartMinute": 214,
+                      "proposedEndMinute": 241,
+                      "deadlineSlackMinutes": 209,
+                      "reviewRecord": {
+                        "reviewState": "awaiting_human_review",
+                        "reviewerRole": "Queue supervisor",
+                        "verificationEvidence": {
+                          "resultSource": "Deterministic local calculation",
+                          "assignmentChecks": {
+                            "requiredSkillsMatched": true,
+                            "deadlineMet": true,
+                            "noResourceOverlap": true,
+                            "prerequisitesFinished": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
