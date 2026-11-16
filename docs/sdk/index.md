@@ -1,6 +1,6 @@
 # Native SDK reference
 
-The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes the [standalone engine source on main](https://github.com/ilstarno/orchestrata-engine/tree/main), not downloadable SDK releases or published language packages. Build the library and binding from matching source. This reference was checked against [engine revision d7b920e](https://github.com/ilstarno/orchestrata-engine/tree/d7b920e32e5402d96b59b424983199f82c7e8699). The examples use sample data. They show the same selected value, `1`, in the format returned by each binding.
+The Orchestrata native bindings run the same exact solver in the calling process. They do not call a server. This guide describes a [tested standalone engine source revision](https://github.com/ilstarno/orchestrata-engine/tree/afab9aa0f1ce4138249165df5f8a27305b20693d) on the development branch, not downloadable SDK releases or published language packages. Build the native library and binding from that same revision. The examples use sample data. Most select `1`; the Node.js example uses a larger integer to show that the typed binding preserves it exactly.
 
 ## Build and locate the library
 
@@ -27,16 +27,16 @@ C#, Java, Python and PHP take a library path. Go and Node.js link to the library
 | --- | --- | --- |
 | C# | .NET 8; reference `sdks/csharp/Orchestrata.csproj`. | The overloads accept UTF-8 bytes or a string and a `ulong` limit; return a raw JSON string. No checked-in problem or solution model. |
 | Java | A 64-bit JDK 22 or newer, with native access enabled. | Accepts a UTF-8 `byte[]` or a string and a `long` limit. Returns raw JSON text. No checked-in problem or solution model. |
-| Python | Python 3.10 or newer; uses the standard-library native loader. | `solve_problem` takes a typed, immutable `Problem` with five of the seven constraint variants and returns `Solution | None`. The mapping and raw bytes methods remain available. |
-| Node.js | A Node release with Node-API BigInt support, a C toolchain, and `node-gyp`. | Type declarations enforce `string \| Buffer` input and a `bigint` limit. Result is raw JSON text, not a typed solution object. |
+| Python | Python 3.10 or newer; uses the standard-library native loader. | `solve_problem` takes a typed, immutable `Problem` with all seven constraint variants and returns `Solution \| None`. The mapping and raw bytes methods remain available. |
+| Node.js | A Node release with Node-API BigInt support, a C toolchain, and `node-gyp`. | `solve` takes a typed object with all seven rules and returns a typed solved or infeasible result. `bigint` preserves 64-bit values. `solveJson` remains available. |
 | PHP | PHP 8.1 or newer and the FFI extension; enable FFI only in an appropriate local environment. | Accepts a string and a nonnegative PHP integer limit; returns raw JSON text. No checked-in problem or solution model. |
-| Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
+| Go | Go 1.20 or newer and cgo with the platform C toolchain. | `SolveProblem` accepts a typed `Problem` with all seven rules and returns a typed `*Solution`. `Solve` accepts UTF-8 JSON with a typed result; `SolveJSON` accepts and returns JSON bytes. |
 
-A typed byte-string argument is not a typed planning model. Python models five of the seven constraints; Go models the three baseline constraints. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
+A typed byte-string argument is not a typed planning model. Node.js, Python, and Go type all seven finite-domain constraints at this source revision. C#, Java, and PHP use the JSON interface. Where a wrapper returns raw JSON, use a lossless decoder and validate the fields you consume.
 
 ## Problem and result format
 
-Every SDK example uses the same problem:
+Here is the baseline problem used by most SDK examples:
 
 ```json
 {"variables":[{"name":"job","domain":[0,1]}],"constraints":[{"kind":"prefer_value","variable":0,"value":1,"soft_weight":1}]}
@@ -52,7 +52,7 @@ Set the maximum number of evaluations to `2`. Both candidates fit the budget. Th
 - `all_different` uses `variables` and positive `hard_weight` to penalize equal pairs. `not_equal_offset` uses `left`, `right`, `offset` and positive `hard_weight` to forbid the indicated left-minus-right difference. `prefer_value` uses `variable`, `value` and positive `soft_weight`. The model has no date, currency, time or speed units.
 - A success contains a verified optimal assignment, or `{"solution":null}` when the exact search proved no feasible assignment. Python’s typed and decoded methods return `None`, and Go’s typed method returns `nil, nil` for that no-plan case. An exceeded budget is an error, not null and not a partial result. This native contract is separate from that of a running HTTP build.
 - Domain values, offsets, weights and scores use signed 64-bit integers. An evaluation count is unsigned 64-bit. The budget is a count of candidate combinations, not a duration. It is passed to the SDK method, not inside the JSON.
-- For full-range values, do not round through a floating-point JSON decoder. In C# use `GetInt64()` for values/scores and `GetUInt64()` for evaluation counts. In Java choose a JSON codec that preserves exact integer values, including unsigned counts. In Node.js transmit UTF-8 bytes or JSON text and keep the result as text or use a lossless decoder; `BigInt` passed in an object does not make ordinary `JSON.stringify` lossless. In PHP, keep JSON text or choose integer-safe decoding appropriate to your PHP integer width.
+- For full-range values, do not round through a floating-point JSON decoder. In C# use `GetInt64()` for values/scores and `GetUInt64()` for evaluation counts. In Java choose a JSON codec that preserves exact integer values, including unsigned counts. In Node.js the typed method handles exact `bigint` conversion. For its raw JSON method use a lossless decoder; ordinary `JSON.parse` can round numbers. In PHP, keep JSON text or choose integer-safe decoding appropriate to your PHP integer width.
 
 ## C# · .NET 8
 
@@ -126,24 +126,35 @@ print(solution.values if solution is not None else "No feasible assignment")
 PY
 ```
 
-The typed constraints are `AllDifferent`, `NotEqualOffset`, `PreferValue`, `CountValue`, and `ResourceCapacity`. Use tuples for collection fields. A solution exposes `values`, `score.hard`, `score.soft`, and `evaluated`. `None` is proven infeasibility. A malformed typed response raises `ResultFormatError`; invalid local values raise `TypeError` or `ValueError`.
+The typed constraints are `AllDifferent`, `NotEqualOffset`, `PreferValue`, `CountValue`, `Precedence`, `NoOverlap`, and `ResourceCapacity`. Use tuples for collection fields. A solution exposes `values`, `score.hard`, `score.soft`, and `evaluated`. `None` is proven infeasibility. A malformed typed response raises `ResultFormatError`; invalid local values raise `TypeError` or `ValueError`.
 
 The mapping method is `solve(mapping, max_evaluations)`. Use `solve_json(problem_bytes, max_evaluations)` for the complete UTF-8 response. The budget is an integer in `0..2^64-1`. Catch `SolveError` and inspect its numeric `status` for a native failure. A library load failure is separate.
 
 ## Node.js · Node-API native addon
 
-Build the addon in the engine repository, then import its checked-out entry point. The example prints JSON instead of parsing it into floating-point numbers.
+Build the addon from the matching engine checkout. The typed API requires `JSON.rawJSON` and the JSON reviver’s `context.source`; the native and type checks ran on Node 24/Linux x86-64. The Windows and macOS packages are not verified here.
 
 ```sh
 (cd sdks/node && npm run build)
 node - <<'JS'
-const { solveJson } = require("./sdks/node");
-const problem = '{"variables":[{"name":"job","domain":[0,1]}],"constraints":[{"kind":"prefer_value","variable":0,"value":1,"soft_weight":1}]}';
-console.log(solveJson(problem, 2n));
+const { solve, SolveError } = require("./sdks/node");
+try {
+  const value = 9007199254740993n;
+  const outcome = solve({
+    variables: [{ name: "job", domain: [0n, value] }],
+    constraints: [{ kind: "prefer_value", variable: 0, value, softWeight: 1n }],
+  }, 2n);
+  console.log(outcome.kind === "solved" ? outcome.solution.values[0] : "No feasible assignment");
+} catch (error) {
+  if (error instanceof SolveError) console.error(error.code);
+  else throw error;
+}
 JS
 ```
 
-The limit is a `bigint` in `0n..(2n ** 64n - 1n)`, not a JavaScript `number`. The wrapper accepts a string or `Buffer`. It throws for invalid argument types or range. A native failure throws an error with a numeric `status` property; a module load failure is different. The Windows build recipe also expects an import library. Build and loader success on Linux does not establish availability of Windows or macOS packages.
+The example prints `9007199254740993n`, a value ordinary JavaScript numbers cannot represent exactly. Domain values, weights, scores, resource identifiers, durations, loads, and the budget and evaluation count use `bigint`. Variable references and count bounds use safe nonnegative `number` values. The typed fields use camel case, for example `softWeight` or `minGap`; the raw wire format uses snake case.
+
+A typed result either contains `solution` with `values`, `score` and `evaluated`, or returns `{ kind: "infeasible" }`. `SolveError.code` distinguishes `invalid_input`, `search_limit_exceeded`, `execution_failed`, `invalid_response`, and `unsupported_runtime`. Check `nativeStatus` when a native failure supplied it. Use the unchanged `solveJson(stringOrBuffer, budget)` when you need raw UTF-8 JSON.
 
 ## PHP · 8.1+ with FFI
 
@@ -213,11 +224,11 @@ CGO_ENABLED=1 CGO_CFLAGS="-I$ORCHESTRATA_INCLUDE" \
   CGO_LDFLAGS="-L$ORCHESTRATA_LIB_DIR" go run .
 ```
 
-`SolveProblem` accepts `AllDifferent`, `NotEqualOffset`, and `PreferValue`. Variable indices are `uint32`; domains, offsets, preference values, and weights are `int64`. Weights must be positive. Use `Solve(problemJSON, limit)` when you need the inner `*Solution` from a JSON request, including either additional constraint below. Use `SolveJSON(problemJSON, limit)` when you want the complete JSON response instead. Test native errors using `errors.As` with `*orchestrata.SolveError`, whose `Status` is a typed numeric value. A loader, ABI or decoding failure is not a native search result.
+`SolveProblem` accepts `AllDifferent`, `NotEqualOffset`, `PreferValue`, `CountValue`, `Precedence`, `NoOverlap`, and `ResourceCapacity`. Variable indices are `uint32`; domains, offsets, preference values, and weights are `int64`. Weights must be positive. The typed decoder checks each returned assignment value belongs to the request domain. Use `Solve(problemJSON, limit)` when you need a checked `*Solution` from a JSON request. Use `SolveJSON(problemJSON, limit)` when you want the complete JSON response instead. Test native errors using `errors.As` with `*orchestrata.SolveError`, whose `Status` is a typed numeric value. A loader, ABI or decoding failure is not a native search result.
 
-## Four additional constraints in engine JSON
+## Scheduling and capacity constraints
 
-At the main revision above, Python also types `count_value` and `resource_capacity`. The baseline Go structs do not wrap the four constraints below. Send those through the raw request interface when no typed model is provided. This applies to the engine library built from the revision above; it does not imply that a separate HTTP endpoint accepts the same kinds. Do not add these names to a typed Go request or silently remove a rule to make the request fit.
+Node.js, Python, and Go model these constraints directly. The table shows their wire names and fields for callers using raw JSON. This is the native contract, not a guarantee that a separate HTTP endpoint accepts the same rules.
 
 | `kind` | Required fields | Meaning |
 | --- | --- | --- |
