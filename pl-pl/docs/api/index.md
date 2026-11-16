@@ -29,9 +29,9 @@ Każda zmienna ma nazwę i tablicę dozwolonych liczb całkowitych. Ograniczenia
 
 Przykład zwraca obiekt JSON z polem `solution`. Wartości są ułożone w tej samej kolejności co zmienne. Oceny ograniczeń obowiązkowych i preferencji są podawane osobno. Lokalna wersja startowa sprawdza w trybie dokładnym maksymalnie 100 000 kombinacji. Błąd żądania, osiągnięcie limitu lub awaria serwera nie dowodzą, że model nie ma rozwiązania. Wersja ze zweryfikowanymi zasadami zwracania wyników dokładnych zwraca `{"solution":null}` tylko wtedy, gdy dokładne przeszukiwanie wykaże, że żaden plan nie spełnia wszystkich obowiązkowych ograniczeń.
 
-## Receptury i katalog błędów w trakcie przeglądu
+## Katalogi szablonów i błędów
 
-Poniższe ścieżki zaimplementowano w ramach prac podlegających przeglądowi lub lokalnej integracji. Zmiany w propozycji HTTP znajdziesz w [zmianach HTTP w przeglądzie](https://github.com/ilstarno/Orchestrata/pull/22). Zestaw ścieżek scalonych lokalnie może się różnić. Sprawdź uruchamianą rewizję. Nie zakładaj, że ścieżki są dostępne w domyślnie pobranej wersji repozytorium lub w usłudze hostingowej.
+Poniższe ścieżki są dostępne w [sprawdzonej publicznej wersji](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Dla innych wersji sprawdź schemat OpenAPI działającej usługi. Nie ma usługi hostowanej.
 
 | Metoda i ścieżka | Przeznaczenie |
 | --- | --- |
@@ -39,6 +39,7 @@ Poniższe ścieżki zaimplementowano w ramach prac podlegających przeglądowi l
 | `GET /api/v1/recipes` | Wyświetl listę dołączonych scenariuszy syntetycznych. |
 | `GET /api/v1/recipes/{recipe_id}` | Odczytaj opis receptury i deklarowane pola. |
 | `GET /api/v1/recipes/{recipe_id}/example` | Pobierz syntetyczny problem bez uruchamiania rozwiązania. |
-| `POST /api/v1/recipes/{recipe_id}/run-example` | Rozwiąż dołączony przykład bez przesyłania treści żądania. Ta ścieżka jest częścią lokalnych prac podlegających przeglądowi i nie stanowi opublikowanego interfejsu. |
+| `POST /api/v1/recipes/{recipe_id}/run-example` | Rozwiąż dołączony przykład bez treści żądania. |
+| `GET /api/v1/recipes/grid` | Filtruj i przeglądaj metadane dołączonych szablonów stronami. |
 
-Osobna lokalna wersja MCP przeznaczona do przeglądu udostępnia `list_recipes`, `describe_recipe` i `get_recipe_example` przez standardowe wejście i wyjście. Pozwala wyłącznie wyświetlać listę syntetycznych przykładów i odczytywać je. Nie przyjmuje połączeń sieciowych i nie uruchamia rozwiązywania problemów. Lokalna wersja testowa nie oferuje hostowanego MCP, danych uwierzytelniających do zdalnego dostępu ani logowania.
+Osobny lokalny serwer MCP w tej wersji udostępnia `list_recipes`, `describe_recipe` i `get_recipe_example` przez standardowe wejście i wyjście. Pozwala wyłącznie wyświetlać listę syntetycznych przykładów i odczytywać je. Nie przyjmuje połączeń sieciowych i nie uruchamia rozwiązywania problemów. Lokalna wersja testowa nie oferuje hostowanego MCP, danych uwierzytelniających do zdalnego dostępu ani logowania.

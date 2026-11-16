@@ -1,3 +1,0 @@
-# Oracle NetSuite Ship Central screenshot
-
-The asset `assets/oracle-netsuite-ship-central.png` is the intact single-screen image embedded on page 2 of [Oracle NetSuite's 2023 Release 1 supply-chain overview](https://www.netsuite.com/portal/landing/2023-1/pdf/supply-chain-ko-kr.pdf#page=2). It shows the Pack Items Into Cartons screen. © Oracle and/or its affiliates. It is not covered by the site's source license. See [Oracle's screenshot terms](https://www.oracle.com/legal/copyright/#:~:text=Use%20of%20Oracle%20Screenshots). The image is provided for product reference; Oracle does not sponsor, endorse, or partner with Orchestrata in this example.

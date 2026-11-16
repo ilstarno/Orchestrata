@@ -29,9 +29,9 @@ Jede Variable hat einen Namen und ein Array zulässiger Ganzzahlen. Die Nebenbed
 
 Das Beispiel gibt ein JSON-Objekt mit dem Feld `solution` zurück. Die Werte stehen in der Reihenfolge Ihrer Variablen. Die Bewertungen für harte und weiche Regeln werden getrennt ausgewiesen. Die lokale Einstiegsversion prüft bei der exakten Suche höchstens 100.000 Kombinationen. Ein Anfragefehler, ein erreichtes Suchlimit oder ein Serverfehler beweist nicht, dass das Modell unlösbar ist. Ein Build mit verifizierter Semantik für exakte Ergebnisse liefert `{"solution":null}` nur dann zurück, wenn die exakte Suche nachweist, dass kein Plan alle harten Regeln erfüllt.
 
-## Rezepte und Fehlerkatalog in der Review-Phase
+## Kataloge für Planungsvorlagen und Fehler
 
-Die folgenden Pfade wurden zur Prüfung oder für die lokale Integration umgesetzt. Welche Änderungen der [HTTP-Änderungen zur Prüfung](https://github.com/ilstarno/Orchestrata/pull/22) enthält, steht im Pull Request. Der lokal zusammengeführte Stand kann andere Pfade umfassen. Prüfen Sie die verwendete Revision. Gehen Sie nicht davon aus, dass diese Pfade nach einem Standard-Checkout oder bei einem gehosteten Dienst verfügbar sind.
+Die folgenden Pfade sind in [der geprüften öffentlichen Revision](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f) verfügbar. Nutzen Sie für andere Revisionen das OpenAPI-Schema des laufenden Dienstes. Ein gehosteter Dienst steht nicht zur Verfügung.
 
 | Methode und Pfad | Zweck |
 | --- | --- |
@@ -39,6 +39,7 @@ Die folgenden Pfade wurden zur Prüfung oder für die lokale Integration umgeset
 | `GET /api/v1/recipes` | Die mitgelieferten synthetischen Szenarien auflisten. |
 | `GET /api/v1/recipes/{recipe_id}` | Die Beschreibung eines Rezepts und seine deklarierten Felder abrufen. |
 | `GET /api/v1/recipes/{recipe_id}/example` | Das synthetische Planungsproblem zurückgeben, ohne es zu lösen. |
-| `POST /api/v1/recipes/{recipe_id}/run-example` | Ein mitgeliefertes Beispiel ohne Anfrageinhalt lösen. Dieser Pfad gehört zur lokalen Review-Arbeit und ist keine veröffentlichte Schnittstelle. |
+| `POST /api/v1/recipes/{recipe_id}/run-example` | Ein mitgeliefertes Beispiel ohne Anfrageinhalt lösen. |
+| `GET /api/v1/recipes/grid` | Metadaten der Vorlagen filtern und seitenweise abrufen. |
 
-Ein separater lokaler MCP-Review-Build stellt `list_recipes`, `describe_recipe` und `get_recipe_example` über Standardeingabe und Standardausgabe bereit. Er listet und liest ausschließlich synthetische Beispiele. Er nimmt keine Netzwerkverbindungen an und führt keine Berechnungen zur Lösung aus. Die lokale Evaluierungsversion bietet weder gehostetes MCP noch Zugangsdaten für den Fernzugriff oder eine Anmeldung.
+Der separate lokale MCP-Server dieser Revision stellt `list_recipes`, `describe_recipe` und `get_recipe_example` über Standardeingabe und Standardausgabe bereit. Er listet und liest ausschließlich synthetische Beispiele. Er nimmt keine Netzwerkverbindungen an und führt keine Berechnungen zur Lösung aus. Die lokale Evaluierungsversion bietet weder gehostetes MCP noch Zugangsdaten für den Fernzugriff oder eine Anmeldung.

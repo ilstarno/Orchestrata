@@ -29,9 +29,9 @@ Ogni variabile ha un nome e un array di interi ammessi. I vincoli fanno riferime
 
 L’esempio restituisce un oggetto JSON con il campo `solution`. I valori restituiti seguono l’ordine delle variabili. I punteggi per i vincoli obbligatori e per le preferenze sono distinti. La versione introduttiva locale limita la ricerca esatta a 100.000 combinazioni. Un errore nella richiesta, il raggiungimento del limite o un errore del server non dimostrano che il modello non abbia soluzioni. Una build con semantica verificata per i risultati esatti restituisce `{"solution":null}` solo quando la ricerca esatta dimostra che nessun piano soddisfa tutti i vincoli obbligatori.
 
-## Ricette e catalogo degli errori in revisione
+## Cataloghi dei modelli e degli errori
 
-I percorsi che seguono sono stati implementati nell’ambito di una revisione o di un’integrazione locale. Consultare la [modifiche HTTP in revisione](https://github.com/ilstarno/Orchestrata/pull/22) per le modifiche che contiene. L’insieme dei percorsi integrati in locale può essere diverso. Verificare la revisione in esecuzione: questi percorsi non sono necessariamente presenti in un checkout predefinito o in un servizio ospitato.
+I percorsi seguenti sono disponibili nella [revisione pubblica verificata](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Per le altre revisioni consulta lo schema OpenAPI del servizio in esecuzione. Il servizio non è ospitato.
 
 | Metodo e percorso | Scopo |
 | --- | --- |
@@ -39,6 +39,7 @@ I percorsi che seguono sono stati implementati nell’ambito di una revisione o 
 | `GET /api/v1/recipes` | Elencare gli scenari sintetici inclusi. |
 | `GET /api/v1/recipes/{recipe_id}` | Leggere la descrizione e i campi dichiarati di una ricetta. |
 | `GET /api/v1/recipes/{recipe_id}/example` | Ottenere il problema sintetico senza eseguirlo. |
-| `POST /api/v1/recipes/{recipe_id}/run-example` | Risolvere un esempio incluso senza inviare un corpo della richiesta. Il percorso fa parte del lavoro di revisione locale e non è un’interfaccia rilasciata. |
+| `POST /api/v1/recipes/{recipe_id}/run-example` | Risolvere un esempio incluso senza corpo della richiesta. |
+| `GET /api/v1/recipes/grid` | Filtrare e consultare per pagina i metadati dei modelli inclusi. |
 
-Una build locale MCP separata, in revisione, espone `list_recipes`, `describe_recipe` e `get_recipe_example` tramite input e output standard. Consente soltanto di elencare e leggere esempi sintetici. Non accetta connessioni di rete e non esegue risoluzioni. La build di valutazione locale non offre un MCP ospitato, credenziali per l’accesso remoto o funzioni di accesso.
+Il server MCP locale separato di questa revisione espone `list_recipes`, `describe_recipe` e `get_recipe_example` tramite input e output standard. Consente soltanto di elencare e leggere esempi sintetici. Non accetta connessioni di rete e non esegue risoluzioni. La build di valutazione locale non offre un MCP ospitato, credenziali per l’accesso remoto o funzioni di accesso.

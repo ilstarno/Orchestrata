@@ -1,46 +1,91 @@
 # Set up and troubleshoot the local backend
 
-Run the public backend with the bundled example. Keep it on loopback and do not send customer data: the starter has no sign-in, database-backed job queue, or production access controls. The project website does not run the API.
+This public evaluation runs on your computer. It has no sign-in, user sessions, database-backed job queue, or production access controls. Keep it on loopback and use sample input. The project website does not run the API.
 
-## Prepare the checkout
+## 1. Check out the tested revision
 
-Use a stable Rust toolchain with Cargo, plus Git and curl. If you also want the web interface, use Node.js 22 and npm. The optional PostgreSQL adapter below has a separate requirement of Rust 1.94 or later.
+Use Git, curl, and stable Rust with Cargo. Use Node.js 22 and npm only for the optional UI. The commands and HTTP results below were checked on Linux with Rust 1.100.0 at [public revision `b8d1271e3faddfffaf220698e381197bcae1752f`](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Check out that revision before comparing results.
 
 ```sh
 git clone https://github.com/ilstarno/Orchestrata.git
 cd Orchestrata
-git rev-parse --short HEAD
+git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
+git rev-parse HEAD
 rustc --version
 cargo --version
 ```
 
-Run these commands from the repository root to check the starter and start the API. The first build may need access to the Cargo registry:
+`git rev-parse HEAD` should print the full revision above. Keep the checkout separate from a deployment branch.
+
+## 2. Test and start the API
+
+From the repository root, run the locked workspace tests. The first run may need registry access. The checked revision passed 70 tests.
 
 ```sh
 cargo test --manifest-path backend/Cargo.toml --locked --workspace
-cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-Leave the API terminal running. In another terminal, go to the repository root and send the bundled example:
+Leave that terminal running. In a second terminal at the repository root:
 
 ```sh
 curl -fsS http://127.0.0.1:3000/api/v1/health
 curl -fsS http://127.0.0.1:3000/api/v1/openapi.json
 curl -fsS "http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3"
+```
+
+Health returns `{"status":"ok"}`. The OpenAPI document lists the routes for the running revision. The grid returns page 1 with three records out of 13, starting with `airline-crew-assignment`. Health checks reachability only.
+
+## 3. Compare a solve and an input error
+
+```sh
 curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
   -H 'Content-Type: application/json' \
   --data-binary @backend/examples/assignment.json
 ```
 
-The health response confirms that the HTTP process answers. It does not check sign-in, database storage, or capacity. The example uses two jobs and two allowed assignment values. In the expected result, the solution values are `[1,0]` in input order. Use the OpenAPI output from your running revision for its payload and response fields.
+Expected response:
 
-If you need the UI, leave the API running and open another terminal at the repository root:
-
-```sh
-(cd frontend && npm install && npm run dev)
+```json
+{"solution":{"values":[1,0],"score":{"hard":0,"soft":0},"evaluated":4}}
 ```
 
-Open the local address printed by the command. The Vite server forwards `/api` requests to `http://127.0.0.1:3000`. The API listens on `127.0.0.1:3000` unless you set `ORCHESTRATA_HTTP_BIND` to an explicit IP address and port. For example, `127.0.0.1:8080` keeps access on the same computer while changing the port. Update the curl URLs and the local Vite proxy target if you change it. A hostname, port alone, or empty setting is invalid.
+Job A takes slot 1 and Job B takes slot 0. Both required rules and preferences are satisfied. To exercise error handling, send a variable with no allowed values:
+
+```sh
+curl -isS -X POST http://127.0.0.1:3000/api/v1/solve \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"variables":[{"name":"empty","domain":[]}],"constraints":[]}'
+```
+
+Expect HTTP 422, `X-Orchestrata-Error-Code: invalid_problem`, a request ID, and the text `Invalid problem`. The request ID varies. Read [Solve API reference](../solve-api/) for contract details and distinguish a malformed request or search limit from a valid plan result.
+
+## 4. Optional local web interface
+
+With the API running on port 3000, open a third terminal. The [workspace screenshots](../#product-ui-evidence) show this development build with example records and the local API.
+
+```sh
+git clone https://github.com/ilstarno/orchestrata-frontend.git
+cd orchestrata-frontend
+git checkout --detach cb873a819ed8c79c22bce35198d42fbf982a5e12
+cd frontend
+npm ci
+npm run dev
+```
+
+Open the loopback address printed by Vite. Select **Run example**. The result assigns Alex to lift repair, Sam to the safety inspection, and Noor to preventive maintenance. Select **Browse recipes** to see the 13 records returned by the local API.
+
+Vite forwards `/api` to `http://127.0.0.1:3000`. If you use another loopback port, update the curl URLs and Vite proxy target. `ORCHESTRATA_HTTP_BIND` requires an IP address and port; a hostname, port alone, or empty setting is invalid. Stop the dev server and API with Ctrl-C when finished. This local setup does not connect to any vendor account.
+
+## Integration proof checklist
+
+Use this checklist to record what your integration actually verifies. The local walkthrough proves one fixture and an input error at the pinned revision. It does not establish any vendor connector, authentication flow, write-back, or production deployment.
+
+1. **Identify both sides.** Record the Orchestrata revision, the client or vendor product and environment, enabled API or export permissions, and the interface you actually exercised. Confirm any vendor entitlement with that tenant’s administrator.
+2. **Map a small approved input.** Save the sample source, exact normalized request, and field map. For each consumed field, record its identifier, unit or time zone, allowed values, and missing-value behavior. Note which source fields are ignored.
+3. **Verify the decision.** Compare with an expected result. Check assignments, hard rules, preferences, and the reason for an unassigned item. Save the returned score and any search limit.
+4. **Verify failure behavior.** Record a rejected input and a case the client cannot process, such as missing permissions, stale input, timeout, or an unsupported field. Preserve status and request ID where available; omit credentials and customer records.
+5. **Confirm who can act.** Start read-only. Agree what a person reviews, where the evidence stays, and which writes would require approval. If testing an authorized write in a sandbox, verify repeated submissions and recovery before making any rollout claim.
 
 ## Troubleshoot the starter
 
@@ -57,7 +102,7 @@ Open the local address printed by the command. The Vite server forwards `/api` r
 
 ## Optional: evaluate PostgreSQL session persistence
 
-[Review #25](https://github.com/ilstarno/Orchestrata/pull/25) adds the `orchestrata-session-store` crate with SeaORM 2.0.4. These steps apply to that revision only. The adapter accepts a PostgreSQL SeaORM connection. It does not change the baseline API setup, read a database URL from the API environment, or enable accounts, login, cookies, or any authenticated route. No database is needed for the basic API walkthrough above.
+[Review #25](https://github.com/ilstarno/Orchestrata/pull/25) adds the `orchestrata-session-store` crate with SeaORM 2.0.4. It requires Rust 1.94 or later. These steps apply to that revision only. The adapter accepts a PostgreSQL SeaORM connection. It does not change the baseline API setup, read a database URL from the API environment, or enable accounts, login, cookies, or any authenticated route. No database is needed for the basic API walkthrough above.
 
 From the repository root of that revision, run the default adapter tests without Docker or database credentials:
 

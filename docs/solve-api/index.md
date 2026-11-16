@@ -1,6 +1,6 @@
 # Solve API reference
 
-Send a finite planning problem to the local API on [Orchestrata’s default branch](https://github.com/ilstarno/Orchestrata). Each decision needs a list of allowed values. Changes still under review are listed separately.
+Send a finite planning problem to the local API. Each decision needs a list of allowed values. This reference covers [public revision `b8d1271e3faddfffaf220698e381197bcae1752f`](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f); see the [local setup guide](../backend-setup/) for the pinned checkout.
 
 ## Connect to the local service
 
@@ -22,10 +22,10 @@ Start the service at the checkout root:
 | Method and path | Request | Successful response |
 | --- | --- | --- |
 | `GET /api/v1/health` | No body | `{"status":"ok"}`. Confirms the process responds. Feasibility is checked by the solve endpoint. |
-| `GET /api/v1/openapi.json` | No body | JSON schema for the health and solve operations. The schema document does not list its own URL as an operation. |
-| `POST /api/v1/solve` | Problem JSON, described below | A JSON object containing `solution`. Check its hard score before using the assignment. |
+| `GET /api/v1/openapi.json` | No body | JSON schema for health, solve, errors, and the recipe catalog. The schema document does not list its own URL as an operation. |
+| `POST /api/v1/solve` | Problem JSON, described below | A JSON object containing `solution`. Check that it contains an assignment with hard score zero before using it. |
 
-If you use the CLI from the same checkout, the [assignment example](https://github.com/ilstarno/Orchestrata/blob/9dab0545beb8cb9ded93cc632e41f0b6bc718e77/backend/examples/assignment.json) is also available as a file: `(cd backend && cargo run -p orchestrata-cli -- examples/assignment.json)`. The CLI prints the solution directly, with no HTTP wrapper.
+If you use the CLI from the same checkout, the [assignment example](https://github.com/ilstarno/Orchestrata/blob/b8d1271e3faddfffaf220698e381197bcae1752f/backend/examples/assignment.json) is also available as a file: `(cd backend && cargo run -p orchestrata-cli -- examples/assignment.json)`. The CLI prints the solution directly, with no HTTP wrapper.
 
 ## Problem fields
 
@@ -83,26 +83,26 @@ Expected status: **200 OK**. Response header: `content-type: application/json`. 
 
 | Response field | Type | Interpretation |
 | --- | --- | --- |
-| `solution` | Object or null in the schema | Inspect the returned object and its score. Do not infer proof semantics from the nullable schema alone. |
+| `solution` | Object or null in the schema | An object contains the optimum found within the supplied rules. Null means the completed exact search proved there was no hard-feasible assignment. |
 | `solution.values` | Array of signed 64-bit integers | One entry per input variable in the same order. Job A takes resource 1 and Job B takes resource 0. |
-| `solution.score.hard` | Signed 64-bit integer | `0` means the assignment satisfies the required rules you supplied. A negative value means one or more were broken. |
+| `solution.score.hard` | Signed 64-bit integer | `0` means the assignment satisfies every required rule supplied. The checked revision only returns hard-feasible assignments. |
 | `solution.score.soft` | Signed 64-bit integer | `0` means all supplied preferences are met. A negative value reports the combined deductions for unmet preferences. |
 | `solution.evaluated` | Nonnegative JSON integer (the OpenAPI schema marks it as `int64` with minimum 0) | The number of assignments examined. The local API caps the number of combinations. |
 
-**Do not use a negative-hard result as a valid plan.** On the starter API, the solver enumerates the allowed combinations and can return HTTP 200 with the highest-scoring assignment even when every candidate violates a hard rule. For example, giving both jobs the sole domain `[0]` returns a best candidate with a negative hard score; for the same request above with both domains changed to `[0]`, the body is `{"solution":{"values":[0,0],"score":{"hard":-1,"soft":-3},"evaluated":1}}`. A result-handling change under review returns `solution: null` when the completed search proves infeasibility. Do not write clients that assume that review behavior is already in the starter.
+**An input error or search limit is not proof of infeasibility.** To check the null response, give both jobs the sole domain `[0]` in the worked request. Their all-different rule makes the model infeasible. The checked revision returns HTTP 200 and `{"solution":null}`. Reserve negative-hard candidates from older builds for diagnosis; do not apply them as plans.
 
 ## Status and response headers
 
-| Status | Starter behavior | Client action |
+| Status | `X-Orchestrata-Error-Code` | Client action |
 | --- | --- | --- |
-| `200 OK` | JSON result; not necessarily a valid plan. | Parse the body and check `score.hard`. |
-| `400 Bad Request` | JSON syntax is malformed. | Correct the JSON before retrying. |
-| `413 Payload Too Large` | The JSON body exceeds the accepted request size. | Send a smaller valid body; this is not the combinations limit. |
-| `415 Unsupported Media Type` | No supported JSON request content type. | Set `Content-Type: application/json`. |
-| `422 Unprocessable Entity` | JSON has the wrong shape or types, or the application rejects the problem. The application's plaintext body is `Invalid problem or search space too large` for invalid models, excess combinations and solver score overflow. | Check the input first, then calculate its combinations and inspect weights. Do not classify an HTTP 422 as proof of infeasibility. |
-| `500 Internal Server Error` | The server could not complete execution. The application's plaintext body is `Solver execution failed`. | Preserve the status and the reproducible sample input. Do not treat it as a planning outcome. |
+| `200 OK` | None | Read `solution` and distinguish an assignment from proved infeasibility. |
+| `400`, `413`, `415`, or `422` | `invalid_request_body` | Check syntax, body size, content type, or JSON field types as appropriate. |
+| `422 Unprocessable Entity` | `invalid_problem` | Correct the model. A variable with an empty domain is one example. |
+| `422 Unprocessable Entity` | `search_limit_exceeded` | Reduce the number of combinations. No conclusion about feasibility was reached. |
+| `500 Internal Server Error` | `solve_execution_failed` | Keep the request ID and the reproducible sample. An overflow in scoring can trigger this response. |
+| `503 Service Unavailable` | `solver_busy` | Solve slots are occupied. Retry later with backoff. |
 
-Framework and application errors are generally plaintext. Check content type before parsing. On the starter API there is no promised application error-code header, request-ID header or per-request timeout header. A [public HTTP change under review](https://github.com/ilstarno/Orchestrata/pull/22) is not a guarantee that your running build has the same status details or optional headers. Check its exact revision and its live OpenAPI document before integrating against an expanded contract.
+Read `GET /api/v1/error-codes` for the running build’s code catalog and keep `X-Request-ID` for correlation. Error bodies can be plaintext. This revision has no per-request timeout field or header.
 
 ## Size limits and troubleshooting
 

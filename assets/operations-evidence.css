@@ -1,0 +1,40 @@
+.operations-evidence-hero {
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.2fr);
+  gap:clamp(1.1rem,3.4vw,2.8rem);
+  align-items:center;
+}
+.operations-evidence-hero > * { min-inline-size:0; }
+.operations-evidence-plate {
+  display:grid;
+  gap:0;
+  margin:0;
+  color:#eef5f5;
+  background:#1c2428;
+  border:1px solid #4d5f64;
+  border-radius:.45rem;
+}
+.operations-evidence-plate figcaption {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.25rem 1rem;
+  padding:.6rem .9rem;
+  border-block-end:1px solid #3d4d52;
+  font-size:.934rem;
+  line-height:1.4;
+}
+.operations-evidence-plate a.operations-evidence-source {
+  color:#b7dcce;
+  min-block-size:44px;
+  display:inline-flex;
+  align-items:center;
+  font-size:.825rem;
+}
+.operations-evidence-image { display:block; min-inline-size:0; border-radius:0 0 .4rem .4rem; }
+.operations-evidence-image img { display:block; inline-size:100%; block-size:auto; border-radius:inherit; }
+.operations-evidence-image:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+@media (max-width:47rem) {
+  .operations-evidence-hero { grid-template-columns:minmax(0,1fr); }
+}

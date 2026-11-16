@@ -69,7 +69,7 @@ a:hover { text-decoration-thickness: 2px; }
   letter-spacing: -.04em;
   text-decoration: none;
 }
-.brand { gap: .55rem; }
+.brand { gap: .14rem; }
 .brand img { flex: none; }
 .status { font-weight: 650; }
 .status--fits { color: var(--accent); }
@@ -639,3 +639,24 @@ main :is(p, li) { text-wrap: pretty; }
   .text-link svg { transition: translate 150ms ease; }
   .text-link:hover svg { translate: 3px 0; }
 }
+
+.workspace-illustrations summary { cursor: pointer; font-weight: 650; }
+.workspace-illustrations > summary { padding-block: .65rem; }
+.workspace-illustrations[open] > summary { margin-block-end: .45rem; }
+
+.product-ui-evidence { margin-block: 2.2rem; }
+.product-ui-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 1rem; margin-block: 1rem; }
+.product-ui-shots figure { margin: 0; }
+.product-ui-shots img { display: block; inline-size: 100%; block-size: auto; border: 1px solid var(--rule); }
+.product-ui-shots figcaption { margin-block-start: .3rem; font-weight: 600; }
+.case-technical-excerpt { margin-block: .8rem; }
+.case-technical-excerpt > summary { cursor: pointer; color: var(--accent); font-weight: 650; padding-block: .5rem; }
+
+.vendor-workflow-notes {
+  margin-block: .95rem 1.2rem; padding: .85rem 1rem; background: var(--dataset-surface);
+  border-inline-start: 2px solid var(--ink);
+}
+.vendor-workflow-notes h3 { font-size: 1.05rem; margin-block: 0 .6rem; }
+.vendor-workflow-notes dl { display: grid; gap: .55rem; margin: 0; }
+.vendor-workflow-notes dt { font-weight: 650; }
+.vendor-workflow-notes dd { margin-inline-start: 0; }

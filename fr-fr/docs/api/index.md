@@ -29,9 +29,9 @@ Chaque variable possède un nom et un tableau d’entiers autorisés. Les contra
 
 L’exemple renvoie un objet JSON contenant le champ `solution`. Les valeurs suivent l’ordre de vos variables. Les scores des contraintes impératives et des préférences sont distincts. La version locale de démarrage limite la recherche exacte à 100 000 combinaisons. Une erreur de requête, une limite de recherche atteinte ou une panne du serveur ne prouve pas que le modèle est irréalisable. Une version dont le contrat de résultat exact a été vérifié ne renvoie `{"solution":null}` que si la recherche exacte démontre qu’aucun plan ne satisfait l’ensemble des contraintes impératives.
 
-## Recettes et catalogue des erreurs en cours de revue
+## Catalogues des modèles et des erreurs
 
-Les chemins suivants ont été implémentés dans le cadre de travaux en cours de revue ou d’intégration locale. Consultez la [proposition HTTP en cours de revue](https://github.com/ilstarno/Orchestrata/pull/22) pour voir les modifications qu’elle contient. L’ensemble des chemins intégrés localement peut différer. Vérifiez la révision que vous exécutez : ces chemins ne sont pas nécessairement disponibles dans une copie standard du dépôt ni dans un service hébergé.
+Les routes ci-dessous sont disponibles dans [la révision publique vérifiée](https://github.com/ilstarno/Orchestrata/tree/b8d1271e3faddfffaf220698e381197bcae1752f). Pour les autres révisions, consultez le schéma OpenAPI du service en cours d’exécution. Le service n’est pas hébergé.
 
 | Méthode et chemin | Fonction |
 | --- | --- |
@@ -39,6 +39,7 @@ Les chemins suivants ont été implémentés dans le cadre de travaux en cours d
 | `GET /api/v1/recipes` | Lister les scénarios synthétiques fournis. |
 | `GET /api/v1/recipes/{recipe_id}` | Lire la description et les champs déclarés d’une recette. |
 | `GET /api/v1/recipes/{recipe_id}/example` | Récupérer le problème synthétique sans le résoudre. |
-| `POST /api/v1/recipes/{recipe_id}/run-example` | Résoudre un exemple fourni sans envoyer de corps de requête. Ce chemin fait partie des travaux locaux en cours de revue et ne constitue pas une interface publiée. |
+| `POST /api/v1/recipes/{recipe_id}/run-example` | Résoudre un exemple fourni sans corps de requête. |
+| `GET /api/v1/recipes/grid` | Filtrer et paginer les métadonnées des modèles fournis. |
 
-Une version locale distincte de MCP, en cours de revue, expose `list_recipes`, `describe_recipe` et `get_recipe_example` par l’entrée et la sortie standard. Elle permet uniquement de lister et de consulter des exemples synthétiques. Elle n’accepte pas de connexions réseau et ne lance aucune résolution. Cette version d’évaluation locale ne fournit ni MCP hébergé, ni identifiants d’accès à distance, ni fonction de connexion.
+Le serveur MCP local distinct de cette révision expose `list_recipes`, `describe_recipe` et `get_recipe_example` par l’entrée et la sortie standard. Elle permet uniquement de lister et de consulter des exemples synthétiques. Elle n’accepte pas de connexions réseau et ne lance aucune résolution. Cette version d’évaluation locale ne fournit ni MCP hébergé, ni identifiants d’accès à distance, ni fonction de connexion.
