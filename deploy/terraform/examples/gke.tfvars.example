@@ -1,0 +1,7 @@
+kubeconfig_path    = "~/.kube/orchestrata-gke"
+kubeconfig_context = "replace-with-exact-context"
+namespace          = "orchestrata"
+image_repository   = "registry.example.com/orchestrata/api"
+image_digest       = "replace-with-immutable-image-digest"
+
+# values_files = ["./production-values.yaml"]

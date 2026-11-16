@@ -1,0 +1,9 @@
+# Only sources and compile-time fixtures enter the backend image build.
+*
+!backend/
+!backend/**
+backend/target/
+!backend_tests/
+!backend_tests/**
+!recipes/
+!recipes/**

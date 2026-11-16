@@ -78,6 +78,8 @@ npm run dev
 
 The development API is configured for `127.0.0.1:3000`, with `/api` proxied from the frontend during local development.
 
+For a private evaluation environment, see [the container and Kubernetes deployment guide](deploy/README.md).
+
 ---
 
 Proprietary software. No license is granted for reuse or redistribution.
