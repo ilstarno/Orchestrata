@@ -1,6 +1,6 @@
 # Set up and troubleshoot the local backend
 
-Use this guide to run the public project on your own computer with the checked-in synthetic example. The static project website does not run the API. The public starter does not provide sign-in, a database-backed job queue, or production access controls. Keep it on loopback and do not send customer data.
+Use this guide to run the public project on your own computer with the bundled example. The static project website does not run the API. The public starter does not provide sign-in, a database-backed job queue, or production access controls. Keep it on loopback and do not send customer data.
 
 ## Prepare the checkout
 

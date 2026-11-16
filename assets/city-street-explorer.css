@@ -1,0 +1,26 @@
+.street-explorer [hidden] { display: none !important; }
+.street-explorer { margin-block: 2.5rem; min-width: 0; }
+.street-explorer h2 { margin-bottom: .35rem; }
+.street-explorer > p { max-inline-size: 70ch; }
+.street-explorer__enable, .street-explorer__route button {
+  min-block-size: 44px; font: inherit; cursor: pointer; color: inherit;
+  border: 1px solid currentColor; border-radius: .35rem; background: transparent; padding: .45rem .7rem;
+}
+.street-explorer :is(button,input,a):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.street-explorer fieldset { margin-block: 1rem; padding: .5rem .8rem; border: 1px solid var(--line, #80938a); min-width: 0; }
+.street-explorer legend { padding-inline: .3rem; font-weight: 650; }
+.street-explorer__choices, .street-explorer__links { display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+.street-explorer__choices label { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; cursor: pointer; }
+.street-explorer__choices input { inline-size: 1.15rem; block-size: 1.15rem; accent-color: var(--courier-hue, #176153); }
+.street-explorer__map { isolation: isolate; inline-size: 100%; block-size: clamp(19rem, 54vw, 32rem); border: 1px solid var(--line, #80938a); }
+.street-explorer__marker {
+  color: white; background: var(--courier-hue); border: 2px solid white; border-radius: .35rem;
+  box-shadow: 0 0 0 1px #172b26; display: grid; place-items: center; inline-size: 38px; block-size: 28px;
+  font: 700 .875rem / 1 system-ui, sans-serif;
+}
+.street-explorer__itineraries { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.street-explorer__route { border-block-start: 3px solid var(--courier-hue); }
+.street-explorer__route h4 { margin-block: .5rem; }
+.street-explorer__route ol { list-style: none; padding: 0; margin: 0; }
+.street-explorer__route li + li { margin-top: .3rem; }
+.street-explorer__route button { inline-size: 100%; text-align: start; }

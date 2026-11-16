@@ -264,7 +264,7 @@ With a budget of `4`, the only feasible result is `[1, 0]`, with both scores zer
 | `0` | The output document was returned. A null solution means proved infeasibility. | Distinguish a solution object from a null before accessing fields. |
 | `1` | Invalid UTF-8 JSON or invalid problem. | Check JSON fields and types, nonempty domains, valid indices and positive weights. |
 | `2` | The combinations exceed the caller’s evaluation cap. | Reduce the example legitimately or choose a different budget. No result or proof is returned. |
-| `3` | Execution failure, such as an unrepresentable winning score. | Review weights and score bounds. Keep a reproducible synthetic input when reporting the failure. |
+| `3` | Execution failure, such as an unrepresentable winning score. | Review weights and score bounds. Keep a reproducible sample input when reporting the failure. |
 | `4` | Invalid native argument, such as an empty or oversized request. | Confirm argument types and UTF-8 byte count. |
 
 The native entry point reads the exact supplied length and does not retain the input. Requests may not exceed 1,048,576 bytes (1 MiB). A native response allocation is at most 2,097,152 bytes (2 MiB), including the terminating NUL. The SDK wrappers copy a successful result into language-owned storage and release the native buffer before returning it. If calling the C ABI yourself, release each successful output exactly once with `orchestrata_free_json_v1`; do not modify the buffer or free it with the host allocator. Native calls are synchronous. No network connection, queue, partial progress, or timeout setting is provided by these methods.

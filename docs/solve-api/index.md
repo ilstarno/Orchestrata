@@ -100,7 +100,7 @@ Expected status: **200 OK**. Response header: `content-type: application/json`. 
 | `413 Payload Too Large` | The JSON body exceeds the accepted request size. | Send a smaller valid body; this is not the combinations limit. |
 | `415 Unsupported Media Type` | No supported JSON request content type. | Set `Content-Type: application/json`. |
 | `422 Unprocessable Entity` | JSON has the wrong shape or types, or the application rejects the problem. The application's plaintext body is `Invalid problem or search space too large` for invalid models, excess combinations and solver score overflow. | Check the input first, then calculate its combinations and inspect weights. Do not classify an HTTP 422 as proof of infeasibility. |
-| `500 Internal Server Error` | The server could not complete execution. The application's plaintext body is `Solver execution failed`. | Preserve the status and the reproducible synthetic input. Do not treat it as a planning outcome. |
+| `500 Internal Server Error` | The server could not complete execution. The application's plaintext body is `Solver execution failed`. | Preserve the status and the reproducible sample input. Do not treat it as a planning outcome. |
 
 Framework and application errors are generally plaintext rather than solution JSON; check content type before parsing. On the starter API there is no promised application error-code header, request-ID header or per-request timeout header. A [public HTTP change under review](https://github.com/ilstarno/Orchestrata/pull/22) is not a guarantee that your running build has the same status details or optional headers. Check its exact revision and its live OpenAPI document before integrating against an expanded contract.
 

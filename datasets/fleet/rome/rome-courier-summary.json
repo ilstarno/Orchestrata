@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "city": "Rome, Italy",
+    "source": "https://api.openstreetmap.org/api/0.6/map?bbox=12.4620,41.9060,12.4710,41.9110",
+    "sourceSha256": "7ce2b8f0693ad9a1a4f1b1dc30c7f3f78e0c5bbaffdcb9a17e027203f15341bb",
+    "sourceExtract": "OpenStreetMap map XML, retrieved 2026-11-16T10:22:38Z",
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "licenseUrl": "https://www.openstreetmap.org/copyright",
+    "fixMapUrl": "https://www.openstreetmap.org/fixthemap",
+    "geometry": "Actual consecutive OpenStreetMap road/path vertices, shortest-distance sample legs",
+    "speedsKph": {
+      "vehicle": 30,
+      "bicycle": 16,
+      "walking": 5
+    },
+    "usage": "Synthetic snapped stops in fixed order; not a dispatch or full-workload solve.",
+    "limitations": "Conservative offline access/one-way profile; explicit OSM restriction via nodes/ways are omitted when present. Not live traffic, local/legal clearance, or certified navigation."
+  },
+  "routes": [
+    {
+      "courierId": "ROM-001",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 2115.7,
+      "durationSeconds": 253,
+      "stopCount": 4,
+      "coordinateCount": 111
+    },
+    {
+      "courierId": "ROM-057",
+      "mode": "bicycle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 668.9,
+      "durationSeconds": 151,
+      "stopCount": 4,
+      "coordinateCount": 81
+    },
+    {
+      "courierId": "ROM-067",
+      "mode": "walking",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 862.2,
+      "durationSeconds": 621,
+      "stopCount": 4,
+      "coordinateCount": 37
+    }
+  ]
+}

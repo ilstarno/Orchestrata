@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "city": "Munich, Germany",
+    "source": "https://api.openstreetmap.org/api/0.6/map?bbox=11.5570,48.1460,11.5650,48.1520",
+    "sourceSha256": "a5d0d2fa1dc95a1f3e35ac4884dc231e2174bf878a5ea4f8d8fcc6e46a7b724c",
+    "sourceExtract": "OpenStreetMap map XML, retrieved 2026-11-16T10:22:48Z",
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "licenseUrl": "https://www.openstreetmap.org/copyright",
+    "fixMapUrl": "https://www.openstreetmap.org/fixthemap",
+    "geometry": "Actual consecutive OpenStreetMap road/path vertices, shortest-distance sample legs",
+    "speedsKph": {
+      "vehicle": 30,
+      "bicycle": 16,
+      "walking": 5
+    },
+    "usage": "Synthetic snapped stops in fixed order; not a dispatch or full-workload solve.",
+    "limitations": "Conservative offline access/one-way profile; explicit OSM restriction via nodes/ways are omitted when present. Not live traffic, local/legal clearance, or certified navigation."
+  },
+  "routes": [
+    {
+      "courierId": "MUC-001",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 1274.3,
+      "durationSeconds": 153,
+      "stopCount": 4,
+      "coordinateCount": 61
+    },
+    {
+      "courierId": "MUC-034",
+      "mode": "bicycle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 841.6,
+      "durationSeconds": 189,
+      "stopCount": 4,
+      "coordinateCount": 36
+    },
+    {
+      "courierId": "MUC-041",
+      "mode": "walking",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 783.4,
+      "durationSeconds": 564,
+      "stopCount": 4,
+      "coordinateCount": 37
+    }
+  ]
+}

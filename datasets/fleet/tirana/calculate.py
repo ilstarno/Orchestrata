@@ -1,4 +1,4 @@
-"""Deterministic, fixed-route synthetic Tirana dispatch calculation."""
+"""Deterministic, fixed-route Tirana dispatch calculation."""
 import argparse
 import json
 from pathlib import Path
@@ -58,7 +58,7 @@ def build_input(routes):
         mode = route["line"]["mode"]
         hub = f"HUB-{i:02}"
         cell = "northwest" if i in (1, 4) else "southwest" if i in (2, 6) else "east" if i in (3, 5) else "central"
-        hubs.append({"id": hub, "name": f"Synthetic {cell} launch point {i:02}", "courierId": cid, "sequence": 1, "coordinate": route["points"][1][1]})
+        hubs.append({"id": hub, "name": f"{cell.capitalize()} launch point {i:02}", "courierId": cid, "sequence": 1, "coordinate": route["points"][1][1]})
         couriers.append({
             "courierId": cid, "driverId": f"OP-{i:02}", "assetId": f"ASSET-{i:02}", "assetType": MODE_ASSETS[mode],
             "hubId": hub, "mode": mode, "available": True, "assetInService": True, "capacityGrams": CAP[i - 1],
@@ -168,7 +168,7 @@ def calculate(routes):
                      "clock": "Seconds since local midnight; illustrative day, no real roster.",
                      "roadSource": "OpenStreetMap contributors, offline Geofabrik Albania extract 2026-11-13",
                      "osmLicenseUrl": "https://www.openstreetmap.org/copyright",
-                     "scope": "Eight fixed street geometries, 32 mapped synthetic stops; no rerouting, live dispatch or global route optimization.",
+                     "scope": "Eight fixed street geometries, 32 mapped example stops; no rerouting, live dispatch or global route optimization.",
                      "rulesScope": "Company rules are scenario assumptions. OSM profile/access is a routing model only; legal compliance and current road restrictions were not evaluated."},
         "organization": {"id": "ORG-TIA", "name": "Tirana City Parcel", "dataClass": "Illustrative dispatch data",
                          "function": "Local parcel collection and delivery",

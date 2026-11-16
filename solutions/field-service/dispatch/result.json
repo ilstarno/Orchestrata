@@ -1,0 +1,1012 @@
+{
+  "scenarios": [
+    {
+      "id": "original",
+      "label": "Original plan",
+      "summary": {
+        "travelMinutes": 78,
+        "overtimeMinutes": 0,
+        "assignedJobs": 3,
+        "requestedJobs": 3,
+        "businessScore": 78
+      },
+      "assignments": [
+        {
+          "jobId": "lift_repair",
+          "job": "Lift repair",
+          "skill": "lift repair",
+          "window": [
+            540,
+            565
+          ],
+          "assignment": {
+            "technician": "Ana",
+            "arrival": 544,
+            "start": 544,
+            "returnAt": 598,
+            "travelMinutes": 28,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ana",
+            "Noor",
+            "Rami"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Noor",
+              "selectedFor": "Preventive maintenance"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 544,
+              "start": 544,
+              "returnAt": 598,
+              "travelMinutes": 28,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Ben",
+              "arrival": 545,
+              "start": 545,
+              "returnAt": 600,
+              "travelMinutes": 30,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Noor",
+              "arrival": 557,
+              "start": 557,
+              "returnAt": 619,
+              "travelMinutes": 44,
+              "overtimeMinutes": 19,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 565,
+              "start": 565,
+              "returnAt": 620,
+              "travelMinutes": 30,
+              "overtimeMinutes": 20,
+              "excluded": []
+            }
+          ]
+        },
+        {
+          "jobId": "safety_inspection",
+          "job": "Safety inspection",
+          "skill": "safety inspection",
+          "window": [
+            545,
+            570
+          ],
+          "assignment": {
+            "technician": "Ben",
+            "arrival": 542,
+            "start": 545,
+            "returnAt": 592,
+            "travelMinutes": 24,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ana",
+            "Ben"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Ana",
+              "selectedFor": "Lift repair"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 551,
+              "start": 551,
+              "returnAt": 607,
+              "travelMinutes": 42,
+              "overtimeMinutes": 7,
+              "excluded": []
+            },
+            {
+              "technician": "Ben",
+              "arrival": 542,
+              "start": 545,
+              "returnAt": 592,
+              "travelMinutes": 24,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 555,
+              "start": 555,
+              "returnAt": 610,
+              "travelMinutes": 40,
+              "overtimeMinutes": 10,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Rami",
+              "arrival": 574,
+              "start": 574,
+              "returnAt": 633,
+              "travelMinutes": 48,
+              "overtimeMinutes": 33,
+              "excluded": [
+                "Required skill unavailable",
+                "Misses service window",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        },
+        {
+          "jobId": "preventive_maintenance",
+          "job": "Preventive maintenance",
+          "skill": "preventive maintenance",
+          "window": [
+            550,
+            585
+          ],
+          "assignment": {
+            "technician": "Noor",
+            "arrival": 548,
+            "start": 550,
+            "returnAt": 593,
+            "travelMinutes": 26,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ben",
+            "Noor"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Ben",
+              "selectedFor": "Safety inspection"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 593,
+              "travelMinutes": 26,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 575,
+              "start": 575,
+              "returnAt": 630,
+              "travelMinutes": 50,
+              "overtimeMinutes": 30,
+              "excluded": [
+                "Required skill unavailable",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        }
+      ],
+      "problem": {
+        "variables": [
+          {
+            "name": "lift_repair",
+            "domain": [
+              0,
+              2,
+              3,
+              100
+            ]
+          },
+          {
+            "name": "safety_inspection",
+            "domain": [
+              0,
+              1,
+              101
+            ]
+          },
+          {
+            "name": "preventive_maintenance",
+            "domain": [
+              1,
+              2,
+              102
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "all_different",
+            "variables": [
+              0,
+              1,
+              2
+            ],
+            "hard_weight": 1
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 0,
+            "soft_weight": 232
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 2,
+            "soft_weight": 178
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 3,
+            "soft_weight": 190
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 1,
+            "value": 0,
+            "soft_weight": 174
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 1,
+            "value": 1,
+            "soft_weight": 206
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 1,
+            "soft_weight": 164
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 2,
+            "soft_weight": 174
+          }
+        ]
+      },
+      "native": {
+        "values": [
+          0,
+          1,
+          2
+        ],
+        "score": {
+          "hard": 0,
+          "soft": -706
+        },
+        "evaluated": 36
+      },
+      "independentEnumerationMatches": true
+    },
+    {
+      "id": "callout",
+      "label": "Ana calls out",
+      "summary": {
+        "travelMinutes": 80,
+        "overtimeMinutes": 20,
+        "assignedJobs": 3,
+        "requestedJobs": 3,
+        "businessScore": 120
+      },
+      "assignments": [
+        {
+          "jobId": "lift_repair",
+          "job": "Lift repair",
+          "skill": "lift repair",
+          "window": [
+            540,
+            565
+          ],
+          "assignment": {
+            "technician": "Rami",
+            "arrival": 565,
+            "start": 565,
+            "returnAt": 620,
+            "travelMinutes": 30,
+            "overtimeMinutes": 20,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Noor",
+            "Rami"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Noor",
+              "selectedFor": "Preventive maintenance"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 544,
+              "start": 544,
+              "returnAt": 598,
+              "travelMinutes": 28,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Called out"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 545,
+              "start": 545,
+              "returnAt": 600,
+              "travelMinutes": 30,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Noor",
+              "arrival": 557,
+              "start": 557,
+              "returnAt": 619,
+              "travelMinutes": 44,
+              "overtimeMinutes": 19,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 565,
+              "start": 565,
+              "returnAt": 620,
+              "travelMinutes": 30,
+              "overtimeMinutes": 20,
+              "excluded": []
+            }
+          ]
+        },
+        {
+          "jobId": "safety_inspection",
+          "job": "Safety inspection",
+          "skill": "safety inspection",
+          "window": [
+            545,
+            570
+          ],
+          "assignment": {
+            "technician": "Ben",
+            "arrival": 542,
+            "start": 545,
+            "returnAt": 592,
+            "travelMinutes": 24,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ben"
+          ],
+          "alreadyAssigned": [],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 551,
+              "start": 551,
+              "returnAt": 607,
+              "travelMinutes": 42,
+              "overtimeMinutes": 7,
+              "excluded": [
+                "Called out"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 542,
+              "start": 545,
+              "returnAt": 592,
+              "travelMinutes": 24,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 555,
+              "start": 555,
+              "returnAt": 610,
+              "travelMinutes": 40,
+              "overtimeMinutes": 10,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Rami",
+              "arrival": 574,
+              "start": 574,
+              "returnAt": 633,
+              "travelMinutes": 48,
+              "overtimeMinutes": 33,
+              "excluded": [
+                "Required skill unavailable",
+                "Misses service window",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        },
+        {
+          "jobId": "preventive_maintenance",
+          "job": "Preventive maintenance",
+          "skill": "preventive maintenance",
+          "window": [
+            550,
+            585
+          ],
+          "assignment": {
+            "technician": "Noor",
+            "arrival": 548,
+            "start": 550,
+            "returnAt": 593,
+            "travelMinutes": 26,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ben",
+            "Noor"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Ben",
+              "selectedFor": "Safety inspection"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Called out",
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 593,
+              "travelMinutes": 26,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 575,
+              "start": 575,
+              "returnAt": 630,
+              "travelMinutes": 50,
+              "overtimeMinutes": 30,
+              "excluded": [
+                "Required skill unavailable",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        }
+      ],
+      "problem": {
+        "variables": [
+          {
+            "name": "lift_repair",
+            "domain": [
+              2,
+              3,
+              100
+            ]
+          },
+          {
+            "name": "safety_inspection",
+            "domain": [
+              1,
+              101
+            ]
+          },
+          {
+            "name": "preventive_maintenance",
+            "domain": [
+              1,
+              2,
+              102
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "all_different",
+            "variables": [
+              0,
+              1,
+              2
+            ],
+            "hard_weight": 1
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 2,
+            "soft_weight": 178
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 3,
+            "soft_weight": 190
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 1,
+            "value": 1,
+            "soft_weight": 206
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 1,
+            "soft_weight": 164
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 2,
+            "soft_weight": 174
+          }
+        ]
+      },
+      "native": {
+        "values": [
+          3,
+          1,
+          2
+        ],
+        "score": {
+          "hard": 0,
+          "soft": -342
+        },
+        "evaluated": 18
+      },
+      "independentEnumerationMatches": true
+    },
+    {
+      "id": "urgent",
+      "label": "An urgent job arrives",
+      "summary": {
+        "travelMinutes": 102,
+        "overtimeMinutes": 38,
+        "assignedJobs": 3,
+        "requestedJobs": 4,
+        "businessScore": 378
+      },
+      "assignments": [
+        {
+          "jobId": "lift_repair",
+          "job": "Lift repair",
+          "skill": "lift repair",
+          "window": [
+            540,
+            565
+          ],
+          "assignment": {
+            "technician": "Rami",
+            "arrival": 565,
+            "start": 565,
+            "returnAt": 620,
+            "travelMinutes": 30,
+            "overtimeMinutes": 20,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Noor",
+            "Rami"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Noor",
+              "selectedFor": "Urgent isolation"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 544,
+              "start": 544,
+              "returnAt": 598,
+              "travelMinutes": 28,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Called out"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 545,
+              "start": 545,
+              "returnAt": 600,
+              "travelMinutes": 30,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Noor",
+              "arrival": 557,
+              "start": 557,
+              "returnAt": 619,
+              "travelMinutes": 44,
+              "overtimeMinutes": 19,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 565,
+              "start": 565,
+              "returnAt": 620,
+              "travelMinutes": 30,
+              "overtimeMinutes": 20,
+              "excluded": []
+            }
+          ]
+        },
+        {
+          "jobId": "safety_inspection",
+          "job": "Safety inspection",
+          "skill": "safety inspection",
+          "window": [
+            545,
+            570
+          ],
+          "assignment": {
+            "technician": "Ben",
+            "arrival": 542,
+            "start": 545,
+            "returnAt": 592,
+            "travelMinutes": 24,
+            "overtimeMinutes": 0,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Ben"
+          ],
+          "alreadyAssigned": [],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 551,
+              "start": 551,
+              "returnAt": 607,
+              "travelMinutes": 42,
+              "overtimeMinutes": 7,
+              "excluded": [
+                "Called out"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 542,
+              "start": 545,
+              "returnAt": 592,
+              "travelMinutes": 24,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 555,
+              "start": 555,
+              "returnAt": 610,
+              "travelMinutes": 40,
+              "overtimeMinutes": 10,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Rami",
+              "arrival": 574,
+              "start": 574,
+              "returnAt": 633,
+              "travelMinutes": 48,
+              "overtimeMinutes": 33,
+              "excluded": [
+                "Required skill unavailable",
+                "Misses service window",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        },
+        {
+          "jobId": "preventive_maintenance",
+          "job": "Preventive maintenance",
+          "skill": "preventive maintenance",
+          "window": [
+            550,
+            585
+          ],
+          "assignment": null,
+          "qualifiedAndAvailable": [
+            "Ben",
+            "Noor"
+          ],
+          "alreadyAssigned": [
+            {
+              "technician": "Ben",
+              "selectedFor": "Safety inspection"
+            },
+            {
+              "technician": "Noor",
+              "selectedFor": "Urgent isolation"
+            }
+          ],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Called out",
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 598,
+              "travelMinutes": 36,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Noor",
+              "arrival": 548,
+              "start": 550,
+              "returnAt": 593,
+              "travelMinutes": 26,
+              "overtimeMinutes": 0,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 575,
+              "start": 575,
+              "returnAt": 630,
+              "travelMinutes": 50,
+              "overtimeMinutes": 30,
+              "excluded": [
+                "Required skill unavailable",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        },
+        {
+          "jobId": "urgent_isolation",
+          "job": "Urgent isolation",
+          "skill": "urgent isolation",
+          "window": [
+            550,
+            565
+          ],
+          "assignment": {
+            "technician": "Noor",
+            "arrival": 559,
+            "start": 559,
+            "returnAt": 618,
+            "travelMinutes": 48,
+            "overtimeMinutes": 18,
+            "excluded": []
+          },
+          "qualifiedAndAvailable": [
+            "Noor"
+          ],
+          "alreadyAssigned": [],
+          "screening": [
+            {
+              "technician": "Ana",
+              "arrival": 544,
+              "start": 550,
+              "returnAt": 599,
+              "travelMinutes": 28,
+              "overtimeMinutes": 0,
+              "excluded": [
+                "Called out",
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Ben",
+              "arrival": 550,
+              "start": 550,
+              "returnAt": 605,
+              "travelMinutes": 40,
+              "overtimeMinutes": 5,
+              "excluded": [
+                "Required skill unavailable"
+              ]
+            },
+            {
+              "technician": "Noor",
+              "arrival": 559,
+              "start": 559,
+              "returnAt": 618,
+              "travelMinutes": 48,
+              "overtimeMinutes": 18,
+              "excluded": []
+            },
+            {
+              "technician": "Rami",
+              "arrival": 568,
+              "start": 568,
+              "returnAt": 621,
+              "travelMinutes": 36,
+              "overtimeMinutes": 21,
+              "excluded": [
+                "Required skill unavailable",
+                "Misses service window",
+                "Exceeds overtime cap"
+              ]
+            }
+          ]
+        }
+      ],
+      "problem": {
+        "variables": [
+          {
+            "name": "lift_repair",
+            "domain": [
+              2,
+              3,
+              100
+            ]
+          },
+          {
+            "name": "safety_inspection",
+            "domain": [
+              1,
+              101
+            ]
+          },
+          {
+            "name": "preventive_maintenance",
+            "domain": [
+              1,
+              2,
+              102
+            ]
+          },
+          {
+            "name": "urgent_isolation",
+            "domain": [
+              2,
+              103
+            ]
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "all_different",
+            "variables": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "hard_weight": 1
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 2,
+            "soft_weight": 178
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 0,
+            "value": 3,
+            "soft_weight": 190
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 1,
+            "value": 1,
+            "soft_weight": 206
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 1,
+            "soft_weight": 164
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 2,
+            "value": 2,
+            "soft_weight": 174
+          },
+          {
+            "kind": "prefer_value",
+            "variable": 3,
+            "value": 2,
+            "soft_weight": 916
+          }
+        ]
+      },
+      "native": {
+        "values": [
+          3,
+          1,
+          102,
+          2
+        ],
+        "score": {
+          "hard": 0,
+          "soft": -516
+        },
+        "evaluated": 36
+      },
+      "independentEnumerationMatches": true
+    }
+  ]
+}

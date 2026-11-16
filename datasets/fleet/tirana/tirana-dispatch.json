@@ -6,7 +6,7 @@
     "clock": "Seconds since local midnight; illustrative day, no real roster.",
     "roadSource": "OpenStreetMap contributors, offline Geofabrik Albania extract 2026-11-13",
     "osmLicenseUrl": "https://www.openstreetmap.org/copyright",
-    "scope": "Eight fixed street geometries, 32 mapped synthetic stops; no rerouting, live dispatch or global route optimization.",
+    "scope": "Eight fixed street geometries, 32 mapped example stops; no rerouting, live dispatch or global route optimization.",
     "rulesScope": "Company rules are scenario assumptions. OSM profile/access is a routing model only; legal compliance and current road restrictions were not evaluated."
   },
   "organization": {
@@ -115,7 +115,7 @@
   "hubs": [
     {
       "id": "HUB-01",
-      "name": "Synthetic northwest launch point 01",
+      "name": "Northwest launch point 01",
       "courierId": "TIA-001",
       "sequence": 1,
       "coordinate": [
@@ -125,7 +125,7 @@
     },
     {
       "id": "HUB-02",
-      "name": "Synthetic southwest launch point 02",
+      "name": "Southwest launch point 02",
       "courierId": "TIA-002",
       "sequence": 1,
       "coordinate": [
@@ -135,7 +135,7 @@
     },
     {
       "id": "HUB-03",
-      "name": "Synthetic east launch point 03",
+      "name": "East launch point 03",
       "courierId": "TIA-003",
       "sequence": 1,
       "coordinate": [
@@ -145,7 +145,7 @@
     },
     {
       "id": "HUB-04",
-      "name": "Synthetic northwest launch point 04",
+      "name": "Northwest launch point 04",
       "courierId": "TIA-004",
       "sequence": 1,
       "coordinate": [
@@ -155,7 +155,7 @@
     },
     {
       "id": "HUB-05",
-      "name": "Synthetic east launch point 05",
+      "name": "East launch point 05",
       "courierId": "TIA-005",
       "sequence": 1,
       "coordinate": [
@@ -165,7 +165,7 @@
     },
     {
       "id": "HUB-06",
-      "name": "Synthetic southwest launch point 06",
+      "name": "Southwest launch point 06",
       "courierId": "TIA-006",
       "sequence": 1,
       "coordinate": [
@@ -175,7 +175,7 @@
     },
     {
       "id": "HUB-07",
-      "name": "Synthetic central launch point 07",
+      "name": "Central launch point 07",
       "courierId": "TIA-007",
       "sequence": 1,
       "coordinate": [
@@ -185,7 +185,7 @@
     },
     {
       "id": "HUB-08",
-      "name": "Synthetic central launch point 08",
+      "name": "Central launch point 08",
       "courierId": "TIA-008",
       "sequence": 1,
       "coordinate": [

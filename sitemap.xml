@@ -132,6 +132,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/field-service/</loc>
   </url>
   <url>
@@ -157,6 +167,13 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/for-agents/</loc>
@@ -337,6 +354,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -495,6 +532,26 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/docs/</loc>
@@ -657,6 +714,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -817,6 +894,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/docs/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/docs/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/docs/"/>
@@ -975,6 +1072,26 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/docs/</loc>

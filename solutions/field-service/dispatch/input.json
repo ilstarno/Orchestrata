@@ -1,0 +1,24 @@
+{
+  "classification": "Sample dispatch exercise",
+  "timezone": "Europe/Paris",
+  "context": "One simultaneous dispatch wave. Depot-to-job drive and return times are fixed sample estimates, not live street routes. At most one job per technician. The clock is expressed in minutes since local midnight.",
+  "overtimeLimitMinutes": 20,
+  "overtimeWeight": 2,
+  "technicians": [
+    {"id": 0, "name": "Ana", "skills": ["lift repair", "safety inspection"], "ready": 530, "shiftEnd": 600},
+    {"id": 1, "name": "Ben", "skills": ["safety inspection", "preventive maintenance"], "ready": 530, "shiftEnd": 600},
+    {"id": 2, "name": "Noor", "skills": ["lift repair", "preventive maintenance", "urgent isolation"], "ready": 535, "shiftEnd": 600},
+    {"id": 3, "name": "Rami", "skills": ["lift repair"], "ready": 550, "shiftEnd": 600}
+  ],
+  "jobs": [
+    {"id": "lift_repair", "name": "Lift repair", "skill": "lift repair", "earliest": 540, "latest": 565, "serviceMinutes": 40, "unservedPenalty": 260, "travelMinutes": [14, 15, 22, 15]},
+    {"id": "safety_inspection", "name": "Safety inspection", "skill": "safety inspection", "earliest": 545, "latest": 570, "serviceMinutes": 35, "unservedPenalty": 230, "travelMinutes": [21, 12, 20, 24]},
+    {"id": "preventive_maintenance", "name": "Preventive maintenance", "skill": "preventive maintenance", "earliest": 550, "latest": 585, "serviceMinutes": 30, "unservedPenalty": 200, "travelMinutes": [18, 18, 13, 25]},
+    {"id": "urgent_isolation", "name": "Urgent isolation", "skill": "urgent isolation", "earliest": 550, "latest": 565, "serviceMinutes": 35, "unservedPenalty": 1000, "travelMinutes": [14, 20, 24, 18]}
+  ],
+  "scenarios": [
+    {"id": "original", "label": "Original plan", "absent": [], "urgent": false},
+    {"id": "callout", "label": "Ana calls out", "absent": [0], "urgent": false},
+    {"id": "urgent", "label": "An urgent job arrives", "absent": [0], "urgent": true}
+  ]
+}

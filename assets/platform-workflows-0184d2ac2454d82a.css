@@ -1,0 +1,24 @@
+.platform-workflows { margin-block: 2.2rem 3rem; }
+.platform-workflows > p { max-inline-size: 70ch; margin-block: .45rem; }
+.platform-boundary { color: var(--muted); font-size: .91rem; }
+.platform-workflow-list { border-block-start: 1px solid var(--rule); margin-block-start: 1.2rem; }
+.platform-workflow { border-block-end: 1px solid var(--rule); }
+.platform-workflow > summary {
+  min-block-size: 48px; padding: .7rem .5rem; color: var(--accent); cursor: pointer; text-underline-offset: .2em;
+}
+.platform-workflow > summary:hover { text-decoration: underline; }
+.platform-workflow > summary span { color: var(--muted); margin-inline-end: .65rem; font-size: .9rem; }
+.platform-workflow > summary strong { font-size: 1rem; }
+.platform-workflow-body { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: .65rem 1.3rem; padding: .35rem .5rem; }
+.platform-workflow-body .case-sketch { margin: 0; align-self: start; }
+.platform-workflow-body dl { margin: 0; }
+.platform-workflow-body dt { font-weight: 680; }
+.platform-workflow-body dd { margin: 0 0 .6rem; }
+.platform-workflow > .platform-boundary { padding-inline: .5rem; margin: .15rem 0; }
+.platform-workflow-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; padding-inline: .5rem; }
+.platform-workflow-links a { display: inline-flex; flex-wrap: wrap; align-items: center; min-height: 44px; }
+@media (max-width: 45rem) {
+  .platform-workflow-body { grid-template-columns: minmax(0, 1fr); }
+  .platform-workflow > summary span { display: block; padding-inline-start: 1.15rem; }
+  .platform-workflow > summary strong { display: inline-block; margin-inline-start: 1.15rem; }
+}

@@ -36,9 +36,9 @@ The following paths are implemented in review or local integration work. See the
 | Method and path | Purpose |
 | --- | --- |
 | `GET /api/v1/error-codes` | Read stable error identifiers and their meanings. |
-| `GET /api/v1/recipes` | List the bundled synthetic scenarios. |
+| `GET /api/v1/recipes` | List the bundled examples. |
 | `GET /api/v1/recipes/{recipe_id}` | Read a recipe’s description and declared fields. |
-| `GET /api/v1/recipes/{recipe_id}/example` | Return the synthetic problem, without running it. |
+| `GET /api/v1/recipes/{recipe_id}/example` | Return the sample problem, without running it. |
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Solve a bundled example with no request body. This path is local review work, not a released interface. |
 
-A separate local MCP review build exposes `list_recipes`, `describe_recipe`, and `get_recipe_example` through standard input and output. It lists and reads synthetic examples only. It neither listens for network connections nor runs a solve. Do not expect hosted MCP, remote credentials, or sign-in from the local evaluation build.
+A separate local MCP review build exposes `list_recipes`, `describe_recipe`, and `get_recipe_example` through standard input and output. It lists and reads sample cases only. It neither listens for network connections nor runs a solve. Do not expect hosted MCP, remote credentials, or sign-in from the local evaluation build.

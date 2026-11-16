@@ -1,6 +1,6 @@
 # Recipe API reference
 
-**Local review builds only.** [Review #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the recipe catalog and example routes. [Review #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the recipe grid. These are not released or hosted endpoints. Check the revision you run and keep the service on your own machine. The catalog contains bundled synthetic planning examples, not uploaded files or customer records.
+**Local review builds only.** [Review #22](https://github.com/ilstarno/Orchestrata/pull/22) adds the recipe catalog and example routes. [Review #24](https://github.com/ilstarno/Orchestrata/pull/24) adds the recipe grid. These are not released or hosted endpoints. Check the revision you run and keep the service on your own machine. The catalog contains worked planning examples, not uploaded files or customer records.
 
 ## Start with the catalog
 
@@ -20,7 +20,7 @@ curl -fsS -X POST "$API/api/v1/recipes/field-service/run-example"
 | --- | --- |
 | `GET /api/v1/recipes` | A JSON array of metadata objects. |
 | `GET /api/v1/recipes/{recipe_id}` | One metadata object. Use the exact `id` returned by the catalog. |
-| `GET /api/v1/recipes/{recipe_id}/example` | The checked-in synthetic planning problem as JSON. It does not solve it. |
+| `GET /api/v1/recipes/{recipe_id}/example` | The bundled planning problem as JSON. It does not solve it. |
 | `POST /api/v1/recipes/{recipe_id}/run-example` | Solves the bundled example and returns a JSON result. Send no request body. Where variants exist, this route uses the default example. |
 | `GET /api/v1/recipes/grid` | One filtered, sorted page of catalog metadata. Requires the revision in review #24. |
 | `GET /api/v1/error-codes` | An array of error codes, descriptions, and associated status lists (keys: `code`, `description`, `status_codes`). |

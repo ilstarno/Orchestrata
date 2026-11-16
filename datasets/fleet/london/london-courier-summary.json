@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "city": "London, United Kingdom",
+    "source": "https://api.openstreetmap.org/api/0.6/map?bbox=-0.1288,51.5185,-0.1210,51.5257",
+    "sourceSha256": "82a7f566b0ea51d245f2d24576923bcea264387887a8f614698daeb00d8efdc9",
+    "sourceExtract": "OpenStreetMap map XML, retrieved 2026-11-16T10:22:52Z",
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "licenseUrl": "https://www.openstreetmap.org/copyright",
+    "fixMapUrl": "https://www.openstreetmap.org/fixthemap",
+    "geometry": "Actual consecutive OpenStreetMap road/path vertices, shortest-distance sample legs",
+    "speedsKph": {
+      "vehicle": 30,
+      "bicycle": 16,
+      "walking": 5
+    },
+    "usage": "Synthetic snapped stops in fixed order; not a dispatch or full-workload solve.",
+    "limitations": "Conservative offline access/one-way profile; explicit OSM restriction via nodes/ways are omitted when present. Not live traffic, local/legal clearance, or certified navigation."
+  },
+  "routes": [
+    {
+      "courierId": "LON-001",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 1187.9,
+      "durationSeconds": 143,
+      "stopCount": 4,
+      "coordinateCount": 72
+    },
+    {
+      "courierId": "LON-073",
+      "mode": "bicycle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 731.1,
+      "durationSeconds": 164,
+      "stopCount": 4,
+      "coordinateCount": 51
+    },
+    {
+      "courierId": "LON-086",
+      "mode": "walking",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 526.6,
+      "durationSeconds": 379,
+      "stopCount": 4,
+      "coordinateCount": 40
+    }
+  ]
+}

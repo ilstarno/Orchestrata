@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "city": "Paris, France",
+    "source": "https://api.openstreetmap.org/api/0.6/map?bbox=2.3480,48.8540,2.3550,48.8600",
+    "sourceSha256": "c49fa6089ed776a76f124ea2d4f01a1572b80a6c8bd2975522d02cf9deb571a6",
+    "sourceExtract": "OpenStreetMap map XML, retrieved 2026-11-16T10:22:45Z",
+    "attribution": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "licenseUrl": "https://www.openstreetmap.org/copyright",
+    "fixMapUrl": "https://www.openstreetmap.org/fixthemap",
+    "geometry": "Actual consecutive OpenStreetMap road/path vertices, shortest-distance sample legs",
+    "speedsKph": {
+      "vehicle": 30,
+      "bicycle": 16,
+      "walking": 5
+    },
+    "usage": "Synthetic snapped stops in fixed order; not a dispatch or full-workload solve.",
+    "limitations": "Conservative offline access/one-way profile; explicit OSM restriction via nodes/ways are omitted when present. Not live traffic, local/legal clearance, or certified navigation."
+  },
+  "routes": [
+    {
+      "courierId": "PAR-001",
+      "mode": "vehicle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 168.7,
+      "durationSeconds": 21,
+      "stopCount": 4,
+      "coordinateCount": 6
+    },
+    {
+      "courierId": "PAR-061",
+      "mode": "bicycle",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 1049.1,
+      "durationSeconds": 236,
+      "stopCount": 4,
+      "coordinateCount": 77
+    },
+    {
+      "courierId": "PAR-072",
+      "mode": "walking",
+      "provider": "OpenStreetMap offline",
+      "distanceMeters": 397.1,
+      "durationSeconds": 286,
+      "stopCount": 4,
+      "coordinateCount": 34
+    }
+  ]
+}
