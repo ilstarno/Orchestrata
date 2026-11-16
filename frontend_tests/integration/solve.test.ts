@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { solveProblem } from '../../shared/api/solve'
+import { solveProblem } from '../../frontend/src/shared/api/solve'
 
 afterEach(() => {
   vi.unstubAllGlobals()
