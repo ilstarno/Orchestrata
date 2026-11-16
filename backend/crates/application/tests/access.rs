@@ -1,89 +1,70 @@
 use orchestrata_application::access::{
     AccessAction::{Manage, Run, View},
-    AccessRequest, Actor, ActorId, AgentId, GroupMembership, OrganizationId, Permission,
-    PermissionGroup, ProtectedResource, ResourceOwner, UserId, is_allowed,
+    AccessRequest, Actor, ActorId, AgentId, GroupMembership, Permission, PermissionGroup,
+    ProtectedResource, ResourceOwner, UserId, is_allowed,
 };
 
 const ALICE: Actor = Actor::User(UserId(1));
 const BOB: Actor = Actor::User(UserId(2));
 const ALICE_PERSONAL: ResourceOwner = ResourceOwner::Personal(UserId(1));
 const BOB_PERSONAL: ResourceOwner = ResourceOwner::Personal(UserId(2));
-const FIRST_ORG: ResourceOwner = ResourceOwner::Organization(OrganizationId(1));
-const SECOND_ORG: ResourceOwner = ResourceOwner::Organization(OrganizationId(2));
+const SHARED: ResourceOwner = ResourceOwner::Shared;
 
 #[test]
-fn groups_provide_a_union_within_the_matching_scope() {
-    let analysts = PermissionGroup::new(FIRST_ORG, [Permission::Solver(View)]);
-    let operators = PermissionGroup::new(FIRST_ORG, [Permission::Solver(Run)]);
+fn multiple_shared_groups_provide_a_union_of_explicit_grants() {
+    let analysts = PermissionGroup::new(SHARED, [Permission::Solver(View)]);
+    let operators = PermissionGroup::new(SHARED, [Permission::Solver(Run)]);
     let memberships = [member(ALICE, &analysts), member(ALICE, &operators)];
-    let solver = ProtectedResource::Solver(FIRST_ORG);
+    let solver = ProtectedResource::Solver(SHARED);
 
     assert!(is_allowed(request(ALICE, solver, View), &memberships));
     assert!(is_allowed(request(ALICE, solver, Run), &memberships));
     assert!(!is_allowed(request(ALICE, solver, Manage), &memberships));
+    assert!(!is_allowed(request(BOB, solver, Run), &memberships));
 }
 
 #[test]
-fn organization_memberships_do_not_cross_scopes_or_principals() {
-    let group = PermissionGroup::new(FIRST_ORG, [Permission::Solver(Run)]);
-    let memberships = [member(ALICE, &group)];
+fn shared_resources_default_to_deny_even_with_personal_grants() {
+    let personal = PermissionGroup::new(ALICE_PERSONAL, [Permission::Solver(Run)]);
+    let solver = ProtectedResource::Solver(SHARED);
 
+    assert!(!is_allowed(request(ALICE, solver, Run), &[]));
     assert!(!is_allowed(
-        request(ALICE, ProtectedResource::Solver(SECOND_ORG), Run),
-        &memberships,
-    ));
-    assert!(!is_allowed(
-        request(BOB, ProtectedResource::Solver(FIRST_ORG), Run),
-        &memberships,
-    ));
-}
-
-#[test]
-fn one_user_can_have_distinct_grants_in_different_organizations() {
-    let readers = PermissionGroup::new(FIRST_ORG, [Permission::Solver(View)]);
-    let operators = PermissionGroup::new(SECOND_ORG, [Permission::Solver(Run)]);
-    let memberships = [member(ALICE, &readers), member(ALICE, &operators)];
-
-    assert!(is_allowed(
-        request(ALICE, ProtectedResource::Solver(FIRST_ORG), View),
-        &memberships,
-    ));
-    assert!(is_allowed(
-        request(ALICE, ProtectedResource::Solver(SECOND_ORG), Run),
-        &memberships,
-    ));
-    assert!(!is_allowed(
-        request(ALICE, ProtectedResource::Solver(FIRST_ORG), Run),
-        &memberships,
+        request(ALICE, solver, Run),
+        &[member(ALICE, &personal)],
     ));
 }
 
 #[test]
 fn permissions_are_resource_and_action_specific() {
-    let group = PermissionGroup::new(FIRST_ORG, [Permission::Agent(Manage)]);
+    let group = PermissionGroup::new(SHARED, [Permission::Agent(Manage)]);
     let memberships = [member(ALICE, &group)];
 
     assert!(is_allowed(
-        request(ALICE, ProtectedResource::Agent(FIRST_ORG), Manage),
+        request(ALICE, ProtectedResource::Agent(SHARED), Manage),
         &memberships,
     ));
     assert!(!is_allowed(
-        request(ALICE, ProtectedResource::Agent(FIRST_ORG), Run),
+        request(ALICE, ProtectedResource::Agent(SHARED), Run),
         &memberships,
     ));
     assert!(!is_allowed(
-        request(ALICE, ProtectedResource::Solver(FIRST_ORG), Manage),
+        request(ALICE, ProtectedResource::Solver(SHARED), Manage),
         &memberships,
     ));
 }
 
 #[test]
-fn people_manage_their_own_personal_resources_and_cannot_use_anothers() {
-    let personal_group = PermissionGroup::new(
+fn personal_user_ownership_does_not_transfer_via_groups() {
+    let bobs_personal_group = PermissionGroup::new(
         BOB_PERSONAL,
         [Permission::Solver(Run), Permission::Agent(Run)],
     );
-    let memberships = [member(ALICE, &personal_group)];
+    let shared_group = PermissionGroup::new(SHARED, [Permission::Solver(Run)]);
+    let memberships = [
+        member(ALICE, &bobs_personal_group),
+        member(ALICE, &shared_group),
+    ];
 
     assert!(is_allowed(
         request(ALICE, ProtectedResource::Solver(ALICE_PERSONAL), Manage),
@@ -104,62 +85,71 @@ fn people_manage_their_own_personal_resources_and_cannot_use_anothers() {
 }
 
 #[test]
-fn organization_resources_require_explicit_grants() {
-    assert!(!is_allowed(
-        request(ALICE, ProtectedResource::Agent(FIRST_ORG), View),
-        &[],
-    ));
-}
-
-#[test]
-fn agent_has_its_own_grants_not_its_personal_owners_access() {
+fn a_personal_agent_needs_its_own_grant_not_its_owners() {
     let agent = Actor::Agent {
         id: AgentId(1),
         owner: ALICE_PERSONAL,
     };
-    let group = PermissionGroup::new(ALICE_PERSONAL, [Permission::Solver(Run)]);
+    let personal = PermissionGroup::new(ALICE_PERSONAL, [Permission::Solver(Run)]);
     let solver = ProtectedResource::Solver(ALICE_PERSONAL);
 
     assert!(!is_allowed(request(agent, solver, Run), &[]));
+    // Matching numeric IDs do not make a user and an agent the same principal.
     assert!(!is_allowed(
         request(agent, solver, Run),
-        &[member(ALICE, &group)],
+        &[member(ALICE, &personal)],
     ));
     assert!(is_allowed(
         request(agent, solver, Run),
-        &[member(agent, &group)],
+        &[member(agent, &personal)],
     ));
     assert!(!is_allowed(
         request(agent, solver, Manage),
-        &[member(agent, &group)],
+        &[member(agent, &personal)],
     ));
 }
 
 #[test]
-fn agent_cannot_use_even_an_explicit_group_outside_its_own_scope() {
+fn a_shared_agent_needs_an_explicit_shared_grant() {
     let agent = Actor::Agent {
         id: AgentId(2),
-        owner: FIRST_ORG,
+        owner: SHARED,
     };
-    let first = PermissionGroup::new(FIRST_ORG, [Permission::Solver(Run)]);
-    let second = PermissionGroup::new(SECOND_ORG, [Permission::Solver(Run)]);
+    let shared = PermissionGroup::new(SHARED, [Permission::Solver(Run)]);
     let personal = PermissionGroup::new(ALICE_PERSONAL, [Permission::Solver(Run)]);
-    let memberships = [
-        member(agent, &first),
-        member(agent, &second),
-        member(agent, &personal),
-    ];
+    let solver = ProtectedResource::Solver(SHARED);
 
-    assert!(is_allowed(
-        request(agent, ProtectedResource::Solver(FIRST_ORG), Run),
-        &memberships,
-    ));
+    assert!(!is_allowed(request(agent, solver, Run), &[]));
     assert!(!is_allowed(
-        request(agent, ProtectedResource::Solver(SECOND_ORG), Run),
-        &memberships,
+        request(agent, solver, Run),
+        &[member(agent, &personal)],
+    ));
+    assert!(is_allowed(
+        request(agent, solver, Run),
+        &[member(agent, &shared)],
     ));
     assert!(!is_allowed(
         request(agent, ProtectedResource::Solver(ALICE_PERSONAL), Run),
+        &[member(agent, &personal), member(agent, &shared)],
+    ));
+}
+
+#[test]
+fn a_personal_agent_cannot_cross_to_shared_or_another_personal_scope() {
+    let agent = Actor::Agent {
+        id: AgentId(3),
+        owner: ALICE_PERSONAL,
+    };
+    let shared = PermissionGroup::new(SHARED, [Permission::Solver(Run)]);
+    let other_personal = PermissionGroup::new(BOB_PERSONAL, [Permission::Solver(Run)]);
+    let memberships = [member(agent, &shared), member(agent, &other_personal)];
+
+    assert!(!is_allowed(
+        request(agent, ProtectedResource::Solver(SHARED), Run),
+        &memberships,
+    ));
+    assert!(!is_allowed(
+        request(agent, ProtectedResource::Solver(BOB_PERSONAL), Run),
         &memberships,
     ));
 }

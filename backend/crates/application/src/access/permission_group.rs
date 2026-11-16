@@ -1,19 +1,20 @@
 use super::{Permission, ResourceOwner};
 
+/// A set of explicit grants for one resource scope in this installation.
 pub struct PermissionGroup {
-    owner: ResourceOwner,
+    scope: ResourceOwner,
     permissions: Vec<Permission>,
 }
 
 impl PermissionGroup {
-    pub fn new(owner: ResourceOwner, permissions: impl IntoIterator<Item = Permission>) -> Self {
+    pub fn new(scope: ResourceOwner, permissions: impl IntoIterator<Item = Permission>) -> Self {
         Self {
-            owner,
+            scope,
             permissions: permissions.into_iter().collect(),
         }
     }
 
-    pub(super) fn grants(&self, owner: ResourceOwner, permission: Permission) -> bool {
-        self.owner == owner && self.permissions.contains(&permission)
+    pub(super) fn grants(&self, scope: ResourceOwner, permission: Permission) -> bool {
+        self.scope == scope && self.permissions.contains(&permission)
     }
 }

@@ -1,8 +1,8 @@
 use super::{AccessRequest, Actor, GroupMembership, ResourceOwner};
 
-/// Evaluates access using authenticated identity, authoritative resource ownership, and current
-/// group memberships. Resolve these inputs server-side instead of trusting request data.
-/// This policy grants scope-wide access only; it does not authorize group administration.
+/// Checks access within one installation. Resolve the identity, resource ownership, and current
+/// group memberships from trusted state for that installation, not from request input.
+/// Group grants apply to matching resources in their scope; group administration is separate.
 #[must_use]
 pub fn is_allowed(request: AccessRequest, memberships: &[GroupMembership<'_>]) -> bool {
     let owner = request.target.owner();
