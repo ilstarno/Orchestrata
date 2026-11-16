@@ -21,7 +21,7 @@ impl PendingAdmission {
         let waiter = self.waiter.take().expect("granted admission has a waiter");
         AdmissionPermit {
             controller: self.controller.clone(),
-            scope: waiter.scope,
+            principal: waiter.principal,
         }
     }
 }

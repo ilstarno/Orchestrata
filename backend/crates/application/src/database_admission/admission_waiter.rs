@@ -1,8 +1,8 @@
 use tokio::sync::Notify;
 
-use super::AdmissionScope;
+use super::AdmissionPrincipal;
 
 pub(super) struct AdmissionWaiter {
-    pub scope: AdmissionScope,
+    pub principal: AdmissionPrincipal,
     pub ready: Notify,
 }

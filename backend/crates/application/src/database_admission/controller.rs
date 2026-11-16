@@ -6,8 +6,9 @@ use std::{
 use tokio::{sync::Notify, time};
 
 use super::{
-    AdmissionError, AdmissionPermit, AdmissionScope, ScopeLimits, admission_state::AdmissionState,
-    admission_waiter::AdmissionWaiter, pending_admission::PendingAdmission,
+    AdmissionError, AdmissionLimits, AdmissionPermit, AdmissionPrincipal,
+    admission_state::AdmissionState, admission_waiter::AdmissionWaiter,
+    pending_admission::PendingAdmission,
 };
 
 /// Process-local admission control ahead of database pool checkout.
@@ -18,7 +19,7 @@ pub struct DatabaseAdmission {
 
 impl DatabaseAdmission {
     /// Passing no waiting limits disables queueing.
-    pub fn new(active_limits: ScopeLimits, waiting_limits: Option<ScopeLimits>) -> Self {
+    pub fn new(active_limits: AdmissionLimits, waiting_limits: Option<AdmissionLimits>) -> Self {
         Self {
             state: Arc::new(Mutex::new(AdmissionState::new(
                 active_limits,
@@ -27,33 +28,36 @@ impl DatabaseAdmission {
         }
     }
 
-    /// Returns immediately without queueing or waiting for capacity.
-    pub fn try_acquire(&self, scope: AdmissionScope) -> Result<AdmissionPermit, AdmissionError> {
+    /// Attempts admission without queueing or waiting for capacity.
+    pub fn try_acquire(
+        &self,
+        principal: AdmissionPrincipal,
+    ) -> Result<AdmissionPermit, AdmissionError> {
         let mut state = self.state.lock().map_err(|_| AdmissionError::Unavailable)?;
-        state.admit(scope).map_err(AdmissionError::Busy)?;
+        state.admit(principal).map_err(AdmissionError::Busy)?;
         Ok(AdmissionPermit {
             controller: self.clone(),
-            scope,
+            principal,
         })
     }
 
     /// Waits for capacity up to the caller's timeout, using a Tokio timer.
     ///
     /// Queued callers are selected in arrival order among currently eligible
-    /// scopes. Dropping the future cancels a waiter even if it was just granted.
+    /// principals. Dropping the future cancels a waiter even if it was just granted.
     /// A zero timeout never enqueues.
     pub async fn acquire_timeout(
         &self,
-        scope: AdmissionScope,
+        principal: AdmissionPrincipal,
         timeout: Duration,
     ) -> Result<AdmissionPermit, AdmissionError> {
         let pending = {
             let mut state = self.state.lock().map_err(|_| AdmissionError::Unavailable)?;
-            let active_limit = match state.admit(scope) {
+            let active_limit = match state.admit(principal) {
                 Ok(()) => {
                     return Ok(AdmissionPermit {
                         controller: self.clone(),
-                        scope,
+                        principal,
                     });
                 }
                 Err(limit) => limit,
@@ -64,7 +68,7 @@ impl DatabaseAdmission {
             }
 
             let waiter = Arc::new(AdmissionWaiter {
-                scope,
+                principal,
                 ready: Notify::new(),
             });
             state.enqueue(waiter.clone(), active_limit)?;
@@ -80,12 +84,12 @@ impl DatabaseAdmission {
         Ok(pending.into_permit())
     }
 
-    pub(super) fn release(&self, scope: AdmissionScope) {
+    pub(super) fn release(&self, principal: AdmissionPrincipal) {
         let granted = self
             .state
             .lock()
             .ok()
-            .and_then(|mut state| state.release(scope));
+            .and_then(|mut state| state.release(principal));
         if let Some(waiter) = granted {
             waiter.ready.notify_one();
         }
