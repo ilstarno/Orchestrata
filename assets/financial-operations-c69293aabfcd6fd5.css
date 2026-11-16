@@ -1,0 +1,72 @@
+.finance-feature,.finance-recipes { display:grid; gap:.7rem; min-inline-size:0; margin-block:1rem 2.1rem; scroll-margin-block-start:5rem; }
+.finance-feature :is(h2,h3),.finance-recipes h2 { margin:0; }
+.finance-feature h2 { display:flex; align-items:center; gap:.56rem; }
+.finance-feature h2 svg,.finance-recipes svg { color:var(--accent); flex:none; }
+.finance-switch { display:none; min-inline-size:0; border:0; padding:0; margin:0; gap:.4rem; }
+.finance-switch legend { color:var(--muted); font-size:.87rem; margin:0 0 .35rem; }
+.finance-switch label { display:inline-flex; align-items:center; gap:.43rem; min-block-size:44px; padding:.27rem .6rem; border:1px solid var(--rule); cursor:pointer; }
+.finance-switch input { accent-color:var(--accent); }
+.finance-switch label:has(input:checked) { border-color:var(--accent); background:var(--dataset-head); }
+.finance-switch label:has(input:focus-visible) { outline:2px solid var(--accent); outline-offset:2px; }
+.finance-scenario { border:1px solid var(--rule); padding:clamp(.55rem,2vw,1.05rem); background:var(--dataset-surface); }
+.finance-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,8.5rem),1fr)); gap:.45rem .65rem; margin:.6rem 0 .35rem; }
+.finance-metrics div { padding:.42rem .5rem; border-block-start:2px solid var(--accent); background:var(--paper); }
+.finance-metrics div:nth-child(3) { border-block-start-color:var(--status-review); }
+.finance-metrics dt { color:var(--muted); font-size:.83rem; }
+.finance-metrics dd { margin:0; font-variant-numeric:tabular-nums; font-size:1.2rem; font-weight:710; }
+.finance-rows summary { padding:.55rem 0; min-block-size:44px; cursor:pointer; font-weight:650; }
+.finance-rows p,.finance-scope { color:var(--muted); font-size:.86rem; }
+.finance-sources { display:flex; flex-wrap:wrap; gap:.4rem 1rem; }
+.finance-sources a,.finance-contact { min-block-size:44px; display:inline-flex; align-items:center; }
+.finance-recipes ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); list-style:none; gap:.45rem .85rem; padding:0; margin:0; }
+.finance-recipes li { display:grid; grid-template-columns:auto 1fr; gap:.14rem .5rem; padding:.6rem 0; border-block-start:1px solid var(--rule); }
+.finance-recipes li a { grid-column:2; display:inline-flex; gap:.4rem; align-items:center; min-block-size:44px; }
+@media(max-width:39rem) { .finance-recipes ul { grid-template-columns:1fr; } }
+@supports selector(:has(*)) {
+  .finance-switch { display:flex; flex-wrap:wrap; }
+  .finance-feature:has(input[value="normal"]:checked) .finance-scenario:not([data-finance-scenario="normal"]),
+  .finance-feature:has(input[value="disruption"]:checked) .finance-scenario:not([data-finance-scenario="disruption"]),
+  .finance-feature:has(input[value="baseline"]:checked) .finance-scenario:not([data-finance-scenario="baseline"]),
+  .finance-feature:has(input[value="recommended"]:checked) .finance-scenario:not([data-finance-scenario="recommended"]),
+  .finance-feature:has(input[value="surge"]:checked) .finance-scenario:not([data-finance-scenario="surge"]) { display:none; }
+}
+.finance-overview,.finance-pilot { display:grid; gap:.8rem; margin-block:1.4rem 2.3rem; min-inline-size:0; scroll-margin-block-start:5rem; }
+.finance-overview :is(h2,h3,p),.finance-pilot :is(h2,p,ol),.finance-explanation { margin:0; }
+.finance-proof-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr)); gap:.75rem; }
+.finance-proof {
+  display:flex; flex-direction:column; align-items:flex-start; gap:.6rem;
+  border:1px solid var(--rule); border-block-start:3px solid var(--accent);
+  padding:clamp(.75rem,2.2vw,1.25rem); background:var(--dataset-surface);
+}
+.finance-proof h3 { display:flex; gap:.5rem; align-items:center; }
+.finance-proof h3 svg,.finance-proof a svg { color:var(--accent); flex:none; }
+.finance-proof p,.finance-explanation { color:var(--muted); }
+.finance-proof a { display:inline-flex; gap:.35rem; align-items:center; min-block-size:44px; margin-block-start:auto; }
+.finance-proof-chart { display:grid; inline-size:100%; gap:.65rem; margin:.15rem 0 0; }
+.finance-proof-bar { display:grid; gap:.25rem; }
+.finance-proof-bar dt { font-size:.84rem; color:var(--muted); }
+.finance-proof-bar dd { display:flex; gap:.7rem; align-items:center; margin:0; }
+.finance-proof-bar strong { font-size:.92rem; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.finance-proof-bar meter {
+  appearance:none; flex:1; min-inline-size:1.4rem; block-size:.65rem;
+  border:0; border-radius:.2rem; background:var(--dataset-head);
+}
+.finance-proof-bar meter::-webkit-meter-bar { background:var(--dataset-head); border:0; border-radius:.2rem; }
+.finance-proof-bar meter::-webkit-meter-optimum-value { background:var(--accent); border-radius:.2rem; }
+.finance-proof-bar meter::-moz-meter-bar { background:var(--accent); border-radius:.2rem; }
+.finance-pilot { border:1px solid var(--rule); border-inline-start:3px solid var(--accent); padding:clamp(.85rem,3vw,1.6rem); background:var(--dataset-surface); }
+.finance-pilot ol { display:grid; gap:.4rem; padding-inline-start:1.25rem; }
+.finance-pilot .finance-contact { justify-self:start; gap:.45rem; max-inline-size:100%; }
+.finance-contact svg { flex:none; }
+
+.payment-holds { margin: 1rem 0; padding: .85rem 1rem; border: 1px solid var(--rule); }
+.payment-holds figcaption { font-weight: 680; font-size: 1.05rem; }
+.payment-holds p { max-inline-size: 65ch; margin: .35rem 0 .65rem; color: var(--muted); }
+.payment-holds ul { list-style: none; margin: 0; padding: 0; }
+.payment-holds li + li { border-block-start: 1px solid var(--rule); }
+.payment-holds summary { display: grid; grid-template-columns: 1em minmax(0, 1fr) auto; min-block-size: 44px; align-items: center; gap: .2rem .5rem; cursor: pointer; padding-block: .35rem; }
+.payment-holds summary::before { content: '+'; color: var(--accent); }
+.payment-holds details[open] summary::before { content: '−'; }
+.payment-holds summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.payment-holds meter { grid-column: 2 / -1; inline-size: 100%; accent-color: var(--accent); }
+.payment-holds details > p { margin-inline-start: 1.5rem; }

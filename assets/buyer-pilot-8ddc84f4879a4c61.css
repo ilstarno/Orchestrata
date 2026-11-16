@@ -1,0 +1,43 @@
+.pilot-proof { display:grid; gap:.8rem; margin-block:1.1rem 2.2rem; min-inline-size:0; }
+.pilot-proof :is(h2,h3,p,dl),.pilot-deliverable :is(h2,h3,h4,p,dl) { margin:0; }
+.pilot-proof > p,.pilot-deliverable > p { color:var(--muted); }
+.pilot-proof > .hero-primary { justify-self:start; max-inline-size:100%; }
+.pilot-proof-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:.65rem; }
+.pilot-result { display:grid; gap:.55rem; border:1px solid var(--rule); border-block-start:3px solid var(--accent); padding:.8rem; background:var(--dataset-surface); }
+.pilot-result h3 { display:flex; align-items:center; gap:.4rem; font-size:1.06rem; }
+.pilot-result svg,.pilot-deliverable svg { color:var(--accent); flex:none; }
+.pilot-result dl { display:flex; gap:.3rem 1.25rem; flex-wrap:wrap; }
+.pilot-result dt { color:var(--muted); font-size:.86rem; }
+.pilot-result dd { margin:0; font-size:1.24rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.pilot-result .text-link { justify-self:start; align-self:end; }
+.pilot-engagement { display:grid; gap:.75rem; align-items:start; grid-template-columns:minmax(0,3fr) minmax(0,2fr); margin-block:1.45rem 2.1rem; }
+.pilot-engagement > * { min-inline-size:0; }
+.pilot-engagement .contact,.pilot-deliverable { display:grid; gap:.6rem; padding:clamp(.75rem,2.25vw,1.2rem); border:1px solid var(--rule); }
+.pilot-engagement .contact :is(h2,p) { margin:0; }
+.pilot-engagement .contact { border-block-start:3px solid var(--accent); background:var(--dataset-surface); }
+.pilot-engagement :is(h2,p) { margin-block:0; }
+/* The pilot report is a worked comparison, not a customer testimonial. */
+.pilot-report {
+  display:grid; gap:.75rem; min-inline-size:0; padding:.9rem;
+  border:1px solid var(--rule); border-block-start:3px solid var(--accent);
+  background:var(--dataset-surface);
+}
+.pilot-report h3 { display:flex; align-items:flex-start; gap:.5rem; font-size:1.06rem; }
+.pilot-report header p { margin-block-start:.35rem; color:var(--muted); font-size:.9rem; }
+.pilot-report-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; }
+.pilot-report-plan { min-inline-size:0; padding:.65rem; border:1px solid var(--rule); background:var(--paper); }
+.pilot-report-plan h4 { margin-block-end:.45rem; text-wrap:balance; }
+.pilot-report-plan dl { display:grid; gap:.35rem; font-size:.9rem; }
+.pilot-report-plan dl > div { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:.15rem .35rem; }
+.pilot-report-plan dt { color:var(--muted); overflow-wrap:anywhere; }
+.pilot-report-plan dd { margin:0; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.pilot-report-scheduled meter {
+  grid-column:1/-1; appearance:none; inline-size:100%; block-size:.6rem;
+  margin-block:.2rem; border:0; border-radius:.25rem; background:var(--dataset-head);
+}
+.pilot-report-scheduled meter::-webkit-meter-bar { background:var(--dataset-head); border:0; border-radius:.25rem; }
+.pilot-report-scheduled meter::-webkit-meter-optimum-value { background:var(--accent); border-radius:.25rem; }
+.pilot-report-scheduled meter::-moz-meter-bar { background:var(--accent); border-radius:.25rem; }
+.pilot-report .text-link { justify-self:start; max-inline-size:100%; }
+@media (max-width:46rem) { .pilot-engagement { grid-template-columns:minmax(0,1fr); } }
+@media (max-width:25rem) { .pilot-report-comparison { grid-template-columns:minmax(0,1fr); } }

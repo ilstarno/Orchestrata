@@ -30,3 +30,8 @@
 .city-dispatch__totals dd { margin: 0; font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .city-dispatch__limits { margin-block: .75rem; }
 .city-dispatch__limits summary { cursor: pointer; }
+.city-dispatch__limits summary { min-block-size: 44px; padding-block: .65rem; }
+.city-dispatch__count-note { color: var(--muted); margin-block-end: .35rem; }
+.city-dispatch__data-links { display: flex; flex-wrap: wrap; gap: 0 1rem; padding: 0; margin-block: .35rem 0; list-style: none; }
+.city-dispatch__data-links a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.city-dispatch__map .leaflet-control-zoom a { inline-size: 44px; block-size: 44px; line-height: 44px; }
