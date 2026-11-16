@@ -1,0 +1,29 @@
+.sales-decision-flow { margin-block: 1rem 1.35rem; }
+.sales-decision-flow ol { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); list-style: none; margin: 0; padding: 0; }
+.sales-decision-flow li { position: relative; display: grid; grid-template-rows: auto 1fr; gap: .35rem; min-width: 0; }
+.sales-decision-flow li::before { content: ""; position: absolute; inset: .98rem 0 auto; border-block-start: 2px solid var(--accent); }
+.sales-decision-flow li:first-child::before { inset-inline-start: 50%; }
+.sales-decision-flow li:last-child::before { inset-inline-end: 50%; }
+.sales-decision-flow li[data-sales-state="skipped"]::before { border-block-start: 1px dashed var(--rule); }
+.sales-flow-marker { position: relative; display: grid; place-items: center; justify-self: center; width: 2rem; height: 2rem; border: 1px solid currentColor; border-radius: 50%; background: var(--paper); color: var(--accent); }
+.sales-decision-flow li > div { padding: .32rem .4rem; text-align: center; overflow-wrap: anywhere; }
+.sales-decision-flow li strong { font-size: .86rem; line-height: 1.3; }
+.sales-decision-flow li p { color: var(--muted); font-size: .78rem; margin: .18rem 0 0; }
+.sales-decision-flow li[data-sales-state="skipped"] .sales-flow-marker { color: var(--muted); border-style: dashed; }
+.sales-decision-flow li[data-sales-state="outcome"] .sales-flow-marker { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+.sales-flow-branch { display: flex; gap: .65rem; align-items: flex-start; padding: .65rem .8rem; background: var(--dataset-surface); border-inline-start: 3px solid var(--accent); }
+.sales-flow-branch svg { flex: none; color: var(--accent); }
+.sales-flow-branch p { display: grid; gap: .1rem; margin: 0; }
+.sales-flow-branch span { color: var(--muted); }
+.sales-flow-branch:is([data-sales-result="review"],[data-sales-result="held"],[data-sales-result="invalid"],[data-sales-result="unassigned"]) { border-color: var(--status-review); }
+@media (max-width: 52rem) {
+  .sales-decision-flow ol { grid-template-columns: minmax(0,1fr); }
+  .sales-decision-flow li { grid-template-columns: 2rem minmax(0,1fr); align-items: start; min-height: 3.15rem; gap: .45rem; }
+  .sales-decision-flow li::before, .sales-decision-flow li:first-child::before, .sales-decision-flow li:last-child::before { inset: 0 auto 0 .95rem; border-block: 0; border-inline-start: 2px solid var(--accent); }
+  .sales-decision-flow li:last-child::before { inset-block-end: calc(100% - 2rem); }
+  .sales-decision-flow li[data-sales-state="skipped"]::before { border-block: 0; border-inline-start: 1px dashed var(--rule); }
+  .sales-decision-flow li > div { padding: .08rem .25rem .45rem; text-align: start; }
+}
+@media(prefers-reduced-motion:no-preference) {
+  .sales-flow-branch { animation: lead-decision-in 260ms ease-out both; }
+}
