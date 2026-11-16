@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": 1,
+  "operationalCase": {
+    "caseIdentity": {
+      "caseId": "TIA-FIXED-01",
+      "organization": "Tirana City Parcel (illustrative dispatch data)",
+      "timezone": "Europe/Tirane",
+      "clock": "Seconds since local midnight; illustrative day, no real roster.",
+      "roadSource": "OpenStreetMap contributors, offline Geofabrik Albania extract 2026-11-13",
+      "osmLicenseUrl": "https://www.openstreetmap.org/copyright",
+      "scope": "Eight fixed street geometries, 32 mapped example stops; no rerouting, live dispatch or global route optimization.",
+      "rulesScope": "Company rules are scenario assumptions. OSM profile/access is a routing model only; legal compliance and current road restrictions were not evaluated."
+    },
+    "dispatchOrganization": {
+      "id": "ORG-TIA",
+      "name": "Tirana City Parcel",
+      "dataClass": "Illustrative dispatch data",
+      "function": "Local parcel collection and delivery",
+      "teams": [
+        {
+          "id": "TEAM-W",
+          "function": "West launch points"
+        },
+        {
+          "id": "TEAM-C",
+          "function": "Central/east launch points"
+        }
+      ]
+    },
+    "caseOutcome": {
+      "requestCount": 18,
+      "assignedCount": 8,
+      "notAssignedCount": 10,
+      "reviewCount": 1,
+      "routeCount": 8,
+      "stopCount": 32,
+      "distanceMeters": 33932.7,
+      "travelSeconds": 5074,
+      "waitSeconds": 1082
+    },
+    "externalAccessAndCurbReview": {
+      "status": "not_verified",
+      "requiredBeforeRealDispatch": true,
+      "sources": [
+        {
+          "id": "SRC-ACCESS",
+          "name": "Municipality of Tirana: ring circulation authorization",
+          "url": "https://tirana.al/Bashkia-Tiran%C3%AB/detaje-sherbimi/Transporti/753",
+          "check": "Verify whether the route, vehicle and time require authorization inside the city ring."
+        },
+        {
+          "id": "SRC-CURB",
+          "name": "Tirana Parking: on-street paid parking",
+          "url": "https://tiranaparking.al/parkime-ne-rruge/",
+          "check": "Parking tariffs do not confirm lawful loading; check actual signs and allowed handoff location."
+        },
+        {
+          "id": "SRC-RESERVED",
+          "name": "Tirana Parking: reserved spaces",
+          "url": "https://tiranaparking.al/parkim-i-rezervuar-me-pagese/",
+          "check": "Check any sign, activity, applicable hours and permission for the specific bay."
+        },
+        {
+          "id": "SRC-LAW",
+          "name": "Official Publications Centre: Road Code register",
+          "url": "https://qbz.gov.al/eli/ligj/1998/07/22/8378",
+          "check": "Registry reference only; the case does not determine which provisions apply."
+        }
+      ]
+    },
+    "fixedRouteDecisions": [
+      {
+        "requestId": "REQ-018",
+        "status": "not_assigned",
+        "reviewRequired": true,
+        "courierId": null,
+        "reasonCodes": [
+          "access_evidence_missing"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-002",
+            "reasonCodes": [
+              "access_evidence_missing"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-001",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-001",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-001",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-002",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-002",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-002",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-003",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-003",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-003",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-004",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-004",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-004",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-005",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-005",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-005",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-006",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-006",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-006",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-007",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-007",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-007",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-008",
+        "status": "assigned",
+        "reviewRequired": false,
+        "courierId": "TIA-008",
+        "reasonCodes": [],
+        "candidates": [
+          {
+            "courierId": "TIA-008",
+            "reasonCodes": []
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-009",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "capacity_exceeded"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-007",
+            "reasonCodes": [
+              "capacity_exceeded"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-010",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "mode_not_allowed"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-008",
+            "reasonCodes": [
+              "mode_not_allowed"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-011",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "pickup_window_missed"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-001",
+            "reasonCodes": [
+              "pickup_window_missed"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-012",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "no_mapped_pickup_delivery_pair"
+        ],
+        "candidates": []
+      },
+      {
+        "requestId": "REQ-013",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "shift_end_exceeded"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-006",
+            "reasonCodes": [
+              "shift_end_exceeded"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-014",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "fixed_route_already_committed"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-002",
+            "reasonCodes": [
+              "fixed_route_already_committed"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-015",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "handling_qualification_missing"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-004",
+            "reasonCodes": [
+              "handling_qualification_missing"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-016",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "cargo_dimensions_exceeded"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-007",
+            "reasonCodes": [
+              "cargo_dimensions_exceeded"
+            ]
+          }
+        ]
+      },
+      {
+        "requestId": "REQ-017",
+        "status": "not_assigned",
+        "reviewRequired": false,
+        "courierId": null,
+        "reasonCodes": [
+          "cross_team_approval_missing"
+        ],
+        "candidates": [
+          {
+            "courierId": "TIA-001",
+            "reasonCodes": [
+              "cross_team_approval_missing"
+            ]
+          }
+        ]
+      }
+    ],
+    "planningEvidence": {
+      "assignmentPolicy": {
+        "routeEligibility": {
+          "trackedRules": [
+            {
+              "id": "R01",
+              "description": "Mapped pickup and delivery must both match; sequence 2 precedes 3.",
+              "kind": "company"
+            },
+            {
+              "id": "R02",
+              "description": "The route mode must be among the modes allowed for the shipment.",
+              "kind": "company"
+            },
+            {
+              "id": "R03",
+              "description": "The courier must be available and their assigned asset in service.",
+              "kind": "company"
+            },
+            {
+              "id": "R04",
+              "description": "At pickup, shipment plus current load cannot exceed payload capacity.",
+              "kind": "company"
+            },
+            {
+              "id": "R05",
+              "description": "Wait if early; both pickup and delivery service must finish by each window's end.",
+              "kind": "company"
+            },
+            {
+              "id": "R06",
+              "description": "The planned route must finish by the courier's shift end.",
+              "kind": "company"
+            },
+            {
+              "id": "R07",
+              "description": "Only one request per fixed route; choose feasible requests by priority, then stable request ID.",
+              "kind": "company"
+            },
+            {
+              "id": "R09",
+              "description": "Operator must be qualified for the requested handling; cargo must fit the configured internal dimensions.",
+              "kind": "company"
+            },
+            {
+              "id": "R10",
+              "description": "Borrowing another team’s operator requires simulated cross-team approval.",
+              "kind": "company"
+            },
+            {
+              "id": "R11",
+              "description": "Missing scenario road or curb evidence holds the request for review. Sample evidence is not a permit.",
+              "kind": "company"
+            },
+            {
+              "id": "R08",
+              "description": "Travel follows the already mapped OSM profile; segment durations are estimates, not live traffic.",
+              "kind": "map_model"
+            }
+          ],
+          "timeWindowReview": {
+            "serviceRule": "Wait if early; both pickup and delivery service must finish by each window's end.",
+            "shiftRule": "The planned route must finish by the courier's shift end.",
+            "checkedRunEvidence": [
+              {
+                "requestId": "REQ-001",
+                "courierId": "TIA-001",
+                "assetId": "ASSET-01",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Printed forms",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-C",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 24000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": true,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-W",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 200000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 24000,
+                  "remainingPayloadAtPeakGrams": 176000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 5538.7,
+                  "travelElapsedSeconds": 664,
+                  "waitingElapsedSeconds": 1082,
+                  "completeRunElapsedSeconds": 1956,
+                  "shiftOpensAtLocalSecond": 28800,
+                  "shiftClosesAtLocalSecond": 33300,
+                  "runFinishesAtLocalSecond": 30756,
+                  "shiftSecondsRemaining": 2544,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 1847323458,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 28860,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 28889,
+                            "startServiceAtLocalSecond": 28889,
+                            "finishServiceAtLocalSecond": 28979,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1021
+                          },
+                          "loadAfterStopGrams": 24000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 11201074624,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 30300,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29218,
+                            "startServiceAtLocalSecond": 30300,
+                            "finishServiceAtLocalSecond": 30420,
+                            "elapsedWaitSeconds": 1082,
+                            "secondsRemainingAfterService": 1080
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-002",
+                "courierId": "TIA-002",
+                "assetId": "ASSET-02",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Market crates",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-W",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 62000,
+                  "handlingRequired": "secure_handoff",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-W",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard",
+                    "secure_handoff"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 120000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 62000,
+                  "remainingPayloadAtPeakGrams": 58000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 5878.8,
+                  "travelElapsedSeconds": 706,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 916,
+                  "shiftOpensAtLocalSecond": 28860,
+                  "shiftClosesAtLocalSecond": 33300,
+                  "runFinishesAtLocalSecond": 29776,
+                  "shiftSecondsRemaining": 3524,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 6946535692,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 28920,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29055,
+                            "startServiceAtLocalSecond": 29055,
+                            "finishServiceAtLocalSecond": 29145,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 855
+                          },
+                          "loadAfterStopGrams": 62000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 1946518665,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29369,
+                            "startServiceAtLocalSecond": 29369,
+                            "finishServiceAtLocalSecond": 29489,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 2011
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-003",
+                "courierId": "TIA-003",
+                "assetId": "ASSET-03",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Retail tote",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-C",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 18000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-C",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 160000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 18000,
+                  "remainingPayloadAtPeakGrams": 142000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 3598.2,
+                  "travelElapsedSeconds": 431,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 641,
+                  "shiftOpensAtLocalSecond": 28920,
+                  "shiftClosesAtLocalSecond": 33300,
+                  "runFinishesAtLocalSecond": 29561,
+                  "shiftSecondsRemaining": 3739,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 5896601853,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 28980,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29051,
+                            "startServiceAtLocalSecond": 29051,
+                            "finishServiceAtLocalSecond": 29141,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 859
+                          },
+                          "loadAfterStopGrams": 18000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 12072491839,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29298,
+                            "startServiceAtLocalSecond": 29298,
+                            "finishServiceAtLocalSecond": 29418,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 2082
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-004",
+                "courierId": "TIA-004",
+                "assetId": "ASSET-04",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Office supplies",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-W",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 37000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-W",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 180000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 37000,
+                  "remainingPayloadAtPeakGrams": 143000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 4106.9,
+                  "travelElapsedSeconds": 493,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 703,
+                  "shiftOpensAtLocalSecond": 28980,
+                  "shiftClosesAtLocalSecond": 33300,
+                  "runFinishesAtLocalSecond": 29683,
+                  "shiftSecondsRemaining": 3617,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 1843955687,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29040,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29090,
+                            "startServiceAtLocalSecond": 29090,
+                            "finishServiceAtLocalSecond": 29180,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 820
+                          },
+                          "loadAfterStopGrams": 37000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 11194942982,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29412,
+                            "startServiceAtLocalSecond": 29412,
+                            "finishServiceAtLocalSecond": 29532,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1968
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-005",
+                "courierId": "TIA-005",
+                "assetId": "ASSET-05",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Packaged pantry goods",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-C",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 84000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-C",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard",
+                    "secure_handoff"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 140000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 84000,
+                  "remainingPayloadAtPeakGrams": 56000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 4193.3,
+                  "travelElapsedSeconds": 502,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 712,
+                  "shiftOpensAtLocalSecond": 29040,
+                  "shiftClosesAtLocalSecond": 30360,
+                  "runFinishesAtLocalSecond": 29752,
+                  "shiftSecondsRemaining": 608,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 1855842589,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29100,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29240,
+                            "startServiceAtLocalSecond": 29240,
+                            "finishServiceAtLocalSecond": 29330,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 670
+                          },
+                          "loadAfterStopGrams": 84000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 7003233837,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29466,
+                            "startServiceAtLocalSecond": 29466,
+                            "finishServiceAtLocalSecond": 29586,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1914
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-006",
+                "courierId": "TIA-006",
+                "assetId": "ASSET-06",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Repair parts",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-W",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 21000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "vehicle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Compact cargo van",
+                  "operatorTeam": "TEAM-W",
+                  "transportMode": "vehicle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    1400,
+                    1100,
+                    1000
+                  ],
+                  "ratedPayloadGrams": 160000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 21000,
+                  "remainingPayloadAtPeakGrams": 139000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 5652.5,
+                  "travelElapsedSeconds": 678,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 888,
+                  "shiftOpensAtLocalSecond": 29100,
+                  "shiftClosesAtLocalSecond": 33300,
+                  "runFinishesAtLocalSecond": 29988,
+                  "shiftSecondsRemaining": 3312,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 1844141070,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29160,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29243,
+                            "startServiceAtLocalSecond": 29243,
+                            "finishServiceAtLocalSecond": 29333,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 667
+                          },
+                          "loadAfterStopGrams": 21000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 11151866922,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29659,
+                            "startServiceAtLocalSecond": 29659,
+                            "finishServiceAtLocalSecond": 29779,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1721
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-007",
+                "courierId": "TIA-007",
+                "assetId": "ASSET-07",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Books",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-C",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 5000,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "bicycle"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Cargo bicycle",
+                  "operatorTeam": "TEAM-C",
+                  "transportMode": "bicycle",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    600,
+                    400,
+                    350
+                  ],
+                  "ratedPayloadGrams": 18000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 5000,
+                  "remainingPayloadAtPeakGrams": 13000
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 3988.2,
+                  "travelElapsedSeconds": 898,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 1108,
+                  "shiftOpensAtLocalSecond": 29160,
+                  "shiftClosesAtLocalSecond": 30360,
+                  "runFinishesAtLocalSecond": 30268,
+                  "shiftSecondsRemaining": 92,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 11117835887,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29220,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29421,
+                            "startServiceAtLocalSecond": 29421,
+                            "finishServiceAtLocalSecond": 29511,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 489
+                          },
+                          "loadAfterStopGrams": 5000
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 5893133722,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29787,
+                            "startServiceAtLocalSecond": 29787,
+                            "finishServiceAtLocalSecond": 29907,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1593
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "requestId": "REQ-008",
+                "courierId": "TIA-008",
+                "assetId": "ASSET-08",
+                "decisionStatus": "assigned",
+                "shipmentRequirements": {
+                  "cargoLabel": "Document pouch",
+                  "dispatchPriority": 10,
+                  "requestTeam": "TEAM-C",
+                  "cargoPackedDimensionsMm": [
+                    300,
+                    200,
+                    150
+                  ],
+                  "payloadMassGrams": 1200,
+                  "handlingRequired": "standard",
+                  "permittedTransportModes": [
+                    "walking"
+                  ],
+                  "crossTeamApprovalInScenario": false,
+                  "roadAccessEvidenceInScenario": "sample_confirmed",
+                  "curbAccessEvidenceInScenario": "sample_confirmed"
+                },
+                "operatorAndVehicle": {
+                  "assetType": "Insulated backpack",
+                  "operatorTeam": "TEAM-C",
+                  "transportMode": "walking",
+                  "operatorAvailable": true,
+                  "assetInService": true,
+                  "handlingQualifications": [
+                    "standard"
+                  ],
+                  "assetInteriorDimensionsMm": [
+                    400,
+                    300,
+                    200
+                  ],
+                  "ratedPayloadGrams": 6000,
+                  "initialPayloadGrams": 0,
+                  "routePeakPayloadGrams": 1200,
+                  "remainingPayloadAtPeakGrams": 4800
+                },
+                "fixedRun": {
+                  "fixedRunDistanceMeters": 976.1,
+                  "travelElapsedSeconds": 702,
+                  "waitingElapsedSeconds": 0,
+                  "completeRunElapsedSeconds": 912,
+                  "shiftOpensAtLocalSecond": 29220,
+                  "shiftClosesAtLocalSecond": 30360,
+                  "runFinishesAtLocalSecond": 30132,
+                  "shiftSecondsRemaining": 228,
+                  "chronologicalShipmentHandoffs": [
+                    {
+                      "shipmentActivity": "pickup",
+                      "routeStopSequence": 2,
+                      "mappedOsmNodeId": 4551191466,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 30000,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29391,
+                            "startServiceAtLocalSecond": 29391,
+                            "finishServiceAtLocalSecond": 29481,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 519
+                          },
+                          "loadAfterStopGrams": 1200
+                        }
+                      }
+                    },
+                    {
+                      "shipmentActivity": "delivery",
+                      "routeStopSequence": 3,
+                      "mappedOsmNodeId": 2619527359,
+                      "scheduleWindow": {
+                        "timeBasis": "Seconds since local midnight; illustrative day, no real roster.",
+                        "opensAtLocalSecond": 29280,
+                        "dueByLocalSecond": 31500,
+                        "executionEvidence": {
+                          "plannedTiming": {
+                            "arrivalAtLocalSecond": 29707,
+                            "startServiceAtLocalSecond": 29707,
+                            "finishServiceAtLocalSecond": 29827,
+                            "elapsedWaitSeconds": 0,
+                            "secondsRemainingAfterService": 1673
+                          },
+                          "loadAfterStopGrams": 0
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

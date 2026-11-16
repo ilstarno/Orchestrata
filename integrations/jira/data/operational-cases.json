@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "schemaVersion": 1,
+      "caseId": "jsm-queue",
+      "useCaseContext": "Jira Service Management queue: allocate agents while preserving SLA deadlines on an illustrative uninterrupted clock.",
+      "provenance": {
+        "inputArtifact": "cases.json",
+        "outputArtifact": "results.json",
+        "scope": "Offline example; no Jira reads, writes or change execution"
+      },
+      "operation": {
+        "sourceProduct": "Jira Service Management",
+        "planningService": {
+          "servicePurpose": "Review held service requests before escalation",
+          "decisionWorkflow": {
+            "workflowPolicy": "Highest priority first, then earliest deadline and stable issue key. Hand-off is not automatic.",
+            "approvalAuthority": {
+              "reviewerRole": "Queue supervisor",
+              "recommendationOnly": true,
+              "issueWriteBackAllowed": false,
+              "changeExecutionAllowed": false
+            },
+            "planningSession": {
+              "clockBasis": "Elapsed minutes from the start of the example horizon",
+              "timeUnit": "minute",
+              "planOutcome": {
+                "requestedIssueCount": 5,
+                "assignedIssueCount": 2,
+                "heldIssueCount": 3
+              },
+              "staffing": {
+                "availableResourceCount": 2,
+                "resourceWindows": [
+                  {
+                    "resourceKey": "AGENT-A",
+                    "eligibleSkills": [
+                      "identity"
+                    ],
+                    "availableFromMinute": 0,
+                    "availableUntilMinute": 130
+                  },
+                  {
+                    "resourceKey": "AGENT-B",
+                    "eligibleSkills": [
+                      "identity",
+                      "billing"
+                    ],
+                    "availableFromMinute": 10,
+                    "availableUntilMinute": 180
+                  }
+                ]
+              },
+              "issuePlanning": {
+                "issueReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "HELP-101",
+                      "issueTitle": "Restore account access",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "identity"
+                        ],
+                        "effortMinutes": 25,
+                        "priorityRank": 3,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 40,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "AGENT-A",
+                        "scheduledFromMinute": 0,
+                        "scheduledUntilMinute": 25,
+                        "deadlineSlackMinutes": 15,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Queue supervisor"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "HELP-102",
+                      "issueTitle": "Correct billing adjustment",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "billing"
+                        ],
+                        "effortMinutes": 35,
+                        "priorityRank": 2,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 65,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "no_slot_before_deadline",
+                        "blockedPrerequisiteKeys": [],
+                        "qualifiedResourceKeysConsidered": [
+                          "AGENT-B"
+                        ]
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Queue supervisor"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "HELP-103",
+                      "issueTitle": "Investigate account permissions",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "identity"
+                        ],
+                        "effortMinutes": 30,
+                        "priorityRank": 2,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 50,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "AGENT-B",
+                        "scheduledFromMinute": 10,
+                        "scheduledUntilMinute": 40,
+                        "deadlineSlackMinutes": 10,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Queue supervisor"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "HELP-104",
+                      "issueTitle": "Review invoice export after adjustment",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "billing"
+                        ],
+                        "effortMinutes": 20,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 100,
+                          "prerequisiteKeys": [
+                            "HELP-102"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "prerequisite_held",
+                        "blockedPrerequisiteKeys": [
+                          "HELP-102"
+                        ],
+                        "qualifiedResourceKeysConsidered": []
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Queue supervisor"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "HELP-105",
+                      "issueTitle": "Handle request requiring legal triage",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "legal"
+                        ],
+                        "effortMinutes": 20,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 100,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "no_qualified_resource",
+                        "blockedPrerequisiteKeys": [],
+                        "qualifiedResourceKeysConsidered": []
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Queue supervisor"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "caseId": "jira-release",
+      "useCaseContext": "Jira Software release: coordinate engineering, QA and release duties with explicit dependencies.",
+      "provenance": {
+        "inputArtifact": "cases.json",
+        "outputArtifact": "results.json",
+        "scope": "Offline example; no Jira reads, writes or change execution"
+      },
+      "operation": {
+        "sourceProduct": "Jira Software",
+        "planningService": {
+          "servicePurpose": "Review unmet release prerequisites and rescope the release",
+          "decisionWorkflow": {
+            "workflowPolicy": "A prerequisite must finish before dependent work starts. Out-of-scope items remain for review.",
+            "approvalAuthority": {
+              "reviewerRole": "Release owner",
+              "recommendationOnly": true,
+              "issueWriteBackAllowed": false,
+              "changeExecutionAllowed": false
+            },
+            "planningSession": {
+              "clockBasis": "Elapsed minutes from the start of the example horizon",
+              "timeUnit": "minute",
+              "planOutcome": {
+                "requestedIssueCount": 5,
+                "assignedIssueCount": 3,
+                "heldIssueCount": 2
+              },
+              "staffing": {
+                "availableResourceCount": 3,
+                "resourceWindows": [
+                  {
+                    "resourceKey": "ENG-1",
+                    "eligibleSkills": [
+                      "api"
+                    ],
+                    "availableFromMinute": 0,
+                    "availableUntilMinute": 360
+                  },
+                  {
+                    "resourceKey": "QA-1",
+                    "eligibleSkills": [
+                      "qa"
+                    ],
+                    "availableFromMinute": 60,
+                    "availableUntilMinute": 360
+                  },
+                  {
+                    "resourceKey": "REL-1",
+                    "eligibleSkills": [
+                      "deploy"
+                    ],
+                    "availableFromMinute": 180,
+                    "availableUntilMinute": 300
+                  }
+                ]
+              },
+              "issuePlanning": {
+                "issueReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "REL-201",
+                      "issueTitle": "Finalize compatibility patch",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "api"
+                        ],
+                        "effortMinutes": 100,
+                        "priorityRank": 3,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 150,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "ENG-1",
+                        "scheduledFromMinute": 0,
+                        "scheduledUntilMinute": 100,
+                        "deadlineSlackMinutes": 50,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Release owner"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "REL-202",
+                      "issueTitle": "Run release smoke tests",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "qa"
+                        ],
+                        "effortMinutes": 45,
+                        "priorityRank": 3,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 210,
+                          "prerequisiteKeys": [
+                            "REL-201"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "QA-1",
+                        "scheduledFromMinute": 100,
+                        "scheduledUntilMinute": 145,
+                        "deadlineSlackMinutes": 65,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Release owner"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "REL-203",
+                      "issueTitle": "Prepare deployment handoff",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "deploy"
+                        ],
+                        "effortMinutes": 30,
+                        "priorityRank": 3,
+                        "timing": {
+                          "releaseMinute": 175,
+                          "dueMinute": 240,
+                          "prerequisiteKeys": [
+                            "REL-202"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "REL-1",
+                        "scheduledFromMinute": 180,
+                        "scheduledUntilMinute": 210,
+                        "deadlineSlackMinutes": 30,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Release owner"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "REL-204",
+                      "issueTitle": "Add optional API import",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "api"
+                        ],
+                        "effortMinutes": 170,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 240,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "no_slot_before_deadline",
+                        "blockedPrerequisiteKeys": [],
+                        "qualifiedResourceKeysConsidered": [
+                          "ENG-1"
+                        ]
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Release owner"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "REL-205",
+                      "issueTitle": "Test optional API import",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "qa"
+                        ],
+                        "effortMinutes": 45,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 360,
+                          "prerequisiteKeys": [
+                            "REL-204"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "prerequisite_held",
+                        "blockedPrerequisiteKeys": [
+                          "REL-204"
+                        ],
+                        "qualifiedResourceKeysConsidered": []
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Release owner"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "caseId": "jsm-change-window",
+      "useCaseContext": "Jira Service Management incident and change: reserve change windows without assuming approval in Jira.",
+      "provenance": {
+        "inputArtifact": "cases.json",
+        "outputArtifact": "results.json",
+        "scope": "Offline example; no Jira reads, writes or change execution"
+      },
+      "operation": {
+        "sourceProduct": "Jira Service Management",
+        "planningService": {
+          "servicePurpose": "Check required approval and review the proposed change window",
+          "decisionWorkflow": {
+            "workflowPolicy": "An explicit sample approval is required for changes marked approval-required. Review does not execute any change.",
+            "approvalAuthority": {
+              "reviewerRole": "Change approver",
+              "recommendationOnly": true,
+              "issueWriteBackAllowed": false,
+              "changeExecutionAllowed": false
+            },
+            "planningSession": {
+              "clockBasis": "Elapsed minutes from the start of the example horizon",
+              "timeUnit": "minute",
+              "planOutcome": {
+                "requestedIssueCount": 5,
+                "assignedIssueCount": 3,
+                "heldIssueCount": 2
+              },
+              "staffing": {
+                "availableResourceCount": 2,
+                "resourceWindows": [
+                  {
+                    "resourceKey": "ONCALL-1",
+                    "eligibleSkills": [
+                      "incident",
+                      "change"
+                    ],
+                    "availableFromMinute": 0,
+                    "availableUntilMinute": 220
+                  },
+                  {
+                    "resourceKey": "ONCALL-2",
+                    "eligibleSkills": [
+                      "observability"
+                    ],
+                    "availableFromMinute": 15,
+                    "availableUntilMinute": 200
+                  }
+                ]
+              },
+              "issuePlanning": {
+                "issueReviews": [
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-301",
+                      "issueTitle": "Triage checkout latency",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "incident"
+                        ],
+                        "effortMinutes": 40,
+                        "priorityRank": 4,
+                        "timing": {
+                          "releaseMinute": 0,
+                          "dueMinute": 60,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "ONCALL-1",
+                        "scheduledFromMinute": 0,
+                        "scheduledUntilMinute": 40,
+                        "deadlineSlackMinutes": 20,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Change approver"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-302",
+                      "issueTitle": "Confirm rollback readiness",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "observability"
+                        ],
+                        "effortMinutes": 30,
+                        "priorityRank": 3,
+                        "timing": {
+                          "releaseMinute": 30,
+                          "dueMinute": 105,
+                          "prerequisiteKeys": [
+                            "OPS-301"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "ONCALL-2",
+                        "scheduledFromMinute": 40,
+                        "scheduledUntilMinute": 70,
+                        "deadlineSlackMinutes": 35,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Change approver"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-303",
+                      "issueTitle": "Stage approved capacity change",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "change"
+                        ],
+                        "effortMinutes": 20,
+                        "priorityRank": 2,
+                        "timing": {
+                          "releaseMinute": 90,
+                          "dueMinute": 140,
+                          "prerequisiteKeys": [
+                            "OPS-302"
+                          ]
+                        },
+                        "sampleApprovalState": "sample-approved"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "assigned",
+                      "plannedPlacement": {
+                        "assignedResourceKey": "ONCALL-1",
+                        "scheduledFromMinute": 90,
+                        "scheduledUntilMinute": 110,
+                        "deadlineSlackMinutes": 30,
+                        "emittedChecks": {
+                          "skillCoverage": {
+                            "meetsSkillRequirements": true
+                          },
+                          "slotFitsResourceWindow": true,
+                          "slotFitsIssueWindow": true,
+                          "durationMatchesEstimate": true,
+                          "prerequisitesFinishFirst": true,
+                          "approvalGateAllowsAssignment": true,
+                          "noOverlappingAssignments": true
+                        }
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "awaiting_human_review",
+                        "escalationOwnerRole": "Change approver"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-304",
+                      "issueTitle": "Stage secondary change pending review",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "change"
+                        ],
+                        "effortMinutes": 15,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 100,
+                          "dueMinute": 175,
+                          "prerequisiteKeys": []
+                        },
+                        "sampleApprovalState": "pending"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "approval_pending",
+                        "blockedPrerequisiteKeys": [],
+                        "qualifiedResourceKeysConsidered": []
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Change approver"
+                      }
+                    }
+                  },
+                  {
+                    "issueRecord": {
+                      "issueKey": "OPS-305",
+                      "issueTitle": "Verify metrics after secondary change",
+                      "staffingRequirements": {
+                        "requiredSkills": [
+                          "observability"
+                        ],
+                        "effortMinutes": 25,
+                        "priorityRank": 1,
+                        "timing": {
+                          "releaseMinute": 100,
+                          "dueMinute": 175,
+                          "prerequisiteKeys": [
+                            "OPS-304"
+                          ]
+                        },
+                        "sampleApprovalState": "not_required"
+                      }
+                    },
+                    "issuedDecision": {
+                      "decisionStatus": "held",
+                      "holdRecord": {
+                        "holdReasonCode": "prerequisite_held",
+                        "blockedPrerequisiteKeys": [
+                          "OPS-304"
+                        ],
+                        "qualifiedResourceKeysConsidered": []
+                      },
+                      "requestedReview": {
+                        "reviewStatus": "requires_human_triage",
+                        "escalationOwnerRole": "Change approver"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
