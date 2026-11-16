@@ -1,11 +1,18 @@
 use axum::{
     Json,
-    extract::Path,
+    extract::{Path, State},
     http::{StatusCode, header::CONTENT_TYPE},
 };
+use orchestrata_application::solve_error::SolveError;
 use orchestrata_solver::Problem;
 
-use crate::{api::recipe_catalog, dto::recipe_metadata_response::RecipeMetadataResponse};
+use crate::{
+    api::{
+        error::ApiError, error_code::SolveErrorCode, recipe_catalog,
+        solve_admission::SolveAdmission,
+    },
+    dto::{recipe_metadata_response::RecipeMetadataResponse, solve_response::SolveResponse},
+};
 
 const UNAVAILABLE: (StatusCode, &str) = (
     StatusCode::INTERNAL_SERVER_ERROR,
@@ -58,6 +65,36 @@ pub async fn example(
 {
     let problem = recipe_catalog::find_example(&id).ok_or(UNKNOWN_RECIPE)?;
     Ok(([(CONTENT_TYPE, "application/json")], problem))
+}
+
+#[utoipa::path(
+    post, path = "/api/v1/recipes/{recipe_id}/run-example",
+    description = "Solve the checked-in synthetic example for this recipe. No request body or external effects; recipes with variants use the default example.",
+    params(("recipe_id" = String, Path, description = "Built-in recipe identifier")),
+    responses(
+        (status = 200, description = "Verified result; solution is null if proven infeasible", body = SolveResponse),
+        (status = 404, description = "Unknown built-in recipe",
+            headers(("X-Orchestrata-Error-Code" = String, description = "not_found"))),
+        (status = 500, description = "The server could not solve the built-in example",
+            headers(("X-Orchestrata-Error-Code" = SolveErrorCode, description = "solve_execution_failed"))),
+        (status = 503, description = "All solve execution slots are occupied; retry later",
+            headers(("X-Orchestrata-Error-Code" = SolveErrorCode, description = "solver_busy")))
+    )
+)]
+pub async fn run_example(
+    State(admission): State<SolveAdmission>,
+    Path(id): Path<String>,
+) -> Result<Json<SolveResponse>, ApiError> {
+    let source = recipe_catalog::find_example(&id).ok_or(ApiError::UnknownRecipe)?;
+    let problem: Problem = serde_json::from_str(source).map_err(|_| SolveError::ExecutionFailed)?;
+    let solution = admission
+        .solve(problem)
+        .await
+        .map_err(|error| match error {
+            ApiError::SolveBusy => ApiError::SolveBusy,
+            _ => SolveError::ExecutionFailed.into(),
+        })?;
+    Ok(Json(SolveResponse { solution }))
 }
 
 #[cfg(test)]

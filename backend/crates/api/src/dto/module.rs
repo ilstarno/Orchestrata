@@ -1,3 +1,4 @@
+pub mod error_catalog_entry;
 pub mod health_response;
 pub mod recipe_field_kind;
 pub mod recipe_field_response;

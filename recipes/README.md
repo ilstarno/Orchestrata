@@ -38,6 +38,14 @@ curl -fsS http://127.0.0.1:3000/api/v1/recipes/fleet-pickup-delivery/example \
       -H 'Content-Type: application/json' --data-binary @-
 ```
 
+## Run a preset on the server
+
+```sh
+curl -fsS -X POST http://127.0.0.1:3000/api/v1/recipes/fleet-pickup-delivery/run-example
+```
+
+This route runs the bundled synthetic input, not a user-supplied problem. It uses the same solve capacity as the normal solve endpoint. A [local MCP server](../backend/crates/mcp/README.md) can list recipes, describe their fields and fetch examples over stdio.
+
 ## Larger synthetic workloads
 
 The [fleet benchmark cases](benchmarks/README.md) generate repeatable city-scale stop data; they do not solve routes.
