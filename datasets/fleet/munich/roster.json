@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "kind": "synthetic-workload",
+  "city": "munich",
+  "prefix": "MUC",
+  "stops": 6720,
+  "shiftMinutes": 480,
+  "modes": {
+    "vehicle": 33,
+    "bicycle": 7,
+    "walking": 2
+  },
+  "source": null,
+  "assumptions": true,
+  "courierCount": 42,
+  "stopsPerCourier": 160,
+  "averageMinutesBudget": 3,
+  "lowerBound": 160,
+  "couriers": [
+    {
+      "id": "MUC-001",
+      "mode": "vehicle",
+      "color": "hsl(142.75 70% 50%)"
+    },
+    {
+      "id": "MUC-002",
+      "mode": "vehicle",
+      "color": "hsl(280.26 70% 50%)"
+    },
+    {
+      "id": "MUC-003",
+      "mode": "vehicle",
+      "color": "hsl(57.77 70% 50%)"
+    },
+    {
+      "id": "MUC-004",
+      "mode": "vehicle",
+      "color": "hsl(195.28 70% 50%)"
+    },
+    {
+      "id": "MUC-005",
+      "mode": "vehicle",
+      "color": "hsl(332.78 70% 50%)"
+    },
+    {
+      "id": "MUC-006",
+      "mode": "vehicle",
+      "color": "hsl(110.29 70% 50%)"
+    },
+    {
+      "id": "MUC-007",
+      "mode": "vehicle",
+      "color": "hsl(247.80 70% 50%)"
+    },
+    {
+      "id": "MUC-008",
+      "mode": "vehicle",
+      "color": "hsl(25.31 70% 50%)"
+    },
+    {
+      "id": "MUC-009",
+      "mode": "vehicle",
+      "color": "hsl(162.82 70% 50%)"
+    },
+    {
+      "id": "MUC-010",
+      "mode": "vehicle",
+      "color": "hsl(300.32 70% 50%)"
+    },
+    {
+      "id": "MUC-011",
+      "mode": "vehicle",
+      "color": "hsl(77.83 70% 50%)"
+    },
+    {
+      "id": "MUC-012",
+      "mode": "vehicle",
+      "color": "hsl(215.34 70% 50%)"
+    },
+    {
+      "id": "MUC-013",
+      "mode": "vehicle",
+      "color": "hsl(352.85 70% 50%)"
+    },
+    {
+      "id": "MUC-014",
+      "mode": "vehicle",
+      "color": "hsl(130.36 70% 50%)"
+    },
+    {
+      "id": "MUC-015",
+      "mode": "vehicle",
+      "color": "hsl(267.86 70% 50%)"
+    },
+    {
+      "id": "MUC-016",
+      "mode": "vehicle",
+      "color": "hsl(45.37 70% 50%)"
+    },
+    {
+      "id": "MUC-017",
+      "mode": "vehicle",
+      "color": "hsl(182.88 70% 50%)"
+    },
+    {
+      "id": "MUC-018",
+      "mode": "vehicle",
+      "color": "hsl(320.39 70% 50%)"
+    },
+    {
+      "id": "MUC-019",
+      "mode": "vehicle",
+      "color": "hsl(97.90 70% 50%)"
+    },
+    {
+      "id": "MUC-020",
+      "mode": "vehicle",
+      "color": "hsl(235.40 70% 50%)"
+    },
+    {
+      "id": "MUC-021",
+      "mode": "vehicle",
+      "color": "hsl(12.91 70% 50%)"
+    },
+    {
+      "id": "MUC-022",
+      "mode": "vehicle",
+      "color": "hsl(150.42 70% 50%)"
+    },
+    {
+      "id": "MUC-023",
+      "mode": "vehicle",
+      "color": "hsl(287.93 70% 50%)"
+    },
+    {
+      "id": "MUC-024",
+      "mode": "vehicle",
+      "color": "hsl(65.44 70% 50%)"
+    },
+    {
+      "id": "MUC-025",
+      "mode": "vehicle",
+      "color": "hsl(202.94 70% 50%)"
+    },
+    {
+      "id": "MUC-026",
+      "mode": "vehicle",
+      "color": "hsl(340.45 70% 50%)"
+    },
+    {
+      "id": "MUC-027",
+      "mode": "vehicle",
+      "color": "hsl(117.96 70% 50%)"
+    },
+    {
+      "id": "MUC-028",
+      "mode": "vehicle",
+      "color": "hsl(255.47 70% 50%)"
+    },
+    {
+      "id": "MUC-029",
+      "mode": "vehicle",
+      "color": "hsl(32.98 70% 50%)"
+    },
+    {
+      "id": "MUC-030",
+      "mode": "vehicle",
+      "color": "hsl(170.48 70% 50%)"
+    },
+    {
+      "id": "MUC-031",
+      "mode": "vehicle",
+      "color": "hsl(307.99 70% 50%)"
+    },
+    {
+      "id": "MUC-032",
+      "mode": "vehicle",
+      "color": "hsl(85.50 70% 50%)"
+    },
+    {
+      "id": "MUC-033",
+      "mode": "vehicle",
+      "color": "hsl(223.01 70% 50%)"
+    },
+    {
+      "id": "MUC-034",
+      "mode": "bicycle",
+      "color": "hsl(0.52 70% 50%)"
+    },
+    {
+      "id": "MUC-035",
+      "mode": "bicycle",
+      "color": "hsl(138.02 70% 50%)"
+    },
+    {
+      "id": "MUC-036",
+      "mode": "bicycle",
+      "color": "hsl(275.53 70% 50%)"
+    },
+    {
+      "id": "MUC-037",
+      "mode": "bicycle",
+      "color": "hsl(53.04 70% 50%)"
+    },
+    {
+      "id": "MUC-038",
+      "mode": "bicycle",
+      "color": "hsl(190.55 70% 50%)"
+    },
+    {
+      "id": "MUC-039",
+      "mode": "bicycle",
+      "color": "hsl(328.06 70% 50%)"
+    },
+    {
+      "id": "MUC-040",
+      "mode": "bicycle",
+      "color": "hsl(105.56 70% 50%)"
+    },
+    {
+      "id": "MUC-041",
+      "mode": "walking",
+      "color": "hsl(243.07 70% 50%)"
+    },
+    {
+      "id": "MUC-042",
+      "mode": "walking",
+      "color": "hsl(20.58 70% 50%)"
+    }
+  ]
+}

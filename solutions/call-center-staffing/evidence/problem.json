@@ -1,0 +1,101 @@
+{
+  "variables": [
+    {
+      "name": "billing-escalations",
+      "domain": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "spanish-billing",
+      "domain": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "account-recovery",
+      "domain": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "fraud-review",
+      "domain": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "french-product",
+      "domain": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "priority-support",
+      "domain": [
+        12,
+        13,
+        14
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "kind": "all_different",
+      "variables": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "hard_weight": 1
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 0,
+      "value": 0,
+      "soft_weight": 9
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 1,
+      "value": 0,
+      "soft_weight": 7
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 2,
+      "value": 3,
+      "soft_weight": 5
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 3,
+      "value": 6,
+      "soft_weight": 10
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 4,
+      "value": 9,
+      "soft_weight": 6
+    },
+    {
+      "kind": "prefer_value",
+      "variable": 5,
+      "value": 12,
+      "soft_weight": 8
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "variables": [
+    { "name": "steel", "domain": [0, 2] },
+    { "name": "machine-parts", "domain": [0, 1] },
+    { "name": "chilled-produce", "domain": [1, 2] },
+    { "name": "cartoned-goods", "domain": [0, 1] },
+    { "name": "frozen-berries", "domain": [1, 2] },
+    { "name": "packaging", "domain": [0, 2] }
+  ],
+  "constraints": [
+    {
+      "kind": "resource_capacity",
+      "items": [{ "variable": 0, "load": 95 }, { "variable": 1, "load": 52 }, { "variable": 2, "load": 62 },
+        { "variable": 3, "load": 58 }, { "variable": 4, "load": 54 }, { "variable": 5, "load": 43 }],
+      "limits": [{ "resource": 0, "capacity": 150 }, { "resource": 1, "capacity": 130 }, { "resource": 2, "capacity": 120 }]
+    },
+    { "kind": "prefer_value", "variable": 0, "value": 0, "soft_weight": 1 },
+    { "kind": "prefer_value", "variable": 1, "value": 0, "soft_weight": 1 },
+    { "kind": "prefer_value", "variable": 2, "value": 1, "soft_weight": 1 },
+    { "kind": "prefer_value", "variable": 3, "value": 1, "soft_weight": 1 },
+    { "kind": "prefer_value", "variable": 4, "value": 2, "soft_weight": 1 },
+    { "kind": "prefer_value", "variable": 5, "value": 2, "soft_weight": 1 }
+  ]
+}

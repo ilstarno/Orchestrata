@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "sourcesCheckedDate": "2026-11-16",
+  "sourcesCheckedTimeZone": "UTC",
+  "scope": "Seven example hubs, one per listed city. Links are public passenger references, separate from the sample planning model. Airport operators do not supply or operate the worked example.",
+  "airports": [
+    {
+      "city": "New York",
+      "iata": "JFK",
+      "name": "John F. Kennedy International Airport",
+      "timeZone": "America/New_York",
+      "terminalGroups": [
+        "Terminal 1",
+        "Terminal 4",
+        "Terminal 5",
+        "Terminal 7",
+        "Terminal 8"
+      ],
+      "context": "The Port Authority's current passenger map and terminal directory list these terminal groups.",
+      "sources": [
+        {
+          "label": "JFK passenger airport map",
+          "url": "https://www.jfkairport.com/explore-jfk/airport-map"
+        },
+        {
+          "label": "JFK terminal directory",
+          "url": "https://www.jfkairport.com/explore-jfk/terminals"
+        }
+      ]
+    },
+    {
+      "city": "Paris",
+      "iata": "CDG",
+      "name": "Paris Charles de Gaulle Airport",
+      "timeZone": "Europe/Paris",
+      "terminalGroups": [
+        "Terminal 1",
+        "Terminal 2 (2A–2G)",
+        "Terminal 3"
+      ],
+      "context": "These are the current terminal groupings in the operator’s 2026 reference material. Groupe ADP announced a passenger wayfinding and terminal naming change for March 2027; this list is not an availability statement for each individual facility.",
+      "sources": [
+        {
+          "label": "Paris Aéroport passenger map, Terminal 1",
+          "url": "https://www.parisaeroport.fr/planpoi/plan.html?level=2&terminal=T1"
+        },
+        {
+          "label": "Paris Aéroport passenger map, Terminal 2 area",
+          "url": "https://www.parisaeroport.fr/planpoi/plan.html?level=2&terminal=2F"
+        },
+        {
+          "label": "Groupe ADP terminal-naming announcement",
+          "url": "https://presse.groupeadp.fr/groupe-adp-simplifies-the-passenger-experience-at-paris-charles-de-gaulle-airport-renaming-of-all-terminals-in-march-2027/?lang=en"
+        }
+      ]
+    },
+    {
+      "city": "München",
+      "iata": "MUC",
+      "name": "Munich Airport",
+      "timeZone": "Europe/Berlin",
+      "terminalGroups": [
+        "Terminal 1",
+        "Terminal 2",
+        "Terminal 2 Satellite"
+      ],
+      "context": "The Terminal 2 satellite is part of Terminal 2, not a separately numbered terminal. The new Terminal 1 Pier is part of Terminal 1 and entered passenger service in April 2026.",
+      "sources": [
+        {
+          "label": "Munich Airport passenger map",
+          "url": "https://www.munich-airport.com/airport-map-261352"
+        },
+        {
+          "label": "Munich Airport terminal connections",
+          "url": "https://www.munich-airport.com/connecting-flights-260553"
+        },
+        {
+          "label": "Munich Airport Terminal 1 Pier",
+          "url": "https://www.munich-airport.com/terminal-1-pier-40274281"
+        }
+      ]
+    },
+    {
+      "city": "Frankfurt",
+      "iata": "FRA",
+      "name": "Frankfurt Airport",
+      "timeZone": "Europe/Berlin",
+      "terminalGroups": [
+        "Terminal 1",
+        "Terminal 3"
+      ],
+      "context": "The current passenger map describes Terminal 1 and Terminal 3. Fraport halted Terminal 2 passenger operations in June 2026 for refurbishment.",
+      "sources": [
+        {
+          "label": "Frankfurt Airport passenger map",
+          "url": "https://www.frankfurt-airport.com/en/at-the-airport/orientation/airport-map.html"
+        },
+        {
+          "label": "Fraport Terminal 2 passenger closure",
+          "url": "https://www.fraport.com/en/newsroom/press-releases/2026/q2/terminal-2-closed-for-refurbishment-starting-today.html"
+        }
+      ]
+    },
+    {
+      "city": "Tirana",
+      "iata": "TIA",
+      "name": "Tirana International Airport",
+      "timeZone": "Europe/Tirane",
+      "terminalGroups": [
+        "Passenger terminal"
+      ],
+      "context": "The airport links to a passenger terminal map and describes expanding that terminal during 2026. The downloadable map is reference-only and is not used as an up-to-date gate inventory.",
+      "sources": [
+        {
+          "label": "Tirana International Airport passenger map",
+          "url": "https://tirana-airport.com/en/transport-and-directions/12/Airport-map"
+        },
+        {
+          "label": "Tirana International Airport terminal expansion update",
+          "url": "https://www.tirana-airport.com/en/article/1188"
+        }
+      ]
+    },
+    {
+      "city": "Rome",
+      "iata": "FCO",
+      "name": "Rome Fiumicino Airport",
+      "timeZone": "Europe/Rome",
+      "terminalGroups": [
+        "Terminal 1",
+        "Terminal 3"
+      ],
+      "context": "The 2026 Aeroporti di Roma service charter identifies Terminals 1 and 3 for passengers and publishes departure and arrival maps.",
+      "sources": [
+        {
+          "label": "Aeroporti di Roma 2026 terminal maps (ENAC-hosted PDF, printed page 112 onward)",
+          "url": "https://www.enac.gov.it/app/uploads/2026/05/ADR_REL_CartaServizi_FCO_2026_05_08.pdf"
+        }
+      ]
+    },
+    {
+      "city": "London",
+      "iata": "LHR",
+      "name": "Heathrow Airport",
+      "timeZone": "Europe/London",
+      "terminalGroups": [
+        "Terminal 2",
+        "Terminal 3",
+        "Terminal 4",
+        "Terminal 5"
+      ],
+      "context": "Heathrow publishes passenger maps and terminal guides for its four current passenger terminals.",
+      "sources": [
+        {
+          "label": "Heathrow passenger airport maps",
+          "url": "https://www.heathrow.com/at-the-airport/airport-maps"
+        },
+        {
+          "label": "Heathrow terminal guides",
+          "url": "https://www.heathrow.com/at-the-airport/terminal-guides"
+        }
+      ]
+    }
+  ]
+}

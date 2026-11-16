@@ -1,0 +1,257 @@
+{
+  "candidate_budget": 2500,
+  "candidates_evaluated": 21,
+  "completion": "CompletedPass",
+  "engine_revision": "0281da6328b8a02b52e35fafee7348e144b22b48",
+  "fixture": "Neighborhood parcel routes",
+  "map_kind": "synthetic_grid",
+  "routes": [
+    {
+      "capacity_kg": 22,
+      "departure": 0,
+      "depot": {
+        "label": "Van depot",
+        "location_id": 0,
+        "x": 2,
+        "y": 3
+      },
+      "depot_return": 44,
+      "label": "Van",
+      "mode": "vehicle",
+      "peak_load_kg": 20,
+      "travel_minutes": 38,
+      "visits": [
+        {
+          "arrival": 4,
+          "kind": "pickup",
+          "label": "Parcel hub",
+          "load_after_kg": 12,
+          "location_id": 1,
+          "order": 1,
+          "service_start": 4,
+          "shipment": "A",
+          "window": [
+            3,
+            15
+          ],
+          "x": 5,
+          "y": 2
+        },
+        {
+          "arrival": 10,
+          "kind": "pickup",
+          "label": "Box warehouse",
+          "load_after_kg": 20,
+          "location_id": 3,
+          "order": 2,
+          "service_start": 10,
+          "shipment": "B",
+          "window": [
+            5,
+            23
+          ],
+          "x": 8,
+          "y": 4
+        },
+        {
+          "arrival": 22,
+          "kind": "delivery",
+          "label": "East depot",
+          "load_after_kg": 12,
+          "location_id": 4,
+          "order": 3,
+          "service_start": 24,
+          "shipment": "B",
+          "window": [
+            24,
+            55
+          ],
+          "x": 17,
+          "y": 2
+        },
+        {
+          "arrival": 31,
+          "kind": "delivery",
+          "label": "Hill market",
+          "load_after_kg": 0,
+          "location_id": 2,
+          "order": 4,
+          "service_start": 31,
+          "shipment": "A",
+          "window": [
+            20,
+            45
+          ],
+          "x": 13,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "capacity_kg": 12,
+      "departure": 3,
+      "depot": {
+        "label": "Bike depot",
+        "location_id": 5,
+        "x": 3,
+        "y": 9
+      },
+      "depot_return": 71,
+      "label": "Bike",
+      "mode": "bicycle",
+      "peak_load_kg": 9,
+      "travel_minutes": 64,
+      "visits": [
+        {
+          "arrival": 11,
+          "kind": "pickup",
+          "label": "Repair shop",
+          "load_after_kg": 5,
+          "location_id": 6,
+          "order": 1,
+          "service_start": 11,
+          "shipment": "C",
+          "window": [
+            8,
+            30
+          ],
+          "x": 6,
+          "y": 8
+        },
+        {
+          "arrival": 22,
+          "kind": "pickup",
+          "label": "Library pickup",
+          "load_after_kg": 9,
+          "location_id": 8,
+          "order": 2,
+          "service_start": 22,
+          "shipment": "D",
+          "window": [
+            12,
+            38
+          ],
+          "x": 9,
+          "y": 10
+        },
+        {
+          "arrival": 29,
+          "kind": "delivery",
+          "label": "Central lockers",
+          "load_after_kg": 4,
+          "location_id": 7,
+          "order": 3,
+          "service_start": 29,
+          "shipment": "C",
+          "window": [
+            24,
+            65
+          ],
+          "x": 12,
+          "y": 10
+        },
+        {
+          "arrival": 42,
+          "kind": "delivery",
+          "label": "West counter",
+          "load_after_kg": 0,
+          "location_id": 9,
+          "order": 4,
+          "service_start": 42,
+          "shipment": "D",
+          "window": [
+            30,
+            80
+          ],
+          "x": 16,
+          "y": 8
+        }
+      ]
+    },
+    {
+      "capacity_kg": 6,
+      "departure": 5,
+      "depot": {
+        "label": "Foot depot",
+        "location_id": 10,
+        "x": 3,
+        "y": 15
+      },
+      "depot_return": 81,
+      "label": "On foot",
+      "mode": "walking",
+      "peak_load_kg": 5,
+      "travel_minutes": 72,
+      "visits": [
+        {
+          "arrival": 14,
+          "kind": "pickup",
+          "label": "Office parcel desk",
+          "load_after_kg": 3,
+          "location_id": 11,
+          "order": 1,
+          "service_start": 14,
+          "shipment": "E",
+          "window": [
+            12,
+            30
+          ],
+          "x": 5,
+          "y": 14
+        },
+        {
+          "arrival": 30,
+          "kind": "pickup",
+          "label": "Corner shop",
+          "load_after_kg": 5,
+          "location_id": 13,
+          "order": 2,
+          "service_start": 30,
+          "shipment": "F",
+          "window": [
+            24,
+            45
+          ],
+          "x": 7,
+          "y": 17
+        },
+        {
+          "arrival": 37,
+          "kind": "delivery",
+          "label": "Garden lockers",
+          "load_after_kg": 2,
+          "location_id": 12,
+          "order": 3,
+          "service_start": 37,
+          "shipment": "E",
+          "window": [
+            34,
+            68
+          ],
+          "x": 8,
+          "y": 16
+        },
+        {
+          "arrival": 53,
+          "kind": "delivery",
+          "label": "South kiosk",
+          "load_after_kg": 0,
+          "location_id": 14,
+          "order": 4,
+          "service_start": 53,
+          "shipment": "F",
+          "window": [
+            41,
+            90
+          ],
+          "x": 12,
+          "y": 15
+        }
+      ]
+    }
+  ],
+  "shipments": 6,
+  "unassigned": [],
+  "verified": true,
+  "visit_count": 12
+}

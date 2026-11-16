@@ -1,0 +1,1962 @@
+{
+  "schema_version": 1,
+  "dataset_id": "call-center-coverage-ny-sample-v1",
+  "classification": "sample",
+  "coverage_window": {
+    "start": "2026-11-16T10:00-05:00",
+    "end": "2026-11-16T10:30-05:00"
+  },
+  "timezone": "America/New_York",
+  "coverage_window_seconds": 1800,
+  "coverage": {
+    "queues_requested": 6,
+    "queues_with_an_eligible_assigned_operator": 6,
+    "distinct_operators_assigned": 6,
+    "operators_screened_per_queue": 60,
+    "queues_with_nonzero_demand_risk": [
+      "billing-escalations",
+      "spanish-billing",
+      "fraud-review",
+      "priority-support"
+    ]
+  },
+  "constraint_verdicts": {
+    "eligible_assignment_per_queue": "satisfied",
+    "simultaneous_operators_distinct": "satisfied",
+    "available_for_entire_window_without_overlapping_break": "satisfied",
+    "required_skill_language_experience_and_voice_capacity": "satisfied",
+    "soft_preferences_met": 5,
+    "soft_preferences_missed": [
+      "spanish-billing"
+    ],
+    "demand_context_used_as_constraint": false
+  },
+  "proof": {
+    "method": "native_abi_v1_bounded_exact_search",
+    "status": "optimal_within_model",
+    "budget_combinations": 100000,
+    "candidate_combinations": 486,
+    "evaluated_combinations": 486,
+    "hard_feasible_combinations": 324,
+    "independent_enumeration_matches_native": true,
+    "selection_policy": "minimum soft penalty magnitude among hard-feasible assignments; first in declared domain order breaks ties"
+  },
+  "native_score": {
+    "hard": 0,
+    "soft": -7
+  },
+  "queues": [
+    {
+      "queue_id": "billing-escalations",
+      "queue_label": "Billing escalations",
+      "assigned_operator": "OP-001",
+      "native_value": 0,
+      "required": {
+        "skill": {
+          "id": "billing",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "en",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 3,
+      "eligible_operators": [
+        "OP-001",
+        "OP-002",
+        "OP-003"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 5,
+        "language_rating": 5,
+        "experience_months": 63,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 57,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 22,
+        "required_skill_below_minimum": 55,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-004": [
+          "required_skill_below_minimum"
+        ],
+        "OP-005": [
+          "required_skill_below_minimum"
+        ],
+        "OP-006": [
+          "required_skill_below_minimum"
+        ],
+        "OP-007": [
+          "required_skill_below_minimum"
+        ],
+        "OP-008": [
+          "required_skill_below_minimum"
+        ],
+        "OP-009": [
+          "required_skill_below_minimum"
+        ],
+        "OP-010": [
+          "required_skill_below_minimum"
+        ],
+        "OP-011": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-012": [
+          "required_skill_below_minimum"
+        ],
+        "OP-013": [
+          "required_skill_below_minimum"
+        ],
+        "OP-014": [
+          "required_skill_below_minimum"
+        ],
+        "OP-015": [
+          "required_skill_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window"
+        ],
+        "OP-017": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-018": [
+          "no_voice_capacity"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-001",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": true,
+        "weight": 9,
+        "soft_penalty": 0,
+        "preferred_operator_assigned_to": "billing-escalations"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 3,
+            "required_handling_seconds": 1080
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 5,
+            "required_handling_seconds": 1800
+          }
+        },
+        "average_handle_seconds": 360,
+        "expected_arrivals": 3.6,
+        "expected_handling_seconds": 1296.0,
+        "expected_occupancy_basis_points_rounded": 7200,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 3000
+      }
+    },
+    {
+      "queue_id": "spanish-billing",
+      "queue_label": "Spanish-language billing",
+      "assigned_operator": "OP-002",
+      "native_value": 1,
+      "required": {
+        "skill": {
+          "id": "billing",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "es",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 2,
+      "eligible_operators": [
+        "OP-001",
+        "OP-002"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 4,
+        "language_rating": 4,
+        "experience_months": 34,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 58,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 50,
+        "required_skill_below_minimum": 55,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-003": [
+          "required_language_below_minimum"
+        ],
+        "OP-004": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-005": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-006": [
+          "required_skill_below_minimum"
+        ],
+        "OP-007": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-008": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-009": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-010": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-011": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-012": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-013": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-014": [
+          "required_skill_below_minimum"
+        ],
+        "OP-015": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window"
+        ],
+        "OP-017": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-018": [
+          "no_voice_capacity"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-001",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": false,
+        "weight": 7,
+        "soft_penalty": -7,
+        "preferred_operator_assigned_to": "billing-escalations"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 2,
+            "required_handling_seconds": 840
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 4,
+            "required_handling_seconds": 1680
+          }
+        },
+        "average_handle_seconds": 420,
+        "expected_arrivals": 2.6,
+        "expected_handling_seconds": 1092.0,
+        "expected_occupancy_basis_points_rounded": 6067,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 3000
+      }
+    },
+    {
+      "queue_id": "account-recovery",
+      "queue_label": "Account recovery",
+      "assigned_operator": "OP-004",
+      "native_value": 3,
+      "required": {
+        "skill": {
+          "id": "recovery",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "en",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 3,
+      "eligible_operators": [
+        "OP-004",
+        "OP-005",
+        "OP-006"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 5,
+        "language_rating": 4,
+        "experience_months": 26,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 57,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 22,
+        "required_skill_below_minimum": 56,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-001": [
+          "required_skill_below_minimum"
+        ],
+        "OP-002": [
+          "required_skill_below_minimum"
+        ],
+        "OP-003": [
+          "required_skill_below_minimum"
+        ],
+        "OP-007": [
+          "required_skill_below_minimum"
+        ],
+        "OP-008": [
+          "required_skill_below_minimum"
+        ],
+        "OP-009": [
+          "required_skill_below_minimum"
+        ],
+        "OP-010": [
+          "required_skill_below_minimum"
+        ],
+        "OP-011": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-012": [
+          "required_skill_below_minimum"
+        ],
+        "OP-013": [
+          "required_skill_below_minimum"
+        ],
+        "OP-014": [
+          "required_skill_below_minimum"
+        ],
+        "OP-015": [
+          "required_skill_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-017": [
+          "break_overlaps_window"
+        ],
+        "OP-018": [
+          "no_voice_capacity",
+          "required_skill_below_minimum"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-004",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": true,
+        "weight": 5,
+        "soft_penalty": 0,
+        "preferred_operator_assigned_to": "account-recovery"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 3,
+            "required_handling_seconds": 990
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 4,
+            "required_handling_seconds": 1320
+          }
+        },
+        "average_handle_seconds": 330,
+        "expected_arrivals": 3.3,
+        "expected_handling_seconds": 1089.0,
+        "expected_occupancy_basis_points_rounded": 6050,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 0
+      }
+    },
+    {
+      "queue_id": "fraud-review",
+      "queue_label": "Fraud review",
+      "assigned_operator": "OP-007",
+      "native_value": 6,
+      "required": {
+        "skill": {
+          "id": "fraud_review",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "en",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 3,
+      "eligible_operators": [
+        "OP-007",
+        "OP-008",
+        "OP-009"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 5,
+        "language_rating": 5,
+        "experience_months": 40,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 57,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 22,
+        "required_skill_below_minimum": 57,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-001": [
+          "required_skill_below_minimum"
+        ],
+        "OP-002": [
+          "required_skill_below_minimum"
+        ],
+        "OP-003": [
+          "required_skill_below_minimum"
+        ],
+        "OP-004": [
+          "required_skill_below_minimum"
+        ],
+        "OP-005": [
+          "required_skill_below_minimum"
+        ],
+        "OP-006": [
+          "required_skill_below_minimum"
+        ],
+        "OP-010": [
+          "required_skill_below_minimum"
+        ],
+        "OP-011": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-012": [
+          "required_skill_below_minimum"
+        ],
+        "OP-013": [
+          "required_skill_below_minimum"
+        ],
+        "OP-014": [
+          "required_skill_below_minimum"
+        ],
+        "OP-015": [
+          "required_skill_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-017": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-018": [
+          "no_voice_capacity",
+          "required_skill_below_minimum"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-007",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": true,
+        "weight": 10,
+        "soft_penalty": 0,
+        "preferred_operator_assigned_to": "fraud-review"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 2,
+            "required_handling_seconds": 960
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 4,
+            "required_handling_seconds": 1920
+          }
+        },
+        "average_handle_seconds": 480,
+        "expected_arrivals": 2.6,
+        "expected_handling_seconds": 1248.0,
+        "expected_occupancy_basis_points_rounded": 6933,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 3000
+      }
+    },
+    {
+      "queue_id": "french-product",
+      "queue_label": "French-language product support",
+      "assigned_operator": "OP-010",
+      "native_value": 9,
+      "required": {
+        "skill": {
+          "id": "product_support",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "fr",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 3,
+      "eligible_operators": [
+        "OP-010",
+        "OP-011",
+        "OP-012"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 5,
+        "language_rating": 5,
+        "experience_months": 48,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 57,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 51,
+        "required_skill_below_minimum": 57,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-001": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-002": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-003": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-004": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-005": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-006": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-007": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-008": [
+          "required_skill_below_minimum"
+        ],
+        "OP-009": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-013": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-014": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-015": [
+          "required_skill_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-017": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-018": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-010",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": true,
+        "weight": 6,
+        "soft_penalty": 0,
+        "preferred_operator_assigned_to": "french-product"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 2,
+            "required_handling_seconds": 840
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 3,
+            "required_handling_seconds": 1260
+          }
+        },
+        "average_handle_seconds": 420,
+        "expected_arrivals": 2.3,
+        "expected_handling_seconds": 966.0,
+        "expected_occupancy_basis_points_rounded": 5367,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 0
+      }
+    },
+    {
+      "queue_id": "priority-support",
+      "queue_label": "Priority customer support",
+      "assigned_operator": "OP-013",
+      "native_value": 12,
+      "required": {
+        "skill": {
+          "id": "priority_triage",
+          "minimum_rating": 4
+        },
+        "language": {
+          "tag": "en",
+          "minimum_rating": 4
+        },
+        "minimum_role_months": 6,
+        "voice_contact_capacity": 1,
+        "must_cover_entire_window": true,
+        "break_overlap_allowed": false
+      },
+      "eligible_operator_count": 3,
+      "eligible_operators": [
+        "OP-013",
+        "OP-014",
+        "OP-015"
+      ],
+      "selected_eligibility": {
+        "skill_rating": 5,
+        "language_rating": 5,
+        "experience_months": 39,
+        "voice_contact_capacity": 1,
+        "shift_covers_window": true,
+        "break_overlaps_window": false
+      },
+      "excluded_operator_count": 57,
+      "exclusion_reason_counts": {
+        "break_overlaps_window": 3,
+        "experience_below_minimum": 1,
+        "no_voice_capacity": 6,
+        "required_language_below_minimum": 22,
+        "required_skill_below_minimum": 56,
+        "shift_does_not_cover_window": 29
+      },
+      "excluded_operator_reasons": {
+        "OP-001": [
+          "required_skill_below_minimum"
+        ],
+        "OP-002": [
+          "required_skill_below_minimum"
+        ],
+        "OP-003": [
+          "required_skill_below_minimum"
+        ],
+        "OP-004": [
+          "required_skill_below_minimum"
+        ],
+        "OP-005": [
+          "required_skill_below_minimum"
+        ],
+        "OP-006": [
+          "required_skill_below_minimum"
+        ],
+        "OP-007": [
+          "required_skill_below_minimum"
+        ],
+        "OP-008": [
+          "required_skill_below_minimum"
+        ],
+        "OP-009": [
+          "required_skill_below_minimum"
+        ],
+        "OP-010": [
+          "required_skill_below_minimum"
+        ],
+        "OP-011": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-012": [
+          "required_skill_below_minimum"
+        ],
+        "OP-016": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-017": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-018": [
+          "no_voice_capacity"
+        ],
+        "OP-019": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-020": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-021": [
+          "break_overlaps_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-022": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-023": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-024": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-025": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-026": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-027": [
+          "required_skill_below_minimum"
+        ],
+        "OP-028": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-029": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-030": [
+          "required_skill_below_minimum"
+        ],
+        "OP-031": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-032": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-033": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-034": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "experience_below_minimum"
+        ],
+        "OP-035": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-036": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-037": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-038": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-039": [
+          "required_skill_below_minimum"
+        ],
+        "OP-040": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-041": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-042": [
+          "break_overlaps_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-043": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-044": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-045": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-046": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-047": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-048": [
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-049": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-050": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-051": [
+          "required_skill_below_minimum"
+        ],
+        "OP-052": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-053": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-054": [
+          "required_skill_below_minimum"
+        ],
+        "OP-055": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-056": [
+          "shift_does_not_cover_window",
+          "no_voice_capacity",
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-057": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ],
+        "OP-058": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-059": [
+          "shift_does_not_cover_window",
+          "required_skill_below_minimum"
+        ],
+        "OP-060": [
+          "required_skill_below_minimum",
+          "required_language_below_minimum"
+        ]
+      },
+      "preference": {
+        "preferred_operator": "OP-013",
+        "rank_order": [
+          "skill_rating_desc",
+          "language_rating_desc",
+          "experience_months_desc",
+          "operator_id_asc"
+        ],
+        "satisfied": true,
+        "weight": 8,
+        "soft_penalty": 0,
+        "preferred_operator_assigned_to": "priority-support"
+      },
+      "demand_context": {
+        "scenarios": {
+          "typical": {
+            "probability_basis_points": 7000,
+            "arrivals": 3,
+            "required_handling_seconds": 900
+          },
+          "surge": {
+            "probability_basis_points": 3000,
+            "arrivals": 5,
+            "required_handling_seconds": 1500
+          }
+        },
+        "average_handle_seconds": 300,
+        "expected_arrivals": 3.6,
+        "expected_handling_seconds": 1080.0,
+        "expected_occupancy_basis_points_rounded": 6000,
+        "planned_handling_seconds": 1440,
+        "probability_above_planned_capacity_basis_points": 3000
+      }
+    }
+  ]
+}

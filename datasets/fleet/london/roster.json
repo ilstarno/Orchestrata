@@ -1,0 +1,471 @@
+{
+  "version": 1,
+  "kind": "synthetic-workload",
+  "city": "london",
+  "prefix": "LON",
+  "stops": 14400,
+  "shiftMinutes": 480,
+  "modes": {
+    "vehicle": 72,
+    "bicycle": 13,
+    "walking": 5
+  },
+  "source": null,
+  "assumptions": true,
+  "courierCount": 90,
+  "stopsPerCourier": 160,
+  "averageMinutesBudget": 3,
+  "lowerBound": 160,
+  "couriers": [
+    {
+      "id": "LON-001",
+      "mode": "vehicle",
+      "color": "hsl(133.93 70% 50%)"
+    },
+    {
+      "id": "LON-002",
+      "mode": "vehicle",
+      "color": "hsl(271.44 70% 50%)"
+    },
+    {
+      "id": "LON-003",
+      "mode": "vehicle",
+      "color": "hsl(48.95 70% 50%)"
+    },
+    {
+      "id": "LON-004",
+      "mode": "vehicle",
+      "color": "hsl(186.46 70% 50%)"
+    },
+    {
+      "id": "LON-005",
+      "mode": "vehicle",
+      "color": "hsl(323.96 70% 50%)"
+    },
+    {
+      "id": "LON-006",
+      "mode": "vehicle",
+      "color": "hsl(101.47 70% 50%)"
+    },
+    {
+      "id": "LON-007",
+      "mode": "vehicle",
+      "color": "hsl(238.98 70% 50%)"
+    },
+    {
+      "id": "LON-008",
+      "mode": "vehicle",
+      "color": "hsl(16.49 70% 50%)"
+    },
+    {
+      "id": "LON-009",
+      "mode": "vehicle",
+      "color": "hsl(154.00 70% 50%)"
+    },
+    {
+      "id": "LON-010",
+      "mode": "vehicle",
+      "color": "hsl(291.50 70% 50%)"
+    },
+    {
+      "id": "LON-011",
+      "mode": "vehicle",
+      "color": "hsl(69.01 70% 50%)"
+    },
+    {
+      "id": "LON-012",
+      "mode": "vehicle",
+      "color": "hsl(206.52 70% 50%)"
+    },
+    {
+      "id": "LON-013",
+      "mode": "vehicle",
+      "color": "hsl(344.03 70% 50%)"
+    },
+    {
+      "id": "LON-014",
+      "mode": "vehicle",
+      "color": "hsl(121.54 70% 50%)"
+    },
+    {
+      "id": "LON-015",
+      "mode": "vehicle",
+      "color": "hsl(259.04 70% 50%)"
+    },
+    {
+      "id": "LON-016",
+      "mode": "vehicle",
+      "color": "hsl(36.55 70% 50%)"
+    },
+    {
+      "id": "LON-017",
+      "mode": "vehicle",
+      "color": "hsl(174.06 70% 50%)"
+    },
+    {
+      "id": "LON-018",
+      "mode": "vehicle",
+      "color": "hsl(311.57 70% 50%)"
+    },
+    {
+      "id": "LON-019",
+      "mode": "vehicle",
+      "color": "hsl(89.08 70% 50%)"
+    },
+    {
+      "id": "LON-020",
+      "mode": "vehicle",
+      "color": "hsl(226.58 70% 50%)"
+    },
+    {
+      "id": "LON-021",
+      "mode": "vehicle",
+      "color": "hsl(4.09 70% 50%)"
+    },
+    {
+      "id": "LON-022",
+      "mode": "vehicle",
+      "color": "hsl(141.60 70% 50%)"
+    },
+    {
+      "id": "LON-023",
+      "mode": "vehicle",
+      "color": "hsl(279.11 70% 50%)"
+    },
+    {
+      "id": "LON-024",
+      "mode": "vehicle",
+      "color": "hsl(56.62 70% 50%)"
+    },
+    {
+      "id": "LON-025",
+      "mode": "vehicle",
+      "color": "hsl(194.12 70% 50%)"
+    },
+    {
+      "id": "LON-026",
+      "mode": "vehicle",
+      "color": "hsl(331.63 70% 50%)"
+    },
+    {
+      "id": "LON-027",
+      "mode": "vehicle",
+      "color": "hsl(109.14 70% 50%)"
+    },
+    {
+      "id": "LON-028",
+      "mode": "vehicle",
+      "color": "hsl(246.65 70% 50%)"
+    },
+    {
+      "id": "LON-029",
+      "mode": "vehicle",
+      "color": "hsl(24.16 70% 50%)"
+    },
+    {
+      "id": "LON-030",
+      "mode": "vehicle",
+      "color": "hsl(161.66 70% 50%)"
+    },
+    {
+      "id": "LON-031",
+      "mode": "vehicle",
+      "color": "hsl(299.17 70% 50%)"
+    },
+    {
+      "id": "LON-032",
+      "mode": "vehicle",
+      "color": "hsl(76.68 70% 50%)"
+    },
+    {
+      "id": "LON-033",
+      "mode": "vehicle",
+      "color": "hsl(214.19 70% 50%)"
+    },
+    {
+      "id": "LON-034",
+      "mode": "vehicle",
+      "color": "hsl(351.70 70% 50%)"
+    },
+    {
+      "id": "LON-035",
+      "mode": "vehicle",
+      "color": "hsl(129.20 70% 50%)"
+    },
+    {
+      "id": "LON-036",
+      "mode": "vehicle",
+      "color": "hsl(266.71 70% 50%)"
+    },
+    {
+      "id": "LON-037",
+      "mode": "vehicle",
+      "color": "hsl(44.22 70% 50%)"
+    },
+    {
+      "id": "LON-038",
+      "mode": "vehicle",
+      "color": "hsl(181.73 70% 50%)"
+    },
+    {
+      "id": "LON-039",
+      "mode": "vehicle",
+      "color": "hsl(319.24 70% 50%)"
+    },
+    {
+      "id": "LON-040",
+      "mode": "vehicle",
+      "color": "hsl(96.74 70% 50%)"
+    },
+    {
+      "id": "LON-041",
+      "mode": "vehicle",
+      "color": "hsl(234.25 70% 50%)"
+    },
+    {
+      "id": "LON-042",
+      "mode": "vehicle",
+      "color": "hsl(11.76 70% 50%)"
+    },
+    {
+      "id": "LON-043",
+      "mode": "vehicle",
+      "color": "hsl(149.27 70% 50%)"
+    },
+    {
+      "id": "LON-044",
+      "mode": "vehicle",
+      "color": "hsl(286.78 70% 50%)"
+    },
+    {
+      "id": "LON-045",
+      "mode": "vehicle",
+      "color": "hsl(64.28 70% 50%)"
+    },
+    {
+      "id": "LON-046",
+      "mode": "vehicle",
+      "color": "hsl(201.79 70% 50%)"
+    },
+    {
+      "id": "LON-047",
+      "mode": "vehicle",
+      "color": "hsl(339.30 70% 50%)"
+    },
+    {
+      "id": "LON-048",
+      "mode": "vehicle",
+      "color": "hsl(116.81 70% 50%)"
+    },
+    {
+      "id": "LON-049",
+      "mode": "vehicle",
+      "color": "hsl(254.32 70% 50%)"
+    },
+    {
+      "id": "LON-050",
+      "mode": "vehicle",
+      "color": "hsl(31.82 70% 50%)"
+    },
+    {
+      "id": "LON-051",
+      "mode": "vehicle",
+      "color": "hsl(169.33 70% 50%)"
+    },
+    {
+      "id": "LON-052",
+      "mode": "vehicle",
+      "color": "hsl(306.84 70% 50%)"
+    },
+    {
+      "id": "LON-053",
+      "mode": "vehicle",
+      "color": "hsl(84.35 70% 50%)"
+    },
+    {
+      "id": "LON-054",
+      "mode": "vehicle",
+      "color": "hsl(221.86 70% 50%)"
+    },
+    {
+      "id": "LON-055",
+      "mode": "vehicle",
+      "color": "hsl(359.36 70% 50%)"
+    },
+    {
+      "id": "LON-056",
+      "mode": "vehicle",
+      "color": "hsl(136.87 70% 50%)"
+    },
+    {
+      "id": "LON-057",
+      "mode": "vehicle",
+      "color": "hsl(274.38 70% 50%)"
+    },
+    {
+      "id": "LON-058",
+      "mode": "vehicle",
+      "color": "hsl(51.89 70% 50%)"
+    },
+    {
+      "id": "LON-059",
+      "mode": "vehicle",
+      "color": "hsl(189.40 70% 50%)"
+    },
+    {
+      "id": "LON-060",
+      "mode": "vehicle",
+      "color": "hsl(326.90 70% 50%)"
+    },
+    {
+      "id": "LON-061",
+      "mode": "vehicle",
+      "color": "hsl(104.41 70% 50%)"
+    },
+    {
+      "id": "LON-062",
+      "mode": "vehicle",
+      "color": "hsl(241.92 70% 50%)"
+    },
+    {
+      "id": "LON-063",
+      "mode": "vehicle",
+      "color": "hsl(19.43 70% 50%)"
+    },
+    {
+      "id": "LON-064",
+      "mode": "vehicle",
+      "color": "hsl(156.94 70% 50%)"
+    },
+    {
+      "id": "LON-065",
+      "mode": "vehicle",
+      "color": "hsl(294.44 70% 50%)"
+    },
+    {
+      "id": "LON-066",
+      "mode": "vehicle",
+      "color": "hsl(71.95 70% 50%)"
+    },
+    {
+      "id": "LON-067",
+      "mode": "vehicle",
+      "color": "hsl(209.46 70% 50%)"
+    },
+    {
+      "id": "LON-068",
+      "mode": "vehicle",
+      "color": "hsl(346.97 70% 50%)"
+    },
+    {
+      "id": "LON-069",
+      "mode": "vehicle",
+      "color": "hsl(124.48 70% 50%)"
+    },
+    {
+      "id": "LON-070",
+      "mode": "vehicle",
+      "color": "hsl(261.98 70% 50%)"
+    },
+    {
+      "id": "LON-071",
+      "mode": "vehicle",
+      "color": "hsl(39.49 70% 50%)"
+    },
+    {
+      "id": "LON-072",
+      "mode": "vehicle",
+      "color": "hsl(177.00 70% 50%)"
+    },
+    {
+      "id": "LON-073",
+      "mode": "bicycle",
+      "color": "hsl(314.51 70% 50%)"
+    },
+    {
+      "id": "LON-074",
+      "mode": "bicycle",
+      "color": "hsl(92.02 70% 50%)"
+    },
+    {
+      "id": "LON-075",
+      "mode": "bicycle",
+      "color": "hsl(229.52 70% 50%)"
+    },
+    {
+      "id": "LON-076",
+      "mode": "bicycle",
+      "color": "hsl(7.03 70% 50%)"
+    },
+    {
+      "id": "LON-077",
+      "mode": "bicycle",
+      "color": "hsl(144.54 70% 50%)"
+    },
+    {
+      "id": "LON-078",
+      "mode": "bicycle",
+      "color": "hsl(282.05 70% 50%)"
+    },
+    {
+      "id": "LON-079",
+      "mode": "bicycle",
+      "color": "hsl(59.56 70% 50%)"
+    },
+    {
+      "id": "LON-080",
+      "mode": "bicycle",
+      "color": "hsl(197.06 70% 50%)"
+    },
+    {
+      "id": "LON-081",
+      "mode": "bicycle",
+      "color": "hsl(334.57 70% 50%)"
+    },
+    {
+      "id": "LON-082",
+      "mode": "bicycle",
+      "color": "hsl(112.08 70% 50%)"
+    },
+    {
+      "id": "LON-083",
+      "mode": "bicycle",
+      "color": "hsl(249.59 70% 50%)"
+    },
+    {
+      "id": "LON-084",
+      "mode": "bicycle",
+      "color": "hsl(27.10 70% 50%)"
+    },
+    {
+      "id": "LON-085",
+      "mode": "bicycle",
+      "color": "hsl(164.60 70% 50%)"
+    },
+    {
+      "id": "LON-086",
+      "mode": "walking",
+      "color": "hsl(302.11 70% 50%)"
+    },
+    {
+      "id": "LON-087",
+      "mode": "walking",
+      "color": "hsl(79.62 70% 50%)"
+    },
+    {
+      "id": "LON-088",
+      "mode": "walking",
+      "color": "hsl(217.13 70% 50%)"
+    },
+    {
+      "id": "LON-089",
+      "mode": "walking",
+      "color": "hsl(354.64 70% 50%)"
+    },
+    {
+      "id": "LON-090",
+      "mode": "walking",
+      "color": "hsl(132.14 70% 50%)"
+    }
+  ]
+}

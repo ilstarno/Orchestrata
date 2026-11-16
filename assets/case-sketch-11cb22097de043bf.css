@@ -1,0 +1,56 @@
+.case-sketch {
+  --sketch-wash: var(--dataset-surface);
+  --sketch-seam: var(--rule);
+  --sketch-line: var(--muted);
+  max-inline-size: 35rem; inline-size: 100%; min-inline-size: 0;
+  margin: 0 0 1.5rem; border-block: 1px solid var(--rule);
+  background: var(--sketch-wash);
+}
+.case-sketch-art {
+  display: block; width: 100%; height: auto; color: var(--accent);
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.case-sketch-art :is(.sketch-ink, .sketch-fill, .sketch-face, .sketch-side, .sketch-detail, .sketch-wire, .sketch-accent) {
+  stroke: var(--sketch-line); stroke-width: 1.35;
+}
+.case-sketch-art .sketch-ink { fill: none; }
+.case-sketch-art .sketch-fill { fill: var(--dataset-head); }
+.case-sketch-art .sketch-face { fill: var(--paper); }
+.case-sketch-art .sketch-side { fill: var(--sketch-seam); }
+.case-sketch-art .sketch-detail { fill: none; opacity: .7; stroke-width: .82; }
+.case-sketch-art .sketch-accent,
+.case-sketch-art .sketch-wire { fill: none; stroke: var(--accent); stroke-width: 1.45; }
+.case-sketch-art .sketch-box--accent :is(.sketch-fill,.sketch-face) {
+  stroke: var(--accent); fill: var(--dataset-head);
+}
+.case-sketch-art .sketch-wire { stroke-dasharray: 5 6; }
+.case-sketch figcaption {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  min-block-size: 44px; padding: .3rem .8rem; gap: .25rem .55rem; color: var(--muted); font-size: .84rem; border-block-start: 1px solid var(--rule);
+}
+.case-sketch button:not([hidden]) {
+  min-block-size: 44px; padding: .25rem .45rem; border: 1px solid var(--rule);
+  background: var(--paper); color: var(--accent); font: inherit; font-weight: 650; cursor: pointer;
+}
+.case-sketch button:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: no-preference) {
+  .case-sketch[data-sketch-ready] .sketch-drift {
+    transform-box: fill-box; transform-origin: center;
+    animation: case-sketch-drift 4.8s ease-in-out infinite; animation-play-state: paused;
+  }
+  .case-sketch[data-sketch-ready] .sketch-signal {
+    animation: case-sketch-signal 5.5s linear infinite; animation-play-state: paused;
+  }
+  .case-sketch[data-sketch-ready] .sketch-drift:nth-child(even) { animation-delay: -.8s; }
+  .case-sketch[data-sketch-playing] :is(.sketch-drift,.sketch-signal) { animation-play-state: running; }
+  @keyframes case-sketch-drift {
+    0%, 100% { transform: none; }
+    45% { transform: translateY(-6px) rotate(-.55deg); }
+  }
+  @keyframes case-sketch-signal {
+    from { stroke-dashoffset: 0; opacity: .7; }
+    50% { opacity: 1; }
+    to { stroke-dashoffset: -22; opacity: .7; }
+  }
+}
+@media (max-width: 32rem) { .case-sketch { margin-block-end: 1.15rem; } }

@@ -1,0 +1,1511 @@
+{
+  "schema_version": 1,
+  "dataset_id": "call-center-coverage-ny-sample-v1",
+  "classification": "sample",
+  "timezone": "America/New_York",
+  "coverage_window": {
+    "start": "2026-11-16T10:00-05:00",
+    "end": "2026-11-16T10:30-05:00"
+  },
+  "metadata": {
+    "generated_by": "make_sample.py v1",
+    "observed_data": false,
+    "purpose": "One simultaneous voice queue coverage window with qualified operators",
+    "rating_scale": {
+      "1": "introductory",
+      "2": "supported",
+      "3": "routine",
+      "4": "independent",
+      "5": "advanced"
+    },
+    "units": {
+      "probability": "basis points",
+      "handling_time": "seconds",
+      "experience": "months",
+      "arrivals": "contacts per coverage window",
+      "contact_capacity": "simultaneous contacts per operator per channel"
+    }
+  },
+  "policy": {
+    "max_queues_per_operator": 1,
+    "evaluation_budget": 100000,
+    "voice_occupancy_target_basis_points": 8000,
+    "demand_scenarios_basis_points": {
+      "typical": 7000,
+      "surge": 3000
+    }
+  },
+  "queues": [
+    {
+      "id": "billing-escalations",
+      "label": "Billing escalations",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "billing",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "en",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 9,
+      "arrival_counts": {
+        "typical": 3,
+        "surge": 5
+      },
+      "average_handle_seconds": 360
+    },
+    {
+      "id": "spanish-billing",
+      "label": "Spanish-language billing",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "billing",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "es",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 7,
+      "arrival_counts": {
+        "typical": 2,
+        "surge": 4
+      },
+      "average_handle_seconds": 420
+    },
+    {
+      "id": "account-recovery",
+      "label": "Account recovery",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "recovery",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "en",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 5,
+      "arrival_counts": {
+        "typical": 3,
+        "surge": 4
+      },
+      "average_handle_seconds": 330
+    },
+    {
+      "id": "fraud-review",
+      "label": "Fraud review",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "fraud_review",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "en",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 10,
+      "arrival_counts": {
+        "typical": 2,
+        "surge": 4
+      },
+      "average_handle_seconds": 480
+    },
+    {
+      "id": "french-product",
+      "label": "French-language product support",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "product_support",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "fr",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 6,
+      "arrival_counts": {
+        "typical": 2,
+        "surge": 3
+      },
+      "average_handle_seconds": 420
+    },
+    {
+      "id": "priority-support",
+      "label": "Priority customer support",
+      "channel": "voice",
+      "required_agents": 1,
+      "skill": {
+        "id": "priority_triage",
+        "minimum_rating": 4
+      },
+      "language": {
+        "tag": "en",
+        "minimum_rating": 4
+      },
+      "minimum_role_months": 6,
+      "soft_preference_weight": 8,
+      "arrival_counts": {
+        "typical": 3,
+        "surge": 5
+      },
+      "average_handle_seconds": 300
+    }
+  ],
+  "operators": [
+    {
+      "id": "OP-001",
+      "skills": {
+        "billing": 5
+      },
+      "languages": {
+        "en": 5,
+        "es": 5
+      },
+      "role_experience_months": 63,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-002",
+      "skills": {
+        "billing": 4
+      },
+      "languages": {
+        "en": 4,
+        "es": 4,
+        "pt": 3
+      },
+      "role_experience_months": 34,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-003",
+      "skills": {
+        "billing": 4,
+        "priority_triage": 3
+      },
+      "languages": {
+        "en": 5,
+        "es": 2
+      },
+      "role_experience_months": 42,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-004",
+      "skills": {
+        "recovery": 5
+      },
+      "languages": {
+        "en": 4
+      },
+      "role_experience_months": 26,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-005",
+      "skills": {
+        "recovery": 4,
+        "billing": 3
+      },
+      "languages": {
+        "en": 5,
+        "fr": 2
+      },
+      "role_experience_months": 56,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-006",
+      "skills": {
+        "recovery": 4
+      },
+      "languages": {
+        "en": 4,
+        "es": 4
+      },
+      "role_experience_months": 12,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-007",
+      "skills": {
+        "fraud_review": 5
+      },
+      "languages": {
+        "en": 5
+      },
+      "role_experience_months": 40,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-008",
+      "skills": {
+        "fraud_review": 4,
+        "recovery": 3
+      },
+      "languages": {
+        "en": 4,
+        "fr": 4
+      },
+      "role_experience_months": 28,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-009",
+      "skills": {
+        "fraud_review": 4
+      },
+      "languages": {
+        "en": 4
+      },
+      "role_experience_months": 20,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-010",
+      "skills": {
+        "product_support": 5
+      },
+      "languages": {
+        "en": 5,
+        "fr": 5
+      },
+      "role_experience_months": 48,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-011",
+      "skills": {
+        "product_support": 4
+      },
+      "languages": {
+        "en": 3,
+        "fr": 5
+      },
+      "role_experience_months": 31,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-012",
+      "skills": {
+        "product_support": 4
+      },
+      "languages": {
+        "en": 5,
+        "fr": 4
+      },
+      "role_experience_months": 23,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-013",
+      "skills": {
+        "priority_triage": 5
+      },
+      "languages": {
+        "en": 5
+      },
+      "role_experience_months": 39,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-014",
+      "skills": {
+        "priority_triage": 4,
+        "billing": 3
+      },
+      "languages": {
+        "en": 5,
+        "es": 4
+      },
+      "role_experience_months": 50,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-015",
+      "skills": {
+        "priority_triage": 4
+      },
+      "languages": {
+        "en": 4,
+        "fr": 4
+      },
+      "role_experience_months": 15,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-016",
+      "skills": {
+        "billing": 5
+      },
+      "languages": {
+        "en": 5,
+        "es": 5
+      },
+      "role_experience_months": 84,
+      "shift": {
+        "start": "2026-11-16T10:45-05:00",
+        "end": "2026-11-16T18:45-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-017",
+      "skills": {
+        "recovery": 5
+      },
+      "languages": {
+        "en": 5
+      },
+      "role_experience_months": 61,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T10:20-05:00",
+          "end": "2026-11-16T10:45-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-018",
+      "skills": {
+        "billing": 5,
+        "priority_triage": 5
+      },
+      "languages": {
+        "en": 5,
+        "es": 5
+      },
+      "role_experience_months": 72,
+      "shift": {
+        "start": "2026-11-16T08:00-05:00",
+        "end": "2026-11-16T16:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T12:00-05:00",
+          "end": "2026-11-16T12:30-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-019",
+      "skills": {
+        "priority_triage": 2,
+        "recovery": 1
+      },
+      "languages": {
+        "en": 5,
+        "de": 5
+      },
+      "role_experience_months": 57,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-020",
+      "skills": {
+        "billing": 3,
+        "fraud_review": 1
+      },
+      "languages": {
+        "en": 2,
+        "es": 1
+      },
+      "role_experience_months": 64,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-021",
+      "skills": {
+        "recovery": 1,
+        "product_support": 2
+      },
+      "languages": {
+        "en": 3,
+        "fr": 2
+      },
+      "role_experience_months": 71,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T10:05-05:00",
+          "end": "2026-11-16T10:25-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-022",
+      "skills": {
+        "fraud_review": 2,
+        "priority_triage": 2
+      },
+      "languages": {
+        "en": 4,
+        "pt": 3
+      },
+      "role_experience_months": 78,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-023",
+      "skills": {
+        "product_support": 3,
+        "billing": 2
+      },
+      "languages": {
+        "en": 5,
+        "de": 4
+      },
+      "role_experience_months": 6,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-024",
+      "skills": {
+        "priority_triage": 1,
+        "recovery": 3
+      },
+      "languages": {
+        "en": 2,
+        "es": 5
+      },
+      "role_experience_months": 13,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-025",
+      "skills": {
+        "billing": 2,
+        "fraud_review": 3
+      },
+      "languages": {
+        "en": 3,
+        "fr": 1
+      },
+      "role_experience_months": 20,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-026",
+      "skills": {
+        "recovery": 3,
+        "product_support": 3
+      },
+      "languages": {
+        "en": 4,
+        "pt": 2
+      },
+      "role_experience_months": 27,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-027",
+      "skills": {
+        "fraud_review": 1,
+        "priority_triage": 1
+      },
+      "languages": {
+        "en": 5,
+        "de": 3
+      },
+      "role_experience_months": 34,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-028",
+      "skills": {
+        "product_support": 2,
+        "billing": 1
+      },
+      "languages": {
+        "en": 2,
+        "es": 4
+      },
+      "role_experience_months": 41,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-029",
+      "skills": {
+        "priority_triage": 3,
+        "recovery": 1
+      },
+      "languages": {
+        "en": 3,
+        "fr": 5
+      },
+      "role_experience_months": 48,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-030",
+      "skills": {
+        "billing": 1,
+        "fraud_review": 2
+      },
+      "languages": {
+        "en": 4,
+        "pt": 1
+      },
+      "role_experience_months": 55,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-031",
+      "skills": {
+        "recovery": 2,
+        "product_support": 2
+      },
+      "languages": {
+        "en": 5,
+        "de": 2
+      },
+      "role_experience_months": 62,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-032",
+      "skills": {
+        "fraud_review": 3,
+        "priority_triage": 2
+      },
+      "languages": {
+        "en": 2,
+        "es": 3
+      },
+      "role_experience_months": 69,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-033",
+      "skills": {
+        "product_support": 1,
+        "billing": 3
+      },
+      "languages": {
+        "en": 3,
+        "fr": 4
+      },
+      "role_experience_months": 76,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-034",
+      "skills": {
+        "priority_triage": 2,
+        "recovery": 3
+      },
+      "languages": {
+        "en": 4,
+        "pt": 5
+      },
+      "role_experience_months": 4,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-035",
+      "skills": {
+        "billing": 3,
+        "fraud_review": 3
+      },
+      "languages": {
+        "en": 5,
+        "de": 1
+      },
+      "role_experience_months": 11,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-036",
+      "skills": {
+        "recovery": 1,
+        "product_support": 1
+      },
+      "languages": {
+        "en": 2,
+        "es": 2
+      },
+      "role_experience_months": 18,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-037",
+      "skills": {
+        "fraud_review": 2,
+        "priority_triage": 1
+      },
+      "languages": {
+        "en": 3,
+        "fr": 3
+      },
+      "role_experience_months": 25,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-038",
+      "skills": {
+        "product_support": 3,
+        "billing": 1
+      },
+      "languages": {
+        "en": 4,
+        "pt": 4
+      },
+      "role_experience_months": 32,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-039",
+      "skills": {
+        "priority_triage": 1,
+        "recovery": 2
+      },
+      "languages": {
+        "en": 5,
+        "de": 5
+      },
+      "role_experience_months": 39,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-040",
+      "skills": {
+        "billing": 2,
+        "fraud_review": 2
+      },
+      "languages": {
+        "en": 2,
+        "es": 1
+      },
+      "role_experience_months": 46,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-041",
+      "skills": {
+        "recovery": 3,
+        "product_support": 2
+      },
+      "languages": {
+        "en": 3,
+        "fr": 2
+      },
+      "role_experience_months": 53,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-042",
+      "skills": {
+        "fraud_review": 1,
+        "priority_triage": 3
+      },
+      "languages": {
+        "en": 4,
+        "pt": 3
+      },
+      "role_experience_months": 60,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [
+        {
+          "start": "2026-11-16T10:05-05:00",
+          "end": "2026-11-16T10:25-05:00"
+        }
+      ],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-043",
+      "skills": {
+        "product_support": 2,
+        "billing": 3
+      },
+      "languages": {
+        "en": 5,
+        "de": 4
+      },
+      "role_experience_months": 67,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-044",
+      "skills": {
+        "priority_triage": 3,
+        "recovery": 3
+      },
+      "languages": {
+        "en": 2,
+        "es": 5
+      },
+      "role_experience_months": 74,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-045",
+      "skills": {
+        "billing": 1,
+        "fraud_review": 1
+      },
+      "languages": {
+        "en": 3,
+        "fr": 1
+      },
+      "role_experience_months": 81,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-046",
+      "skills": {
+        "recovery": 2,
+        "product_support": 1
+      },
+      "languages": {
+        "en": 4,
+        "pt": 2
+      },
+      "role_experience_months": 9,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-047",
+      "skills": {
+        "fraud_review": 3,
+        "priority_triage": 1
+      },
+      "languages": {
+        "en": 5,
+        "de": 3
+      },
+      "role_experience_months": 16,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-048",
+      "skills": {
+        "product_support": 1,
+        "billing": 2
+      },
+      "languages": {
+        "en": 2,
+        "es": 4
+      },
+      "role_experience_months": 23,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-049",
+      "skills": {
+        "priority_triage": 2,
+        "recovery": 2
+      },
+      "languages": {
+        "en": 3,
+        "fr": 5
+      },
+      "role_experience_months": 30,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-050",
+      "skills": {
+        "billing": 3,
+        "fraud_review": 2
+      },
+      "languages": {
+        "en": 4,
+        "pt": 1
+      },
+      "role_experience_months": 37,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-051",
+      "skills": {
+        "recovery": 1,
+        "product_support": 3
+      },
+      "languages": {
+        "en": 5,
+        "de": 2
+      },
+      "role_experience_months": 44,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-052",
+      "skills": {
+        "fraud_review": 2,
+        "priority_triage": 3
+      },
+      "languages": {
+        "en": 2,
+        "es": 3
+      },
+      "role_experience_months": 51,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-053",
+      "skills": {
+        "product_support": 3,
+        "billing": 3
+      },
+      "languages": {
+        "en": 3,
+        "fr": 4
+      },
+      "role_experience_months": 58,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-054",
+      "skills": {
+        "priority_triage": 1,
+        "recovery": 1
+      },
+      "languages": {
+        "en": 4,
+        "pt": 5
+      },
+      "role_experience_months": 65,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-055",
+      "skills": {
+        "billing": 2,
+        "fraud_review": 1
+      },
+      "languages": {
+        "en": 5,
+        "de": 1
+      },
+      "role_experience_months": 72,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-056",
+      "skills": {
+        "recovery": 3,
+        "product_support": 1
+      },
+      "languages": {
+        "en": 2,
+        "es": 2
+      },
+      "role_experience_months": 79,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 0,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-057",
+      "skills": {
+        "fraud_review": 1,
+        "priority_triage": 2
+      },
+      "languages": {
+        "en": 3,
+        "fr": 3
+      },
+      "role_experience_months": 7,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    },
+    {
+      "id": "OP-058",
+      "skills": {
+        "product_support": 2,
+        "billing": 2
+      },
+      "languages": {
+        "en": 4,
+        "pt": 4
+      },
+      "role_experience_months": 14,
+      "shift": {
+        "start": "2026-11-16T12:00-05:00",
+        "end": "2026-11-16T20:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 2
+      }
+    },
+    {
+      "id": "OP-059",
+      "skills": {
+        "priority_triage": 3,
+        "recovery": 2
+      },
+      "languages": {
+        "en": 5,
+        "de": 5
+      },
+      "role_experience_months": 21,
+      "shift": {
+        "start": "2026-11-16T06:00-05:00",
+        "end": "2026-11-16T10:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 3
+      }
+    },
+    {
+      "id": "OP-060",
+      "skills": {
+        "billing": 1,
+        "fraud_review": 3
+      },
+      "languages": {
+        "en": 2,
+        "es": 1
+      },
+      "role_experience_months": 28,
+      "shift": {
+        "start": "2026-11-16T07:00-05:00",
+        "end": "2026-11-16T15:00-05:00"
+      },
+      "breaks": [],
+      "contact_capacity": {
+        "voice": 1,
+        "chat": 1
+      }
+    }
+  ]
+}

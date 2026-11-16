@@ -31,6 +31,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/blog/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/blog/"/>
@@ -210,6 +240,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/blog/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/blog/"/>
@@ -318,6 +378,36 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/tirana/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/tirana/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/blog/</loc>
@@ -430,6 +520,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/blog/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/blog/"/>
@@ -540,6 +660,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/blog/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/blog/"/>
@@ -648,6 +798,36 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/tirana/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/tirana/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/tirana/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/london/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/london/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/paris/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/paris/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/munich/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/examples/fleet/munich/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/blog/</loc>

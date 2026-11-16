@@ -1,0 +1,142 @@
+{
+  "fixture_id": "cargo-allocation-v1",
+  "case": "Synthetic vessel allocation for one dispatch window",
+  "supporting_context": {
+    "data_origin": "Sample demonstration data; not a manifest, booking, or ship load approval.",
+    "lane": "Demonstration terminal A to demonstration terminal B",
+    "voyage_departure_window_utc": {
+      "earliest": "2026-12-08T06:00:00Z",
+      "latest": "2026-12-08T22:00:00Z"
+    },
+    "weight_unit": {
+      "code": "t",
+      "label": "metric tonne",
+      "kilograms_per_tonne": 1000
+    },
+    "scope_note": "The allowance is a synthetic booking allocation for these consignments, not ship deadweight or a statement of loading capacity. Operational notes explain the inputs but are not validated against vessel hardware or operating conditions."
+  },
+  "normalization_contract": {
+    "consumed_fields": [
+      "vessels[].resource_index",
+      "vessels[].id",
+      "vessels[].weight_allowance_t",
+      "consignments[].variable_index",
+      "consignments[].id",
+      "consignments[].gross_mass_t",
+      "consignments[].eligibility[].vessel_id",
+      "consignments[].eligibility[].allowed",
+      "consignments[].preference.vessel_id",
+      "consignments[].preference.missed_penalty"
+    ],
+    "raw_metadata_not_consumed": "Voyage, reefer profiles, cargo/lot labels, and decision rationale support review. Only the explicit eligibility decisions, masses, vessel allowances and preferences drive this solve."
+  },
+  "vessels": [
+    {
+      "resource_index": 0,
+      "id": "estuary",
+      "label": "Estuary",
+      "weight_allowance_t": 150,
+      "supporting": {
+        "scheduled_departure_utc": "2026-12-08T08:00:00Z",
+        "reefer_profiles": [],
+        "handling_note": "Ambient booking lane; marked for machinery and steel handling."
+      }
+    },
+    {
+      "resource_index": 1,
+      "id": "boreal",
+      "label": "Boreal",
+      "weight_allowance_t": 130,
+      "supporting": {
+        "scheduled_departure_utc": "2026-12-08T13:00:00Z",
+        "reefer_profiles": ["chilled", "frozen"],
+        "handling_note": "Reefer-capable synthetic booking lane; no steel or loose packaging booking for this departure."
+      }
+    },
+    {
+      "resource_index": 2,
+      "id": "meridian",
+      "label": "Meridian",
+      "weight_allowance_t": 120,
+      "supporting": {
+        "scheduled_departure_utc": "2026-12-08T20:00:00Z",
+        "reefer_profiles": ["chilled", "frozen"],
+        "handling_note": "Reefer-capable synthetic booking lane; no machinery handling allocation; later destination handoff."
+      }
+    }
+  ],
+  "consignments": [
+    {
+      "variable_index": 0,
+      "id": "steel",
+      "gross_mass_t": 95,
+      "supporting": { "lot_ref": "SYN-LOT-01", "cargo_class": "steel bundles", "storage_profile": "ambient" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": true, "reason_code": "STEEL_BOOKING_LANE", "reason": "This dispatch lane accepts the steel lot." },
+        { "vessel_id": "boreal", "allowed": false, "reason_code": "NO_STEEL_BOOKING", "reason": "Steel is not accepted in this departure's booking plan." },
+        { "vessel_id": "meridian", "allowed": true, "reason_code": "STEEL_BOOKING_LANE", "reason": "This dispatch lane accepts the steel lot." }
+      ],
+      "preference": { "vessel_id": "estuary", "missed_penalty": 1, "reason": "Earlier dispatch aligns with the synthetic yard handoff." }
+    },
+    {
+      "variable_index": 1,
+      "id": "machine-parts",
+      "gross_mass_t": 52,
+      "supporting": { "lot_ref": "SYN-LOT-02", "cargo_class": "crated machine parts", "storage_profile": "ambient" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": true, "reason_code": "MACHINERY_HANDLING", "reason": "The departure has a machinery handling allocation." },
+        { "vessel_id": "boreal", "allowed": true, "reason_code": "CRATED_MACHINERY_ACCEPTED", "reason": "The booking plan accepts this crated machinery lot." },
+        { "vessel_id": "meridian", "allowed": false, "reason_code": "NO_MACHINERY_ALLOCATION", "reason": "This departure has no machinery handling allocation." }
+      ],
+      "preference": { "vessel_id": "estuary", "missed_penalty": 1, "reason": "Consolidate with the earlier machinery handoff." }
+    },
+    {
+      "variable_index": 2,
+      "id": "chilled-produce",
+      "gross_mass_t": 62,
+      "supporting": { "lot_ref": "SYN-LOT-03", "cargo_class": "chilled produce", "storage_profile": "chilled" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": false, "reason_code": "NO_CHILLED_PROFILE", "reason": "This booking lane is ambient only." },
+        { "vessel_id": "boreal", "allowed": true, "reason_code": "CHILLED_BOOKING_PROFILE", "reason": "The fixture marks this departure as accepting the chilled lot." },
+        { "vessel_id": "meridian", "allowed": true, "reason_code": "CHILLED_BOOKING_PROFILE", "reason": "The fixture marks this departure as accepting the chilled lot." }
+      ],
+      "preference": { "vessel_id": "boreal", "missed_penalty": 1, "reason": "Earlier reefer-capable departure is preferred." }
+    },
+    {
+      "variable_index": 3,
+      "id": "cartoned-goods",
+      "gross_mass_t": 58,
+      "supporting": { "lot_ref": "SYN-LOT-04", "cargo_class": "cartoned merchandise", "storage_profile": "ambient" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": true, "reason_code": "DESTINATION_HANDOFF", "reason": "The booking meets this lot's synthetic receiving handoff." },
+        { "vessel_id": "boreal", "allowed": true, "reason_code": "DESTINATION_HANDOFF", "reason": "The booking meets this lot's synthetic receiving handoff." },
+        { "vessel_id": "meridian", "allowed": false, "reason_code": "HANDOFF_CUTOFF", "reason": "The later handoff does not fit this lot's receiving cutoff." }
+      ],
+      "preference": { "vessel_id": "boreal", "missed_penalty": 1, "reason": "The receiving team prefers the middle departure for this lot." }
+    },
+    {
+      "variable_index": 4,
+      "id": "frozen-berries",
+      "gross_mass_t": 54,
+      "supporting": { "lot_ref": "SYN-LOT-05", "cargo_class": "frozen berries", "storage_profile": "frozen" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": false, "reason_code": "NO_FROZEN_PROFILE", "reason": "This booking lane is ambient only." },
+        { "vessel_id": "boreal", "allowed": true, "reason_code": "FROZEN_BOOKING_PROFILE", "reason": "The fixture marks this departure as accepting the frozen lot." },
+        { "vessel_id": "meridian", "allowed": true, "reason_code": "FROZEN_BOOKING_PROFILE", "reason": "The fixture marks this departure as accepting the frozen lot." }
+      ],
+      "preference": { "vessel_id": "meridian", "missed_penalty": 1, "reason": "This lot is preferred on the late cold-room collection window." }
+    },
+    {
+      "variable_index": 5,
+      "id": "packaging",
+      "gross_mass_t": 43,
+      "supporting": { "lot_ref": "SYN-LOT-06", "cargo_class": "packing supplies", "storage_profile": "ambient" },
+      "eligibility": [
+        { "vessel_id": "estuary", "allowed": true, "reason_code": "PACKAGING_BOOKING_LANE", "reason": "This departure accepts the packing-supplies lot." },
+        { "vessel_id": "boreal", "allowed": false, "reason_code": "NO_PACKAGING_BOOKING", "reason": "This departure's booking plan excludes this packaging lot." },
+        { "vessel_id": "meridian", "allowed": true, "reason_code": "PACKAGING_BOOKING_LANE", "reason": "This departure accepts the packing-supplies lot." }
+      ],
+      "preference": { "vessel_id": "meridian", "missed_penalty": 1, "reason": "The supplies are preferred on the later receiving slot." }
+    }
+  ]
+}
