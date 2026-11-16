@@ -1,0 +1,3768 @@
+{
+  "version": 1,
+  "description": "Synthetic lead-to-contact examples. No live CRM data.",
+  "records": [
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-001",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-001@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-001",
+          "account": "AC-0",
+          "email": "inquiry-001@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-002",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-002@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-002",
+            "account": "AC-1",
+            "email": "inquiry-002@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-002",
+          "account": "AC-1",
+          "email": "inquiry-002@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-003",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-003@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-004",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-004@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-004",
+            "account": "AC-OTHER",
+            "email": "inquiry-004@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-005",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-005@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-005",
+          "account": "AC-5",
+          "email": "inquiry-005@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-006",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-006@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-006",
+            "account": "AC-0",
+            "email": "inquiry-006@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-006",
+          "account": "AC-0",
+          "email": "inquiry-006@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-007",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-007@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-008",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-008@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-008",
+            "account": "AC-2",
+            "email": "inquiry-008@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-008",
+            "account": "AC-2",
+            "email": "inquiry-008@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-009",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-009@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-009",
+          "account": "AC-4",
+          "email": "inquiry-009@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-010",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-010@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-010",
+            "account": "AC-5",
+            "email": "inquiry-010@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-010",
+          "account": "AC-5",
+          "email": "inquiry-010@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-011",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-011@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-012",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-012@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-012",
+            "account": "AC-OTHER",
+            "email": "inquiry-012@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-013",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-013@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-013",
+          "account": "AC-3",
+          "email": "inquiry-013@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-014",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-014@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-014",
+            "account": "AC-4",
+            "email": "inquiry-014@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-014",
+          "account": "AC-4",
+          "email": "inquiry-014@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-015",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-015@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-016",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-016@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-016",
+            "account": "AC-0",
+            "email": "inquiry-016@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-016",
+            "account": "AC-0",
+            "email": "inquiry-016@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-017",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-017@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-017",
+          "account": "AC-2",
+          "email": "inquiry-017@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-018",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-018@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-018",
+            "account": "AC-3",
+            "email": "inquiry-018@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-018",
+          "account": "AC-3",
+          "email": "inquiry-018@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-019",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-019@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-020",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-020@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-020",
+            "account": "AC-OTHER",
+            "email": "inquiry-020@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-021",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-021@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-021",
+          "account": "AC-1",
+          "email": "inquiry-021@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-022",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-022@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-022",
+            "account": "AC-2",
+            "email": "inquiry-022@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-022",
+          "account": "AC-2",
+          "email": "inquiry-022@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-023",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-023@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-024",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-024@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-024",
+            "account": "AC-4",
+            "email": "inquiry-024@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-024",
+            "account": "AC-4",
+            "email": "inquiry-024@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-025",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-025@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-025",
+          "account": "AC-0",
+          "email": "inquiry-025@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-026",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-026@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-026",
+            "account": "AC-1",
+            "email": "inquiry-026@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-026",
+          "account": "AC-1",
+          "email": "inquiry-026@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-027",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-027@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-028",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-028@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-028",
+            "account": "AC-OTHER",
+            "email": "inquiry-028@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-029",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-029@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-029",
+          "account": "AC-5",
+          "email": "inquiry-029@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-030",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-030@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-030",
+            "account": "AC-0",
+            "email": "inquiry-030@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-030",
+          "account": "AC-0",
+          "email": "inquiry-030@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-031",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-031@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-032",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-032@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-032",
+            "account": "AC-2",
+            "email": "inquiry-032@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-032",
+            "account": "AC-2",
+            "email": "inquiry-032@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-033",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-033@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-033",
+          "account": "AC-4",
+          "email": "inquiry-033@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-034",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-034@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-034",
+            "account": "AC-5",
+            "email": "inquiry-034@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-034",
+          "account": "AC-5",
+          "email": "inquiry-034@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-035",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-035@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-036",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-036@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-036",
+            "account": "AC-OTHER",
+            "email": "inquiry-036@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-037",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-037@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-037",
+          "account": "AC-3",
+          "email": "inquiry-037@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-038",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-038@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-038",
+            "account": "AC-4",
+            "email": "inquiry-038@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-038",
+          "account": "AC-4",
+          "email": "inquiry-038@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-039",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-039@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-040",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "IT",
+          "language": "it",
+          "email": "  INQUIRY-040@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "IT",
+            "language": "it",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "IT",
+            "language": "it",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "PL",
+            "language": "it",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-040",
+            "account": "AC-0",
+            "email": "inquiry-040@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-040",
+            "account": "AC-0",
+            "email": "inquiry-040@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-041",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-041@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-041",
+          "account": "AC-2",
+          "email": "inquiry-041@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-042",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-042@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-042",
+            "account": "AC-3",
+            "email": "inquiry-042@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-042",
+          "account": "AC-3",
+          "email": "inquiry-042@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-043",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-043@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-044",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "PL",
+          "language": "pl",
+          "email": "  INQUIRY-044@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "PL",
+            "language": "pl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "PL",
+            "language": "pl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "FR",
+            "language": "pl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-044",
+            "account": "AC-OTHER",
+            "email": "inquiry-044@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-045",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-045@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-045",
+          "account": "AC-1",
+          "email": "inquiry-045@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-046",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-046@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-046",
+            "account": "AC-2",
+            "email": "inquiry-046@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-046",
+          "account": "AC-2",
+          "email": "inquiry-046@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-047",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-047@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-048",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "FR",
+          "language": "fr",
+          "email": "  INQUIRY-048@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "FR",
+            "language": "fr",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "FR",
+            "language": "fr",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "US",
+            "language": "fr",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-048",
+            "account": "AC-4",
+            "email": "inquiry-048@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-048",
+            "account": "AC-4",
+            "email": "inquiry-048@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-049",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-049@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-049",
+          "account": "AC-0",
+          "email": "inquiry-049@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-050",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-050@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-050",
+            "account": "AC-1",
+            "email": "inquiry-050@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-050",
+          "account": "AC-1",
+          "email": "inquiry-050@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-051",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-051@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-052",
+          "company": "Cedar Ridge",
+          "account": "AC-3",
+          "territory": "US",
+          "language": "en",
+          "email": "  INQUIRY-052@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "US",
+            "language": "en",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "US",
+            "language": "en",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "DE",
+            "language": "en",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-052",
+            "account": "AC-OTHER",
+            "email": "inquiry-052@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-053",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-053@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-053",
+          "account": "AC-5",
+          "email": "inquiry-053@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-054",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-054@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-054",
+            "account": "AC-0",
+            "email": "inquiry-054@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-054",
+          "account": "AC-0",
+          "email": "inquiry-054@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-055",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-055@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-056",
+          "company": "Alder Works",
+          "account": "AC-2",
+          "territory": "DE",
+          "language": "de",
+          "email": "  INQUIRY-056@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "DE",
+            "language": "de",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "DE",
+            "language": "de",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "NL",
+            "language": "de",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-056",
+            "account": "AC-2",
+            "email": "inquiry-056@example.test",
+            "owner": "REP-18"
+          },
+          {
+            "id": "CT-DUP-056",
+            "account": "AC-2",
+            "email": "inquiry-056@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    },
+    {
+      "scenario": "new",
+      "input": {
+        "lead": {
+          "id": "L-057",
+          "company": "Riverside Supply",
+          "account": "AC-4",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-057@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "created",
+        "reason": "new",
+        "owner": "REP-08",
+        "contact": {
+          "id": "CT-057",
+          "account": "AC-4",
+          "email": "inquiry-057@example.test",
+          "owner": "REP-08"
+        }
+      }
+    },
+    {
+      "scenario": "existing",
+      "input": {
+        "lead": {
+          "id": "L-058",
+          "company": "Bridgewell",
+          "account": "AC-5",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-058@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 7
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 3
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-058",
+            "account": "AC-5",
+            "email": "inquiry-058@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "reused",
+        "reason": "existing",
+        "owner": "REP-18",
+        "contact": {
+          "id": "CT-EX-058",
+          "account": "AC-5",
+          "email": "inquiry-058@example.test",
+          "owner": "REP-18"
+        }
+      }
+    },
+    {
+      "scenario": "hold",
+      "input": {
+        "lead": {
+          "id": "L-059",
+          "company": "Northline",
+          "account": "AC-0",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-059@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": false
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 8
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 4
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": []
+      },
+      "decision": {
+        "result": "held",
+        "reason": "unqualified",
+        "owner": "REP-08",
+        "contact": null
+      }
+    },
+    {
+      "scenario": "ambiguous",
+      "input": {
+        "lead": {
+          "id": "L-060",
+          "company": "Harbor Point",
+          "account": "AC-1",
+          "territory": "NL",
+          "language": "nl",
+          "email": "  INQUIRY-060@EXAMPLE.TEST ",
+          "source": "inbound",
+          "qualification": {
+            "need": true,
+            "person": true,
+            "nextStep": true
+          }
+        },
+        "representatives": [
+          {
+            "id": "REP-18",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 9
+          },
+          {
+            "id": "REP-25",
+            "territory": "NL",
+            "language": "nl",
+            "available": false,
+            "workload": 0
+          },
+          {
+            "id": "REP-08",
+            "territory": "NL",
+            "language": "nl",
+            "available": true,
+            "workload": 5
+          },
+          {
+            "id": "REP-31",
+            "territory": "IT",
+            "language": "nl",
+            "available": true,
+            "workload": 1
+          }
+        ],
+        "contacts": [
+          {
+            "id": "CT-EX-060",
+            "account": "AC-OTHER",
+            "email": "inquiry-060@example.test",
+            "owner": "REP-18"
+          }
+        ]
+      },
+      "decision": {
+        "result": "review",
+        "reason": "ambiguous",
+        "owner": null,
+        "contact": null
+      }
+    }
+  ]
+}
