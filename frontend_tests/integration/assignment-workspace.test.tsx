@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
-import { App } from '../../app'
-import { PlanResult } from '../../features/assignment/plan-result'
-import { SolveError } from '../../shared/api/solve'
+import { App } from '../../frontend/src/app'
+import { PlanResult } from '../../frontend/src/features/assignment/plan-result'
+import { SolveError } from '../../frontend/src/shared/api/solve'
 
 describe('assignment workspace', () => {
   it('starts with an understandable example and keeps JSON closed', () => {

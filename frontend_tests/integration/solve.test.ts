@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { solveProblem } from '../../shared/api/solve'
-import { serializeEligibility } from '../../shared/examples/assignment'
+import { solveProblem } from '../../frontend/src/shared/api/solve'
+import { serializeEligibility } from '../../frontend/src/shared/examples/assignment'
 
 afterEach(() => {
   vi.unstubAllGlobals()
