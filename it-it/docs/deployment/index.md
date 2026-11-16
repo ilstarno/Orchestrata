@@ -2,13 +2,7 @@ Avvia il servizio e l’interfaccia web sul tuo computer. Il sito del progetto O
 
 ## API locale e interfaccia web
 
-Usa una versione stabile di Rust con Cargo, Git e curl. Per l’interfaccia web, installa anche Node.js 22 e npm. I comandi seguenti usano una revisione verificata del progetto pubblico di partenza:
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Usa una versione stabile di Rust con Cargo e curl. Per l’interfaccia web, installa anche Node.js 22 e npm. [Scarica il progetto pubblico usato in questa guida](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), estrai l’archivio e apri il terminale nella cartella estratta.
 
 Dalla directory principale del repository, esegui i test del workspace con le dipendenze bloccate e avvia l’API sull’interfaccia di loopback:
 

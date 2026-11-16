@@ -56,7 +56,7 @@ Set the maximum number of evaluations to `2`. Both candidates fit the budget. Th
 
 ## C# · .NET 8
 
-Create a .NET 8 console project, add a project reference to `sdks/csharp/Orchestrata.csproj`, and use this as `Program.cs`. Run it with the full library path as the first argument, for example `dotnet run --project /path/to/demo -- "$ORCHESTRATA_LIBRARY"`.
+Create a .NET 8 console project, add a project reference to `sdks/csharp/Orchestrata.csproj`, and use this as `Program.cs`. Run it with the full library path as the first argument, for example `dotnet run --project /path/to/solver-quickstart -- "$ORCHESTRATA_LIBRARY"`.
 
 ```csharp
 using System;
@@ -82,13 +82,13 @@ Indices are nonnegative `int`. Signed values and scores use `long`; durations, c
 
 ## Java · JDK 22+
 
-Save this as `Demo.java`. It uses the host library path supplied as an argument. Keep the `Solver` in a try-with-resources block.
+Save this as `SolverQuickstart.java`. It uses the host library path supplied as an argument. Keep the `Solver` in a try-with-resources block.
 
 ```java
 import java.nio.file.Path;
 import io.orchestrata.Solver;
 
-public class Demo {
+public class SolverQuickstart {
     public static void main(String[] args) {
         try (var solver = new Solver(Path.of(args[0]))) {
             String problem = """
@@ -100,12 +100,12 @@ public class Demo {
 }
 ```
 
-From the engine checkout root (use the actual path to your `Demo.java`):
+From the engine checkout root (use the actual path to your `SolverQuickstart.java`):
 
 ```sh
 classes="$(mktemp -d)"
-javac -d "$classes" $(find sdks/java/src/main/java -name '*.java') Demo.java
-java --enable-native-access=ALL-UNNAMED -cp "$classes" Demo "$ORCHESTRATA_LIBRARY"
+javac -d "$classes" $(find sdks/java/src/main/java -name '*.java') SolverQuickstart.java
+java --enable-native-access=ALL-UNNAMED -cp "$classes" SolverQuickstart "$ORCHESTRATA_LIBRARY"
 ```
 
 The classpath example enables native access for unnamed modules. A modular application should enable it for the module making the native call. A `SolveException` supplies `status()`. The limit is a Java `long` passed as an unsigned 64-bit bit pattern; ordinary examples should use a small nonnegative limit. Do not assume a negative Java value means a negative native budget.
@@ -179,10 +179,10 @@ The budget cannot exceed `PHP_INT_MAX` on the host. A native failure throws `Orc
 
 ## Go · 1.20+ with cgo
 
-In a new Go module, use a local module replacement pointing at this checkout’s `sdks/go` directory. The import path below is the module name used by this source revision. From your demo directory:
+In a new Go module, use a local module replacement pointing at this checkout’s `sdks/go` directory. Use the module name shown below. From your new project directory:
 
 ```sh
-go mod init example.com/orchestrata-demo
+go mod init example.com/orchestrata-quickstart
 go mod edit -require=github.com/ilstarno/Orchestrata/sdks/go@v0.0.0
 go mod edit -replace=github.com/ilstarno/Orchestrata/sdks/go=/absolute/path/to/engine/sdks/go
 ```

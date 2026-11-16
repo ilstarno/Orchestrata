@@ -21,7 +21,7 @@ WORKFLOWS = [
  ("rome","Diagnostic session support","Diagnostic logistics","Reserve room setup, capacity reconciliation and handoff work, not tests or appointments.","elective-access","room setup station",[
   ("Reconcile accepted session inventory with room availability",20,40,False,False),
   ("Reserve equipment set-up and room readiness time",30,80,True,False),
-  ("Send the availability draft to the session coordinator",15,110,True,False),
+  ("Send proposed times to the session coordinator",15,110,True,False),
   ("Fit an additional setup batch before the room locks",40,90,False,False),
   ("Reserve a room without facilities clearance",15,145,False,True),
  ]),

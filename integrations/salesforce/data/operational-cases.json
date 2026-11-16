@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Illustrative Salesforce records and staffing only. Review drafts offline; nothing is read, changed, routed, or approved in Salesforce.",
+  "scope": "Example Salesforce records and staffing. Review the proposed plan offline. The example does not read or change Salesforce records, route work in Salesforce, or approve terms.",
   "cases": [
     {
       "id": "service-cloud-queue",
@@ -416,7 +416,7 @@
               "mandate": "Renewal deadlines",
               "narrative": "Sales Cloud renewals: propose a territory owner and book preparation and review steps before a renewal deadline.",
               "operatingPolicy": {
-                "priorityRule": "Territory, renewal skills, proposal authority, and time must match. A specialist may review after the owner prepares a draft; proposed reviews never confer approval.",
+                "priorityRule": "Territory, renewal skills, proposal authority, and time must match. A specialist may review after the owner prepares options. Scheduling a review does not approve those options.",
                 "timeBasis": "Integer minutes from illustrative plan start",
                 "planIsOperationalApproval": false
               },
@@ -528,7 +528,7 @@
                     {
                       "issueReference": "OPP-201",
                       "requestBasis": {
-                        "displayTitle": "Assign DACH renewal owner and draft options",
+                        "displayTitle": "Assign a DACH renewal owner and prepare options",
                         "policyScope": "DACH",
                         "requiredCapabilities": [
                           "renewal",

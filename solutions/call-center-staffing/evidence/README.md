@@ -84,4 +84,4 @@ python reproduce.py --library /path/to/engine/backend/target/release/liborchestr
 The check rebuilds all four JSON documents in memory, calls the native
 library, runs a separate exhaustive check, and compares the canonical output
 with each saved file. Add `--write` only when intentionally refreshing the
-sample. First verified with engine revision `cddfdaee5b9ee9ff2577399726b95a12286e69c7`.
+sample. First checked against the [verified engine source](https://github.com/ilstarno/orchestrata-engine/tree/cddfdaee5b9ee9ff2577399726b95a12286e69c7).

@@ -9,8 +9,8 @@ const boundedWindow = (window) => Array.isArray(window) && window.length === 2 &
 
 export const reasons = {
   no_qualified_resource: 'No resource has all required skills.',
-  no_slot_before_deadline: 'No qualified resource can fit the whole item before its deadline in the current draft.',
-  prerequisite_held: 'At least one prerequisite was held in this draft.',
+  no_slot_before_deadline: 'No qualified team member has enough time to finish this item before its deadline.',
+  prerequisite_held: 'An earlier task must be scheduled before this item can start.',
   approval_pending: 'The required sample change approval is pending.',
 }
 

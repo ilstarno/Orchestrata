@@ -31,7 +31,7 @@ Use the [source inputs](inputs.json) to inspect the original minute values. Befo
 | Depot delivery | 700 kg | 09:10–09:50 | Late-start van |
 | Small-box drop | 150 kg | 09:15–10:00 | Large van |
 
-The late-start van cannot take the parcel pickup because it is not available at 09:00. The short-shift van cannot take the depot delivery because of both load and availability. The expected result is `values: [1, 2, 0]` in job order, hard and soft scores 0/0, and 8 combinations checked.
+The parcel pickup is at 09:00, before the late-start van’s shift begins. The short-shift van cannot take the depot delivery because of both load and availability. The expected result is `values: [1, 2, 0]` in job order, hard and soft scores 0/0, and 8 combinations checked.
 
 ### Run it
 

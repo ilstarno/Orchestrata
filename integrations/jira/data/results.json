@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Synthetic Jira and Jira Service Management inputs. Output is a planning draft for human review; no Jira connection or write.",
+  "scope": "Example Jira and Jira Service Management records. A coordinator reviews the proposed plan. It does not connect to Jira or write records.",
   "results": [
     {
       "id": "jsm-queue",
@@ -22,7 +22,7 @@
         {
           "itemId": "HELP-102",
           "code": "no_slot_before_deadline",
-          "reason": "No qualified resource can fit the whole item before its deadline in the current draft.",
+          "reason": "No qualified team member has enough time to finish this item before its deadline.",
           "eligibleResourceIds": [
             "AGENT-B"
           ]
@@ -30,7 +30,7 @@
         {
           "itemId": "HELP-104",
           "code": "prerequisite_held",
-          "reason": "At least one prerequisite was held in this draft.",
+          "reason": "An earlier task must be scheduled before this item can start.",
           "prerequisiteIds": [
             "HELP-102"
           ]
@@ -73,7 +73,7 @@
         {
           "itemId": "REL-204",
           "code": "no_slot_before_deadline",
-          "reason": "No qualified resource can fit the whole item before its deadline in the current draft.",
+          "reason": "No qualified team member has enough time to finish this item before its deadline.",
           "eligibleResourceIds": [
             "ENG-1"
           ]
@@ -81,7 +81,7 @@
         {
           "itemId": "REL-205",
           "code": "prerequisite_held",
-          "reason": "At least one prerequisite was held in this draft.",
+          "reason": "An earlier task must be scheduled before this item can start.",
           "prerequisiteIds": [
             "REL-204"
           ]
@@ -124,7 +124,7 @@
         {
           "itemId": "OPS-305",
           "code": "prerequisite_held",
-          "reason": "At least one prerequisite was held in this draft.",
+          "reason": "An earlier task must be scheduled before this item can start.",
           "prerequisiteIds": [
             "OPS-304"
           ]

@@ -12,6 +12,6 @@ From this directory:
 python3 reproduce.py --library /path/to/liborchestrata_ffi.so
 ~~~
 
-This runs the native ABI v1 solver on all three normalized inputs, then compares the exact choices and scores with a separately enumerated objective on the raw alternatives. Pass --write to refresh the recorded artifact after checks pass. The checked run used the native library built from Orchestrata engine commit cddfdaee5b9ee9ff2577399726b95a12286e69c7.
+This runs the native ABI v1 solver on all three normalized inputs, then compares the exact choices and scores with a separately enumerated objective on the raw alternatives. Pass --write to refresh the recorded artifact after checks pass. The checked run used the native library built from the [verified Orchestrata engine source](https://github.com/ilstarno/orchestrata-engine/tree/cddfdaee5b9ee9ff2577399726b95a12286e69c7).
 
 Results: original 3/3 jobs, 78 driving minutes, no overtime; callout 3/3, 80 driving minutes, 20 overtime; urgent arrival after the callout 3/4, 102 driving minutes, 38 overtime across two people. The exception is preventive maintenance: its two eligible technicians are assigned to the safety inspection and urgent isolation. These are exact choices only for this small fixed input, not a speed or savings benchmark.

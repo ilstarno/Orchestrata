@@ -85,7 +85,7 @@
         },
         {
           "workId": "ROME-03",
-          "activity": "Send the availability draft to the session coordinator",
+          "activity": "Send proposed times to the session coordinator",
           "status": "scheduled",
           "resourceId": "ROME-R2",
           "assetId": "ROME-A1",

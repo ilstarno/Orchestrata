@@ -86,7 +86,7 @@
       "records": [
         {
           "id": "TURN-001",
-          "flightCode": "DEMO-AIR-001",
+          "flightCode": "FLT-001",
           "type": "regional",
           "international": true,
           "localDate": "2026-02-02",
@@ -96,7 +96,7 @@
         },
         {
           "id": "TURN-002",
-          "flightCode": "DEMO-AIR-002",
+          "flightCode": "FLT-002",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-03",
@@ -106,7 +106,7 @@
         },
         {
           "id": "TURN-003",
-          "flightCode": "DEMO-AIR-003",
+          "flightCode": "FLT-003",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-04",
@@ -116,7 +116,7 @@
         },
         {
           "id": "TURN-004",
-          "flightCode": "DEMO-AIR-004",
+          "flightCode": "FLT-004",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-05",
@@ -126,7 +126,7 @@
         },
         {
           "id": "TURN-005",
-          "flightCode": "DEMO-AIR-005",
+          "flightCode": "FLT-005",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-06",
@@ -136,7 +136,7 @@
         },
         {
           "id": "TURN-006",
-          "flightCode": "DEMO-AIR-006",
+          "flightCode": "FLT-006",
           "type": "widebody",
           "international": true,
           "localDate": "2026-02-07",
@@ -146,7 +146,7 @@
         },
         {
           "id": "TURN-007",
-          "flightCode": "DEMO-AIR-007",
+          "flightCode": "FLT-007",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-08",
@@ -156,7 +156,7 @@
         },
         {
           "id": "TURN-008",
-          "flightCode": "DEMO-AIR-008",
+          "flightCode": "FLT-008",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-09",
@@ -166,7 +166,7 @@
         },
         {
           "id": "TURN-009",
-          "flightCode": "DEMO-AIR-009",
+          "flightCode": "FLT-009",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-10",
@@ -176,7 +176,7 @@
         },
         {
           "id": "TURN-010",
-          "flightCode": "DEMO-AIR-010",
+          "flightCode": "FLT-010",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-11",
@@ -186,7 +186,7 @@
         },
         {
           "id": "TURN-011",
-          "flightCode": "DEMO-AIR-011",
+          "flightCode": "FLT-011",
           "type": "narrowbody",
           "international": true,
           "localDate": "2026-02-12",
@@ -196,7 +196,7 @@
         },
         {
           "id": "TURN-012",
-          "flightCode": "DEMO-AIR-012",
+          "flightCode": "FLT-012",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-13",
@@ -206,7 +206,7 @@
         },
         {
           "id": "TURN-013",
-          "flightCode": "DEMO-AIR-013",
+          "flightCode": "FLT-013",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-14",
@@ -216,7 +216,7 @@
         },
         {
           "id": "TURN-014",
-          "flightCode": "DEMO-AIR-014",
+          "flightCode": "FLT-014",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-15",
@@ -226,7 +226,7 @@
         },
         {
           "id": "TURN-015",
-          "flightCode": "DEMO-AIR-015",
+          "flightCode": "FLT-015",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-02",
@@ -236,7 +236,7 @@
         },
         {
           "id": "TURN-016",
-          "flightCode": "DEMO-AIR-016",
+          "flightCode": "FLT-016",
           "type": "regional",
           "international": true,
           "localDate": "2026-02-03",
@@ -246,7 +246,7 @@
         },
         {
           "id": "TURN-017",
-          "flightCode": "DEMO-AIR-017",
+          "flightCode": "FLT-017",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-04",
@@ -256,7 +256,7 @@
         },
         {
           "id": "TURN-018",
-          "flightCode": "DEMO-AIR-018",
+          "flightCode": "FLT-018",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-05",
@@ -266,7 +266,7 @@
         },
         {
           "id": "TURN-019",
-          "flightCode": "DEMO-AIR-019",
+          "flightCode": "FLT-019",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-06",
@@ -276,7 +276,7 @@
         },
         {
           "id": "TURN-020",
-          "flightCode": "DEMO-AIR-020",
+          "flightCode": "FLT-020",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-07",
@@ -286,7 +286,7 @@
         },
         {
           "id": "TURN-021",
-          "flightCode": "DEMO-AIR-021",
+          "flightCode": "FLT-021",
           "type": "widebody",
           "international": true,
           "localDate": "2026-02-08",
@@ -296,7 +296,7 @@
         },
         {
           "id": "TURN-022",
-          "flightCode": "DEMO-AIR-022",
+          "flightCode": "FLT-022",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-09",
@@ -306,7 +306,7 @@
         },
         {
           "id": "TURN-023",
-          "flightCode": "DEMO-AIR-023",
+          "flightCode": "FLT-023",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-10",
@@ -316,7 +316,7 @@
         },
         {
           "id": "TURN-024",
-          "flightCode": "DEMO-AIR-024",
+          "flightCode": "FLT-024",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-11",
@@ -326,7 +326,7 @@
         },
         {
           "id": "TURN-025",
-          "flightCode": "DEMO-AIR-025",
+          "flightCode": "FLT-025",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-12",
@@ -336,7 +336,7 @@
         },
         {
           "id": "TURN-026",
-          "flightCode": "DEMO-AIR-026",
+          "flightCode": "FLT-026",
           "type": "narrowbody",
           "international": true,
           "localDate": "2026-02-13",
@@ -346,7 +346,7 @@
         },
         {
           "id": "TURN-027",
-          "flightCode": "DEMO-AIR-027",
+          "flightCode": "FLT-027",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-14",
@@ -356,7 +356,7 @@
         },
         {
           "id": "TURN-028",
-          "flightCode": "DEMO-AIR-028",
+          "flightCode": "FLT-028",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-15",
@@ -366,7 +366,7 @@
         },
         {
           "id": "TURN-029",
-          "flightCode": "DEMO-AIR-029",
+          "flightCode": "FLT-029",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-02",
@@ -376,7 +376,7 @@
         },
         {
           "id": "TURN-030",
-          "flightCode": "DEMO-AIR-030",
+          "flightCode": "FLT-030",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-03",
@@ -386,7 +386,7 @@
         },
         {
           "id": "TURN-031",
-          "flightCode": "DEMO-AIR-031",
+          "flightCode": "FLT-031",
           "type": "regional",
           "international": true,
           "localDate": "2026-02-04",
@@ -396,7 +396,7 @@
         },
         {
           "id": "TURN-032",
-          "flightCode": "DEMO-AIR-032",
+          "flightCode": "FLT-032",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-05",
@@ -406,7 +406,7 @@
         },
         {
           "id": "TURN-033",
-          "flightCode": "DEMO-AIR-033",
+          "flightCode": "FLT-033",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-06",
@@ -416,7 +416,7 @@
         },
         {
           "id": "TURN-034",
-          "flightCode": "DEMO-AIR-034",
+          "flightCode": "FLT-034",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-07",
@@ -426,7 +426,7 @@
         },
         {
           "id": "TURN-035",
-          "flightCode": "DEMO-AIR-035",
+          "flightCode": "FLT-035",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-08",
@@ -436,7 +436,7 @@
         },
         {
           "id": "TURN-036",
-          "flightCode": "DEMO-AIR-036",
+          "flightCode": "FLT-036",
           "type": "widebody",
           "international": true,
           "localDate": "2026-02-09",
@@ -446,7 +446,7 @@
         },
         {
           "id": "TURN-037",
-          "flightCode": "DEMO-AIR-037",
+          "flightCode": "FLT-037",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-10",
@@ -456,7 +456,7 @@
         },
         {
           "id": "TURN-038",
-          "flightCode": "DEMO-AIR-038",
+          "flightCode": "FLT-038",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-11",
@@ -466,7 +466,7 @@
         },
         {
           "id": "TURN-039",
-          "flightCode": "DEMO-AIR-039",
+          "flightCode": "FLT-039",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-12",
@@ -476,7 +476,7 @@
         },
         {
           "id": "TURN-040",
-          "flightCode": "DEMO-AIR-040",
+          "flightCode": "FLT-040",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-13",
@@ -486,7 +486,7 @@
         },
         {
           "id": "TURN-041",
-          "flightCode": "DEMO-AIR-041",
+          "flightCode": "FLT-041",
           "type": "narrowbody",
           "international": true,
           "localDate": "2026-02-14",
@@ -496,7 +496,7 @@
         },
         {
           "id": "TURN-042",
-          "flightCode": "DEMO-AIR-042",
+          "flightCode": "FLT-042",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-15",
@@ -506,7 +506,7 @@
         },
         {
           "id": "TURN-043",
-          "flightCode": "DEMO-AIR-043",
+          "flightCode": "FLT-043",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-02",
@@ -516,7 +516,7 @@
         },
         {
           "id": "TURN-044",
-          "flightCode": "DEMO-AIR-044",
+          "flightCode": "FLT-044",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-03",
@@ -526,7 +526,7 @@
         },
         {
           "id": "TURN-045",
-          "flightCode": "DEMO-AIR-045",
+          "flightCode": "FLT-045",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-04",
@@ -536,7 +536,7 @@
         },
         {
           "id": "TURN-046",
-          "flightCode": "DEMO-AIR-046",
+          "flightCode": "FLT-046",
           "type": "regional",
           "international": true,
           "localDate": "2026-02-05",
@@ -546,7 +546,7 @@
         },
         {
           "id": "TURN-047",
-          "flightCode": "DEMO-AIR-047",
+          "flightCode": "FLT-047",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-06",
@@ -556,7 +556,7 @@
         },
         {
           "id": "TURN-048",
-          "flightCode": "DEMO-AIR-048",
+          "flightCode": "FLT-048",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-07",
@@ -566,7 +566,7 @@
         },
         {
           "id": "TURN-049",
-          "flightCode": "DEMO-AIR-049",
+          "flightCode": "FLT-049",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-08",
@@ -576,7 +576,7 @@
         },
         {
           "id": "TURN-050",
-          "flightCode": "DEMO-AIR-050",
+          "flightCode": "FLT-050",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-09",
@@ -586,7 +586,7 @@
         },
         {
           "id": "TURN-051",
-          "flightCode": "DEMO-AIR-051",
+          "flightCode": "FLT-051",
           "type": "widebody",
           "international": true,
           "localDate": "2026-02-10",
@@ -596,7 +596,7 @@
         },
         {
           "id": "TURN-052",
-          "flightCode": "DEMO-AIR-052",
+          "flightCode": "FLT-052",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-11",
@@ -606,7 +606,7 @@
         },
         {
           "id": "TURN-053",
-          "flightCode": "DEMO-AIR-053",
+          "flightCode": "FLT-053",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-12",
@@ -616,7 +616,7 @@
         },
         {
           "id": "TURN-054",
-          "flightCode": "DEMO-AIR-054",
+          "flightCode": "FLT-054",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-13",
@@ -626,7 +626,7 @@
         },
         {
           "id": "TURN-055",
-          "flightCode": "DEMO-AIR-055",
+          "flightCode": "FLT-055",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-14",
@@ -636,7 +636,7 @@
         },
         {
           "id": "TURN-056",
-          "flightCode": "DEMO-AIR-056",
+          "flightCode": "FLT-056",
           "type": "narrowbody",
           "international": true,
           "localDate": "2026-02-15",
@@ -646,7 +646,7 @@
         },
         {
           "id": "TURN-057",
-          "flightCode": "DEMO-AIR-057",
+          "flightCode": "FLT-057",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-02",
@@ -656,7 +656,7 @@
         },
         {
           "id": "TURN-058",
-          "flightCode": "DEMO-AIR-058",
+          "flightCode": "FLT-058",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-03",
@@ -666,7 +666,7 @@
         },
         {
           "id": "TURN-059",
-          "flightCode": "DEMO-AIR-059",
+          "flightCode": "FLT-059",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-04",
@@ -676,7 +676,7 @@
         },
         {
           "id": "TURN-060",
-          "flightCode": "DEMO-AIR-060",
+          "flightCode": "FLT-060",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-05",
@@ -686,7 +686,7 @@
         },
         {
           "id": "TURN-061",
-          "flightCode": "DEMO-AIR-061",
+          "flightCode": "FLT-061",
           "type": "regional",
           "international": true,
           "localDate": "2026-02-06",
@@ -696,7 +696,7 @@
         },
         {
           "id": "TURN-062",
-          "flightCode": "DEMO-AIR-062",
+          "flightCode": "FLT-062",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-07",
@@ -706,7 +706,7 @@
         },
         {
           "id": "TURN-063",
-          "flightCode": "DEMO-AIR-063",
+          "flightCode": "FLT-063",
           "type": "widebody",
           "international": false,
           "localDate": "2026-02-08",
@@ -716,7 +716,7 @@
         },
         {
           "id": "TURN-064",
-          "flightCode": "DEMO-AIR-064",
+          "flightCode": "FLT-064",
           "type": "regional",
           "international": false,
           "localDate": "2026-02-09",
@@ -726,7 +726,7 @@
         },
         {
           "id": "TURN-065",
-          "flightCode": "DEMO-AIR-065",
+          "flightCode": "FLT-065",
           "type": "narrowbody",
           "international": false,
           "localDate": "2026-02-10",
@@ -736,7 +736,7 @@
         },
         {
           "id": "TURN-066",
-          "flightCode": "DEMO-AIR-066",
+          "flightCode": "FLT-066",
           "type": "widebody",
           "international": true,
           "localDate": "2026-02-11",

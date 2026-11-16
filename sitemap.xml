@@ -276,6 +276,13 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/fleet-assignment/</loc>
@@ -641,6 +648,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
@@ -969,6 +986,16 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/</loc>
@@ -1301,6 +1328,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
@@ -1631,6 +1668,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
   </url>
   <url>
+    <loc>https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+  </url>
+  <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
     <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
@@ -1959,6 +2006,16 @@
     <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/field-service-value/"/>
     <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/field-service-value/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/field-service-value/"/>
+  </url>
+  <url>
+    <loc>https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/solutions/workforce-scheduling/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/solutions/workforce-scheduling/"/>
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/</loc>

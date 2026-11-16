@@ -2,7 +2,7 @@
 
 ## Situation
 
-The facility supplies approved room choices for three sample placeholders in the same fixed block. Each placeholder needs a distinct room.
+The facility supplies approved room choices for three bookings in the same time block. Each booking needs a separate room.
 
 ## Input and rules
 

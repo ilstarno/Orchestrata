@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Illustrative Salesforce records and staffing only. Review drafts offline; nothing is read, changed, routed, or approved in Salesforce.",
+  "scope": "Example Salesforce records and staffing. Review the proposed plan offline. The example does not read or change Salesforce records, route work in Salesforce, or approve terms.",
   "results": [
     {
       "id": "service-cloud-queue",

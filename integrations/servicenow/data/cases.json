@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Illustrative ServiceNow planning inputs. Offline draft for human review, with no service connection, real data, record update, or change approval.",
+  "scope": "Example ServiceNow records. A coordinator reviews the proposed plan. It does not connect to ServiceNow, read real records, update tickets, or approve changes.",
   "cases": [
     {
       "id": "servicenow-incident-triage",
@@ -435,7 +435,7 @@
     {
       "id": "servicenow-on-call-handoff",
       "context": "On-call handoff: allocate service ownership and next-shift work across overlapping duty windows.",
-      "policy": "Respect the supplied support group and role. Follow-ups cannot start before their handoff finishes; unavailable regional ownership remains unassigned.",
+      "policy": "Respect the supplied support group and role. Follow-ups cannot start before their handoff finishes; Work remains unassigned if no approved team member covers the region.",
       "resources": [
         {
           "id": "DUTY-DAY",

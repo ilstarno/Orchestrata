@@ -211,7 +211,7 @@
         },
         {
           "workId": "ROME-03",
-          "name": "Send the availability draft to the session coordinator",
+          "name": "Send proposed times to the session coordinator",
           "durationMinutes": 15,
           "window": [
             0,

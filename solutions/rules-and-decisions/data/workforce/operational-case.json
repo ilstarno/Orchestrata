@@ -245,7 +245,7 @@
       "ruleId": "NY-196B-APPROVED",
       "category": "state",
       "description": "Honor the already-approved protected paid leave block.",
-      "applicability": "Model assumes fictional private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
+      "applicability": "The example assumes a private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
       "limits": "May not establish entitlement, require diagnosis, compute balance, or decide leave eligibility; those decisions stay outside the plan.",
       "source": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
       "accessedOn": "2026-11-16"
@@ -344,7 +344,7 @@
       "ruleId": "CO-PLAN-OBJECTIVE",
       "category": "company",
       "description": "Cover as many shifts as possible, then minimize new overtime, then keep prior assignments where possible.",
-      "applicability": "Includes contracted objectives for the fictional operation.",
+      "applicability": "Uses the scheduling priorities stated in the example.",
       "limits": "Overtime remains permissible and counted; no salary, cost, candidate quality, or hiring decisions.",
       "policyVersion": "ALB-RET-3"
     }
@@ -596,7 +596,7 @@
         "ruleId": "NY-196B-APPROVED",
         "category": "state",
         "description": "Honor the already-approved protected paid leave block.",
-        "applicability": "Model assumes fictional private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
+        "applicability": "The example assumes a private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
         "limits": "May not establish entitlement, require diagnosis, compute balance, or decide leave eligibility; those decisions stay outside the plan.",
         "source": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
         "accessedOn": "2026-11-16"
@@ -695,7 +695,7 @@
         "ruleId": "CO-PLAN-OBJECTIVE",
         "category": "company",
         "description": "Cover as many shifts as possible, then minimize new overtime, then keep prior assignments where possible.",
-        "applicability": "Includes contracted objectives for the fictional operation.",
+        "applicability": "Uses the scheduling priorities stated in the example.",
         "limits": "Overtime remains permissible and counted; no salary, cost, candidate quality, or hiring decisions.",
         "policyVersion": "ALB-RET-3"
       }

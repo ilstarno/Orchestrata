@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Illustrative Salesforce records and staffing only. Review drafts offline; nothing is read, changed, routed, or approved in Salesforce.",
+  "scope": "Example Salesforce records and staffing. Review the proposed plan offline. The example does not read or change Salesforce records, route work in Salesforce, or approve terms.",
   "cases": [
     {
       "id": "service-cloud-queue",
@@ -23,7 +23,7 @@
     {
       "id": "sales-cloud-renewal",
       "context": "Sales Cloud renewals: propose a territory owner and book preparation and review steps before a renewal deadline.",
-      "policy": "Territory, renewal skills, proposal authority, and time must match. A specialist may review after the owner prepares a draft; proposed reviews never confer approval.",
+      "policy": "Territory, renewal skills, proposal authority, and time must match. A specialist may review after the owner prepares options. Scheduling a review does not approve those options.",
       "resources": [
         {"id": "SELLER-DACH", "role": "DACH account owner", "skills": ["renewal", "de"], "regions": ["DACH"], "rights": ["opportunity_owner"], "window": [0, 180], "capacity": 4, "currentLoad": 1},
         {"id": "DESK-EU", "role": "EU deal desk", "skills": ["pricing"], "regions": ["DACH", "FRANCE"], "rights": ["pricing_review"], "window": [60, 125], "capacity": 3, "currentLoad": 0},
@@ -31,7 +31,7 @@
         {"id": "SELLER-UK", "role": "UK account owner", "skills": ["renewal", "de", "en"], "regions": ["UK"], "rights": ["opportunity_owner"], "window": [0, 180], "capacity": 4, "currentLoad": 1}
       ],
       "items": [
-        {"id": "OPP-201", "title": "Assign DACH renewal owner and draft options", "skills": ["renewal", "de"], "region": "DACH", "right": "opportunity_owner", "priority": 5, "duration": 45, "window": [0, 75], "requires": []},
+        {"id": "OPP-201", "title": "Assign a DACH renewal owner and prepare options", "skills": ["renewal", "de"], "region": "DACH", "right": "opportunity_owner", "priority": 5, "duration": 45, "window": [0, 75], "requires": []},
         {"id": "OPP-202", "title": "Review DACH renewal pricing before the deadline", "skills": ["pricing"], "region": "DACH", "right": "pricing_review", "priority": 4, "duration": 35, "window": [60, 110], "requires": ["OPP-201"]},
         {"id": "OPP-203", "title": "Assign France renewal owner and prepare terms", "skills": ["renewal", "fr"], "region": "FRANCE", "right": "opportunity_owner", "priority": 4, "duration": 30, "window": [10, 70], "requires": []},
         {"id": "OPP-204", "title": "Review France terms in the same pricing window", "skills": ["pricing"], "region": "FRANCE", "right": "pricing_review", "priority": 3, "duration": 35, "window": [60, 115], "requires": ["OPP-203"]},

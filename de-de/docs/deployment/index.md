@@ -2,13 +2,7 @@ Starten Sie den Dienst und die Weboberfläche zunächst auf Ihrem Rechner. Die P
 
 ## Lokale API und Weboberfläche
 
-Verwenden Sie stabiles Rust mit Cargo sowie Git und curl. Für die Weboberfläche benötigen Sie außerdem Node.js 22 und npm. Die folgenden Befehle verwenden eine festgelegte, geprüfte Revision des öffentlichen Einstiegsprojekts:
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Verwenden Sie stabiles Rust mit Cargo sowie curl. Für die Weboberfläche brauchen Sie auch Node.js 22 und npm. [Laden Sie das öffentliche Einstiegsprojekt zu dieser Anleitung herunter](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), entpacken Sie es und öffnen Sie ein Terminal im entpackten Ordner.
 
 Führen Sie im Stammverzeichnis des Repositorys zunächst die Workspace-Tests mit den im Lockfile festgelegten Abhängigkeiten aus. Starten Sie anschließend die API auf der Loopback-Schnittstelle:
 

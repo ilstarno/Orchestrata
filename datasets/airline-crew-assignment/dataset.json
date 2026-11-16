@@ -86,7 +86,7 @@
       "records": [
         {
           "id": "DUTY-001",
-          "flight": "DEMO-001",
+          "flight": "FLT-001",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-02",
@@ -96,7 +96,7 @@
         },
         {
           "id": "DUTY-002",
-          "flight": "DEMO-002",
+          "flight": "FLT-002",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-03",
@@ -106,7 +106,7 @@
         },
         {
           "id": "DUTY-003",
-          "flight": "DEMO-003",
+          "flight": "FLT-003",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-04",
@@ -116,7 +116,7 @@
         },
         {
           "id": "DUTY-004",
-          "flight": "DEMO-004",
+          "flight": "FLT-004",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-05",
@@ -126,7 +126,7 @@
         },
         {
           "id": "DUTY-005",
-          "flight": "DEMO-005",
+          "flight": "FLT-005",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-06",
@@ -136,7 +136,7 @@
         },
         {
           "id": "DUTY-006",
-          "flight": "DEMO-006",
+          "flight": "FLT-006",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-07",
@@ -146,7 +146,7 @@
         },
         {
           "id": "DUTY-007",
-          "flight": "DEMO-007",
+          "flight": "FLT-007",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-08",
@@ -156,7 +156,7 @@
         },
         {
           "id": "DUTY-008",
-          "flight": "DEMO-008",
+          "flight": "FLT-008",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-09",
@@ -166,7 +166,7 @@
         },
         {
           "id": "DUTY-009",
-          "flight": "DEMO-009",
+          "flight": "FLT-009",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-10",
@@ -176,7 +176,7 @@
         },
         {
           "id": "DUTY-010",
-          "flight": "DEMO-010",
+          "flight": "FLT-010",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-11",
@@ -186,7 +186,7 @@
         },
         {
           "id": "DUTY-011",
-          "flight": "DEMO-011",
+          "flight": "FLT-011",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-12",
@@ -196,7 +196,7 @@
         },
         {
           "id": "DUTY-012",
-          "flight": "DEMO-012",
+          "flight": "FLT-012",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-13",
@@ -206,7 +206,7 @@
         },
         {
           "id": "DUTY-013",
-          "flight": "DEMO-013",
+          "flight": "FLT-013",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-14",
@@ -216,7 +216,7 @@
         },
         {
           "id": "DUTY-014",
-          "flight": "DEMO-014",
+          "flight": "FLT-014",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-15",
@@ -226,7 +226,7 @@
         },
         {
           "id": "DUTY-015",
-          "flight": "DEMO-015",
+          "flight": "FLT-015",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-02",
@@ -236,7 +236,7 @@
         },
         {
           "id": "DUTY-016",
-          "flight": "DEMO-016",
+          "flight": "FLT-016",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-03",
@@ -246,7 +246,7 @@
         },
         {
           "id": "DUTY-017",
-          "flight": "DEMO-017",
+          "flight": "FLT-017",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-04",
@@ -256,7 +256,7 @@
         },
         {
           "id": "DUTY-018",
-          "flight": "DEMO-018",
+          "flight": "FLT-018",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-05",
@@ -266,7 +266,7 @@
         },
         {
           "id": "DUTY-019",
-          "flight": "DEMO-019",
+          "flight": "FLT-019",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-06",
@@ -276,7 +276,7 @@
         },
         {
           "id": "DUTY-020",
-          "flight": "DEMO-020",
+          "flight": "FLT-020",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-07",
@@ -286,7 +286,7 @@
         },
         {
           "id": "DUTY-021",
-          "flight": "DEMO-021",
+          "flight": "FLT-021",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-08",
@@ -296,7 +296,7 @@
         },
         {
           "id": "DUTY-022",
-          "flight": "DEMO-022",
+          "flight": "FLT-022",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-09",
@@ -306,7 +306,7 @@
         },
         {
           "id": "DUTY-023",
-          "flight": "DEMO-023",
+          "flight": "FLT-023",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-10",
@@ -316,7 +316,7 @@
         },
         {
           "id": "DUTY-024",
-          "flight": "DEMO-024",
+          "flight": "FLT-024",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-11",
@@ -326,7 +326,7 @@
         },
         {
           "id": "DUTY-025",
-          "flight": "DEMO-025",
+          "flight": "FLT-025",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-12",
@@ -336,7 +336,7 @@
         },
         {
           "id": "DUTY-026",
-          "flight": "DEMO-026",
+          "flight": "FLT-026",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-13",
@@ -346,7 +346,7 @@
         },
         {
           "id": "DUTY-027",
-          "flight": "DEMO-027",
+          "flight": "FLT-027",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-14",
@@ -356,7 +356,7 @@
         },
         {
           "id": "DUTY-028",
-          "flight": "DEMO-028",
+          "flight": "FLT-028",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-15",
@@ -366,7 +366,7 @@
         },
         {
           "id": "DUTY-029",
-          "flight": "DEMO-029",
+          "flight": "FLT-029",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-02",
@@ -376,7 +376,7 @@
         },
         {
           "id": "DUTY-030",
-          "flight": "DEMO-030",
+          "flight": "FLT-030",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-03",
@@ -386,7 +386,7 @@
         },
         {
           "id": "DUTY-031",
-          "flight": "DEMO-031",
+          "flight": "FLT-031",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-04",
@@ -396,7 +396,7 @@
         },
         {
           "id": "DUTY-032",
-          "flight": "DEMO-032",
+          "flight": "FLT-032",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-05",
@@ -406,7 +406,7 @@
         },
         {
           "id": "DUTY-033",
-          "flight": "DEMO-033",
+          "flight": "FLT-033",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-06",
@@ -416,7 +416,7 @@
         },
         {
           "id": "DUTY-034",
-          "flight": "DEMO-034",
+          "flight": "FLT-034",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-07",
@@ -426,7 +426,7 @@
         },
         {
           "id": "DUTY-035",
-          "flight": "DEMO-035",
+          "flight": "FLT-035",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-08",
@@ -436,7 +436,7 @@
         },
         {
           "id": "DUTY-036",
-          "flight": "DEMO-036",
+          "flight": "FLT-036",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-09",
@@ -446,7 +446,7 @@
         },
         {
           "id": "DUTY-037",
-          "flight": "DEMO-037",
+          "flight": "FLT-037",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-10",
@@ -456,7 +456,7 @@
         },
         {
           "id": "DUTY-038",
-          "flight": "DEMO-038",
+          "flight": "FLT-038",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-11",
@@ -466,7 +466,7 @@
         },
         {
           "id": "DUTY-039",
-          "flight": "DEMO-039",
+          "flight": "FLT-039",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-12",
@@ -476,7 +476,7 @@
         },
         {
           "id": "DUTY-040",
-          "flight": "DEMO-040",
+          "flight": "FLT-040",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-13",
@@ -486,7 +486,7 @@
         },
         {
           "id": "DUTY-041",
-          "flight": "DEMO-041",
+          "flight": "FLT-041",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-14",
@@ -496,7 +496,7 @@
         },
         {
           "id": "DUTY-042",
-          "flight": "DEMO-042",
+          "flight": "FLT-042",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-15",
@@ -506,7 +506,7 @@
         },
         {
           "id": "DUTY-043",
-          "flight": "DEMO-043",
+          "flight": "FLT-043",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-02",
@@ -516,7 +516,7 @@
         },
         {
           "id": "DUTY-044",
-          "flight": "DEMO-044",
+          "flight": "FLT-044",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-03",
@@ -526,7 +526,7 @@
         },
         {
           "id": "DUTY-045",
-          "flight": "DEMO-045",
+          "flight": "FLT-045",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-04",
@@ -536,7 +536,7 @@
         },
         {
           "id": "DUTY-046",
-          "flight": "DEMO-046",
+          "flight": "FLT-046",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-05",
@@ -546,7 +546,7 @@
         },
         {
           "id": "DUTY-047",
-          "flight": "DEMO-047",
+          "flight": "FLT-047",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-06",
@@ -556,7 +556,7 @@
         },
         {
           "id": "DUTY-048",
-          "flight": "DEMO-048",
+          "flight": "FLT-048",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-07",
@@ -566,7 +566,7 @@
         },
         {
           "id": "DUTY-049",
-          "flight": "DEMO-049",
+          "flight": "FLT-049",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-08",
@@ -576,7 +576,7 @@
         },
         {
           "id": "DUTY-050",
-          "flight": "DEMO-050",
+          "flight": "FLT-050",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-09",
@@ -586,7 +586,7 @@
         },
         {
           "id": "DUTY-051",
-          "flight": "DEMO-051",
+          "flight": "FLT-051",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-10",
@@ -596,7 +596,7 @@
         },
         {
           "id": "DUTY-052",
-          "flight": "DEMO-052",
+          "flight": "FLT-052",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-11",
@@ -606,7 +606,7 @@
         },
         {
           "id": "DUTY-053",
-          "flight": "DEMO-053",
+          "flight": "FLT-053",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-12",
@@ -616,7 +616,7 @@
         },
         {
           "id": "DUTY-054",
-          "flight": "DEMO-054",
+          "flight": "FLT-054",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-13",
@@ -626,7 +626,7 @@
         },
         {
           "id": "DUTY-055",
-          "flight": "DEMO-055",
+          "flight": "FLT-055",
           "fleet": "Narrowbody A",
           "base": "BASE-001",
           "localDate": "2026-02-14",
@@ -636,7 +636,7 @@
         },
         {
           "id": "DUTY-056",
-          "flight": "DEMO-056",
+          "flight": "FLT-056",
           "fleet": "Widebody B",
           "base": "BASE-002",
           "localDate": "2026-02-15",
@@ -646,7 +646,7 @@
         },
         {
           "id": "DUTY-057",
-          "flight": "DEMO-057",
+          "flight": "FLT-057",
           "fleet": "Regional C",
           "base": "BASE-001",
           "localDate": "2026-02-02",
@@ -656,7 +656,7 @@
         },
         {
           "id": "DUTY-058",
-          "flight": "DEMO-058",
+          "flight": "FLT-058",
           "fleet": "Narrowbody A",
           "base": "BASE-002",
           "localDate": "2026-02-03",
@@ -666,7 +666,7 @@
         },
         {
           "id": "DUTY-059",
-          "flight": "DEMO-059",
+          "flight": "FLT-059",
           "fleet": "Widebody B",
           "base": "BASE-001",
           "localDate": "2026-02-04",
@@ -676,7 +676,7 @@
         },
         {
           "id": "DUTY-060",
-          "flight": "DEMO-060",
+          "flight": "FLT-060",
           "fleet": "Regional C",
           "base": "BASE-002",
           "localDate": "2026-02-05",

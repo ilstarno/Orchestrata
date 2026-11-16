@@ -2,13 +2,7 @@ Start de dienst en de webinterface eerst op je eigen computer. De Orchestrata-pr
 
 ## Lokale API en webinterface
 
-Gebruik een stabiele Rust-versie met Cargo, Git en curl. Installeer voor de webinterface ook Node.js 22 en npm. De volgende opdrachten gebruiken één gecontroleerde revisie van het openbare startproject:
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Gebruik een stabiele Rust-versie met Cargo en curl. Installeer voor de webinterface ook Node.js 22 en npm. [Download het openbare startproject bij deze handleiding](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), pak het uit en open een terminal in de uitgepakte map.
 
 Voer vanuit de hoofdmap eerst de workspacetests uit met de vastgelegde afhankelijkheden en start daarna de API op de loopbackinterface:
 

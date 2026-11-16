@@ -2,13 +2,7 @@ Exécutez d’abord le service et l’interface web sur votre poste de travail. 
 
 ## API locale et interface web
 
-Utilisez une version stable de Rust avec Cargo, Git et curl. Pour l’interface web, installez aussi Node.js 22 et npm. Les commandes suivantes utilisent une révision précise et vérifiée du projet de départ public :
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Utilisez une version stable de Rust avec Cargo et curl. Pour l’interface web, installez aussi Node.js 22 et npm. [Téléchargez le projet de départ public utilisé dans ce guide](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), décompressez-le et ouvrez un terminal dans le dossier extrait.
 
 À la racine du dépôt, exécutez les tests de l’espace de travail avec les dépendances verrouillées, puis démarrez l’API sur l’interface de bouclage :
 

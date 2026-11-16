@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Illustrative ServiceNow planning inputs. Offline draft for human review, with no service connection, real data, record update, or change approval.",
+  "scope": "Example ServiceNow records. A coordinator reviews the proposed plan. It does not connect to ServiceNow, read real records, update tickets, or approve changes.",
   "results": [
     {
       "id": "servicenow-incident-triage",

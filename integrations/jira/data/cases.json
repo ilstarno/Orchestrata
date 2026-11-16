@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Synthetic Jira and Jira Service Management inputs. Output is a planning draft for human review; no Jira connection or write.",
+  "scope": "Example Jira and Jira Service Management records. A coordinator reviews the proposed plan. It does not connect to Jira or write records.",
   "cases": [
     {
       "id": "jsm-queue",

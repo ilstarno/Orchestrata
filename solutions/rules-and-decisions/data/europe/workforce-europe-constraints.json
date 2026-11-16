@@ -916,7 +916,7 @@
       "validatedRuleVersion",
       "approvalOwner"
     ],
-    "protectedTime": "Receive only dates, time windows and scheduling effect, such as not available. Do not ingest diagnoses, reasons, payroll, or records about employees' families. Do not calculate leave eligibility.",
+    "protectedTime": "Receive only dates, time windows and scheduling effect, such as a window blocked from assignment. Do not ingest diagnoses, reasons, payroll, or records about employees' families. Do not calculate leave eligibility.",
     "employeeIdentifiers": "Use opaque schedule-local references and restrict any identity mapping. Opaque references can still be personal data.",
     "approvedHolidayCalendar": [
       "localDate",

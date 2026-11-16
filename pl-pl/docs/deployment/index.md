@@ -2,13 +2,7 @@ Najpierw uruchom usługę i interfejs webowy na swoim komputerze. Witryna projek
 
 ## Lokalne API i interfejs webowy
 
-Użyj stabilnej wersji Rusta z Cargo oraz narzędzi Git i curl. Do interfejsu webowego zainstaluj też Node.js 22 i npm. Poniższe polecenia korzystają z określonej, sprawdzonej rewizji publicznego projektu startowego:
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Użyj stabilnej wersji Rusta z Cargo oraz narzędzia curl. Do interfejsu webowego zainstaluj też Node.js 22 i npm. [Pobierz publiczny projekt startowy użyty w tym przewodniku](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), rozpakuj go i otwórz terminal w wypakowanym folderze.
 
 W katalogu głównym repozytorium uruchom testy obszaru roboczego z wersjami zależności zapisanymi w pliku blokady. Następnie uruchom API na interfejsie pętli zwrotnej:
 

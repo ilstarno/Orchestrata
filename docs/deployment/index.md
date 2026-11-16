@@ -2,13 +2,7 @@ Run the service and web UI on your workstation first. The Orchestrata project si
 
 ## Local API and web UI
 
-Use stable Rust with Cargo, Git, and curl. For the web UI, also install Node.js 22 and npm. These commands use a specific reviewed revision of the public starter:
-
-```sh
-git clone https://github.com/ilstarno/Orchestrata.git
-cd Orchestrata
-git checkout --detach b8d1271e3faddfffaf220698e381197bcae1752f
-```
+Use stable Rust with Cargo and curl. For the web UI, also install Node.js 22 and npm. [Download the public starter used in this guide](https://github.com/ilstarno/Orchestrata/archive/b8d1271e3faddfffaf220698e381197bcae1752f.zip), unzip it, and open a terminal in the extracted folder.
 
 From the repository root, run the locked workspace tests, then start the API on loopback:
 

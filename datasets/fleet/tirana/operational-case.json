@@ -49,7 +49,7 @@
           "shift_capacity": 334
         },
         "reasonDefinitions": {
-          "shift_capacity": "The greedy draft could not fit the visit, its service time and the return trip within the mode group’s shifts."
+          "shift_capacity": "The route plan could not fit the visit, service time, and return trip within the shifts for this transport mode."
         },
         "unassignedIsProofOfInfeasibility": false
       },

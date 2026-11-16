@@ -1,6 +1,6 @@
 # Hospital operations worklists
 
-Six illustrative nonclinical planning drafts: New York appointment administration, Rome diagnostic room logistics, Tirana sealed supplies transport, London room-cleaning logistics, Paris instrument set transport and paperwork, and Munich facilities shift handoff. City labels organize the examples; no named hospital, measured behavior, patient, booking, clinical eligibility, treatment, room clearance, patient movement, or site-specific floor plan is represented.
+Six nonclinical planning examples: New York appointment administration, Rome diagnostic room logistics, Tirana sealed supplies transport, London room-cleaning logistics, Paris instrument set transport and paperwork, and Munich facilities shift handoff. City labels organize the examples; no named hospital, measured behavior, patient, booking, clinical eligibility, treatment, room clearance, patient movement, or site-specific floor plan is represented.
 
 ```sh
 python3 calculate.py
