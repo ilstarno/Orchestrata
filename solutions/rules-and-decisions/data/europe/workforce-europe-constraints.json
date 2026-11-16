@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 1,
+  "id": "workforce-europe-constraints",
+  "verifiedAsOf": "2026-11-16",
+  "status": "reference_not_activated",
+  "boundary": "Non-exhaustive planning research, not legal advice, eligibility determination, payroll or automatic compliance. No rule is enabled by this data.",
+  "temporalMeaning": {
+    "verifiedAsOf": "Date official source content was reviewed, not a legal commencement date.",
+    "effectiveFrom": "Null when commencement for this extracted rule was not separately verified. Look up the version for the proposed shift dates before activation.",
+    "effectiveUntil": "Null means no verified end date in this snapshot, not permanent effect."
+  },
+  "sources": {
+    "eu-wtd": {
+      "issuer": "EUR-Lex",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32003L0088",
+      "locator": "Articles 3–7, 16–19, 22; EU framework, not a universal domestic rule set",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "gb-wtr": {
+      "issuer": "UK Legislation",
+      "url": "https://www.legislation.gov.uk/uksi/1998/1833/2026-10-01?view=extent&wrap=true",
+      "locator": "Regulations 4, 10–13A and exceptions",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "gb-hol": {
+      "issuer": "GOV.UK",
+      "url": "https://www.gov.uk/holiday-entitlement-rights",
+      "locator": "Regular-hours entitlement and treatment of bank holidays",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "uk-cal": {
+      "issuer": "GOV.UK",
+      "url": "https://www.gov.uk/bank-holidays",
+      "locator": "Nation-specific calendar and exceptions",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "ni-wtr": {
+      "issuer": "UK Legislation",
+      "url": "https://www.legislation.gov.uk/nisr/2016/49/body",
+      "locator": "Northern Ireland, Regulations 4, 12–16 and exceptions",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "ni-hol": {
+      "issuer": "nidirect",
+      "url": "https://www.nidirect.gov.uk/articles/holiday-entitlements",
+      "locator": "Regular-hours entitlement",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "fr-hours": {
+      "issuer": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1911",
+      "locator": "Adult full-time private-sector work; Code du travail links by topic",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "fr-daily": {
+      "issuer": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F990",
+      "locator": "Daily rest and derogations",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "fr-weekly": {
+      "issuer": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2327",
+      "locator": "Weekly rest and exceptions",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "fr-hol": {
+      "issuer": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2258",
+      "locator": "Paid leave; working-day basis and special cases",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "fr-cal": {
+      "issuer": "Service Public",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2405",
+      "locator": "Public holidays, May 1, regional differences",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "de-hours": {
+      "issuer": "German Federal Ministry of Justice and Federal Office of Justice",
+      "url": "https://www.gesetze-im-internet.de/arbzg/BJNR117100994.html",
+      "locator": "ArbZG §§3–5 and §§9–11; exceptions especially §§7 and 10",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "de-hol": {
+      "issuer": "German Federal Ministry of Justice and Federal Office of Justice",
+      "url": "https://www.gesetze-im-internet.de/burlg/__3.html",
+      "locator": "BUrlG §3; definition of Werktage",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "it-hours": {
+      "issuer": "Italian Ministry of Labour and Social Policies",
+      "url": "https://www.lavoro.gov.it/en/single-digital-gateway/terms-and-conditions-employment/working-hours",
+      "locator": "D.Lgs. 66/2003 arts. 3, 4, 7–9; current ministry summary",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "it-hol": {
+      "issuer": "Italian Ministry of Labour and Social Policies",
+      "url": "https://distaccoue.lavoro.gov.it/it-it/Aree-Tematiche/Area-Tematica/id/1",
+      "locator": "D.Lgs. 66/2003 art. 10",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "it-cal": {
+      "issuer": "Presidency of the Council of Ministers, State Ceremonial Department",
+      "url": "https://presidenza.governo.it/ufficio_cerimoniale/cerimoniale/giornate.html",
+      "locator": "National and locally observed patron-saint holidays; review with current law",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "it-oct": {
+      "issuer": "Gazzetta Ufficiale",
+      "url": "https://www.gazzettaufficiale.it/eli/id/2025/10/10/25G00153/SG",
+      "locator": "Law 151/2025; 4 October",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": "2026-01-01"
+    },
+    "nl-hours": {
+      "issuer": "Dutch Ministry of Social Affairs and Employment",
+      "url": "https://business.gov.nl/staff/terms-of-employment/working-hours-act/",
+      "locator": "Working Hours Act adult hours and break guidance",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "nl-rest": {
+      "issuer": "Government of the Netherlands",
+      "url": "https://www.rijksoverheid.nl/themas/werk/werktijden/vraag-en-antwoord/werktijden/wettelijke-regels-werktijden-en-rusttijden",
+      "locator": "Daily and weekly rest alternatives",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "nl-hol": {
+      "issuer": "Business.gov.nl",
+      "url": "https://business.gov.nl/staff/terms-of-employment/holiday-entitlement-for-employees/",
+      "locator": "Contracted-hour entitlement and treatment of public holidays",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "nl-cal": {
+      "issuer": "Business.gov.nl",
+      "url": "https://business.gov.nl/staff/terms-of-employment/public-holidays-in-the-netherlands/",
+      "locator": "Official holiday dates; time off depends on employment terms",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "pl-code": {
+      "issuer": "Polish official legal information system",
+      "url": "https://eli.gov.pl/eli/DU/2026/1245/ogl",
+      "locator": "Labour Code consolidated notice; arts.129–134, 151⁵–153, 154",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "pl-hours": {
+      "issuer": "Polish Ministry of Family, Labour and Social Policy",
+      "url": "https://www.gov.pl/web/family/standards-and-quantities-of-working-time2",
+      "locator": "Basic hours and public-holiday hours arithmetic",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "pl-break": {
+      "issuer": "Polish Ministry of Family, Labour and Social Policy",
+      "url": "https://www.gov.pl/web/family/breaks",
+      "locator": "In-work breaks counted as working time",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "pl-hol": {
+      "issuer": "Polish Ministry of Family, Labour and Social Policy",
+      "url": "https://www.gov.pl/web/family/the-duration-of-annual-leave",
+      "locator": "20/26 days and qualifying service; part-time is prorated",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": null
+    },
+    "pl-service": {
+      "issuer": "Polish official legal information system",
+      "url": "https://eli.gov.pl/eli/DU/2025/1423/ogl",
+      "locator": "2025 amending act on qualifying service; confirm application and transition with HR",
+      "verifiedAsOf": "2026-11-16",
+      "effectiveFrom": "2026-01-01"
+    }
+  },
+  "jurisdictions": {
+    "EU": {
+      "name": "EU framework",
+      "exampleTimeZone": null,
+      "scope": "Context for member-state transposition; never select this as a domestic roster ruleset.",
+      "rules": [
+        {
+          "id": "eu-working-time-baseline",
+          "authority": "supranational_framework",
+          "planningTreatment": "reference_only",
+          "provenance": {
+            "sourceIds": [
+              "eu-wtd"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "minimumDailyRestHours": 11,
+            "weeklyRestHoursPlusDailyRest": 24,
+            "averageMaximumWeeklyHours": 48,
+            "minimumPaidAnnualLeaveWeeks": 4
+          },
+          "interpretation": "National implementation, reference periods, sector rules and approved derogations must be resolved locally. This is not the jurisdiction profile."
+        }
+      ]
+    },
+    "GB": {
+      "name": "Great Britain (England, Wales and Scotland)",
+      "exampleTimeZone": "Europe/London",
+      "scope": "General adult workers with regular hours; not Northern Ireland. Agriculture, transport, night work and other exceptions require separate scope review.",
+      "rules": [
+        {
+          "id": "gb-average-week",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "gb-wtr"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "maxHours": 48,
+            "defaultReferenceWeeks": 17
+          },
+          "interpretation": "Including overtime; reference periods and exclusions can differ. Do not assume a written opt-out or that it would waive other protections."
+        },
+        {
+          "id": "gb-rest",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "gb-wtr"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyDefaultMinContinuousHours": 24,
+            "weeklyDefaultPeriodDays": 7,
+            "alternativePeriodDays": 14,
+            "alternativeRestBlocksHours": [
+              [
+                24,
+                24
+              ],
+              [
+                48
+              ]
+            ]
+          },
+          "interpretation": "Daily and weekly rest are separate. Weekly alternative is a permitted option only after checking the actual work regime; preserve exceptions and compensatory rest."
+        },
+        {
+          "id": "gb-work-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "gb-wtr"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "workMinutesGt": 360,
+            "minContinuousBreakMinutes": 20
+          },
+          "interpretation": "Default in-shift break. See regulation 12 and agreement/exception context."
+        },
+        {
+          "id": "gb-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "gb-wtr",
+              "gb-hol",
+              "uk-cal"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "regularHoursMinWeeks": 5.6,
+            "regularHoursStatutoryCapDays": 28
+          },
+          "interpretation": "Leave entitlement is not a bank holiday closure rule. Track national calendars and employer terms; do not model irregular-hours or part-year accrual using this row."
+        }
+      ]
+    },
+    "GB-NIR": {
+      "name": "Northern Ireland",
+      "exampleTimeZone": "Europe/London",
+      "scope": "General adult workers; Northern Ireland regulations only, not assumed identical to Great Britain.",
+      "rules": [
+        {
+          "id": "gb-nir-average-week",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "ni-wtr"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "maxHours": 48,
+            "defaultReferenceWeeks": 17
+          },
+          "interpretation": "Including overtime. Review work regime and any valid prior written agreement separately."
+        },
+        {
+          "id": "gb-nir-rest-and-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "ni-wtr"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyDefaultMinContinuousHours": 24,
+            "weeklyDefaultPeriodDays": 7,
+            "workMinutesGt": 360,
+            "minContinuousBreakMinutes": 20
+          },
+          "interpretation": "Regulations 12–14; check alternate weekly patterns and exceptions before choosing calculation windows."
+        },
+        {
+          "id": "gb-nir-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "ni-wtr",
+              "ni-hol",
+              "uk-cal"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "regularHoursMinWeeks": 5.6,
+            "regularHoursStatutoryCapDays": 28
+          },
+          "interpretation": "Use Northern Ireland bank holiday dates and employer terms; do not inherit Great Britain leave accrual methods."
+        }
+      ]
+    },
+    "FR": {
+      "name": "France",
+      "exampleTimeZone": "Europe/Paris",
+      "scope": "General adult full-time private-sector work, metropolitan example. Check applicable territorial, collective and sector rules.",
+      "rules": [
+        {
+          "id": "fr-normal-week",
+          "authority": "statutory",
+          "planningTreatment": "reference_only",
+          "provenance": {
+            "sourceIds": [
+              "fr-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "standardHours": 35
+          },
+          "interpretation": "Normal full-time baseline, not a maximum or universal overtime/pay calculation."
+        },
+        {
+          "id": "fr-working-time-caps",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "fr-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "maxHoursPerDay": 10,
+            "maxHoursSameWeek": 48,
+            "rollingAverageMaxHours": 44,
+            "rollingWeeks": 12
+          },
+          "interpretation": "Effective work; weekly average is over consecutive weeks. Exceptions need applicable evidence and approval."
+        },
+        {
+          "id": "fr-rest-and-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "fr-daily",
+              "fr-weekly",
+              "fr-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyDefaultMinContinuousHours": 35,
+            "workMinutesGte": 360,
+            "minContinuousBreakMinutes": 20
+          },
+          "interpretation": "Weekly total includes daily rest; break is due by completion of six consecutive hours under the ordinary rule."
+        },
+        {
+          "id": "fr-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "fr-hol"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "leaveDaysOuvrablesPerMonthEffectiveWork": 2.5,
+            "fullYearOuvrables": 30
+          },
+          "interpretation": "Preserve the ouvrables day basis. Sick-leave accrual, special regimes, and any favorable terms must be resolved upstream."
+        },
+        {
+          "id": "fr-public-holidays",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "fr-cal"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "mandatoryRestDefaultMonthDay": "05-01"
+          },
+          "interpretation": "May 1 is ordinarily not worked; indispensable continuity has specific handling. Other observances, territorial variations and employer treatment are not this blanket rule."
+        }
+      ]
+    },
+    "DE": {
+      "name": "Germany",
+      "exampleTimeZone": "Europe/Berlin",
+      "scope": "General employees under the Working Time Act. Check work location, state holidays, sector or worker exclusions and collective derogations.",
+      "rules": [
+        {
+          "id": "de-working-day",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "de-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "standardMaxHoursPerWorkingDay": 8,
+            "conditionalCapHours": 10,
+            "compensationMonths": 6,
+            "alternativeReferenceWeeks": 24
+          },
+          "interpretation": "Up to ten only if average does not exceed eight per statutory working day over one allowed reference period. Werktag here is not simply an employee’s usual scheduled day."
+        },
+        {
+          "id": "de-rest-and-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "de-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "breakThresholds": [
+              {
+                "workMinutesGt": 360,
+                "minimumMinutes": 30
+              },
+              {
+                "workMinutesGt": 540,
+                "minimumMinutes": 45
+              }
+            ],
+            "minBreakSegmentMinutes": 15,
+            "maxUninterruptedWorkMinutes": 360
+          },
+          "interpretation": "Ordinary rule, with statutory exceptions separate. Select the most restrictive triggered threshold, not the sum."
+        },
+        {
+          "id": "de-sunday-and-holiday",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "de-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "sundayReplacementWindowWeeks": 2,
+            "weekdayHolidayReplacementWindowWeeks": 8
+          },
+          "interpretation": "Generally no work on Sundays and statutory holidays, subject to authorized exceptions. For permitted work, statutory replacement windows include the work day; source the relevant state calendar."
+        },
+        {
+          "id": "de-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "de-hol"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "minimumAnnualWerktage": 24,
+            "referenceWorkingDaysPerWeek": 6
+          },
+          "interpretation": "The statutory basis includes Saturdays. Do not enter 24 as a universal entitlement on a five-day work pattern without work-pattern conversion and HR validation."
+        }
+      ]
+    },
+    "IT": {
+      "name": "Italy",
+      "exampleTimeZone": "Europe/Rome",
+      "scope": "General adult employees under D.Lgs. 66/2003, without assuming any specific national or local collective agreement.",
+      "rules": [
+        {
+          "id": "it-normal-week",
+          "authority": "statutory",
+          "planningTreatment": "reference_only",
+          "provenance": {
+            "sourceIds": [
+              "it-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "standardHours": 40
+          },
+          "interpretation": "Normal statutory reference; collective agreements may provide a different normal duration."
+        },
+        {
+          "id": "it-weekly-average",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "it-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "averageCapHours": 48,
+            "defaultMaximumReferenceMonths": 4
+          },
+          "interpretation": "Includes overtime. A longer period must be supported by the applicable agreement and requirements; do not model 48 as a hard same-week cap."
+        },
+        {
+          "id": "it-rest-and-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "it-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyBaseConsecutiveHours": 24,
+            "weeklyAddsDailyRest": true,
+            "weeklyRestAverageMaxDays": 14,
+            "workMinutesGt": 360,
+            "defaultBreakMinMinutes": 10
+          },
+          "interpretation": "Ordinary weekly rest is combined with daily rest and assessed over a period no longer than fourteen days, with specific exceptions. Applicable collective terms define break arrangements."
+        },
+        {
+          "id": "it-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "it-hol"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "minWeeks": 4
+          },
+          "interpretation": "Four weeks statutory paid leave, separate from national or local public holidays; review accrual and applicable terms."
+        },
+        {
+          "id": "it-holiday-october-four",
+          "authority": "statutory",
+          "planningTreatment": "calendar_reference",
+          "provenance": {
+            "sourceIds": [
+              "it-oct"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": "2026-01-01",
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "monthDay": "10-04"
+          },
+          "interpretation": "National holiday added by Law 151/2025 beginning in 2026. Do not project backward, infer substitute days, or treat every site as closed."
+        }
+      ]
+    },
+    "NL": {
+      "name": "Netherlands",
+      "exampleTimeZone": "Europe/Amsterdam",
+      "scope": "General employees at least 18 under the Working Hours Act. Special cases and CAO terms require review.",
+      "rules": [
+        {
+          "id": "nl-working-time-caps",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "nl-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "weeklyMaxHours": 60,
+            "averageMaxHoursOver4Weeks": 55,
+            "averageMaxHoursOver16Weeks": 48,
+            "shiftMaxHours": 12
+          },
+          "interpretation": "General limits. Apply average limits independently, including overtime; a cited, applicable exception is required for deviations."
+        },
+        {
+          "id": "nl-rest",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "nl-rest"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyDefaultMinContinuousHours": 36,
+            "weeklyDefaultPeriodDays": 7,
+            "alternativeTotalRestHours": 72,
+            "alternativePeriodDays": 14,
+            "alternativeMinRestSegmentHours": 32,
+            "alternativeMaxRestSegments": 2
+          },
+          "interpretation": "Fourteen-day alternative has independent segment requirements. Shortened daily rest exceptions cannot be assumed."
+        },
+        {
+          "id": "nl-work-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "nl-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "thresholds": [
+              {
+                "workMinutesGt": 330,
+                "minimumMinutes": 30
+              },
+              {
+                "workMinutesGt": 600,
+                "minimumMinutes": 45
+              }
+            ],
+            "minBreakSegmentMinutes": 15
+          },
+          "interpretation": "Standard break limits, taking the highest triggered threshold. Breaks interrupt work; deviations need validated agreement or exception."
+        },
+        {
+          "id": "nl-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "nl-hol"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "weeklyContractedHoursMultiplier": 4
+          },
+          "interpretation": "Measure the floor in hours rather than assuming a 20-day block."
+        },
+        {
+          "id": "nl-public-holidays",
+          "authority": "statutory",
+          "planningTreatment": "calendar_reference",
+          "provenance": {
+            "sourceIds": [
+              "nl-cal"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "automaticStatutoryTimeOff": false
+          },
+          "interpretation": "Calendar date and entitlement are distinct; use CAO, contract and approved company hours for planning."
+        }
+      ]
+    },
+    "PL": {
+      "name": "Poland",
+      "exampleTimeZone": "Europe/Warsaw",
+      "scope": "General employees under the Labour Code basic working-time system. Special categories and equivalent working-time systems need separate review.",
+      "rules": [
+        {
+          "id": "pl-basic-hours",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "pl-code",
+              "pl-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "standardHoursPerDay": 8,
+            "averageNormalHoursPerWeek": 40,
+            "averageNormalDaysPerWeek": 5,
+            "averageIncludingOvertimeMaxHours": 48,
+            "ordinaryReferencePeriodMaxMonths": 4
+          },
+          "interpretation": "Use the employer’s applicable reference period. The basic standard is not a blanket daily maximum across working-time systems."
+        },
+        {
+          "id": "pl-rest-and-break",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "pl-code",
+              "pl-break"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "dailyMinConsecutiveHours": 11,
+            "weeklyMinConsecutiveHours": 35,
+            "thresholds": [
+              {
+                "workMinutesGte": 360,
+                "additionalBreakMinutes": 15
+              },
+              {
+                "workMinutesGt": 540,
+                "additionalBreakMinutes": 15
+              },
+              {
+                "workMinutesGt": 960,
+                "additionalBreakMinutes": 15
+              }
+            ],
+            "breakCountsAsWork": true
+          },
+          "interpretation": "Weekly rest includes daily rest, subject to statutory exceptions. Break thresholds are additive and use different comparison operators."
+        },
+        {
+          "id": "pl-statutory-holiday-hours",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "pl-code",
+              "pl-hours"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "reductionHoursPerNonSundayHoliday": 8
+          },
+          "interpretation": "In the basic working-time calculation, each holiday in the reference period other than Sunday reduces hours. This is not equivalent to a blanket ban on working that date."
+        },
+        {
+          "id": "pl-annual-leave",
+          "authority": "statutory",
+          "planningTreatment": "review_required",
+          "provenance": {
+            "sourceIds": [
+              "pl-code",
+              "pl-hol"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": null,
+            "effectiveUntil": null
+          },
+          "parameters": {
+            "fullTimeBelowTenYearsDays": 20,
+            "fullTimeAtLeastTenYearsDays": 26,
+            "qualifyingServiceThresholdYears": 10
+          },
+          "interpretation": "Use HR-confirmed qualifying service, not tenure guessed from start date. Check amendments, transitional rules, credited activity and education, and part-time proration separately."
+        },
+        {
+          "id": "pl-service-revision",
+          "authority": "statutory",
+          "planningTreatment": "reference_only",
+          "provenance": {
+            "sourceIds": [
+              "pl-service"
+            ],
+            "verifiedAsOf": "2026-11-16",
+            "effectiveFrom": "2026-01-01",
+            "effectiveUntil": null
+          },
+          "parameters": {},
+          "interpretation": "The cited amending act has its own commencement and transition. Do not use it as one uniform implementation date for every employer or as an algorithm to calculate qualifying service."
+        }
+      ]
+    }
+  },
+  "employerInputs": {
+    "authority": [
+      "statutory",
+      "collective_agreement",
+      "employment_contract",
+      "employer_policy",
+      "roster_fact"
+    ],
+    "requiredForRelease": [
+      "applicableJurisdiction",
+      "worksiteLocation",
+      "workerRuleClass",
+      "agreementOrNoAgreementEvidence",
+      "approvedHolidayCalendar",
+      "timeAccountingBasis",
+      "validatedRuleVersion",
+      "approvalOwner"
+    ],
+    "protectedTime": "Receive only dates, time windows and scheduling effect, such as not available. Do not ingest diagnoses, reasons, payroll, or records about employees' families. Do not calculate leave eligibility.",
+    "employeeIdentifiers": "Use opaque schedule-local references and restrict any identity mapping. Opaque references can still be personal data.",
+    "approvedHolidayCalendar": [
+      "localDate",
+      "jurisdiction",
+      "holidaySource",
+      "calendarVersion",
+      "companyOpeningHours",
+      "separatelyValidatedCompensationRule"
+    ]
+  },
+  "auditMinimum": [
+    "stableDecisionId",
+    "ruleId",
+    "ruleVersion",
+    "authority",
+    "jurisdiction",
+    "effectiveDateEvidence",
+    "referenceWindowLocalZone",
+    "elapsedTimeOrLocalDateBasis",
+    "unit",
+    "observedValue",
+    "thresholdAndOperator",
+    "staffRefIfNecessary",
+    "outcome",
+    "sourceIds",
+    "approvalReference",
+    "missingEvidenceReason"
+  ]
+}

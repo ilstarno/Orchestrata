@@ -1,0 +1,79 @@
+{
+  "summary": {
+    "observed": 9,
+    "matched": 2,
+    "held": 7,
+    "remaining": 1,
+    "carrierAccepted": null
+  },
+  "events": [
+    {
+      "eventId": "SCAN-001",
+      "observedAt": "2026-11-16T14:01:00Z",
+      "pieceId": "OUTSIDE-D",
+      "state": "held",
+      "reasonCode": "not-on-manifest"
+    },
+    {
+      "eventId": "SCAN-002",
+      "observedAt": "2026-11-16T14:02:00Z",
+      "pieceId": "PIECE-A",
+      "state": "held",
+      "reasonCode": "packet-mismatch"
+    },
+    {
+      "eventId": "SCAN-003",
+      "observedAt": "2026-11-16T14:03:00Z",
+      "pieceId": "PIECE-A",
+      "state": "held",
+      "reasonCode": "duplicate-component"
+    },
+    {
+      "eventId": "SCAN-004",
+      "observedAt": "2026-11-16T14:04:00Z",
+      "pieceId": "PIECE-A",
+      "state": "held",
+      "reasonCode": "packet-mismatch"
+    },
+    {
+      "eventId": "SCAN-005",
+      "observedAt": "2026-11-16T14:05:00Z",
+      "pieceId": "PIECE-A",
+      "state": "matched",
+      "reasonCode": "internal-match"
+    },
+    {
+      "eventId": "SCAN-006",
+      "observedAt": "2026-11-16T14:06:00Z",
+      "pieceId": "PIECE-A",
+      "state": "held",
+      "reasonCode": "duplicate-release"
+    },
+    {
+      "eventId": "SCAN-007",
+      "observedAt": "2026-11-16T14:07:00Z",
+      "pieceId": "PIECE-B",
+      "state": "held",
+      "reasonCode": "packet-mismatch"
+    },
+    {
+      "eventId": "SCAN-008",
+      "observedAt": "2026-11-16T14:08:00Z",
+      "pieceId": "PIECE-B",
+      "state": "matched",
+      "reasonCode": "internal-match"
+    },
+    {
+      "eventId": "SCAN-009",
+      "observedAt": "2026-11-16T14:09:00Z",
+      "pieceId": "PIECE-C",
+      "state": "held",
+      "reasonCode": "unreadable-packet"
+    }
+  ],
+  "carrier": {
+    "program": "USPS Seamless Acceptance",
+    "status": "not-assessed",
+    "sourceUrl": "https://pe.usps.com/text/DMM300/705.htm"
+  }
+}

@@ -1,0 +1,28 @@
+.rules-evidence-cases { margin:0; padding:0; list-style:none; }
+.rules-evidence-cases > li { display:flex; gap:.8rem; padding:.8rem .1rem; border-block-start:1px solid var(--rule); }
+.rules-evidence-cases > li > svg { margin-block-start:.12rem; color:var(--accent); flex:none; }
+.rules-evidence-cases h3 { font-size:1.03rem; margin:0; }
+.rules-evidence-cases nav { display:flex; flex-wrap:wrap; align-items:baseline; gap:0 .95rem; font-size:.88rem; }
+.rules-evidence-cases nav a { display:inline-flex; align-items:center; gap:.25rem; min-block-size:44px; }
+.rules-evidence-cases nav a svg { inline-size:.9rem; }
+.rules-evidence-cases nav span { color:var(--muted); }
+.rule-source-note { color:var(--muted); max-inline-size:73ch; font-size:.9rem; margin:.45rem 0; }
+.rule-source-note + .rule-source-note { margin-block-end:2rem; }
+
+.rules-evidence-cases > li > div { flex:1; min-inline-size:0; }
+.rule-case-source { margin:.15rem 0 .35rem; font-size:.85rem; color:var(--muted); }
+.rule-trace summary { cursor:pointer; min-block-size:44px; padding:.54rem 0; font-weight:650; }
+.rule-trace time { font-variant-numeric:tabular-nums; }
+.rule-trace code { font-size:.79rem; }
+
+.sector-capacity { margin-block:1.3rem 2.2rem; }
+.sector-capacity > p { color:var(--muted); max-inline-size:70ch; margin:.35rem 0 .75rem; }
+.sector-capacity-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.35rem .7rem; align-items:start; }
+.sector-capacity-grid details { border:1px solid var(--rule); background:var(--dataset-surface); }
+.sector-capacity-grid summary { cursor:pointer; min-block-size:44px; padding:.63rem .7rem; font-weight:650; }
+.sector-capacity-grid details > div { padding:.15rem .75rem .65rem; }
+.sector-capacity-grid details h3 { font-size:.93rem; margin:.7rem 0 .15rem; }
+.sector-capacity-grid details ul { margin:.22rem 0; padding-inline-start:1.12rem; font-size:.88rem; }
+.sector-capacity-grid details nav { margin-top:.55rem; display:flex; flex-wrap:wrap; gap:.3rem .75rem; font-size:.81rem; }
+.sector-capacity-grid details nav a { display:inline-flex; min-block-size:44px; align-items:center; }
+@media(max-width:42rem) { .sector-capacity-grid { grid-template-columns:1fr; } }

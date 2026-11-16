@@ -1,0 +1,1807 @@
+{
+  "id": "transactional-print-manifest-evidence",
+  "schemaVersion": "1.0",
+  "scope": {
+    "operation": "internal-manifest-check",
+    "sampleOnly": true,
+    "physicalMailProduced": false,
+    "carrierAccountAccessed": false,
+    "reportedMetricsAreSample": true,
+    "postalBarcodesPresent": false
+  },
+  "ruleEvidence": {
+    "authority": "sample-facility-policy",
+    "policyVersion": {
+      "policyId": "SAMPLE-MANIFEST-IDENTITY",
+      "revision": "1.0",
+      "effectiveFrom": "2026-11-01T00:00:00Z",
+      "approvedFor": "offline worked example",
+      "scannerId": "TRAINING-READER",
+      "holdsOnUnreadableComponents": true,
+      "preservesManifestOrder": true
+    },
+    "externalProgramReference": {
+      "program": "USPS Seamless Acceptance",
+      "status": "not-assessed",
+      "sourceUrl": "https://pe.usps.com/text/DMM300/705.htm",
+      "sourceLocator": "Domestic Mail Manual 705 \u00a722.0",
+      "resourcesUrl": "https://postalpro.usps.com/resources/mailing/seamless-acceptance",
+      "sourceAuthority": "carrier-program-reference",
+      "sourcePublisher": "United States Postal Service",
+      "lastCheckedUtcDate": "2026-11-16",
+      "appliesTo": "Potentially eligible program mailings; not inferred for training pieces",
+      "programChecks": [
+        "mailer participation",
+        "mail eligibility and preparation",
+        "Intelligent Mail barcodes",
+        "electronic documentation",
+        "USPS scan reconciliation"
+      ],
+      "notAssessedReason": "No physical mailing, carrier barcode, electronic documentation, participation evidence or carrier observations were supplied.",
+      "eligibilityDetermined": false,
+      "carrierResponseReceived": false
+    }
+  },
+  "facility": {
+    "siteLabel": "TRAINING-PLANT",
+    "productionWindow": {
+      "timeBasis": "UTC",
+      "bounds": {
+        "from": "2026-11-16T14:00:00Z",
+        "until": "2026-11-16T15:00:00Z"
+      },
+      "batch": {
+        "localManifestId": "BATCH-04",
+        "expectedPieces": [
+          {
+            "pieceId": "PIECE-A",
+            "packetRevision": "v3",
+            "componentIds": [
+              "A1-v3",
+              "A2-v3"
+            ]
+          },
+          {
+            "pieceId": "PIECE-B",
+            "packetRevision": "v3",
+            "componentIds": [
+              "B1-v3",
+              "B2-v3"
+            ]
+          },
+          {
+            "pieceId": "PIECE-C",
+            "packetRevision": "v2",
+            "componentIds": [
+              "C1-v2"
+            ]
+          }
+        ],
+        "captureStream": {
+          "order": "input-time-order",
+          "eventCount": 9,
+          "decisions": [
+            {
+              "eventId": "SCAN-001",
+              "pieceId": "OUTSIDE-D",
+              "observedAt": "2026-11-16T14:01:00Z",
+              "state": "held",
+              "reasonCode": "not-on-manifest",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": false,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-001",
+                            "capturedAt": "2026-11-16T14:01:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "OUTSIDE-D",
+                              "expectedRevision": null,
+                              "observedComponentIds": [
+                                "D1-v2"
+                              ],
+                              "expectedComponentIds": null
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-001",
+                            "capturedAt": "2026-11-16T14:01:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "OUTSIDE-D",
+                              "expectedRevision": null,
+                              "observedComponentIds": [
+                                "D1-v2"
+                              ],
+                              "expectedComponentIds": null
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-001",
+                            "capturedAt": "2026-11-16T14:01:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "OUTSIDE-D",
+                              "expectedRevision": null,
+                              "observedComponentIds": [
+                                "D1-v2"
+                              ],
+                              "expectedComponentIds": null
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-001",
+                            "capturedAt": "2026-11-16T14:01:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "OUTSIDE-D",
+                              "expectedRevision": null,
+                              "observedComponentIds": [
+                                "D1-v2"
+                              ],
+                              "expectedComponentIds": null
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-001",
+                            "capturedAt": "2026-11-16T14:01:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "OUTSIDE-D",
+                              "expectedRevision": null,
+                              "observedComponentIds": [
+                                "D1-v2"
+                              ],
+                              "expectedComponentIds": null
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-002",
+              "pieceId": "PIECE-A",
+              "observedAt": "2026-11-16T14:02:00Z",
+              "state": "held",
+              "reasonCode": "packet-mismatch",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-002",
+                            "capturedAt": "2026-11-16T14:02:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-002",
+                            "capturedAt": "2026-11-16T14:02:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-002",
+                            "capturedAt": "2026-11-16T14:02:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-002",
+                            "capturedAt": "2026-11-16T14:02:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-002",
+                            "capturedAt": "2026-11-16T14:02:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-003",
+              "pieceId": "PIECE-A",
+              "observedAt": "2026-11-16T14:03:00Z",
+              "state": "held",
+              "reasonCode": "duplicate-component",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-003",
+                            "capturedAt": "2026-11-16T14:03:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-003",
+                            "capturedAt": "2026-11-16T14:03:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-003",
+                            "capturedAt": "2026-11-16T14:03:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 1,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-003",
+                            "capturedAt": "2026-11-16T14:03:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-003",
+                            "capturedAt": "2026-11-16T14:03:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-004",
+              "pieceId": "PIECE-A",
+              "observedAt": "2026-11-16T14:04:00Z",
+              "state": "held",
+              "reasonCode": "packet-mismatch",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-004",
+                            "capturedAt": "2026-11-16T14:04:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-004",
+                            "capturedAt": "2026-11-16T14:04:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-004",
+                            "capturedAt": "2026-11-16T14:04:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 1,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-004",
+                            "capturedAt": "2026-11-16T14:04:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": 1,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-004",
+                            "capturedAt": "2026-11-16T14:04:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-005",
+              "pieceId": "PIECE-A",
+              "observedAt": "2026-11-16T14:05:00Z",
+              "state": "matched",
+              "reasonCode": "internal-match",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-005",
+                            "capturedAt": "2026-11-16T14:05:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-005",
+                            "capturedAt": "2026-11-16T14:05:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-005",
+                            "capturedAt": "2026-11-16T14:05:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-005",
+                            "capturedAt": "2026-11-16T14:05:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-005",
+                            "capturedAt": "2026-11-16T14:05:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": true,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-006",
+              "pieceId": "PIECE-A",
+              "observedAt": "2026-11-16T14:06:00Z",
+              "state": "held",
+              "reasonCode": "duplicate-release",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-006",
+                            "capturedAt": "2026-11-16T14:06:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": "SCAN-005"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": "SCAN-005",
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-006",
+                            "capturedAt": "2026-11-16T14:06:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": "SCAN-005"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-006",
+                            "capturedAt": "2026-11-16T14:06:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": "SCAN-005"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-006",
+                            "capturedAt": "2026-11-16T14:06:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": "SCAN-005"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-006",
+                            "capturedAt": "2026-11-16T14:06:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-A",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "A1-v3",
+                                "A2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": "SCAN-005"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-007",
+              "pieceId": "PIECE-B",
+              "observedAt": "2026-11-16T14:07:00Z",
+              "state": "held",
+              "reasonCode": "packet-mismatch",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-007",
+                            "capturedAt": "2026-11-16T14:07:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B2-v3",
+                                "B1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-007",
+                            "capturedAt": "2026-11-16T14:07:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B2-v3",
+                                "B1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-007",
+                            "capturedAt": "2026-11-16T14:07:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B2-v3",
+                                "B1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-007",
+                            "capturedAt": "2026-11-16T14:07:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B2-v3",
+                                "B1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "fail",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-007",
+                            "capturedAt": "2026-11-16T14:07:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B2-v3",
+                                "B1-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-008",
+              "pieceId": "PIECE-B",
+              "observedAt": "2026-11-16T14:08:00Z",
+              "state": "matched",
+              "reasonCode": "internal-match",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-008",
+                            "capturedAt": "2026-11-16T14:08:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-008",
+                            "capturedAt": "2026-11-16T14:08:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-008",
+                            "capturedAt": "2026-11-16T14:08:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-008",
+                            "capturedAt": "2026-11-16T14:08:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": 2,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-008",
+                            "capturedAt": "2026-11-16T14:08:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "correction-rescan",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-B",
+                              "expectedRevision": "v3",
+                              "observedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ],
+                              "expectedComponentIds": [
+                                "B1-v3",
+                                "B2-v3"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": true,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            },
+            {
+              "eventId": "SCAN-009",
+              "pieceId": "PIECE-C",
+              "observedAt": "2026-11-16T14:09:00Z",
+              "state": "held",
+              "reasonCode": "unreadable-packet",
+              "disposition": {
+                "rules": [
+                  {
+                    "ruleId": "PRINT-MANIFEST-01",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "manifestMembership",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece ID appears in the local batch manifest",
+                        "observedOperand": true,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-009",
+                            "capturedAt": "2026-11-16T14:09:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader-unreadable",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-C",
+                              "expectedRevision": "v2",
+                              "observedComponentIds": null,
+                              "expectedComponentIds": [
+                                "C1-v2"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-02",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "firstRelease",
+                      "outcome": "pass",
+                      "comparison": {
+                        "statement": "Piece has no prior internal match in this run",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-009",
+                            "capturedAt": "2026-11-16T14:09:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader-unreadable",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-C",
+                              "expectedRevision": "v2",
+                              "observedComponentIds": null,
+                              "expectedComponentIds": [
+                                "C1-v2"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-03",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "readablePacket",
+                      "outcome": "unknown",
+                      "comparison": {
+                        "statement": "Component observations are present",
+                        "observedOperand": false,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-009",
+                            "capturedAt": "2026-11-16T14:09:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader-unreadable",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-C",
+                              "expectedRevision": "v2",
+                              "observedComponentIds": null,
+                              "expectedComponentIds": [
+                                "C1-v2"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-04",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "distinctComponents",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs contain no repeats",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-009",
+                            "capturedAt": "2026-11-16T14:09:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader-unreadable",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-C",
+                              "expectedRevision": "v2",
+                              "observedComponentIds": null,
+                              "expectedComponentIds": [
+                                "C1-v2"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ruleId": "PRINT-MANIFEST-05",
+                    "ruleRevision": "1.0",
+                    "authority": "sample-facility-policy",
+                    "enforcement": "hard",
+                    "evaluation": {
+                      "evaluator": "orderedMatch",
+                      "outcome": "not-evaluated",
+                      "comparison": {
+                        "statement": "Observed component IDs equal the manifest sequence",
+                        "observedOperand": null,
+                        "evidence": {
+                          "scan": {
+                            "identifier": "SCAN-009",
+                            "capturedAt": "2026-11-16T14:09:00Z",
+                            "capturedBy": "TRAINING-READER",
+                            "sourceFixture": "inputs.json",
+                            "captureMethod": "reader-unreadable",
+                            "packetSnapshot": {
+                              "localPieceId": "PIECE-C",
+                              "expectedRevision": "v2",
+                              "observedComponentIds": null,
+                              "expectedComponentIds": [
+                                "C1-v2"
+                              ]
+                            }
+                          },
+                          "priorInternalMatchEvent": null
+                        }
+                      }
+                    }
+                  }
+                ],
+                "internalLedgerCanRecordMatch": false,
+                "carrierEligibilityStatus": "not-assessed",
+                "externalSubmissionPerformed": false
+              }
+            }
+          ]
+        },
+        "internalLedger": {
+          "matchingObservationByPiece": {
+            "PIECE-A": "SCAN-005",
+            "PIECE-B": "SCAN-008"
+          },
+          "unmatchedPieceIds": [
+            "PIECE-C"
+          ],
+          "matchOperationCanSendMail": false
+        }
+      }
+    }
+  },
+  "summary": {
+    "observed": 9,
+    "matched": 2,
+    "held": 7,
+    "remaining": 1,
+    "carrierAccepted": null
+  }
+}

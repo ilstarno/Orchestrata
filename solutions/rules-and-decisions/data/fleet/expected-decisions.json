@@ -1,0 +1,26 @@
+{
+  "inputCaseId": "fleet-delivery-access-new-york-london",
+  "format": ["status", "reasonCodes"],
+  "decisionsById": {
+    "NYC-01": ["passes_modeled_checks", []],
+    "NYC-02": ["passes_modeled_checks", []],
+    "NYC-03": ["hold", ["UNSUPPORTED_TRUCK_DEVIATION"]],
+    "NYC-04": ["review", ["TRUCK_CLASSIFICATION_UNKNOWN"]],
+    "NYC-05": ["passes_modeled_checks", []],
+    "NYC-06": ["review", ["BIKE_REQUIREMENT_UNVERIFIED"]],
+    "NYC-07": ["hold", ["BIKE_REQUIREMENT_FAILED"]],
+    "NYC-08": ["hold", ["RESOURCE_CAPACITY_EXCEEDED"]],
+    "NYC-09": ["passes_modeled_checks", []],
+    "LON-01": ["passes_modeled_checks", []],
+    "LON-02": ["hold", ["OXFORD_ACCESS_WINDOW_MISSED"]],
+    "LON-03": ["review", ["OXFORD_ACCESS_ROUTE_UNVERIFIED"]],
+    "LON-04": ["hold", ["OXFORD_STOP_NOT_FOR_LOADING"]],
+    "LON-05": ["hold", ["OXFORD_CYCLE_ENTRY_PROHIBITED"]],
+    "LON-06": ["hold", ["ORDINARY_PAVEMENT_CYCLING_PROHIBITED"]],
+    "LON-07": ["passes_modeled_checks", []],
+    "LON-08": ["review", ["STREET_PROOF_STALE_OR_UNKNOWN"]],
+    "LON-09": ["review", ["RECEIVING_SLOT_UNVERIFIED"]],
+    "LON-10": ["hold", ["COMPANY_SHIFT_BUFFER_MISSED", "COMPANY_COLD_CHAIN_SENSOR_FAILED"]],
+    "LON-11": ["passes_modeled_checks", []]
+  }
+}

@@ -1,0 +1,512 @@
+{
+  "timeZone": "America/New_York",
+  "weekStart": "2026-11-22",
+  "weekEnd": "2026-11-28",
+  "holiday": "2026-11-26",
+  "scenarios": [
+    {
+      "id": "baseline",
+      "metrics": {
+        "requested": 37,
+        "covered": 34,
+        "held": 3,
+        "overtimeMinutes": 450,
+        "incrementalOvertimeMinutes": 300,
+        "changedPriorAssignments": 0,
+        "confirmed": 27,
+        "openCovered": 7,
+        "optimizerEvaluatedFeasibleLeaves": 1
+      },
+      "shifts": [
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": "W06",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": "W02",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "workerId": "W10",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "metrics": {
+        "requested": 37,
+        "covered": 34,
+        "held": 3,
+        "overtimeMinutes": 150,
+        "incrementalOvertimeMinutes": 0,
+        "changedPriorAssignments": 1,
+        "confirmed": 27,
+        "openCovered": 7,
+        "optimizerEvaluatedFeasibleLeaves": 288
+      },
+      "shifts": [
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": "W06",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": "W03",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "workerId": "W10",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "metrics": {
+        "requested": 37,
+        "covered": 32,
+        "held": 5,
+        "overtimeMinutes": 150,
+        "incrementalOvertimeMinutes": 0,
+        "changedPriorAssignments": 2,
+        "confirmed": 27,
+        "openCovered": 5,
+        "optimizerEvaluatedFeasibleLeaves": 72
+      },
+      "shifts": [
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-ONE-SHIFT",
+            "NY-196B-APPROVED",
+            "CO-AVAILABILITY"
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": "W03",
+          "locked": false,
+          "status": "covered",
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "NY-161-REST",
+            "CO-APPROVED-PTO",
+            "CO-ONE-SHIFT",
+            "CO-AVAILABILITY"
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ]
+        }
+      ]
+    }
+  ]
+}

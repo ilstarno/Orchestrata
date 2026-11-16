@@ -1,0 +1,31 @@
+{
+  "caseId": "transactional-print-manifest-evidence",
+  "sampleSite": "TRAINING-PLANT",
+  "localBatch": "BATCH-04",
+  "windowUtc": {"from": "2026-11-16T14:00:00Z", "until": "2026-11-16T15:00:00Z"},
+  "policy": {
+    "policyId": "SAMPLE-MANIFEST-IDENTITY",
+    "revision": "1.0",
+    "effectiveFrom": "2026-11-01T00:00:00Z",
+    "approvedFor": "offline worked example",
+    "scannerId": "TRAINING-READER",
+    "holdsOnUnreadableComponents": true,
+    "preservesManifestOrder": true
+  },
+  "manifest": [
+    {"pieceId":"PIECE-A","packetRevision":"v3","componentIds":["A1-v3","A2-v3"]},
+    {"pieceId":"PIECE-B","packetRevision":"v3","componentIds":["B1-v3","B2-v3"]},
+    {"pieceId":"PIECE-C","packetRevision":"v2","componentIds":["C1-v2"]}
+  ],
+  "observations": [
+    {"eventId":"SCAN-001","observedAt":"2026-11-16T14:01:00Z","pieceId":"OUTSIDE-D","componentIds":["D1-v2"],"capture":"reader"},
+    {"eventId":"SCAN-002","observedAt":"2026-11-16T14:02:00Z","pieceId":"PIECE-A","componentIds":["A1-v3","B2-v3"],"capture":"reader"},
+    {"eventId":"SCAN-003","observedAt":"2026-11-16T14:03:00Z","pieceId":"PIECE-A","componentIds":["A1-v3","A1-v3"],"capture":"reader"},
+    {"eventId":"SCAN-004","observedAt":"2026-11-16T14:04:00Z","pieceId":"PIECE-A","componentIds":["A1-v3"],"capture":"reader"},
+    {"eventId":"SCAN-005","observedAt":"2026-11-16T14:05:00Z","pieceId":"PIECE-A","componentIds":["A1-v3","A2-v3"],"capture":"correction-rescan"},
+    {"eventId":"SCAN-006","observedAt":"2026-11-16T14:06:00Z","pieceId":"PIECE-A","componentIds":["A1-v3","A2-v3"],"capture":"reader"},
+    {"eventId":"SCAN-007","observedAt":"2026-11-16T14:07:00Z","pieceId":"PIECE-B","componentIds":["B2-v3","B1-v3"],"capture":"reader"},
+    {"eventId":"SCAN-008","observedAt":"2026-11-16T14:08:00Z","pieceId":"PIECE-B","componentIds":["B1-v3","B2-v3"],"capture":"correction-rescan"},
+    {"eventId":"SCAN-009","observedAt":"2026-11-16T14:09:00Z","pieceId":"PIECE-C","componentIds":null,"capture":"reader-unreadable"}
+  ]
+}

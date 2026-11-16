@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "referenceOnly": true,
+  "sectors": [
+    {
+      "id": "cargo-stowage",
+      "title": "Container stowage and vessel capacity",
+      "decisions": [
+        "Compare loading sequences and compatible slots across vessels and ports before proposing a stowage plan.",
+        "Keep containers with missing or inconsistent verified mass out of the ready-to-load plan.",
+        "Estimate rehandles and equipment time when berth arrival or discharge order changes."
+      ],
+      "capacity": [
+        "Count 20- and 40-foot slot positions separately and record paired-slot conflicts. Total TEU does not establish physical fit.",
+        "Track metric tonnes per stack, hatch or deck zone; use vessel-specific structural and stability limits, not aggregate deadweight alone.",
+        "Count compatible powered reefer positions and simultaneous crane moves per hour. Include outages and shore power limits."
+      ],
+      "constraints": [
+        "Where SOLAS verified gross mass requirements apply, use the signed verified mass in the stowage process; a booking weight is not a substitute. Verification is a condition of loading, not authority to load.",
+        "Use vessel-approved Cargo Securing Manual limits and applicable cargo separation rules. A general IMO reference does not supply clearance for a specific ship or commodity.",
+        "Keep port discharge order, permissible hatch passage, and terminal crane restrictions separate from fleet preferences such as minimizing rehandles."
+      ],
+      "failureModes": [
+        "An open slot has insufficient stack mass margin or the wrong container length.",
+        "An available reefer box position has no usable power outlet.",
+        "A revised port sequence traps containers behind later-discharge cargo or invalidates planned weight distribution."
+      ],
+      "proofNeeded": [
+        "Ship-approved bay plan with slot compatibility and blocked positions, mass ledger with verified gross mass and timestamps, and equipment windows.",
+        "Vessel-specific loading and stability calculation signed off through the vessel's approved procedures; a planner replay alone is not proof."
+      ],
+      "sources": [
+        {
+          "label": "IMO: Verification of gross mass of a packed container",
+          "url": "https://www.imo.org/en/ourwork/safety/pages/verification-of-the-gross-mass.aspx"
+        },
+        {
+          "label": "IMO: Code of Safe Practice for Cargo Stowage and Securing",
+          "url": "https://www.imo.org/en/ourwork/safety/pages/css-code.aspx"
+        }
+      ]
+    },
+    {
+      "id": "grocery-warehouse",
+      "title": "Grocery replenishment and warehouse slots",
+      "decisions": [
+        "Place each lot in a usable slot and allocate replenishment windows without blocking aisles or picking faces.",
+        "Reserve temperature-controlled space and handling equipment as stock and trucks arrive in waves.",
+        "Compare a promotion against a normal day using peak-hour labor and dock demand, not just total distance."
+      ],
+      "capacity": [
+        "Pallet positions by dimensions and load rating in kg; cubic metres and case facings do not establish weight capacity.",
+        "Available powered lift trucks and trained operator-minutes; clearance in metres at the equipment's required turning envelope.",
+        "Dock door-minutes, concurrent staging pallet positions and chilled or frozen positions by approved temperature band in °C."
+      ],
+      "constraints": [
+        "Apply local workplace rules on cleared aisles and stable storage. OSHA 29 CFR 1910.176 is a US baseline where it applies, not a global aisle width or forklift load rating.",
+        "Keep site-required lot rotation, segregation, shelf rules, spill zones and promotional displays separate from regulation.",
+        "For US transport covered by FDA sanitary transportation requirements, match the food safety specification and agreed responsibilities; transport rules alone do not define warehouse shelf life."
+      ],
+      "failureModes": [
+        "The bin is empty but the loaded pallet cannot be placed safely by available equipment.",
+        "Promotion volume fills staging before the dock window opens, blocking the receiving path.",
+        "A chilled lot physically fits in an ambient bay, but the approved handling conditions cannot be met."
+      ],
+      "proofNeeded": [
+        "Rack and equipment rating records, bay dimensions, shift-qualified operators and scanned lot and expiry dates.",
+        "Distinct capacity and queue measurements for receiving, staging, storage and replenishment, with agreed temperature handling evidence."
+      ],
+      "sources": [
+        {
+          "label": "OSHA: 29 CFR 1910.176, handling materials",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.176"
+        },
+        {
+          "label": "OSHA: Grocery warehousing storage guidance",
+          "url": "https://www.osha.gov/etools/grocery-warehousing/storage"
+        },
+        {
+          "label": "FDA: Sanitary Transportation of Human and Animal Food final rule",
+          "url": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-sanitary-transportation-human-and-animal-food"
+        }
+      ]
+    },
+    {
+      "id": "electric-fleet",
+      "title": "Fleet duty cycles and depot charging",
+      "decisions": [
+        "Assign routes to vehicles, then schedule charge slots against return times, departure deadlines and minimum reserve.",
+        "Compare charge sequencing versus added connectors or a service upgrade before attributing shortages to vehicle count.",
+        "Replan when a charger faults, a route runs late or consumption deviates from the duty-cycle estimate."
+      ],
+      "capacity": [
+        "Vehicle energy in usable kWh and percent state of charge; connector output in kW and station occupancy in minutes.",
+        "Shared electrical service limits in kW or kVA as specified by the site engineer and utility, with building load in the same time intervals.",
+        "Route payload in kg and m³, driver and vehicle minutes, and depot parking positions. Include energy for auxiliary refrigeration or climate load."
+      ],
+      "constraints": [
+        "Treat connector, vehicle acceptance limits, site electrical capacity and approved engineering settings as hard input boundaries; US DOE fleet guidance does not authorize electrical work.",
+        "Model employer reserve and priority policy separately from legal vehicle load, road access and driver rules. Confirm jurisdiction, journey and vehicle applicability before evaluating.",
+        "Do not assume that advertised charger power is sustained or that sessions can overlap on one connector; model derating and charge curves."
+      ],
+      "failureModes": [
+        "Several vehicles start at once and exceed the site headroom even though each connector is within its rating.",
+        "Available energy covers mean route demand but misses reserve after cold weather or credible route delay.",
+        "The vehicle finishes charging, but the connector only appears compatible in the inventory and is not approved for that model."
+      ],
+      "proofNeeded": [
+        "Route and energy telemetry, asset-to-connector compatibility matrix, session event logs, and approved utility/site headroom by interval.",
+        "Replay a charger outage and late depot return without letting an undercharged vehicle appear dispatchable."
+      ],
+      "sources": [
+        {
+          "label": "US DOE Alternative Fuels Data Center: Electric Vehicles for Fleets",
+          "url": "https://afdc.energy.gov/vehicles/electric-fleets"
+        },
+        {
+          "label": "US DOE Alternative Fuels Data Center: Electricity production and distribution",
+          "url": "https://afdc.energy.gov/fuels/electricity-production"
+        }
+      ]
+    },
+    {
+      "id": "airport-terminal-capacity",
+      "title": "Airport gates, arrivals and ground services",
+      "decisions": [
+        "Assign contact gates and remote stands by aircraft and handling readiness, preserving space for late arrivals.",
+        "Compare a nominal gate assignment with the resulting baggage, passenger and ground-team workload.",
+        "Evaluate multi-stand closures or an arrival wave while showing which demand needs manual handling."
+      ],
+      "capacity": [
+        "Gate or stand occupancy in aircraft-minutes, apron frontage and clearances in metres, and equipment compatibility by aircraft family.",
+        "Passenger-processing capacity per 15 minutes by staffed checkpoint, corridor, bus, and eligible arrivals stream; a gate count is not passenger capacity.",
+        "Qualified ground-team and equipment minutes in the same location and time window, including transfer and reset time."
+      ],
+      "constraints": [
+        "An empty stand still needs airport-approved aircraft and adjacent-stand compatibility plus applicable airport conditions. FAA terminal planning guidance supports design work; it is not airport certification or approval.",
+        "Use local airport and airline rules for international arrivals handling, baggage reclaim, stand closures and service equipment. Carry these as separately versioned site inputs.",
+        "Protect mandatory buffers and handling dependencies. Only then compare preferences such as contact-gate use, walk distances and towing effort."
+      ],
+      "failureModes": [
+        "Large aircraft can fit each stand individually but cannot occupy neighboring stands at the same time.",
+        "Moving a flight to a remote stand frees a gate but saturates the coach queue or ground-team schedule.",
+        "Gate assignment is feasible while baggage or eligible passenger processing is over capacity during the same arrival burst."
+      ],
+      "proofNeeded": [
+        "Airport-approved stand and adjacency matrix, terminal and baggage processing rates, ground equipment roster and staff qualifications.",
+        "Stale closure and adjacency data must hold a recommendation; replay the peak arrival bank and verify no shared resource is double booked."
+      ],
+      "sources": [
+        {
+          "label": "US FAA Advisory Circular 150/5360-13A: Airport Terminal Planning",
+          "url": "https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/1033908"
+        },
+        {
+          "label": "US FAA: Airport Planning and Design",
+          "url": "https://www.airporttech.tc.faa.gov/Airport-Safety/Airport-Planning-Design"
+        }
+      ]
+    },
+    {
+      "id": "rental-maintenance",
+      "title": "Commercial rental fleets and workshop capacity",
+      "decisions": [
+        "Match contract-compatible vehicles to pickup windows, including return uncertainty and one-way transfers.",
+        "Schedule inspection, cleaning, maintenance and recall holds before any next handover.",
+        "Rebalance approved substitutes between branches without treating unavailable workshop resources as capacity."
+      ],
+      "capacity": [
+        "Available vehicle-hours by branch, class and equipment; distinguish physically present assets from release-ready assets.",
+        "Workshop bay-hours by compatible lift rating and technician-hours by required skill, plus waiting parts and wash or preparation capacity.",
+        "Transfer driver and vehicle minutes, destination parking slots and booking slack after expected return."
+      ],
+      "constraints": [
+        "Separate operator roadworthiness obligations from local contract promises and upgrade/substitute rules. DVSA guidance cited here is for commercial goods or passenger operators, not a universal rental law.",
+        "Use the applicable inspection and recall records; a calendar flag alone is not a roadworthy-release decision.",
+        "Allow an out-of-service asset to be moved for permitted servicing only if specifically authorized. Do not treat that movement as rental availability."
+      ],
+      "failureModes": [
+        "An asset is assigned as soon as it returns but needs inspection, repairs or a recall remedy.",
+        "A substitution satisfies inventory count but fails class, capacity or contract compatibility.",
+        "A workshop has free bays but lacks a qualified technician or a required part, stranding several bookings."
+      ],
+      "proofNeeded": [
+        "Asset state history, booking and substitution contract, parts plan, and technician/bay compatibility.",
+        "Signed first-use or equivalent evidence where it applies, recall and rectification trace, and a separate handover-release event."
+      ],
+      "sources": [
+        {
+          "label": "UK DVSA: Guide to maintaining roadworthiness for commercial goods and passenger vehicles",
+          "url": "https://www.gov.uk/government/publications/guide-to-maintaining-roadworthiness/guide-to-maintaining-roadworthiness-commercial-goods-and-passenger-carrying-vehicles"
+        },
+        {
+          "label": "UK DVSA: Maintenance investigation guidance and evidence",
+          "url": "https://www.gov.uk/government/publications/maintenance-investigation-visit-report-mivr-guidance/maintenance-investigations-questions"
+        }
+      ]
+    },
+    {
+      "id": "health-service-operations",
+      "title": "Outpatient room and support-team coordination",
+      "decisions": [
+        "Prepare rooms and support staff for appointments already approved by the service.",
+        "Reassign cleaning, reception coverage, and equipment preparation after a cancellation."
+      ],
+      "capacity": [
+        "Ready room-minutes by room class and site, after setup and turnover.",
+        "Reception and support staff-minutes by shift; equipment units ready in each interval.",
+        "Booked slots, attended slots, and late cancellations as separate counts."
+      ],
+      "constraints": [
+        "Service-owned appointment order and session limits remain fixed.",
+        "Preparation and turnover must fit resource windows; assigned equipment cannot overlap.",
+        "Respect the approved room setup without storing the reason for any adjustment."
+      ],
+      "failureModes": [
+        "Treating appointment bookings as attended work conceals wasted slots.",
+        "A room exists on paper but cannot open because no support worker or equipment is available.",
+        "Rebooking consumes a later slot and can move backlog instead of eliminating it."
+      ],
+      "proofNeeded": [
+        "Replay anonymized cancellations and turnover durations using aggregate arrival and attendance records.",
+        "Compare opening delays, unused ready room-minutes, held tasks, and gaps by location against the current operating schedule."
+      ],
+      "sources": [
+        {
+          "label": "NHS England outpatient capacity and demand tool",
+          "url": "https://www.england.nhs.uk/ourwork/demand-and-capacity/service-level-demand-and-capacity-planning/models/outpatient-capacity-and-demand-tool/"
+        },
+        {
+          "label": "NHS England missed appointments guidance",
+          "url": "https://www.england.nhs.uk/publication/reducing-did-not-attends-dnas-in-outpatient-services/"
+        }
+      ]
+    },
+    {
+      "id": "school-space-timetabling",
+      "title": "School timetabling and specialist room allocation",
+      "decisions": [
+        "Assign groups to class periods, qualified staff, and suitable rooms.",
+        "Rebuild a day after a closure without unnecessarily moving unaffected classes."
+      ],
+      "capacity": [
+        "Seats per usable room by period; specialist lab or workshop stations are a separate limit.",
+        "Teacher periods and room-periods with setup/cleanup time deducted.",
+        "Whole-school net capacity is a planning reference, not a per-class room authorization."
+      ],
+      "constraints": [
+        "No simultaneous double booking of the room, group, or supervising staff.",
+        "Use locally verified room designation, accessibility, safety capacity, and staff requirements.",
+        "Preserve locked periods and allow real travel time between buildings."
+      ],
+      "failureModes": [
+        "Enough total seats but no qualifying lab permits the lesson.",
+        "Two rooms appear free while the only approved supervisor is elsewhere.",
+        "A single room outage forces avoidable changes across the entire day."
+      ],
+      "proofNeeded": [
+        "Verify each assignment against the room inventory, timetable, and approved staff coverage.",
+        "Replay a room outage and compare unserved lessons, moved periods, and cross-building travel."
+      ],
+      "sources": [
+        {
+          "label": "Department for Education net capacity assessment guidance for England",
+          "url": "https://www.gov.uk/government/publications/net-capacity-assessment-tool/net-capacity-assessment-guidance"
+        }
+      ]
+    },
+    {
+      "id": "multi-location-workforce",
+      "title": "Multi-location shifts and shared relief teams",
+      "decisions": [
+        "Fill shifts across stores and departments using an approved relief pool.",
+        "Choose whether to fill a staffing gap with local cover, a transfer, or a human escalation."
+      ],
+      "capacity": [
+        "Qualified person-hours per site, role, and time band.",
+        "Transfer travel-minutes, net duty time after breaks, and minimum concurrent role coverage.",
+        "Relief staff capacity counted once across all participating departments."
+      ],
+      "constraints": [
+        "Only approved staff and site-specific competencies count towards coverage.",
+        "Keep break, leave, availability and site-opening rules distinct; use the validated local work-time profile.",
+        "Charge transfer time and preserve agreed schedules where feasible."
+      ],
+      "failureModes": [
+        "Two departments use the same floating worker at the same time.",
+        "Coverage appears adequate at daily granularity but drops below minimum for a key interval.",
+        "A relief transfer removes coverage at the sending site."
+      ],
+      "proofNeeded": [
+        "Compare roster-to-actual coverage, missed intervals, reassignment count and paid travel.",
+        "Independently validate site permissions, approved absence windows, and constraints before release."
+      ],
+      "sources": [
+        {
+          "label": "Oracle workforce schedules: floating resources and location holidays",
+          "url": "https://docs.oracle.com/en/cloud/saas/human-resources/faiws/manage-workforce-schedules.html"
+        },
+        {
+          "label": "Oracle workforce scheduling: departments and locations",
+          "url": "https://docs.oracle.com/en/cloud/saas/human-resources/faiws/overview-of-workforce-scheduling.html"
+        }
+      ]
+    },
+    {
+      "id": "contact-center-interval-capacity",
+      "title": "Contact center capacity by queue, skill and interval",
+      "decisions": [
+        "Allocate net staff capacity to voice, chat and deferred tickets.",
+        "Move coaching or back-office work when wait times rise, without overloading another queue."
+      ],
+      "capacity": [
+        "Forecast offered contacts per 15 or 30 minutes and handling seconds including follow-up.",
+        "Net staffed agent-minutes after unavailable time, with channel-specific concurrency.",
+        "Deferred backlog count and age distribution tracked separately from live-queue service targets."
+      ],
+      "constraints": [
+        "Only authorized skills, languages, and business units are substitutable.",
+        "Keep concurrent chat limits separate from single-call voice occupancy.",
+        "Observe coverage during breaks and preapproved protected time."
+      ],
+      "failureModes": [
+        "Good daily coverage hides short queue peaks and missed targets.",
+        "One multilingual agent is counted at full capacity in two queues.",
+        "A voice-only objective pushes deferred work beyond its response target."
+      ],
+      "proofNeeded": [
+        "Replay actual aggregate arrivals, staffing and handle times by channel and interval.",
+        "Compare queue wait distribution, target attainment, abandonment, oldest backlog and transfer load; no customer payloads needed."
+      ],
+      "sources": [
+        {
+          "label": "Genesys planning groups: queue, media, language and skill",
+          "url": "https://help.genesys.cloud/articles/planning-groups-key-principles/"
+        },
+        {
+          "label": "Amazon Connect interval capacity planning",
+          "url": "https://docs.aws.amazon.com/connect/latest/adminguide/capacity-planning-plan-types.html"
+        }
+      ]
+    },
+    {
+      "id": "transactional-mail-throughput",
+      "title": "Transactional printing, insertion and handoff",
+      "decisions": [
+        "Group compatible work around pickup cutoffs; reserve a rerun lane for damaged pieces.",
+        "Hold suspected duplicate or mismatched pieces before dispatch."
+      ],
+      "capacity": [
+        "Press impressions per hour by stock and duplex mode; inserter pieces per hour by envelope and insert profile.",
+        "Setup and changeover minutes, reprint setup, check-station throughput and dispatch cutoff time.",
+        "Track usable stock by media lot and production stages, not only gross page count."
+      ],
+      "constraints": [
+        "Check press/finisher compatibility and material availability before batching.",
+        "Keep a single verified release per piece identifier; preserve holds and reconciliation evidence.",
+        "Treat print-floor release and carrier acceptance as separate checks."
+      ],
+      "failureModes": [
+        "Optimizing print runs alone moves the queue to insertion.",
+        "A fast rerun releases the original and replacement without deduplication.",
+        "A batch meets press schedule but misses carrier handoff."
+      ],
+      "proofNeeded": [
+        "Replay historical job tickets and independent scan logs with duplicate, mismatch and missing events.",
+        "Reconcile verified pieces, holds and carrier documentation; compare waste, idle time and cutoff attainment."
+      ],
+      "sources": [
+        {
+          "label": "CIP4 job ticket and device capability references",
+          "url": "https://www.cip4.org/Print-Automation-Overview/articles/jobtickets"
+        },
+        {
+          "label": "USPS commercial mail verification and acceptance",
+          "url": "https://postalpro.usps.com/mailing/seamless-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "facilities-work-order-capacity",
+      "title": "Facilities maintenance and work-order backlog",
+      "decisions": [
+        "Slot preventive and corrective work around staffed coverage and tenant access.",
+        "Replan the low-priority backlog when an urgent fault consumes a crew or a part is delayed."
+      ],
+      "capacity": [
+        "Qualified technician-hours, shared lift/tool-hours, verified spare units and access-window minutes.",
+        "Separate travel and staging from hands-on work; keep callout capacity reserved."
+      ],
+      "constraints": [
+        "Access and owner-approved safety prerequisites are gates, not scores.",
+        "Reserve a crew for multi-person jobs; count shared tools once.",
+        "Treat expected-part arrival and onsite confirmation differently; lock agreed facility windows as required."
+      ],
+      "failureModes": [
+        "A visit is scheduled while the part, access permission, or owner signoff is missing.",
+        "Shared equipment ties up two otherwise workable crews.",
+        "Reactive work repeatedly displaces preventive work without recording the maintenance debt."
+      ],
+      "proofNeeded": [
+        "Verify work-order readiness and closure with maintenance records, including reopened jobs.",
+        "Compare first-visit completion, overdue preventive items, return trips and unresolved urgent demand."
+      ],
+      "sources": [
+        {
+          "label": "U.S. Department of Energy facilities operations and maintenance challenges",
+          "url": "https://www.energy.gov/cmei/femp/operations-and-maintenance-challenges-and-solutions"
+        }
+      ]
+    },
+    {
+      "id": "dns-and-load-balancing",
+      "title": "DNS and load balancing",
+      "decisions": [
+        "Choose the regions new DNS lookups can use.",
+        "Allocate incoming traffic to eligible services or keep excess demand unserved."
+      ],
+      "capacity": [
+        "Requests or connections per second, active connections, and reserve capacity by region.",
+        "Independent failure domains with enough healthy capacity to absorb a shift."
+      ],
+      "constraints": [
+        "Approved regions, probe freshness, required coverage after failure, and a reviewed fallback.",
+        "DNS cache lifetime, sticky sessions, and existing connections limit how quickly traffic moves."
+      ],
+      "failureModes": [
+        "Stale health appears current; all targets fail and a provider returns an unhealthy destination; answer weights do not match request shares."
+      ],
+      "proofNeeded": [
+        "Recorded probe and load snapshots with units and timestamps; test missing health, all-unhealthy pools, cache lag, and demand over capacity.",
+        "Compare DNS answer shares with actual request load as separate measurements."
+      ],
+      "sources": [
+        {
+          "label": "AWS Route 53 health-aware record selection",
+          "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-how-route-53-chooses-records.html"
+        },
+        {
+          "label": "RFC 8767: Serving Stale DNS Data",
+          "url": "https://www.rfc-editor.org/rfc/rfc8767.html"
+        },
+        {
+          "label": "Kubernetes Gateway API HTTP traffic splitting",
+          "url": "https://gateway-api.sigs.k8s.io/guides/user-guides/traffic-splitting/"
+        }
+      ]
+    },
+    {
+      "id": "platform-service-capacity",
+      "title": "Platform services and shared capacity",
+      "decisions": [
+        "Set admit, queue, or defer limits per kind of work.",
+        "Keep headroom for critical work when a shared dependency slows down."
+      ],
+      "capacity": [
+        "Downstream concurrent work, queue service rate, and spare capacity before the latency target is lost.",
+        "Retry volume and the amount of work one customer or service can consume."
+      ],
+      "constraints": [
+        "Priority policy, maximum queue age, fairness across work streams, bounded retries and backoff.",
+        "Capacity that comes online after a delay cannot be counted as available now."
+      ],
+      "failureModes": [
+        "Retries amplify overload; a queue appears healthy while work ages out; one tenant exhausts a shared worker pool."
+      ],
+      "proofNeeded": [
+        "Measured queue and dependency telemetry, traffic recorded by priority, and an approved overload policy.",
+        "Replay a slow dependency, burst, and loss of a worker group; report deferrals and latency separately."
+      ],
+      "sources": [
+        {
+          "label": "Google SRE: Addressing Cascading Failures",
+          "url": "https://sre.google/sre-book/addressing-cascading-failures/"
+        },
+        {
+          "label": "Google SRE Workbook: Managing Load",
+          "url": "https://sre.google/workbook/managing-load/"
+        }
+      ]
+    },
+    {
+      "id": "cluster-placement",
+      "title": "Cluster workload placement",
+      "decisions": [
+        "Place workloads on nodes and zones that can run them.",
+        "Decide which work can wait during a drain, upgrade, or zone outage."
+      ],
+      "capacity": [
+        "Schedulable CPU and memory, usable accelerators, compatible nodes, and placement room in each zone.",
+        "Headroom to reschedule work after a zone is unavailable."
+      ],
+      "constraints": [
+        "Resource requests, supported hardware, required placement labels, incompatibilities and zone-spread policies.",
+        "Treat an unsatisfied hard spread rule as pending work, not a successful placement."
+      ],
+      "failureModes": [
+        "The cluster has enough total capacity but no compatible node has enough free resources; an upgrade packs replicas into one zone."
+      ],
+      "proofNeeded": [
+        "Versioned workload and node inventory with zone labels, resource units and policy scope.",
+        "Replay a drain and a missing zone; list pending workloads and the first failed constraint."
+      ],
+      "sources": [
+        {
+          "label": "Kubernetes Pod topology spread constraints",
+          "url": "https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/"
+        },
+        {
+          "label": "Kubernetes resource requests and limits",
+          "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
+        }
+      ]
+    },
+    {
+      "id": "multi-region-recovery",
+      "title": "Multi-region recovery",
+      "decisions": [
+        "Choose which region can take traffic and when a return is safe.",
+        "Prioritize services and data restoration when the standby cannot handle the full load."
+      ],
+      "capacity": [
+        "Failover compute, storage write throughput, replication bandwidth, and dependencies that have warmed up.",
+        "Recovery time and tolerated data loss are separate targets."
+      ],
+      "constraints": [
+        "Data placement policy, observed replication lag, allowed write leadership and service dependency order.",
+        "Require evidence that standby and critical dependencies are ready, not just a reachable endpoint."
+      ],
+      "failureModes": [
+        "A standby can receive traffic but lacks key dependencies; separate sites accept conflicting writes; failback starts before the replica catches up."
+      ],
+      "proofNeeded": [
+        "Recovery objectives approved per service, recent measured lag and restoration tests, and a versioned policy for switching writes.",
+        "Replay regional loss and delayed replication; report both time-to-restore and measurable recovery point."
+      ],
+      "sources": [
+        {
+          "label": "AWS Prescriptive Guidance: Define a disaster recovery strategy",
+          "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-database-disaster-recovery/defining.html"
+        },
+        {
+          "label": "AWS Well-Architected: Disaster recovery testing",
+          "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/rel_planning_for_recovery_test_dr.html"
+        }
+      ]
+    },
+    {
+      "id": "storage-and-network",
+      "title": "Storage and network headroom",
+      "decisions": [
+        "Choose where volumes can be placed alongside workloads.",
+        "Schedule data copies and backups without crowding out customer traffic."
+      ],
+      "capacity": [
+        "Free capacity by storage class and zone, write throughput, input/output operations per second, and cross-zone link bandwidth.",
+        "Reserved bandwidth and time for periodic backups or replication."
+      ],
+      "constraints": [
+        "Access mode, volume topology, data locality, per-link capacity, and approved backup windows.",
+        "Two paths are not independently resilient unless their shared infrastructure is understood."
+      ],
+      "failureModes": [
+        "Free storage exists only in the wrong zone; a failed link overloads the remaining path; backup I/O displaces application writes."
+      ],
+      "proofNeeded": [
+        "Topology-aware storage inventory, measured storage and link headroom, approved movement windows and a path dependency map.",
+        "Replay one unavailable zone and one degraded link without treating aggregate totals as usable capacity."
+      ],
+      "sources": [
+        {
+          "label": "Kubernetes storage capacity and topology",
+          "url": "https://kubernetes.io/docs/concepts/storage/storage-capacity/"
+        },
+        {
+          "label": "AWS Well-Architected: Dedicated connectivity considerations",
+          "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/perf_networking_choose_appropriate_dedicated_connectivity_or_vpn.html"
+        }
+      ]
+    },
+    {
+      "id": "data-center-energy",
+      "title": "Data-center power and cooling",
+      "decisions": [
+        "Choose when and where to run power-intensive work.",
+        "Reserve capacity for mandatory load while deferring work that can wait."
+      ],
+      "capacity": [
+        "Rack and circuit power in kilowatts, UPS and cooling reserve, and measured facility demand.",
+        "Available cooling and power after scheduled maintenance or equipment loss."
+      ],
+      "constraints": [
+        "Engineer-approved electrical and cooling limits, vendor equipment limits, safe placement, and maintenance windows.",
+        "Keep carbon, cost, and energy goals separate from hard operating limits."
+      ],
+      "failureModes": [
+        "One rack overheats while site-wide averages look safe; maintenance removes the redundancy counted in the plan; missing telemetry is mistaken for spare capacity."
+      ],
+      "proofNeeded": [
+        "Meter-level readings, rack and circuit mapping, equipment ratings, and approved loss-of-equipment scenarios.",
+        "Test local constraints during equipment loss and report unmet load; no electrical safety approval from a worked case."
+      ],
+      "sources": [
+        {
+          "label": "U.S. Department of Energy: Best Practices Guide for Energy-Efficient Data Center Design",
+          "url": "https://www.energy.gov/cmei/femp/articles/best-practices-guide-energy-efficient-data-center-design"
+        },
+        {
+          "label": "U.S. Department of Energy: Energy Efficiency in Data Centers",
+          "url": "https://www.energy.gov/cmei/femp/energy-efficiency-data-centers"
+        }
+      ]
+    },
+    {
+      "id": "water-service-restoration",
+      "title": "Water utility service restoration",
+      "decisions": [
+        "Schedule restoration crews, temporary power and inspection windows after an incident.",
+        "Prioritize recovery against an approved utility response plan; do not operate controls."
+      ],
+      "capacity": [
+        "Crew-hours by authorization, backup power kW, fuel runtime hours, inspection and sampling windows."
+      ],
+      "constraints": [
+        "Use approved utility procedures and equipment ratings. Restoration and public notices stay with the responsible operator.",
+        "A standby generator rating is not a continuous duty rating."
+      ],
+      "failureModes": [
+        "A repair is complete but inspection is not approved.",
+        "Extended outage exceeds standby generator or fuel assumptions.",
+        "Two work orders compete for the same temporary power unit."
+      ],
+      "proofNeeded": [
+        "Approved service priorities, time-stamped crew/resource state, verified equipment ratings and a signed operator handoff.",
+        "Rehearse concurrent outages without publishing real facility topology."
+      ],
+      "sources": [
+        {
+          "label": "EPA emergency response planning",
+          "url": "https://www.epa.gov/waterutilityresponse/develop-or-update-emergency-response-plan"
+        },
+        {
+          "label": "EPA power resilience guide",
+          "url": "https://www.epa.gov/waterresilience/power-resilience-guide-water-and-wastewater-utilities"
+        }
+      ]
+    },
+    {
+      "id": "construction-equipment-planning",
+      "title": "Construction equipment and lift-window planning",
+      "decisions": [
+        "Reserve crews and equipment around permit, delivery and weather windows.",
+        "Hold a proposed window when the required qualified review is missing."
+      ],
+      "capacity": [
+        "Equipment hours, setup areas, spotters and supervisors, verified equipment-specific ratings."
+      ],
+      "constraints": [
+        "Do not infer safe rated capacity from a nominal crane tonnage. A competent person addresses effects of wind, ice or snow under applicable OSHA rules.",
+        "Where OSHA's multiple-crane rule applies, use the approved plan and authorized lift director; scheduling software is not lift approval."
+      ],
+      "failureModes": [
+        "Configuration changed after a plan was reviewed.",
+        "A delivery overruns and the site access window closes.",
+        "Two reservations need the same qualified director."
+      ],
+      "proofNeeded": [
+        "Reviewed equipment configuration, current authorizations, reliable weather policy, permit windows, and explicit manual release."
+      ],
+      "sources": [
+        {
+          "label": "OSHA crane operation rule",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.1417"
+        },
+        {
+          "label": "OSHA multiple-crane lift rule",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.1432"
+        }
+      ]
+    },
+    {
+      "id": "cold-chain-transport",
+      "title": "Cold-chain loading and receiving",
+      "decisions": [
+        "Assign orders to compatible compartment windows, decide what to stage, and hold shipments lacking receiving or temperature evidence."
+      ],
+      "capacity": [
+        "Compartment weight and volume, staged pallet spaces, dock door minutes, receiver capacity."
+      ],
+      "constraints": [
+        "Use shipment-specific shipper conditions and pre-cooling evidence where required; no universal temperature threshold.",
+        "Distinguish shipper, loader, carrier and receiver responsibilities, including role agreements, exemptions and waivers where applicable."
+      ],
+      "failureModes": [
+        "A sensor reading is stale or unavailable.",
+        "A booked receiver window closes while staging is still full.",
+        "A compartment fails and the remaining compartments cannot satisfy both weight and volume."
+      ],
+      "proofNeeded": [
+        "Shipment and compartment evidence snapshots, documented responsibility, role-specific time boundaries, and a reviewer for excursions or missing evidence."
+      ],
+      "sources": [
+        {
+          "label": "FDA sanitary transportation final rule",
+          "url": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-sanitary-transportation-human-and-animal-food"
+        },
+        {
+          "label": "FDA small entity guidance",
+          "url": "https://www.fda.gov/media/108944/download"
+        }
+      ]
+    }
+  ]
+}

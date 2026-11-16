@@ -1,0 +1,5967 @@
+{
+  "caseId": "ny-retail-holiday-staffing",
+  "scope": {
+    "countryCode": "US",
+    "stateCode": "NY",
+    "county": "Albany",
+    "businessType": "private non-factory retail",
+    "corporateHeadcountAssumed": 128,
+    "workersCoveredAssumed": true,
+    "coveredByFLSAAssumed": true,
+    "operatesSundayAssumed": true,
+    "unionRulesIncluded": false,
+    "approvedVarianceIncluded": false,
+    "realEmployeeRecords": false,
+    "timeUnits": "integer minutes; intervals half-open; date inputs carry UTC offset"
+  },
+  "calendar": {
+    "weeklySiteHours": [
+      {
+        "siteId": "SITE-A",
+        "hours": [
+          {
+            "serviceDate": "2026-11-22",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-22T08:00:00-05:00",
+                "endLocal": "2026-11-22T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-23",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-23T08:00:00-05:00",
+                "endLocal": "2026-11-23T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-24",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-24T08:00:00-05:00",
+                "endLocal": "2026-11-24T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-25",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-25T08:00:00-05:00",
+                "endLocal": "2026-11-25T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-26",
+            "calendarTag": "thanksgiving",
+            "openWindows": []
+          },
+          {
+            "serviceDate": "2026-11-27",
+            "calendarTag": "promotion",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-27T08:00:00-05:00",
+                "endLocal": "2026-11-27T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-28",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-28T08:00:00-05:00",
+                "endLocal": "2026-11-28T22:00:00-05:00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "siteId": "SITE-B",
+        "hours": [
+          {
+            "serviceDate": "2026-11-22",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-22T08:00:00-05:00",
+                "endLocal": "2026-11-22T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-23",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-23T08:00:00-05:00",
+                "endLocal": "2026-11-23T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-24",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-24T08:00:00-05:00",
+                "endLocal": "2026-11-24T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-25",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-25T08:00:00-05:00",
+                "endLocal": "2026-11-25T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-26",
+            "calendarTag": "thanksgiving",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-26T09:00:00-05:00",
+                "endLocal": "2026-11-26T17:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-27",
+            "calendarTag": "promotion",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-27T08:00:00-05:00",
+                "endLocal": "2026-11-27T22:00:00-05:00"
+              }
+            ]
+          },
+          {
+            "serviceDate": "2026-11-28",
+            "calendarTag": "regular",
+            "openWindows": [
+              {
+                "startLocal": "2026-11-28T08:00:00-05:00",
+                "endLocal": "2026-11-28T22:00:00-05:00"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "holiday": {
+      "name": "Thanksgiving Day",
+      "date": "2026-11-26",
+      "calendarRule": "US-NY-HOLIDAY",
+      "operatingRule": "CO-HOLIDAY-HOURS",
+      "stateCalendarSource": "https://www.nysenate.gov/legislation/laws/GCN/24",
+      "premiumPayModeled": false
+    }
+  },
+  "dateScope": {
+    "fromLocal": "2026-11-22T00:00:00-05:00",
+    "untilLocal": "2026-11-29T00:00:00-05:00",
+    "planningAsOfLocal": "2026-11-22T07:00:00-05:00",
+    "zone": "America/New_York"
+  },
+  "ruleRegister": [
+    {
+      "ruleId": "US-FLSA-40",
+      "category": "federal",
+      "description": "Overtime for covered, nonexempt staff starts after 40 worked hours in the employer's fixed workweek.",
+      "applicability": "Fixture assumes FLSA coverage and nonexempt status for everyone.",
+      "limits": "This calculates overtime minutes, not wages. Overtime is not a legal maximum on hours.",
+      "source": "https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "US-HOURS-WORKED",
+      "category": "federal",
+      "description": "Time not worked on paid leave does not increase hours worked for federal overtime. Only duty-free bona fide meals are subtracted.",
+      "applicability": "Paid absence and fully relieved meal intervals in this fixture.",
+      "limits": "A missed meal or work during a break changes actual payable hours and requires payroll review.",
+      "source": "https://www.dol.gov/agencies/whd/fact-sheets/22-flsa-hours-worked",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "US-PAID-ABSENCE",
+      "category": "federal",
+      "description": "Paid holidays, sick leave and vacation do not count as hours worked for federal overtime.",
+      "applicability": "Preapproved paid absence recorded separately from worked time.",
+      "limits": "Other applicable benefit obligations not inferred from general federal guidance.",
+      "source": "https://webapps.dol.gov/elaws/whd/flsa/hoursworked/screenEr14.asp",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-161-REST",
+      "category": "state",
+      "description": "Preserve the designated 24-hour rest window for each scheduled mercantile worker.",
+      "applicability": "Assumed covered staff where establishment operates Sunday; designated windows already recorded.",
+      "limits": "No exception, variance or new worker notice modeled. Do not treat this as weekly legal certification.",
+      "source": "https://www.nysenate.gov/legislation/laws/LAB/161",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-162-NOON",
+      "category": "state",
+      "description": "For ordinary nonfactory shifts longer than six hours covering the noon window, require 30 uninterrupted minutes during 11:00–14:00.",
+      "applicability": "Only clearly covered daytime shifts in the modeled work patterns.",
+      "limits": "No short-meal permit, waiver, or borderline shift interpretation.",
+      "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-162-EVENING",
+      "category": "state",
+      "description": "For shifts starting before 11:00 and ending after 19:00, require an additional 20 minutes during 17:00–19:00.",
+      "applicability": "Ordinary mercantile shifts spanning both periods; fixture treats the dinner relief as paid.",
+      "limits": "No short-meal permit or waiver. Paid treatment in this case is explicit company accounting policy.",
+      "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-162-LATE",
+      "category": "state",
+      "description": "Require 45 uninterrupted minutes around the midpoint for modeled nonfactory shifts longer than six hours starting after 13:00.",
+      "applicability": "Sample late shifts start at 14:00 and end the same day.",
+      "limits": "The statute also addresses qualifying shifts starting through 06:00. No overnight or night-shift cases are modeled.",
+      "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-196B-APPROVED",
+      "category": "state",
+      "description": "Honor the already-approved protected paid leave block.",
+      "applicability": "Model assumes fictional private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
+      "limits": "May not establish entitlement, require diagnosis, compute balance, or decide leave eligibility; those decisions stay outside the plan.",
+      "source": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "NY-142-SCOPE",
+      "category": "state-reference",
+      "description": "Miscellaneous Industries Wage Order is a payroll implementation reference.",
+      "applicability": "Input scope assumes applicable Albany-area retail work under the miscellaneous order.",
+      "limits": "The solver does not calculate wage rates, premium interactions, spread-of-hours, call-in pay or payroll. Company fixture allows one shift/day and no schedule over 10 hours/day.",
+      "source": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "US-NY-HOLIDAY",
+      "category": "calendar-reference",
+      "description": "Thanksgiving Day is November 26 in 2026.",
+      "applicability": "U.S. federal public holiday calendar and separate NY public holiday statute.",
+      "limits": "The calendar does not establish private closure or holiday premiums. SITE-A closure and SITE-B limited hours are company inputs.",
+      "source": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/",
+      "accessedOn": "2026-11-16"
+    },
+    {
+      "ruleId": "CO-HOLIDAY-HOURS",
+      "category": "company",
+      "description": "SITE-A closes on Thanksgiving. SITE-B opens 09:00–17:00 for selected short inventory and pickup operations.",
+      "applicability": "Fixture company retail operating-hours policy only.",
+      "limits": "This is not a government closure or holiday-pay mandate.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-APPROVED-PTO",
+      "category": "company",
+      "description": "Accepted vacation blocks are unavailable for scheduling.",
+      "applicability": "Approved company PTO windows; limited data disclosed.",
+      "limits": "No statutory vacation accrual or carryover rules modeled.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-QUALIFICATION",
+      "category": "company",
+      "description": "Only staff with the requested training code hold that role.",
+      "applicability": "Keyholders, checkout, pickup, floor, and stock training tags.",
+      "limits": "Training is a known roster fact, not a worker assessment.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-SITE",
+      "category": "company",
+      "description": "Staff must be on the pre-cleared site roster.",
+      "applicability": "Cross-store workers have an explicitly allowed site; otherwise flagged.",
+      "limits": "Does not assess legal work authorization or eligibility.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-AVAILABILITY",
+      "category": "company",
+      "description": "Work must fit reported time availability. Operational unavailability is a hard block.",
+      "applicability": "Horizon and disruption input only; no leave reason is inferred.",
+      "limits": "No prediction of future availability; no schedule writes.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-ONE-SHIFT",
+      "category": "company",
+      "description": "Only one shift per day per worker in this case.",
+      "applicability": "Avoids split shifts in the bounded fixture.",
+      "limits": "Not asserted as state or federal law.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-MEAL-RELIEF",
+      "category": "company",
+      "description": "A planned break needs a pre-cleared relief resource reference so it can be duty-free.",
+      "applicability": "Relief references represent operations-confirmed spare capacity, outside this scheduler's resource pool.",
+      "limits": "Does not optimize or validate the relief resource roster; supervisors confirm actual release.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-LOCKED",
+      "category": "company",
+      "description": "Keep confirmed appointments and flag any newly invalid locked input for a supervisor.",
+      "applicability": "Imported immutable staffing commitments.",
+      "limits": "A closure or unavailability can require a refreshed roster; do not silently change the lock.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-BASELINE-FIRST-FIT",
+      "category": "company",
+      "description": "Baseline selects the first permitted named worker without comparing overtime.",
+      "applicability": "Comparison baseline only.",
+      "limits": "This policy does not describe a real employer or claim a measured improvement.",
+      "policyVersion": "ALB-RET-3"
+    },
+    {
+      "ruleId": "CO-PLAN-OBJECTIVE",
+      "category": "company",
+      "description": "Cover as many shifts as possible, then minimize new overtime, then keep prior assignments where possible.",
+      "applicability": "Includes contracted objectives for the fictional operation.",
+      "limits": "Overtime remains permissible and counted; no salary, cost, candidate quality, or hiring decisions.",
+      "policyVersion": "ALB-RET-3"
+    }
+  ],
+  "rawTables": {
+    "asOfLocal": "2026-11-22T07:00:00-05:00",
+    "analysisDate": "2026-11-16",
+    "timeZone": "America/New_York",
+    "calendarWeekStartLocal": "2026-11-22T00:00:00-05:00",
+    "calendarWeekEndLocal": "2026-11-29T00:00:00-05:00",
+    "fixedEmployerWorkweekStartLocal": "2026-11-22T00:00:00-05:00",
+    "fixedEmployerWorkweekEndLocal": "2026-11-29T00:00:00-05:00",
+    "scope": {
+      "countryCode": "US",
+      "stateCode": "NY",
+      "county": "Albany",
+      "businessType": "private non-factory retail",
+      "corporateHeadcountAssumed": 128,
+      "workersCoveredAssumed": true,
+      "coveredByFLSAAssumed": true,
+      "operatesSundayAssumed": true,
+      "unionRulesIncluded": false,
+      "approvedVarianceIncluded": false,
+      "realEmployeeRecords": false,
+      "timeUnits": "integer minutes; intervals half-open; date inputs carry UTC offset"
+    },
+    "companyCalendar": {
+      "weeklySiteHours": [
+        {
+          "siteId": "SITE-A",
+          "hours": [
+            {
+              "serviceDate": "2026-11-22",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-22T08:00:00-05:00",
+                  "endLocal": "2026-11-22T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-23",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-23T08:00:00-05:00",
+                  "endLocal": "2026-11-23T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-24",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-24T08:00:00-05:00",
+                  "endLocal": "2026-11-24T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-25",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-25T08:00:00-05:00",
+                  "endLocal": "2026-11-25T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-26",
+              "calendarTag": "thanksgiving",
+              "openWindows": []
+            },
+            {
+              "serviceDate": "2026-11-27",
+              "calendarTag": "promotion",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-27T08:00:00-05:00",
+                  "endLocal": "2026-11-27T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-28",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-28T08:00:00-05:00",
+                  "endLocal": "2026-11-28T22:00:00-05:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "siteId": "SITE-B",
+          "hours": [
+            {
+              "serviceDate": "2026-11-22",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-22T08:00:00-05:00",
+                  "endLocal": "2026-11-22T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-23",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-23T08:00:00-05:00",
+                  "endLocal": "2026-11-23T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-24",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-24T08:00:00-05:00",
+                  "endLocal": "2026-11-24T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-25",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-25T08:00:00-05:00",
+                  "endLocal": "2026-11-25T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-26",
+              "calendarTag": "thanksgiving",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-26T09:00:00-05:00",
+                  "endLocal": "2026-11-26T17:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-27",
+              "calendarTag": "promotion",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-27T08:00:00-05:00",
+                  "endLocal": "2026-11-27T22:00:00-05:00"
+                }
+              ]
+            },
+            {
+              "serviceDate": "2026-11-28",
+              "calendarTag": "regular",
+              "openWindows": [
+                {
+                  "startLocal": "2026-11-28T08:00:00-05:00",
+                  "endLocal": "2026-11-28T22:00:00-05:00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "holiday": {
+        "name": "Thanksgiving Day",
+        "date": "2026-11-26",
+        "calendarRule": "US-NY-HOLIDAY",
+        "operatingRule": "CO-HOLIDAY-HOURS",
+        "stateCalendarSource": "https://www.nysenate.gov/legislation/laws/GCN/24",
+        "premiumPayModeled": false
+      }
+    },
+    "ruleRegister": [
+      {
+        "ruleId": "US-FLSA-40",
+        "category": "federal",
+        "description": "Overtime for covered, nonexempt staff starts after 40 worked hours in the employer's fixed workweek.",
+        "applicability": "Fixture assumes FLSA coverage and nonexempt status for everyone.",
+        "limits": "This calculates overtime minutes, not wages. Overtime is not a legal maximum on hours.",
+        "source": "https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "US-HOURS-WORKED",
+        "category": "federal",
+        "description": "Time not worked on paid leave does not increase hours worked for federal overtime. Only duty-free bona fide meals are subtracted.",
+        "applicability": "Paid absence and fully relieved meal intervals in this fixture.",
+        "limits": "A missed meal or work during a break changes actual payable hours and requires payroll review.",
+        "source": "https://www.dol.gov/agencies/whd/fact-sheets/22-flsa-hours-worked",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "US-PAID-ABSENCE",
+        "category": "federal",
+        "description": "Paid holidays, sick leave and vacation do not count as hours worked for federal overtime.",
+        "applicability": "Preapproved paid absence recorded separately from worked time.",
+        "limits": "Other applicable benefit obligations not inferred from general federal guidance.",
+        "source": "https://webapps.dol.gov/elaws/whd/flsa/hoursworked/screenEr14.asp",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-161-REST",
+        "category": "state",
+        "description": "Preserve the designated 24-hour rest window for each scheduled mercantile worker.",
+        "applicability": "Assumed covered staff where establishment operates Sunday; designated windows already recorded.",
+        "limits": "No exception, variance or new worker notice modeled. Do not treat this as weekly legal certification.",
+        "source": "https://www.nysenate.gov/legislation/laws/LAB/161",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-162-NOON",
+        "category": "state",
+        "description": "For ordinary nonfactory shifts longer than six hours covering the noon window, require 30 uninterrupted minutes during 11:00–14:00.",
+        "applicability": "Only clearly covered daytime shifts in the modeled work patterns.",
+        "limits": "No short-meal permit, waiver, or borderline shift interpretation.",
+        "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-162-EVENING",
+        "category": "state",
+        "description": "For shifts starting before 11:00 and ending after 19:00, require an additional 20 minutes during 17:00–19:00.",
+        "applicability": "Ordinary mercantile shifts spanning both periods; fixture treats the dinner relief as paid.",
+        "limits": "No short-meal permit or waiver. Paid treatment in this case is explicit company accounting policy.",
+        "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-162-LATE",
+        "category": "state",
+        "description": "Require 45 uninterrupted minutes around the midpoint for modeled nonfactory shifts longer than six hours starting after 13:00.",
+        "applicability": "Sample late shifts start at 14:00 and end the same day.",
+        "limits": "The statute also addresses qualifying shifts starting through 06:00. No overnight or night-shift cases are modeled.",
+        "source": "https://www.nysenate.gov/legislation/laws/LAB/162",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-196B-APPROVED",
+        "category": "state",
+        "description": "Honor the already-approved protected paid leave block.",
+        "applicability": "Model assumes fictional private employer with 128 employees and uses approved blocks only; state rules for employers with 100 or more include up to 56 paid hours per calendar year.",
+        "limits": "May not establish entitlement, require diagnosis, compute balance, or decide leave eligibility; those decisions stay outside the plan.",
+        "source": "https://www.nysenate.gov/legislation/laws/LAB/196-B",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "NY-142-SCOPE",
+        "category": "state-reference",
+        "description": "Miscellaneous Industries Wage Order is a payroll implementation reference.",
+        "applicability": "Input scope assumes applicable Albany-area retail work under the miscellaneous order.",
+        "limits": "The solver does not calculate wage rates, premium interactions, spread-of-hours, call-in pay or payroll. Company fixture allows one shift/day and no schedule over 10 hours/day.",
+        "source": "https://dol.ny.gov/minimum-wage-order-miscellaneous-industries-and-occupations-cr142",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "US-NY-HOLIDAY",
+        "category": "calendar-reference",
+        "description": "Thanksgiving Day is November 26 in 2026.",
+        "applicability": "U.S. federal public holiday calendar and separate NY public holiday statute.",
+        "limits": "The calendar does not establish private closure or holiday premiums. SITE-A closure and SITE-B limited hours are company inputs.",
+        "source": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/",
+        "accessedOn": "2026-11-16"
+      },
+      {
+        "ruleId": "CO-HOLIDAY-HOURS",
+        "category": "company",
+        "description": "SITE-A closes on Thanksgiving. SITE-B opens 09:00–17:00 for selected short inventory and pickup operations.",
+        "applicability": "Fixture company retail operating-hours policy only.",
+        "limits": "This is not a government closure or holiday-pay mandate.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-APPROVED-PTO",
+        "category": "company",
+        "description": "Accepted vacation blocks are unavailable for scheduling.",
+        "applicability": "Approved company PTO windows; limited data disclosed.",
+        "limits": "No statutory vacation accrual or carryover rules modeled.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-QUALIFICATION",
+        "category": "company",
+        "description": "Only staff with the requested training code hold that role.",
+        "applicability": "Keyholders, checkout, pickup, floor, and stock training tags.",
+        "limits": "Training is a known roster fact, not a worker assessment.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-SITE",
+        "category": "company",
+        "description": "Staff must be on the pre-cleared site roster.",
+        "applicability": "Cross-store workers have an explicitly allowed site; otherwise flagged.",
+        "limits": "Does not assess legal work authorization or eligibility.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-AVAILABILITY",
+        "category": "company",
+        "description": "Work must fit reported time availability. Operational unavailability is a hard block.",
+        "applicability": "Horizon and disruption input only; no leave reason is inferred.",
+        "limits": "No prediction of future availability; no schedule writes.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-ONE-SHIFT",
+        "category": "company",
+        "description": "Only one shift per day per worker in this case.",
+        "applicability": "Avoids split shifts in the bounded fixture.",
+        "limits": "Not asserted as state or federal law.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-MEAL-RELIEF",
+        "category": "company",
+        "description": "A planned break needs a pre-cleared relief resource reference so it can be duty-free.",
+        "applicability": "Relief references represent operations-confirmed spare capacity, outside this scheduler's resource pool.",
+        "limits": "Does not optimize or validate the relief resource roster; supervisors confirm actual release.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-LOCKED",
+        "category": "company",
+        "description": "Keep confirmed appointments and flag any newly invalid locked input for a supervisor.",
+        "applicability": "Imported immutable staffing commitments.",
+        "limits": "A closure or unavailability can require a refreshed roster; do not silently change the lock.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-BASELINE-FIRST-FIT",
+        "category": "company",
+        "description": "Baseline selects the first permitted named worker without comparing overtime.",
+        "applicability": "Comparison baseline only.",
+        "limits": "This policy does not describe a real employer or claim a measured improvement.",
+        "policyVersion": "ALB-RET-3"
+      },
+      {
+        "ruleId": "CO-PLAN-OBJECTIVE",
+        "category": "company",
+        "description": "Cover as many shifts as possible, then minimize new overtime, then keep prior assignments where possible.",
+        "applicability": "Includes contracted objectives for the fictional operation.",
+        "limits": "Overtime remains permissible and counted; no salary, cost, candidate quality, or hiring decisions.",
+        "policyVersion": "ALB-RET-3"
+      }
+    ],
+    "workerRoster": [
+      {
+        "workerId": "W01",
+        "roleCodes": [
+          "stock",
+          "keyholder"
+        ],
+        "approvedSiteIds": [
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-28T00:00:00-05:00",
+            "endLocal": "2026-11-29T00:00:00-05:00"
+          },
+          "recordRef": "REST-W01",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W02",
+        "roleCodes": [
+          "checkout"
+        ],
+        "approvedSiteIds": [
+          "SITE-A"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "recordRef": "REST-W02",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W03",
+        "roleCodes": [
+          "checkout",
+          "pickup"
+        ],
+        "approvedSiteIds": [
+          "SITE-A",
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "recordRef": "REST-W03",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [
+          {
+            "blockId": "LEV-03-TH",
+            "startLocal": "2026-11-26T11:00:00-05:00",
+            "endLocal": "2026-11-26T16:00:00-05:00",
+            "category": "company-vacation",
+            "paidMinutes": 300,
+            "approvalRecorded": true
+          },
+          {
+            "blockId": "LEV-03-FR",
+            "startLocal": "2026-11-27T08:00:00-05:00",
+            "endLocal": "2026-11-27T16:00:00-05:00",
+            "category": "protected-paid",
+            "paidMinutes": 480,
+            "approvalRecorded": true
+          }
+        ],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W04",
+        "roleCodes": [
+          "stock",
+          "keyholder"
+        ],
+        "approvedSiteIds": [
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-24T00:00:00-05:00",
+            "endLocal": "2026-11-25T00:00:00-05:00"
+          },
+          "recordRef": "REST-W04",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [
+          {
+            "blockId": "LEV-04-SA",
+            "startLocal": "2026-11-28T09:00:00-05:00",
+            "endLocal": "2026-11-28T17:00:00-05:00",
+            "category": "company-vacation",
+            "paidMinutes": 480,
+            "approvalRecorded": true
+          }
+        ],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W05",
+        "roleCodes": [
+          "keyholder",
+          "checkout"
+        ],
+        "approvedSiteIds": [
+          "SITE-A",
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "recordRef": "REST-W05",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W06",
+        "roleCodes": [
+          "checkout",
+          "floor"
+        ],
+        "approvedSiteIds": [
+          "SITE-A",
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "recordRef": "REST-W06",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [
+          {
+            "blockId": "LEV-06-SA",
+            "startLocal": "2026-11-28T08:00:00-05:00",
+            "endLocal": "2026-11-28T16:00:00-05:00",
+            "category": "company-vacation",
+            "paidMinutes": 480,
+            "approvalRecorded": true
+          }
+        ],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W07",
+        "roleCodes": [
+          "stock"
+        ],
+        "approvedSiteIds": [
+          "SITE-A",
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "recordRef": "REST-W07",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W08",
+        "roleCodes": [
+          "floor",
+          "pickup"
+        ],
+        "approvedSiteIds": [
+          "SITE-A",
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-23T00:00:00-05:00",
+            "endLocal": "2026-11-24T00:00:00-05:00"
+          },
+          "recordRef": "REST-W08",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W09",
+        "roleCodes": [
+          "pickup"
+        ],
+        "approvedSiteIds": [
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "recordRef": "REST-W09",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      },
+      {
+        "workerId": "W10",
+        "roleCodes": [
+          "keyholder"
+        ],
+        "approvedSiteIds": [
+          "SITE-B"
+        ],
+        "availabilityByDate": [
+          {
+            "startLocal": "2026-11-22T07:00:00-05:00",
+            "endLocal": "2026-11-22T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-23T07:00:00-05:00",
+            "endLocal": "2026-11-23T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-24T07:00:00-05:00",
+            "endLocal": "2026-11-24T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-25T07:00:00-05:00",
+            "endLocal": "2026-11-25T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-26T07:00:00-05:00",
+            "endLocal": "2026-11-26T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-27T07:00:00-05:00",
+            "endLocal": "2026-11-27T22:00:00-05:00"
+          },
+          {
+            "startLocal": "2026-11-28T07:00:00-05:00",
+            "endLocal": "2026-11-28T22:00:00-05:00"
+          }
+        ],
+        "protectedRest": {
+          "window": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "recordRef": "REST-W10",
+          "designationRecorded": true
+        },
+        "approvedBlocks": [],
+        "otherUnavailability": [],
+        "classification": "synthetic-covered-nonexempt-adult",
+        "assumedHoursOutsideFixture": 0
+      }
+    ],
+    "fixedShiftDemand": [
+      {
+        "shiftId": "F-B-STOCK-01",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-22",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-22T09:00:00-05:00",
+        "endLocal": "2026-11-22T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-B-STOCK-02",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-23",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-23T09:00:00-05:00",
+        "endLocal": "2026-11-23T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-B-STOCK-03",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-24",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-24T09:00:00-05:00",
+        "endLocal": "2026-11-24T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-B-STOCK-04",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-25",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-25T09:00:00-05:00",
+        "endLocal": "2026-11-25T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-B-STOCK-05",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-26",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-26T09:00:00-05:00",
+        "endLocal": "2026-11-26T14:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-B-STOCK-06",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-27T09:00:00-05:00",
+        "endLocal": "2026-11-27T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W01",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-A-CHECK-01",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-22",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-22T08:00:00-05:00",
+        "endLocal": "2026-11-22T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W02",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-CHECK-02",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-23",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-23T08:00:00-05:00",
+        "endLocal": "2026-11-23T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W02",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-CHECK-03",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-24",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-24T08:00:00-05:00",
+        "endLocal": "2026-11-24T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W02",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-CHECK-04",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-25",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-25T08:00:00-05:00",
+        "endLocal": "2026-11-25T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W02",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-CHECK-06",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-27T08:00:00-05:00",
+        "endLocal": "2026-11-27T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W02",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-KEY-01",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-22",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-22T09:00:00-05:00",
+        "endLocal": "2026-11-22T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W05",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-A-FLOOR-01",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-22",
+        "requestedRole": "floor",
+        "startLocal": "2026-11-22T10:00:00-05:00",
+        "endLocal": "2026-11-22T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W08",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "floor-duty"
+      },
+      {
+        "shiftId": "F-B-KEY-02",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-23",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-23T09:00:00-05:00",
+        "endLocal": "2026-11-23T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W04",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-B-CHECK-02",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-23",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-23T08:00:00-05:00",
+        "endLocal": "2026-11-23T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W06",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "F-A-KEY-03",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-24",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-24T14:00:00-05:00",
+        "endLocal": "2026-11-24T21:45:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 1050,
+            "endMinuteLocal": 1095,
+            "mealCode": "midpoint",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W05",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-A-STOCK-03",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-24",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-24T10:00:00-05:00",
+        "endLocal": "2026-11-24T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W07",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "F-A-PICK-03",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-24",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-24T10:00:00-05:00",
+        "endLocal": "2026-11-24T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W08",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "F-A-KEY-04",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-25",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-25T09:00:00-05:00",
+        "endLocal": "2026-11-25T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W05",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-A-FLOOR-04",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-25",
+        "requestedRole": "floor",
+        "startLocal": "2026-11-25T09:00:00-05:00",
+        "endLocal": "2026-11-25T15:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W06",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "floor-duty"
+      },
+      {
+        "shiftId": "F-B-PICK-04",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-25",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-25T10:00:00-05:00",
+        "endLocal": "2026-11-25T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W09",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "F-A-FLOOR-06",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "floor",
+        "startLocal": "2026-11-27T15:00:00-05:00",
+        "endLocal": "2026-11-27T20:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W08",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "floor-duty"
+      },
+      {
+        "shiftId": "F-A-KEY-07",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-28T09:00:00-05:00",
+        "endLocal": "2026-11-28T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W05",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-B-PICK-07",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-28T15:00:00-05:00",
+        "endLocal": "2026-11-28T20:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W08",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "F-B-KEY-01",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-22",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-22T09:00:00-05:00",
+        "endLocal": "2026-11-22T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": "W04",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "F-B-PICK-02",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-23",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-23T11:00:00-05:00",
+        "endLocal": "2026-11-23T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W09",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "F-A-STOCK-07",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-28T10:00:00-05:00",
+        "endLocal": "2026-11-28T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": "W07",
+        "namedWorkerPool": [],
+        "demandQueue": "store-coverage",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      }
+    ],
+    "unresolvedShiftDemand": [
+      {
+        "shiftId": "O-01",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-26",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-26T11:00:00-05:00",
+        "endLocal": "2026-11-26T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W03",
+          "W09"
+        ],
+        "demandQueue": "holiday-pickup",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "O-02",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-26",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-26T12:00:00-05:00",
+        "endLocal": "2026-11-26T16:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W02",
+          "W03"
+        ],
+        "demandQueue": "unreconciled-holiday-request",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "O-03",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-27T10:30:00-05:00",
+        "endLocal": "2026-11-27T19:30:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          },
+          {
+            "startMinuteLocal": 1050,
+            "endMinuteLocal": 1070,
+            "mealCode": "additional-evening",
+            "paid": true,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W05",
+          "W10"
+        ],
+        "demandQueue": "promotion-keys",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "O-04",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-27T08:00:00-05:00",
+        "endLocal": "2026-11-27T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W02",
+          "W03",
+          "W06"
+        ],
+        "demandQueue": "promotion-checkout",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "O-05",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "stock",
+        "startLocal": "2026-11-27T14:00:00-05:00",
+        "endLocal": "2026-11-27T21:45:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 1050,
+            "endMinuteLocal": 1095,
+            "mealCode": "midpoint",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W01",
+          "W04",
+          "W07"
+        ],
+        "demandQueue": "promotion-restock",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "stock-duty"
+      },
+      {
+        "shiftId": "O-06",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-27",
+        "requestedRole": "pickup",
+        "startLocal": "2026-11-27T15:00:00-05:00",
+        "endLocal": "2026-11-27T20:00:00-05:00",
+        "meals": [],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W08",
+          "W09"
+        ],
+        "demandQueue": "online-pickup",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "pickup-duty"
+      },
+      {
+        "shiftId": "O-07",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-28T08:00:00-05:00",
+        "endLocal": "2026-11-28T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W02",
+          "W03",
+          "W06"
+        ],
+        "demandQueue": "weekend-checkout",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      },
+      {
+        "shiftId": "O-08",
+        "siteId": "SITE-B",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "keyholder",
+        "startLocal": "2026-11-28T09:00:00-05:00",
+        "endLocal": "2026-11-28T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W01",
+          "W04",
+          "W05",
+          "W10"
+        ],
+        "demandQueue": "weekend-keys",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "keyholder-duty"
+      },
+      {
+        "shiftId": "O-09",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "floor",
+        "startLocal": "2026-11-28T09:00:00-05:00",
+        "endLocal": "2026-11-28T17:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 720,
+            "endMinuteLocal": 750,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W06",
+          "W07",
+          "W08"
+        ],
+        "demandQueue": "weekend-floor",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "floor-duty"
+      },
+      {
+        "shiftId": "O-10",
+        "siteId": "SITE-A",
+        "serviceDate": "2026-11-28",
+        "requestedRole": "checkout",
+        "startLocal": "2026-11-28T09:00:00-05:00",
+        "endLocal": "2026-11-28T16:00:00-05:00",
+        "meals": [
+          {
+            "startMinuteLocal": 900,
+            "endMinuteLocal": 930,
+            "mealCode": "noon",
+            "paid": false,
+            "reliefRef": "REL-STAFF-DUTY-FREE"
+          }
+        ],
+        "fixedWorkerId": null,
+        "namedWorkerPool": [
+          "W02",
+          "W03"
+        ],
+        "demandQueue": "unreconciled-break-request",
+        "countUnit": "one_staff_slot",
+        "expectedTaskBatch": "checkout-duty"
+      }
+    ],
+    "disruptionSnapshot": [
+      {
+        "workerId": "W06",
+        "startLocal": "2026-11-27T07:00:00-05:00",
+        "endLocal": "2026-11-27T22:00:00-05:00",
+        "signalId": "UNAV-FRI-01"
+      },
+      {
+        "workerId": "W10",
+        "startLocal": "2026-11-28T07:00:00-05:00",
+        "endLocal": "2026-11-28T22:00:00-05:00",
+        "signalId": "UNAV-SAT-01"
+      }
+    ]
+  },
+  "scenarioResults": [
+    {
+      "id": "baseline",
+      "metrics": {
+        "requested": 37,
+        "covered": 34,
+        "held": 3,
+        "overtimeMinutes": 450,
+        "incrementalOvertimeMinutes": 300,
+        "changedPriorAssignments": 0,
+        "confirmed": 27,
+        "openCovered": 7,
+        "optimizerEvaluatedFeasibleLeaves": 1
+      },
+      "shifts": [
+        {
+          "shiftId": "F-B-STOCK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-24T09:00:00-05:00",
+          "endLocal": "2026-11-24T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-05",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-26T09:00:00-05:00",
+          "endLocal": "2026-11-26T14:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T09:00:00-05:00",
+          "endLocal": "2026-11-27T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-22T08:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-24T08:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-25T08:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-22T10:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-24T14:00:00-05:00",
+          "endLocal": "2026-11-24T21:45:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-PICK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "pickup",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T15:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-25T10:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-28T15:00:00-05:00",
+          "endLocal": "2026-11-28T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-23T11:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-28T10:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-26T11:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-26T12:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 540,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-27T10:30:00-05:00",
+          "endLocal": "2026-11-27T19:30:00-05:00",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON",
+            "NY-162-EVENING"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            },
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1070,
+              "mealCode": "additional-evening",
+              "paid": true,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 510,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W10",
+              "blockingRules": [
+                "CO-SITE"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": "W06",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 750,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-196B-APPROVED"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T14:00:00-05:00",
+          "endLocal": "2026-11-27T21:45:00-05:00",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 570,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "feasible_not_selected"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T08:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W03",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "feasible_not_selected"
+            },
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": "W10",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-BASELINE-FIRST-FIT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 600,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W04",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W05",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 330,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [
+                "CO-QUALIFICATION",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 900,
+              "endMinuteLocal": 930,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "NY-162-NOON",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 690,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-162-NOON"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        }
+      ],
+      "workerTotals": [
+        {
+          "workerId": "W01",
+          "workedMinutes": 2550,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 150,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-28T00:00:00-05:00",
+            "endLocal": "2026-11-29T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-STOCK-01",
+            "F-B-STOCK-02",
+            "F-B-STOCK-03",
+            "F-B-STOCK-04",
+            "F-B-STOCK-05",
+            "F-B-STOCK-06"
+          ]
+        },
+        {
+          "workerId": "W02",
+          "workedMinutes": 2700,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 300,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-CHECK-01",
+            "F-A-CHECK-02",
+            "F-A-CHECK-03",
+            "F-A-CHECK-04",
+            "F-A-CHECK-06",
+            "O-07"
+          ]
+        },
+        {
+          "workerId": "W03",
+          "workedMinutes": 0,
+          "approvedPaidAbsenceMinutes": 780,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": []
+        },
+        {
+          "workerId": "W04",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-24T00:00:00-05:00",
+            "endLocal": "2026-11-25T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-KEY-02",
+            "F-B-KEY-01",
+            "O-05"
+          ]
+        },
+        {
+          "workerId": "W05",
+          "workedMinutes": 2280,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-KEY-01",
+            "F-A-KEY-03",
+            "F-A-KEY-04",
+            "F-A-KEY-07",
+            "O-03"
+          ]
+        },
+        {
+          "workerId": "W06",
+          "workedMinutes": 1260,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-CHECK-02",
+            "F-A-FLOOR-04",
+            "O-04"
+          ]
+        },
+        {
+          "workerId": "W07",
+          "workedMinutes": 720,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-STOCK-03",
+            "F-A-STOCK-07"
+          ]
+        },
+        {
+          "workerId": "W08",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-23T00:00:00-05:00",
+            "endLocal": "2026-11-24T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-FLOOR-01",
+            "F-A-PICK-03",
+            "F-A-FLOOR-06",
+            "F-B-PICK-07"
+          ]
+        },
+        {
+          "workerId": "W09",
+          "workedMinutes": 1260,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-PICK-04",
+            "F-B-PICK-02",
+            "O-01",
+            "O-06"
+          ]
+        },
+        {
+          "workerId": "W10",
+          "workedMinutes": 450,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "O-08"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "metrics": {
+        "requested": 37,
+        "covered": 34,
+        "held": 3,
+        "overtimeMinutes": 150,
+        "incrementalOvertimeMinutes": 0,
+        "changedPriorAssignments": 1,
+        "confirmed": 27,
+        "openCovered": 7,
+        "optimizerEvaluatedFeasibleLeaves": 288
+      },
+      "shifts": [
+        {
+          "shiftId": "F-B-STOCK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-24T09:00:00-05:00",
+          "endLocal": "2026-11-24T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-05",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-26T09:00:00-05:00",
+          "endLocal": "2026-11-26T14:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T09:00:00-05:00",
+          "endLocal": "2026-11-27T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-22T08:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-24T08:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-25T08:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-22T10:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-24T14:00:00-05:00",
+          "endLocal": "2026-11-24T21:45:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-PICK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "pickup",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T15:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-25T10:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-28T15:00:00-05:00",
+          "endLocal": "2026-11-28T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-23T11:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-28T10:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-26T11:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-26T12:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 90,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-27T10:30:00-05:00",
+          "endLocal": "2026-11-27T19:30:00-05:00",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON",
+            "NY-162-EVENING"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            },
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1070,
+              "mealCode": "additional-evening",
+              "paid": true,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 510,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W10",
+              "blockingRules": [
+                "CO-SITE"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": "W06",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 300,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-196B-APPROVED"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T14:00:00-05:00",
+          "endLocal": "2026-11-27T21:45:00-05:00",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 570,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "feasible_not_selected"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T08:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W03",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 300,
+              "status": "feasible_not_selected"
+            },
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": "W10",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 600,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W04",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W05",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 330,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [
+                "CO-QUALIFICATION",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 900,
+              "endMinuteLocal": 930,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "NY-162-NOON"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 240,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-162-NOON",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        }
+      ],
+      "workerTotals": [
+        {
+          "workerId": "W01",
+          "workedMinutes": 2550,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 150,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-28T00:00:00-05:00",
+            "endLocal": "2026-11-29T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-STOCK-01",
+            "F-B-STOCK-02",
+            "F-B-STOCK-03",
+            "F-B-STOCK-04",
+            "F-B-STOCK-05",
+            "F-B-STOCK-06"
+          ]
+        },
+        {
+          "workerId": "W02",
+          "workedMinutes": 2250,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-CHECK-01",
+            "F-A-CHECK-02",
+            "F-A-CHECK-03",
+            "F-A-CHECK-04",
+            "F-A-CHECK-06"
+          ]
+        },
+        {
+          "workerId": "W03",
+          "workedMinutes": 450,
+          "approvedPaidAbsenceMinutes": 780,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "O-07"
+          ]
+        },
+        {
+          "workerId": "W04",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-24T00:00:00-05:00",
+            "endLocal": "2026-11-25T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-KEY-02",
+            "F-B-KEY-01",
+            "O-05"
+          ]
+        },
+        {
+          "workerId": "W05",
+          "workedMinutes": 2280,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-KEY-01",
+            "F-A-KEY-03",
+            "F-A-KEY-04",
+            "F-A-KEY-07",
+            "O-03"
+          ]
+        },
+        {
+          "workerId": "W06",
+          "workedMinutes": 1260,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-CHECK-02",
+            "F-A-FLOOR-04",
+            "O-04"
+          ]
+        },
+        {
+          "workerId": "W07",
+          "workedMinutes": 720,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-STOCK-03",
+            "F-A-STOCK-07"
+          ]
+        },
+        {
+          "workerId": "W08",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-23T00:00:00-05:00",
+            "endLocal": "2026-11-24T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-FLOOR-01",
+            "F-A-PICK-03",
+            "F-A-FLOOR-06",
+            "F-B-PICK-07"
+          ]
+        },
+        {
+          "workerId": "W09",
+          "workedMinutes": 1260,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-PICK-04",
+            "F-B-PICK-02",
+            "O-01",
+            "O-06"
+          ]
+        },
+        {
+          "workerId": "W10",
+          "workedMinutes": 450,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "O-08"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "metrics": {
+        "requested": 37,
+        "covered": 32,
+        "held": 5,
+        "overtimeMinutes": 150,
+        "incrementalOvertimeMinutes": 0,
+        "changedPriorAssignments": 2,
+        "confirmed": 27,
+        "openCovered": 5,
+        "optimizerEvaluatedFeasibleLeaves": 72
+      },
+      "shifts": [
+        {
+          "shiftId": "F-B-STOCK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-24T09:00:00-05:00",
+          "endLocal": "2026-11-24T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-05",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-26T09:00:00-05:00",
+          "endLocal": "2026-11-26T14:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-STOCK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T09:00:00-05:00",
+          "endLocal": "2026-11-27T17:00:00-05:00",
+          "workerId": "W01",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-22T08:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-24T08:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-25T08:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-CHECK-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": "W02",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-22T10:00:00-05:00",
+          "endLocal": "2026-11-22T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-23T09:00:00-05:00",
+          "endLocal": "2026-11-23T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-CHECK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "checkout",
+          "startLocal": "2026-11-23T08:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-24T14:00:00-05:00",
+          "endLocal": "2026-11-24T21:45:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-PICK-03",
+          "serviceDate": "2026-11-24",
+          "siteId": "SITE-A",
+          "role": "pickup",
+          "startLocal": "2026-11-24T10:00:00-05:00",
+          "endLocal": "2026-11-24T16:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-25T09:00:00-05:00",
+          "endLocal": "2026-11-25T15:00:00-05:00",
+          "workerId": "W06",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-04",
+          "serviceDate": "2026-11-25",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-25T10:00:00-05:00",
+          "endLocal": "2026-11-25T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-FLOOR-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-KEY-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": "W05",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-28T15:00:00-05:00",
+          "endLocal": "2026-11-28T20:00:00-05:00",
+          "workerId": "W08",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-KEY-01",
+          "serviceDate": "2026-11-22",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-22T09:00:00-05:00",
+          "endLocal": "2026-11-22T17:00:00-05:00",
+          "workerId": "W04",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-B-PICK-02",
+          "serviceDate": "2026-11-23",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-23T11:00:00-05:00",
+          "endLocal": "2026-11-23T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "F-A-STOCK-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "stock",
+          "startLocal": "2026-11-28T10:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W07",
+          "locked": true,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 360,
+          "reasonRuleIds": [
+            "CO-LOCKED"
+          ],
+          "alternativeDecisions": []
+        },
+        {
+          "shiftId": "O-01",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-26T11:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-02",
+          "serviceDate": "2026-11-26",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-26T12:00:00-05:00",
+          "endLocal": "2026-11-26T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-HOLIDAY-HOURS",
+            "NY-161-REST",
+            "CO-APPROVED-PTO"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 90,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "CO-HOLIDAY-HOURS",
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-03",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "keyholder",
+          "startLocal": "2026-11-27T10:30:00-05:00",
+          "endLocal": "2026-11-27T19:30:00-05:00",
+          "workerId": "W05",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON",
+            "NY-162-EVENING"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            },
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1070,
+              "mealCode": "additional-evening",
+              "paid": true,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 510,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W10",
+              "blockingRules": [
+                "CO-SITE"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-04",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-27T08:00:00-05:00",
+          "endLocal": "2026-11-27T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-ONE-SHIFT",
+            "NY-196B-APPROVED",
+            "CO-AVAILABILITY"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 300,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-196B-APPROVED"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-AVAILABILITY"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-05",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "stock",
+          "startLocal": "2026-11-27T14:00:00-05:00",
+          "endLocal": "2026-11-27T21:45:00-05:00",
+          "workerId": "W04",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-LATE"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 1050,
+              "endMinuteLocal": 1095,
+              "mealCode": "midpoint",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 420,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 570,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "feasible_not_selected"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-06",
+          "serviceDate": "2026-11-27",
+          "siteId": "SITE-B",
+          "role": "pickup",
+          "startLocal": "2026-11-27T15:00:00-05:00",
+          "endLocal": "2026-11-27T20:00:00-05:00",
+          "workerId": "W09",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [],
+          "mealPlan": [],
+          "workedMinutes": 300,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-07",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T08:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": "W03",
+          "locked": false,
+          "status": "covered",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 450,
+          "reasonRuleIds": [
+            "CO-QUALIFICATION",
+            "CO-SITE",
+            "CO-AVAILABILITY",
+            "NY-161-REST",
+            "CO-PLAN-OBJECTIVE"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [],
+              "projectedOvertimeMinutesIfAssigned": 300,
+              "status": "feasible_not_selected"
+            },
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-08",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-B",
+          "role": "keyholder",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "NY-161-REST",
+            "CO-APPROVED-PTO",
+            "CO-ONE-SHIFT",
+            "CO-AVAILABILITY"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W01",
+              "blockingRules": [
+                "NY-161-REST"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 600,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W04",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W05",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 330,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W10",
+              "blockingRules": [
+                "CO-AVAILABILITY"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-09",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "floor",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T17:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 720,
+              "endMinuteLocal": 750,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "CO-APPROVED-PTO",
+            "CO-QUALIFICATION",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W06",
+              "blockingRules": [
+                "CO-APPROVED-PTO"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W07",
+              "blockingRules": [
+                "CO-QUALIFICATION",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W08",
+              "blockingRules": [
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        },
+        {
+          "shiftId": "O-10",
+          "serviceDate": "2026-11-28",
+          "siteId": "SITE-A",
+          "role": "checkout",
+          "startLocal": "2026-11-28T09:00:00-05:00",
+          "endLocal": "2026-11-28T16:00:00-05:00",
+          "workerId": null,
+          "locked": false,
+          "status": "held",
+          "requiredMealRuleIds": [
+            "NY-162-NOON"
+          ],
+          "mealPlan": [
+            {
+              "startMinuteLocal": 900,
+              "endMinuteLocal": 930,
+              "mealCode": "noon",
+              "paid": false,
+              "reliefRef": "REL-STAFF-DUTY-FREE"
+            }
+          ],
+          "workedMinutes": 0,
+          "reasonRuleIds": [
+            "NY-162-NOON",
+            "CO-ONE-SHIFT"
+          ],
+          "alternativeDecisions": [
+            {
+              "workerId": "W02",
+              "blockingRules": [
+                "NY-162-NOON"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 240,
+              "status": "constraint_failed"
+            },
+            {
+              "workerId": "W03",
+              "blockingRules": [
+                "NY-162-NOON",
+                "CO-ONE-SHIFT"
+              ],
+              "projectedOvertimeMinutesIfAssigned": 0,
+              "status": "constraint_failed"
+            }
+          ]
+        }
+      ],
+      "workerTotals": [
+        {
+          "workerId": "W01",
+          "workedMinutes": 2550,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 150,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-28T00:00:00-05:00",
+            "endLocal": "2026-11-29T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-STOCK-01",
+            "F-B-STOCK-02",
+            "F-B-STOCK-03",
+            "F-B-STOCK-04",
+            "F-B-STOCK-05",
+            "F-B-STOCK-06"
+          ]
+        },
+        {
+          "workerId": "W02",
+          "workedMinutes": 2250,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-CHECK-01",
+            "F-A-CHECK-02",
+            "F-A-CHECK-03",
+            "F-A-CHECK-04",
+            "F-A-CHECK-06"
+          ]
+        },
+        {
+          "workerId": "W03",
+          "workedMinutes": 450,
+          "approvedPaidAbsenceMinutes": 780,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "O-07"
+          ]
+        },
+        {
+          "workerId": "W04",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-24T00:00:00-05:00",
+            "endLocal": "2026-11-25T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-KEY-02",
+            "F-B-KEY-01",
+            "O-05"
+          ]
+        },
+        {
+          "workerId": "W05",
+          "workedMinutes": 2280,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-KEY-01",
+            "F-A-KEY-03",
+            "F-A-KEY-04",
+            "F-A-KEY-07",
+            "O-03"
+          ]
+        },
+        {
+          "workerId": "W06",
+          "workedMinutes": 810,
+          "approvedPaidAbsenceMinutes": 480,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-26T00:00:00-05:00",
+            "endLocal": "2026-11-27T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-CHECK-02",
+            "F-A-FLOOR-04"
+          ]
+        },
+        {
+          "workerId": "W07",
+          "workedMinutes": 720,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-STOCK-03",
+            "F-A-STOCK-07"
+          ]
+        },
+        {
+          "workerId": "W08",
+          "workedMinutes": 1320,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-23T00:00:00-05:00",
+            "endLocal": "2026-11-24T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-A-FLOOR-01",
+            "F-A-PICK-03",
+            "F-A-FLOOR-06",
+            "F-B-PICK-07"
+          ]
+        },
+        {
+          "workerId": "W09",
+          "workedMinutes": 1260,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": [
+            "F-B-PICK-04",
+            "F-B-PICK-02",
+            "O-01",
+            "O-06"
+          ]
+        },
+        {
+          "workerId": "W10",
+          "workedMinutes": 0,
+          "approvedPaidAbsenceMinutes": 0,
+          "overtimeWorkedMinutes": 0,
+          "preservedDesignatedRestMinutes": 1440,
+          "restWindow": {
+            "startLocal": "2026-11-22T00:00:00-05:00",
+            "endLocal": "2026-11-23T00:00:00-05:00"
+          },
+          "scheduledShiftIds": []
+        }
+      ]
+    }
+  ],
+  "decisionAudit": {
+    "id": "rest-and-meal-review",
+    "caseDistrict": "Albany County",
+    "plannedScenario": {
+      "id": "recommended",
+      "workday": {
+        "serviceDate": "2026-11-28",
+        "site": {
+          "id": "SITE-A",
+          "coverage": {
+            "demandId": "O-10",
+            "decision": {
+              "status": "held",
+              "veto": {
+                "ruleId": "NY-162-NOON",
+                "provenance": {
+                  "checkedOn": "2026-11-16",
+                  "officialSource": "https://www.nysenate.gov/legislation/laws/LAB/162",
+                  "application": {
+                    "scope": "Only clearly covered daytime shifts in the modeled work patterns.",
+                    "decisionEvidence": {
+                      "mealWindowStartMinuteLocal": 660,
+                      "mealWindowEndMinuteLocal": 840,
+                      "minimumEligibleMinutes": 30,
+                      "requestPlan": [
+                        {
+                          "startMinuteLocal": 900,
+                          "endMinuteLocal": 930,
+                          "mealCode": "noon",
+                          "paid": false,
+                          "reliefRef": "REL-STAFF-DUTY-FREE"
+                        }
+                      ],
+                      "candidateReview": {
+                        "attemptedWorkerId": "W02",
+                        "blockingRuleRegisterIds": [
+                          "NY-162-NOON"
+                        ],
+                        "actualDisposition": "constraint_failed"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

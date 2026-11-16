@@ -1,0 +1,1963 @@
+{
+  "id": "fleet-delivery-access-new-york-london",
+  "schemaVersion": 1,
+  "scope": {
+    "comparison": "One selected delivery segment per candidate; independent of any city map dataset.",
+    "replayDate": "2026-11-16",
+    "modes": [
+      "vehicle",
+      "bicycle",
+      "walking"
+    ],
+    "sourceStatus": "public authority context plus sample attestations",
+    "dispatchAuthorization": false,
+    "liveMapFeed": false,
+    "realCustomerData": false,
+    "actualComplianceDetermination": false,
+    "unsupported": "Operator licensing and permits, collisions, local signs beyond the selected candidate, parking, tolls, weather, worker classification and transport hours regulations."
+  },
+  "ruleset": {
+    "authority": {
+      "sources": {
+        "nycTruck": {
+          "agency": "NYC Department of Transportation",
+          "title": "Truck Route Network",
+          "url": "https://nyc-business.nyc.gov/nycbusiness/description/truck-route-network",
+          "observedOn": "2026-11-16",
+          "basis": "Local and through network, nearest off-network destination connection, non-truck distinction."
+        },
+        "nycBike": {
+          "agency": "NYC Department of Transportation",
+          "title": "Delivery by Bike or E-Bike",
+          "url": "https://www.nyc.gov/html/dot/html/about/deliverybybike.shtml",
+          "observedOn": "2026-11-16",
+          "basis": "Administrative Code §§10-157 and 10-157.1 delivery worker course, equipment and identification requirements."
+        },
+        "londonOxford": {
+          "agency": "Transport for London",
+          "title": "Oxford Street rules and exemptions",
+          "url": "https://tfl.gov.uk/modes/driving/os-rules-and-exemptions",
+          "observedOn": "2026-11-16",
+          "basis": "Traffic-free section, delivery and servicing access hours and approved servicing routes, cycle restriction, emergency exemption."
+        },
+        "londonCycle": {
+          "agency": "UK Department for Transport",
+          "title": "The Highway Code, rules 62–64",
+          "url": "https://www.gov.uk/guidance/the-highway-code/rules-for-cyclists-59-to-82#rule64",
+          "observedOn": "2026-11-16",
+          "basis": "Do not cycle on pavement; distinguish from areas designated for cycling or verified shared tracks."
+        }
+      },
+      "jurisdictions": {
+        "NYC": {
+          "timezone": "America/New_York",
+          "country": "US",
+          "region": "NY",
+          "rules": [
+            {
+              "id": "NYC_TRUCK_NETWORK",
+              "sourceId": "nycTruck",
+              "appliesTo": [
+                "vehicle"
+              ],
+              "truckClass": "two axles and six tires, or three or more axles; unmodeled variants held for review",
+              "allowedOffNetworkPurpose": "serving an off-network destination using the closest verified route intersection",
+              "notCovered": "through-route choice, exception permits, or signage for non-truck commercial vehicles"
+            },
+            {
+              "id": "NYC_BIKE_READINESS",
+              "sourceId": "nycBike",
+              "appliesTo": [
+                "bicycle"
+              ],
+              "crewContext": "commercial delivery by adult employee on conventional bicycle",
+              "requiredChecks": [
+                "cityCourse",
+                "helmet",
+                "brakes",
+                "bell",
+                "lights",
+                "reflectors",
+                "vest",
+                "workerIdCard"
+              ],
+              "notCovered": "business registration, business roster and poster controls, and separate rules for e-bikes"
+            }
+          ]
+        },
+        "LON": {
+          "timezone": "Europe/London",
+          "country": "GB",
+          "region": "England",
+          "rules": [
+            {
+              "id": "LON_OXFORD_ACCESS",
+              "sourceId": "londonOxford",
+              "appliesTo": [
+                "vehicle",
+                "bicycle"
+              ],
+              "scope": "Oxford Street between Orchard Street and Great Portland Street",
+              "accessStartMinute": 0,
+              "accessEndMinuteExclusive": 420,
+              "requiredVehiclePurpose": "active_loading",
+              "notCovered": "emergency exceptions, other bays and local signs, vehicle emissions, permit eligibility, no wayfinding recommendation"
+            },
+            {
+              "id": "LON_PAVEMENT",
+              "sourceId": "londonCycle",
+              "appliesTo": [
+                "bicycle"
+              ],
+              "prohibitedSegment": "pedestrian_pavement",
+              "permittedCondition": "confirmed designation for a shared-use cycle track or cycle track",
+              "notCovered": "other route edges, vehicle classification or broader cycle equipment rules"
+            }
+          ]
+        }
+      }
+    },
+    "company": {
+      "id": "OPS-LOCAL-2026-11",
+      "effectiveFrom": "2026-11-01",
+      "effectiveThrough": "2026-11-30",
+      "approvedBy": "Example dispatch operations lead",
+      "environment": "isolated replay",
+      "notLaw": true,
+      "minimumRouteExperienceMonths": {
+        "vehicle": 6,
+        "bicycle": 3,
+        "walking": 0
+      },
+      "maximumShiftMinutes": 480,
+      "returnBufferMinutes": 15,
+      "bookingRequired": true,
+      "coldChainSensorRequired": true,
+      "proofWindowHours": 24,
+      "manualOverrideCanWaiveLaw": false,
+      "speedPolicy": "Travel-time estimate is an input; do not recover lost time by exceeding posted speed."
+    }
+  },
+  "cases": [
+    {
+      "id": "NYC-01",
+      "city": "NYC",
+      "title": "Local delivery on the truck network",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-01-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-01-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "NYC-01-ASSET",
+          "axles": 2,
+          "tires": 6,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-01-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-01-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-01-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-01-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "local_truck_route",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-02",
+      "city": "NYC",
+      "title": "Verified closest marked connection for an off-network delivery",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-02-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-02-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "NYC-02-ASSET",
+          "axles": 2,
+          "tires": 6,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-02-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-02-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-02-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-02-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "off_network",
+              "closestIntersectionProof": true,
+              "offNetworkDestinationVerified": true,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-03",
+      "city": "NYC",
+      "title": "Truck leaves the network at the wrong verified intersection",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-03-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-03-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "NYC-03-ASSET",
+          "axles": 2,
+          "tires": 6,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-03-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-03-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-03-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-03-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "off_network",
+              "closestIntersectionProof": false,
+              "offNetworkDestinationVerified": true,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-04",
+      "city": "NYC",
+      "title": "Missing classification evidence for truck axles",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-04-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-04-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "NYC-04-ASSET",
+          "axles": null,
+          "tires": 6,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-04-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-04-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-04-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-04-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "local_truck_route",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-05",
+      "city": "NYC",
+      "title": "Delivery cyclist with completed course and safety checks",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-05-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-05-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "NYC-05-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-05-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-05-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-05-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-05-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-06",
+      "city": "NYC",
+      "title": "Course status is not in the dispatch record",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-06-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-06-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": null,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "NYC-06-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-06-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-06-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-06-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-06-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-07",
+      "city": "NYC",
+      "title": "Unsafe bicycle with non-working brakes",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-07-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-07-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": false,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "NYC-07-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-07-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-07-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-07-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-07-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-08",
+      "city": "NYC",
+      "title": "Foot delivery exceeds the company carry limit",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-08-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 8,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-08-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "walking",
+          "assetRef": "NYC-08-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 6,
+          "maxVolumeL": 18,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-08-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-08-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-08-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-08-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "NYC-09",
+      "city": "NYC",
+      "title": "Light commercial van not in the modeled truck class",
+      "dispatch": {
+        "order": {
+          "orderRef": "NYC-09-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "NYC-09-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "NYC-09-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "NYC-HUB-01",
+          "hubEndRef": "NYC-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "NYC-SITE-01",
+          "bookingRef": "NYC-09-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "NYC-09-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "NYC-09-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "NYC-09-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00-05:00",
+                      "verifiedAt": "2026-11-16T05:00:00-05:00",
+                      "validUntil": "2026-11-16T16:00:00-05:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "off_network",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00-05:00",
+              "exitedAt": "2026-11-16T05:45:00-05:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-01",
+      "city": "LON",
+      "title": "Loading van using approved overnight Oxford Street access",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-01-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-01-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "LON-01-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-01-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-01-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-01-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-01-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": true,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-02",
+      "city": "LON",
+      "title": "Van would exit the restricted street too late",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-02-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-02-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "LON-02-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-02-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-02-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-02-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-02-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": true,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T07:00:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-03",
+      "city": "LON",
+      "title": "Window is open, but approved route proof is unknown",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-03-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-03-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "LON-03-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-03-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-03-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-03-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-03-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-04",
+      "city": "LON",
+      "title": "Van would wait outside an active loading task",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-04-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "wait_for_receiver"
+        },
+        "operator": {
+          "operatorRef": "LON-04-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "LON-04-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-04-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-04-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-04-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-04-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": true,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-05",
+      "city": "LON",
+      "title": "Cyclist routed into the traffic-free section",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-05-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-05-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "LON-05-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-05-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-05-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-05-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-05-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-06",
+      "city": "LON",
+      "title": "Cyclist routed onto an ordinary pavement",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-06-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-06-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "LON-06-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-06-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-06-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "pedestrian_pavement",
+              "direction": "outbound",
+              "roadSegmentId": "LON-06-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-06-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-07",
+      "city": "LON",
+      "title": "Shared-use track with confirmed designation",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-07-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-07-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "LON-07-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-07-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-07-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "shared_use_track",
+              "direction": "outbound",
+              "roadSegmentId": "LON-07-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-07-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-08",
+      "city": "LON",
+      "title": "Shared-use designation has expired in the dispatch record",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-08-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-08-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "bicycle",
+          "assetRef": "LON-08-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 18,
+          "maxVolumeL": 35,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-08-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-08-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "shared_use_track",
+              "direction": "outbound",
+              "roadSegmentId": "LON-08-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-08-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T05:35:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-09",
+      "city": "LON",
+      "title": "Hand-carry delivery with unconfirmed receiving slot",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-09-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-09-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "walking",
+          "assetRef": "LON-09-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 6,
+          "maxVolumeL": 18,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-09-DOCK",
+          "booked": null,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-09-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "LON-09-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-09-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-10",
+      "city": "LON",
+      "title": "Van is allowed through, but misses depot return buffer and has no verified chilled sensor",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-10-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": true,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-10-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "vehicle",
+          "assetRef": "LON-10-ASSET",
+          "axles": 2,
+          "tires": 4,
+          "maxPayloadKg": 350,
+          "maxVolumeL": 240,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 530,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-10-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-10-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "oxford_traffic_free",
+              "direction": "outbound",
+              "roadSegmentId": "LON-10-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": "londonOxford",
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-10-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": true,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "LON-11",
+      "city": "LON",
+      "title": "Foot delivery with confirmed booking and carry plan",
+      "dispatch": {
+        "order": {
+          "orderRef": "LON-11-ORDER",
+          "cargoCategory": "document_carton",
+          "packageCount": 1,
+          "massKg": 4,
+          "volumeL": 12,
+          "requiresChilled": false,
+          "purpose": "active_loading"
+        },
+        "operator": {
+          "operatorRef": "LON-11-OP",
+          "commercialEmployee": true,
+          "experienceMonths": 12,
+          "bicycleReadiness": {
+            "cityCourse": true,
+            "helmet": true,
+            "brakes": true,
+            "bell": true,
+            "lights": true,
+            "reflectors": true,
+            "vest": true,
+            "workerIdCard": true
+          }
+        },
+        "resource": {
+          "mode": "walking",
+          "assetRef": "LON-11-ASSET",
+          "axles": null,
+          "tires": null,
+          "maxPayloadKg": 6,
+          "maxVolumeL": 18,
+          "chilledSensorVerified": false
+        },
+        "shift": {
+          "startMinute": 300,
+          "endMinute": 540,
+          "routeReturnMinute": 450,
+          "hubStartRef": "LON-HUB-01",
+          "hubEndRef": "LON-HUB-01",
+          "signedHandoff": true
+        },
+        "site": {
+          "siteRef": "LON-SITE-01",
+          "bookingRef": "LON-11-DOCK",
+          "booked": true,
+          "serviceLocalStartMinute": 340,
+          "serviceLocalEndMinute": 344,
+          "windowStartMinute": 330,
+          "windowEndMinuteExclusive": 360
+        },
+        "route": {
+          "routeRef": "LON-11-ROUTE",
+          "replayDate": "2026-11-16",
+          "jurisdictionBoundaryVerified": true,
+          "validation": {
+            "segment": {
+              "kind": "public_road",
+              "direction": "outbound",
+              "roadSegmentId": "LON-11-S1",
+              "evidence": {
+                "capture": {
+                  "method": "dispatcher example registry",
+                  "authorityLink": null,
+                  "verification": {
+                    "status": "confirmed",
+                    "recordType": "example_route_attestation",
+                    "referenceId": "LON-11-PROOF",
+                    "validityWindow": {
+                      "recordedAt": "2026-11-16T04:55:00+00:00",
+                      "verifiedAt": "2026-11-16T05:00:00+00:00",
+                      "validUntil": "2026-11-16T16:00:00+00:00"
+                    }
+                  }
+                }
+              },
+              "networkMembership": "not_applicable",
+              "closestIntersectionProof": null,
+              "offNetworkDestinationVerified": null,
+              "tflApprovedAccess": null,
+              "enteredAt": "2026-11-16T05:30:00+00:00",
+              "exitedAt": "2026-11-16T05:45:00+00:00"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

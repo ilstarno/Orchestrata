@@ -1,0 +1,376 @@
+{
+  "id": "hiring-policy-calendar-and-notice-us-2026",
+  "decisions": [
+    {
+      "recordId": "POL-001",
+      "workflowLane": "interview_window",
+      "decision": "hold_office_closed",
+      "reviewAction": "Find another date on the approved office calendar.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-OPS-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "submittedOffice": "US-NY",
+            "approvedOffice": "US-NY"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "block",
+          "authorityType": "company_policy_with_federal_date_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "OPM-CALENDAR-2026",
+            "USC-5-6103",
+            "DOL-HOLIDAY-PAY"
+          ],
+          "evidence": {
+            "officeLocalDate": "2026-11-26",
+            "matchedClosureDates": [
+              "2026-11-26"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-002",
+      "workflowLane": "interview_window",
+      "decision": "hold_staff_unavailable",
+      "reviewAction": "Try another approved time or panel member without exposing why the slot is unavailable.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-OPS-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "submittedOffice": "US-NY",
+            "approvedOffice": "US-NY"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy_with_federal_date_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "OPM-CALENDAR-2026",
+            "USC-5-6103",
+            "DOL-HOLIDAY-PAY"
+          ],
+          "evidence": {
+            "officeLocalDate": "2026-11-25",
+            "matchedClosureDates": []
+          }
+        },
+        {
+          "ruleId": "HR-OPS-003",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "snapshotAgeSeconds": 240,
+            "acceptableAgeSeconds": 600,
+            "actualCheckAtUtc": "2026-11-25T12:56:00Z"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-004",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "block",
+          "authorityType": "company_policy_with_privacy_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "CFR-29-825-500"
+          ],
+          "evidence": {
+            "opaqueStaffSlot": "SLOT-02",
+            "matchedWindowIds": [
+              "AV-001"
+            ],
+            "intervalSemantics": "half_open"
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-003",
+      "workflowLane": "interview_window",
+      "decision": "propose_to_coordinator",
+      "reviewAction": "Coordinator reviews the slot and panel before sending an invitation.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-OPS-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "submittedOffice": "US-NY",
+            "approvedOffice": "US-NY"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy_with_federal_date_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "OPM-CALENDAR-2026",
+            "USC-5-6103",
+            "DOL-HOLIDAY-PAY"
+          ],
+          "evidence": {
+            "officeLocalDate": "2026-11-27",
+            "matchedClosureDates": []
+          }
+        },
+        {
+          "ruleId": "HR-OPS-003",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "snapshotAgeSeconds": 600,
+            "acceptableAgeSeconds": 600,
+            "actualCheckAtUtc": "2026-11-25T12:50:00Z"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-004",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy_with_privacy_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "CFR-29-825-500"
+          ],
+          "evidence": {
+            "opaqueStaffSlot": "SLOT-03",
+            "matchedWindowIds": [],
+            "intervalSemantics": "half_open"
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-004",
+      "workflowLane": "interview_window",
+      "decision": "refresh_availability",
+      "reviewAction": "Refresh the availability snapshot before proposing a panel.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-OPS-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "submittedOffice": "US-NY",
+            "approvedOffice": "US-NY"
+          }
+        },
+        {
+          "ruleId": "HR-OPS-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "pass",
+          "authorityType": "company_policy_with_federal_date_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "OPM-CALENDAR-2026",
+            "USC-5-6103",
+            "DOL-HOLIDAY-PAY"
+          ],
+          "evidence": {
+            "officeLocalDate": "2026-11-25",
+            "matchedClosureDates": []
+          }
+        },
+        {
+          "ruleId": "HR-OPS-003",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "review",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "snapshotAgeSeconds": 601,
+            "acceptableAgeSeconds": 600,
+            "actualCheckAtUtc": "2026-11-25T12:49:59Z"
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-005",
+      "workflowLane": "interview_window",
+      "decision": "confirm_office_scope",
+      "reviewAction": "Confirm the applicable office schedule before reusing this policy.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-OPS-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "review",
+          "authorityType": "company_policy",
+          "sourceIds": [
+            "ORG-US-NY-01"
+          ],
+          "evidence": {
+            "submittedOffice": "US-CA",
+            "approvedOffice": "US-NY"
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-006",
+      "workflowLane": "employer_notice_review",
+      "decision": "employer_scope_review",
+      "reviewAction": "Have the designated HR owner verify coverage, applicable notices, and policy before relying on this checklist.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-NOTICE-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "review",
+          "authorityType": "manual_review_with_federal_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "DOL-FMLA-28",
+            "CFR-29-825-300"
+          ],
+          "evidence": {
+            "employerScopeState": "unconfirmed",
+            "scopeOwner": "human_resources_policy_owner"
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-007",
+      "workflowLane": "employer_notice_review",
+      "decision": "notice_evidence_review",
+      "reviewAction": "HR checks the general posting and, where applicable, employee distribution; nothing is published by this replay.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-NOTICE-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "scope_supplied",
+          "authorityType": "manual_review_with_federal_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "DOL-FMLA-28",
+            "CFR-29-825-300"
+          ],
+          "evidence": {
+            "employerScopeState": "coverage_confirmed_by_owner",
+            "scopeOwner": "human_resources_policy_owner"
+          }
+        },
+        {
+          "ruleId": "HR-NOTICE-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "review",
+          "authorityType": "manual_review_under_federal_reference",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "CFR-29-825-300",
+            "DOL-FMLA-28D"
+          ],
+          "evidence": {
+            "evidenceState": "not_supplied",
+            "automaticPosting": false
+          }
+        }
+      ]
+    },
+    {
+      "recordId": "POL-008",
+      "workflowLane": "employer_notice_review",
+      "decision": "manual_notice_confirmation",
+      "reviewAction": "HR verifies posting visibility and any applicable distribution requirements. An evidence record is not a compliance conclusion.",
+      "evaluationTimeUtc": "2026-11-25T13:00:00Z",
+      "effectiveChecks": [
+        {
+          "ruleId": "HR-NOTICE-001",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "scope_supplied",
+          "authorityType": "manual_review_with_federal_context",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "DOL-FMLA-28",
+            "CFR-29-825-300"
+          ],
+          "evidence": {
+            "employerScopeState": "coverage_confirmed_by_owner",
+            "scopeOwner": "human_resources_policy_owner"
+          }
+        },
+        {
+          "ruleId": "HR-NOTICE-002",
+          "version": "2026.11",
+          "asOf": "2026-11-16",
+          "status": "record_supplied",
+          "authorityType": "manual_review_under_federal_reference",
+          "sourceIds": [
+            "ORG-US-NY-01",
+            "CFR-29-825-300",
+            "DOL-FMLA-28D"
+          ],
+          "evidence": {
+            "evidenceState": "owner_reports_on_file",
+            "automaticPosting": false
+          }
+        }
+      ]
+    }
+  ]
+}

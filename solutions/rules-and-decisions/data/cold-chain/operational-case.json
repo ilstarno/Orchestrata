@@ -1,0 +1,3112 @@
+{
+  "caseId": "cold-chain-staging-and-compartments",
+  "inputs": {
+    "caseId": "cold-chain-staging-and-compartments",
+    "dateUtc": "2026-11-16",
+    "units": {
+      "mass": "kg",
+      "volume": "litres",
+      "time": "integer minutes after 00:00 UTC"
+    },
+    "scope": {
+      "transport": "US food road transport context; bounded sample only",
+      "doesNotReleaseShipments": true,
+      "noLiveTelemetry": true,
+      "noUniversalTemperatureBands": true,
+      "temperatureClassesAreShipperOwnedLabels": true
+    },
+    "policy": {
+      "approval": "allowed compartment and matching shipper class, sealed condition",
+      "requiresObservedThermalEvidence": true,
+      "allowedEvidenceState": "verified",
+      "exclusiveDockWindow": true,
+      "keepsLoadWhole": true,
+      "compartmentCapacityAfterReserve": true,
+      "objectiveOrder": [
+        "most-placed-loads",
+        "fewest-unstable-assignments-on-disruption",
+        "minimum-staging-wait",
+        "stable-id-tie"
+      ]
+    },
+    "lawContext": {
+      "fdaUrl": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-sanitary-transportation-human-and-animal-food",
+      "regulation": "21 CFR Part 1, Subpart O, including §1.908 as applicable",
+      "verifiedOn": "2026-11-16",
+      "appliesTo": "U.S. food transportation operations within rule scope; roles and requirements vary",
+      "whatIsNotEncoded": "Coverage, exceptions, exemptions, written agreements and release authority require review"
+    },
+    "waves": [
+      {
+        "waveId": "WAVE-1",
+        "opensUtc": "2026-11-16T14:00:00Z",
+        "warehouseZone": "US-PA sample cross-dock",
+        "departureUtc": "2026-11-16T15:25:00Z",
+        "departureMinute": 925,
+        "compartments": [
+          {
+            "compartmentId": "C-1-A",
+            "classCode": "profile-a",
+            "ratedKg": 580,
+            "reserveKg": 50,
+            "maxKg": 530,
+            "ratedLitres": 8500,
+            "reserveLitres": 500,
+            "maxLitres": 8000,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-1-A",
+            "compartmentWaitingAtMinute": 840,
+            "compartmentClosesAtMinute": 915,
+            "preparedForClasses": [
+              "profile-a"
+            ]
+          },
+          {
+            "compartmentId": "C-1-B",
+            "classCode": "profile-b",
+            "ratedKg": 635,
+            "reserveKg": 50,
+            "maxKg": 585,
+            "ratedLitres": 8000,
+            "reserveLitres": 500,
+            "maxLitres": 7500,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-1-B",
+            "compartmentWaitingAtMinute": 840,
+            "compartmentClosesAtMinute": 915,
+            "preparedForClasses": [
+              "profile-b"
+            ]
+          }
+        ],
+        "stagingWindows": [
+          {
+            "dockWindowId": "S-1-1",
+            "dockId": "EAST",
+            "startMinute": 840,
+            "endMinute": 850,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-1"
+          },
+          {
+            "dockWindowId": "S-1-2",
+            "dockId": "EAST",
+            "startMinute": 850,
+            "endMinute": 860,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-2"
+          },
+          {
+            "dockWindowId": "S-1-3",
+            "dockId": "EAST",
+            "startMinute": 860,
+            "endMinute": 870,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-3"
+          },
+          {
+            "dockWindowId": "S-1-4",
+            "dockId": "EAST",
+            "startMinute": 870,
+            "endMinute": 880,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-4"
+          },
+          {
+            "dockWindowId": "S-1-5",
+            "dockId": "EAST",
+            "startMinute": 880,
+            "endMinute": 890,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-5"
+          },
+          {
+            "dockWindowId": "S-1-6",
+            "dockId": "EAST",
+            "startMinute": 890,
+            "endMinute": 900,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-6"
+          },
+          {
+            "dockWindowId": "S-1-7",
+            "dockId": "WEST",
+            "startMinute": 870,
+            "endMinute": 880,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-1-7"
+          }
+        ],
+        "allowCrossWave": false
+      },
+      {
+        "waveId": "WAVE-2",
+        "opensUtc": "2026-11-16T16:00:00Z",
+        "warehouseZone": "US-PA sample cross-dock",
+        "departureUtc": "2026-11-16T17:25:00Z",
+        "departureMinute": 1045,
+        "compartments": [
+          {
+            "compartmentId": "C-2-A",
+            "classCode": "profile-a",
+            "ratedKg": 590,
+            "reserveKg": 50,
+            "maxKg": 540,
+            "ratedLitres": 8500,
+            "reserveLitres": 500,
+            "maxLitres": 8000,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-2-A",
+            "compartmentWaitingAtMinute": 960,
+            "compartmentClosesAtMinute": 1035,
+            "preparedForClasses": [
+              "profile-a"
+            ]
+          },
+          {
+            "compartmentId": "C-2-B",
+            "classCode": "profile-b",
+            "ratedKg": 635,
+            "reserveKg": 50,
+            "maxKg": 585,
+            "ratedLitres": 8000,
+            "reserveLitres": 500,
+            "maxLitres": 7500,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-2-B",
+            "compartmentWaitingAtMinute": 960,
+            "compartmentClosesAtMinute": 1035,
+            "preparedForClasses": [
+              "profile-b"
+            ]
+          }
+        ],
+        "stagingWindows": [
+          {
+            "dockWindowId": "S-2-1",
+            "dockId": "EAST",
+            "startMinute": 960,
+            "endMinute": 970,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-1"
+          },
+          {
+            "dockWindowId": "S-2-2",
+            "dockId": "EAST",
+            "startMinute": 970,
+            "endMinute": 980,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-2"
+          },
+          {
+            "dockWindowId": "S-2-3",
+            "dockId": "EAST",
+            "startMinute": 980,
+            "endMinute": 990,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-3"
+          },
+          {
+            "dockWindowId": "S-2-4",
+            "dockId": "EAST",
+            "startMinute": 990,
+            "endMinute": 1000,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-4"
+          },
+          {
+            "dockWindowId": "S-2-5",
+            "dockId": "EAST",
+            "startMinute": 1000,
+            "endMinute": 1010,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-5"
+          },
+          {
+            "dockWindowId": "S-2-6",
+            "dockId": "EAST",
+            "startMinute": 1010,
+            "endMinute": 1020,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-6"
+          },
+          {
+            "dockWindowId": "S-2-7",
+            "dockId": "WEST",
+            "startMinute": 990,
+            "endMinute": 1000,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-2-7"
+          }
+        ],
+        "allowCrossWave": false
+      },
+      {
+        "waveId": "WAVE-3",
+        "opensUtc": "2026-11-16T18:00:00Z",
+        "warehouseZone": "US-PA sample cross-dock",
+        "departureUtc": "2026-11-16T19:25:00Z",
+        "departureMinute": 1165,
+        "compartments": [
+          {
+            "compartmentId": "C-3-A",
+            "classCode": "profile-a",
+            "ratedKg": 600,
+            "reserveKg": 50,
+            "maxKg": 550,
+            "ratedLitres": 8500,
+            "reserveLitres": 500,
+            "maxLitres": 8000,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-3-A",
+            "compartmentWaitingAtMinute": 1080,
+            "compartmentClosesAtMinute": 1155,
+            "preparedForClasses": [
+              "profile-a"
+            ]
+          },
+          {
+            "compartmentId": "C-3-B",
+            "classCode": "profile-b",
+            "ratedKg": 635,
+            "reserveKg": 50,
+            "maxKg": 585,
+            "ratedLitres": 8000,
+            "reserveLitres": 500,
+            "maxLitres": 7500,
+            "sealedCompatible": true,
+            "prepared": true,
+            "preloadCheckId": "PC-3-B",
+            "compartmentWaitingAtMinute": 1080,
+            "compartmentClosesAtMinute": 1155,
+            "preparedForClasses": [
+              "profile-b"
+            ]
+          }
+        ],
+        "stagingWindows": [
+          {
+            "dockWindowId": "S-3-1",
+            "dockId": "EAST",
+            "startMinute": 1080,
+            "endMinute": 1090,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-1"
+          },
+          {
+            "dockWindowId": "S-3-2",
+            "dockId": "EAST",
+            "startMinute": 1090,
+            "endMinute": 1100,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-2"
+          },
+          {
+            "dockWindowId": "S-3-3",
+            "dockId": "EAST",
+            "startMinute": 1100,
+            "endMinute": 1110,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-3"
+          },
+          {
+            "dockWindowId": "S-3-4",
+            "dockId": "EAST",
+            "startMinute": 1110,
+            "endMinute": 1120,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-4"
+          },
+          {
+            "dockWindowId": "S-3-5",
+            "dockId": "EAST",
+            "startMinute": 1120,
+            "endMinute": 1130,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-5"
+          },
+          {
+            "dockWindowId": "S-3-6",
+            "dockId": "EAST",
+            "startMinute": 1130,
+            "endMinute": 1140,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-6"
+          },
+          {
+            "dockWindowId": "S-3-7",
+            "dockId": "WEST",
+            "startMinute": 1110,
+            "endMinute": 1120,
+            "simultaneousLoadLimit": 1,
+            "stagingEvidenceRef": "LOG-3-7"
+          }
+        ],
+        "allowCrossWave": false
+      }
+    ],
+    "loadRequests": [
+      {
+        "loadId": "L-1-01",
+        "waveId": "WAVE-1",
+        "massKg": 230,
+        "volumeLitres": 3100,
+        "profileCode": "profile-a",
+        "readyMinute": 840,
+        "latestStageFinishMinute": 866,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:00:00Z",
+        "stageByUtc": "2026-11-16T14:26:00Z",
+        "approvedCompartmentIds": [
+          "C-1-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-1",
+          "S-1-2"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-01",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-02",
+        "waveId": "WAVE-1",
+        "massKg": 250,
+        "volumeLitres": 2950,
+        "profileCode": "profile-b",
+        "readyMinute": 840,
+        "latestStageFinishMinute": 880,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:00:00Z",
+        "stageByUtc": "2026-11-16T14:40:00Z",
+        "approvedCompartmentIds": [
+          "C-1-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-2",
+          "S-1-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-02",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-03",
+        "waveId": "WAVE-1",
+        "massKg": 160,
+        "volumeLitres": 2400,
+        "profileCode": "profile-a",
+        "readyMinute": 840,
+        "latestStageFinishMinute": 850,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:00:00Z",
+        "stageByUtc": "2026-11-16T14:10:00Z",
+        "approvedCompartmentIds": [
+          "C-1-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-1"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-03",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-04",
+        "waveId": "WAVE-1",
+        "massKg": 170,
+        "volumeLitres": 2100,
+        "profileCode": "profile-b",
+        "readyMinute": 850,
+        "latestStageFinishMinute": 890,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:10:00Z",
+        "stageByUtc": "2026-11-16T14:50:00Z",
+        "approvedCompartmentIds": [
+          "C-1-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-4"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-04",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-05",
+        "waveId": "WAVE-1",
+        "massKg": 190,
+        "volumeLitres": 2700,
+        "profileCode": "profile-b",
+        "readyMinute": 860,
+        "latestStageFinishMinute": 900,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:20:00Z",
+        "stageByUtc": "2026-11-16T15:00:00Z",
+        "approvedCompartmentIds": [
+          "C-1-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-5",
+          "S-1-7"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-05",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-06",
+        "waveId": "WAVE-1",
+        "massKg": 80,
+        "volumeLitres": 1200,
+        "profileCode": "profile-a",
+        "readyMinute": 860,
+        "latestStageFinishMinute": 905,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:20:00Z",
+        "stageByUtc": "2026-11-16T15:05:00Z",
+        "approvedCompartmentIds": [
+          "C-1-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "missing",
+          "lotObservationRef": null,
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-07",
+        "waveId": "WAVE-1",
+        "massKg": 120,
+        "volumeLitres": 1200,
+        "profileCode": "profile-b",
+        "readyMinute": 878,
+        "latestStageFinishMinute": 891,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:38:00Z",
+        "stageByUtc": "2026-11-16T14:51:00Z",
+        "approvedCompartmentIds": [
+          "C-1-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-07",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-1-08",
+        "waveId": "WAVE-1",
+        "massKg": 640,
+        "volumeLitres": 5000,
+        "profileCode": "profile-a",
+        "readyMinute": 840,
+        "latestStageFinishMinute": 905,
+        "receiverAppointmentRef": "REC-1",
+        "readyAtUtc": "2026-11-16T14:00:00Z",
+        "stageByUtc": "2026-11-16T15:05:00Z",
+        "approvedCompartmentIds": [
+          "C-1-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-1-2",
+          "S-1-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-1",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-1-08",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-01",
+        "waveId": "WAVE-2",
+        "massKg": 230,
+        "volumeLitres": 3100,
+        "profileCode": "profile-a",
+        "readyMinute": 960,
+        "latestStageFinishMinute": 986,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:00:00Z",
+        "stageByUtc": "2026-11-16T16:26:00Z",
+        "approvedCompartmentIds": [
+          "C-2-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-1",
+          "S-2-2"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-01",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-02",
+        "waveId": "WAVE-2",
+        "massKg": 250,
+        "volumeLitres": 2950,
+        "profileCode": "profile-b",
+        "readyMinute": 960,
+        "latestStageFinishMinute": 1000,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:00:00Z",
+        "stageByUtc": "2026-11-16T16:40:00Z",
+        "approvedCompartmentIds": [
+          "C-2-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-2",
+          "S-2-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-02",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-03",
+        "waveId": "WAVE-2",
+        "massKg": 160,
+        "volumeLitres": 2400,
+        "profileCode": "profile-a",
+        "readyMinute": 960,
+        "latestStageFinishMinute": 970,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:00:00Z",
+        "stageByUtc": "2026-11-16T16:10:00Z",
+        "approvedCompartmentIds": [
+          "C-2-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-1"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-03",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-04",
+        "waveId": "WAVE-2",
+        "massKg": 170,
+        "volumeLitres": 2100,
+        "profileCode": "profile-b",
+        "readyMinute": 970,
+        "latestStageFinishMinute": 1010,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:10:00Z",
+        "stageByUtc": "2026-11-16T16:50:00Z",
+        "approvedCompartmentIds": [
+          "C-2-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-4"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-04",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-05",
+        "waveId": "WAVE-2",
+        "massKg": 145,
+        "volumeLitres": 2700,
+        "profileCode": "profile-b",
+        "readyMinute": 980,
+        "latestStageFinishMinute": 1020,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:20:00Z",
+        "stageByUtc": "2026-11-16T17:00:00Z",
+        "approvedCompartmentIds": [
+          "C-2-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-5",
+          "S-2-7"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-05",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-06",
+        "waveId": "WAVE-2",
+        "massKg": 80,
+        "volumeLitres": 1200,
+        "profileCode": "profile-a",
+        "readyMinute": 980,
+        "latestStageFinishMinute": 1025,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:20:00Z",
+        "stageByUtc": "2026-11-16T17:05:00Z",
+        "approvedCompartmentIds": [
+          "C-2-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-06",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-07",
+        "waveId": "WAVE-2",
+        "massKg": 120,
+        "volumeLitres": 1200,
+        "profileCode": "profile-b",
+        "readyMinute": 998,
+        "latestStageFinishMinute": 1011,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:38:00Z",
+        "stageByUtc": "2026-11-16T16:51:00Z",
+        "approvedCompartmentIds": [
+          "C-2-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-07",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-2-08",
+        "waveId": "WAVE-2",
+        "massKg": 120,
+        "volumeLitres": 16000,
+        "profileCode": "profile-a",
+        "readyMinute": 960,
+        "latestStageFinishMinute": 1025,
+        "receiverAppointmentRef": "REC-2",
+        "readyAtUtc": "2026-11-16T16:00:00Z",
+        "stageByUtc": "2026-11-16T17:05:00Z",
+        "approvedCompartmentIds": [
+          "C-2-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-2-2",
+          "S-2-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-2",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-2-08",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-01",
+        "waveId": "WAVE-3",
+        "massKg": 230,
+        "volumeLitres": 3100,
+        "profileCode": "profile-a",
+        "readyMinute": 1080,
+        "latestStageFinishMinute": 1106,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:00:00Z",
+        "stageByUtc": "2026-11-16T18:26:00Z",
+        "approvedCompartmentIds": [
+          "C-3-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-1",
+          "S-3-2"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-01",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-02",
+        "waveId": "WAVE-3",
+        "massKg": 250,
+        "volumeLitres": 2950,
+        "profileCode": "profile-b",
+        "readyMinute": 1080,
+        "latestStageFinishMinute": 1120,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:00:00Z",
+        "stageByUtc": "2026-11-16T18:40:00Z",
+        "approvedCompartmentIds": [
+          "C-3-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-2",
+          "S-3-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-02",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-03",
+        "waveId": "WAVE-3",
+        "massKg": 160,
+        "volumeLitres": 2400,
+        "profileCode": "profile-a",
+        "readyMinute": 1080,
+        "latestStageFinishMinute": 1090,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:00:00Z",
+        "stageByUtc": "2026-11-16T18:10:00Z",
+        "approvedCompartmentIds": [
+          "C-3-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-1"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-03",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-04",
+        "waveId": "WAVE-3",
+        "massKg": 170,
+        "volumeLitres": 2100,
+        "profileCode": "profile-b",
+        "readyMinute": 1090,
+        "latestStageFinishMinute": 1130,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:10:00Z",
+        "stageByUtc": "2026-11-16T18:50:00Z",
+        "approvedCompartmentIds": [
+          "C-3-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-4"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-04",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-05",
+        "waveId": "WAVE-3",
+        "massKg": 145,
+        "volumeLitres": 2700,
+        "profileCode": "profile-b",
+        "readyMinute": 1100,
+        "latestStageFinishMinute": 1140,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:20:00Z",
+        "stageByUtc": "2026-11-16T19:00:00Z",
+        "approvedCompartmentIds": [
+          "C-3-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-5",
+          "S-3-7"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-05",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-06",
+        "waveId": "WAVE-3",
+        "massKg": 80,
+        "volumeLitres": 1200,
+        "profileCode": "profile-a",
+        "readyMinute": 1100,
+        "latestStageFinishMinute": 1145,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:20:00Z",
+        "stageByUtc": "2026-11-16T19:05:00Z",
+        "approvedCompartmentIds": [
+          "C-3-A"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-a-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "stale",
+          "lotObservationRef": "OBS-3-06",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-07",
+        "waveId": "WAVE-3",
+        "massKg": 120,
+        "volumeLitres": 1200,
+        "profileCode": "profile-b",
+        "readyMinute": 1118,
+        "latestStageFinishMinute": 1131,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:38:00Z",
+        "stageByUtc": "2026-11-16T18:51:00Z",
+        "approvedCompartmentIds": [
+          "C-3-B"
+        ],
+        "allowedDockWindowIds": [
+          "S-3-3"
+        ],
+        "sealedLoad": true,
+        "approvalRef": "SPEC-profile-b-3",
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-07",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      },
+      {
+        "loadId": "L-3-08",
+        "waveId": "WAVE-3",
+        "massKg": 120,
+        "volumeLitres": 5000,
+        "profileCode": "profile-a",
+        "readyMinute": 1080,
+        "latestStageFinishMinute": 1145,
+        "receiverAppointmentRef": "REC-3",
+        "readyAtUtc": "2026-11-16T18:00:00Z",
+        "stageByUtc": "2026-11-16T19:05:00Z",
+        "approvedCompartmentIds": [],
+        "allowedDockWindowIds": [
+          "S-3-2",
+          "S-3-6"
+        ],
+        "sealedLoad": true,
+        "approvalRef": null,
+        "temperatureEvidence": {
+          "label": "shipper profile recorded by trusted preparer",
+          "state": "verified",
+          "lotObservationRef": "OBS-3-08",
+          "profileRevision": "2026-11-fixture-v1",
+          "permitsShipping": false
+        }
+      }
+    ],
+    "disruption": {
+      "unavailableCompartments": [
+        "C-2-B"
+      ],
+      "unavailableDockWindows": [
+        "S-3-2"
+      ],
+      "reason": "compartment preloading readiness lost; staging slot withdrawn",
+      "observationUtc": "2026-11-16T13:00:00Z"
+    }
+  },
+  "scenarioResults": [
+    {
+      "id": "baseline",
+      "rows": [
+        {
+          "loadId": "L-1-01",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-A",
+          "dockWindowId": "S-1-1",
+          "startUtc": "2026-11-16T14:00:00Z",
+          "endUtc": "2026-11-16T14:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-02",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-2",
+          "startUtc": "2026-11-16T14:10:00Z",
+          "endUtc": "2026-11-16T14:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-3",
+              "fromUtc": "2026-11-16T14:20:00Z",
+              "untilUtc": "2026-11-16T14:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-03",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "dock-in-use"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-04",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-4",
+          "startUtc": "2026-11-16T14:30:00Z",
+          "endUtc": "2026-11-16T14:40:00Z",
+          "waitMinutes": 20,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-4",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-05",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 190,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-mass",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-7",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [
+                "max-mass",
+                "max-volume"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-5",
+              "fromUtc": "2026-11-16T14:40:00Z",
+              "untilUtc": "2026-11-16T14:50:00Z",
+              "boardVetoCodes": [
+                "max-mass",
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-06",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-missing"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-07",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-08",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 640,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "max-mass"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-01",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-1",
+          "startUtc": "2026-11-16T16:00:00Z",
+          "endUtc": "2026-11-16T16:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-2",
+              "fromUtc": "2026-11-16T16:10:00Z",
+              "untilUtc": "2026-11-16T16:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-02",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-B",
+          "dockWindowId": "S-2-2",
+          "startUtc": "2026-11-16T16:10:00Z",
+          "endUtc": "2026-11-16T16:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-2",
+              "fromUtc": "2026-11-16T16:10:00Z",
+              "untilUtc": "2026-11-16T16:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-3",
+              "fromUtc": "2026-11-16T16:20:00Z",
+              "untilUtc": "2026-11-16T16:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-03",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "dock-in-use"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-04",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-B",
+          "dockWindowId": "S-2-4",
+          "startUtc": "2026-11-16T16:30:00Z",
+          "endUtc": "2026-11-16T16:40:00Z",
+          "waitMinutes": 20,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-4",
+              "fromUtc": "2026-11-16T16:30:00Z",
+              "untilUtc": "2026-11-16T16:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-05",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-7",
+              "fromUtc": "2026-11-16T16:30:00Z",
+              "untilUtc": "2026-11-16T16:40:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-5",
+              "fromUtc": "2026-11-16T16:40:00Z",
+              "untilUtc": "2026-11-16T16:50:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-06",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-6",
+          "startUtc": "2026-11-16T16:50:00Z",
+          "endUtc": "2026-11-16T17:00:00Z",
+          "waitMinutes": 30,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-6",
+              "fromUtc": "2026-11-16T16:50:00Z",
+              "untilUtc": "2026-11-16T17:00:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 30
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-07",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-08",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 16000,
+          "reasonCodes": [
+            "max-volume"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-01",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-A",
+          "dockWindowId": "S-3-1",
+          "startUtc": "2026-11-16T18:00:00Z",
+          "endUtc": "2026-11-16T18:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-2",
+              "fromUtc": "2026-11-16T18:10:00Z",
+              "untilUtc": "2026-11-16T18:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-02",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-2",
+          "startUtc": "2026-11-16T18:10:00Z",
+          "endUtc": "2026-11-16T18:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-2",
+              "fromUtc": "2026-11-16T18:10:00Z",
+              "untilUtc": "2026-11-16T18:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-3",
+              "fromUtc": "2026-11-16T18:20:00Z",
+              "untilUtc": "2026-11-16T18:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-03",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "dock-in-use"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-04",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-4",
+          "startUtc": "2026-11-16T18:30:00Z",
+          "endUtc": "2026-11-16T18:40:00Z",
+          "waitMinutes": 20,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-4",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-05",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-7",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-5",
+              "fromUtc": "2026-11-16T18:40:00Z",
+              "untilUtc": "2026-11-16T18:50:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-06",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-stale"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-07",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-08",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "shipper-approval"
+          ],
+          "evaluatedOptions": []
+        }
+      ],
+      "metrics": {
+        "requested": 24,
+        "loaded": 10,
+        "held": 14,
+        "waitMinutes": 120,
+        "changed": 0,
+        "loadedKg": 2030
+      },
+      "compartmentTotals": [
+        {
+          "compartmentId": "C-1-A",
+          "usedKg": 230,
+          "maxKg": 530,
+          "usedLitres": 3100,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-1-01"
+          ]
+        },
+        {
+          "compartmentId": "C-1-B",
+          "usedKg": 420,
+          "maxKg": 585,
+          "usedLitres": 5050,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-1-02",
+            "L-1-04"
+          ]
+        },
+        {
+          "compartmentId": "C-2-A",
+          "usedKg": 310,
+          "maxKg": 540,
+          "usedLitres": 4300,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-2-01",
+            "L-2-06"
+          ]
+        },
+        {
+          "compartmentId": "C-2-B",
+          "usedKg": 420,
+          "maxKg": 585,
+          "usedLitres": 5050,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-2-02",
+            "L-2-04"
+          ]
+        },
+        {
+          "compartmentId": "C-3-A",
+          "usedKg": 230,
+          "maxKg": 550,
+          "usedLitres": 3100,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-3-01"
+          ]
+        },
+        {
+          "compartmentId": "C-3-B",
+          "usedKg": 420,
+          "maxKg": 585,
+          "usedLitres": 5050,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-3-02",
+            "L-3-04"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recommended",
+      "rows": [
+        {
+          "loadId": "L-1-01",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-A",
+          "dockWindowId": "S-1-2",
+          "startUtc": "2026-11-16T14:10:00Z",
+          "endUtc": "2026-11-16T14:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-02",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-3",
+          "startUtc": "2026-11-16T14:20:00Z",
+          "endUtc": "2026-11-16T14:30:00Z",
+          "waitMinutes": 20,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-3",
+              "fromUtc": "2026-11-16T14:20:00Z",
+              "untilUtc": "2026-11-16T14:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-03",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-A",
+          "dockWindowId": "S-1-1",
+          "startUtc": "2026-11-16T14:00:00Z",
+          "endUtc": "2026-11-16T14:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-04",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-mass",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-4",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [
+                "max-mass",
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-05",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-7",
+          "startUtc": "2026-11-16T14:30:00Z",
+          "endUtc": "2026-11-16T14:40:00Z",
+          "waitMinutes": 10,
+          "massKg": 190,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-7",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-5",
+              "fromUtc": "2026-11-16T14:40:00Z",
+              "untilUtc": "2026-11-16T14:50:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-06",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-missing"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-07",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-08",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 640,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "max-mass"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-01",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-2",
+          "startUtc": "2026-11-16T16:10:00Z",
+          "endUtc": "2026-11-16T16:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-2",
+              "fromUtc": "2026-11-16T16:10:00Z",
+              "untilUtc": "2026-11-16T16:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-02",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-B",
+          "dockWindowId": "S-2-3",
+          "startUtc": "2026-11-16T16:20:00Z",
+          "endUtc": "2026-11-16T16:30:00Z",
+          "waitMinutes": 20,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-2",
+              "fromUtc": "2026-11-16T16:10:00Z",
+              "untilUtc": "2026-11-16T16:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-3",
+              "fromUtc": "2026-11-16T16:20:00Z",
+              "untilUtc": "2026-11-16T16:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-03",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-1",
+          "startUtc": "2026-11-16T16:00:00Z",
+          "endUtc": "2026-11-16T16:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-04",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-4",
+              "fromUtc": "2026-11-16T16:30:00Z",
+              "untilUtc": "2026-11-16T16:40:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-05",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-B",
+          "dockWindowId": "S-2-7",
+          "startUtc": "2026-11-16T16:30:00Z",
+          "endUtc": "2026-11-16T16:40:00Z",
+          "waitMinutes": 10,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-7",
+              "fromUtc": "2026-11-16T16:30:00Z",
+              "untilUtc": "2026-11-16T16:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-2-B",
+              "dockWindowId": "S-2-5",
+              "fromUtc": "2026-11-16T16:40:00Z",
+              "untilUtc": "2026-11-16T16:50:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-06",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-6",
+          "startUtc": "2026-11-16T16:50:00Z",
+          "endUtc": "2026-11-16T17:00:00Z",
+          "waitMinutes": 30,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-6",
+              "fromUtc": "2026-11-16T16:50:00Z",
+              "untilUtc": "2026-11-16T17:00:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 30
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-07",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-08",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 16000,
+          "reasonCodes": [
+            "max-volume"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-01",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-A",
+          "dockWindowId": "S-3-2",
+          "startUtc": "2026-11-16T18:10:00Z",
+          "endUtc": "2026-11-16T18:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-2",
+              "fromUtc": "2026-11-16T18:10:00Z",
+              "untilUtc": "2026-11-16T18:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-02",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-3",
+          "startUtc": "2026-11-16T18:20:00Z",
+          "endUtc": "2026-11-16T18:30:00Z",
+          "waitMinutes": 20,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-2",
+              "fromUtc": "2026-11-16T18:10:00Z",
+              "untilUtc": "2026-11-16T18:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-3",
+              "fromUtc": "2026-11-16T18:20:00Z",
+              "untilUtc": "2026-11-16T18:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-03",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-A",
+          "dockWindowId": "S-3-1",
+          "startUtc": "2026-11-16T18:00:00Z",
+          "endUtc": "2026-11-16T18:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-04",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-4",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-05",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-7",
+          "startUtc": "2026-11-16T18:30:00Z",
+          "endUtc": "2026-11-16T18:40:00Z",
+          "waitMinutes": 10,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-7",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-5",
+              "fromUtc": "2026-11-16T18:40:00Z",
+              "untilUtc": "2026-11-16T18:50:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-06",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-stale"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-07",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-08",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "shipper-approval"
+          ],
+          "evaluatedOptions": []
+        }
+      ],
+      "metrics": {
+        "requested": 24,
+        "loaded": 13,
+        "held": 11,
+        "waitMinutes": 150,
+        "changed": 9,
+        "loadedKg": 2480
+      },
+      "compartmentTotals": [
+        {
+          "compartmentId": "C-1-A",
+          "usedKg": 390,
+          "maxKg": 530,
+          "usedLitres": 5500,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-1-01",
+            "L-1-03"
+          ]
+        },
+        {
+          "compartmentId": "C-1-B",
+          "usedKg": 440,
+          "maxKg": 585,
+          "usedLitres": 5650,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-1-02",
+            "L-1-05"
+          ]
+        },
+        {
+          "compartmentId": "C-2-A",
+          "usedKg": 470,
+          "maxKg": 540,
+          "usedLitres": 6700,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-2-01",
+            "L-2-03",
+            "L-2-06"
+          ]
+        },
+        {
+          "compartmentId": "C-2-B",
+          "usedKg": 395,
+          "maxKg": 585,
+          "usedLitres": 5650,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-2-02",
+            "L-2-05"
+          ]
+        },
+        {
+          "compartmentId": "C-3-A",
+          "usedKg": 390,
+          "maxKg": 550,
+          "usedLitres": 5500,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-3-01",
+            "L-3-03"
+          ]
+        },
+        {
+          "compartmentId": "C-3-B",
+          "usedKg": 395,
+          "maxKg": 585,
+          "usedLitres": 5650,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-3-02",
+            "L-3-05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disruption",
+      "rows": [
+        {
+          "loadId": "L-1-01",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-A",
+          "dockWindowId": "S-1-2",
+          "startUtc": "2026-11-16T14:10:00Z",
+          "endUtc": "2026-11-16T14:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-02",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-3",
+          "startUtc": "2026-11-16T14:20:00Z",
+          "endUtc": "2026-11-16T14:30:00Z",
+          "waitMinutes": 20,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-2",
+              "fromUtc": "2026-11-16T14:10:00Z",
+              "untilUtc": "2026-11-16T14:20:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-3",
+              "fromUtc": "2026-11-16T14:20:00Z",
+              "untilUtc": "2026-11-16T14:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-03",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-A",
+          "dockWindowId": "S-1-1",
+          "startUtc": "2026-11-16T14:00:00Z",
+          "endUtc": "2026-11-16T14:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-A",
+              "dockWindowId": "S-1-1",
+              "fromUtc": "2026-11-16T14:00:00Z",
+              "untilUtc": "2026-11-16T14:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-04",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-mass",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-4",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [
+                "max-mass",
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-05",
+          "waveId": "WAVE-1",
+          "status": "loaded",
+          "compartmentId": "C-1-B",
+          "dockWindowId": "S-1-7",
+          "startUtc": "2026-11-16T14:30:00Z",
+          "endUtc": "2026-11-16T14:40:00Z",
+          "waitMinutes": 10,
+          "massKg": 190,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-7",
+              "fromUtc": "2026-11-16T14:30:00Z",
+              "untilUtc": "2026-11-16T14:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-1-B",
+              "dockWindowId": "S-1-5",
+              "fromUtc": "2026-11-16T14:40:00Z",
+              "untilUtc": "2026-11-16T14:50:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-1-06",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-missing"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-07",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-1-08",
+          "waveId": "WAVE-1",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 640,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "max-mass"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-01",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-2",
+          "startUtc": "2026-11-16T16:10:00Z",
+          "endUtc": "2026-11-16T16:20:00Z",
+          "waitMinutes": 10,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            },
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-2",
+              "fromUtc": "2026-11-16T16:10:00Z",
+              "untilUtc": "2026-11-16T16:20:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-02",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compartment-unavailable"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-03",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-1",
+          "startUtc": "2026-11-16T16:00:00Z",
+          "endUtc": "2026-11-16T16:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-1",
+              "fromUtc": "2026-11-16T16:00:00Z",
+              "untilUtc": "2026-11-16T16:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-04",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "compartment-unavailable"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-05",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compartment-unavailable"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-06",
+          "waveId": "WAVE-2",
+          "status": "loaded",
+          "compartmentId": "C-2-A",
+          "dockWindowId": "S-2-6",
+          "startUtc": "2026-11-16T16:50:00Z",
+          "endUtc": "2026-11-16T17:00:00Z",
+          "waitMinutes": 30,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-2-A",
+              "dockWindowId": "S-2-6",
+              "fromUtc": "2026-11-16T16:50:00Z",
+              "untilUtc": "2026-11-16T17:00:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 30
+            }
+          ]
+        },
+        {
+          "loadId": "L-2-07",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "compartment-unavailable"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-2-08",
+          "waveId": "WAVE-2",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 16000,
+          "reasonCodes": [
+            "max-volume"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-01",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 230,
+          "volumeLitres": 3100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "dock-in-use"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [
+                "dock-in-use"
+              ],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-02",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-3",
+          "startUtc": "2026-11-16T18:20:00Z",
+          "endUtc": "2026-11-16T18:30:00Z",
+          "waitMinutes": 20,
+          "massKg": 250,
+          "volumeLitres": 2950,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-3",
+              "fromUtc": "2026-11-16T18:20:00Z",
+              "untilUtc": "2026-11-16T18:30:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-03",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-A",
+          "dockWindowId": "S-3-1",
+          "startUtc": "2026-11-16T18:00:00Z",
+          "endUtc": "2026-11-16T18:10:00Z",
+          "waitMinutes": 0,
+          "massKg": 160,
+          "volumeLitres": 2400,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-A",
+              "dockWindowId": "S-3-1",
+              "fromUtc": "2026-11-16T18:00:00Z",
+              "untilUtc": "2026-11-16T18:10:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 0
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-04",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 170,
+          "volumeLitres": 2100,
+          "reasonCodes": [
+            "shared-capacity-or-dock",
+            "max-volume"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-4",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [
+                "max-volume"
+              ],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-05",
+          "waveId": "WAVE-3",
+          "status": "loaded",
+          "compartmentId": "C-3-B",
+          "dockWindowId": "S-3-7",
+          "startUtc": "2026-11-16T18:30:00Z",
+          "endUtc": "2026-11-16T18:40:00Z",
+          "waitMinutes": 10,
+          "massKg": 145,
+          "volumeLitres": 2700,
+          "reasonCodes": [
+            "compatible-window"
+          ],
+          "evaluatedOptions": [
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-7",
+              "fromUtc": "2026-11-16T18:30:00Z",
+              "untilUtc": "2026-11-16T18:40:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 10
+            },
+            {
+              "compartmentId": "C-3-B",
+              "dockWindowId": "S-3-5",
+              "fromUtc": "2026-11-16T18:40:00Z",
+              "untilUtc": "2026-11-16T18:50:00Z",
+              "boardVetoCodes": [],
+              "waitMinutes": 20
+            }
+          ]
+        },
+        {
+          "loadId": "L-3-06",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 80,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "thermal-evidence-stale"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-07",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 1200,
+          "reasonCodes": [
+            "staging-window"
+          ],
+          "evaluatedOptions": []
+        },
+        {
+          "loadId": "L-3-08",
+          "waveId": "WAVE-3",
+          "status": "held",
+          "compartmentId": null,
+          "dockWindowId": null,
+          "startUtc": null,
+          "endUtc": null,
+          "waitMinutes": null,
+          "massKg": 120,
+          "volumeLitres": 5000,
+          "reasonCodes": [
+            "shipper-approval"
+          ],
+          "evaluatedOptions": []
+        }
+      ],
+      "metrics": {
+        "requested": 24,
+        "loaded": 10,
+        "held": 14,
+        "waitMinutes": 110,
+        "changed": 3,
+        "loadedKg": 1855
+      },
+      "compartmentTotals": [
+        {
+          "compartmentId": "C-1-A",
+          "usedKg": 390,
+          "maxKg": 530,
+          "usedLitres": 5500,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-1-01",
+            "L-1-03"
+          ]
+        },
+        {
+          "compartmentId": "C-1-B",
+          "usedKg": 440,
+          "maxKg": 585,
+          "usedLitres": 5650,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-1-02",
+            "L-1-05"
+          ]
+        },
+        {
+          "compartmentId": "C-2-A",
+          "usedKg": 470,
+          "maxKg": 540,
+          "usedLitres": 6700,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-2-01",
+            "L-2-03",
+            "L-2-06"
+          ]
+        },
+        {
+          "compartmentId": "C-2-B",
+          "usedKg": 0,
+          "maxKg": 585,
+          "usedLitres": 0,
+          "maxLitres": 7500,
+          "loadIds": []
+        },
+        {
+          "compartmentId": "C-3-A",
+          "usedKg": 160,
+          "maxKg": 550,
+          "usedLitres": 2400,
+          "maxLitres": 8000,
+          "loadIds": [
+            "L-3-03"
+          ]
+        },
+        {
+          "compartmentId": "C-3-B",
+          "usedKg": 395,
+          "maxKg": 585,
+          "usedLitres": 5650,
+          "maxLitres": 7500,
+          "loadIds": [
+            "L-3-02",
+            "L-3-05"
+          ]
+        }
+      ]
+    }
+  ],
+  "decisionEvidence": {
+    "departureWave": {
+      "waveId": "WAVE-1",
+      "loadReview": {
+        "loadId": "L-1-06",
+        "plannerDecision": {
+          "status": "held",
+          "constraintEvaluation": {
+            "blockingCode": "thermal-evidence-missing",
+            "shipperPolicy": {
+              "approvalRef": "SPEC-profile-a-1",
+              "thermalEvidence": {
+                "lotState": "missing",
+                "comparison": {
+                  "requiredState": "verified",
+                  "downstreamDecision": {
+                    "reviewDisposition": "hold",
+                    "authorizationRecord": {
+                      "requiresOperatorReview": true,
+                      "authority": {
+                        "role": "designated food safety reviewer",
+                        "releaseAllowed": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
