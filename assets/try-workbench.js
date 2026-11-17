@@ -1,9 +1,12 @@
-import { compileSetup, MAX_RECORDS, SAMPLE, validateSetup } from './try-model.js'
+import { tryCopy } from './try-i18n.js'
+import { compileSetup, MAX_RECORDS, SAMPLE, validateSetup } from './try-model.js?v=3'
 import { downloadPlan, makePlanExport } from './try-plan-export.js'
 
 const $ = id => document.getElementById(id)
 const count = () => setup.jobs.length + setup.people.length
-let setup = structuredClone(SAMPLE)
+const copy = tryCopy(document.documentElement.lang)
+const sample = copy.sample ?? SAMPLE
+let setup = structuredClone(sample)
 let running = null
 let hasAttempt = false
 let requestId = 0
@@ -38,11 +41,11 @@ function changeSetup({ reset = false } = {}) {
   clearPlan()
   $('setup-error').textContent = ''
   if (reset) hasAttempt = false
-  const next = reset ? 'Sample restored. Find assignments to run it.'
-    : wasChecked ? 'Setup changed. Find assignments before reviewing or downloading a plan.'
+  const next = reset ? copy.resetNotice
+    : wasChecked ? copy.changed
     : ''
   $('setup-status').textContent = next
-  $('status').textContent = next || 'Run the sample or edit it first.'
+  $('status').textContent = next || copy.initial
 }
 
 function field(title, value, onChange, options = {}) {
@@ -75,12 +78,11 @@ function field(title, value, onChange, options = {}) {
 
 function editorRow(group, row, index) {
   const isJob = group === 'jobs'
-  const rowType = isJob ? 'Job' : 'Person'
   const item = element('li')
   const groupFields = element('fieldset')
-  const remove = element('button', 'Remove')
+  const remove = element('button', copy.remove)
   remove.type = 'button'
-  remove.setAttribute('aria-label', `Remove ${rowType.toLowerCase()} ${index + 1}`)
+  remove.setAttribute('aria-label', copy.removeRow(isJob, index + 1))
   remove.addEventListener('click', () => {
     setup[group].splice(index, 1)
     changeSetup()
@@ -88,15 +90,15 @@ function editorRow(group, row, index) {
     const next = $(group).children[Math.min(index, setup[group].length - 1)]
     ;(next?.querySelector('input') ?? $(isJob ? 'add-job' : 'add-person')).focus()
   })
-  groupFields.append(element('legend', `${rowType} ${index + 1}`),
-    field(`${rowType} name`, row.name, value => { row.name = value }, { maxLength: 80 }))
+  groupFields.append(element('legend', copy.rowLegend(isJob, index + 1)),
+    field(copy.rowName(isJob), row.name, value => { row.name = value }, { maxLength: 80 }))
   if (isJob) {
-    groupFields.append(field('Required skill', row.skill, value => { row.skill = value }, { maxLength: 80 }))
+    groupFields.append(field(copy.requiredSkill, row.skill, value => { row.skill = value }, { maxLength: 80 }))
   } else {
     groupFields.append(
-      field('Skills (separate with commas)', row.skills.join(', '), value => { row.skills = value.split(',').map(x => x.trim()).filter(Boolean) }, { maxLength: 1620 }),
-      field('Job limit', row.capacity, value => { row.capacity = value }, { type: 'number' }),
-      field('Available', row.available, value => { row.available = value }, { type: 'checkbox' }),
+      field(copy.skills, row.skills.join(', '), value => { row.skills = value.split(',').map(x => x.trim()).filter(Boolean) }, { maxLength: 1620 }),
+      field(copy.jobLimit, row.capacity, value => { row.capacity = value }, { type: 'number' }),
+      field(copy.available, row.available, value => { row.available = value }, { type: 'checkbox' }),
     )
   }
   groupFields.append(remove)
@@ -108,7 +110,7 @@ function renderEditor() {
   for (const group of ['jobs', 'people']) {
     $(group).replaceChildren(...setup[group].map((row, index) => editorRow(group, row, index)))
   }
-  $('record-count').textContent = `${count()} of 200 records`
+  $('record-count').textContent = copy.recordCount(count(), MAX_RECORDS)
   for (const button of ['add-job', 'add-person']) $(button).disabled = count() >= MAX_RECORDS
 }
 
@@ -126,8 +128,8 @@ function renderResult(input, problem, solution) {
   for (const row of plan.assignments) {
     const item = element('div')
     const detail = row.person?.name ?? (row.open_reason === 'no_eligible_person'
-      ? 'Open: no available person with the required skill and a positive job limit.'
-      : 'Open: not assigned in this plan.')
+      ? copy.ineligible
+      : copy.open)
     item.append(element('dt', row.job.name), element('dd', detail))
     list.append(item)
   }
@@ -135,7 +137,7 @@ function renderResult(input, problem, solution) {
   $('result').hidden = false
   currentPlan = plan
   $('download-actions').hidden = false
-  $('status').textContent = `${plan.assigned} of ${plan.assignments.length} jobs assigned by this plan.`
+  $('status').textContent = copy.resultCount(plan.assigned, plan.assignments.length)
   if (document.activeElement === $('run') || document.activeElement === document.body) $('review-heading').focus()
 }
 
@@ -152,10 +154,10 @@ function runPlan() {
   $('setup-status').textContent = ''
   $('setup-error').textContent = ''
   const input = structuredClone(setup)
-  const compiled = compileSetup(input)
+  const compiled = compileSetup(input, copy.validation)
   if (compiled.error) {
     $('setup-error').textContent = compiled.error
-    $('status').textContent = 'No plan was run.'
+    $('status').textContent = copy.noPlan
     return
   }
 
@@ -163,31 +165,31 @@ function runPlan() {
   try {
     worker = new Worker(new URL('./try-engine-worker.js', import.meta.url), { type: 'module' })
   } catch {
-    reviewError('The solver could not start. No plan was calculated.')
+    reviewError(copy.startFailure)
     return
   }
   const run = { worker, timer: 0 }
   running = run
   $('run').disabled = true
   $('result').setAttribute('aria-busy', 'true')
-  $('status').textContent = 'Finding assignments…'
-  run.timer = setTimeout(() => reviewError('The solver did not finish. No plan was calculated.'), 15000)
+  $('status').textContent = copy.running
+  run.timer = setTimeout(() => reviewError(copy.timeout), 15000)
   const currentId = ++requestId
   worker.onmessage = ({ data }) => {
     if (running !== run || data?.requestId !== currentId) return
     if (data.status !== 'solved') {
-      reviewError('The solver could not return a plan. No plan was calculated.')
+      reviewError(copy.solverFailure)
       return
     }
     stopRun()
     try {
       renderResult(input, compiled.problem, data.solution)
     } catch {
-      reviewError('The solver did not return a valid plan. No plan was calculated.')
+      reviewError(copy.invalidPlan)
     }
   }
   worker.onerror = () => {
-    if (running === run) reviewError('The solver could not load. No plan was calculated.')
+    if (running === run) reviewError(copy.loadFailure)
   }
   worker.postMessage({ requestId: currentId, problem: compiled.problem })
 }
@@ -195,33 +197,33 @@ function runPlan() {
 $('add-job').addEventListener('click', () => addRow('jobs', { name: '', skill: '' }))
 $('add-person').addEventListener('click', () => addRow('people', { name: '', skills: [], available: true, capacity: 1 }))
 $('reset').addEventListener('click', () => {
-  setup = structuredClone(SAMPLE)
+  setup = structuredClone(sample)
   changeSetup({ reset: true })
   renderEditor()
   $('import-status').textContent = ''
 })
 $('show-example').addEventListener('click', () => {
-  $('import-source').value = JSON.stringify(SAMPLE, null, 2)
+  $('import-source').value = JSON.stringify(sample, null, 2)
   $('import-source').focus()
 })
 $('import').addEventListener('click', () => {
   const raw = $('import-source').value
   if (raw.length > 2500000) {
-    $('import-status').textContent = 'This JSON is too long. Use a smaller setup.'
+    $('import-status').textContent = copy.importTooLong
     return
   }
   let input
   try {
     input = JSON.parse(raw)
   } catch {
-    $('import-status').textContent = 'That is not valid JSON. Check its format and try again.'
+    $('import-status').textContent = copy.invalidJson
     return
   }
   if (input?.version === 1 && Array.isArray(input.assignments)) {
-    $('import-status').textContent = 'This file contains results, not a setup. Paste a jobs and people list to import.'
+    $('import-status').textContent = copy.importResult
     return
   }
-  const error = validateSetup(input)
+  const error = validateSetup(input, copy.validation)
   if (error) {
     $('import-status').textContent = error
     return
@@ -232,7 +234,7 @@ $('import').addEventListener('click', () => {
   }
   changeSetup()
   renderEditor()
-  $('import-status').textContent = 'Setup imported.'
+  $('import-status').textContent = copy.imported
 })
 $('download-plan').addEventListener('click', () => {
   if (!currentPlan || running) return
@@ -240,7 +242,7 @@ $('download-plan').addEventListener('click', () => {
     $('download-status').textContent = ''
     downloadPlan(currentPlan)
   } catch {
-    $('download-status').textContent = 'Could not prepare the download. Try again.'
+    $('download-status').textContent = copy.downloadFailed
   }
 })
 $('run').addEventListener('click', runPlan)

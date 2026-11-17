@@ -17,28 +17,28 @@ const list = value => Array.isArray(value) && value.length <= 20 && value.every(
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value)
 const key = value => value.trim().toLowerCase()
 
-export function validateSetup(input) {
+export function validateSetup(input, messages) {
   if (!object(input) || !Array.isArray(input.jobs) || !Array.isArray(input.people)) {
-    return 'Include a jobs list and a people list.'
+    return messages?.missingLists ?? 'Include a jobs list and a people list.'
   }
-  if (input.jobs.length + input.people.length > MAX_RECORDS) return 'Use no more than 200 jobs and people combined.'
-  if (!input.jobs.length) return 'Add at least one job.'
+  if (input.jobs.length + input.people.length > MAX_RECORDS) return messages?.recordLimit ?? 'Use no more than 200 jobs and people combined.'
+  if (!input.jobs.length) return messages?.noJobs ?? 'Add at least one job.'
   for (const [index, row] of input.jobs.entries()) {
     if (!object(row) || !text(row.name) || !text(row.skill)) {
-      return `Job ${index + 1}: enter a name and required skill (1–80 characters each).`
+      return messages?.invalidJob(index + 1) ?? `Job ${index + 1}: enter a name and required skill (1–80 characters each).`
     }
   }
   for (const [index, row] of input.people.entries()) {
     if (!object(row) || !text(row.name) || !list(row.skills) || typeof row.available !== 'boolean'
       || !Number.isInteger(row.capacity) || row.capacity < 0 || row.capacity > MAX_RECORDS) {
-      return `Person ${index + 1}: enter a name, up to 20 skills, availability, and a whole-number job limit from 0 to 200.`
+      return messages?.invalidPerson(index + 1) ?? `Person ${index + 1}: enter a name, up to 20 skills, availability, and a whole-number job limit from 0 to 200.`
     }
   }
   return null
 }
 
-export function compileSetup(input) {
-  const error = validateSetup(input)
+export function compileSetup(input, messages) {
+  const error = validateSetup(input, messages)
   if (error) return { error }
   const skillSets = input.people.map(person => new Set(person.skills.map(key)))
   const worker_capacities = input.people.map(person => person.available ? person.capacity : 0)
