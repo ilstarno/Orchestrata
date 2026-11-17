@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
 <title>Review a field service plan | Orchestrata</title>
 <meta name="description" content="See which jobs stay covered after a technician calls out. Try the sample, or work with a spreadsheet on your device.">
-<link rel="stylesheet" href="../assets/try-review.css?v=delimiter1">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" sizes="any">
+<script src="../assets/try-site-theme.js"></script>
+<link rel="stylesheet" href="../assets/site-e977337f5208f0ac.css">
+<link rel="stylesheet" href="../assets/try-review.css?v=records1">
 <link rel="canonical" href="https://ilstarno.github.io/Orchestrata/try/">
 <link rel="alternate" hreflang="en" href="https://ilstarno.github.io/Orchestrata/try/">
 <link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/try/">
@@ -15,9 +19,26 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="mast"><div class="wrap"><a href="../">Orchestrata</a><a href="../solutions/">Planning examples</a></div></header>
-<main class="wrap" id="main" tabindex="-1">
-  <header class="intro">
+<header class="site-header try-site-header">
+  <div class="width header-content">
+    <a class="brand" aria-label="Orchestrata home" href="../"><img src="../assets/mark.svg" width="22" height="22" alt=""><span aria-hidden="true">rchestrata</span></a>
+    <details class="site-menu"><summary aria-controls="try-site-menu">Menu</summary></details>
+    <div class="header-menu-panel" id="try-site-menu">
+      <nav class="header-navigation" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../solutions/">Solutions</a>
+        <a href="../integrations/">Integrations</a>
+      </nav>
+      <div class="header-preferences">
+        <label class="theme-switcher" hidden for="try-theme-setting"><span>Theme</span>
+          <select id="try-theme-setting"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+        </label>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="width try-page" id="main" tabindex="-1">
+  <header class="try-intro">
     <h1>Make a dispatch plan</h1>
     <p>Bring your spreadsheet to see who can take each job and what stays open.</p>
   </header>
@@ -54,22 +75,35 @@
       <p>Choose an Excel workbook or two CSVs with up to 200 jobs and people combined. Your files stay on this device.</p>
       <div id="spreadsheet-import" hidden>
         <p><a href="../assets/try-example-workbook.xlsx" download>Download an example workbook</a></p>
-        <label for="sheet-workbook">Excel workbook (.xlsx)</label>
-        <input id="sheet-workbook" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <div class="file-slot" data-file-slot="sheet-workbook">
+          <label for="sheet-workbook">Excel workbook (.xlsx)</label>
+          <p class="file-drop-hint" aria-hidden="true">Drop your workbook here, or choose it below.</p>
+          <input id="sheet-workbook" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+          <div class="file-receipt"><p role="status" data-file-receipt></p><button type="button" class="text-button" data-remove-file hidden>Remove workbook</button></div>
+        </div>
         <details class="csv-option">
           <summary>Use two CSV files instead</summary>
           <div class="import-fields">
-            <label for="sheet-jobs-csv">Jobs CSV<input id="sheet-jobs-csv" type="file" accept=".csv,text/csv"></label>
-            <label for="sheet-people-csv">People CSV<input id="sheet-people-csv" type="file" accept=".csv,text/csv"></label>
+            <div class="file-slot" data-file-slot="sheet-jobs-csv">
+              <label for="sheet-jobs-csv">Jobs CSV</label>
+              <input id="sheet-jobs-csv" type="file" accept=".csv,text/csv">
+              <div class="file-receipt"><p role="status" data-file-receipt></p><button type="button" class="text-button" data-remove-file hidden>Remove jobs file</button></div>
+            </div>
+            <div class="file-slot" data-file-slot="sheet-people-csv">
+              <label for="sheet-people-csv">People CSV</label>
+              <input id="sheet-people-csv" type="file" accept=".csv,text/csv">
+              <div class="file-receipt"><p role="status" data-file-receipt></p><button type="button" class="text-button" data-remove-file hidden>Remove people file</button></div>
+            </div>
           </div>
         </details>
         <div class="actions"><button id="sheet-load" type="button">Open spreadsheet</button></div>
         <fieldset id="sheet-separator" hidden></fieldset>
         <div id="sheet-separator-choices" aria-label="Chosen CSV separators" role="group" hidden></div>
         <div id="sheet-mapper" hidden>
-          <h3 id="sheet-mapper-heading" tabindex="-1">Match the columns</h3>
+          <h3 id="sheet-mapper-heading" tabindex="-1">Review the spreadsheet</h3>
+          <div id="sheet-source-preview" aria-label="Source records"></div>
           <p id="sheet-progress" class="mapping-sheet"></p>
-          <p>Check the source heading and example beside each field. Change any match that is wrong or missing. Only the fields below are used; due dates and other columns are not used.</p>
+          <p>Choose only the matches that need attention. Due dates and other unused columns do not affect this plan.</p>
           <details class="mapping-help"><summary>Missing a column?</summary>
             <p>Put the column names in the first row. If a title comes first, choose the heading row if it appears in the first four rows. If the headings start farther down, move them up or export just the table. Use values, not formulas.</p>
             <p>Job name and required skill describe what needs doing. Person name and skills identify who can do it. Available and Job limit keep the plan from assigning work to someone who is out or already at capacity. Add any missing column to the workbook and reopen it.</p>
@@ -77,8 +111,9 @@
           <fieldset><legend>Jobs</legend><div id="sheet-map-jobs"></div></fieldset>
           <fieldset><legend>People</legend><div id="sheet-map-people"></div></fieldset>
           <div class="actions">
-            <button id="sheet-check" type="button">Check rows</button>
+            <button id="sheet-check" type="button" hidden>Check rows</button>
             <button id="sheet-apply" type="button" disabled>Calculate this plan</button>
+            <button id="sheet-discard" type="button">Discard preview</button>
           </div>
         </div>
         <p id="sheet-status" role="status"></p>
@@ -115,7 +150,8 @@
     <a href="../assets/try-spreadsheet-file.NOTICES.txt">Spreadsheet reader licenses</a>
   </footer>
 </main>
-<script type="module" src="../assets/try-review-workbench.js?v=delimiter2"></script>
+<script type="module" src="../assets/try-review-workbench.js?v=records1"></script>
+<script type="module" src="../assets/try-file-slots.js"></script>
 <script type="module" src="../assets/workflow-chooser.mjs"></script>
 </body>
 </html>

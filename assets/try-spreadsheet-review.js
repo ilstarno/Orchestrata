@@ -1,5 +1,6 @@
 import { fieldsByKind } from './try-sheet-mapper.js'
 import { headingPicker } from './try-heading-picker.js'
+import { columnCaption, renderSourcePreview } from './try-source-preview.js'
 
 const issuesByCode = {
   'heading-review': 'Choose which row contains the column names before calculating.',
@@ -51,7 +52,7 @@ function labeledSelect(label, items, current) {
 const indexOf = select => select.value === '' ? null : Number(select.value)
 
 // The file reader never gets editor state or a server destination.
-export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, suggestSheetColumns, inspectSpreadsheetHeadingRows, selectSpreadsheetHeadingRow, mapSpreadsheetWorkbook, replaceSetup }) {
+export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, suggestSheetColumns, inspectSpreadsheetHeadingRows, selectSpreadsheetHeadingRow, updateSpreadsheetCell, canUpdateSpreadsheetCells, mapSpreadsheetWorkbook, replaceSetup }) {
   const find = id => root.querySelector('#' + id)
   const load = find('sheet-load')
   const workbook = find('sheet-workbook')
@@ -60,6 +61,8 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
   const separator = find('sheet-separator')
   const choices = find('sheet-separator-choices')
   const mapper = find('sheet-mapper')
+  const sourcePreview = find('sheet-source-preview')
+  const discard = find('sheet-discard')
   const check = find('sheet-check')
   const progress = find('sheet-progress')
   const apply = find('sheet-apply')
@@ -69,6 +72,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
   let generation = 0
   let data = null
   let groups = null
+  let sourceEditors = new Map()
   let candidate = null
   let sourceName = null
   let csvSources = []
@@ -98,6 +102,8 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
       choices.replaceChildren()
     }
     mapper.hidden = true
+    sourcePreview?.replaceChildren()
+    sourceEditors.clear()
     find('sheet-map-jobs').replaceChildren()
     find('sheet-map-people').replaceChildren()
     clearPreview()
@@ -119,117 +125,133 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
   }
 
   function makeGroup(kind, container, mapping) {
+    const task = kind === 'jobs' ? 'jobs' : 'people'
+    const specs = fieldsByKind[kind]
     const names = data.sheets.map(sheet => sheet.name)
-    const { root: sheetLabel, select: sheetSelect } = labeledSelect(
-      kind === 'jobs' ? 'Jobs sheet' : 'People sheet', names, mapping.sheet,
-    )
+    const { root: sheetLabel, select: sheetSelect } = labeledSelect(`Which sheet has the ${task}?`, names, mapping.sheet)
     const sheetSource = element('p')
     sheetSource.className = 'mapping-sheet'
-    const matches = element('dl')
-    matches.className = 'mapping-summary'
+    const queue = element('div')
+    queue.className = 'mapping-queue'
     const edit = element('details')
     edit.className = 'mapping-edit'
-    const toggle = element('summary', 'Change source sheet or columns')
     const columns = element('div')
-    columns.className = 'import-fields'
-    edit.append(toggle, sheetLabel, columns)
+    const recoverySlot = element('div')
+    const toggle = element('summary', `Review or change ${task} matches`)
+    edit.append(toggle, columns)
+    const pickSheet = element('div')
+    let state = {}
+    let draft = new Set()
     let fieldControls = {}
     let recovery = null
 
-    function updateSummary() {
-      const sheet = data.sheets[indexOf(sheetSelect)]
-      const inspected = sheet && inspectSpreadsheetHeadingRows?.(data, indexOf(sheetSelect), kind)
-      const selectedHeading = inspected?.ok ? inspected.rows.find(row => row.row === inspected.currentRow) : null
-      const headingNote = selectedHeading && selectedHeading.row > 1
-        ? ` · Headings in row ${selectedHeading.row} · ${selectedHeading.skippedNonblankCount} nonblank ${selectedHeading.skippedNonblankCount === 1 ? 'row' : 'rows'} skipped`
-        : ''
-      sheetSource.textContent = sheet ? `From sheet: ${sheet.name}${headingNote}` : 'No source sheet selected'
-      matches.replaceChildren()
-      for (const spec of fieldsByKind[kind]) {
-        const line = element('div')
-        line.append(element('dt', spec.label))
-        const source = element('dd')
-        const field = fieldControls[spec.key]
-        const index = field ? indexOf(field) : null
-        if (!sheet || index === null) {
-          source.append(element('span', 'Needs a source column'))
-        } else {
-          const heading = sheet.headers[index] || `Column ${index + 1} (no heading)`
-          const example = sheet.rows.find(row => row[index] !== null && row[index] !== undefined
-            && String(row[index]).trim() !== '')?.[index]
-          source.append(element('span', heading))
-          source.append(element('small', example === undefined ? 'No example value' : `Example: ${example}`))
-        }
-        line.append(source)
-        matches.append(line)
-      }
-    }
-
-    function refresh(initial = false) {
-      const sheetIndex = indexOf(sheetSelect)
-      const sheet = data.sheets[sheetIndex]
-      columns.replaceChildren()
-      fieldControls = {}
-      if (sheet) {
-        const suggestions = initial ? mapping : suggestSheetColumns?.(kind, sheet.headers)?.fields ?? {}
-        for (const spec of fieldsByKind[kind]) {
-          const suggested = suggestions[spec.key]
-          const { root: label, select } = labeledSelect(spec.label, sheet.headers,
-            Number.isInteger(suggested) && suggested >= 0 && suggested < sheet.headers.length ? suggested : null)
-          select.addEventListener('change', () => {
-            updateSummary()
-            previewMatches('Choose the remaining source columns.')
-          })
-          columns.append(label)
-          fieldControls[spec.key] = select
-        }
-      }
-      updateSummary()
-      const inspected = sheet && inspectSpreadsheetHeadingRows?.(data, sheetIndex, kind)
-      const missing = firstUnresolved() !== null
-      recovery = headingPicker(inspected, Boolean(selectSpreadsheetHeadingRow && (inspected?.needsReview || inspected?.currentRow > 1 || missing)),
-        row => chooseHeadingRow(sheetIndex, row))
-      recoverySlot.replaceChildren(recovery.panel)
-    }
-
     function value() {
-      return {
-        sheet: indexOf(sheetSelect),
-        ...Object.fromEntries(fieldsByKind[kind].map(spec => [
-          spec.key, fieldControls[spec.key] ? indexOf(fieldControls[spec.key]) : null,
-        ])),
-      }
+      return { sheet: indexOf(sheetSelect), ...state }
     }
 
     function firstUnresolved() {
-      const selected = value()
-      if (selected.sheet === null) return sheetSelect
-      const encountered = new Set()
-      for (const spec of fieldsByKind[kind]) {
-        const index = selected[spec.key]
-        if (index === null || encountered.has(index)) return fieldControls[spec.key]
-        encountered.add(index)
-      }
-      return null
+      if (indexOf(sheetSelect) === null) return sheetSelect
+      const missing = specs.find(spec => state[spec.key] === null)
+      return missing ? fieldControls[missing.key] : null
     }
 
     function focus(control) {
       if (!control) return false
-      edit.open = true
+      if (control === sheetSelect && indexOf(sheetSelect) !== null) edit.open = true
       control.focus()
       return true
     }
 
+    function updateColumns() {
+      const sheetIndex = indexOf(sheetSelect)
+      const sheet = data.sheets[sheetIndex]
+      const inspected = sheet && inspectSpreadsheetHeadingRows?.(data, sheetIndex, kind)
+      const selected = inspected?.ok ? inspected.rows.find(row => row.row === inspected.currentRow) : null
+      const note = selected && selected.row > 1
+        ? ` · Headings in row ${selected.row} · ${selected.skippedNonblankCount} nonblank ${selected.skippedNonblankCount === 1 ? 'row' : 'rows'} skipped`
+        : ''
+      sheetSource.textContent = sheet ? `${sheet.name}${note}` : ''
+      queue.replaceChildren()
+      columns.replaceChildren()
+      pickSheet.replaceChildren()
+      fieldControls = {}
+      if (!sheet) pickSheet.append(sheetLabel)
+      else columns.append(sheetLabel)
+      if (sheet) {
+        const missing = specs.filter(spec => state[spec.key] === null)
+        if (missing.length) queue.append(element('p', missing.length === 1 ? 'One match to choose' : `${missing.length} matches to choose`))
+        for (const spec of specs) {
+          const current = state[spec.key]
+          const target = current === null ? queue : columns
+          const row = element('div')
+          row.className = 'mapping-decision'
+          const captions = sheet.headers.map((_, index) => columnCaption(sheet, index))
+          const { root: label, select } = labeledSelect(spec.label, captions, current)
+          for (const [index, option] of [...select.children].slice(1).entries()) {
+            option.disabled = specs.some(other => other.key !== spec.key && state[other.key] === index)
+          }
+          const confirm = element('button', `Use as ${spec.label.toLowerCase()}`)
+          confirm.type = 'button'
+          confirm.disabled = true
+          const example = element('p', current === null ? 'Choose a source column.' : captions[current])
+          example.className = 'mapping-sheet'
+          select.addEventListener('change', () => {
+            const choice = indexOf(select)
+            confirm.disabled = choice === current
+            example.textContent = choice === null ? 'No source column selected.' : captions[choice]
+            if (choice === current) draft.delete(spec.key)
+            else draft.add(spec.key)
+            previewMatches('Use the selected column before calculating.')
+          })
+          confirm.addEventListener('click', () => {
+            const choice = indexOf(select)
+            if (choice !== null && specs.some(other => other.key !== spec.key && state[other.key] === choice)) return
+            state[spec.key] = choice
+            draft = new Set()
+            updateColumns()
+            const ready = previewMatches('Choose the remaining source columns.')
+            const next = firstUnresolved()
+            if (next) focus(next)
+            else if (ready) apply.focus()
+            else toggle.focus()
+          })
+          row.append(label, example, confirm)
+          target.append(row)
+          fieldControls[spec.key] = select
+        }
+      }
+      queue.hidden = !queue.children.length
+      edit.hidden = !sheet
+      recovery = headingPicker(inspected, Boolean(selectSpreadsheetHeadingRow
+        && (inspected?.needsReview || inspected?.currentRow > 1 || firstUnresolved())),
+      row => chooseHeadingRow(sheetIndex, row))
+      recoverySlot.replaceChildren(recovery.panel)
+    }
+
+    function refresh(initial = false) {
+      const sheet = data.sheets[indexOf(sheetSelect)]
+      const suggestions = initial ? mapping : sheet && suggestSheetColumns?.(kind, sheet.headers)?.fields || {}
+      const used = new Set()
+      state = Object.fromEntries(specs.map(spec => {
+        const index = suggestions[spec.key]
+        if (!sheet || !Number.isInteger(index) || index < 0 || index >= sheet.headers.length || used.has(index)) return [spec.key, null]
+        used.add(index)
+        return [spec.key, index]
+      }))
+      draft = new Set()
+      updateColumns()
+    }
+
     sheetSelect.addEventListener('change', () => {
       refresh()
+      showRecords()
       previewMatches('Review the source sheet and choose any missing columns.')
     })
-    const recoverySlot = element('div')
-    container.replaceChildren(sheetSource, matches, edit, recoverySlot)
+    container.replaceChildren(sheetSource, pickSheet, recoverySlot, queue, edit)
     refresh(true)
-    edit.open = Boolean(firstUnresolved())
     return {
       value, firstUnresolved, focus, sheetSelect,
+      pending: () => draft.size > 0,
       headingBlocking: () => recovery?.blocking === true,
       focusHeading: () => {
         if (!recovery?.blocking) return false
@@ -237,6 +259,29 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
         return true
       },
     }
+  }
+
+  function showRecords() {
+    sourceEditors = renderSourcePreview(sourcePreview, data, [
+      groups.jobs.value().sheet, groups.people.value().sheet,
+    ], canUpdateSpreadsheetCells?.() ? reviseSource : null)
+  }
+
+  function reviseSource(sheet, row, column, value) {
+    const result = updateSpreadsheetCell?.(data, sheet, row, column, value)
+    if (!result?.ok) {
+      status.textContent = 'That value could not be saved to the preview. Your current plan is unchanged.'
+      return
+    }
+    const mapping = { jobs: groups.jobs.value(), people: groups.people.value() }
+    clearPreview()
+    data = result.workbook
+    renderGroups(mapping)
+    const ready = previewMatches('Review the remaining matches. Your current plan is unchanged.')
+    status.textContent = `Source row ${row} updated. ${status.textContent}`
+    if (ready) apply.focus()
+    else if (rules.children.length) rules.focus()
+    else focusUnresolved()
   }
 
   function focusUnresolved() {
@@ -252,6 +297,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
       jobs: makeGroup('jobs', find('sheet-map-jobs'), selections.jobs),
       people: makeGroup('people', find('sheet-map-people'), selections.people),
     }
+    showRecords()
   }
 
   function chooseHeadingRow(sheetIndex, row) {
@@ -385,18 +431,20 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
     mapper.hidden = false
     renderGroups(suggestColumnMapping(data))
     previewMatches('Choose the missing source columns.')
-    if (!focusUnresolved()) find('sheet-mapper-heading').focus()
+    find('sheet-mapper-heading').focus()
   }
 
   load.addEventListener('click', openSpreadsheet)
   check.addEventListener('click', () => checkRows(true))
 
   function previewMatches(hint) {
-    if (!checkRows(false) && !status.textContent) {
+    const ready = checkRows(false)
+    if (!ready && !status.textContent) {
       status.textContent = groups.jobs.headingBlocking() || groups.people.headingBlocking()
         ? 'Check which row contains the column names before continuing.'
         : hint
     }
+    return ready
   }
 
   function measureMatches() {
@@ -418,6 +466,10 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
     if (!groups) return
     clearPreview()
     const { jobs, people, allowed } = measureMatches()
+    if (groups.jobs.pending() || groups.people.pending()) {
+      status.textContent = 'Use the selected column to update this preview. The current plan is unchanged.'
+      return false
+    }
     if (groups.jobs.headingBlocking() || groups.people.headingBlocking()) {
       status.textContent = 'Check which row contains the column names. The current plan is unchanged.'
       if (showMissing) focusUnresolved()
@@ -435,7 +487,15 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
       for (const issue of parsed.issues.slice(0, 5)) {
         const index = issue.sheet ?? (issue.range === 'jobs' ? jobs.sheet : issue.range === 'people' ? people.sheet : null)
         const label = Number.isInteger(index) ? csvSources[index] || data.sheets[index]?.name : undefined
-        rules.append(element('li', issueText(issue, label)))
+        const line = element('li', issueText(issue, label))
+        const edit = sourceEditors.get(index)
+        if (edit && Number.isInteger(issue.row) && Number.isInteger(issue.column)) {
+          const button = element('button', `Edit source row ${issue.row}`)
+          button.type = 'button'
+          button.addEventListener('click', () => edit(issue.row, issue.column))
+          line.append(button)
+        }
+        rules.append(line)
       }
       if (parsed.issues.length > 5) rules.append(element('li', `${parsed.issues.length - 5} more rows need attention.`))
       if (showMissing && !focusUnresolved()) rules.focus()
@@ -454,6 +514,12 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, s
     reset()
     replaceSetup(next, file)
     status.textContent = 'Spreadsheet applied. Review the new plan above.'
+  })
+
+  discard?.addEventListener('click', () => {
+    reset()
+    status.textContent = 'Spreadsheet preview discarded. Your current plan is unchanged.'
+    workbook.focus()
   })
 
   function reset() {

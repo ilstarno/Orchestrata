@@ -311,7 +311,8 @@ $('open-csv').addEventListener('click', () => {
 
 const spreadsheetRoot = $('spreadsheet-import')
 if (spreadsheetRoot) {
-  import('./try-spreadsheet-review.js?v=delimiter2').then(({ wireSpreadsheetReview }) => {
+  Promise.all([import('./try-spreadsheet-review.js?v=records1'), import('./try-spreadsheet-cell.js')]).then(
+    ([{ wireSpreadsheetReview }, { updateSpreadsheetCell }]) => {
     let files
     importer = wireSpreadsheetReview(spreadsheetRoot, {
       replaceSetup: replaceFromSpreadsheet,
@@ -319,6 +320,8 @@ if (spreadsheetRoot) {
       suggestSheetColumns: (kind, headers) => files.suggestSheetColumns?.(kind, headers),
       inspectSpreadsheetHeadingRows: (workbook, sheet, kind) => files.inspectSpreadsheetHeadingRows?.(workbook, sheet, kind),
       selectSpreadsheetHeadingRow: (workbook, sheet, row) => files.selectSpreadsheetHeadingRow?.(workbook, sheet, row),
+      canUpdateSpreadsheetCells: () => true,
+      updateSpreadsheetCell,
       mapSpreadsheetWorkbook: (workbook, mapping) => files.mapSpreadsheetWorkbook(workbook, mapping),
       async readFiles({ workbook, jobs, people, csvDelimiters }) {
         files ??= await import('./try-spreadsheet-file.js?v=delimiter1')

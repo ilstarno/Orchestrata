@@ -1,33 +1,23 @@
 :root {
-  color-scheme: light;
-  --paper: oklch(97.4% .008 162);
-  --ink: oklch(21% .019 162);
-  --surface: oklch(93.4% .013 162);
-  --wash: oklch(88% .026 162);
-  --rule: oklch(74% .018 162);
-  --quiet: oklch(40% .020 162);
-  --accent: oklch(39% .109 160);
-  --accent-ink: oklch(98% .006 160);
-  font-family: system-ui, sans-serif;
-  font-synthesis: none;
+  --surface: var(--dataset-surface);
+  --wash: var(--dataset-head);
+  --quiet: var(--muted);
+  --accent-ink: var(--on-accent);
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body { margin: 0; background: var(--paper); color: var(--ink); }
-.wrap { width: min(67rem, 100% - 2rem); margin-inline: auto; }
-.mast { border-bottom: 1px solid var(--rule); }
-.mast .wrap { min-height: 3.75rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.mast a:first-child { font-size: 1.15rem; font-weight: 750; text-decoration: none; color: var(--ink); }
-main { padding-block: clamp(1.5rem, 4vw, 3.25rem); }
+.try-site-header { position: static; }
+.try-site-header .header-menu-panel { justify-content: flex-end; gap: 1.35rem; }
+.try-site-header .theme-switcher select { width: auto; }
+.try-page { padding-block: clamp(1.5rem, 4vw, 3.25rem); }
 a { color: var(--accent); text-underline-offset: .18em; }
-.skip { position: absolute; inset-inline-start: 1rem; inset-block-start: .5rem; transform: translateY(-200%); padding: .6rem; background: var(--paper); }
-.skip:focus { transform: none; }
 h1, h2, h3 { line-height: 1.08; margin: 0; text-wrap: balance; }
 h1 { max-width: 22ch; font-size: clamp(2.25rem, 5.2vw, 4.35rem); letter-spacing: -.04em; }
 h2 { font-size: clamp(1.35rem, 2.5vw, 1.9rem); letter-spacing: -.025em; }
 h3 { font-size: 1.16rem; }
 p { line-height: 1.55; text-wrap: pretty; }
-.intro p { max-width: 60ch; color: var(--quiet); margin-block: .75rem 1.75rem; }
+.try-intro p { max-width: 60ch; color: var(--quiet); margin-block: .75rem 1.75rem; }
 .plan { background: var(--surface); border-top: 3px solid var(--accent); padding: clamp(1rem, 3vw, 2rem); }
 .plan-head { display: flex; gap: 1rem; align-items: start; justify-content: flex-start; column-gap: 1.5rem; flex-wrap: wrap; }
 .plan-head p { margin-block: .3rem .75rem; }
@@ -70,6 +60,15 @@ input[type=checkbox] { accent-color: var(--accent); }
 }
 .csv-option { margin-block: .75rem; }
 .csv-option summary { cursor: pointer; padding-block: .55rem; }
+.file-slot { min-inline-size: 0; padding: .8rem; border: 1px dashed var(--quiet); background: var(--surface); overflow-wrap: anywhere; }
+.file-slot > label { font-weight: 650; }
+.file-slot input { margin-block-start: .4rem; }
+.file-slot[data-drop-ready] { outline: 2px solid var(--accent); outline-offset: 2px; }
+.file-drop-hint { margin-block-start: .25rem; color: var(--quiet); }
+.file-receipt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .75rem; }
+.file-receipt p { flex: 1 1 12rem; margin-block-start: .25rem; color: var(--quiet); }
+.file-receipt p:empty { display: none; }
+@media (pointer: coarse) { .file-drop-hint { display: none; } }
 #sheet-mapper { margin-block-start: 1.25rem; }
 #sheet-mapper fieldset { margin-block: .8rem; }
 #sheet-mapper legend { font-weight: 700; }
@@ -96,3 +95,16 @@ input[type=checkbox] { accent-color: var(--accent); }
 .heading-picker small { display: block; color: var(--quiet); }
 .heading-picker button { margin-block-start: .4rem; }
 #sheet-separator legend { max-width: 100%; overflow-wrap: anywhere; }
+.source-sheet { margin-block: .6rem; max-width: 100%; }
+.source-sheet summary { cursor: pointer; font-weight: 650; padding-block: .4rem; }
+.source-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
+.source-scroll table { min-width: max-content; table-layout: auto; font-size: .875rem; }
+.source-scroll th, .source-scroll td { max-width: 16rem; overflow-wrap: anywhere; }
+.source-sheet > button { margin-block-start: .4rem; }
+.mapping-queue p { margin-block: .35rem; }
+.mapping-decision { display: grid; gap: .35rem; padding-block: .5rem; max-width: 36rem; }
+.mapping-decision button { justify-self: start; }
+.mapping-decision label, .mapping-decision select { min-width: 0; max-width: 100%; }
+.source-editor { display: grid; gap: .5rem; max-width: 32rem; }
+.source-editor button { justify-self: start; }
+#sheet-issues button { display: block; margin-block: .35rem; }
