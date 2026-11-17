@@ -56,3 +56,15 @@
   font-size: .9rem;
   color: var(--ink);
 }
+
+/* Wrap long lines on a phone without changing the text copied from a block. */
+@media (max-width: 44rem) {
+  [data-doc-reader] pre,
+  [data-doc-reader] pre > code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  [data-doc-reader] .docs-example pre { max-block-size: 20rem; }
+}

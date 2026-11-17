@@ -1,4 +1,5 @@
-import { compileSetup, describePlan, MAX_RECORDS, SAMPLE, validateSetup } from './try-model.js'
+import { compileSetup, MAX_RECORDS, SAMPLE, validateSetup } from './try-model.js'
+import { downloadPlan, makePlanExport } from './try-plan-export.js'
 
 const $ = id => document.getElementById(id)
 const count = () => setup.jobs.length + setup.people.length
@@ -6,6 +7,7 @@ let setup = structuredClone(SAMPLE)
 let running = null
 let hasAttempt = false
 let requestId = 0
+let currentPlan = null
 
 function element(tag, text) {
   const node = document.createElement(tag)
@@ -22,13 +24,25 @@ function stopRun() {
   $('result').removeAttribute('aria-busy')
 }
 
-function changeSetup() {
-  stopRun()
-  $('setup-error').textContent = ''
+function clearPlan() {
+  currentPlan = null
   $('result').hidden = true
-  $('status').textContent = hasAttempt
-    ? 'The setup changed. Find assignments to check it again.'
-    : 'Run the sample or edit it first.'
+  $('result').replaceChildren()
+  $('download-actions').hidden = true
+  $('download-status').textContent = ''
+}
+
+function changeSetup({ reset = false } = {}) {
+  const wasChecked = hasAttempt
+  stopRun()
+  clearPlan()
+  $('setup-error').textContent = ''
+  if (reset) hasAttempt = false
+  const next = reset ? 'Sample restored. Find assignments to run it.'
+    : wasChecked ? 'Setup changed. Find assignments before reviewing or downloading a plan.'
+    : ''
+  $('setup-status').textContent = next
+  $('status').textContent = next || 'Run the sample or edit it first.'
 }
 
 function field(title, value, onChange, options = {}) {
@@ -107,33 +121,35 @@ function addRow(group, row) {
 }
 
 function renderResult(input, problem, solution) {
-  const plan = describePlan(input, problem, solution)
-  const assigned = plan.filter(row => row.person !== null).length
+  const plan = makePlanExport(input, problem, solution)
   const list = element('dl')
-  for (const row of plan) {
+  for (const row of plan.assignments) {
     const item = element('div')
-    const detail = row.person ?? (row.reason === 'eligible'
+    const detail = row.person?.name ?? (row.open_reason === 'no_eligible_person'
       ? 'Open: no available person with the required skill and a positive job limit.'
       : 'Open: not assigned in this plan.')
-    item.append(element('dt', row.job), element('dd', detail))
+    item.append(element('dt', row.job.name), element('dd', detail))
     list.append(item)
   }
   $('result').replaceChildren(list)
   $('result').hidden = false
-  $('status').textContent = `${assigned} of ${plan.length} jobs assigned by this plan.`
+  currentPlan = plan
+  $('download-actions').hidden = false
+  $('status').textContent = `${plan.assigned} of ${plan.assignments.length} jobs assigned by this plan.`
   if (document.activeElement === $('run') || document.activeElement === document.body) $('review-heading').focus()
 }
 
 function reviewError(message) {
   stopRun()
-  $('result').hidden = true
+  clearPlan()
   $('status').textContent = message
 }
 
 function runPlan() {
   if (running) return
   hasAttempt = true
-  $('result').hidden = true
+  clearPlan()
+  $('setup-status').textContent = ''
   $('setup-error').textContent = ''
   const input = structuredClone(setup)
   const compiled = compileSetup(input)
@@ -180,7 +196,7 @@ $('add-job').addEventListener('click', () => addRow('jobs', { name: '', skill: '
 $('add-person').addEventListener('click', () => addRow('people', { name: '', skills: [], available: true, capacity: 1 }))
 $('reset').addEventListener('click', () => {
   setup = structuredClone(SAMPLE)
-  changeSetup()
+  changeSetup({ reset: true })
   renderEditor()
   $('import-status').textContent = ''
 })
@@ -201,6 +217,10 @@ $('import').addEventListener('click', () => {
     $('import-status').textContent = 'That is not valid JSON. Check its format and try again.'
     return
   }
+  if (input?.version === 1 && Array.isArray(input.assignments)) {
+    $('import-status').textContent = 'This file contains results, not a setup. Paste a jobs and people list to import.'
+    return
+  }
   const error = validateSetup(input)
   if (error) {
     $('import-status').textContent = error
@@ -213,6 +233,15 @@ $('import').addEventListener('click', () => {
   changeSetup()
   renderEditor()
   $('import-status').textContent = 'Setup imported.'
+})
+$('download-plan').addEventListener('click', () => {
+  if (!currentPlan || running) return
+  try {
+    $('download-status').textContent = ''
+    downloadPlan(currentPlan)
+  } catch {
+    $('download-status').textContent = 'Could not prepare the download. Try again.'
+  }
 })
 $('run').addEventListener('click', runPlan)
 renderEditor()

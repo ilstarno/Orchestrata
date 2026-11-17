@@ -21,11 +21,12 @@
       <h2 id="setup-heading">1. Set up the work</h2>
       <p id="record-count" aria-live="polite"></p>
       <div class="actions">
-        <button class="primary" id="run" type="button" aria-describedby="search-help privacy">Find assignments</button>
+        <button class="primary" id="run" type="button" aria-describedby="search-help privacy setup-status">Find assignments</button>
         <button id="reset" type="button">Reset sample</button>
       </div>
       <p class="note" id="search-help">Up to 200 jobs and people combined. This plans who can take each job, not times or routes.</p>
       <p id="setup-error" role="alert"></p>
+      <p id="setup-status" class="note"></p>
       <div class="two-column">
         <section class="editor-part" aria-labelledby="job-heading"><h3 id="job-heading">Jobs</h3><ol id="jobs"></ol><button id="add-job" type="button">Add a job</button></section>
         <section class="editor-part" aria-labelledby="people-heading"><h3 id="people-heading">People</h3><ol id="people"></ol><button id="add-person" type="button">Add a person</button></section>
@@ -44,6 +45,13 @@
       <h2 id="review-heading" tabindex="-1">2. Review the assignments</h2>
       <p id="status" role="status">Run the sample or edit it first.</p>
       <div id="result" hidden></div>
+      <div id="download-actions" hidden>
+        <div class="actions">
+          <button id="download-plan" type="button" aria-describedby="download-note">Download this plan</button>
+        </div>
+        <p id="download-note" class="note">Downloads the assignments as JSON, not a setup you can import again.</p>
+        <p id="download-status" role="status"></p>
+      </div>
     </section>
   </div>
   <section class="demo-close" aria-labelledby="next-heading">
@@ -52,6 +60,6 @@
     </section>
 </main>
 <footer class="wrap"><a href="../assets/try-engine-licenses.txt">Software licenses</a></footer>
-<script type="module" src="../assets/try-workbench.js"></script>
+<script type="module" src="../assets/try-workbench.js?v=2"></script>
 </body>
 </html>
