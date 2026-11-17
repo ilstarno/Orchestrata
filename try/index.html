@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Review a field service plan | Orchestrata</title>
 <meta name="description" content="See which jobs stay covered after a technician calls out. Try the sample, or work with a spreadsheet on your device.">
-<link rel="stylesheet" href="../assets/try-review.css">
+<link rel="stylesheet" href="../assets/try-review.css?v=delimiter1">
 <link rel="canonical" href="https://ilstarno.github.io/Orchestrata/try/">
 <link rel="alternate" hreflang="en" href="https://ilstarno.github.io/Orchestrata/try/">
 <link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/try/">
@@ -64,9 +64,16 @@
           </div>
         </details>
         <div class="actions"><button id="sheet-load" type="button">Open spreadsheet</button></div>
+        <fieldset id="sheet-separator" hidden></fieldset>
+        <div id="sheet-separator-choices" aria-label="Chosen CSV separators" role="group" hidden></div>
         <div id="sheet-mapper" hidden>
           <h3 id="sheet-mapper-heading" tabindex="-1">Match the columns</h3>
-          <p>Choose the sheet and column for each field. The first row in each sheet should contain the column names. Use values, not formulas, in the data rows.</p>
+          <p id="sheet-progress" class="mapping-sheet"></p>
+          <p>Check the source heading and example beside each field. Change any match that is wrong or missing. Only the fields below are used; due dates and other columns are not used.</p>
+          <details class="mapping-help"><summary>Missing a column?</summary>
+            <p>Put the column names in the first row. If a title comes first, choose the heading row if it appears in the first four rows. If the headings start farther down, move them up or export just the table. Use values, not formulas.</p>
+            <p>Job name and required skill describe what needs doing. Person name and skills identify who can do it. Available and Job limit keep the plan from assigning work to someone who is out or already at capacity. Add any missing column to the workbook and reopen it.</p>
+          </details>
           <fieldset><legend>Jobs</legend><div id="sheet-map-jobs"></div></fieldset>
           <fieldset><legend>People</legend><div id="sheet-map-people"></div></fieldset>
           <div class="actions">
@@ -75,7 +82,7 @@
           </div>
         </div>
         <p id="sheet-status" role="status"></p>
-        <ul id="sheet-issues" aria-label="Rows to check"></ul>
+        <ul id="sheet-issues" tabindex="-1" aria-label="Rows to check"></ul>
       </div>
       <p id="workbook-status" role="status"></p>
     </section>
@@ -108,7 +115,7 @@
     <a href="../assets/try-spreadsheet-file.NOTICES.txt">Spreadsheet reader licenses</a>
   </footer>
 </main>
-<script type="module" src="../assets/try-review-workbench.js"></script>
+<script type="module" src="../assets/try-review-workbench.js?v=delimiter2"></script>
 <script type="module" src="../assets/workflow-chooser.mjs"></script>
 </body>
 </html>

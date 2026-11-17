@@ -311,16 +311,28 @@ $('open-csv').addEventListener('click', () => {
 
 const spreadsheetRoot = $('spreadsheet-import')
 if (spreadsheetRoot) {
-  import('./try-spreadsheet-review.js').then(({ wireSpreadsheetReview }) => {
+  import('./try-spreadsheet-review.js?v=delimiter2').then(({ wireSpreadsheetReview }) => {
     let files
     importer = wireSpreadsheetReview(spreadsheetRoot, {
       replaceSetup: replaceFromSpreadsheet,
       suggestColumnMapping: workbook => files.suggestColumnMapping(workbook),
+      suggestSheetColumns: (kind, headers) => files.suggestSheetColumns?.(kind, headers),
+      inspectSpreadsheetHeadingRows: (workbook, sheet, kind) => files.inspectSpreadsheetHeadingRows?.(workbook, sheet, kind),
+      selectSpreadsheetHeadingRow: (workbook, sheet, row) => files.selectSpreadsheetHeadingRow?.(workbook, sheet, row),
       mapSpreadsheetWorkbook: (workbook, mapping) => files.mapSpreadsheetWorkbook(workbook, mapping),
-      async readFiles({ workbook, jobs, people }) {
-        files ??= await import('./try-spreadsheet-file.js')
+      async readFiles({ workbook, jobs, people, csvDelimiters }) {
+        files ??= await import('./try-spreadsheet-file.js?v=delimiter1')
         if (workbook) return files.parseSpreadsheetFile(workbook)
-        const [a, b] = await Promise.all([files.parseSpreadsheetFile(jobs), files.parseSpreadsheetFile(people)])
+        async function readCsv(file, csvSlot, requiredColumns) {
+          const csvDelimiter = csvDelimiters?.[csvSlot]
+          const parsed = await files.parseSpreadsheetFile(file, { csvDelimiter })
+          if (csvDelimiter && (
+            (parsed.ok && parsed.workbook.sheets[0]?.headers.length < requiredColumns)
+            || (!parsed.ok && parsed.issues.some(issue => issue.code === 'invalid-file'))
+          )) return { ok: false, csvSlot, issues: [{ code: 'csv-delimiter-choice-invalid' }] }
+          return parsed.ok ? parsed : { ...parsed, csvSlot }
+        }
+        const [a, b] = await Promise.all([readCsv(jobs, 'jobs', 2), readCsv(people, 'people', 4)])
         if (!a.ok) return a
         if (!b.ok) return b
         const inputs = [

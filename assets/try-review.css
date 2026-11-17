@@ -81,3 +81,18 @@ input[type=checkbox] { accent-color: var(--accent); }
 
 #plan-source { overflow-wrap: anywhere; }
 #download-actions p { margin-block-end: 0; }
+.mapping-summary { margin: 0; }
+.mapping-summary > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: .5rem; padding-block: .3rem; border-bottom: 1px solid var(--rule); }
+.mapping-summary dt { font-weight: 650; }
+.mapping-summary dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.mapping-summary small { display: block; color: var(--quiet); }
+.mapping-edit, .mapping-help { margin-block: .55rem; }
+.mapping-edit summary, .mapping-help summary { min-height: 44px; display: list-item; padding-block: .6rem; color: var(--accent); cursor: pointer; }
+.mapping-edit > label { max-width: 28rem; }
+.mapping-sheet { margin: 0 0 .35rem; color: var(--quiet); overflow-wrap: anywhere; }
+.heading-picker ol { margin: .4rem 0; padding-inline-start: 1.25rem; }
+.heading-picker li { padding-block: .65rem; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; }
+.heading-picker li p { margin: .25rem 0; }
+.heading-picker small { display: block; color: var(--quiet); }
+.heading-picker button { margin-block-start: .4rem; }
+#sheet-separator legend { max-width: 100%; overflow-wrap: anywhere; }
