@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try job assignment | Orchestrata</title>
+<meta name="description" content="Change the jobs and people in a sample, then see what can be assigned under your rules.">
+<link rel="stylesheet" href="../assets/try-workbench.css">
+<link rel="canonical" href="https://ilstarno.github.io/Orchestrata/try/">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a href="../" aria-label="Orchestrata home">Orchestrata</a><a href="../solutions/">Planning examples</a></div></header>
+<main class="wrap" id="main" tabindex="-1">
+  <h1>Which jobs can your team cover?</h1>
+  <p>Give each job a skill it needs. Set who’s available and how many jobs each person can take. Then find a plan that covers as many jobs as possible.</p>
+  <p class="note" id="privacy">Use sample names. This demo runs in your browser and does not send your entries anywhere.</p>
+  <noscript><p>This demo needs JavaScript to edit the sample and run the solver.</p></noscript>
+  <div id="workbench" hidden>
+    <section class="editor" aria-labelledby="setup-heading">
+      <h2 id="setup-heading">1. Set up the work</h2>
+      <p id="record-count" aria-live="polite"></p>
+      <div class="actions">
+        <button class="primary" id="run" type="button" aria-describedby="search-help privacy">Find assignments</button>
+        <button id="reset" type="button">Reset sample</button>
+      </div>
+      <p class="note" id="search-help">Up to 200 jobs and people combined. This plans who can take each job, not times or routes.</p>
+      <p id="setup-error" role="alert"></p>
+      <div class="two-column">
+        <section class="editor-part" aria-labelledby="job-heading"><h3 id="job-heading">Jobs</h3><ol id="jobs"></ol><button id="add-job" type="button">Add a job</button></section>
+        <section class="editor-part" aria-labelledby="people-heading"><h3 id="people-heading">People</h3><ol id="people"></ol><button id="add-person" type="button">Add a person</button></section>
+      </div>
+      <details class="advanced">
+        <summary>Import setup JSON</summary>
+        <label for="import-source">Setup JSON</label>
+        <p id="import-help">Paste jobs and people in the sample format. Import replaces the current setup after validation.</p>
+        <textarea id="import-source" rows="9" aria-describedby="import-help"></textarea>
+        <button id="import" type="button">Import setup</button>
+        <button id="show-example" type="button">Show JSON format</button>
+        <p id="import-status" role="status"></p>
+      </details>
+    </section>
+    <section class="review" aria-labelledby="review-heading">
+      <h2 id="review-heading" tabindex="-1">2. Review the assignments</h2>
+      <p id="status" role="status">Run the sample or edit it first.</p>
+      <div id="result" hidden></div>
+    </section>
+  </div>
+  <section class="demo-close" aria-labelledby="next-heading">
+      <h2 id="next-heading">Try it with your own workflow</h2>
+      <a href="../work-with-us/">Discuss a planning pilot</a>
+    </section>
+</main>
+<footer class="wrap"><a href="../assets/try-engine-licenses.txt">Software licenses</a></footer>
+<script type="module" src="../assets/try-workbench.js"></script>
+</body>
+</html>
