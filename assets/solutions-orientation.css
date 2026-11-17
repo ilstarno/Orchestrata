@@ -1,0 +1,40 @@
+.buyer-orientation {
+  --choices-gap: clamp(1.5rem, 4vw, 4rem);
+  --choices-copy: min(100%, 59ch);
+  padding-block: clamp(2.5rem, 7vw, 6rem);
+}
+.buyer-orientation .choices-intro { max-width: var(--choices-copy); }
+.buyer-orientation h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.03; letter-spacing: -.035em; }
+.buyer-orientation h2 { font-size: clamp(1.65rem, 3vw, 2.5rem); line-height: 1.12; }
+.buyer-orientation :where(h1,h2) { text-wrap: balance; }
+.buyer-orientation .choices-intro p { font-size: clamp(1.125rem, 1.5vw, 1.25rem); margin-block: 1rem 0; }
+.buyer-orientation .choices-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.buyer-orientation .choice {
+  display: grid; grid-template-columns: minmax(13rem, 1fr) minmax(0, 2fr);
+  gap: .5rem var(--choices-gap);
+  align-items: baseline; border-block-start: 1px solid var(--rule); padding-block: 1.25rem;
+  scroll-margin-block-start: 6rem;
+}
+.buyer-orientation .choice:last-child { border-block-end: 1px solid var(--rule); }
+.buyer-orientation .choice a { font-size: 1.15rem; font-weight: 650; padding-block: .35rem; justify-self: start; }
+.buyer-orientation .choice p { margin: 0; max-width: 55ch; }
+.buyer-orientation .choices-section { margin-block-start: var(--choices-gap); }
+.buyer-orientation .choices-disclosure { margin-block: 1rem; }
+.buyer-orientation .choices-disclosure > summary { cursor: pointer; min-height: 44px; width: fit-content; align-content: center; }
+.buyer-orientation .choices-disclosure > summary::marker { color: var(--accent); }
+.buyer-orientation .choices-close { max-width: var(--choices-copy); }
+.buyer-orientation .choices-close a { display: inline-flex; align-items: center; min-height: 44px; }
+.buyer-orientation :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 44rem) {
+ .buyer-orientation .choice { grid-template-columns: minmax(0, 1fr); }
+ .buyer-orientation .choice a { min-height: 44px; align-content: center; padding-block: .4rem; }
+}
+.platform-references { margin-block: 2rem; }
+.platform-references > summary {
+  cursor: pointer;
+  min-block-size: 44px;
+  inline-size: fit-content;
+  align-content: center;
+}
+.platform-references > summary::marker { color: var(--accent); }
+.file-preview [data-preview-original][hidden] { display: none; }

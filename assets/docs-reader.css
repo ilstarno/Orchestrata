@@ -1,0 +1,58 @@
+[data-doc-reader] pre {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow: auto;
+  overflow-wrap: normal;
+  white-space: pre;
+  tab-size: 4;
+}
+
+[data-doc-reader] .docs-example {
+  margin: 1.1rem 0 1.6rem;
+  padding: 0;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  border-block: 1px solid var(--rule);
+  background: var(--dataset-surface);
+  color: var(--ink);
+}
+
+.docs-example-bar { padding-inline: .8rem; }
+.docs-example-bar, .docs-example-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 .65rem;
+  align-items: center;
+}
+.docs-example-bar { justify-content: space-between; }
+.docs-example-label { padding-block: .65rem; font-size: .9rem; font-weight: 600; }
+.docs-example-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  font: inherit;
+  font-size: .9rem;
+  min-block-size: 44px;
+  padding-inline: .25rem;
+  text-underline-offset: .2em;
+  cursor: pointer;
+}
+@media (hover: hover) { .docs-example-button:hover { text-decoration: underline; } }
+[data-doc-reader] .docs-example pre {
+  margin: 0;
+  padding: .8rem;
+  border: 0;
+  border-block-start: 1px solid var(--rule);
+  max-block-size: 26rem;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  line-height: 1.55;
+}
+.docs-example pre:focus-visible, .docs-example-button:focus-visible { outline-offset: -2px; }
+.docs-example-status:not(:empty) {
+  display: block;
+  padding: .35rem .8rem .5rem;
+  border-block-start: 1px solid var(--rule);
+  font-size: .9rem;
+  color: var(--ink);
+}
