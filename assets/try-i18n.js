@@ -78,6 +78,56 @@ const fr = {
   },
 }
 
+const sq = {
+  "remove": "Hiqni",
+  "requiredSkill": "Aftësia e kërkuar",
+  "skills": "Aftësitë (ndajini me presje)",
+  "jobLimit": "Sa detyra mund të marrë",
+  "available": "Në dispozicion",
+  "resetNotice": "Shembulli u rikthye. Zgjidhni «Ndani detyrat» për të parë planin.",
+  "changed": "Të dhënat ndryshuan. Ndajini detyrat përsëri për të parë ose shkarkuar planin e ri.",
+  "initial": "Provojeni shembullin siç është ose ndryshojeni para se të ndani detyrat.",
+  "ineligible": "Pa caktuar: nuk ka asnjë person në dispozicion që e ka aftësinë e kërkuar dhe mund të marrë të paktën një detyrë.",
+  "open": "Pa caktuar në këtë plan.",
+  "noPlan": "Nuk u llogarit asnjë plan.",
+  "startFailure": "Llogaritja nuk nisi. Nuk u krijua asnjë plan.",
+  "running": "Po ndahen detyrat…",
+  "timeout": "Llogaritja zgjati më shumë se koha e lejuar. Nuk u krijua asnjë plan.",
+  "solverFailure": "Llogaritja nuk nxori një plan.",
+  "invalidPlan": "Rezultati nuk është i vlefshëm. Nuk shfaqet asnjë plan.",
+  "loadFailure": "Nuk u ngarkua programi që ndan detyrat. Nuk u krijua asnjë plan.",
+  "importTooLong": "Ky tekst JSON është tepër i gjatë. Provoni me një listë më të shkurtër.",
+  "invalidJson": "Ky tekst nuk është në formatin e duhur JSON. Kontrollojeni dhe provojeni përsëri.",
+  "importResult": "Ky skedar përmban një rezultat, jo të dhënat fillestare. Për import, ngjitni listat «jobs» dhe «people».",
+  "imported": "Listat u importuan.",
+  "downloadFailed": "Skedari nuk mund të shkarkohej. Provojeni përsëri.",
+  rowLegend: (job, n) => `${job ? 'Detyra' : 'Personi'} ${n}`,
+  rowName: job => job ? 'Emri i detyrës' : 'Emri i personit',
+  removeRow: (job, n) => `Hiqni ${job ? 'detyrën' : 'personin'} ${n}`,
+  recordCount: (n, max) => `Detyra dhe persona gjithsej: ${n} nga ${max}`,
+  resultCount: (n, total) => `Detyra të caktuara: ${n} nga ${total}`,
+  validation: {
+    missingLists: 'Përfshini një listë «jobs» dhe një listë «people».',
+    recordLimit: 'Mund të përdorni deri në 200 detyra dhe persona gjithsej.',
+    noJobs: 'Shtoni të paktën një detyrë.',
+    invalidJob: n => `Detyra ${n}: shkruani emrin dhe aftësinë e kërkuar, nga 1 deri në 80 shenja secila.`,
+    invalidPerson: n => `Personi ${n}: shkruani emrin (1–80 shenja) dhe deri në 20 aftësi (1–80 shenja secila), shënoni nëse është në dispozicion dhe vendosni një numër të plotë detyrash nga 0 deri në 200.`,
+  },
+  sample: {
+    jobs: [
+      { name: 'Riparimi i ashensorit', skill: 'Riparim' },
+      { name: 'Kontrolli i sigurisë', skill: 'Kontroll' },
+      { name: 'Mirëmbajtja parandaluese', skill: 'Mirëmbajtje' },
+    ],
+    people: [
+      { name: 'Ana', skills: ['Riparim'], available: true, capacity: 1 },
+      { name: 'Rami', skills: ['Riparim', 'Mirëmbajtje'], available: true, capacity: 1 },
+      { name: 'Noor', skills: ['Kontroll', 'Mirëmbajtje'], available: true, capacity: 1 },
+    ],
+  },
+}
+
 export function tryCopy(language) {
-  return language.toLowerCase().split('-')[0] === 'fr' ? fr : en
+  const base = language.toLowerCase().split('-')[0]
+  return base === 'sq' ? sq : base === 'fr' ? fr : en
 }

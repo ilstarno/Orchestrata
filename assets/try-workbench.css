@@ -55,3 +55,8 @@ textarea { display: block; max-width: 52ch; margin-block: .5rem; resize: vertica
 .actions { position: sticky; inset-block-start: 0; z-index: 1; background: var(--paper); padding-block: .5rem; }
 .demo-close { margin-block-start: 2rem; padding-block-start: 1.5rem; border-block-start: 1px solid var(--line); }
 footer { padding-block: 1rem; border-block-start: 1px solid var(--line); }
+
+.demo-language-links { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: 0; padding: 0; list-style: none; }
+.demo-language-links li { margin: 0; }
+.demo-language-links a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.demo-language-links a[aria-current="page"] { font-weight: 650; }
