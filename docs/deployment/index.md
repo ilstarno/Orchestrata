@@ -38,10 +38,20 @@ See the [local API guide](../api/) for request and response details and the [bac
 The [standalone engine repository](https://github.com/ilstarno/orchestrata-engine) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. Build the SDK from matching source; this guide does not require a packaged release. On the engine checkout, with stable Rust:
 
 ```sh
-cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+(
+  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
+      exit 1
+  fi
+  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
+)
 ```
 
-This build command is for the engine checkout, not the public API checkout above.
+Run this from the standalone engine repository, not the API repository above. The command finds the right build file for your checkout.
 
 Follow the SDK README for loader and runtime requirements for your language. Use the native library from the same checkout and an ABI-compatible binding. A native library built on one platform is not proof of packaging support for other platforms.
 

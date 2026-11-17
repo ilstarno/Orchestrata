@@ -38,10 +38,20 @@ De [handleiding voor de lokale API](../api/) beschrijft de aanvragen en antwoord
 De [repository van de zelfstandige engine](https://github.com/ilstarno/orchestrata-engine) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. Bouw de SDK uit de bijbehorende broncode. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
 
 ```sh
-cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+(
+  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
+      exit 1
+  fi
+  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
+)
 ```
 
-Deze bouwopdracht geldt voor de checkout van de engine, niet voor die van de openbare API hierboven.
+Voer dit uit in de repository van de zelfstandige engine, niet in de API-repository hierboven. Het commando zoekt zelf het juiste Cargo-bestand.
 
 Raadpleeg de README van de SDK voor de vereisten voor het laden van de bibliotheek en de runtime van uw taal. Gebruik de native bibliotheek uit dezelfde checkout en een ABI-compatibele binding. Dat u de native bibliotheek op één platform kunt bouwen, bewijst niet dat pakketdistributie op andere platforms wordt ondersteund.
 

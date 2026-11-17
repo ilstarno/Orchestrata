@@ -38,10 +38,20 @@ Otwórz lokalny adres wyświetlony przez polecenie. Serwer deweloperski przekazu
 [Repozytorium samodzielnego silnika](https://github.com/ilstarno/orchestrata-engine) zawiera silnik w Rust, bibliotekę natywną i powiązania dla C#, Javy, Pythona, Node.js, PHP i Go. Skompiluj SDK z pasujących źródeł. W lokalnej kopii repozytorium silnika, przy użyciu stabilnego Rusta, uruchom:
 
 ```sh
-cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+(
+  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
+      exit 1
+  fi
+  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
+)
 ```
 
-Uruchom to polecenie w kopii repozytorium silnika, nie w użytej powyżej kopii publicznego API.
+Uruchom polecenie w repozytorium samodzielnego silnika, a nie w repozytorium API opisanym powyżej. Polecenie samo znajdzie właściwy plik Cargo.
 
 Sprawdź w pliku README zestawu SDK wymagania dotyczące ładowania biblioteki i środowiska uruchomieniowego danego języka. Używaj biblioteki natywnej z tej samej kopii repozytorium i powiązania zgodnego z ABI. Możliwość zbudowania biblioteki natywnej na jednej platformie nie dowodzi dostępności pakietów dla innych platform.
 

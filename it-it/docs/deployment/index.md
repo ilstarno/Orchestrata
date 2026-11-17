@@ -38,10 +38,20 @@ La [guida all’API locale](../api/) spiega richieste e risposte. Per problemi d
 Il [repository del motore autonomo](https://github.com/ilstarno/orchestrata-engine) include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:
 
 ```sh
-cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+(
+  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
+      exit 1
+  fi
+  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
+)
 ```
 
-Esegui questo comando nella copia del motore, non in quella dell’API pubblica usata sopra.
+Esegui il comando nel repository del motore autonomo, non in quello dell’API citato sopra. Il comando individua il file di compilazione da usare.
 
 Consultare il README dell’SDK per i requisiti di caricamento e di runtime del linguaggio in uso. Usare la libreria nativa della stessa revisione estratta e un binding compatibile con l’ABI. La compilazione della libreria nativa su una piattaforma non dimostra che siano supportati pacchetti per altre piattaforme.
 

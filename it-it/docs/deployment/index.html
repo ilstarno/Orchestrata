@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p>La <a href="../api/">guida all’API locale</a> spiega richieste e risposte. Per problemi di avvio o di proxy, consulta la <a href="../../../docs/backend-setup/">guida alla configurazione e alla risoluzione dei problemi del backend (in inglese)</a>.</p>
 <h2 id="section-valutare-il-motore-autonomo-e-gli-sdk">Valutare il motore autonomo e gli SDK</h2>
 <p>Il <a href="https://github.com/ilstarno/orchestrata-engine">repository del motore autonomo</a> include il motore Rust, la libreria nativa e i binding per C#, Java, Python, Node.js, PHP e Go. Compila l’SDK dai sorgenti corrispondenti. Dalla copia locale del motore, con Rust stabile, esegui:</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>Esegui questo comando nella copia del motore, non in quella dell’API pubblica usata sopra.</p>
+<p>Esegui il comando nel repository del motore autonomo, non in quello dell’API citato sopra. Il comando individua il file di compilazione da usare.</p>
 <p>Consultare il README dell’SDK per i requisiti di caricamento e di runtime del linguaggio in uso. Usare la libreria nativa della stessa revisione estratta e un binding compatibile con l’ABI. La compilazione della libreria nativa su una piattaforma non dimostra che siano supportati pacchetti per altre piattaforme.</p>
 <h2 id="section-lista-di-controllo-prima-di-un-test-su-cluster">Lista di controllo prima di un test su cluster</h2>
 <p>Valuta il cluster separatamente. I controlli locali non dimostrano che un’immagine, la configurazione di un servizio cloud gestito o l’accesso pubblico siano pronti. Usa solo dati di esempio e lascia disattivato l’accesso pubblico.</p>

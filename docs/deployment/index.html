@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p>See the <a href="../api/">local API guide</a> for request and response details and the <a href="../backend-setup/">backend setup and troubleshooting guide (English)</a> if startup or the proxy fails.</p>
 <h2 id="section-evaluate-the-standalone-engine-and-sdks">Evaluate the standalone engine and SDKs</h2>
 <p>The <a href="https://github.com/ilstarno/orchestrata-engine">standalone engine repository</a> contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. Build the SDK from matching source; this guide does not require a packaged release. On the engine checkout, with stable Rust:</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>This build command is for the engine checkout, not the public API checkout above.</p>
+<p>Run this from the standalone engine repository, not the API repository above. The command finds the right build file for your checkout.</p>
 <p>Follow the SDK README for loader and runtime requirements for your language. Use the native library from the same checkout and an ABI-compatible binding. A native library built on one platform is not proof of packaging support for other platforms.</p>
 <h2 id="section-checklist-before-testing-on-a-cluster">Checklist before testing on a cluster</h2>
 <p>Treat cluster use as a separate evaluation. The local checks above do not establish that an image, a managed-cloud configuration, or public access is ready. Use only sample data and leave public ingress disabled.</p>

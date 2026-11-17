@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p>De <a href="../api/">handleiding voor de lokale API</a> beschrijft de aanvragen en antwoorden. Raadpleeg bij start- of proxyproblemen de <a href="../../../docs/backend-setup/">backendhandleiding en probleemoplossing (Engels)</a>.</p>
 <h2 id="section-de-zelfstandige-engine-en-de-sdk-s-evalueren">De zelfstandige engine en de SDK’s evalueren</h2>
 <p>De <a href="https://github.com/ilstarno/orchestrata-engine">repository van de zelfstandige engine</a> bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. Bouw de SDK uit de bijbehorende broncode. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>Deze bouwopdracht geldt voor de checkout van de engine, niet voor die van de openbare API hierboven.</p>
+<p>Voer dit uit in de repository van de zelfstandige engine, niet in de API-repository hierboven. Het commando zoekt zelf het juiste Cargo-bestand.</p>
 <p>Raadpleeg de README van de SDK voor de vereisten voor het laden van de bibliotheek en de runtime van uw taal. Gebruik de native bibliotheek uit dezelfde checkout en een ABI-compatibele binding. Dat u de native bibliotheek op één platform kunt bouwen, bewijst niet dat pakketdistributie op andere platforms wordt ondersteund.</p>
 <h2 id="section-checklist-voor-een-clustertest">Checklist vóór een clustertest</h2>
 <p>Beoordeel clustergebruik apart. De controles hierboven tonen niet aan dat een containerimage, configuratie voor een beheerde cloud of publieke toegang klaar is voor gebruik. Gebruik alleen voorbeeldgegevens en laat publieke toegang uitgeschakeld.</p>

@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p><a href="../api/">Przewodnik po lokalnym API</a> opisuje żądania i odpowiedzi. W razie problemów z uruchomieniem lub proxy skorzystaj z <a href="../../../docs/backend-setup/">instrukcji konfiguracji i rozwiązywania problemów z backendem (po angielsku)</a>.</p>
 <h2 id="section-ocena-samodzielnego-silnika-i-zestawow-sdk">Ocena samodzielnego silnika i zestawów SDK</h2>
 <p><a href="https://github.com/ilstarno/orchestrata-engine">Repozytorium samodzielnego silnika</a> zawiera silnik w Rust, bibliotekę natywną i powiązania dla C#, Javy, Pythona, Node.js, PHP i Go. Skompiluj SDK z pasujących źródeł. W lokalnej kopii repozytorium silnika, przy użyciu stabilnego Rusta, uruchom:</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>Uruchom to polecenie w kopii repozytorium silnika, nie w użytej powyżej kopii publicznego API.</p>
+<p>Uruchom polecenie w repozytorium samodzielnego silnika, a nie w repozytorium API opisanym powyżej. Polecenie samo znajdzie właściwy plik Cargo.</p>
 <p>Sprawdź w pliku README zestawu SDK wymagania dotyczące ładowania biblioteki i środowiska uruchomieniowego danego języka. Używaj biblioteki natywnej z tej samej kopii repozytorium i powiązania zgodnego z ABI. Możliwość zbudowania biblioteki natywnej na jednej platformie nie dowodzi dostępności pakietów dla innych platform.</p>
 <h2 id="section-lista-kontrolna-przed-testem-na-klastrze">Lista kontrolna przed testem na klastrze</h2>
 <p>Oceniaj pracę na klastrze osobno. Lokalne kontrole nie dowodzą gotowości obrazu, konfiguracji zarządzanej chmury ani dostępu publicznego. Używaj tylko danych przykładowych i pozostaw dostęp publiczny wyłączony.</p>

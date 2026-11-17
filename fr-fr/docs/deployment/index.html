@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p>Le <a href="../api/">guide de l’API locale</a> décrit les requêtes et les réponses. En cas de problème de démarrage ou de proxy, consultez le <a href="../../../docs/backend-setup/">guide de configuration et de dépannage du backend (en anglais)</a>.</p>
 <h2 id="section-evaluer-le-moteur-autonome-et-les-sdk">Évaluer le moteur autonome et les SDK</h2>
 <p>Le <a href="https://github.com/ilstarno/orchestrata-engine">dépôt du moteur autonome</a> contient le moteur Rust, la bibliothèque native et les liaisons pour C#, Java, Python, Node.js, PHP et Go. Compilez le SDK à partir des sources correspondantes. Depuis la copie locale du dépôt du moteur, avec Rust stable, exécutez :</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>Exécutez cette commande dans la copie du moteur, pas dans celle de l’API publique utilisée ci-dessus.</p>
+<p>Lancez cette commande dans le dépôt du moteur autonome, et non dans celui de l’API ci-dessus. Elle détecte automatiquement le fichier de compilation à utiliser.</p>
 <p>Consultez le README du SDK pour connaître les exigences de chargement et d’environnement d’exécution propres à votre langage. Utilisez la bibliothèque native issue de la même révision du dépôt et une liaison compatible avec l’ABI. La compilation de la bibliothèque native sur une plateforme ne prouve pas que le conditionnement en paquets est pris en charge sur d’autres plateformes.</p>
 <h2 id="section-liste-de-verification-avant-un-essai-en-cluster">Liste de vérification avant un essai en cluster</h2>
 <p>Évaluez le cluster séparément. Les contrôles locaux ne démontrent pas qu’une image, une configuration de cloud managé ou un accès public sont prêts. Utilisez uniquement des données d’exemple et laissez l’accès public désactivé.</p>

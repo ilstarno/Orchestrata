@@ -66,11 +66,21 @@ predict waiting times, or establish service-level achievement.
 ## Reproduce and check
 
 Use Python 3.10 or later with the system's IANA time-zone data and an
-Orchestrata native ABI V1 library from the standalone engine. From the engine
-checkout, build the library with:
+Orchestrata native ABI V1 library. Run this from the root of the standalone
+engine repository to build the library:
 
 ```sh
-cargo build --locked --release --manifest-path backend/Cargo.toml -p orchestrata-ffi
+(
+  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
+      exit 1
+  fi
+  CARGO_TARGET_DIR="$PWD/target" cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
+)
 ```
 
 Then from this sample directory, on Linux (substitute the native library file
@@ -78,7 +88,7 @@ for your platform):
 
 ```sh
 python -m unittest -v
-python reproduce.py --library /path/to/engine/backend/target/release/liborchestrata_ffi.so
+python reproduce.py --library /path/to/engine/target/release/liborchestrata_ffi.so
 ```
 
 The check rebuilds all four JSON documents in memory, calls the native

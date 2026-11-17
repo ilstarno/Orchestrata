@@ -51,9 +51,19 @@ curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
 <p>Der <a href="../api/">Leitfaden zur lokalen API</a> erklärt Anfragen und Antworten. Bei Start- oder Proxyproblemen hilft die <a href="../../../docs/backend-setup/">Backend-Einrichtung und Fehlerbehebung (Englisch)</a>.</p>
 <h2 id="section-eigenstandige-engine-und-sdks-evaluieren">Eigenständige Engine und SDKs evaluieren</h2>
 <p>Das <a href="https://github.com/ilstarno/orchestrata-engine">Repository der eigenständigen Engine</a> enthält die Rust-Engine, die native Bibliothek und Anbindungen für C#, Java, Python, Node.js, PHP und Go. Bauen Sie das SDK aus dem passenden Quellstand. Führen Sie im Checkout der Engine mit stabilem Rust Folgendes aus:</p>
-<pre><code class="language-sh">cargo build --manifest-path backend/Cargo.toml --release --locked -p orchestrata-ffi
+<pre><code class="language-sh">(
+  if [ -f Cargo.toml ] &amp;&amp; [ -f crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=Cargo.toml
+  elif [ -f backend/Cargo.toml ] &amp;&amp; [ -f backend/crates/ffi/include/orchestrata.h ]; then
+      engine_manifest=backend/Cargo.toml
+  else
+      printf &#x27;%s\n&#x27; &#x27;Run these commands from the standalone engine repository.&#x27; &gt;&amp;2
+      exit 1
+  fi
+  cargo build --manifest-path &quot;$engine_manifest&quot; --release --locked -p orchestrata-ffi
+)
 </code></pre>
-<p>Dieser Build-Befehl gilt für den Engine-Checkout, nicht für den oben verwendeten Checkout der öffentlichen API.</p>
+<p>Führen Sie den Befehl im Repository der eigenständigen Engine aus, nicht im oben genannten API-Repository. Der Befehl findet die passende Build-Datei automatisch.</p>
 <p>Die Anforderungen an das Laden der Bibliothek und die Laufzeitumgebung Ihrer Sprache stehen in der README des SDKs. Verwenden Sie die native Bibliothek aus demselben Checkout und eine ABI-kompatible Anbindung. Dass sich die native Bibliothek auf einer Plattform bauen lässt, belegt nicht, dass für andere Plattformen Pakete unterstützt werden.</p>
 <h2 id="section-checkliste-vor-einem-test-im-cluster">Checkliste vor einem Test im Cluster</h2>
 <p>Bewerten Sie die Nutzung im Cluster separat. Die lokalen Prüfungen weisen nicht nach, dass ein Container-Image, die Konfiguration einer verwalteten Cloud oder der öffentliche Zugriff einsatzbereit sind. Verwenden Sie nur Beispieldaten und deaktivieren Sie den öffentlichen Zugriff.</p>
