@@ -18,8 +18,8 @@
 <header class="mast"><div class="wrap"><a href="../">Orchestrata</a><a href="../solutions/">Planning examples</a></div></header>
 <main class="wrap" id="main" tabindex="-1">
   <header class="intro">
-    <h1>Assign jobs after a callout</h1>
-    <p>See how a field service plan changes when a technician is out.</p>
+    <h1>Make a dispatch plan</h1>
+    <p>Bring your spreadsheet to see who can take each job and what stays open.</p>
   </header>
   <noscript><p>Enable JavaScript to calculate and compare assignments. This demo runs on your device.</p></noscript>
   <div id="workbench" hidden>
@@ -29,27 +29,29 @@
           <h2 id="review-heading" tabindex="-1">Dispatch plan</h2>
           <p id="plan-source">Sample <span class="dot" aria-hidden="true">·</span> Field service</p>
         </div>
-        <p id="status" role="status">Calculating the sample…</p>
+        <div>
+          <p id="status" role="status">Calculating the sample…</p>
+        <div id="download-actions" hidden>
+          <button id="download-plan" class="text-button" type="button">Download plan CSV</button>
+          <p id="download-status" role="status"></p>
+        </div>
+        </div>
       </div>
       <div id="result" hidden></div>
       <div class="plan-actions">
         <div class="actions">
-          <button class="primary" id="scenario" type="button" disabled>Ana is out</button>
+          <a class="button primary" id="open-excel" href="#workbook">Open Excel workbook</a>
+          <a class="button text-button" id="open-csv" href="#workbook">Use CSV files</a>
+          <button id="scenario" type="button" disabled>Try without Ana</button>
           <button class="primary" id="calculate-plan" type="button" hidden>Calculate assignments</button>
-          <a class="button" href="#workbook">Use my spreadsheet</a>
-        </div>
-        <div id="download-actions" hidden>
-          <button id="download-plan" class="text-button" type="button">Download plan CSV</button>
-          <p id="download-status" role="status"></p>
         </div>
       </div>
       <p class="scope">The plan covers as many jobs as skills, availability and job limits allow. It does not schedule times or routes.</p>
     </section>
 
-    <div id="planning-profile" hidden></div>
     <section class="own-data" id="workbook" tabindex="-1" aria-labelledby="workbook-heading">
       <h2 id="workbook-heading">Use your own work</h2>
-      <p>Choose a spreadsheet from your device. Check up to 200 jobs and people combined before replacing the current setup. Nothing is uploaded.</p>
+      <p>Choose an Excel workbook or two CSVs with up to 200 jobs and people combined. Your files stay on this device.</p>
       <div id="spreadsheet-import" hidden>
         <p><a href="../assets/try-example-workbook.xlsx" download>Download an example workbook</a></p>
         <label for="sheet-workbook">Excel workbook (.xlsx)</label>
@@ -69,7 +71,7 @@
           <fieldset><legend>People</legend><div id="sheet-map-people"></div></fieldset>
           <div class="actions">
             <button id="sheet-check" type="button">Check rows</button>
-            <button id="sheet-apply" type="button" disabled>Replace setup and calculate</button>
+            <button id="sheet-apply" type="button" disabled>Calculate this plan</button>
           </div>
         </div>
         <p id="sheet-status" role="status"></p>
@@ -77,6 +79,11 @@
       </div>
       <p id="workbook-status" role="status"></p>
     </section>
+
+    <details class="editor" id="related-example">
+      <summary>Find a worked example for your team</summary>
+      <div id="planning-profile" hidden></div>
+    </details>
 
     <details class="editor" id="editor">
       <summary>Adjust jobs and availability</summary>

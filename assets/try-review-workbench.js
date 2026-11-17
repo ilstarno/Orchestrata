@@ -8,6 +8,7 @@ const copy = tryCopy('en')
 const count = () => setup.jobs.length + setup.people.length
 let setup = structuredClone(SAMPLE)
 let source = 'sample'
+let importedFile = null
 let absent = false
 let baseline = null
 let currentPlan = null
@@ -23,8 +24,8 @@ function element(tag, text) {
 
 function sourceLabel() {
   return source === 'sample' ? (absent ? 'Sample field service plan · Ana unavailable' : 'Sample field service plan')
-    : source === 'spreadsheet' ? 'Your spreadsheet · on this device'
-    : source === 'spreadsheet-edited' ? 'Your spreadsheet, edited here · on this device'
+    : source === 'spreadsheet' ? (importedFile || 'Your spreadsheet')
+    : source === 'spreadsheet-edited' ? ((importedFile || 'Your spreadsheet') + ' · edited here')
     : 'Edited sample · on this device'
 }
 
@@ -32,7 +33,7 @@ function syncControls(retry = false) {
   $('plan-source').textContent = sourceLabel()
   $('scenario').hidden = source !== 'sample'
   $('scenario').disabled = Boolean(running) || !baseline
-  $('scenario').textContent = absent ? 'Restore Ana' : 'Ana is out'
+  $('scenario').textContent = absent ? 'Put Ana back' : 'Try without Ana'
   $('calculate-plan').hidden = source === 'sample' && !retry
   $('calculate-plan').disabled = Boolean(running)
   $('run').disabled = Boolean(running)
@@ -253,7 +254,8 @@ function runPlan(focus = false) {
   worker.postMessage({ requestId: active.id, problem: compiled.problem })
 }
 
-function replaceFromSpreadsheet(input) {
+function replaceFromSpreadsheet(input, file) {
+  importedFile = file || null
   setup = structuredClone(input)
   source = 'spreadsheet'
   changeSetup('Spreadsheet loaded. Calculating assignments…')
@@ -274,6 +276,7 @@ $('add-person').addEventListener('click', () => addRow('people', { name: '', ski
 $('reset').addEventListener('click', () => {
   setup = structuredClone(SAMPLE)
   source = 'sample'
+  importedFile = null
   absent = false
   baseline = null
   importer?.reset()
@@ -295,6 +298,16 @@ $('download-plan').addEventListener('click', () => {
 renderEditor()
 $('workbench').hidden = false
 runPlan()
+
+$('open-excel').addEventListener('click', event => {
+  if (!importer) return
+  event.preventDefault()
+  $('sheet-workbook').click()
+})
+$('open-csv').addEventListener('click', () => {
+  const csv = document.querySelector('.csv-option')
+  if (csv) csv.open = true
+})
 
 const spreadsheetRoot = $('spreadsheet-import')
 if (spreadsheetRoot) {

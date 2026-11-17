@@ -62,6 +62,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
   let data = null
   let groups = null
   let candidate = null
+  let sourceName = null
 
   function clearPreview() {
     candidate = null
@@ -73,6 +74,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
   function clearFiles() {
     generation++
     data = null
+    sourceName = null
     groups = null
     load.disabled = false
     mapper.hidden = true
@@ -81,6 +83,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
     clearPreview()
   }
 
+  load.hidden = true
   for (const input of [workbook, jobsFile, peopleFile]) {
     input.addEventListener('change', () => {
       clearFiles()
@@ -90,6 +93,8 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
           peopleFile.value = ''
         } else workbook.value = ''
       }
+      if (workbook.files[0] || (jobsFile.files[0] && peopleFile.files[0])) openSpreadsheet()
+      else if (jobsFile.files[0] || peopleFile.files[0]) status.textContent = 'Choose the second CSV to continue.'
     })
   }
 
@@ -124,7 +129,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
     })
   }
 
-  load.addEventListener('click', async () => {
+  async function openSpreadsheet() {
     clearFiles()
     const version = generation
     const excel = workbook.files[0]
@@ -153,17 +158,21 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
       return
     }
     data = result.workbook
+    sourceName = excel ? excel.name : [jobs.name, people.name].join(' and ')
     mapper.hidden = false
     const suggestions = suggestColumnMapping(data)
     groups = {
       jobs: makeGroup('jobs', find('sheet-map-jobs'), suggestions.jobs),
       people: makeGroup('people', find('sheet-map-people'), suggestions.people),
     }
-    status.textContent = 'Match the columns, then check the rows.'
+    if (!checkRows(false)) status.textContent = status.textContent || 'Match the remaining columns, then check the rows.'
     find('sheet-mapper-heading').focus()
-  })
+  }
 
-  check.addEventListener('click', () => {
+  load.addEventListener('click', openSpreadsheet)
+  check.addEventListener('click', () => checkRows(true))
+
+  function checkRows(showMissing) {
     if (!groups) return
     clearPreview()
     const jobs = groups.jobs()
@@ -173,6 +182,7 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
     const allowed = jobs.sheet !== null && people.sheet !== null && jobs.sheet !== people.sheet
       && different(jobs, ['name', 'skill'])
       && different(people, ['name', 'skills', 'available', 'capacity'])
+    if (!allowed && !showMissing) return false
     let parsed
     try {
       parsed = allowed ? mapSpreadsheetWorkbook(data, { jobs, people }) : { ok: false, issues: [{ code: 'mapping' }] }
@@ -183,18 +193,20 @@ export function wireSpreadsheetReview(root, { readFiles, suggestColumnMapping, m
       status.textContent = 'Nothing changed. Check the fields or rows below.'
       for (const issue of parsed.issues.slice(0, 5)) rules.append(element('li', issueText(issue)))
       if (parsed.issues.length > 5) rules.append(element('li', `${parsed.issues.length - 5} more rows need attention.`))
-      return
+      return false
     }
     candidate = parsed.setup
     status.textContent = `Ready: ${candidate.jobs.length} job records and ${candidate.people.length} people records. Nothing has changed yet.`
     apply.disabled = false
-  })
+    return true
+  }
 
   apply.addEventListener('click', () => {
     if (!candidate) return
     const next = candidate
+    const file = sourceName
     reset()
-    replaceSetup(next)
+    replaceSetup(next, file)
     status.textContent = 'Spreadsheet applied. Review the new plan above.'
   })
 
