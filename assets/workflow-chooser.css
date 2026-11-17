@@ -1,0 +1,6 @@
+#planning-profile { margin-block-start: 2rem; padding-block: 1.5rem; border-block-start: 1px solid var(--line); }
+.workflow-questions { display: grid; gap: 1rem; max-inline-size: 38rem; }
+.workflow-questions label { display: grid; gap: .35rem; }
+.workflow-questions :is(input, select) { inline-size: 100%; min-block-size: 44px; font: inherit; padding: .5rem; }
+.workflow-answer:not(:empty) { margin-block-start: 1.25rem; }
+.workflow-answer a { display: inline-flex; align-items: center; min-block-size: 44px; }
