@@ -17,11 +17,12 @@
 <main class="wrap" id="main" tabindex="-1">
   <h1>Which jobs can your team cover?</h1>
   <p>Give each job a skill it needs. Set who’s available and how many jobs each person can take. Then find a plan that covers as many jobs as possible.</p>
+  <p>To try the sample, find assignments, then mark Ana as unavailable and run it again to see what changes.</p>
   <p class="note" id="privacy">Use sample names. This demo runs in your browser and does not send your entries anywhere.</p>
   <noscript><p>This demo needs JavaScript to edit the sample and run the solver.</p></noscript>
   <div id="workbench" hidden>
     <section class="editor" aria-labelledby="setup-heading">
-      <h2 id="setup-heading">1. Set up the work</h2>
+      <h2 id="setup-heading" tabindex="-1">1. Set up the work</h2>
       <p id="record-count" aria-live="polite"></p>
       <div class="actions">
         <button class="primary" id="run" type="button" aria-describedby="search-help privacy setup-status">Find assignments</button>
@@ -43,11 +44,14 @@
         <button id="show-example" type="button">Show JSON format</button>
         <p id="import-status" role="status"></p>
       </details>
+      <p><a href="#run">Back to Find assignments</a></p>
     </section>
     <section class="review" aria-labelledby="review-heading">
       <h2 id="review-heading" tabindex="-1">2. Review the assignments</h2>
       <p id="status" role="status">Run the sample or edit it first.</p>
+      <p class="note">The plan covers as many jobs as possible. If several plans cover the same number, no job has priority. An open job can still have qualified people who are already at their job limit.</p>
       <div id="result" hidden></div>
+      <p><a href="#setup-heading">Back to setup</a></p>
       <div id="download-actions" hidden>
         <div class="actions">
           <button id="download-plan" type="button" aria-describedby="download-note">Download this plan</button>
