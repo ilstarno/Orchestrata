@@ -4,6 +4,7 @@ members = [
     "crates/domain",
     "crates/solver",
     "crates/hygiene",
+    "crates/reports",
     "crates/recipes",
     "crates/mcp",
     "crates/application",
