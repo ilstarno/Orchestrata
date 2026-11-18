@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "orchestrata-api.fullname" . }}
+  labels:
+    {{- include "orchestrata-api.selector" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "orchestrata-api.selector" . | nindent 4 }}
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
+      protocol: TCP

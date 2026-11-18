@@ -6,3 +6,7 @@ edition.workspace = true
 [dependencies]
 serde.workspace = true
 utoipa = "5"
+
+[[test]]
+name = "reliability"
+path = "../../../backend_tests/solver/reliability.rs"

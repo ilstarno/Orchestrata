@@ -1,22 +1,13 @@
-use orchestrata_core::{
-    errors::CoreError,
-    ids::{job_id::JobId, tenant_id::TenantId},
-    score::HardMediumSoftScore,
-};
+use orchestrata_core::{errors::CoreError, ids::job_id::JobId, score::HardMediumSoftScore};
 use uuid::Uuid;
 
 #[test]
 fn generated_ids_use_version_seven() {
-    assert_eq!(TenantId::new().as_uuid().get_version_num(), 7);
     assert_eq!(JobId::new().as_uuid().get_version_num(), 7);
 }
 
 #[test]
 fn other_uuid_versions_are_rejected() {
-    assert_eq!(
-        TenantId::parse(Uuid::nil()),
-        Err(CoreError::InvalidIdentifier)
-    );
     assert_eq!(JobId::parse(Uuid::nil()), Err(CoreError::InvalidIdentifier));
 }
 
