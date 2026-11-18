@@ -1,0 +1,10 @@
+[package]
+name = "orchestrata-facade-check"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+syn = { version = "=2.0.119", default-features = false, features = ["full", "parsing"] }

@@ -10,6 +10,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      - run: cargo test --locked --manifest-path tools/rust-facades/Cargo.toml
+      - run: cargo run --locked --manifest-path tools/rust-facades/Cargo.toml -- .
       - run: cargo fmt --all -- --check
         working-directory: backend
       - run: cargo clippy --workspace --all-targets -- -D warnings
