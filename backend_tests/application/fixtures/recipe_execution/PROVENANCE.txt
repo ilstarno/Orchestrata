@@ -1,0 +1,11 @@
+Synthetic maintenance fixture and its input copied unchanged from the Apache-2.0
+orchestrata-engine recipe-package tests at 1dbf7fc04bf19312d3ff61913df4dfe1d6788cd5.
+Source files: tests/fixtures/maintenance.orcpkg and tests/fixtures/inputs/maintenance.json
+under crates/recipe-package. No customer data. The fixture invokes no connectors.
+
+Published maintenance shift: maintenance-shift.orcpkg from
+ilstarno/orchestrata-recipes at 10ac8261727e3b024e277fbc0a5240815d6e40d2, path
+packages/maintenance-shift/maintenance-shift.orcpkg. Its synthetic normalized
+inputs are copied from ilstarno/orchestrata-engine at
+ecde611cea4ba9995dc6108855ae0505ab3bc05d, examples/maintenance-package/inputs.json.
+Both are unmodified; their license declaration remains in the package.

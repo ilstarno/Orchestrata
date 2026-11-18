@@ -712,7 +712,7 @@ dependencies = [
  "orchestrata-application",
  "orchestrata-domain",
  "orchestrata-recipes",
- "orchestrata-solver",
+ "orchestrata-solver 0.1.0",
  "serde",
  "serde_json",
  "tokio",
@@ -728,9 +728,12 @@ name = "orchestrata-application"
 version = "0.1.0"
 dependencies = [
  "orchestrata-hygiene",
- "orchestrata-solver",
+ "orchestrata-recipe-package",
+ "orchestrata-recipe-runtime",
+ "orchestrata-solver 0.1.0",
  "serde",
  "serde_json",
+ "sha2",
  "tokio",
  "utoipa",
 ]
@@ -740,7 +743,7 @@ name = "orchestrata-cli"
 version = "0.1.0"
 dependencies = [
  "orchestrata-application",
- "orchestrata-solver",
+ "orchestrata-solver 0.1.0",
  "serde_json",
 ]
 
@@ -764,7 +767,7 @@ dependencies = [
 name = "orchestrata-hygiene"
 version = "0.1.0"
 dependencies = [
- "orchestrata-solver",
+ "orchestrata-solver 0.1.0",
 ]
 
 [[package]]
@@ -794,6 +797,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "orchestrata-recipe-package"
+version = "0.1.0"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+dependencies = [
+ "orchestrata-recipe-runtime",
+ "roxmltree",
+ "serde_json",
+ "sha2",
+ "spdx",
+ "zip",
+]
+
+[[package]]
+name = "orchestrata-recipe-runtime"
+version = "0.1.0"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+dependencies = [
+ "orchestrata-solver 0.1.0 (git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d)",
+ "roxmltree",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "orchestrata-recipes"
 version = "0.1.0"
 dependencies = [
@@ -816,6 +843,14 @@ version = "0.1.0"
 dependencies = [
  "serde",
  "utoipa",
+]
+
+[[package]]
+name = "orchestrata-solver"
+version = "0.1.0"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -1134,6 +1169,15 @@ checksum = "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4"
 dependencies = [
  "libc",
  "windows-sys",
+]
+
+[[package]]
+name = "spdx"
+version = "0.13.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "646c5a367da914e3babcb9cd8e91c37ccaac42325b8f86f036513ad103f2a716"
+dependencies = [
+ "smallvec",
 ]
 
 [[package]]
