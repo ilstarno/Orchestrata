@@ -1,0 +1,12 @@
+{
+  "name": "orchestrata-formatting",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "check": "prettier --check \"../../frontend/src/**/*.{ts,tsx,js,jsx,css}\" \"../../frontend/*.{ts,json,html}\" \"../../frontend_tests/**/*.{ts,tsx,js,jsx,json}\" package.json",
+    "write": "prettier --write \"../../frontend/src/**/*.{ts,tsx,js,jsx,css}\" \"../../frontend/*.{ts,json,html}\" \"../../frontend_tests/**/*.{ts,tsx,js,jsx,json}\" package.json"
+  },
+  "devDependencies": {
+    "prettier": "3.10.1"
+  }
+}
