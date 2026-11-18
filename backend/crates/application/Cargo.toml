@@ -6,8 +6,8 @@ edition.workspace = true
 [dependencies]
 serde.workspace = true
 sha2 = "0.11.1"
-orchestrata-recipe-package = { git = "https://github.com/ilstarno/orchestrata-engine.git", rev = "ecde611cea4ba9995dc6108855ae0505ab3bc05d" }
-orchestrata-recipe-runtime = { git = "https://github.com/ilstarno/orchestrata-engine.git", rev = "ecde611cea4ba9995dc6108855ae0505ab3bc05d" }
+orchestrata-recipe-package = { git = "https://github.com/ilstarno/orchestrata-engine.git", rev = "774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12" }
+orchestrata-recipe-runtime = { git = "https://github.com/ilstarno/orchestrata-engine.git", rev = "774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12" }
 orchestrata-hygiene = { path = "../hygiene" }
 orchestrata-solver = { path = "../solver" }
 tokio = { version = "1", features = ["rt", "sync"] }
@@ -24,3 +24,7 @@ path = "../../../backend_tests/application/solve_reliability.rs"
 [[test]]
 name = "recipe_package_execution"
 path = "../../../backend_tests/application/recipe_package_execution.rs"
+
+[[test]]
+name = "recipe_package_penalty_v2"
+path = "../../../backend_tests/application/recipe_package_penalty_v2.rs"

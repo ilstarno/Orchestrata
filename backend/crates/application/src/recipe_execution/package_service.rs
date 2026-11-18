@@ -1,11 +1,15 @@
 use std::collections::BTreeMap;
 
-use orchestrata_recipe_package::{DistributionTier, load_package};
+use orchestrata_recipe_package::{DistributionTier, ValidatedPackage, load_package};
 
 use super::{
     InputIdentity, Objective, ObjectiveResult, PackageRegistration, PackageRun, PackageSelection,
-    RecipeRunError, RunRequest, RunScope, SessionAuthority, registered_package::RegisteredPackage,
+    PenaltyEntrypointRegistration, PenaltyPackageRun, PenaltyRunError, RecipeRunError, RunRequest,
+    RunScope, SessionAuthority, registered_package::RegisteredPackage,
 };
+
+// Keep numeric JSON exact if later models support larger values.
+const MAX_EXACT_JSON_INTEGER: u64 = (1 << 53) - 1;
 
 pub struct PackageService<A> {
     authority: A,
@@ -26,12 +30,41 @@ impl<A: SessionAuthority> PackageService<A> {
         registration: PackageRegistration<'_>,
         bytes: &[u8],
     ) -> Result<(), RecipeRunError> {
-        let validated = load_package(bytes)?;
+        self.register_models(registration, BTreeMap::new(), load_package(bytes)?)
+    }
+
+    /// Explicit opt-in. A ZIP may contain both families, but an entrypoint is
+    /// registered at most once, and neither run method calls the other.
+    pub fn register_with_penalty_v2(
+        &mut self,
+        registration: PackageRegistration<'_>,
+        penalty_entrypoints: BTreeMap<String, PenaltyEntrypointRegistration>,
+        bytes: &[u8],
+    ) -> Result<(), PenaltyRunError> {
+        if penalty_entrypoints.is_empty() {
+            return Err(RecipeRunError::InvalidPackage.into());
+        }
+        self.register_models(registration, penalty_entrypoints, load_package(bytes)?)?;
+        Ok(())
+    }
+
+    fn register_models(
+        &mut self,
+        registration: PackageRegistration<'_>,
+        penalty_entrypoints: BTreeMap<String, PenaltyEntrypointRegistration>,
+        validated: ValidatedPackage,
+    ) -> Result<(), RecipeRunError> {
         let metadata = validated.metadata();
         if registration.workspace.is_empty()
             || metadata.id != registration.package_id
             || validated.content_identity().to_hex() != registration.content_revision
-            || registration.entrypoints.is_empty()
+            || (registration.entrypoints.is_empty() && penalty_entrypoints.is_empty())
+            || penalty_entrypoints.iter().any(|(id, registration_v2)| {
+                registration.entrypoints.contains_key(id)
+                    || !validated.entrypoints().any(|entry| entry.id == *id)
+                    || !is_digest(&registration_v2.execution_revision)
+                    || registration_v2.expected_unit.trim().is_empty()
+            })
             || registration.entrypoints.iter().any(|(id, (revision, objective))| {
                 !validated.entrypoints().any(|entry| entry.id == *id)
                     || !is_digest(revision)
@@ -56,6 +89,7 @@ impl<A: SessionAuthority> PackageService<A> {
                 validated,
                 requires_entitlement,
                 entrypoints: registration.entrypoints,
+                penalty_entrypoints,
             },
         );
         Ok(())
@@ -138,6 +172,59 @@ impl<A: SessionAuthority> PackageService<A> {
             input_identity,
             objective,
             solution: result.solution,
+        })
+    }
+
+    /// Compile and run only the registered v2 family. The v1 service and
+    /// result body are unchanged; no automatic version fallback is attempted.
+    pub fn run_penalty_v2(
+        &self,
+        session: &A::Session,
+        request: RunRequest<'_>,
+    ) -> Result<PenaltyPackageRun, PenaltyRunError> {
+        let scope = request.scope;
+        let package = self.authorize_package(session, scope)?;
+        let registration = package
+            .penalty_entrypoints
+            .get(scope.entrypoint)
+            .ok_or(RecipeRunError::UnknownEntrypoint)?;
+        let content_revision = package.validated.content_identity().to_hex();
+        if request.content_revision != content_revision
+            || request.execution_revision != registration.execution_revision
+        {
+            return Err(RecipeRunError::StaleRevision.into());
+        }
+        let compiled = package
+            .validated
+            .compile_penalty(Some(scope.entrypoint), request.normalized_records)?;
+        let execution_revision = compiled.execution_identity().to_hex();
+        if execution_revision != registration.execution_revision {
+            return Err(RecipeRunError::StaleRevision.into());
+        }
+        let result = compiled.solve()?.solution;
+        if result.unit != registration.expected_unit {
+            return Err(PenaltyRunError::UnitMismatch);
+        }
+        if result.schema_version != 2
+            || result.objective != "service-plus-unassigned-cost"
+            || result.service_cost.checked_add(result.unassigned_cost) != Some(result.total_cost)
+            || result.total_cost > MAX_EXACT_JSON_INTEGER
+            || result.assigned
+                != result
+                    .assignments
+                    .iter()
+                    .filter(|a| a.resource_id.is_some())
+                    .count()
+        {
+            return Err(PenaltyRunError::InvalidResult);
+        }
+        Ok(PenaltyPackageRun {
+            package_id: scope.package.to_owned(),
+            entrypoint: scope.entrypoint.to_owned(),
+            content_revision,
+            execution_revision,
+            input_identity: InputIdentity::from_records(request.normalized_records),
+            solution: result,
         })
     }
 
