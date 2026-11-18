@@ -1,3 +1,5 @@
+#[path = "access/module.rs"]
+pub mod access;
 pub mod lead_conversion;
 pub mod lead_preview;
 pub mod recipe_execution;
