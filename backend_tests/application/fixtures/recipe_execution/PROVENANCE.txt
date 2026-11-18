@@ -9,3 +9,11 @@ packages/maintenance-shift/maintenance-shift.orcpkg. Its synthetic normalized
 inputs are copied from ilstarno/orchestrata-engine at
 ecde611cea4ba9995dc6108855ae0505ab3bc05d, examples/maintenance-package/inputs.json.
 Both are unmodified; their license declaration remains in the package.
+
+The synthetic-mixed, synthetic-paid, and synthetic-unknown-model packages
+combine Apache-2.0 fixtures from ilstarno/orchestrata-engine at
+774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12: historical maintenance delay model
+and terms from crates/recipe-package/tests/fixtures, and the v2 contact center
+model and penalty-input.json from crates/recipe-runtime/tests/fixtures.
+Their manifest is synthetic and not a published commercial recipe. The unknown
+model alone changes the XML model schema from 2 to 99 for a rejection test.

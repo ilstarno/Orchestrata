@@ -800,7 +800,7 @@ dependencies = [
 [[package]]
 name = "orchestrata-recipe-package"
 version = "0.1.0"
-source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12#774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12"
 dependencies = [
  "orchestrata-recipe-runtime",
  "roxmltree",
@@ -813,9 +813,9 @@ dependencies = [
 [[package]]
 name = "orchestrata-recipe-runtime"
 version = "0.1.0"
-source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12#774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12"
 dependencies = [
- "orchestrata-solver 0.1.0 (git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d)",
+ "orchestrata-solver 0.1.0 (git+https://github.com/ilstarno/orchestrata-engine.git?rev=774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12)",
  "roxmltree",
  "serde",
  "serde_json",
@@ -849,7 +849,7 @@ dependencies = [
 [[package]]
 name = "orchestrata-solver"
 version = "0.1.0"
-source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=ecde611cea4ba9995dc6108855ae0505ab3bc05d#ecde611cea4ba9995dc6108855ae0505ab3bc05d"
+source = "git+https://github.com/ilstarno/orchestrata-engine.git?rev=774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12#774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12"
 dependencies = [
  "serde",
 ]
