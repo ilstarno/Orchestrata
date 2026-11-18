@@ -5,6 +5,7 @@ members = [
     "crates/solver",
     "crates/hygiene",
     "crates/reports",
+    "crates/imports",
     "crates/recipes",
     "crates/mcp",
     "crates/application",
