@@ -1,48 +1,15 @@
-use std::collections::HashSet;
+mod canonical_contact;
+mod contact_digest;
+mod contact_lookup;
+mod contact_lookup_error;
+mod contact_lookup_purpose;
+mod hygiene_error;
+mod inspect;
 
-use orchestrata_solver::{Constraint, Problem};
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum HygieneError {
-    BlankVariableName(usize),
-    DuplicateVariableName(String),
-    DuplicateDomainValue(usize),
-    DuplicateConstraintVariable,
-    EmptyConstraint,
-}
-
-pub fn inspect(problem: &Problem) -> Result<(), HygieneError> {
-    let mut names = HashSet::new();
-
-    for (index, variable) in problem.variables.iter().enumerate() {
-        let name = variable.name.trim();
-        if name.is_empty() {
-            return Err(HygieneError::BlankVariableName(index));
-        }
-        if !names.insert(name) {
-            return Err(HygieneError::DuplicateVariableName(name.to_owned()));
-        }
-
-        let unique_values: HashSet<_> = variable.domain.iter().collect();
-        if unique_values.len() != variable.domain.len() {
-            return Err(HygieneError::DuplicateDomainValue(index));
-        }
-    }
-
-    for constraint in &problem.constraints {
-        let Constraint::AllDifferent { variables, .. } = constraint else {
-            continue;
-        };
-
-        if variables.is_empty() {
-            return Err(HygieneError::EmptyConstraint);
-        }
-
-        let unique_variables: HashSet<_> = variables.iter().collect();
-        if unique_variables.len() != variables.len() {
-            return Err(HygieneError::DuplicateConstraintVariable);
-        }
-    }
-
-    Ok(())
-}
+pub use canonical_contact::CanonicalContact;
+pub use contact_digest::ContactDigest;
+pub use contact_lookup::contact_lookup_digest;
+pub use contact_lookup_error::ContactLookupError;
+pub use contact_lookup_purpose::ContactLookupPurpose;
+pub use hygiene_error::HygieneError;
+pub use inspect::inspect;
