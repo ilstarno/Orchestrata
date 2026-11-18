@@ -10,6 +10,8 @@ Orchestrata is being built to evaluate those trade-offs and find a workable allo
 
 [Browse and run the free recipe examples](recipes/README.md).
 
+[Use the native solver SDKs](docs/NATIVE_SDKS.md).
+
 ## Example: scheduling field-service jobs
 
 A service company has 40 jobs to complete tomorrow and 8 technicians. Each job has a location, duration, time window, and required skills. Each technician has working hours, qualifications, and a starting location.
