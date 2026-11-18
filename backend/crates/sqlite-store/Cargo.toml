@@ -1,0 +1,10 @@
+[package]
+name = "orchestrata-sqlite-store"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+orchestrata-core = { path = "../core" }
+rusqlite = { version = "0.41", features = ["bundled"] }
+thiserror = "2"
+uuid = { version = "1", features = ["v7"] }
