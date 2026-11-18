@@ -5,3 +5,5 @@ edition.workspace = true
 
 [dependencies]
 orchestrata-solver = { path = "../solver" }
+hmac = { version = "0.13", features = ["zeroize"] }
+sha2 = { version = "0.11", default-features = false, features = ["zeroize"] }
