@@ -10,12 +10,12 @@ orchestrata-recipe-package = { git = "https://github.com/ilstarno/orchestrata-en
 orchestrata-recipe-runtime = { git = "https://github.com/ilstarno/orchestrata-engine.git", rev = "774bd0f1c17ef0f8d16bacc0b0cb016b075dcc12" }
 orchestrata-hygiene = { path = "../hygiene" }
 orchestrata-solver = { path = "../solver" }
-tokio = { version = "1", features = ["rt", "sync"] }
+tokio = { version = "1", features = ["rt", "sync", "time"] }
 uuid = { version = "1", features = ["v7"] }
 
 [dev-dependencies]
 serde_json = "1"
-tokio = { version = "1", features = ["macros", "rt"] }
+tokio = { version = "1", features = ["macros", "rt", "test-util"] }
 
 [[test]]
 name = "solve_reliability"
