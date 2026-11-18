@@ -736,6 +736,7 @@ dependencies = [
  "sha2",
  "tokio",
  "utoipa",
+ "uuid",
 ]
 
 [[package]]
