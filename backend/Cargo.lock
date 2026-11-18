@@ -898,7 +898,9 @@ name = "orchestrata-sqlite-store"
 version = "0.1.0"
 dependencies = [
  "orchestrata-core",
+ "orchestrata-imports",
  "rusqlite",
+ "serde_json",
  "thiserror",
  "uuid",
 ]
