@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "crates/sqlite-store",
     "crates/core",
     "crates/domain",
     "crates/solver",
