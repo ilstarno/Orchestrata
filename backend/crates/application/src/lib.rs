@@ -1,3 +1,5 @@
+#[path = "access/module.rs"]
+pub mod access;
 pub mod recipe_execution;
 #[path = "schema/module.rs"]
 pub mod schema;
