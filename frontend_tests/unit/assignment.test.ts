@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { assignmentExample, changeEligibility, exampleDefinition, exampleEligibility, serializeEligibility } from '../../shared/examples/assignment'
+import { assignmentExample, changeEligibility, exampleDefinition, exampleEligibility, serializeEligibility } from '../../frontend/src/shared/examples/assignment'
 
 describe('assignment example', () => {
   it('has distinct variable names', () => {
