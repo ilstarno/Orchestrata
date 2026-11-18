@@ -12,6 +12,12 @@ pub enum StoreError {
     IncompatibleDatabase,
     #[error("invalid persisted job or event data")]
     InvalidRecord,
+    #[error("invalid column mapping")]
+    InvalidMapping,
+    #[error("invalid persisted column mapping")]
+    InvalidStoredMapping,
+    #[error("unsupported column mapping version {0}")]
+    UnsupportedMappingVersion(u16),
     #[error("SQLite operation failed")]
     Database(#[from] rusqlite::Error),
 }

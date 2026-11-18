@@ -86,7 +86,7 @@ fn actual_tenant_schema_history_is_rejected_without_rewriting_rows_or_files() {
 }
 
 #[test]
-fn existing_owned_schema_is_opened_unchanged_and_keeps_idempotency() {
+fn owned_schema_upgrade_keeps_idempotency_and_reopens_unchanged() {
     let path = temporary_database();
     let connection = Connection::open(&path).unwrap();
     for sql in V3 {

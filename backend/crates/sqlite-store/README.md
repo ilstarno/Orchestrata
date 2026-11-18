@@ -19,6 +19,6 @@ Review new SQL before applying it. Never edit an applied migration. The initial 
 
 ## Existing databases
 
-Existing owned stores with schema version 3 and the correct application marker remain usable without rewriting their schema or data. Tenant-based prototype versions 1 and 2 are rejected as `UnsupportedSchema`, preserving their files. No tenant-to-user ownership mapping is inferred. Moving those records requires a separately verified ownership migration; this adapter does not provide one.
+Existing owned stores with schema version 3 and the correct application marker receive an additive migration to version 4: a column-mapping table is created without rewriting jobs or outbox events. Version 4 stores open without further changes. Saved mappings are immutable, owner-scoped snapshots of column names, not imported rows; the application must resolve the owner before calling the adapter. Tenant-based prototype versions 1 and 2 are rejected as `UnsupportedSchema`, preserving their files. No tenant-to-user ownership mapping is inferred. Moving those records requires a separately verified ownership migration; this adapter does not provide one.
 
 Foreign, populated or incorrectly marked databases are rejected. Use a separate database path for a fresh store; do not remove version markers to make an existing database appear empty. Session validation, authorization, immutable input/result references and migration operations remain responsibilities of the calling application.
