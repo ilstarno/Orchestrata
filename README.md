@@ -10,7 +10,7 @@ Orchestrata is being built to evaluate those trade-offs and find a workable allo
 
 [Browse and run the free recipe examples](recipes/README.md).
 
-[Use the native solver SDKs](docs/NATIVE_SDKS.md).
+[Use the native solver SDKs](https://github.com/ilstarno/orchestrata-engine/blob/c4e529b81dc2466ecb2c193b119632dc4dddadd9/sdks/README.md).
 
 ## Example: scheduling field-service jobs
 
@@ -51,7 +51,6 @@ PostgreSQL is the planned operational database. MariaDB, Microsoft SQL Server, a
 ```text
 backend/    Rust domain, solver, and API work
 frontend/   React application
-docs/       Technical decisions
 .github/    Continuous integration
 ```
 
