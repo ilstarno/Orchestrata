@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run your first planning problem with Orchestrata and learn what its solver can prove.">
+  <title>Orchestrata Docs · Solve your first problem</title>
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="frame masthead">
+      <span class="brand">Orchestrata <span>Docs</span></span>
+      <nav aria-label="On this page">
+        <a href="#quickstart">Quickstart</a>
+        <a href="#results">Read results</a>
+        <a href="#limits">Limits</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="frame" tabindex="-1">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">Developer guide / Local quickstart</p>
+        <h1 id="title">Solve your first planning problem.</h1>
+        <p class="intro">Give two jobs different assignments. Prefer one assignment for the first job, then see what the solver returns and why.</p>
+        <a class="button" href="#quickstart">Start with the local API</a>
+      </div>
+      <aside aria-label="Example at a glance">
+        <p class="eyebrow">The example</p>
+        <dl>
+          <div><dt>Decisions</dt><dd>Two jobs, two values</dd></div>
+          <div><dt>Hard rule</dt><dd>Use different values</dd></div>
+          <div><dt>Preference</dt><dd>Give job A the value 1</dd></div>
+          <div><dt>Result</dt><dd><code>[1, 0]</code></dd></div>
+        </dl>
+      </aside>
+    </section>
+    <section id="quickstart" aria-labelledby="start-title">
+      <p class="eyebrow">01 / Run it</p>
+      <h2 id="start-title">Start the development API</h2>
+      <p>From the checkout root, with a current stable Rust toolchain:</p>
+      <pre><code>(cd backend &amp;&amp; cargo run -p orchestrata-api)</code></pre>
+      <h3>Send the bundled example</h3>
+      <p>From the same directory in a second terminal:</p>
+      <pre><code>curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
+  -H 'Content-Type: application/json' \
+  --data-binary @backend/examples/assignment.json</code></pre>
+      <p>To inspect the request schema, open <code>/api/v1/openapi.json</code> on the same local server. To run without HTTP, use the local CLI:</p>
+      <pre><code>(cd backend &amp;&amp; cargo run -p orchestrata-cli -- examples/assignment.json)</code></pre>
+    </section>
+    <section id="results" aria-labelledby="result-title">
+      <p class="eyebrow">02 / Interpret it</p>
+      <h2 id="result-title">Know what the answer proves</h2>
+      <div class="outcomes">
+        <article><h3>Found a solution</h3><p>HTTP 200 with <code>solution</code> set. The example returns <code>[1, 0]</code> with zero hard and soft penalties. Values follow the order of the input variables.</p></article>
+        <article><h3>Proved infeasible</h3><p>HTTP 200 with <code>{"solution":null}</code>. Exact search found no assignment that satisfies every hard constraint in the submitted model.</p></article>
+        <article><h3>Could not solve</h3><p>Inspect the error. An invalid model, exceeded search cap, or execution failure is not proof that the model is infeasible.</p></article>
+      </div>
+    </section>
+    <section id="limits" aria-labelledby="limits-title">
+      <p class="eyebrow">03 / Boundaries</p>
+      <h2 id="limits-title">Start small, stay local</h2>
+      <p>The exact solver enumerates at most 100,000 combinations through the shared service. Use finite integer domains and model every hard rule explicitly. The solver does not write assignments back to dispatch, ERP, or CRM systems.</p>
+      <p>This quickstart covers local HTTP and CLI usage. It is not a hosted deployment guide or a promise of native SDK support. Keep the development API on loopback.</p>
+    </section>
+  </main>
+  <footer class="frame">Orchestrata developer documentation · Local development · Built by <a href="https://github.com/ilstarno">Indrit Zeqiri</a></footer>
+</body>
+</html>
