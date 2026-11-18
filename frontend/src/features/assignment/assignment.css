@@ -109,12 +109,15 @@
   color: #f58b8b;
 }
 
-.shell[data-theme=light] .plan-error h3 {
+.shell[data-theme="light"] .plan-error h3 {
   color: #9b1f30;
 }
 
 @media (max-width: 380px) {
-  .setup-footer { align-items: flex-start; flex-direction: column; }
+  .setup-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 .eligibility-group {

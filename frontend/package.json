@@ -9,7 +9,9 @@
     "test": "npm run test:typecheck && vitest run --config ../frontend_tests/vitest.config.ts",
     "test:typecheck": "tsc --noEmit --project ../frontend_tests/tsconfig.json",
     "test:unit": "vitest run --config ../frontend_tests/vitest.config.ts ../frontend_tests/unit",
-    "test:integration": "vitest run --config ../frontend_tests/vitest.config.ts ../frontend_tests/integration"
+    "test:integration": "vitest run --config ../frontend_tests/vitest.config.ts ../frontend_tests/integration",
+    "format": "npm --prefix ../tools/formatting run write",
+    "format:check": "npm --prefix ../tools/formatting run check"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.0.0",
