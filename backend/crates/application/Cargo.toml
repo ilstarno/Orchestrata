@@ -11,6 +11,7 @@ orchestrata-recipe-runtime = { git = "https://github.com/ilstarno/orchestrata-en
 orchestrata-hygiene = { path = "../hygiene" }
 orchestrata-solver = { path = "../solver" }
 tokio = { version = "1", features = ["rt", "sync"] }
+uuid = { version = "1", features = ["v7"] }
 
 [dev-dependencies]
 serde_json = "1"
