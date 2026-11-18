@@ -5,6 +5,8 @@ edition.workspace = true
 
 [dependencies]
 orchestrata-core = { path = "../core" }
+orchestrata-imports = { path = "../imports" }
 rusqlite = { version = "0.41", features = ["bundled"] }
+serde_json = "1"
 thiserror = "2"
 uuid = { version = "1", features = ["v7"] }
