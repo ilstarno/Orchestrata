@@ -1,0 +1,13 @@
+work_order_id,technician_id,status,cost_cents,entrypoint,input_identity
+"pump-a","mechanical-west","assigned","2800","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"pump-b","mechanical-west","assigned","2200","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"cooling-loop","mechanical-east","assigned","1600","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"compressor","mechanical-east","assigned","1400","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"valve-bank","mechanical-east","assigned","1900","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"fire-panel","safety","assigned","1100","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"alarm-loop","safety","assigned","1500","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"meter-a","instrumentation","assigned","800","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"meter-b","instrumentation","assigned","900","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"hv-isolator","","unassigned","","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"lift-controller","","unassigned","","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"inspection","general","assigned","400","cost","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"

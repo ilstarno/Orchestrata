@@ -1,0 +1,13 @@
+work_order_id,technician_id,status,delay_minutes,entrypoint,input_identity
+"pump-a","mechanical-east","assigned","35","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"pump-b","mechanical-east","assigned","40","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"cooling-loop","mechanical-west","assigned","5","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"compressor","mechanical-west","assigned","12","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"valve-bank","mechanical-east","assigned","25","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"fire-panel","safety","assigned","50","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"alarm-loop","safety","assigned","20","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"meter-a","instrumentation","assigned","30","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"meter-b","instrumentation","assigned","20","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"hv-isolator","","unassigned","","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"lift-controller","","unassigned","","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
+"inspection","general","assigned","55","delay","8d0c5e1826f776aa3a1d49339fd640fdcfe61a162a3703962d864a7c72c6790d"
