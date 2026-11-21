@@ -2163,4 +2163,27 @@
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/sq-al/examples/albania-weekly-rest/</loc>
   </url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sap-s4hana/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/netsuite/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/dynamics365-field-service/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sharepoint-lists/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/aws-config/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/azure-resource-graph/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/google-cloud-asset-inventory/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/amazon-s3/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ups-quantum-view/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/fedex/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mygls/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/genesys-cloud/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/asterisk-queue-logs/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/snowflake/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mysql/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-database/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ibm-db2-luw/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sql-server/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/odbc/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/infinite-campus/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-health/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/samsara/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/iata-aidx/</loc></url>
 </urlset>
