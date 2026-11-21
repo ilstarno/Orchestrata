@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/Orchestrata/assets/mark.svg"/><title>Recipe catalog and grid API reference | Orchestrata</title><meta name="description" content="Inspect the recipe catalog, sample routes and recipe grid contract in the local API."/><meta name="theme-color" content="#ffffff"/><meta name="robots" content="index, follow, max-image-preview:large"/><link rel="icon" href="/Orchestrata/assets/favicon.png" type="image/png" sizes="32x32"/><link rel="icon" href="/Orchestrata/assets/favicon.svg" type="image/svg+xml" sizes="any"/><link rel="canonical" href="https://ilstarno.github.io/Orchestrata/docs/recipes-api/"/><meta property="og:locale" content="en_US"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Orchestrata"/><meta property="og:title" content="Recipe catalog and grid API reference | Orchestrata"/><meta property="og:description" content="Inspect the recipe catalog, sample routes and recipe grid contract in the local API."/><meta property="og:url" content="https://ilstarno.github.io/Orchestrata/docs/recipes-api/"/><meta property="og:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="627"/><meta property="og:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Recipe catalog and grid API reference | Orchestrata"/><meta name="twitter:description" content="Inspect the recipe catalog, sample routes and recipe grid contract in the local API."/><meta name="twitter:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta name="twitter:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><script>(() => {
+<html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/Orchestrata/assets/mark.svg"/><title>Recipe API reference | Orchestrata</title><meta name="description" content="Discover the examples your server exposes, inspect their inputs and run one bundled problem."/><meta name="theme-color" content="#ffffff"/><meta name="robots" content="index, follow, max-image-preview:large"/><link rel="icon" href="/Orchestrata/assets/favicon.png" type="image/png" sizes="32x32"/><link rel="icon" href="/Orchestrata/assets/favicon.svg" type="image/svg+xml" sizes="any"/><link rel="canonical" href="https://ilstarno.github.io/Orchestrata/docs/recipes-api/"/><meta property="og:locale" content="en_US"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Orchestrata"/><meta property="og:title" content="Recipe catalog and grid API reference | Orchestrata"/><meta property="og:description" content="Inspect the recipe catalog, sample routes and recipe grid contract in the local API."/><meta property="og:url" content="https://ilstarno.github.io/Orchestrata/docs/recipes-api/"/><meta property="og:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="627"/><meta property="og:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Recipe catalog and grid API reference | Orchestrata"/><meta name="twitter:description" content="Inspect the recipe catalog, sample routes and recipe grid contract in the local API."/><meta name="twitter:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta name="twitter:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><script>(() => {
   const storageKey = 'orchestrata-theme';
   const system = matchMedia('(prefers-color-scheme: dark)');
   let setting = 'system';
@@ -29,30 +29,111 @@
       select.value = setting;
     });
   });
-})();</script><link rel="stylesheet" href="/Orchestrata/assets/site-e977337f5208f0ac.css"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Recipe catalog and grid API reference | Orchestrata","isPartOf":{"@type":"WebSite","@id":"https://ilstarno.github.io/Orchestrata/#website","name":"Orchestrata","url":"https://ilstarno.github.io/Orchestrata/"},"description":"Inspect the recipe catalog, sample routes and recipe grid contract in the local API.","url":"https://ilstarno.github.io/Orchestrata/docs/recipes-api/","inLanguage":"en-US"}</script><link rel="stylesheet" href="/Orchestrata/assets/docs-reader.css"/><script type="module" src="/Orchestrata/assets/docs-reader.js"></script><link rel="stylesheet" href="/Orchestrata/assets/ibm-plex-connectors-8be1a1e744e46461.css"/></head><body><a class="skip" data-rac="" href="#main" tabindex="0" data-react-aria-pressable="true">Skip to content</a><header class="site-header"><div class="width header-content"><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="22" height="22" alt=""/><span aria-hidden="true">rchestrata</span></a><details class="site-menu"><summary aria-controls="site-menu-panel"><span class="site-menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true" focusable="false"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span>Menu</summary></details><div class="header-menu-panel" id="site-menu-panel"><nav class="header-navigation" aria-label="Main navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/integrations/" hrefLang="en-US">Integrations</a><a class="buyer-nav-contact" href="/Orchestrata/work-with-us/">Discuss a planning pilot</a></nav><div class="header-preferences"><label class="theme-switcher" hidden="" for="theme-setting"><span>Theme</span><select id="theme-setting"><option value="system" selected="">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div></div></header><main class="width" id="main" tabindex="-1"><section class="page-hero"><div class="hero-copy"><h1>Recipe API reference</h1><p class="intro">Inspect the recipe catalog, sample routes and recipe grid contract in the local API.</p></div></section><div class="content-actions" role="group" aria-label="Guide tools" data-content-actions="true"><span class="content-tools-label"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/>Guide tools</span><div class="content-action-items"><a href="/Orchestrata/docs/recipes-api/index.md" download="recipes-api.md">Download Markdown</a><button type="button" hidden="" data-section-copy="true" data-default-section="guide-text" data-copied="Section link copied." data-copy-failed="Copy the page address from your browser’s address bar.">Copy section link</button></div><p role="status" class="content-action-status"></p></div><details class="mobile-guide-nav content-mobile-rail"><summary>On this page<span>4 sections</span></summary><nav aria-label="On this page"><ol><li><a data-section-target="guide-text" class="react-aria-Link" data-rac="" href="#guide-text" tabindex="0" data-react-aria-pressable="true">Recipe API reference</a></li><li><a data-section-target="section-start-with-the-catalog" class="react-aria-Link" data-rac="" href="#section-start-with-the-catalog" tabindex="0" data-react-aria-pressable="true">Start with the catalog</a></li><li><a data-section-target="section-browse-the-grid" class="react-aria-Link" data-rac="" href="#section-browse-the-grid" tabindex="0" data-react-aria-pressable="true">Browse the grid</a></li><li><a data-section-target="section-diagnose-a-response" class="react-aria-Link" data-rac="" href="#section-diagnose-a-response" tabindex="0" data-react-aria-pressable="true">Diagnose a response</a></li></ol></nav></details><div class="docs-grid content-layout"><div class="case-body"><article data-doc-reader class="paper markdown" id="guide-text"><p>Use the bundled catalog if the running API lists it in <code>GET /api/v1/openapi.json</code>. The catalog holds worked examples and runs on your own machine. It does not accept customer uploads. The project website does not host these endpoints.</p>
+})();</script><link rel="stylesheet" href="/Orchestrata/assets/site-e977337f5208f0ac.css"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Recipe catalog and grid API reference | Orchestrata","isPartOf":{"@type":"WebSite","@id":"https://ilstarno.github.io/Orchestrata/#website","name":"Orchestrata","url":"https://ilstarno.github.io/Orchestrata/"},"description":"Inspect the recipe catalog, sample routes and recipe grid contract in the local API.","url":"https://ilstarno.github.io/Orchestrata/docs/recipes-api/","inLanguage":"en-US"}</script><link rel="stylesheet" href="/Orchestrata/assets/docs-reader.css"/><script type="module" src="/Orchestrata/assets/docs-reader.js"></script><link rel="stylesheet" href="/Orchestrata/assets/ibm-plex-connectors-8be1a1e744e46461.css"/></head><body><a class="skip" data-rac="" href="#main" tabindex="0" data-react-aria-pressable="true">Skip to content</a><header class="site-header"><div class="width header-content"><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="22" height="22" alt=""/><span aria-hidden="true">rchestrata</span></a><details class="site-menu"><summary aria-controls="site-menu-panel"><span class="site-menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true" focusable="false"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span>Menu</summary></details><div class="header-menu-panel" id="site-menu-panel"><nav class="header-navigation" aria-label="Main navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/integrations/" hrefLang="en-US">Integrations</a><a class="buyer-nav-contact" href="/Orchestrata/work-with-us/">Discuss a planning pilot</a></nav><div class="header-preferences"><label class="theme-switcher" hidden="" for="theme-setting"><span>Theme</span><select id="theme-setting"><option value="system" selected="">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div></div></header><main class="width" id="main" tabindex="-1"><section class="page-hero"><div class="hero-copy"><h1>Recipe API reference</h1><p class="intro">Discover the examples your server exposes, inspect their inputs and run one bundled problem.</p></div></section><div class="content-actions" role="group" aria-label="Guide tools" data-content-actions="true"><span class="content-tools-label"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/>Guide tools</span><div class="content-action-items"><a href="/Orchestrata/docs/recipes-api/index.md" download="recipes-api.md">Download Markdown</a><button type="button" hidden="" data-section-copy="true" data-default-section="guide-text" data-copied="Section link copied." data-copy-failed="Copy the page address from your browser’s address bar.">Copy section link</button></div><p role="status" class="content-action-status"></p></div><details class="mobile-guide-nav content-mobile-rail"><summary>On this page<span>4 sections</span></summary><nav aria-label="On this page"><ol><li><a data-section-target="section-start-with-the-catalog" href="#section-start-with-the-catalog">Start with the catalog</a></li><li><a data-section-target="section-routes-and-response-fields" href="#section-routes-and-response-fields">Routes and response fields</a></li><li><a data-section-target="section-browse-the-grid" href="#section-browse-the-grid">Browse the grid</a></li><li><a data-section-target="section-diagnose-a-response" href="#section-diagnose-a-response">Diagnose a response</a></li></ol></nav></details><div class="docs-grid content-layout"><div class="case-body"><article data-doc-reader class="paper markdown" id="guide-text">
+<div class="legacy-section-anchors" aria-hidden="true"></div>
+<p>A <strong>recipe</strong> is a bundled worked planning example. Browse its description, inspect the input and run that sample on an existing server. Calling these endpoints needs curl and server access, not Rust or a source checkout. To start your own server, use the <a href="../backend-setup/">setup guide</a>.</p>
 <h2 id="section-start-with-the-catalog">Start with the catalog</h2>
-<p>From the repository root, run <code>(cd backend &amp;&amp; cargo run -p orchestrata-api)</code>. Run the following in a second terminal:</p>
-<pre tabindex="0"><code class="language-sh">API=http://127.0.0.1:3000
+<p>These commands use a POSIX shell on Linux, macOS or WSL and the local sample server. <code>127.0.0.1</code> means this computer. For a server supplied by your team, obtain its base URL and access instructions from its operator. The website does not host the API.</p>
+<pre><code class="language-sh">curl --version
+API=http://127.0.0.1:3000
 curl -fsS &quot;$API/api/v1/health&quot;
 curl -fsS &quot;$API/api/v1/openapi.json&quot;
-curl -fsS &quot;$API/api/v1/recipes&quot;
-curl -fsS &quot;$API/api/v1/recipes/field-service&quot;
+</code></pre>
+<p>Health returns <code>{&quot;status&quot;:&quot;ok&quot;}</code>. In the OpenAPI document&#39;s <code>paths</code>, check for <code>/api/v1/recipes</code> and the recipe detail, example and run-example routes. <strong>Only use routes the running server exposes.</strong> A recipe catalog is not guaranteed on every deployment.</p>
+<p>List the catalog, then choose an <code>id</code> from its response:</p>
+<pre><code class="language-sh">curl -fsS &quot;$API/api/v1/recipes&quot;
+</code></pre>
+<p>For a catalog containing <code>field-service</code>, inspect the description and input, then run its bundled example:</p>
+<pre><code class="language-sh">curl -fsS &quot;$API/api/v1/recipes/field-service&quot;
 curl -fsS &quot;$API/api/v1/recipes/field-service/example&quot;
 curl -fsS -X POST &quot;$API/api/v1/recipes/field-service/run-example&quot;
 </code></pre>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Method and path</th><th>Success response</th></tr></thead><tbody><tr><td><code>GET /api/v1/recipes</code></td><td>A JSON array of metadata objects.</td></tr><tr><td><code>GET /api/v1/recipes/{recipe_id}</code></td><td>One metadata object. Use the exact <code>id</code> returned by the catalog.</td></tr><tr><td><code>GET /api/v1/recipes/{recipe_id}/example</code></td><td>The bundled planning problem as JSON. It does not solve it.</td></tr><tr><td><code>POST /api/v1/recipes/{recipe_id}/run-example</code></td><td>Solves the bundled example and returns a JSON result. Send no request body. Where variants exist, this route uses the default example.</td></tr><tr><td><code>GET /api/v1/recipes/grid</code></td><td>One filtered, sorted page of catalog metadata.</td></tr><tr><td><code>GET /api/v1/error-codes</code></td><td>An array of error codes, descriptions, and associated status lists (keys: <code>code</code>, <code>description</code>, <code>status_codes</code>).</td></tr><tr><td><code>GET /api/v1/openapi.json</code></td><td>The OpenAPI document emitted by the running build. Check it before using a route.</td></tr></tbody></table></div>
+<p>The local sample server returns:</p>
+<pre><code class="language-json">{&quot;solution&quot;:{&quot;values&quot;:[0,1,2],&quot;score&quot;:{&quot;hard&quot;:0,&quot;soft&quot;:0},&quot;evaluated&quot;:8}}
+</code></pre>
+<p>Values follow the example&#39;s variable order: the three jobs use resources <code>0</code>, <code>1</code> and <code>2</code>. Both scores are zero. Read the <a href="/Orchestrata/solutions/field-service/">field-service worked result</a> for the names and operational meaning. <code>run-example</code> takes no body and runs the bundled sample; to submit your own problem use the <a href="../solve-api/">Solve API</a>.</p>
+<h2 id="section-routes-and-response-fields">Routes and response fields</h2>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Method and path</th>
+<th>Success response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /api/v1/recipes</code></td>
+<td>A JSON array of metadata objects.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/recipes/{recipe_id}</code></td>
+<td>One metadata object. Use the exact <code>id</code> returned by the catalog.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/recipes/{recipe_id}/example</code></td>
+<td>The bundled planning problem as JSON. It does not solve it.</td>
+</tr>
+<tr>
+<td><code>POST /api/v1/recipes/{recipe_id}/run-example</code></td>
+<td>Solves the bundled example and returns a JSON result. Send no request body. Where variants exist, this route uses the default example.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/recipes/grid</code></td>
+<td>One filtered, sorted page of catalog metadata.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/error-codes</code></td>
+<td>An array of error codes, descriptions, and associated status lists (keys: <code>code</code>, <code>description</code>, <code>status_codes</code>).</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/openapi.json</code></td>
+<td>The OpenAPI document emitted by the running build. Check it before using a route.</td>
+</tr>
+</tbody></table></div>
 <p>Catalog metadata has <code>id</code> (the path identifier), <code>title</code>, <code>scenario</code> (descriptive text), and the <code>inputs</code> and <code>outputs</code> arrays. Each field contains <code>name</code>, <code>kind</code>, <code>required</code> (boolean), and <code>description</code>. Supported field kinds are <code>string</code>, <code>integer</code>, <code>boolean</code>, <code>string-list</code>, and <code>integer-list</code>. Treat these fields as documentation. <code>run-example</code> uses the built-in input.</p>
 <p>The example response contains <code>variables</code> and <code>constraints</code>. A variable has a <code>name</code> and a <code>domain</code> of allowed signed 64-bit integers. Constraints are tagged by <code>kind</code> and use zero-based indices into <code>variables</code>. Consult the running OpenAPI schema for specific constraint fields. When reading JSON in a client with floating-point numbers by default, choose a way to preserve 64-bit integers exactly if values can exceed the safe integer range.</p>
 <p>A successful run wraps the result in <code>solution</code>. A non-null result contains <code>values</code> in input variable order, <code>score</code> with separate <code>hard</code> and <code>soft</code> fields, and <code>evaluated</code>, the number of candidates evaluated. <code>{&quot;solution&quot;:null}</code> means the exact search proved that no assignment satisfied all hard rules. Request errors, exhausted limits, and solver failures do not imply infeasibility. The bundled runner is not a custom-data upload, does not create a job, and does not call external systems.</p>
 <h2 id="section-browse-the-grid">Browse the grid</h2>
 <p>Send query parameters as URL-encoded values. The endpoint filters metadata before sorting and paging; it does not solve plans. Parameters are optional.</p>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Parameter</th><th>Default</th><th>Accepted values</th></tr></thead><tbody><tr><td><code>page</code></td><td><code>1</code></td><td>Integer from <code>1</code> to <code>100000</code>, inclusive. Pages are one-based.</td></tr><tr><td><code>page_size</code></td><td><code>25</code></td><td>Integer from <code>1</code> to <code>100</code>, inclusive. It is the maximum rows returned.</td></tr><tr><td><code>sort</code></td><td><code>id</code></td><td><code>id</code> or <code>title</code>. Sorting compares stored strings directly, independent of locale.</td></tr><tr><td><code>direction</code></td><td><code>asc</code></td><td><code>asc</code> or <code>desc</code>. Rows with equal titles always tie-break on ascending <code>id</code>.</td></tr><tr><td><code>q</code></td><td>Empty string</td><td>A literal, case-insensitive substring of <code>id</code>, <code>title</code>, or <code>scenario</code>. Surrounding whitespace is trimmed for matching. The decoded input must be at most 100 UTF-8 bytes before trimming and must not contain control characters. Empty or whitespace-only input matches every row. Wildcards and regular expressions are not supported.</td></tr></tbody></table></div>
-<pre tabindex="0"><code class="language-sh">curl -fsS --get &quot;$API/api/v1/recipes/grid&quot; \
-  --data-urlencode &#x27;q= FIELD-SERVICE &#x27; \
-  --data-urlencode &#x27;sort=title&#x27; \
-  --data-urlencode &#x27;direction=desc&#x27; \
-  --data-urlencode &#x27;page_size=1&#x27; \
-  --data-urlencode &#x27;page=1&#x27;
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Accepted values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>page</code></td>
+<td><code>1</code></td>
+<td>Integer from <code>1</code> to <code>100000</code>, inclusive. Pages are one-based.</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td><code>25</code></td>
+<td>Integer from <code>1</code> to <code>100</code>, inclusive. It is the maximum rows returned.</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td><code>id</code></td>
+<td><code>id</code> or <code>title</code>. Sorting compares stored strings directly, independent of locale.</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td><code>asc</code></td>
+<td><code>asc</code> or <code>desc</code>. Rows with equal titles always tie-break on ascending <code>id</code>.</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>Empty string</td>
+<td>A literal, case-insensitive substring of <code>id</code>, <code>title</code>, or <code>scenario</code>. Surrounding whitespace is trimmed for matching. The decoded input must be at most 100 UTF-8 bytes before trimming and must not contain control characters. Empty or whitespace-only input matches every row. Wildcards and regular expressions are not supported.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-sh">curl -fsS --get &quot;$API/api/v1/recipes/grid&quot; \
+  --data-urlencode &#39;q= FIELD-SERVICE &#39; \
+  --data-urlencode &#39;sort=title&#39; \
+  --data-urlencode &#39;direction=desc&#39; \
+  --data-urlencode &#39;page_size=1&#39; \
+  --data-urlencode &#39;page=1&#39;
 </code></pre>
 <p>A grid response has five properties:</p>
 <ul>
@@ -64,12 +145,45 @@ curl -fsS -X POST &quot;$API/api/v1/recipes/field-service/run-example&quot;
 <p>An in-range page past the available rows returns <code>200</code>, the requested page, and an empty <code>items</code> array; it does not erase <code>total_items</code>. Unknown, duplicate, malformed, and out-of-range parameters return <code>400</code>. For instance, <code>?page=0</code>, <code>?sort=scenario</code>, and <code>?page=1&amp;page=2</code> are invalid.</p>
 <h2 id="section-diagnose-a-response">Diagnose a response</h2>
 <p>Use <code>curl -i</code> to inspect status and headers on a failure. Omit <code>curl -f</code> to keep the error body. Use <code>X-Request-ID</code> for correlation and <code>X-Orchestrata-Error-Code</code> for machine-readable classification on errors. Header names are case-insensitive. Error text can be plain text; do not assume a JSON error envelope or parse the prose as a code.</p>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Response</th><th>Meaning and next step</th></tr></thead><tbody><tr><td><code>400 request_rejected</code> from the grid</td><td>Correct the query. The body is <code>Invalid recipe grid query</code>; the server does not echo the submitted query.</td></tr><tr><td><code>404 not_found</code></td><td>Check the exact recipe ID and routes listed by the running API. An unknown recipe and an unavailable route can both return this code.</td></tr><tr><td><code>405 method_not_allowed</code></td><td>Check the verb; running an example uses <code>POST</code>, while fetching it uses <code>GET</code>.</td></tr><tr><td><code>500 internal_error</code> from catalog, detail, or grid</td><td>The build could not load bundled metadata. Keep the request ID and inspect the local API output.</td></tr><tr><td><code>500 solve_execution_failed</code> from the bundled runner</td><td>The bundled solve could not finish. Capture the request ID and server version. This is not a planning outcome.</td></tr><tr><td><code>503 solver_busy</code> from the bundled runner</td><td>All solve slots were occupied. Wait and retry with backoff.</td></tr></tbody></table></div>
-<pre tabindex="0"><code class="language-sh">curl -si &quot;$API/api/v1/recipes/grid?page=0&quot;
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Response</th>
+<th>Meaning and next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>400 request_rejected</code> from the grid</td>
+<td>Correct the query. The body is <code>Invalid recipe grid query</code>; the server does not echo the submitted query.</td>
+</tr>
+<tr>
+<td><code>404 not_found</code></td>
+<td>Check the exact recipe ID and routes listed by the running API. An unknown recipe and an unavailable route can both return this code.</td>
+</tr>
+<tr>
+<td><code>405 method_not_allowed</code></td>
+<td>Check the verb; running an example uses <code>POST</code>, while fetching it uses <code>GET</code>.</td>
+</tr>
+<tr>
+<td><code>500 internal_error</code> from catalog, detail, or grid</td>
+<td>The build could not load bundled metadata. Keep the request ID and inspect the local API output.</td>
+</tr>
+<tr>
+<td><code>500 solve_execution_failed</code> from the bundled runner</td>
+<td>The bundled solve could not finish. Capture the request ID and server version. This is not a planning outcome.</td>
+</tr>
+<tr>
+<td><code>503 solver_busy</code> from the bundled runner</td>
+<td>All solve slots were occupied. Wait and retry with backoff.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-sh">curl -si &quot;$API/api/v1/recipes/grid?page=0&quot;
 curl -si &quot;$API/api/v1/recipes/no-such-recipe&quot;
 curl -fsS &quot;$API/api/v1/error-codes&quot;
 </code></pre>
-<p>If the grid returns catalog metadata, a 404, or HTML, check the running OpenAPI document and confirm that the request targets the loopback API port.</p></article></div><aside class="aside content-rail"><nav aria-label="On this page"><div class="content-rail-title"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/><div><h2>On this page</h2><p>4 sections</p></div></div><ol><li><a data-section-target="guide-text" class="react-aria-Link" data-rac="" href="#guide-text" tabindex="0" data-react-aria-pressable="true">Recipe API reference</a></li><li><a data-section-target="section-start-with-the-catalog" class="react-aria-Link" data-rac="" href="#section-start-with-the-catalog" tabindex="0" data-react-aria-pressable="true">Start with the catalog</a></li><li><a data-section-target="section-browse-the-grid" class="react-aria-Link" data-rac="" href="#section-browse-the-grid" tabindex="0" data-react-aria-pressable="true">Browse the grid</a></li><li><a data-section-target="section-diagnose-a-response" class="react-aria-Link" data-rac="" href="#section-diagnose-a-response" tabindex="0" data-react-aria-pressable="true">Diagnose a response</a></li></ol></nav><div class="content-additional"><h2>Related guides</h2><p><a href="/Orchestrata/docs/">Documentation sections</a></p><nav aria-label="Documentation sections"><ul class="doc-links"><li><a href="/Orchestrata/docs/evaluate/" hrefLang="en-US">Evaluate the planning engine</a></li><li><a href="/Orchestrata/docs/api/" hrefLang="en-US">CLI and API reference</a></li><li><a href="/Orchestrata/docs/recipes/" hrefLang="en-US">Planning examples and recipes</a></li><li><a href="/Orchestrata/docs/deployment/" hrefLang="en-US">Run and deploy</a></li><li><a href="/Orchestrata/docs/solve-api/" hrefLang="en-US">Solve API reference</a></li><li><a href="/Orchestrata/docs/sdk/" hrefLang="en-US">Native SDK reference</a></li><li><a href="/Orchestrata/docs/backend-setup/" hrefLang="en-US">Set up and troubleshoot the local backend</a></li></ul></nav></div></aside></div><script>(() => {
+<p>If the grid returns catalog metadata, a 404, or HTML, check the running OpenAPI document and confirm that the request targets the loopback API port.</p>
+
+</article></div><aside class="aside content-rail"><nav aria-label="On this page"><div class="content-rail-title"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/><div><h2>On this page</h2><p>4 sections</p></div></div><ol><li><a data-section-target="section-start-with-the-catalog" href="#section-start-with-the-catalog">Start with the catalog</a></li><li><a data-section-target="section-routes-and-response-fields" href="#section-routes-and-response-fields">Routes and response fields</a></li><li><a data-section-target="section-browse-the-grid" href="#section-browse-the-grid">Browse the grid</a></li><li><a data-section-target="section-diagnose-a-response" href="#section-diagnose-a-response">Diagnose a response</a></li></ol></nav><div class="content-additional"><h2>Related guides</h2><p><a href="/Orchestrata/docs/">Documentation sections</a></p><nav aria-label="Documentation sections"><ul class="doc-links"><li><a href="/Orchestrata/docs/evaluate/" hrefLang="en-US">Evaluate the planning engine</a></li><li><a href="/Orchestrata/docs/api/" hrefLang="en-US">CLI and API reference</a></li><li><a href="/Orchestrata/docs/recipes/" hrefLang="en-US">Planning examples and recipes</a></li><li><a href="/Orchestrata/docs/deployment/" hrefLang="en-US">Run and deploy</a></li><li><a href="/Orchestrata/docs/solve-api/" hrefLang="en-US">Solve API reference</a></li><li><a href="/Orchestrata/docs/sdk/" hrefLang="en-US">Native SDK reference</a></li><li><a href="/Orchestrata/docs/backend-setup/" hrefLang="en-US">Set up and troubleshoot the local backend</a></li></ul></nav></div></aside></div><script>(() => {
   const block = document.querySelector('[data-content-actions]');
   if (!block || !navigator.clipboard || !navigator.clipboard.writeText) return;
   const control = block.querySelector('[data-section-copy]');

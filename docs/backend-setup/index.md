@@ -1,42 +1,57 @@
-# Set up and troubleshoot the local backend
+# Run the server from source
 
-This public evaluation runs on your computer. It has no sign-in, user sessions, database-backed job queue, or production access controls. Keep it on loopback and use sample input. The project website does not run the API.
+Start a local Orchestrata server, check that it responds and solve two jobs. You need this guide only when you are running the server yourself. To call a server your team already operates, go straight to the [Solve API](../solve-api/). To inspect a result without installation, open the [worked example](/Orchestrata/examples/assignment/).
 
-## 1. Prepare the source
+## 1. Install the tools
 
-Open the [Orchestrata repository](https://github.com/ilstarno/Orchestrata) and obtain the source. Use curl and stable Rust with Cargo. Install Node.js 22 and npm only for the optional UI. From the source directory:
+**Rust** is the programming language used to build the server. **Cargo** is Rust's build and dependency tool: it downloads the libraries the project needs, compiles the source and starts the program. You do not need to learn Rust to run these commands.
+
+Install the current stable Rust toolchain using the [official Rust installation guide](https://rust-lang.org/tools/install/). Its rustup installer includes Cargo. Follow the platform's compiler/linker prerequisites; on Windows, the official guide explains the C++ build tools. The shell examples here use Linux, macOS or WSL.
+
+You also need **Git** to download the source and **curl** to send the HTTP requests. Open a new terminal after installation and check:
 
 ```sh
+git --version
 rustc --version
 cargo --version
-cargo metadata --manifest-path backend/Cargo.toml --no-deps
+curl --version
 ```
 
-Confirm that Cargo lists `orchestrata-api` before starting it. Use the running OpenAPI document to check which routes your build exposes.
+If a command is not found, finish its installation and reopen the terminal. Do not continue until these checks print their versions. See the [Cargo installation guide](https://doc.rust-lang.org/cargo/getting-started/installation.html) for PATH troubleshooting. No Node.js, browser frontend or database is required for this example.
 
-## 2. Test and start the API
+## 2. Download and start the server
 
-From the repository root, run the locked workspace tests. The first run may need registry access.
+Choose a directory for your source checkouts, then run:
 
 ```sh
-cargo test --manifest-path backend/Cargo.toml --locked --workspace
-ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
+git clone https://github.com/ilstarno/Orchestrata.git
+cd Orchestrata
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 \
+  cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-Leave that terminal running. In a second terminal at the repository root:
+Leave this terminal running. The first build downloads dependencies and takes longer. `backend/Cargo.toml` is the project manifest; `--locked` uses the dependency versions recorded by the project; `-p orchestrata-api` selects the server program. All repository commands in this guide run from the **Orchestrata checkout root**, not inside `backend`.
+
+The address `127.0.0.1:3000` keeps the server on this computer, on port 3000. It is also the default. This sample server has no authentication or production access controls; keep it on loopback and use sample input. The public website is a separate static site, not this server.
+
+## 3. Check the server
+
+Open a second terminal. These requests work from any directory:
 
 ```sh
-curl -fsS http://127.0.0.1:3000/api/v1/health
-curl -fsS http://127.0.0.1:3000/api/v1/openapi.json
-curl -fsS "http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3"
+API=http://127.0.0.1:3000
+curl -fsS "$API/api/v1/health"
+curl -fsS "$API/api/v1/openapi.json"
 ```
 
-Health returns `{"status":"ok"}`. The OpenAPI document lists the routes for the running service. When the recipe grid is available, this request returns the first page with up to three records. Health checks reachability only.
+Health returns `{"status":"ok"}`. **OpenAPI** is the machine-readable description of the running server's routes and data fields. Keep the API terminal open while sending requests.
 
-## 3. Compare a solve and an input error
+## 4. Solve the included problem
+
+In the second terminal, change to the Orchestrata checkout root. Send the included JSON file:
 
 ```sh
-curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
+curl -fsS http://127.0.0.1:3000/api/v1/solve \
   -H 'Content-Type: application/json' \
   --data-binary @backend/examples/assignment.json
 ```
@@ -47,29 +62,11 @@ Expected response:
 {"solution":{"values":[1,0],"score":{"hard":0,"soft":0},"evaluated":4}}
 ```
 
-Job A takes slot 1 and Job B takes slot 0. Both required rules and preferences are satisfied. To exercise error handling, send a variable with no allowed values:
+Job A takes resource 1 and job B takes resource 0. Both required rules and the preference are satisfied. Continue with the [Solve API walkthrough](../solve-api/) to send inline JSON and handle errors, or the [Recipe API](../recipes-api/) to discover bundled examples. Stop the server with **Ctrl-C** in its terminal when finished.
 
-```sh
-curl -isS -X POST http://127.0.0.1:3000/api/v1/solve \
-  -H 'Content-Type: application/json' \
-  --data-binary '{"variables":[{"name":"empty","domain":[]}],"constraints":[]}'
-```
+## 5. Use a browser example
 
-Expect HTTP 422, `X-Orchestrata-Error-Code: invalid_problem`, a request ID, and the text `Invalid problem`. The request ID varies. Read [Solve API reference](../solve-api/) for contract details and distinguish a malformed request or search limit from a valid plan result.
-
-## 4. Optional local web interface
-
-With the API running on port 3000, open a third terminal. Use the [frontend repository](https://github.com/ilstarno/orchestrata-frontend) if you have access, and check that its API schema matches the routes listed by the backend. From that repository root, run the commands below. The [workspace screenshots](../#product-ui-evidence) show the workspace with example records and the local API.
-
-```sh
-cd frontend
-npm ci
-npm run dev
-```
-
-Open the loopback address printed by Vite. Select **Run example**. The result assigns Alex to lift repair, Sam to the safety inspection, and Noor to preventive maintenance. Select **Browse recipes** to see the recipes returned by the local API.
-
-Vite forwards `/api` to `http://127.0.0.1:3000`. If you use another loopback port, update the curl URLs and Vite proxy target. `ORCHESTRATA_HTTP_BIND` requires an IP address and port; a hostname, port alone, or empty setting is invalid. Stop the dev server and API with Ctrl-C when finished. This local setup does not connect to any vendor account.
+The [browser assignment tool](/Orchestrata/try/) calculates assignments on your device. It is a separate working example and does not connect to this local API. Use the HTTP walkthrough above to verify your server.
 
 ## Integration proof checklist
 
@@ -91,7 +88,6 @@ Use this checklist to record what your integration actually verifies. The local 
 | curl reports connection refused | Check the API terminal for a startup error. Retry on the API port after the process starts. |
 | curl cannot read `assignment.json` | Run from the repository root, or change the file path after the `@` to match your working directory. |
 | A solve request fails | Use `curl -i` to see the HTTP status and response. Omit `curl -f` to keep the error body. Check the method, `Content-Type`, JSON structure, and allowed problem size. Read the `X-Orchestrata-Error-Code` header and look it up at `/api/v1/error-codes`. An invalid problem or a solve limit does not mean no plan exists. |
-| The UI loads but cannot solve | Call the API health URL directly, then check the Vite terminal for proxy errors. Confirm that the UI and API agree on the API routes and request schema and that the proxy points at the API's loopback address. |
 | A recipe route returns 404 | Check the running OpenAPI document. Recipe catalog and grid routes are available only if the running OpenAPI document lists them. For a missing individual recipe, list the catalog and use an ID from its response. |
 
 ## Optional: evaluate PostgreSQL session persistence

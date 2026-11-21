@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/Orchestrata/assets/mark.svg"/><title>Solve API reference | Orchestrata</title><meta name="description" content="Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits."/><meta name="theme-color" content="#ffffff"/><meta name="robots" content="index, follow, max-image-preview:large"/><link rel="icon" href="/Orchestrata/assets/favicon.png" type="image/png" sizes="32x32"/><link rel="icon" href="/Orchestrata/assets/favicon.svg" type="image/svg+xml" sizes="any"/><link rel="canonical" href="https://ilstarno.github.io/Orchestrata/docs/solve-api/"/><meta property="og:locale" content="en_US"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Orchestrata"/><meta property="og:title" content="Solve API reference | Orchestrata"/><meta property="og:description" content="Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits."/><meta property="og:url" content="https://ilstarno.github.io/Orchestrata/docs/solve-api/"/><meta property="og:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="627"/><meta property="og:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Solve API reference | Orchestrata"/><meta name="twitter:description" content="Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits."/><meta name="twitter:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta name="twitter:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><script>(() => {
+<html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/Orchestrata/assets/mark.svg"/><title>Solve API reference | Orchestrata</title><meta name="description" content="Send your first HTTP request, understand the result and handle errors. No Rust installation is needed to call a running server."/><meta name="theme-color" content="#ffffff"/><meta name="robots" content="index, follow, max-image-preview:large"/><link rel="icon" href="/Orchestrata/assets/favicon.png" type="image/png" sizes="32x32"/><link rel="icon" href="/Orchestrata/assets/favicon.svg" type="image/svg+xml" sizes="any"/><link rel="canonical" href="https://ilstarno.github.io/Orchestrata/docs/solve-api/"/><meta property="og:locale" content="en_US"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Orchestrata"/><meta property="og:title" content="Solve API reference | Orchestrata"/><meta property="og:description" content="Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits."/><meta property="og:url" content="https://ilstarno.github.io/Orchestrata/docs/solve-api/"/><meta property="og:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta property="og:image:type" content="image/png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="627"/><meta property="og:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Solve API reference | Orchestrata"/><meta name="twitter:description" content="Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits."/><meta name="twitter:image" content="https://ilstarno.github.io/Orchestrata/assets/social.png"/><meta name="twitter:image:alt" content="Orchestrata logo beside a green scheduling diagram."/><script>(() => {
   const storageKey = 'orchestrata-theme';
   const system = matchMedia('(prefers-color-scheme: dark)');
   let setting = 'system';
@@ -29,29 +29,167 @@
       select.value = setting;
     });
   });
-})();</script><link rel="stylesheet" href="/Orchestrata/assets/site-e977337f5208f0ac.css"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Solve API reference | Orchestrata","isPartOf":{"@type":"WebSite","@id":"https://ilstarno.github.io/Orchestrata/#website","name":"Orchestrata","url":"https://ilstarno.github.io/Orchestrata/"},"description":"Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits.","url":"https://ilstarno.github.io/Orchestrata/docs/solve-api/","inLanguage":"en-US"}</script><link rel="stylesheet" href="/Orchestrata/assets/docs-reader.css"/><script type="module" src="/Orchestrata/assets/docs-reader.js"></script><link rel="stylesheet" href="/Orchestrata/assets/ibm-plex-connectors-8be1a1e744e46461.css"/></head><body><a class="skip" data-rac="" href="#main" tabindex="0" data-react-aria-pressable="true">Skip to content</a><header class="site-header"><div class="width header-content"><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="22" height="22" alt=""/><span aria-hidden="true">rchestrata</span></a><details class="site-menu"><summary aria-controls="site-menu-panel"><span class="site-menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true" focusable="false"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span>Menu</summary></details><div class="header-menu-panel" id="site-menu-panel"><nav class="header-navigation" aria-label="Main navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/integrations/" hrefLang="en-US">Integrations</a><a class="buyer-nav-contact" href="/Orchestrata/work-with-us/">Discuss a planning pilot</a></nav><div class="header-preferences"><label class="theme-switcher" hidden="" for="theme-setting"><span>Theme</span><select id="theme-setting"><option value="system" selected="">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div></div></header><main class="width" id="main" tabindex="-1"><section class="page-hero"><div class="hero-copy"><h1>Solve API reference</h1><p class="intro">Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits.</p></div></section><div class="content-actions" role="group" aria-label="Guide tools" data-content-actions="true"><span class="content-tools-label"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/>Guide tools</span><div class="content-action-items"><a href="/Orchestrata/docs/solve-api/index.md" download="solve-api.md">Download Markdown</a><button type="button" hidden="" data-section-copy="true" data-default-section="guide-text" data-copied="Section link copied." data-copy-failed="Copy the page address from your browser’s address bar.">Copy section link</button></div><p role="status" class="content-action-status"></p></div><details class="mobile-guide-nav content-mobile-rail"><summary>On this page<span>8 sections</span></summary><nav aria-label="On this page"><ol><li><a data-section-target="guide-text" class="react-aria-Link" data-rac="" href="#guide-text" tabindex="0" data-react-aria-pressable="true">Solve API reference</a></li><li><a data-section-target="section-connect-to-the-local-service" class="react-aria-Link" data-rac="" href="#section-connect-to-the-local-service" tabindex="0" data-react-aria-pressable="true">Connect to the local service</a></li><li><a data-section-target="section-problem-fields" class="react-aria-Link" data-rac="" href="#section-problem-fields" tabindex="0" data-react-aria-pressable="true">Problem fields</a></li><li><a data-section-target="section-constraint-fields" class="react-aria-Link" data-rac="" href="#section-constraint-fields" tabindex="0" data-react-aria-pressable="true">Constraint fields</a></li><li><a data-section-target="section-worked-request" class="react-aria-Link" data-rac="" href="#section-worked-request" tabindex="0" data-react-aria-pressable="true">Worked request</a></li><li><a data-section-target="section-status-and-response-headers" class="react-aria-Link" data-rac="" href="#section-status-and-response-headers" tabindex="0" data-react-aria-pressable="true">Status and response headers</a></li><li><a data-section-target="section-size-limits-and-troubleshooting" class="react-aria-Link" data-rac="" href="#section-size-limits-and-troubleshooting" tabindex="0" data-react-aria-pressable="true">Size limits and troubleshooting</a></li><li><a data-section-target="section-scope-of-this-version" class="react-aria-Link" data-rac="" href="#section-scope-of-this-version" tabindex="0" data-react-aria-pressable="true">Scope of this version</a></li></ol></nav></details><div class="docs-grid content-layout"><div class="case-body"><article data-doc-reader class="paper markdown" id="guide-text"><p>Send a finite planning problem to the local API. Each decision needs a list of allowed values. See the <a href="../backend-setup/">local setup guide</a> and use the running OpenAPI schema to verify the routes and fields below.</p>
+})();</script><link rel="stylesheet" href="/Orchestrata/assets/site-e977337f5208f0ac.css"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Solve API reference | Orchestrata","isPartOf":{"@type":"WebSite","@id":"https://ilstarno.github.io/Orchestrata/#website","name":"Orchestrata","url":"https://ilstarno.github.io/Orchestrata/"},"description":"Read the local solve API’s JSON request, constraint types, response fields, validation errors, and search limits.","url":"https://ilstarno.github.io/Orchestrata/docs/solve-api/","inLanguage":"en-US"}</script><link rel="stylesheet" href="/Orchestrata/assets/docs-reader.css"/><script type="module" src="/Orchestrata/assets/docs-reader.js"></script><link rel="stylesheet" href="/Orchestrata/assets/ibm-plex-connectors-8be1a1e744e46461.css"/></head><body><a class="skip" data-rac="" href="#main" tabindex="0" data-react-aria-pressable="true">Skip to content</a><header class="site-header"><div class="width header-content"><a class="brand" data-rac="" aria-label="Orchestrata home" href="/Orchestrata/" tabindex="0" data-react-aria-pressable="true"><img src="/Orchestrata/assets/mark.svg" width="22" height="22" alt=""/><span aria-hidden="true">rchestrata</span></a><details class="site-menu"><summary aria-controls="site-menu-panel"><span class="site-menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true" focusable="false"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span>Menu</summary></details><div class="header-menu-panel" id="site-menu-panel"><nav class="header-navigation" aria-label="Main navigation"><a href="/Orchestrata/solutions/" hrefLang="en-US">Solutions</a><a href="/Orchestrata/integrations/" hrefLang="en-US">Integrations</a><a class="buyer-nav-contact" href="/Orchestrata/work-with-us/">Discuss a planning pilot</a></nav><div class="header-preferences"><label class="theme-switcher" hidden="" for="theme-setting"><span>Theme</span><select id="theme-setting"><option value="system" selected="">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div></div></div></header><main class="width" id="main" tabindex="-1"><section class="page-hero"><div class="hero-copy"><h1>Solve API reference</h1><p class="intro">Send your first HTTP request, understand the result and handle errors. No Rust installation is needed to call a running server.</p></div></section><div class="content-actions" role="group" aria-label="Guide tools" data-content-actions="true"><span class="content-tools-label"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/>Guide tools</span><div class="content-action-items"><a href="/Orchestrata/docs/solve-api/index.md" download="solve-api.md">Download Markdown</a><button type="button" hidden="" data-section-copy="true" data-default-section="guide-text" data-copied="Section link copied." data-copy-failed="Copy the page address from your browser’s address bar.">Copy section link</button></div><p role="status" class="content-action-status"></p></div><details class="mobile-guide-nav content-mobile-rail"><summary>On this page<span>10 sections</span></summary><nav aria-label="On this page"><ol><li><a data-section-target="section-connect-to-the-local-service" href="#section-connect-to-the-local-service">Connect to the local service</a></li><li><a data-section-target="section-your-first-solve" href="#section-your-first-solve">Your first solve</a></li><li><a data-section-target="section-check-errors-before-integrating" href="#section-check-errors-before-integrating">Check errors before integrating</a></li><li><a data-section-target="section-routes-and-contract" href="#section-routes-and-contract">Routes and contract</a></li><li><a data-section-target="section-problem-fields" href="#section-problem-fields">Problem fields</a></li><li><a data-section-target="section-constraint-fields" href="#section-constraint-fields">Constraint fields</a></li><li><a data-section-target="section-worked-request" href="#section-worked-request">Worked request</a></li><li><a data-section-target="section-status-and-response-headers" href="#section-status-and-response-headers">Status and response headers</a></li><li><a data-section-target="section-size-limits-and-troubleshooting" href="#section-size-limits-and-troubleshooting">Size limits and troubleshooting</a></li><li><a data-section-target="section-scope-of-this-version" href="#section-scope-of-this-version">Scope of this version</a></li></ol></nav></details><div class="docs-grid content-layout"><div class="case-body"><article data-doc-reader class="paper markdown" id="guide-text">
+<div class="legacy-section-anchors" aria-hidden="true"></div>
+<p>Send a planning problem from your application and receive assignments or an infeasible result. An <strong>API</strong> is the server interface your program calls over HTTP. The request and response use <strong>JSON</strong>, a text format for structured data.</p>
 <h2 id="section-connect-to-the-local-service">Connect to the local service</h2>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Setting</th><th>Value for the starter API</th></tr></thead><tbody><tr><td>Prerequisites</td><td>An Orchestrata source checkout and a current stable Rust toolchain. The examples also use a shell and <code>curl</code>.</td></tr><tr><td>Base URL</td><td><code>http://127.0.0.1:3000</code>. This is loopback on the machine running the service.</td></tr><tr><td>Request body</td><td>UTF-8 JSON. Send <code>Content-Type: application/json</code> when posting.</td></tr><tr><td>Authentication</td><td>None in this local starter. Do not expose it to the internet or submit customer or employee data during evaluation.</td></tr><tr><td>Transport</td><td>Local HTTP. The project website is static and does not run or proxy the service.</td></tr><tr><td>Version</td><td>Beginning of each path: <code>/api/v1</code>. Read the OpenAPI document from the running build to confirm its contract.</td></tr></tbody></table></div>
-<p>Start the service at the checkout root:</p>
-<pre tabindex="0"><code class="language-sh">(cd backend &amp;&amp; cargo run -p orchestrata-api)
+<p><strong>Calling a running server does not require Rust, Cargo, an SDK or a source checkout.</strong> You need a terminal, <a href="https://curl.se/docs/manpage.html">curl</a> (a command-line HTTP client), and access to an Orchestrata server.</p>
+<ul>
+<li><strong>Already have a server?</strong> Ask its operator for the base URL, permitted routes and access method. Use that server&#39;s instructions for authentication. The unauthenticated commands below are for the local sample server only.</li>
+<li><strong>No server yet?</strong> Follow <a href="../backend-setup/">Run the server from source</a>, then return here. The website does not provide a public solve endpoint.</li>
+<li><strong>Just exploring?</strong> <a href="/Orchestrata/examples/assignment/">Read the two-job worked example</a> without installing anything. It shows a saved result; it does not start a server.</li>
+</ul>
+<p>The commands use a POSIX shell on Linux, macOS or WSL. Open a fresh terminal; no particular working directory is needed. <code>127.0.0.1</code> means this computer. Set <code>API</code> to the local server&#39;s address and check that it responds:</p>
+<pre><code class="language-sh">curl --version
+API=http://127.0.0.1:3000
+curl -fsS &quot;$API/api/v1/health&quot;
 </code></pre>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Method and path</th><th>Request</th><th>Successful response</th></tr></thead><tbody><tr><td><code>GET /api/v1/health</code></td><td>No body</td><td><code>{&quot;status&quot;:&quot;ok&quot;}</code>. Confirms the process responds. Feasibility is checked by the solve endpoint.</td></tr><tr><td><code>GET /api/v1/openapi.json</code></td><td>No body</td><td>JSON schema for health, solve, errors, and the recipe catalog. The schema document does not list its own URL as an operation.</td></tr><tr><td><code>POST /api/v1/solve</code></td><td>Problem JSON, described below</td><td>A JSON object containing <code>solution</code>. Check that it contains an assignment with hard score zero before using it.</td></tr></tbody></table></div>
-<p>If the source includes the CLI and <code>backend/examples/assignment.json</code>, run the example directly: <code>(cd backend &amp;&amp; cargo run -p orchestrata-cli -- examples/assignment.json)</code>. The CLI prints the solution directly, with no HTTP wrapper.</p>
+<p>Expected response:</p>
+<pre><code class="language-json">{&quot;status&quot;:&quot;ok&quot;}
+</code></pre>
+<p>Keep this terminal open: later commands use the same <code>API</code> variable. Health confirms that the server responds; it does not solve a problem. The local server has no authentication. Keep it on loopback and use sample data.</p>
+<h2 id="section-your-first-solve">Your first solve</h2>
+<p>Two jobs need different resources. Each may use resource <code>0</code> or <code>1</code>; job A prefers <code>1</code>. Paste this complete request into the same terminal. It includes its input, so no example file or checkout is needed.</p>
+<pre><code class="language-sh">curl -fsS &quot;$API/api/v1/solve&quot; \
+  -H &#39;Content-Type: application/json&#39; \
+  --data-binary @- &lt;&lt;&#39;JSON&#39;
+{&quot;variables&quot;:[{&quot;name&quot;:&quot;job_a&quot;,&quot;domain&quot;:[0,1]},{&quot;name&quot;:&quot;job_b&quot;,&quot;domain&quot;:[0,1]}],&quot;constraints&quot;:[{&quot;kind&quot;:&quot;all_different&quot;,&quot;variables&quot;:[0,1],&quot;hard_weight&quot;:1},{&quot;kind&quot;:&quot;prefer_value&quot;,&quot;variable&quot;:0,&quot;value&quot;:1,&quot;soft_weight&quot;:3}]}
+JSON
+</code></pre>
+<p>Expected response:</p>
+<pre><code class="language-json">{&quot;solution&quot;:{&quot;values&quot;:[1,0],&quot;score&quot;:{&quot;hard&quot;:0,&quot;soft&quot;:0},&quot;evaluated&quot;:4}}
+</code></pre>
+<p>Read <code>values</code> in the input order: job A gets resource <code>1</code>, job B gets resource <code>0</code>. <code>hard: 0</code> means the required rules are satisfied. <code>soft: 0</code> means the preference is satisfied. <code>evaluated: 4</code> counts the candidate assignments examined. Resource numbers are your own identifiers; they do not imply dates, people or units until your application maps them.</p>
+<h2 id="section-check-errors-before-integrating">Check errors before integrating</h2>
+<p>An infeasible model and a broken request are different outcomes. Give both jobs only resource <code>[0]</code> to obtain <code>{&quot;solution&quot;:null}</code>: no assignment can keep them different. An empty domain is invalid input instead:</p>
+<pre><code class="language-sh">curl -i -sS &quot;$API/api/v1/solve&quot; \
+  -H &#39;Content-Type: application/json&#39; \
+  --data-binary &#39;{&quot;variables&quot;:[{&quot;name&quot;:&quot;empty&quot;,&quot;domain&quot;:[]}],&quot;constraints&quot;:[]}&#39;
+</code></pre>
+<p>Expect HTTP <code>422</code>, <code>X-Orchestrata-Error-Code: invalid_problem</code> and the text <code>Invalid problem</code>. The <code>X-Request-ID</code> value varies. Here <code>-i</code> shows headers and omitting <code>-f</code> keeps the error body visible.</p>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Connection refused</td>
+<td>Start the server and check its terminal; confirm the port in <code>API</code>.</td>
+</tr>
+<tr>
+<td>401 or 403 from an operator-managed server</td>
+<td>Follow the operator&#39;s access instructions. Do not reuse the unauthenticated sample as an access workaround.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Check the base URL and <code>/api/v1/openapi.json</code> on that server.</td>
+</tr>
+<tr>
+<td>422 or a solve-limit error</td>
+<td>Check the request and the limits below. A rejected request does not prove that the work is impossible.</td>
+</tr>
+<tr>
+<td><code>solution</code> is null</td>
+<td>The exact search found no assignment satisfying all hard rules. Review the allowed resources and required rules.</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-routes-and-contract">Routes and contract</h2>
+<pre><code class="language-sh">curl -fsS &quot;$API/api/v1/openapi.json&quot;
+</code></pre>
+<p><strong>OpenAPI</strong> is the machine-readable description of the running server&#39;s endpoints and request fields. Use it to confirm capabilities before integrating. <code>GET</code> reads data; <code>POST</code> submits a request. The <code>/api/v1</code> prefix identifies this API version.</p>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Method and path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /api/v1/health</code></td>
+<td>Check reachability.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/openapi.json</code></td>
+<td>Inspect the running contract.</td>
+</tr>
+<tr>
+<td><code>POST /api/v1/solve</code></td>
+<td>Submit the JSON problem and read its <code>solution</code>.</td>
+</tr>
+<tr>
+<td><code>GET /api/v1/error-codes</code></td>
+<td>Look up error codes and their meanings.</td>
+</tr>
+</tbody></table></div>
+<p>The reference below describes the local sample server. An operator&#39;s build or proxy may impose different limits. Recipe catalog operations have a <a href="../recipes-api/">separate guide</a>.</p>
 <h2 id="section-problem-fields">Problem fields</h2>
 <p>All fields below are required, with no implicit defaults. An empty array is different from an omitted field. There are no request fields for a search budget, timeout, random seed, scheduling dates, or units. A plain integer such as <code>3</code> has only the meaning your model gives it.</p>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Field</th><th>JSON type</th><th>Allowed values and meaning</th></tr></thead><tbody><tr><td><code>variables</code></td><td>Array of objects</td><td>One object per decision, in the order you want the returned values. A constraint uses the variable’s array position. An empty array is permitted when the constraints do not refer to variables; it represents one empty assignment.</td></tr><tr><td><code>variables[].name</code></td><td>String</td><td>Required and nonblank. Names must be unique after trimming surrounding whitespace. Comparison is case-sensitive. Use names to label decisions in your client. The response uses input order.</td></tr><tr><td><code>variables[].domain</code></td><td>Array of signed 64-bit JSON integers</td><td>At least one value and no duplicates. The solver chooses exactly one value for each variable. Keep the intended order: for equally scored candidates, the first one encountered in declared domain order wins.</td></tr><tr><td><code>constraints</code></td><td>Array of objects</td><td>Use <code>[]</code> for no rules or preferences. Each object requires a <code>kind</code> tag and the fields for that kind.</td></tr></tbody></table></div>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>JSON type</th>
+<th>Allowed values and meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>variables</code></td>
+<td>Array of objects</td>
+<td>One object per decision, in the order you want the returned values. A constraint uses the variable’s array position. An empty array is permitted when the constraints do not refer to variables; it represents one empty assignment.</td>
+</tr>
+<tr>
+<td><code>variables[].name</code></td>
+<td>String</td>
+<td>Required and nonblank. Names must be unique after trimming surrounding whitespace. Comparison is case-sensitive. Use names to label decisions in your client. The response uses input order.</td>
+</tr>
+<tr>
+<td><code>variables[].domain</code></td>
+<td>Array of signed 64-bit JSON integers</td>
+<td>At least one value and no duplicates. The solver chooses exactly one value for each variable. Keep the intended order: for equally scored candidates, the first one encountered in declared domain order wins.</td>
+</tr>
+<tr>
+<td><code>constraints</code></td>
+<td>Array of objects</td>
+<td>Use <code>[]</code> for no rules or preferences. Each object requires a <code>kind</code> tag and the fields for that kind.</td>
+</tr>
+</tbody></table></div>
 <p>Indices start at zero and must refer to an existing variable. Use ordinary nonnegative JSON integers for indices, never numeric strings, decimals, or variable names. Avoid unspecified properties: the starter does not guarantee that unknown keys are rejected, so a typo in an extra key may not be noticed.</p>
 <h2 id="section-constraint-fields">Constraint fields</h2>
 <p>Each penalty is dimensionless. A higher positive weight produces a larger deduction in that score component. Hard score is compared before soft score; increasing a soft weight does not override a hard rule. Higher scores are better.</p>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th><code>kind</code></th><th>Additional required fields</th><th>Effect</th></tr></thead><tbody><tr><td><code>all_different</code></td><td><code>variables</code>: nonempty array of distinct zero-based indices. <code>hard_weight</code>: positive signed 64-bit integer.</td><td>Deduct <code>hard_weight</code> for each pair of referenced variables with equal selected values. A single referenced variable has no pair and incurs no deduction.</td></tr><tr><td><code>not_equal_offset</code></td><td><code>left</code>, <code>right</code>: zero-based indices. <code>offset</code>: signed 64-bit integer. <code>hard_weight</code>: positive signed 64-bit integer.</td><td>Deduct <code>hard_weight</code> when the selected value on the left minus the selected value on the right equals <code>offset</code>. Direction matters. Use <code>offset: 0</code> to forbid equality.</td></tr><tr><td><code>prefer_value</code></td><td><code>variable</code>: zero-based index. <code>value</code>: signed 64-bit integer. <code>soft_weight</code>: positive signed 64-bit integer.</td><td>Deduct <code>soft_weight</code> if the variable’s selected value is not <code>value</code>. Check that the preferred value is in the domain if you want it to be attainable; a preferred value does not add an option.</td></tr></tbody></table></div>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th><code>kind</code></th>
+<th>Additional required fields</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>all_different</code></td>
+<td><code>variables</code>: nonempty array of distinct zero-based indices. <code>hard_weight</code>: positive signed 64-bit integer.</td>
+<td>Deduct <code>hard_weight</code> for each pair of referenced variables with equal selected values. A single referenced variable has no pair and incurs no deduction.</td>
+</tr>
+<tr>
+<td><code>not_equal_offset</code></td>
+<td><code>left</code>, <code>right</code>: zero-based indices. <code>offset</code>: signed 64-bit integer. <code>hard_weight</code>: positive signed 64-bit integer.</td>
+<td>Deduct <code>hard_weight</code> when the selected value on the left minus the selected value on the right equals <code>offset</code>. Direction matters. Use <code>offset: 0</code> to forbid equality.</td>
+</tr>
+<tr>
+<td><code>prefer_value</code></td>
+<td><code>variable</code>: zero-based index. <code>value</code>: signed 64-bit integer. <code>soft_weight</code>: positive signed 64-bit integer.</td>
+<td>Deduct <code>soft_weight</code> if the variable’s selected value is not <code>value</code>. Check that the preferred value is in the domain if you want it to be attainable; a preferred value does not add an option.</td>
+</tr>
+</tbody></table></div>
 <h3 id="section-integer-bounds">Integer bounds</h3>
 <p>Domain members, offsets, preferred values and scores use the signed 64-bit range, from <code>-9223372036854775808</code> to <code>9223372036854775807</code>. Weights must be between <code>1</code> and <code>9223372036854775807</code> inclusive. The offset comparison compares the mathematical difference even when subtraction would not fit in a signed 64-bit integer. A sum outside that signed range fails; it never wraps or saturates. The minimum score itself is valid. On the starter build, overflow while checking any candidate can fail the entire request, even if another candidate could have been usable.</p>
 <p>JavaScript’s ordinary <code>Number</code> cannot represent every 64-bit integer exactly. Stick to <code>-9007199254740991</code> through <code>9007199254740991</code> for values and scores if you use ordinary <code>JSON.parse</code> and number-based serialization, and keep combined penalties in that range, or use a lossless JSON tool on both sides. Quoting a number changes its JSON type and is not a substitute for lossless encoding.</p>
 <h2 id="section-worked-request">Worked request</h2>
 <p>Two jobs, two possible resources. They must use different resources. Among assignments that satisfy the rule, prefer giving the first job resource <code>1</code>.</p>
-<pre tabindex="0"><code class="language-sh">curl -sS -i http://127.0.0.1:3000/api/v1/solve \
-  -H &#x27;Content-Type: application/json&#x27; \
-  --data-binary &#x27;{
+<pre><code class="language-sh">curl -sS -i http://127.0.0.1:3000/api/v1/solve \
+  -H &#39;Content-Type: application/json&#39; \
+  --data-binary &#39;{
     &quot;variables&quot;: [
       {&quot;name&quot;: &quot;job_a&quot;, &quot;domain&quot;: [0, 1]},
       {&quot;name&quot;: &quot;job_b&quot;, &quot;domain&quot;: [0, 1]}
@@ -60,15 +198,86 @@
       {&quot;kind&quot;: &quot;all_different&quot;, &quot;variables&quot;: [0, 1], &quot;hard_weight&quot;: 1},
       {&quot;kind&quot;: &quot;prefer_value&quot;, &quot;variable&quot;: 0, &quot;value&quot;: 1, &quot;soft_weight&quot;: 3}
     ]
-  }&#x27;
+  }&#39;
 </code></pre>
 <p>Expected status: <strong>200 OK</strong>. Response header: <code>content-type: application/json</code>. Exact body:</p>
-<pre tabindex="0"><code class="language-json">{&quot;solution&quot;:{&quot;values&quot;:[1,0],&quot;score&quot;:{&quot;hard&quot;:0,&quot;soft&quot;:0},&quot;evaluated&quot;:4}}
+<pre><code class="language-json">{&quot;solution&quot;:{&quot;values&quot;:[1,0],&quot;score&quot;:{&quot;hard&quot;:0,&quot;soft&quot;:0},&quot;evaluated&quot;:4}}
 </code></pre>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Response field</th><th>Type</th><th>Interpretation</th></tr></thead><tbody><tr><td><code>solution</code></td><td>Object or null in the schema</td><td>An object contains the optimum found within the supplied rules. Null means the completed exact search proved there was no hard-feasible assignment.</td></tr><tr><td><code>solution.values</code></td><td>Array of signed 64-bit integers</td><td>One entry per input variable in the same order. Job A takes resource 1 and Job B takes resource 0.</td></tr><tr><td><code>solution.score.hard</code></td><td>Signed 64-bit integer</td><td><code>0</code> means the assignment satisfies every required rule supplied. Under this exact-result contract, the solver only returns hard-feasible assignments.</td></tr><tr><td><code>solution.score.soft</code></td><td>Signed 64-bit integer</td><td><code>0</code> means all supplied preferences are met. A negative value reports the combined deductions for unmet preferences.</td></tr><tr><td><code>solution.evaluated</code></td><td>Nonnegative JSON integer (the OpenAPI schema marks it as <code>int64</code> with minimum 0)</td><td>The number of assignments examined. The local API caps the number of combinations.</td></tr></tbody></table></div>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Response field</th>
+<th>Type</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>solution</code></td>
+<td>Object or null in the schema</td>
+<td>An object contains the optimum found within the supplied rules. Null means the completed exact search proved there was no hard-feasible assignment.</td>
+</tr>
+<tr>
+<td><code>solution.values</code></td>
+<td>Array of signed 64-bit integers</td>
+<td>One entry per input variable in the same order. Job A takes resource 1 and Job B takes resource 0.</td>
+</tr>
+<tr>
+<td><code>solution.score.hard</code></td>
+<td>Signed 64-bit integer</td>
+<td><code>0</code> means the assignment satisfies every required rule supplied. Under this exact-result contract, the solver only returns hard-feasible assignments.</td>
+</tr>
+<tr>
+<td><code>solution.score.soft</code></td>
+<td>Signed 64-bit integer</td>
+<td><code>0</code> means all supplied preferences are met. A negative value reports the combined deductions for unmet preferences.</td>
+</tr>
+<tr>
+<td><code>solution.evaluated</code></td>
+<td>Nonnegative JSON integer (the OpenAPI schema marks it as <code>int64</code> with minimum 0)</td>
+<td>The number of assignments examined. The local API caps the number of combinations.</td>
+</tr>
+</tbody></table></div>
 <p><strong>An input error or search limit is not proof of infeasibility.</strong> To check the null response, give both jobs the sole domain <code>[0]</code> in the worked request. Their all-different rule makes the model infeasible. A build with this exact-result contract returns HTTP 200 and <code>{&quot;solution&quot;:null}</code>. Reserve negative-hard candidates from older builds for diagnosis; do not apply them as plans.</p>
 <h2 id="section-status-and-response-headers">Status and response headers</h2>
-<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table><thead><tr><th>Status</th><th><code>X-Orchestrata-Error-Code</code></th><th>Client action</th></tr></thead><tbody><tr><td><code>200 OK</code></td><td>None</td><td>Read <code>solution</code> and distinguish an assignment from proved infeasibility.</td></tr><tr><td><code>400</code>, <code>413</code>, <code>415</code>, or <code>422</code></td><td><code>invalid_request_body</code></td><td>Check syntax, body size, content type, or JSON field types as appropriate.</td></tr><tr><td><code>422 Unprocessable Entity</code></td><td><code>invalid_problem</code></td><td>Correct the model. A variable with an empty domain is one example.</td></tr><tr><td><code>422 Unprocessable Entity</code></td><td><code>search_limit_exceeded</code></td><td>Reduce the number of combinations. No conclusion about feasibility was reached.</td></tr><tr><td><code>500 Internal Server Error</code></td><td><code>solve_execution_failed</code></td><td>Keep the request ID and the reproducible sample. An overflow in scoring can trigger this response.</td></tr><tr><td><code>503 Service Unavailable</code></td><td><code>solver_busy</code></td><td>Solve slots are occupied. Retry later with backoff.</td></tr></tbody></table></div>
+<div class="table-region" role="region" aria-label="Reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Status</th>
+<th><code>X-Orchestrata-Error-Code</code></th>
+<th>Client action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>200 OK</code></td>
+<td>None</td>
+<td>Read <code>solution</code> and distinguish an assignment from proved infeasibility.</td>
+</tr>
+<tr>
+<td><code>400</code>, <code>413</code>, <code>415</code>, or <code>422</code></td>
+<td><code>invalid_request_body</code></td>
+<td>Check syntax, body size, content type, or JSON field types as appropriate.</td>
+</tr>
+<tr>
+<td><code>422 Unprocessable Entity</code></td>
+<td><code>invalid_problem</code></td>
+<td>Correct the model. A variable with an empty domain is one example.</td>
+</tr>
+<tr>
+<td><code>422 Unprocessable Entity</code></td>
+<td><code>search_limit_exceeded</code></td>
+<td>Reduce the number of combinations. No conclusion about feasibility was reached.</td>
+</tr>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td><code>solve_execution_failed</code></td>
+<td>Keep the request ID and the reproducible sample. An overflow in scoring can trigger this response.</td>
+</tr>
+<tr>
+<td><code>503 Service Unavailable</code></td>
+<td><code>solver_busy</code></td>
+<td>Solve slots are occupied. Retry later with backoff.</td>
+</tr>
+</tbody></table></div>
 <p>Read <code>GET /api/v1/error-codes</code> for the running build’s code catalog and keep <code>X-Request-ID</code> for correlation. Error bodies can be plaintext. This solve contract has no per-request timeout field or header.</p>
 <h2 id="section-size-limits-and-troubleshooting">Size limits and troubleshooting</h2>
 <ul>
@@ -79,7 +288,9 @@
 <li>If you exceed the limit, reduce the case to a smaller representative model or remove options that genuinely cannot be chosen. Do not drop hard rules to get an answer. No retry can turn an unchanged over-budget model into a proof.</li>
 </ul>
 <h2 id="section-scope-of-this-version">Scope of this version</h2>
-<p>The starter solves finite integer-domain assignments with the three constraint kinds above. It has no native model for time windows, live routing, cumulative vehicle capacity, calendars, deployment-specific sign-in, or persistent job submission. It does not forecast demand, dispatch people, update external systems, or return partial progress. All quantities and rules you rely on must be present in the input. A model can be valid without representing every rule that applies to the real work.</p></article></div><aside class="aside content-rail"><nav aria-label="On this page"><div class="content-rail-title"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/><div><h2>On this page</h2><p>8 sections</p></div></div><ol><li><a data-section-target="guide-text" class="react-aria-Link" data-rac="" href="#guide-text" tabindex="0" data-react-aria-pressable="true">Solve API reference</a></li><li><a data-section-target="section-connect-to-the-local-service" class="react-aria-Link" data-rac="" href="#section-connect-to-the-local-service" tabindex="0" data-react-aria-pressable="true">Connect to the local service</a></li><li><a data-section-target="section-problem-fields" class="react-aria-Link" data-rac="" href="#section-problem-fields" tabindex="0" data-react-aria-pressable="true">Problem fields</a></li><li><a data-section-target="section-constraint-fields" class="react-aria-Link" data-rac="" href="#section-constraint-fields" tabindex="0" data-react-aria-pressable="true">Constraint fields</a></li><li><a data-section-target="section-worked-request" class="react-aria-Link" data-rac="" href="#section-worked-request" tabindex="0" data-react-aria-pressable="true">Worked request</a></li><li><a data-section-target="section-status-and-response-headers" class="react-aria-Link" data-rac="" href="#section-status-and-response-headers" tabindex="0" data-react-aria-pressable="true">Status and response headers</a></li><li><a data-section-target="section-size-limits-and-troubleshooting" class="react-aria-Link" data-rac="" href="#section-size-limits-and-troubleshooting" tabindex="0" data-react-aria-pressable="true">Size limits and troubleshooting</a></li><li><a data-section-target="section-scope-of-this-version" class="react-aria-Link" data-rac="" href="#section-scope-of-this-version" tabindex="0" data-react-aria-pressable="true">Scope of this version</a></li></ol></nav><div class="content-additional"><h2>Related guides</h2><p><a href="/Orchestrata/docs/">Documentation sections</a></p><nav aria-label="Documentation sections"><ul class="doc-links"><li><a href="/Orchestrata/docs/evaluate/" hrefLang="en-US">Evaluate the planning engine</a></li><li><a href="/Orchestrata/docs/api/" hrefLang="en-US">CLI and API reference</a></li><li><a href="/Orchestrata/docs/recipes/" hrefLang="en-US">Planning examples and recipes</a></li><li><a href="/Orchestrata/docs/deployment/" hrefLang="en-US">Run and deploy</a></li><li><a href="/Orchestrata/docs/recipes-api/" hrefLang="en-US">Recipe API reference</a></li><li><a href="/Orchestrata/docs/sdk/" hrefLang="en-US">Native SDK reference</a></li><li><a href="/Orchestrata/docs/backend-setup/" hrefLang="en-US">Set up and troubleshoot the local backend</a></li></ul></nav></div></aside></div><script>(() => {
+<p>The starter solves finite integer-domain assignments with the three constraint kinds above. It has no native model for time windows, live routing, cumulative vehicle capacity, calendars, deployment-specific sign-in, or persistent job submission. It does not forecast demand, dispatch people, update external systems, or return partial progress. All quantities and rules you rely on must be present in the input. A model can be valid without representing every rule that applies to the real work.</p>
+
+</article></div><aside class="aside content-rail"><nav aria-label="On this page"><div class="content-rail-title"><img src="/Orchestrata/assets/mark.svg" alt="" width="23" height="23"/><div><h2>On this page</h2><p>10 sections</p></div></div><ol><li><a data-section-target="section-connect-to-the-local-service" href="#section-connect-to-the-local-service">Connect to the local service</a></li><li><a data-section-target="section-your-first-solve" href="#section-your-first-solve">Your first solve</a></li><li><a data-section-target="section-check-errors-before-integrating" href="#section-check-errors-before-integrating">Check errors before integrating</a></li><li><a data-section-target="section-routes-and-contract" href="#section-routes-and-contract">Routes and contract</a></li><li><a data-section-target="section-problem-fields" href="#section-problem-fields">Problem fields</a></li><li><a data-section-target="section-constraint-fields" href="#section-constraint-fields">Constraint fields</a></li><li><a data-section-target="section-worked-request" href="#section-worked-request">Worked request</a></li><li><a data-section-target="section-status-and-response-headers" href="#section-status-and-response-headers">Status and response headers</a></li><li><a data-section-target="section-size-limits-and-troubleshooting" href="#section-size-limits-and-troubleshooting">Size limits and troubleshooting</a></li><li><a data-section-target="section-scope-of-this-version" href="#section-scope-of-this-version">Scope of this version</a></li></ol></nav><div class="content-additional"><h2>Related guides</h2><p><a href="/Orchestrata/docs/">Documentation sections</a></p><nav aria-label="Documentation sections"><ul class="doc-links"><li><a href="/Orchestrata/docs/evaluate/" hrefLang="en-US">Evaluate the planning engine</a></li><li><a href="/Orchestrata/docs/api/" hrefLang="en-US">CLI and API reference</a></li><li><a href="/Orchestrata/docs/recipes/" hrefLang="en-US">Planning examples and recipes</a></li><li><a href="/Orchestrata/docs/deployment/" hrefLang="en-US">Run and deploy</a></li><li><a href="/Orchestrata/docs/recipes-api/" hrefLang="en-US">Recipe API reference</a></li><li><a href="/Orchestrata/docs/sdk/" hrefLang="en-US">Native SDK reference</a></li><li><a href="/Orchestrata/docs/backend-setup/" hrefLang="en-US">Set up and troubleshoot the local backend</a></li></ul></nav></div></aside></div><script>(() => {
   const block = document.querySelector('[data-content-actions]');
   if (!block || !navigator.clipboard || !navigator.clipboard.writeText) return;
   const control = block.querySelector('[data-section-copy]');

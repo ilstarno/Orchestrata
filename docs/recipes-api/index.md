@@ -1,20 +1,43 @@
 # Recipe API reference
 
-Use the bundled catalog if the running API lists it in `GET /api/v1/openapi.json`. The catalog holds worked examples and runs on your own machine. It does not accept customer uploads. The project website does not host these endpoints.
+A **recipe** is a bundled worked planning example. Browse its description, inspect the input and run that sample on an existing server. Calling these endpoints needs curl and server access, not Rust or a source checkout. To start your own server, use the [setup guide](../backend-setup/).
 
 ## Start with the catalog
 
-From the repository root, run `(cd backend && cargo run -p orchestrata-api)`. Run the following in a second terminal:
+These commands use a POSIX shell on Linux, macOS or WSL and the local sample server. `127.0.0.1` means this computer. For a server supplied by your team, obtain its base URL and access instructions from its operator. The website does not host the API.
 
 ```sh
+curl --version
 API=http://127.0.0.1:3000
 curl -fsS "$API/api/v1/health"
 curl -fsS "$API/api/v1/openapi.json"
+```
+
+Health returns `{"status":"ok"}`. In the OpenAPI document's `paths`, check for `/api/v1/recipes` and the recipe detail, example and run-example routes. **Only use routes the running server exposes.** A recipe catalog is not guaranteed on every deployment.
+
+List the catalog, then choose an `id` from its response:
+
+```sh
 curl -fsS "$API/api/v1/recipes"
+```
+
+For a catalog containing `field-service`, inspect the description and input, then run its bundled example:
+
+```sh
 curl -fsS "$API/api/v1/recipes/field-service"
 curl -fsS "$API/api/v1/recipes/field-service/example"
 curl -fsS -X POST "$API/api/v1/recipes/field-service/run-example"
 ```
+
+The local sample server returns:
+
+```json
+{"solution":{"values":[0,1,2],"score":{"hard":0,"soft":0},"evaluated":8}}
+```
+
+Values follow the example's variable order: the three jobs use resources `0`, `1` and `2`. Both scores are zero. Read the [field-service worked result](/Orchestrata/solutions/field-service/) for the names and operational meaning. `run-example` takes no body and runs the bundled sample; to submit your own problem use the [Solve API](../solve-api/).
+
+## Routes and response fields
 
 | Method and path | Success response |
 | --- | --- |

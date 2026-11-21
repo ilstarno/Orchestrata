@@ -1,31 +1,87 @@
 # Solve API reference
 
-Send a finite planning problem to the local API. Each decision needs a list of allowed values. See the [local setup guide](../backend-setup/) and use the running OpenAPI schema to verify the routes and fields below.
+Send a planning problem from your application and receive assignments or an infeasible result. An **API** is the server interface your program calls over HTTP. The request and response use **JSON**, a text format for structured data.
 
 ## Connect to the local service
 
-| Setting | Value for the starter API |
-| --- | --- |
-| Prerequisites | An Orchestrata source checkout and a current stable Rust toolchain. The examples also use a shell and `curl`. |
-| Base URL | `http://127.0.0.1:3000`. This is loopback on the machine running the service. |
-| Request body | UTF-8 JSON. Send `Content-Type: application/json` when posting. |
-| Authentication | None in this local starter. Do not expose it to the internet or submit customer or employee data during evaluation. |
-| Transport | Local HTTP. The project website is static and does not run or proxy the service. |
-| Version | Beginning of each path: `/api/v1`. Read the OpenAPI document from the running build to confirm its contract. |
+**Calling a running server does not require Rust, Cargo, an SDK or a source checkout.** You need a terminal, [curl](https://curl.se/docs/manpage.html) (a command-line HTTP client), and access to an Orchestrata server.
 
-Start the service at the checkout root:
+- **Already have a server?** Ask its operator for the base URL, permitted routes and access method. Use that server's instructions for authentication. The unauthenticated commands below are for the local sample server only.
+- **No server yet?** Follow [Run the server from source](../backend-setup/), then return here. The website does not provide a public solve endpoint.
+- **Just exploring?** [Read the two-job worked example](/Orchestrata/examples/assignment/) without installing anything. It shows a saved result; it does not start a server.
+
+The commands use a POSIX shell on Linux, macOS or WSL. Open a fresh terminal; no particular working directory is needed. `127.0.0.1` means this computer. Set `API` to the local server's address and check that it responds:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+curl --version
+API=http://127.0.0.1:3000
+curl -fsS "$API/api/v1/health"
 ```
 
-| Method and path | Request | Successful response |
-| --- | --- | --- |
-| `GET /api/v1/health` | No body | `{"status":"ok"}`. Confirms the process responds. Feasibility is checked by the solve endpoint. |
-| `GET /api/v1/openapi.json` | No body | JSON schema for health, solve, errors, and the recipe catalog. The schema document does not list its own URL as an operation. |
-| `POST /api/v1/solve` | Problem JSON, described below | A JSON object containing `solution`. Check that it contains an assignment with hard score zero before using it. |
+Expected response:
 
-If the source includes the CLI and `backend/examples/assignment.json`, run the example directly: `(cd backend && cargo run -p orchestrata-cli -- examples/assignment.json)`. The CLI prints the solution directly, with no HTTP wrapper.
+```json
+{"status":"ok"}
+```
+
+Keep this terminal open: later commands use the same `API` variable. Health confirms that the server responds; it does not solve a problem. The local server has no authentication. Keep it on loopback and use sample data.
+
+## Your first solve
+
+Two jobs need different resources. Each may use resource `0` or `1`; job A prefers `1`. Paste this complete request into the same terminal. It includes its input, so no example file or checkout is needed.
+
+```sh
+curl -fsS "$API/api/v1/solve" \
+  -H 'Content-Type: application/json' \
+  --data-binary @- <<'JSON'
+{"variables":[{"name":"job_a","domain":[0,1]},{"name":"job_b","domain":[0,1]}],"constraints":[{"kind":"all_different","variables":[0,1],"hard_weight":1},{"kind":"prefer_value","variable":0,"value":1,"soft_weight":3}]}
+JSON
+```
+
+Expected response:
+
+```json
+{"solution":{"values":[1,0],"score":{"hard":0,"soft":0},"evaluated":4}}
+```
+
+Read `values` in the input order: job A gets resource `1`, job B gets resource `0`. `hard: 0` means the required rules are satisfied. `soft: 0` means the preference is satisfied. `evaluated: 4` counts the candidate assignments examined. Resource numbers are your own identifiers; they do not imply dates, people or units until your application maps them.
+
+## Check errors before integrating
+
+An infeasible model and a broken request are different outcomes. Give both jobs only resource `[0]` to obtain `{"solution":null}`: no assignment can keep them different. An empty domain is invalid input instead:
+
+```sh
+curl -i -sS "$API/api/v1/solve" \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"variables":[{"name":"empty","domain":[]}],"constraints":[]}'
+```
+
+Expect HTTP `422`, `X-Orchestrata-Error-Code: invalid_problem` and the text `Invalid problem`. The `X-Request-ID` value varies. Here `-i` shows headers and omitting `-f` keeps the error body visible.
+
+| Symptom | Next step |
+| --- | --- |
+| Connection refused | Start the server and check its terminal; confirm the port in `API`. |
+| 401 or 403 from an operator-managed server | Follow the operator's access instructions. Do not reuse the unauthenticated sample as an access workaround. |
+| 404 | Check the base URL and `/api/v1/openapi.json` on that server. |
+| 422 or a solve-limit error | Check the request and the limits below. A rejected request does not prove that the work is impossible. |
+| `solution` is null | The exact search found no assignment satisfying all hard rules. Review the allowed resources and required rules. |
+
+## Routes and contract
+
+```sh
+curl -fsS "$API/api/v1/openapi.json"
+```
+
+**OpenAPI** is the machine-readable description of the running server's endpoints and request fields. Use it to confirm capabilities before integrating. `GET` reads data; `POST` submits a request. The `/api/v1` prefix identifies this API version.
+
+| Method and path | Purpose |
+| --- | --- |
+| `GET /api/v1/health` | Check reachability. |
+| `GET /api/v1/openapi.json` | Inspect the running contract. |
+| `POST /api/v1/solve` | Submit the JSON problem and read its `solution`. |
+| `GET /api/v1/error-codes` | Look up error codes and their meanings. |
+
+The reference below describes the local sample server. An operator's build or proxy may impose different limits. Recipe catalog operations have a [separate guide](../recipes-api/).
 
 ## Problem fields
 
