@@ -1,0 +1,4 @@
+﻿"Job number","Job","Assigned person number","Assigned person","Status","Reason"
+"1","Repair shop door","2","Technician B","Assigned",""
+"2","Check emergency lights","3","Technician C","Assigned",""
+"3","Service workshop tools","","","Open","Not assigned in this plan"
