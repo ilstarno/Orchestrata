@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/solutions/financial-operations/</loc>
@@ -92,24 +92,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -122,14 +108,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -307,24 +286,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -492,24 +457,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -522,14 +473,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -665,24 +609,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/de-de/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -835,24 +765,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -865,14 +781,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -1008,24 +917,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/nl-nl/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -1178,24 +1073,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -1208,14 +1089,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -1351,24 +1225,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/it-it/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -1521,24 +1381,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -1551,14 +1397,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -1694,24 +1533,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/pl-pl/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -1864,24 +1689,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/contact-center/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/contact-center/"/>
@@ -1894,14 +1705,7 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/examples/fleet/new-york/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/examples/fleet/new-york/"/>
@@ -2037,24 +1841,10 @@
   </url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/>
-  </url>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url>
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/fr-fr/for-agents/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/for-agents/"/>
@@ -2163,28 +1953,28 @@
   <url>
     <loc>https://ilstarno.github.io/Orchestrata/sq-al/examples/albania-weekly-rest/</loc>
   </url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sap-s4hana/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/netsuite/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/dynamics365-field-service/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sharepoint-lists/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/aws-config/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/azure-resource-graph/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/google-cloud-asset-inventory/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/amazon-s3/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ups-quantum-view/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/fedex/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mygls/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/genesys-cloud/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/asterisk-queue-logs/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/snowflake/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mysql/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-database/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ibm-db2-luw/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sql-server/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/odbc/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/infinite-campus/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-health/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/samsara/</loc></url>
-  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/iata-aidx/</loc></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sap-s4hana/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sap-s4hana/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sap-s4hana/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/netsuite/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/netsuite/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/netsuite/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/dynamics365-field-service/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/dynamics365-field-service/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/dynamics365-field-service/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sharepoint-lists/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sharepoint-lists/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sharepoint-lists/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/aws-config/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/aws-config/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/aws-config/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/azure-resource-graph/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/azure-resource-graph/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/azure-resource-graph/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/google-cloud-asset-inventory/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/google-cloud-asset-inventory/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/google-cloud-asset-inventory/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/amazon-s3/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/amazon-s3/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/amazon-s3/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ups-quantum-view/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/ups-quantum-view/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/ups-quantum-view/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/fedex/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/fedex/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/fedex/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mygls/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/mygls/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/mygls/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/genesys-cloud/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/genesys-cloud/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/genesys-cloud/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/asterisk-queue-logs/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/asterisk-queue-logs/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/asterisk-queue-logs/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/snowflake/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/snowflake/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/snowflake/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/mysql/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/mysql/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/mysql/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-database/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/oracle-database/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-database/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/ibm-db2-luw/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/ibm-db2-luw/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/ibm-db2-luw/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/sql-server/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sql-server/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sql-server/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/odbc/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/odbc/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/odbc/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/infinite-campus/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/infinite-campus/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/infinite-campus/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/oracle-health/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/oracle-health/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-health/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/samsara/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/samsara/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/samsara/"/></url>
+  <url><loc>https://ilstarno.github.io/Orchestrata/integrations/iata-aidx/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/iata-aidx/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/iata-aidx/"/></url>
   <url><loc>https://ilstarno.github.io/Orchestrata/examples/maintenance-shift/</loc></url>
-</urlset>
+<url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/salesforce/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/salesforce/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/jira/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/jira/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/jira/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/jira/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/jira/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/jira/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/servicenow/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/servicenow/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/sap-s4hana/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sap-s4hana/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sap-s4hana/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/workday/"/><xhtml:link rel="alternate" hreflang="de-DE" href="https://ilstarno.github.io/Orchestrata/de-de/integrations/workday/"/><xhtml:link rel="alternate" hreflang="nl-NL" href="https://ilstarno.github.io/Orchestrata/nl-nl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="it-IT" href="https://ilstarno.github.io/Orchestrata/it-it/integrations/workday/"/><xhtml:link rel="alternate" hreflang="pl-PL" href="https://ilstarno.github.io/Orchestrata/pl-pl/integrations/workday/"/><xhtml:link rel="alternate" hreflang="fr-FR" href="https://ilstarno.github.io/Orchestrata/fr-fr/integrations/workday/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/workday/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/netsuite/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/netsuite/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/netsuite/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/dynamics365-field-service/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/dynamics365-field-service/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/dynamics365-field-service/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/sharepoint-lists/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sharepoint-lists/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sharepoint-lists/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/aws-config/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/aws-config/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/aws-config/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/azure-resource-graph/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/azure-resource-graph/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/azure-resource-graph/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/google-cloud-asset-inventory/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/google-cloud-asset-inventory/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/google-cloud-asset-inventory/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/amazon-s3/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/amazon-s3/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/amazon-s3/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/ups-quantum-view/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/ups-quantum-view/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/ups-quantum-view/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/fedex/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/fedex/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/fedex/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/mygls/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/mygls/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/mygls/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/genesys-cloud/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/genesys-cloud/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/genesys-cloud/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/asterisk-queue-logs/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/asterisk-queue-logs/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/asterisk-queue-logs/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/snowflake/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/snowflake/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/snowflake/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/mysql/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/mysql/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/mysql/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-database/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/oracle-database/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-database/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/ibm-db2-luw/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/ibm-db2-luw/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/ibm-db2-luw/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/sql-server/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/sql-server/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/sql-server/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/odbc/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/odbc/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/odbc/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/infinite-campus/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/infinite-campus/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/infinite-campus/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-health/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/oracle-health/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/oracle-health/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/samsara/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/samsara/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/samsara/"/></url><url><loc>https://ilstarno.github.io/Orchestrata/sq-al/integrations/iata-aidx/</loc><xhtml:link rel="alternate" hreflang="en-US" href="https://ilstarno.github.io/Orchestrata/integrations/iata-aidx/"/><xhtml:link rel="alternate" hreflang="sq-AL" href="https://ilstarno.github.io/Orchestrata/sq-al/integrations/iata-aidx/"/></url></urlset>
