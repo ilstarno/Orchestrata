@@ -1,59 +1,23 @@
-Run the API and web UI on your workstation. Use sample data and keep this build off the public internet. The website does not start the API.
+## Choose how to start
 
-## Local API and web UI
+To inspect a result without installing tools, open the [worked assignment](/Orchestrata/examples/assignment/). To call a running server, follow the [first HTTP request](/Orchestrata/docs/solve-api/); the client needs no Rust installation.
 
-Use stable Rust with Cargo and curl. For the web UI, also install Node.js 22 and npm. Start with the [Orchestrata repository](https://github.com/ilstarno/Orchestrata). Obtain the source and check that the Cargo workspace lists `orchestrata-api`. Check the running OpenAPI document before using optional routes.
+Rust is the programming language used to build the engine and server. Cargo builds Rust programs and manages their dependencies. Only the source-build path needs these tools. The [server setup guide](/Orchestrata/docs/backend-setup/) explains installation and version checks.
 
-From the repository root, run the locked workspace tests, then start the API on loopback:
+All source commands below run from the Orchestrata checkout root. The shell examples use Linux, macOS or WSL.
 
-```sh
-cargo test --manifest-path backend/Cargo.toml --locked --workspace
-ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
-```
+## Run a local server
 
-Leave the API running. From the repository root in a second terminal, check the health endpoint, request the first three rows of the recipe grid, and run the bundled assignment:
+Use the [step-by-step server setup](/Orchestrata/docs/backend-setup/) to install the tools and start the API. The website is separate from the server. No browser frontend or database is needed for the first request.
 
 ```sh
-curl -fsS http://127.0.0.1:3000/api/v1/health
-curl -fsS 'http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3'
-curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
-  -H 'Content-Type: application/json' \
-  --data-binary @backend/examples/assignment.json
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 \
+  cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-The health request confirms the process responds. The recipe grid returns recipe metadata; it does not submit jobs. The expected assignment is `[1,0]` in input order. None of these checks proves sign-in, durable job storage, or service capacity.
+## Use a native library
 
-To use the web UI, keep the API running and open a terminal in the separate [frontend repository](https://github.com/ilstarno/orchestrata-frontend) if you have access. Confirm it contains `frontend/package.json` and its API schema matches the running backend.
-
-```sh
-(cd frontend && npm install && npm run dev)
-```
-
-Open the local URL printed by the UI command. The development server forwards `/api` to `127.0.0.1:3000`. If you change `ORCHESTRATA_HTTP_BIND` to another loopback port, update both the curl URLs and the development proxy target.
-
-See the [local API guide](../api/) for request and response details and the [backend setup and troubleshooting guide (English)](../backend-setup/) if startup or the proxy fails.
-
-## Evaluate the standalone engine and SDKs
-
-The [standalone engine repository](https://github.com/ilstarno/orchestrata-engine) contains the Rust engine, native library, and bindings for C#, Java, Python, Node.js, PHP and Go. Build the SDK from matching source; this guide does not require a packaged release. On the engine checkout, with stable Rust:
-
-```sh
-(
-  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=Cargo.toml
-  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=backend/Cargo.toml
-  else
-      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
-      exit 1
-  fi
-  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
-)
-```
-
-Run this from the standalone engine repository, not the API repository above. The command finds the right build file for your checkout.
-
-Follow the SDK README for loader and runtime requirements for your language. Use the native library from the same checkout and an ABI-compatible binding. A native library built on one platform is not proof of packaging support for other platforms.
+Choose a binding and follow the [SDK walkthrough](/Orchestrata/docs/sdk/). It uses the public standalone engine source, a matching native library and a local package installation.
 
 ## Checklist before testing on a cluster
 

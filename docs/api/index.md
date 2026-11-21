@@ -1,3 +1,11 @@
+## Choose how to start
+
+To inspect a result without installing tools, open the [worked assignment](/Orchestrata/examples/assignment/). To call a running server, follow the [first HTTP request](/Orchestrata/docs/solve-api/); the client needs no Rust installation.
+
+Rust is the programming language used to build the engine and server. Cargo builds Rust programs and manages their dependencies. Only the source-build path needs these tools. The [server setup guide](/Orchestrata/docs/backend-setup/) explains installation and version checks.
+
+All source commands below run from the Orchestrata checkout root. The shell examples use Linux, macOS or WSL.
+
 Send sample planning JSON to the starter API on your workstation. This static site provides no solver, sign-in, or request proxy.
 
 ## Start and call the service
@@ -5,7 +13,7 @@ Send sample planning JSON to the starter API on your workstation. This static si
 Run this from the Orchestrata repository root:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
 In another terminal, also from the repository root:

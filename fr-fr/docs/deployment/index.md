@@ -1,59 +1,23 @@
-Exécutez l’API et l’interface web sur votre poste. Utilisez les données d’exemple et gardez cette version hors de l’Internet public. Le site ne démarre pas l’API.
+## Choisir votre point de départ
 
-## API locale et interface web
+Lisez l’[exemple d’affectation (anglais)](/Orchestrata/examples/assignment/) sans installation. Pour un serveur existant, suivez la [première requête HTTP (anglais)](/Orchestrata/docs/solve-api/). Le client n’a pas besoin de Rust.
 
-Utilisez une version stable de Rust avec Cargo et curl. Pour l’interface web, installez aussi Node.js 22 et npm. Ouvrez le [dépôt Orchestrata](https://github.com/ilstarno/Orchestrata). Récupérez les sources et vérifiez que l’espace de travail Cargo contient `orchestrata-api`. Vérifiez les routes facultatives dans le document OpenAPI du service.
+Rust est le langage du moteur et du serveur. Cargo compile les programmes Rust et gère leurs dépendances. Ces outils servent uniquement à construire depuis les sources. Le [guide du serveur (anglais)](/Orchestrata/docs/backend-setup/) explique l’installation et les vérifications de version.
 
-À la racine du dépôt, exécutez les tests de l’espace de travail avec les dépendances verrouillées, puis démarrez l’API sur l’interface de bouclage :
+Toutes les commandes sur les sources ci-dessous partent de la racine du checkout Orchestrata. Les exemples de shell utilisent Linux, macOS ou WSL.
 
-```sh
-cargo test --manifest-path backend/Cargo.toml --locked --workspace
-ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
-```
+## Démarrer un serveur local
 
-Laissez l’API tourner. Dans un deuxième terminal, depuis la racine du dépôt, vérifiez que le service répond, demandez les trois premières lignes du catalogue de recettes et exécutez l’exemple d’affectation fourni :
+Le [guide du serveur (anglais)](/Orchestrata/docs/backend-setup/) décrit l’installation et le démarrage. Le site et le serveur sont séparés. La première requête ne nécessite ni interface navigateur ni base de données.
 
 ```sh
-curl -fsS http://127.0.0.1:3000/api/v1/health
-curl -fsS 'http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3'
-curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
-  -H 'Content-Type: application/json' \
-  --data-binary @backend/examples/assignment.json
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 \
+  cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-Le contrôle d’état confirme que le processus répond. La liste renvoie les métadonnées des recettes et ne lance aucune tâche. Le résultat attendu est `[1,0]` dans l’ordre des entrées. Ces contrôles ne vérifient ni la connexion des utilisateurs, ni le stockage persistant des tâches, ni la capacité du service.
+## Utiliser une bibliothèque native
 
-Pour utiliser l’interface web, laissez l’API tourner et ouvrez un terminal dans le [dépôt distinct du frontend](https://github.com/ilstarno/orchestrata-frontend) si vous y avez accès. Vérifiez `frontend/package.json` et comparez le schéma API avec celui du backend.
-
-```sh
-(cd frontend && npm install && npm run dev)
-```
-
-Ouvrez l’adresse locale affichée par la commande. Le serveur de développement redirige `/api` vers `127.0.0.1:3000`. Si vous choisissez un autre port de bouclage dans `ORCHESTRATA_HTTP_BIND`, modifiez à la fois les adresses curl et la destination du proxy de développement.
-
-Le [guide de l’API locale](../api/) décrit les requêtes et les réponses. En cas de problème de démarrage ou de proxy, consultez le [guide de configuration et de dépannage du backend (en anglais)](../../../docs/backend-setup/).
-
-## Évaluer le moteur autonome et les SDK
-
-Le [dépôt du moteur autonome](https://github.com/ilstarno/orchestrata-engine) contient le moteur Rust, la bibliothèque native et les liaisons pour C#, Java, Python, Node.js, PHP et Go. Compilez le SDK à partir des sources correspondantes. Depuis la copie locale du dépôt du moteur, avec Rust stable, exécutez :
-
-```sh
-(
-  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=Cargo.toml
-  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=backend/Cargo.toml
-  else
-      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
-      exit 1
-  fi
-  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
-)
-```
-
-Lancez cette commande dans le dépôt du moteur autonome, et non dans celui de l’API ci-dessus. Elle détecte automatiquement le fichier de compilation à utiliser.
-
-Consultez le README du SDK pour connaître les exigences de chargement et d’environnement d’exécution propres à votre langage. Utilisez la bibliothèque native issue de la même révision du dépôt et une liaison compatible avec l’ABI. La compilation de la bibliothèque native sur une plateforme ne prouve pas que le conditionnement en paquets est pris en charge sur d’autres plateformes.
+Choisissez une liaison dans le [guide SDK (anglais)](/Orchestrata/docs/sdk/). Il utilise les sources publiques du moteur, la bibliothèque native correspondante et une installation locale du paquet.
 
 ## Liste de vérification avant un essai en cluster
 

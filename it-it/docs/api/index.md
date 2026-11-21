@@ -1,3 +1,11 @@
+## Scegli da dove iniziare
+
+Leggi l’[esempio di assegnazione (inglese)](/Orchestrata/examples/assignment/) senza installare strumenti. Per un server esistente segui la [prima richiesta HTTP (inglese)](/Orchestrata/docs/solve-api/). Il client non richiede Rust.
+
+Rust è il linguaggio del motore e del server. Cargo compila i programmi Rust e gestisce le dipendenze. Questi strumenti servono solo per compilare dal sorgente. La [guida del server (inglese)](/Orchestrata/docs/backend-setup/) spiega installazione e controllo delle versioni.
+
+Tutti i comandi sul sorgente qui sotto partono dalla cartella principale del checkout Orchestrata. Gli esempi di shell usano Linux, macOS o WSL.
+
 Invia un esempio JSON all’API di base sul tuo computer. Questo sito statico non offre né risolutore, né accesso, né inoltro delle richieste.
 
 ## Avviare e chiamare il servizio
@@ -5,7 +13,7 @@ Invia un esempio JSON all’API di base sul tuo computer. Questo sito statico no
 Eseguire questo comando dalla directory principale del repository Orchestrata:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
 In un altro terminale, sempre dalla directory principale del repository, eseguire:

@@ -1,59 +1,23 @@
-Start de API en webinterface op je computer. Gebruik voorbeeldgegevens en houd deze build buiten het openbare internet. De site start geen API.
+## Kies uw startpunt
 
-## Lokale API en webinterface
+Lees het [toewijzingsvoorbeeld (Engels)](/Orchestrata/examples/assignment/) zonder iets te installeren. Gebruik voor een bestaande server de [eerste HTTP-aanvraag (Engels)](/Orchestrata/docs/solve-api/). De client heeft geen Rust nodig.
 
-Gebruik een stabiele Rust-versie met Cargo en curl. Installeer voor de webinterface ook Node.js 22 en npm. Open de [Orchestrata-repository](https://github.com/ilstarno/Orchestrata). Haal de broncode op en controleer of de Cargo-werkruimte `orchestrata-api` bevat. Controleer optionele routes in het OpenAPI-document van de draaiende API.
+Rust is de programmeertaal van de engine en server. Cargo bouwt Rust-programma’s en beheert afhankelijkheden. Alleen bouwen uit broncode vereist deze tools. De [serverhandleiding (Engels)](/Orchestrata/docs/backend-setup/) legt installatie en versiecontroles uit.
 
-Voer vanuit de hoofdmap eerst de workspacetests uit met de vastgelegde afhankelijkheden en start daarna de API op de loopbackinterface:
+Alle broncodeopdrachten hieronder worden uitgevoerd vanuit de hoofdmap van de Orchestrata-checkout. De shellvoorbeelden gebruiken Linux, macOS of WSL.
 
-```sh
-cargo test --manifest-path backend/Cargo.toml --locked --workspace
-ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
-```
+## Een lokale server starten
 
-Laat de API draaien. Open een tweede terminal in de hoofdmap, controleer of de API reageert, vraag de eerste drie rijen van de receptenlijst op en voer het meegeleverde toewijzingsvoorbeeld uit:
+Volg de [serverhandleiding (Engels)](/Orchestrata/docs/backend-setup/) voor installatie en opstarten. Website en server zijn gescheiden. Voor de eerste aanvraag zijn geen browserinterface of database nodig.
 
 ```sh
-curl -fsS http://127.0.0.1:3000/api/v1/health
-curl -fsS 'http://127.0.0.1:3000/api/v1/recipes/grid?page_size=3'
-curl -fsS -X POST http://127.0.0.1:3000/api/v1/solve \
-  -H 'Content-Type: application/json' \
-  --data-binary @backend/examples/assignment.json
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 \
+  cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
-De statuscontrole bevestigt dat het proces reageert. Het receptenoverzicht geeft metadata terug en start geen taken. De verwachte toewijzing is `[1,0]` in invoervolgorde. Deze controles bewijzen niet dat aanmelden, blijvende taakopslag of capaciteit op orde zijn.
+## Een native bibliotheek gebruiken
 
-Laat de API draaien voor de webinterface en open, als u toegang hebt, een terminal in de [aparte frontend-repository](https://github.com/ilstarno/orchestrata-frontend). Controleer `frontend/package.json` en vergelijk het API-schema met de draaiende backend.
-
-```sh
-(cd frontend && npm install && npm run dev)
-```
-
-Open het lokale adres dat de opdracht afdrukt. De ontwikkelserver stuurt `/api` door naar `127.0.0.1:3000`. Kies je via `ORCHESTRATA_HTTP_BIND` een andere loopbackpoort, pas dan zowel de curl-adressen als de doelserver van de ontwikkelproxy aan.
-
-De [handleiding voor de lokale API](../api/) beschrijft de aanvragen en antwoorden. Raadpleeg bij start- of proxyproblemen de [backendhandleiding en probleemoplossing (Engels)](../../../docs/backend-setup/).
-
-## De zelfstandige engine en de SDK’s evalueren
-
-De [repository van de zelfstandige engine](https://github.com/ilstarno/orchestrata-engine) bevat de Rust-engine, de native bibliotheek en bindings voor C#, Java, Python, Node.js, PHP en Go. Bouw de SDK uit de bijbehorende broncode. Voer vanuit de checkout van de engine met stabiel Rust het volgende uit:
-
-```sh
-(
-  if [ -f Cargo.toml ] && [ -f crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=Cargo.toml
-  elif [ -f backend/Cargo.toml ] && [ -f backend/crates/ffi/include/orchestrata.h ]; then
-      engine_manifest=backend/Cargo.toml
-  else
-      printf '%s\n' 'Run these commands from the standalone engine repository.' >&2
-      exit 1
-  fi
-  cargo build --manifest-path "$engine_manifest" --release --locked -p orchestrata-ffi
-)
-```
-
-Voer dit uit in de repository van de zelfstandige engine, niet in de API-repository hierboven. Het commando zoekt zelf het juiste Cargo-bestand.
-
-Raadpleeg de README van de SDK voor de vereisten voor het laden van de bibliotheek en de runtime van uw taal. Gebruik de native bibliotheek uit dezelfde checkout en een ABI-compatibele binding. Dat u de native bibliotheek op één platform kunt bouwen, bewijst niet dat pakketdistributie op andere platforms wordt ondersteund.
+Kies een taalbinding in de [SDK-handleiding (Engels)](/Orchestrata/docs/sdk/). Deze gebruikt de openbare enginebroncode, een bijpassende native bibliotheek en een lokale pakketinstallatie.
 
 ## Checklist vóór een clustertest
 

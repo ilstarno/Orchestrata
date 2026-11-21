@@ -1,3 +1,11 @@
+## Kies uw startpunt
+
+Lees het [toewijzingsvoorbeeld (Engels)](/Orchestrata/examples/assignment/) zonder iets te installeren. Gebruik voor een bestaande server de [eerste HTTP-aanvraag (Engels)](/Orchestrata/docs/solve-api/). De client heeft geen Rust nodig.
+
+Rust is de programmeertaal van de engine en server. Cargo bouwt Rust-programma’s en beheert afhankelijkheden. Alleen bouwen uit broncode vereist deze tools. De [serverhandleiding (Engels)](/Orchestrata/docs/backend-setup/) legt installatie en versiecontroles uit.
+
+Alle broncodeopdrachten hieronder worden uitgevoerd vanuit de hoofdmap van de Orchestrata-checkout. De shellvoorbeelden gebruiken Linux, macOS of WSL.
+
 Stuur voorbeeld-JSON naar de starters-API op je computer. Deze statische site biedt geen solver of aanmelding en stuurt geen verzoeken door.
 
 ## De service starten en aanroepen
@@ -5,7 +13,7 @@ Stuur voorbeeld-JSON naar de starters-API op je computer. Deze statische site bi
 Voer dit uit vanuit de hoofdmap van de Orchestrata-repository:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
 Voer in een andere terminal, ook vanuit de hoofdmap van de repository, het volgende uit:

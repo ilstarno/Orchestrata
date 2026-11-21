@@ -1,3 +1,11 @@
+## Den Einstieg wählen
+
+Öffnen Sie das [Zuweisungsbeispiel (Englisch)](/Orchestrata/examples/assignment/), um ein Ergebnis ohne Installation zu lesen. Für einen laufenden Server folgen Sie der [ersten HTTP-Anfrage (Englisch)](/Orchestrata/docs/solve-api/). Der Client benötigt kein Rust.
+
+Rust ist die Programmiersprache von Engine und Server. Cargo baut Rust-Programme und verwaltet ihre Abhängigkeiten. Diese Werkzeuge werden nur zum Bauen aus Quellcode benötigt. Die [Serveranleitung (Englisch)](/Orchestrata/docs/backend-setup/) erklärt Installation und Versionsprüfung.
+
+Alle Quellcodebefehle unten laufen im Stammverzeichnis des Orchestrata-Checkouts. Die Shell-Beispiele nutzen Linux, macOS oder WSL.
+
 Senden Sie Beispiel-JSON an die Einstiegs-API auf Ihrem Rechner. Diese statische Seite stellt weder Solver noch Anmeldung oder Anfrageweiterleitung bereit.
 
 ## Dienst starten und aufrufen
@@ -5,7 +13,7 @@ Senden Sie Beispiel-JSON an die Einstiegs-API auf Ihrem Rechner. Diese statische
 Führen Sie im Stammverzeichnis des Orchestrata-Repositorys Folgendes aus:
 
 ```sh
-(cd backend && cargo run -p orchestrata-api)
+ORCHESTRATA_HTTP_BIND=127.0.0.1:3000 cargo run --manifest-path backend/Cargo.toml --locked -p orchestrata-api
 ```
 
 Führen Sie in einem weiteren Terminal ebenfalls im Stammverzeichnis des Repositorys Folgendes aus:
