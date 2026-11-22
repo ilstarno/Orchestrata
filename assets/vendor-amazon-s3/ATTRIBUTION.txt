@@ -1,0 +1,7 @@
+Amazon S3 console screenshots from AWS documentation. Copyright Amazon Web Services.
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Grant: https://aws.amazon.com/terms/
+Adapted by Orchestrata: unique bucket name masked in buckets.png; metadata removed. AWS original highlights and identity masks retained. Other pixels unchanged. checksum.png is the complete embedded image on PDF page 13, not a page capture or custom crop. Adaptations CC BY-SA 4.0.
+https://docs.aws.amazon.com/hands-on/latest/backup-files-to-amazon-s3/backup-files-to-amazon-s3.html
+https://docs.aws.amazon.com/hands-on/latest/backup-files-to-amazon-s3/backup-files-to-amazon-s3.html
+https://docs.aws.amazon.com/pdfs/hands-on/latest/amazon-s3-with-additional-checksums/amazon-s3-with-additional-checksums.pdf#page=13
