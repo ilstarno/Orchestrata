@@ -1,0 +1,12 @@
+MySQL Workbench software screenshots, copyright Oracle and/or its affiliates.
+Originals reproduced in their entirety without pixel edits or cropping; display resizing preserves proportions.
+Use subject to Oracle screenshot permission: https://www.oracle.com/legal/copyright/
+No Oracle sponsorship, affiliation or endorsement is implied.
+Three screenshots, released Workbench 6.0/6.1, Sakila sample database.
+Sources:
+https://dev.mysql.com/doc/workbench/en/wb-what-is-new-60.html
+https://dev.mysql.com/doc/workbench/en/wb-what-is-new-61.html
+Original asset URLs:
+https://dev.mysql.com/doc/workbench/en/images/wb-new-table-search.png
+https://dev.mysql.com/doc/workbench/en/images/wb-sql-editor-field-types.png
+https://dev.mysql.com/doc/workbench/en/images/wb-sql-editor-result-grid.png
