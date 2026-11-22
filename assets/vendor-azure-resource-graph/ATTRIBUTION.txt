@@ -1,0 +1,8 @@
+Azure Resource Graph Explorer software screenshots. Copyright Microsoft.
+Used with permission from Microsoft.
+https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions
+Original images unchanged. Proportional display scaling only. No affiliation or endorsement.
+Microsoft source images include their original highlighting and masked identifiers.
+https://azure.microsoft.com/en-us/blog/advancing-azure-virtual-machine-availability-monitoring-with-project-flash-update/
+https://azure.microsoft.com/en-us/blog/advancing-azure-virtual-machine-availability-monitoring-with-project-flash-update/
+https://learn.microsoft.com/en-us/azure/governance/resource-graph/changes/get-resource-changes
