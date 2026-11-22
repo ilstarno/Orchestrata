@@ -1,0 +1,8 @@
+Microsoft Windows ODBC Data Source Administrator software screenshots. Copyright Microsoft.
+Used with permission from Microsoft.
+https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions
+Original images unchanged. Proportional display scaling only. No affiliation or endorsement.
+Historical Microsoft Windows dialogs shown as platform context, not Orchestrata runtime validation. No account data or credentials.
+https://learn.microsoft.com/en-us/sql/integration-services/import-export-data/connect-to-an-odbc-data-source-sql-server-import-and-export-wizard
+https://learn.microsoft.com/en-us/sql/integration-services/import-export-data/connect-to-an-odbc-data-source-sql-server-import-and-export-wizard
+https://learn.microsoft.com/en-us/sql/integration-services/import-export-data/connect-to-an-odbc-data-source-sql-server-import-and-export-wizard
