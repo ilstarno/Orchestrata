@@ -1,0 +1,9 @@
+Oracle SQL Developer software screenshots. Copyright Oracle and/or its affiliates.
+Original complete images, unchanged; proportional display scaling only.
+https://www.oracle.com/legal/copyright/
+No Oracle affiliation or endorsement.
+Source: https://www.oracle.com/ocom/groups/public/%40otn/documents/webcontent/287129.htm
+Fictional HR sample schema: https://docs.oracle.com/en/database/oracle/oracle-database/19/comsc/introduction-to-sample-schemas.html
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/10g/r2/prod/develop/sqldev/images/viewdb03.gif
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/10g/r2/prod/develop/sqldev/images/viewdb04.gif
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/10g/r2/prod/develop/sqldev/images/viewdb05.gif
