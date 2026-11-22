@@ -1,0 +1,8 @@
+Microsoft SQL Server tools software screenshots. Copyright Microsoft.
+Used with permission from Microsoft.
+https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions
+Original images unchanged. Proportional display scaling only. No affiliation or endorsement.
+Microsoft SQL Server Management Studio and Visual Database Tools. Original Microsoft sample data and annotations. Native product context, not Orchestrata execution. No personal data or credentials.
+https://learn.microsoft.com/en-us/ssms/quickstarts/ssms-connect-query-sql-server
+https://learn.microsoft.com/en-us/ssms/tutorials/ssms-tricks#filter-objects-in-object-explorer
+https://learn.microsoft.com/en-us/ssms/visual-db-tools/query-and-view-designer-tools-visual-database-tools
