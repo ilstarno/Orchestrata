@@ -1,0 +1,5 @@
+Snowsight screenshots from Snowflake-Labs/sfquickstarts, Getting Started with Snowflake. Guide author: Victoria Warner (Cybersyn).
+Source: https://github.com/Snowflake-Labs/sfquickstarts/tree/8db58233f95a1b1b6466234843e0a55a41b608dd/site/sfguides/src/getting-started-with-snowflake
+Original files: assets/3UIStory_6.png, assets/3UIStory_10.png, assets/3UIStory_4.png.
+Distributed unchanged under the repository Apache License 2.0; see LICENSE.txt. Original annotations retained.
+Snowflake and Snowsight are trademarks of Snowflake Inc. No affiliation or endorsement is implied.
