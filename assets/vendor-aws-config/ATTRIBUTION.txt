@@ -1,0 +1,8 @@
+AWS Config screenshots from AWS documentation. Copyright Amazon Web Services.
+Licensed CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+License grant: https://aws.amazon.com/terms/
+Adapted by Orchestrata: account identifiers, resource identifiers, names and tags masked in raster pixels. Metadata removed. No other pixel changes. Adaptations licensed CC BY-SA 4.0. Original AWS annotations retained.
+Source: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.config.html
+https://docs.aws.amazon.com/images/elasticbeanstalk/latest/dg/images/cc-resources-dropdown.png
+https://docs.aws.amazon.com/images/elasticbeanstalk/latest/dg/images/cc-resources-list.png
+https://docs.aws.amazon.com/images/elasticbeanstalk/latest/dg/images/cc-resources-resource-details.png
