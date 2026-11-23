@@ -1,0 +1,5 @@
+JiraTUI original documentation screenshots. Copyright (c) 2025-2026 Gaston Tagni. MIT License; see LICENSE.txt.
+Unchanged images showing a sample test project, independent states. JiraTUI is an independent terminal client for Jira; not Atlassian native UI or Orchestrata.
+https://github.com/whyisdifficult/jiratui/blob/3899a2bb96b92fed98f6ec2fef4c6ab594803c9a/docs/_static/assets/images/jiratui_start.png
+https://github.com/whyisdifficult/jiratui/blob/3899a2bb96b92fed98f6ec2fef4c6ab594803c9a/docs/_static/assets/images/details-with-custom-fields.png
+https://github.com/whyisdifficult/jiratui/blob/3899a2bb96b92fed98f6ec2fef4c6ab594803c9a/docs/_static/assets/images/related.png
