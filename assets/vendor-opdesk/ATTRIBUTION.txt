@@ -1,0 +1,9 @@
+OpDesk project — Ibrahim Gamal and contributors
+Original product screenshots with demo data, reproduced without changes.
+License: GNU General Public License version 3 (GPL-3.0); see LICENSE.txt.
+Source revision: f57efaeeed1184ae9c07a70440f35fd921935f4e
+https://github.com/Ibrahimgamal99/OpDesk/blob/f57efaeeed1184ae9c07a70440f35fd921935f4e/screenshots/queues.png
+https://github.com/Ibrahimgamal99/OpDesk/blob/f57efaeeed1184ae9c07a70440f35fd921935f4e/screenshots/call_journey.png
+https://github.com/Ibrahimgamal99/OpDesk/blob/f57efaeeed1184ae9c07a70440f35fd921935f4e/screenshots/analytics_queues.png
+Source code and notices: https://github.com/Ibrahimgamal99/OpDesk/blob/f57efaeeed1184ae9c07a70440f35fd921935f4e/README.md
+These views are OpDesk context, not Orchestrata integration results.
