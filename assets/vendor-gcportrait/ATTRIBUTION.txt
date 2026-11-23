@@ -1,0 +1,11 @@
+gcportrait screenshots — Copyright 2026 Florian Chrometz.
+Unmodified original app captures with synthetic sample organizations.
+Apache License 2.0; see LICENSE.txt and NOTICE.txt.
+The gcportrait name/icon identify the original project; see BRAND-TERMS.txt.
+Google Cloud product icons retain Google terms: https://cloud.google.com/icons
+Neither gcportrait nor Orchestrata is represented as endorsed by Google.
+Pinned source: https://github.com/florianchrometz/gcportrait/blob/f7b20304f67c02701079ff6796862cca39dea0c0
+https://github.com/florianchrometz/gcportrait/blob/f7b20304f67c02701079ff6796862cca39dea0c0/docs/media/web/hero-light-1440.webp
+https://github.com/florianchrometz/gcportrait/blob/f7b20304f67c02701079ff6796862cca39dea0c0/docs/media/web/drawer-light-1440.webp
+https://github.com/florianchrometz/gcportrait/blob/f7b20304f67c02701079ff6796862cca39dea0c0/docs/media/web/snapshots-light-1440.webp
+Capture implementation: https://github.com/florianchrometz/gcportrait/blob/f7b20304f67c02701079ff6796862cca39dea0c0/scripts/media.mjs
